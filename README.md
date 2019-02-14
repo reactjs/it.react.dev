@@ -13,10 +13,10 @@ This repo contains the source code and documentation powering [it.reactjs.org](h
 ### Prerequisites
 
 1. Git
-2. Node: any 8.x version starting with 8.4.0 or greater
-3. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
-4. A fork of the repo (for any contributions)
-5. A clone of the [reactjs.org repo](https://github.com/reactjs/reactjs.org) on your local machine
+1. Node: any 8.x version starting with 8.4.0 or greater
+1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
+1. A fork of the repo (for any contributions)
+1. A clone of the [reactjs.org repo](https://github.com/reactjs/reactjs.org) on your local machine
 
 ### Installation
 
