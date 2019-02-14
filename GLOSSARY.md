@@ -29,3 +29,5 @@ Here's a list of terms that require discussion/agreement, with a link to the iss
 - `React component class` (#7)
 - `React component type` (#7)
 - `refactor` (#9)
+- `event handler` (#10)
+- `event listener` (#10)
