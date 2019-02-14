@@ -1,32 +1,32 @@
 ---
 id: introducing-jsx
-title: Introduzione al JSX
+title: Introduzione a JSX
 permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Consider this variable declaration:
+Considera questa dichiarazione di variabile:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+Questa strana sintassi con i tag non è né una stringa né HTML.
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+È chiamata JSX, ed è un'estensione della sintassi JavaScript. Ti raccomandiamo di utilizzarla con React per descrivere l'aspetto che dovrebbe avere la UI (*User Interface*, o interfaccia utente). JSX ti potrebbe ricordare un linguaggio di template, ma usufruisce di tutta la potenza del JavaScript.
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+JSX produce "elementi" di React. Studieremo il modo in cui gli elementi vengono renderizzati nel DOM nella [prossima sezione](/docs/rendering-elements.html). Qui sotto troverai le nozioni fondamentali di JSX, sufficienti per iniziare ad utilizzarlo.
 
-### Why JSX? {#why-jsx}
+### Perché JSX? {#why-jsx}
 
-React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
+React riconosce il fatto che la logica di renderizzazione è per sua stessa natura accoppiata con le altre logiche che governano la UI: la gestione degli eventi, il cambiamento dello stato nel tempo, la preparazione dei dati per la visualizzazione.
 
-Instead of artificially separating *technologies* by putting markup and logic in separate files, React [separates *concerns*](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components" that contain both. We will come back to components in a [further section](/docs/components-and-props.html), but if you're not yet comfortable putting markup in JS, [this talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) might convince you otherwise.
+Invece di separare artificialmente le *tecnologie* inserendo il codice di markup e la logica in file separati, React [separa le *responsabilità*](https://it.wikipedia.org/wiki/Principio_di_singola_responsabilit%C3%A0) utilizzando unità debolmente accoppiate chiamate "componenti" che contengono entrambi. Torneremo a parlare dei componenti in una [sezione successiva](/docs/components-and-props.html). Se non ti senti ancora a tuo agio a inserire codice di markup nel JavaScript, [questa presentazione](https://www.youtube.com/watch?v=x7cQ3mrcKaY) dovrebbe riuscire a convincerti.
 
-React [doesn't require](/docs/react-without-jsx.html) using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+React [non obbliga](/docs/react-without-jsx.html) ad utilizzare JSX, ma la maggior parte delle persone lo trovano utile come aiuto visuale quando lavorano con la UI all'interno del codice JavaScript. Inoltre, JSX consente a React di mostrare messaggi di errore e di avvertimento più efficaci.
 
-With that out of the way, let's get started!
+Detto questo, incominciamo!
 
 ### Embedding Expressions in JSX {#embedding-expressions-in-jsx}
 
