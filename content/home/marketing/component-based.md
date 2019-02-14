@@ -1,8 +1,8 @@
 ---
-title: Component-Based
+title: Componetizzato
 order: 1
 ---
 
-Build encapsulated components that manage their own state, then compose them to make complex UIs.
+Costruisci componenti che incapsulano e gestiscono il proprio stato interno, componili in modo da creare UI complesse.
 
-Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+Dato che la logica dei componenti é scritta in JavaScript e non semplicemente in templates, puoi passare strutture dati ricche mantenendo lo stato fuori dal DOM.
