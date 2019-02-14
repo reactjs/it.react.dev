@@ -1,0 +1,28 @@
+# Glossary 
+
+Glossary of the translations of technical and React-specific terms.
+
+## Untranslatable terms
+- footer
+- bug
+- browser
+- client
+- server
+
+# Common Translations
+
+Suggestion on words and terms:
+
+| Original word/term | Suggestion |
+| ------------------ | ---------- |
+| render | renderizzare (verbo), renderizzato (nome) |
+| React component class | classe componente React | 
+| React component type | tipo componente React | 
+
+## Problematic terms
+
+Here's a list of terms that require discussion/agreement, with a link to the issue.
+
+- `to render` (#7)
+- `React component class` (#7)
+- `React component type` (#7)
