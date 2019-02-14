@@ -27,7 +27,7 @@ Il tutorial è diviso nelle seguenti sezioni:
 * [Setup per il Tutorial](#setup-for-the-tutorial) ti darà **un punto di partenza** per seguire il tutorial.
 * [Panoramica](#overview) ti spiegerà **i fondamentali** di React: componenti, props e state.
 * [Finire il Gioco](#completing-the-game) ti spiegerà **le tecniche più comuni** nello sviluppo con React.
-* [Aggiungere Time Travel](#adding-time-travel) ti darà **una profonda conoscenza** delle uniche potenzialità di React.
+* [Aggiungere "Viaggio Nel Tempo"](#adding-time-travel) ti darà **una profonda conoscenza** delle uniche potenzialità di React.
 
 Non devi completare tutte le sezioni in una volta per guadagnare qualcosa da questo tutorial. Prova a seguirlo fin quando puoi -- anche se è solo per una o due sezioni.
 
@@ -221,7 +221,7 @@ Dopo: Dovresti vedere un numero all'interno di ogni quadrato nell'output.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
 Congratulazioni! Hai appena "passato una prop" da un componente genitore Board al suo componente figlio Square. Nelle applicazioni React, è così che le informazioni circolano, dai genitori ai figli.
 
@@ -325,7 +325,7 @@ Richiamando `this.setState` dall'handler `onClick` nel metodo `render` di Square
 
 Quando chiamiamo `setState` in un componente, React aggiorna automaticamente anche i componenti figli al suo interno.
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
 ###Developer Tools (Strumenti per lo Sviluppatore) {#developer-tools}
 
@@ -426,7 +426,7 @@ Andiamo ad usare di nuovo questo meccanismo di passaggio di props. Modifichiamo 
   }
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
 Ogni Square adesso riceverà una prop `value` che sarà valorizzata con `'X'`, `'O'`, o `null` nel caso dei quadrati vuoti.
 
@@ -537,57 +537,59 @@ class Board extends React.Component {
 }
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+A seguito di queste modifiche, siamo ancora in grado di cliccare sui componenti Square, facendo si che si valorizzino. Tuttavia, adesso lo stato viene mantenuto nel componente Board invece che individualmente nei vari componenti Square. Quando lo stato di Board cambia, i componenti Square vengono renderizzati di nuovo automaticamente. Mantenere lo stato di tutti i quadrati nel componente Board ci permetterà di determinare il vincitore in futuro.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Dato che i componenti Square non mantengono più il proprio stato,  essi ricevono valori dal componente Board ed a loro volta lo informano di quando vengono cliccati. In termini di React, i componenti Square sono ora **componenti controllati**. Board ha infatti controllo completo su di essi.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array `squares` invece di modificare l'array esistente. Nella prossima sezione spiegeremo il perchè.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Perchè l'Immutabilità è Importante {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+Nel precedente esempio di codice, abbiamo suggerito di usare l'operatore `.slice()` per creare una copia dell'array `squares` per modificarlo invece di modificare l'array esistente direttamente. Cerchiamo di capire cosa è l'immutabilità e perchè si tratta di un concetto importante da imparare.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+In generale, ci sono due approcci per modificare i dati. Il primo appoccio è quello di *mutarli* direttamente, cambiandone i valori. Il secondo approccio è quello di sostituire i dati con una nuova copia che ha i cambiamenti desiderati.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Modificare Dati mediante Mutazione {#data-change-with-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
-player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+var giocatore = {punti: 1, nome: 'Mario'};
+giocatore.punti = 2;
+// Il punteggio del giocatore è {punti: 2, nome: 'Mario'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Modificare Dati senza Mutazione {#data-change-without-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
+var giocatore = {punti: 1, nome: 'Mario'};
 
-var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+var nuovoGiocatore = Object.assign({}, giocatore, {punti: 2});
+// Adesso giocatore resta invariato ma nuovoGiocatore è  {punti: 2, nome: 'Mario'}
 
-// Or if you are using object spread syntax proposal, you can write:
-// var newPlayer = {...player, score: 2};
+// In alternativa potremmo usare la sintassi "spread object" (vedi nota di seguito), con la quale scriveremmo:
+// var nuovoGiocatore = {...giocatore, punti: 2};
+// 
 ```
+>Per maggiori informazioni sullo [spread object](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+Il risultato finale è lo stesso ma non modificando (o cambiando i dati sottostanti) direttamente, otteniamo diversi benefici che descriveremo a breve.
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Funzionalità Complesse Diventano Semplici{#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+L'immutabilità rende funzionalità complesse molto più semplici da implementare. Nel proseguio del tutorial, implementeremo una funzione "viaggio nel tempo" che ci permetterà di vedere la storia della partita a tic-tac-toe e di "saltare indietro" a mosse precedenti. Questa funzionalità non è specifica ai giochi -- avere la possibilità di annullare e ripetere azioni è un requisito comune nelle applicazioni. Eliminare la mutazione diretta dei dati ci permette di mantenere versioni precedenti della storia della partita intatte cosicchè siano riutilizzabili in seguito.
 
-#### Detecting Changes {#detecting-changes}
+#### Rilevare Cambiamenti {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Rilevare cambiamenti in oggetti mutabili è difficile perchè essi vengono modificati direttamente. Questo tipo di rilevazione richiede il confronto dell'oggetto mutato con le versioni precedenti dello stesso e quindi, l'intero albero dell'oggetto deve essere attraversato.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Rilevare cambiamenti negli oggetti immutabili è considerevolmente più semplice. Se il riferimento dell'oggetto immutabile è diverso dal precedente, allora l'oggetto è cambiato.
 
-#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
+#### Determinare Quando Renderizzare di Nuovo in React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+Il più grande beneficio dell'immutabilità è il fatto che ci aiuta a creare _componenti puri_ in React. Avere dati immutabili permette di identificare cambiamenti in modo semplice e di conseguenza anche di capire quando un componente richiede una nuova renderizzazione.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Puoi impare di più riguardo `shouldComponentUpdate()` e su come puoi costruire *componenti puri* leggendo [Ottimizzare le Prestazioni](/docs/optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Componenti Funzione {#function-components}
 
 We'll now change the Square to be a **function component**.
 
@@ -607,7 +609,7 @@ function Square(props) {
 
 We have changed `this.props` to `props` both times it appears.
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
 >Nota Bene
 >
@@ -710,7 +712,7 @@ class Board extends React.Component {
 }
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
 ### Declaring a Winner {#declaring-a-winner}
 
@@ -770,7 +772,7 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
 Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
 
@@ -1002,7 +1004,7 @@ Finally, we need to move the `handleClick` method from the Board component to th
 
 At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
 ### Showing the Past Moves {#showing-the-past-moves}
 
@@ -1062,7 +1064,7 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
 For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
 
@@ -1126,7 +1128,7 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
 Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
 
@@ -1203,7 +1205,7 @@ Finally, we will modify the Game component's `render` method from always renderi
 
 If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
 
-**[Visualizza tutto il codice a questo punto](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
 ### Wrapping Up {#wrapping-up}
 
