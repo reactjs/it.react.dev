@@ -1,8 +1,8 @@
 ---
-title: Declarative
+title: Dichiarativo
 order: 0
 ---
 
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React rende indolore la creazione di UI interattive. Costruisci semplici viste per ogni stato nella tua applicazione e React aggiornerà e renderizzerà efficientemente i componenti affetti dai cambiamenti quando essi avvengono.
 
-Declarative views make your code more predictable and easier to debug.
+Le viste dichiarative rendono il tuo codice più prevedibile e facile da debuggare.
