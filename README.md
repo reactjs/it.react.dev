@@ -1,6 +1,12 @@
-# reactjs.org
+# it.reactjs.org 🇮🇹
 
-This repo contains the source code and documentation powering [reactjs.org](https://reactjs.org/).
+This repo contains the source code and documentation powering [it.reactjs.org](https://it.reactjs.org/).
+
+
+## Before we start, some useful links:
+
+- [Glossary](GLOSSARY.md)
+- [Style Guide](STYLE_GUIDE.md)
 
 ## Getting started
 
