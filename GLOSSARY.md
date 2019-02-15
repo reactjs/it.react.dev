@@ -15,6 +15,8 @@ Glossary of the translations of technical and React-specific terms.
 - record
 - true
 - false
+- tag
+
 
 # Common Translations
 
