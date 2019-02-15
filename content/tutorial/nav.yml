@@ -73,39 +73,39 @@
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
-          title: Taking Turns
+          title: Turni
           href: /tutorial/tutorial.html#taking-turns
           forceInternal: true
         - id: declaring-a-winner
-          title: Declaring a Winner
+          title: Dichiarare un Vincitore
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel
-      title: Adding Time Travel
+      title: Aggiungere il "Viaggio Nel Tempo"
       href: /tutorial/tutorial.html#adding-time-travel
       forceInternal: true
       subitems:
         - id: storing-a-history-of-moves
-          title: Storing a History of Moves
+          title: Salvare lo Storico delle Mosse
           href: /tutorial/tutorial.html#storing-a-history-of-moves
           forceInternal: true
         - id: lifting-state-up-again
-          title: Lifting State Up, Again
+          title: Elevare lo Stato, Di Nuovo
           href: /tutorial/tutorial.html#lifting-state-up-again
           forceInternal: true
         - id: showing-the-past-moves
-          title: Showing the Past Moves
+          title: Visualizzare le Mosse Precedenti
           href: /tutorial/tutorial.html#showing-the-past-moves
           forceInternal: true
         - id: picking-a-key
-          title: Picking a Key
+          title: Scegliere una Chiave
           href: /tutorial/tutorial.html#picking-a-key
           forceInternal: true
         - id: implementing-time-travel
-          title: Implementing Time Travel
+          title: Implementare il "Viaggio Nel Tempo"
           href: /tutorial/tutorial.html#implementing-time-travel
           forceInternal: true
         - id: wrapping-up
-          title: Wrapping Up
+          title: Riepilogo
           href: /tutorial/tutorial.html#wrapping-up
           forceInternal: true
