@@ -35,19 +35,19 @@ Va bene lo stesso se preferisci copiare ed incollare il codice lungo il tutorial
 
 ### Cosa Stiamo Costruendo? {#what-are-we-building}
 
-In questo tutorial, ti mostreremo come costruire una versione interattiva del gioco tic-tac-toe (conosciuto anche come "tris") in React.
+In questo tutorial, ti mostreremo come costruire in React una versione interattiva del gioco tic-tac-toe (conosciuto anche come "tris").
 
 Qui puoi vedere cosa costruiremo: **[Risultato Finale](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se non capisci il codice, o se non riconosci la sintassi, non ti preoccupare! L'obiettivo di questo tutorial è appunto di aiutarti a capire React e la sua sintassi.
 
 Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata sulla destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita, si aggiorna man mano che il gioco prosegue.
 
-Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicchè potrai costruire il gioco tu stesso.
+Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicchè potrai costruire il gioco tu stesso/a.
 
 ### Prerequisiti {#prerequisites}
 
-Presupponiamo che tua abbia familiarità con HTML e JavaScript, ma dovresti comunque essere in grado di seguire anche se provieni da un diverso linguaggio di programmazione. Inoltre, presupponiamo che tu abbia familiarità con concetti di programmazione come funzioni, oggetti, arrays e classi, anche se queste ultime hanno minore importanza in questo contesto.
+Presupponiamo che tua abbia familiarità con HTML e JavaScript, ma dovresti comunque essere in grado di seguire anche se provieni da un diverso linguaggio di programmazione. Inoltre, daremo per scontato che tu abbia familiarità con concetti di programmazione come funzioni, oggetti, arrays e classi, anche se queste ultime hanno minore importanza in questo contesto.
 
-Se vuoi rinfrescare o dare un primo sguardo alle basi in JavaScript, ti raccomandiamo la lettura di [questa guida](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Tieni presente che usiamo anche alcune funzionalità di ES6 -- una recente versione di JavaScript. In questo tutorial, useremo [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), e [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Puoi usare [Babel REPL](babel://es5-syntax-example) per vedere il codice compilato a partire da ES6.
+Se vuoi rinfrescare o dare un primo sguardo alle basi in JavaScript, ti raccomandiamo la lettura di [questa guida](https://developer.mozilla.org/it/docs/Web/JavaScript/Una_reintroduzione_al_JavaScript). Tieni presente che usiamo anche alcune funzionalità di ES6 -- una recente versione di JavaScript. In questo tutorial, useremo [arrow functions / funzioni a freccia](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Functions_and_function_scope/Arrow_functions), [classi](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Statements/let), e [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Puoi usare [Babel REPL](babel://es5-syntax-example) per vedere il codice compilato a partire da ES6.
 
 ## Setup per il Tutorial {#setup-for-the-tutorial}
 
@@ -57,9 +57,9 @@ Ci sono due modi per completare questo tutorial: puoi scrivere codice nel tuo br
 
 Questo è il metodo più veloce!
 
-Prima di tutto, apri questo **[Codice Iniziale](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in un nuovo tab. Il nuovo tab dovrebbe mostrare una nuova partita di tic-tac-toe (tris) e il codice React. In questo tutorial modificheremo quel codice.
+Prima di tutto, apri questo **[Codice Iniziale](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in un nuovo tab. Il nuovo tab dovrebbe mostrare una nuova partita di tic-tac-toe ed il relativo codice React. In questo tutorial modificheremo quel codice.
 
-Se hai scelto questa opzione, puoi saltare la seconda opzione ed il relativo setup ed andare direttamente alla sezione [Panoramica](#overview) per una panoramica di React.
+Se hai scelto questa opzione, puoi saltare la seconda opzione ed il relativo setup ed andare direttamente alla sezione [Panoramica](#overview) per una panoramica su React.
 
 ### Opzione 2: Setup Ambiente di Sviluppo Locale {#setup-option-2-local-development-environment}
 
@@ -112,7 +112,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Adesso se esegui `npm start` nella cartella del progetto ed apri `http://localhost:3000` nel tuo browser, dovresti vedere una nuova partita di tic-tac-toe (tris).
+Adesso se esegui `npm start` nella cartella del progetto ed apri `http://localhost:3000` nel tuo browser, dovresti vedere una nuova partita di tic-tac-toe.
 
 Ti raccomandiamo di seguire [queste istruzioni](https://babeljs.io/docs/editors/) per configurare l'evidenziazione della sintassi nel tuo editor.
 
@@ -176,7 +176,7 @@ Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti
 
 Se hai scelto di lavorare sul tutorial **nel tuo browser,** apri questo codice in un nuovo tab: **[Codice Iniziale](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Se invece vuoi lavorare **localmente,** apri `src/index.js` nella cartella del progetto (hai già aperto questo file durante il [setup](#setup-option-2-local-development-environment)).
 
-Il Codice Iniziale è la base di quello che vogliamo costruire. Abbiamo già fornito gli stili CSS cosicchè ti potrai concentrare solo sull'imparare React e programmare il gioco tic-tac-toe (tris).
+Il Codice Iniziale è la base di quello che vogliamo costruire. Abbiamo già fornito gli stili CSS cosicchè ti potrai concentrare solo sull'imparare React e programmare il gioco tic-tac-toe.
 
 Ispezionando il codice, noterai che ci sono tre componenti React:
 
@@ -297,7 +297,7 @@ Procediamo alla modifica del metodo `render` di Square per visualizzare il valor
 * Sostituisci l'event handler `() => alert()` con `() => this.setState({value: 'X'})`.
 * Aggiungi le props `className` e `onClick` come linee separate per miglior leggibilità.
 
-Successivamente alle nostre modifiche, il tag `<button>` ritornato dal metodo `render` di Square sarà:
+Al seguito delle nostre modifiche, il tag `<button>` ritornato dal metodo `render` di Square sarà:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -541,7 +541,7 @@ class Board extends React.Component {
 
 A seguito di queste modifiche, siamo ancora in grado di cliccare sui componenti Square, facendo si che si valorizzino. Tuttavia, adesso lo stato viene mantenuto nel componente Board invece che individualmente nei vari componenti Square. Quando lo stato di Board cambia, i componenti Square vengono renderizzati di nuovo automaticamente. Mantenere lo stato di tutti i quadrati nel componente Board ci permetterà di determinare il vincitore in futuro.
 
-Dato che i componenti Square non mantengono più il proprio stato,  essi ricevono valori dal componente Board ed a loro volta lo informano di quando vengono cliccati. In termini di React, i componenti Square sono ora **componenti controllati**. Board ha infatti controllo completo su di essi.
+Dato che i componenti Square non mantengono più il proprio stato, essi ricevono valori dal componente Board ed a loro volta lo informano di quando vengono cliccati. In termini di React, i componenti Square sono ora **componenti controllati**. Board ha infatti controllo completo su di essi.
 
 Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array `squares` invece di modificare l'array esistente. Nella prossima sezione spiegeremo il perchè.
 
