@@ -575,7 +575,7 @@ Il risultato finale è lo stesso ma non modificando (o cambiando i dati sottosta
 
 #### Funzionalità Complesse Diventano Semplici{#complex-features-become-simple}
 
-L'immutabilità rende funzionalità complesse molto più semplici da implementare. Nel proseguio del tutorial, implementeremo una funzione "viaggio nel tempo" che ci permetterà di vedere la storia della partita a tic-tac-toe e di "saltare indietro" a mosse precedenti. Questa funzionalità non è specifica ai giochi -- avere la possibilità di annullare e ripetere azioni è un requisito comune nelle applicazioni. Eliminare la mutazione diretta dei dati ci permette di mantenere versioni precedenti della storia della partita intatte cosicchè siano riutilizzabili in seguito.
+L'immutabilità rende funzionalità complesse molto più semplici da implementare. Nel proseguio del tutorial, implementeremo una funzione "viaggio nel tempo" che ci permetterà di vedere la storia della partita a tic-tac-toe e di "saltare indietro" a mosse precedenti. Questa funzionalità non è specifica dei giochi -- avere la possibilità di annullare e ripetere azioni è un requisito comune nelle applicazioni. Eliminare la mutazione diretta dei dati ci permette di mantenere versioni precedenti della storia della partita intatte cosicché siano riutilizzabili in seguito.
 
 #### Rilevare Cambiamenti {#detecting-changes}
 
