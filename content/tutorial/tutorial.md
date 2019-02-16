@@ -188,7 +188,7 @@ Il componente Square (quadrato) visualizza un singolo `<button>` mentre Board (t
 
 ### Passare Dati Mediante Props {#passing-data-through-props}
 
-Giusto per bagnarci i piedi, proviamo a passare qualche dato dal componente Board al nostro componente Square.
+Giusto per rompere il ghiaccio, proviamo a passare qualche dato dal componente Board al nostro componente Square.
 
 Nel metodo `renderSquare` in Board, modifica il codice per passare una prop chiamata `value` allo Square:
 
