@@ -1076,7 +1076,7 @@ che significa:
 > Attenzione:
 > Ogni elemento di un array o iteratore dovrebbe avere una prop "key" (chiave). Verifica il metodo render di "Game"
 
-Spiegeremo in maggior dettaglio il significato di questo errore.
+Spiegheremo in maggior dettaglio il significato di questo errore.
 
 ### Scegliere una Chiave {#picking-a-key}
 
