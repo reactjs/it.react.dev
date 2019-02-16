@@ -356,7 +356,7 @@ Possiamo pensare che Board debba solo richiedere ad ogni Square il relativo stat
 
 **Per recuperare dati dai componenti figli a partire dal componente padre, o per far comunicare tra di loro due componenti figli, bisogna definire uno stato condiviso nel componente padre. Quest'ultimo può passare di nuovo lo stato in basso, ai figli, usando props; ciò mantiene i componenti figli in sincronia tra di loro ed ovviamente con il componente padre.**
 
-Elevare lo stato nel componente padre è un processo comune quando i componenti React rifattorizzati -- proviamo già che ci siamo. Cominciamo aggiungendo un costruttore a Board ed impostandone lo stato iniziale così da contenere un array di 9 nulls. Questi 9 nulls corrispondono ai 9 quadrati:
+Elevare lo stato nel componente padre è un processo comune quando i componenti React vengono rifattorizzati -- proviamo già che ci siamo. Cominciamo aggiungendo un costruttore a Board ed impostandone lo stato iniziale così da contenere un array di 9 nulls. Questi 9 nulls corrispondono ai 9 quadrati:
 
 ```javascript{2-7}
 class Board extends React.Component {
