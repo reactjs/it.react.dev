@@ -1197,7 +1197,7 @@ Sostituiremo anche `this.state.history` con `this.state.history.slice(0, this.st
   }
 ```
 
-Infine, modificheremo il metodo `render` del componente Game per far si che smetta di visualizzare sempre l'ultima mossa ma visualizzi altresì la mossa `stepNumber`:
+Infine, modificheremo il metodo `render` del componente Game per far sì che smetta di visualizzare sempre l'ultima mossa ma visualizzi invece la mossa `stepNumber`:
 
 ```javascript{3}
   render() {
