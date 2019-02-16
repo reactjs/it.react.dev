@@ -9,7 +9,6 @@ Glossary of the translations of technical and React-specific terms.
 - client
 - server
 - tag
-- state (but the translation "stato" is also acceptable)
 - lifecycle
 
 # Common Translations
