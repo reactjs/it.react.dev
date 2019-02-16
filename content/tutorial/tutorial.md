@@ -430,7 +430,7 @@ Andiamo ad usare di nuovo questo meccanismo di passaggio di props. Modifichiamo 
 
 Ogni Square adesso riceverà una prop `value` che sarà valorizzata con `'X'`, `'O'`, o `null` nel caso dei quadrati vuoti.
 
-Successivamente, dobbiamo cambiare cosa succede quando uno Square viene cliccato. Il componente Board adesso sà quali quadrati sono riempiti. Dobbiamo fare in modo che gli Square possano modificare lo stato all'interno di Board. Dato che lo stato è considerato privato ed accessibile per definizione solo al componente nel quale è definito, non possiamo modificarlo direttamente da Square.
+Successivamente, dobbiamo cambiare cosa succede quando uno Square viene cliccato. Il componente Board adesso sa quali quadrati sono riempiti. Dobbiamo fare in modo che gli Square possano modificare lo stato all'interno di Board. Dato che lo stato è considerato privato ed accessibile per definizione solo al componente nel quale è definito, non possiamo modificarlo direttamente da Square.
 
 Al fine di mantenere la privacy dello stato di Board, dobbiamo passare da Board a Square una funzione. Questa funzione verrà richiamata ogni qual volta uno Square viene cliccato. Ecco come dobbiamo modificare il metodo `renderSquare` di Board:
 
