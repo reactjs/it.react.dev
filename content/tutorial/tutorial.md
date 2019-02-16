@@ -20,7 +20,7 @@ Costruiremo un piccolo gioco durante questo tutorial. **Potresti essere tentato 
 
 >Suggerimento
 >
->Questo tutorial é stato creato per persone che preferiscono **imparare mettendo in pratica**. Se preferisci imparare i concetti a partire dalle basi, dai uno sguardo alla nostra [guida passo passo](/docs/hello-world.html). Potresti trovare questo tutorial e la guida complementari l'uno con l'altra.
+>Questo tutorial è stato creato per persone che preferiscono **imparare mettendo in pratica**. Se preferisci imparare i concetti a partire dalle basi, dai uno sguardo alla nostra [guida passo passo](/docs/hello-world.html). Potresti trovare questo tutorial e la guida complementari l'uno con l'altra.
 
 Il tutorial è diviso nelle seguenti sezioni:
 
