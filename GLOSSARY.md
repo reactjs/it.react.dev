@@ -16,6 +16,7 @@ Glossary of the translations of technical and React-specific terms.
 - true
 - false
 - tag
+- lifecycle
 
 
 # Common Translations
