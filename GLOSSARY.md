@@ -8,6 +8,7 @@ Glossary of the translations of technical and React-specific terms.
 - browser
 - client
 - server
+- tag
 
 # Common Translations
 

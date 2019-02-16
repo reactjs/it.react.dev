@@ -8,7 +8,7 @@
       title: Create a New React App
     - id: cdn-links
       title: CDN Links
-- title: Main Concepts
+- title: Concetti Chiave
   isOrdered: true
   items:
     - id: hello-world
@@ -16,7 +16,7 @@
     - id: introducing-jsx
       title: Introduzione a JSX
     - id: rendering-elements
-      title: Rendering Elements
+      title: Renderizzare Elementi
     - id: components-and-props
       title: Components and Props
     - id: state-and-lifecycle
