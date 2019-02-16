@@ -264,7 +264,7 @@ Adesso, se clicchiamo su uno Square, riceviamo un alert nel browser.
 
 Come passo successivo, vogliamo far si che il componente Square si "ricordi" di essere stato cliccato, e che visualizzi il segno "X" al suo interno. Per "ricordare" cose, i componenti usano **state** (inteso come ["stato"](https://en.wikipedia.org/wiki/State_(computer_science))).
 
-I componenti React possono avere stato impostando `this.state` nei loro costruttori. `this.state` dovrebbe essere considerato privato (in termini di accesso) al componente React nel quale è definito. Andiamo a salvare il valore attuale di Square in `this.state`, e cambiamolo quando Square viene cliccato.
+I componenti React possono avere uno stato impostando `this.state` nei loro costruttori. `this.state` dovrebbe essere considerato privato (in termini di accesso) al componente React nel quale è definito. Andiamo a salvare il valore attuale di Square in `this.state`, e cambiamolo quando Square viene cliccato.
 
 Per cominciare, aggiungiamo il costruttore alla classe per inizializzarne lo stato:
 
