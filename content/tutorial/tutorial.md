@@ -1172,7 +1172,7 @@ Poi, definitiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. 
   }
 ```
 
-E' ora di apportare qualche cambiamento al metodo `handleClick` di Game che verrà richiamato quando si clicca su un quadrato.
+È ora di apportare qualche cambiamento al metodo `handleClick` di Game che verrà richiamato quando si clicca su un quadrato.
 
 Lo stato `stepNumber` che abbiamo appena aggiunto adesso riflette la mossa visualizzata. Dopo ogni nuova mossa, dobbiamo aggiornare `stepNumber` aggiungendo `stepNumber: history.length` come parte del parametro alla chiamata `this.setState`. Ciò farà in modo di non restare bloccati nella stessa mossa ogni qual volta ne viene effettuata una nuova. 
 
