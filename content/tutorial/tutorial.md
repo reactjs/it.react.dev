@@ -563,7 +563,7 @@ giocatore.punti = 2;
 var giocatore = {punti: 1, nome: 'Mario'};
 
 var nuovoGiocatore = Object.assign({}, giocatore, {punti: 2});
-// Adesso giocatore resta invariato ma nuovoGiocatore è  {punti: 2, nome: 'Mario'}
+// Adesso giocatore resta invariato ma nuovoGiocatore è {punti: 2, nome: 'Mario'}
 
 // In alternativa potremmo usare la sintassi "spread object" (vedi nota di seguito), con la quale scriveremmo:
 // var nuovoGiocatore = {...giocatore, punti: 2};
