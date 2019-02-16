@@ -1232,6 +1232,6 @@ Se hai ancora del tempo a disposizione per mettere in pratica le tue nuove capac
 3. Riscrivi Board in modo da usare due cicli per creare i quadrati invece di averli "scolpiti nel codice" (o [hardcoded](https://it.wikipedia.org/wiki/Codifica_fissa) in Inglese).
 4. Aggiungi un bottone a due stati che ti permette di riordinare le mosse in ordine ascendente e discendente.
 5. Quando qualcuno vince, evidenzia i tre quadrati che hanno causato la vittoria.
-6. Quando finisce in pareggio, visualizza il relativo messaggio.
+6. Quando la partita finisce in pareggio, visualizza il relativo messaggio.
 
 Attraverso questo tutorial, abbiamo toccato vari concetti chiave di React quali: elementi, componenti, props e state. Per una spiegazione più dettagliata di questi argomenti, dai uno sguardo al [resto della documentazione](/docs/hello-world.html). Per imparare come definire componenti, puoi leggere l'[API di riferimento di `React.Component`](/docs/react-component.html).
