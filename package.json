@@ -79,6 +79,7 @@
     "format:source": "prettier --config .prettierrc --write \"{gatsby-*.js,{flow-typed,plugins,src}/**/*.js}\"",
     "format:examples": "prettier --config examples/.prettierrc --write \"examples/**/*.js\"",
     "generate-ids": "node scripts/generateHeadingIDs.js content",
+    "create-translation-github-issues": "node scripts/openIssuesFromMD.js",
     "lint": "eslint .",
     "netlify": "yarn --version && rimraf node_modules && yarn install --frozen-lockfile --check-files && yarn build",
     "nit:source": "prettier --config .prettierrc --list-different \"{gatsby-*.js,{flow-typed,plugins,src}/**/*.js}\"",
@@ -89,6 +90,7 @@
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
+    "@octokit/rest": "^16.15.0",
     "eslint-config-prettier": "^2.6.0",
     "lz-string": "^1.4.4",
     "npm-run-all": "^4.1.5",
