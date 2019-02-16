@@ -569,7 +569,7 @@ var nuovoGiocatore = Object.assign({}, giocatore, {punti: 2});
 // var nuovoGiocatore = {...giocatore, punti: 2};
 // 
 ```
->Per maggiori informazioni sullo [spread object](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+>Per maggiori informazioni sulla sintassi [spread](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 Il risultato finale è lo stesso ma non modificando (o cambiando i dati sottostanti) direttamente, otteniamo diversi benefici che descriveremo a breve.
 
