@@ -1019,7 +1019,7 @@ const numeri = [1, 2, 3];
 const raddoppiati = numeri.map(x => x * 2); // [2, 4, 6]
 ``` 
 
-Usando il metodo `map`, possiamo mappare il nostro storico delle mosse in elementi React che rappresentano i bottoni sullo schermo, e visualizzare una lista di bottoni per "saltare" a mosse precedenti.
+Usando il metodo `map`, possiamo mappare il nostro storico delle mosse in elementi React che rappresentano i bottoni sullo schermo, e visualizzare una lista di bottoni per "saltare" alle mosse precedenti.
 
 Usiamo `map` su `history` nel metodo `render` di Game:
 
