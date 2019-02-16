@@ -3,12 +3,20 @@
 Glossary of the translations of technical and React-specific terms.
 
 ## Untranslatable terms
+- props (**core concept**)
+- state (**core concept**)
 - footer
 - bug
 - browser
 - client
 - server
+- array
+- alert
+- record
+- true
+- false
 - tag
+
 
 # Common Translations
 
@@ -26,9 +34,11 @@ Suggestion on words and terms:
 
 Here's a list of terms that require discussion/agreement, with a link to the issue.
 
-- `to render` (#7)
-- `React component class` (#7)
-- `React component type` (#7)
-- `refactor` (#9)
-- `event handler` (#10)
-- `event listener` (#10)
+If you encounter one of those expressions for the first time, it might be worth checking the issue to find out what's the current quorum around how we should handle a consistent translation across the whole website.
+
+- `to render` ([#7](https://github.com/reactjs/it.reactjs.org/issues/7))
+- `React component class` ([#7](https://github.com/reactjs/it.reactjs.org/issues/7))
+- `React component type` ([#7](https://github.com/reactjs/it.reactjs.org/issues/7))
+- `refactor` ([#9](https://github.com/reactjs/it.reactjs.org/issues/9))
+- `event handler` ([#10](https://github.com/reactjs/it.reactjs.org/issues/10))
+- `event listener` ([#10](https://github.com/reactjs/it.reactjs.org/issues/10))
