@@ -36,7 +36,7 @@
       forceInternal: true
       subitems:
         - id: what-is-react
-          title: Cosa é React?
+          title: Cosa è React?
           href: /tutorial/tutorial.html#what-is-react
           forceInternal: true
         - id: inspecting-the-starter-code
