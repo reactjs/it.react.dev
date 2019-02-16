@@ -613,7 +613,7 @@ Abbiamo cambiato `this.props` in `props` in entrambi i casi.
 
 >Nota Bene
 >
->Quando abbiamo convertito Square in un componente funzione, abbiamo anche cambiato `onClick={() => this.props.onClick()}` nella versione più corta `onClick={props.onClick}` (nota l'assenza delle parentesi *ambo* i lati). Nella classe, avevamo usato una arrow function per avere accesso al corretto valore di `this`, nel componente funzione, al contrario, non dobbiamo preoccuparci di `this`.
+>Quando abbiamo convertito Square in un componente funzione, abbiamo anche cambiato `onClick={() => this.props.onClick()}` nella versione più corta `onClick={props.onClick}` (nota l'assenza delle parentesi da *entrambi* i lati). Nella classe, avevamo usato una arrow function per avere accesso al corretto valore di `this`, nel componente funzione, al contrario, non dobbiamo preoccuparci di `this`.
 
 ### Turni {#taking-turns}
 
