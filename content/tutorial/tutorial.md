@@ -539,7 +539,7 @@ class Board extends React.Component {
 
 **[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-A seguito di queste modifiche, siamo ancora in grado di cliccare sui componenti Square, facendo si che si valorizzino. Tuttavia, adesso lo stato viene mantenuto nel componente Board invece che individualmente nei vari componenti Square. Quando lo stato di Board cambia, i componenti Square vengono renderizzati di nuovo automaticamente. Mantenere lo stato di tutti i quadrati nel componente Board ci permetterà di determinare il vincitore in futuro.
+A seguito di queste modifiche, siamo ancora in grado di cliccare sui componenti Square, facendo sì che si valorizzino. Tuttavia, adesso lo stato viene mantenuto nel componente Board invece che individualmente nei vari componenti Square. Quando lo stato di Board cambia, i componenti Square vengono renderizzati di nuovo automaticamente. Mantenere lo stato di tutti i quadrati nel componente Board ci permetterà di determinare il vincitore in futuro.
 
 Dato che i componenti Square non mantengono più il proprio stato, essi ricevono valori dal componente Board ed a loro volta lo informano di quando vengono cliccati. In termini di React, i componenti Square sono ora **componenti controllati**. Board ha infatti controllo completo su di essi.
 
