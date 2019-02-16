@@ -1229,7 +1229,7 @@ Se hai ancora del tempo a disposizione per mettere in pratica le tue nuove capac
 
 1. Visualizza la posizione per ogni mossa nel formato (colonna, riga) nello storico delle mosse.
 2. Evidenzia l'elemento correntemente selezionato nella lista delle mosse.
-3. Riscrivi Board in modo da usare due cicli per creare i quadrati invece di averli [hardcoded](https://it.wikipedia.org/wiki/Codifica_fissa).
+3. Riscrivi Board in modo da usare due cicli per creare i quadrati invece di averli "scolpiti nel codice" (o [hardcoded](https://it.wikipedia.org/wiki/Codifica_fissa) in Inglese).
 4. Aggiungi un bottone a due stati che ti permette di riordinare le mosse in ordine ascendente e discendente.
 5. Quando qualcuno vince, evidenzia i tre quadrati che hanno causato la vittoria.
 6. Quando finisce in pareggio, visualizza il relativo messaggio.
