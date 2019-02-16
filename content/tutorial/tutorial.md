@@ -1097,7 +1097,7 @@ a
 <li>Alessandro: 5 attività rimaste</li>
 ```
 
-Oltre all'aggiornamento dei contatori, un umano potrebbe facilmente anche dire che abbiamo invertito l'ordine di Alessandro e Luca ed inserito Fabio tra Alessandro e Luca. Ad ogni modo, React è un programma e non sa cosa intendevamo fare modificando la lista. Dato che React non conosce le nostre intenzioni, dobbiamo specificare una proprietà *key* (letteralmente: "chiave") per ogni elemento della lista in modo da differenziarli tra loro. Una opzione potrebbe essere quella di utilizzare le stringhe `alessandro`, `luca`, `fabio`. Se stiamo visualizzando dati provenienti da un database, potremmo usare come chiavi gli ID salvati in esso per i rispettivi record di Alessandro, Luca, e Fabio.
+Oltre all'aggiornamento dei contatori, un umano potrebbe facilmente anche dire che abbiamo invertito l'ordine di Alessandro e Luca ed inserito Fabio tra Alessandro e Luca. Ad ogni modo, React è un programma e non sa cosa intendevamo fare modificando la lista. Dato che React non conosce le nostre intenzioni, dobbiamo specificare una proprietà *key* (letteralmente: "chiave") per ogni elemento della lista in modo da differenziarli tra loro. Una opzione potrebbe essere quella di utilizzare le stringhe `alessandro`, `luca`, `fabio`. Se stiamo visualizzando dati provenienti da un database, potremmo usare come chiavi gli ID salvati in esso per i rispettivi record di Alessandro, Luca e Fabio.
 
 ```html
 <li key={utente.id}>{utente.nome}: {utente.attivitaRimaste} attività rimaste</li>
