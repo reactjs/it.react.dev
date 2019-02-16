@@ -104,7 +104,7 @@ cd ..
 
 2. Aggiungi un file chiamato `index.js` nella cartella `src/` con questo [codice JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-3. Aggiungi queste tree linee all'inizio del file `index.js` nella cartella `src/`:
+3. Aggiungi queste tre linee all'inizio del file `index.js` nella cartella `src/`:
 
 ```js
 import React from 'react';
