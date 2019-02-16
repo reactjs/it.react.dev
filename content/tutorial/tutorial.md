@@ -543,7 +543,7 @@ A seguito di queste modifiche, siamo ancora in grado di cliccare sui componenti 
 
 Dato che i componenti Square non mantengono più il proprio stato, essi ricevono valori dal componente Board ed a loro volta lo informano di quando vengono cliccati. In termini di React, i componenti Square sono ora **componenti controllati**. Board ha infatti il controllo completo su di essi.
 
-Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array `squares` invece di modificare l'array esistente. Nella prossima sezione spiegeremo il perchè.
+Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array `squares` invece di modificare l'array esistente. Nella prossima sezione spiegheremo il perché.
 
 ### Perchè l'Immutabilità è Importante {#why-immutability-is-important}
 
