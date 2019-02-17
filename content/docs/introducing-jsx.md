@@ -44,7 +44,7 @@ ReactDOM.render(
 
 Puoi inserire qualsiasi [espressione JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) all'interno delle parentesi graffe in JSX. Ad esempio, `2 + 2`, `user.firstName` o `formatName(user)` sono tutte espressioni JavaScript valide.
 
-Nell'esempio in basso, includiamo il risultato della chiamata a una funzione JavaScript, `formatName(user)`, in un elemento `<h1>`.
+Nell'esempio in basso, includiamo il risultato della chiamata ad una funzione JavaScript, `formatName(user)`, in un elemento `<h1>`.
 
 ```js{12}
 function formatName(user) {
