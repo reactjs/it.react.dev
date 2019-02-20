@@ -138,7 +138,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-Il problema con questa sintassi è che viene creato un callback diverso ogni volta che `LoggingButton` viene renderizzato. Nella maggior parte dei casi, non vi sono problemi. Tuttavia, se questo callback viene passato come prop a componenti inferiori, tali componenti potrebbero eseguire un ulteriore re-renderizzamento. In generale, vi consigliamo di utilizzare `bind` nel costruttore o la sintassi delle proprietà pubbliche nelle classi, per evitare questo tipo di problema di prestazioni.
+Il problema con questa sintassi è che viene creata una callback diversa ogni volta che `LoggingButton` viene renderizzato. Nella maggior parte dei casi, non vi sono problemi. Tuttavia, se questa callback viene passata come prop a componenti inferiori, tali componenti potrebbero eseguire un ulteriore re-renderizzamento. In generale, vi consigliamo di utilizzare `bind` nel costruttore o la sintassi delle proprietà pubbliche nelle classi, per evitare questo tipo di problema di prestazioni.
 
 ## Passare Argomenti ai Gestori di Eventi {#passing-arguments-to-event-handlers}
 
