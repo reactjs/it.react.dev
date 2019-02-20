@@ -120,32 +120,32 @@ ReactDOM.render(
 
 [**Prova in CodePen**](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Normalmente, le nuove applicazioni React hanno un singolo componente chiamato `App` al livello più alto che racchiude tutti gli altri componenti. Ad ogni modo, quando si va ad integrare React in una applicazione già esistente, è bene partire dal livello più basso e da piccoli componenti come ad esempio `Bottone` procedendo da lì fino alla cima della gerarchia della vista.
 
-## Extracting Components {#extracting-components}
+## Estrarre Componenti {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Non aver paura di suddividere i componenti in componenti più piccoli.
 
-For example, consider this `Comment` component:
+Ad esempio, considera questo componente `Commento`:
 
 ```js
-function Comment(props) {
+function Commento(props) {
   return (
-    <div className="Comment">
-      <div className="UserInfo">
+    <div className="Commento">
+      <div className="InfoUtente">
         <img className="Avatar"
-          src={props.author.avatarUrl}
-          alt={props.author.name}
+          src={props.autore.avatarUrl}
+          alt={props.autore.nome}
         />
-        <div className="UserInfo-name">
-          {props.author.name}
+        <div className="InfoUtente-nome">
+          {props.autore.nome}
         </div>
       </div>
-      <div className="Comment-text">
-        {props.text}
+      <div className="Commento-testo">
+        {props.testo}
       </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
+      <div className="Commento-data">
+        {formatDate(props.data)}
       </div>
     </div>
   );
@@ -154,77 +154,77 @@ function Comment(props) {
 
 [**Prova in CodePen**](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Esso accetta come props: `autore` (un oggetto), `testo` (una stringa) e `data` (sotto forma di oggetto [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)) al fine di renderizzare un commento in un sito di social media, come Facebook.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Un componente scritto in quel modo, con codice molto annidato, è difficile da modificare. Per lo stesso motivo, non si possono riutilizzare con facilità parti dello stesso. Procediamo quindi ad estrarre qualche componente.
 
-First, we will extract `Avatar`:
+Per cominciare, estraiamo `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
   return (
     <img className="Avatar"
-      src={props.user.avatarUrl}
-      alt={props.user.name}
+      src={props.utente.avatarUrl}
+      alt={props.utente.nome}
     />
   );
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar` non ha bisogno di sapere che viene renderizzato all'interno di un `Commento`. Ecco perchè abbiamo dato alla sua prop un nome più generico: `utente` al posto di `autore`.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Consigliamo di dare nome alle props dal punto di vista del componente piuttosto che dal contesto in cui viene usato.
 
-We can now simplify `Comment` a tiny bit:
+Adesso possiamo semplificare un po' il componente `Commento`:
 
 ```js{5}
-function Comment(props) {
+function Commento(props) {
   return (
-    <div className="Comment">
-      <div className="UserInfo">
-        <Avatar user={props.author} />
-        <div className="UserInfo-name">
-          {props.author.name}
+    <div className="Commento">
+      <div className="InfoUtente">
+        <Avatar utente={props.autore} />
+        <div className="InfoUtente-nome">
+          {props.autore.nome}
         </div>
       </div>
-      <div className="Comment-text">
-        {props.text}
+      <div className="Commento-testo">
+        {props.testo}
       </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
+      <div className="Commento-data">
+        {formatDate(props.data)}
       </div>
     </div>
   );
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Andiamo ora ad estrare il componente `InfoUtente` che renderizza un `Avatar` vicino al nome dell'utente:
 
 ```js{3-8}
-function UserInfo(props) {
+function InfoUtente(props) {
   return (
-    <div className="UserInfo">
-      <Avatar user={props.user} />
-      <div className="UserInfo-name">
-        {props.user.name}
+    <div className="InfoUtente">
+      <Avatar utente={props.utente} />
+      <div className="InfoUtente-nome">
+        {props.utente.nome}
       </div>
     </div>
   );
 }
 ```
 
-This lets us simplify `Comment` even further:
+Ciò ci permette di semplificare `Commento` ancora di più:
 
 ```js{4}
-function Comment(props) {
+function Commento(props) {
   return (
-    <div className="Comment">
-      <UserInfo user={props.author} />
-      <div className="Comment-text">
-        {props.text}
+    <div className="Commento">
+      <InfoUtente utente={props.autore} />
+      <div className="Commento-testo">
+        {props.testo}
       </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
+      <div className="Commento-data">
+        {formatDate(props.data)}
       </div>
     </div>
   );
@@ -233,30 +233,30 @@ function Comment(props) {
 
 [**Prova in CodePen**](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Estrarre componenti può semprare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sè (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
 
-## Props are Read-Only {#props-are-read-only}
+## Le Props Sono Sola Lettura {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Ogni volta che dichiari un componente [come funzione o classe](#function-and-class-components), non deve mai modificare le proprie props. Considera la funzione `somma`:
 
 ```js
-function sum(a, b) {
+function somma(a, b) {
   return a + b;
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Funzioni di questo tipo vengono chiamate ["pure"](https://en.wikipedia.org/wiki/Pure_function) perchè non provano a cambiare i propri dati in input, ritornano sempre lo stesso risultato a partire dagli stessi dati in ingresso.
 
-In contrast, this function is impure because it changes its own input:
+Al contrario, la funzione seguente è impura in quanto altera gli input:
 
 ```js
-function withdraw(account, amount) {
-  account.total -= amount;
+function preleva(conto, ammontare) {
+  conto.totale -= ammontare;
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React è abbastanza flessibile ma ha una sola regola molto importante:
 
-**All React components must act like pure functions with respect to their props.**
+**Tutti i componenti React devono comportarsi come funzioni pure rispetto alle proprie props.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Ovviamente, le UI delle applicazioni sono dinamiche e cambiano nel tempo. Nella [prossima sezione](/docs/state-and-lifecycle.html), introdurremo il nuovo concetto di "stato". Lo stato permette ai componenti React di modificare il loro output nel tempo in seguito ad azioni dell'utente, risposte dalla rete (API) e qualsiasi altra cosa possa far renderizzare un output diverso di volta in volta, ciò avviene senza violare questa regola molto importante.
