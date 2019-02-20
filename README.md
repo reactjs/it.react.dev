@@ -5,6 +5,8 @@ This repo contains the source code and documentation powering [it.reactjs.org](h
 [![CircleCI](https://circleci.com/gh/reactjs/it.reactjs.org.svg?style=svg)](https://circleci.com/gh/reactjs/it.reactjs.org)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c1ab8437-37e4-47bb-8ce8-59c03e7d70ae/deploy-status)](https://app.netlify.com/sites/it-react-org/deploys)
 
+> 👀 Preview: https://it-react-org.netlify.com/
+
 ## Before we start, some useful links:
 
 - [Glossary](GLOSSARY.md)
