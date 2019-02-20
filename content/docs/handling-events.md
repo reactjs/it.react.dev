@@ -142,7 +142,7 @@ Il problema con questa sintassi è che viene creata una callback diversa ogni vo
 
 ## Passare Argomenti ai Gestori di Eventi {#passing-arguments-to-event-handlers}
 
-All'interno di un ciclo, è comune avere l'esigenza di passare un parametro aggiuntivo a un gestore di eventi. Ad esempio, avendo `id` come l'identificativo della riga, le seguenti dichiarazioni sarebbero entrambe valide:
+All'interno di un ciclo, è comune avere l'esigenza di passare un parametro aggiuntivo ad un gestore di eventi. Ad esempio, avendo `id` come l'identificativo della riga, le seguenti dichiarazioni sarebbero entrambe valide:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Elimina riga</button>
