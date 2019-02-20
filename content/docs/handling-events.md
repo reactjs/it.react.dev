@@ -66,7 +66,7 @@ class Toggle extends React.Component {
     super(props);
     this.state = {isToggleOn: true};
 
-    // Necessario per accedere al corretto valore di `this` all'interno del callback
+    // Necessario per accedere al corretto valore di `this` all'interno della callback
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -93,11 +93,11 @@ ReactDOM.render(
 
 [**Provalo su CodePen**](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-Fai attenzione al valore di `this` nei callback JSX. In JavaScript, i metodi delle classi non sono [associati](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_objects/Function/bind) (_bound_) di default. Se dimentichi di applicare `bind` a `this.handleClick` e di passarlo a `onClick`, `this` sarà `undefined` quando la funzione verrà effettivamente chiamata.
+Fai attenzione al valore di `this` nelle callback JSX. In JavaScript, i metodi delle classi non sono [associati](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_objects/Function/bind) (_bound_) di default. Se dimentichi di applicare `bind` a `this.handleClick` e di passarlo a `onClick`, `this` sarà `undefined` quando la funzione verrà effettivamente chiamata.
 
 Questo non è un comportamento specifico in React: è parte di [come funzionano le funzioni in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). In generale, se ti riferisci ad un metodo senza `()` dopo di esso, per esempio `onClick = {this.handleClick}`, potresti aver bisogno di applicare `bind` a quel metodo.
 
-Se usare la chiamata al metodo `bind` ti sembra troppo, ci sono due alternative a disposizione. Puoi usare la sintassi sperimentale [proprietà pubbliche delle classi](https://babeljs.io/docs/plugins/transform-class-properties/), utilizzando le proprietà delle classi per associare correttamente i callback:
+Se usare la chiamata al metodo `bind` ti sembra troppo, ci sono due alternative a disposizione. Puoi usare la sintassi sperimentale [proprietà pubbliche delle classi](https://babeljs.io/docs/plugins/transform-class-properties/), utilizzando le proprietà delle classi per associare correttamente le callback:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -119,7 +119,7 @@ class LoggingButton extends React.Component {
 
 Questa sintassi è abilitata nelle impostazioni predefinite di [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Se non stai usando la sintassi delle proprietà delle classi, è possibile utilizzare una [funzione a freccia](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Functions/Arrow_functions) all'interno del callback:
+Se non stai usando la sintassi delle proprietà delle classi, è possibile utilizzare una [funzione a freccia](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Functions/Arrow_functions) all'interno della callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
