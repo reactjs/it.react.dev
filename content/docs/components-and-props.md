@@ -245,7 +245,7 @@ function somma(a, b) {
 }
 ```
 
-Funzioni di questo tipo vengono chiamate ["pure"](https://en.wikipedia.org/wiki/Pure_function) perchè non provano a cambiare i propri dati in input, ritornano sempre lo stesso risultato a partire dagli stessi dati in ingresso.
+Funzioni di questo tipo vengono chiamate ["pure"](https://en.wikipedia.org/wiki/Pure_function) perché non provano a cambiare i propri dati in input, ritornano sempre lo stesso risultato a partire dagli stessi dati in ingresso.
 
 Al contrario, la funzione seguente è impura in quanto altera gli input:
 
