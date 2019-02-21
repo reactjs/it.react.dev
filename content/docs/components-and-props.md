@@ -198,7 +198,7 @@ function Commento(props) {
 }
 ```
 
-Andiamo ora ad estrare il componente `InfoUtente` che renderizza un `Avatar` vicino al nome dell'utente:
+Andiamo ora ad estrarre il componente `InfoUtente` che renderizza un `Avatar` vicino al nome dell'utente:
 
 ```js{3-8}
 function InfoUtente(props) {
