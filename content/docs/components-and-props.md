@@ -93,7 +93,7 @@ Ricapitoliamo cosa succede nell'esempio:
 
 ## Comporre Componenti {#composing-components}
 
-I componenti possono far riferimento ad altri componenti nel loro output. Ciò permette di utilizzare la stessa astrazione ad ogni livello di dettaglio. Un bottone, un form, una finestra di dialogo, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+I componenti possono far riferimento ad altri componenti nel loro output. Ciò permette di utilizzare la stessa astrazione ad ogni livello di dettaglio. Un bottone, un form, una finestra di dialogo, una schermata: nelle applicazioni React, tutte queste cose di solito sono espresse come componenti.
 
 Per esempio, possiamo creare un componente `App` che renderizza `Ciao` tante volte:
 
