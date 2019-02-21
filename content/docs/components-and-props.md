@@ -235,7 +235,7 @@ function Commento(props) {
 
 Estrarre componenti può semprare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sè (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
 
-## Le Props Sono Sola Lettura {#props-are-read-only}
+## Le Props Sono in Sola Lettura {#props-are-read-only}
 
 Ogni volta che dichiari un componente [come funzione o classe](#function-and-class-components), non deve mai modificare le proprie props. Considera la funzione `somma`:
 
