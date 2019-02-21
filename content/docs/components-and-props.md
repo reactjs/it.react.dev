@@ -173,7 +173,7 @@ function Avatar(props) {
 
 `Avatar` non ha bisogno di sapere che viene renderizzato all'interno di un `Commento`. Ecco perchè abbiamo dato alla sua prop un nome più generico: `utente` al posto di `autore`.
 
-Consigliamo di dare nome alle props dal punto di vista del componente piuttosto che dal contesto in cui viene usato.
+Consigliamo di dare il nome alle props dal punto di vista del componente piuttosto che dal contesto in cui viene usato.
 
 Adesso possiamo semplificare un po' il componente `Commento`:
 
