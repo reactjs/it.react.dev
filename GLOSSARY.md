@@ -31,6 +31,7 @@ Suggestion on words and terms:
 | render | renderizzare (verbo), renderizzato (nome) |
 | React component class | classe componente React |
 | React component type | tipo componente React |
+| function component | componente funzione |
 
 ## Problematic terms
 
