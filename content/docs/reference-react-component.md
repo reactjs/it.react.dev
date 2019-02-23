@@ -15,7 +15,7 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-This page contains a detailed API reference for the React component class definition. It assumes you're familiar with fundamental React concepts, such as [Components and Props](/docs/components-and-props.html), as well as [State e Lifecycle](/docs/state-and-lifecycle.html). If you're not, read them first.
+This page contains a detailed API reference for the React component class definition. It assumes you're familiar with fundamental React concepts, such as [Componenti e Props](/docs/components-and-props.html), as well as [State and Lifecycle](/docs/state-and-lifecycle.html). If you're not, read them first.
 
 ## Overview {#overview}
 
@@ -627,7 +627,7 @@ The `displayName` string is used in debugging messages. Usually, you don't need 
 
 ### `props` {#props}
 
-`this.props` contains the props that were defined by the caller of this component. See [Components and Props](/docs/components-and-props.html) for an introduction to props.
+`this.props` contains the props that were defined by the caller of this component. See [Componenti e Props](/docs/components-and-props.html) for an introduction to props.
 
 In particular, `this.props.children` is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
 

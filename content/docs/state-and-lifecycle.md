@@ -29,7 +29,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 In questa sezione, apprenderemo come rendere il componente `Clock` davvero riutilizzabile ed incapsulato. Esso si occuperà di impostare il proprio timer e di aggiornarsi da solo ogni secondo.
 
@@ -55,7 +55,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 Tuttavia, manca un requisito fondamentale: il fatto che `Clock` imposti un timer ed aggiorni la propria UI ogni secondo dovrebbe essere un dettaglio implementativo di `Clock`.
 
@@ -101,7 +101,7 @@ class Clock extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` è ora definito da una classe, invece che da una funzione.
 
@@ -193,7 +193,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
 Adesso, faremo in modo che `Clock` imposti il proprio timer e si aggiorni da solo ogni secondo.
 
@@ -302,7 +302,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 In questo modo l'orologio scatta ogni secondo.
 
@@ -437,7 +437,7 @@ function FormattedDate(props) {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 Questo è spesso definito flusso di dati "top-down" (dall'alto verso il basso) o "unidirezionale". In questo paradigma, lo stato è sempre posseduto da uno specifico componente, e tutti i dati o la UI derivati da quello stato possono influenzare solamente i componenti "più in basso" nell'albero.
 
@@ -462,7 +462,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Ciascun `Clock` imposta il proprio timer e si aggiorna indipendentemente dagli altri.
 
