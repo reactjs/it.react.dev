@@ -227,13 +227,8 @@ Congratulazioni! Hai appena "passato una prop" da un componente genitore Board a
 
 ### Creare un Componente Interattivo {#making-an-interactive-component}
 
-<<<<<<< HEAD
 Andiamo a riempire il componente Square con una "X" quando lo clicchiamo. 
 Prima di tutto, modifichiamo il tag `button` che è ritornato dalla funzione `render()` del componente Square:
-=======
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ```javascript{4}
 class Square extends React.Component {
@@ -1020,15 +1015,9 @@ Abbiamo imparato in precedenza che gli elementi React sono oggetti JavaScript di
 In JavaScript, gli array hanno un [metodo `map()`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/map) che viene comunemente usato per mappare dati in modo diverso, per esempio:
 
 ```js
-<<<<<<< HEAD
 const numeri = [1, 2, 3];
 const raddoppiati = numeri.map(x => x * 2); // [2, 4, 6]
 ``` 
-=======
-const numbers = [1, 2, 3];
-const doubled = numbers.map(x => x * 2); // [2, 4, 6]
-```
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Usando il metodo `map`, possiamo mappare il nostro storico delle mosse in elementi React che rappresentano i bottoni sullo schermo, e visualizzare una lista di bottoni per "saltare" alle mosse precedenti.
 
