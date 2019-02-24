@@ -1,6 +1,6 @@
 ---
 id: composition-vs-inheritance
-title: Composition vs Inheritance
+title: Composizione vs Ereditarietà
 permalink: docs/composition-vs-inheritance.html
 redirect_from:
   - "docs/multiple-components.html"
@@ -8,15 +8,15 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
-React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components.
+React ha un potente modello di composizione, e raccomandiamo che lo si usi invece di ereditarietà per riutilizzare codice tra componenti.
 
-In this section, we will consider a few problems where developers new to React often reach for inheritance, and show how we can solve them with composition.
+In questa sezione, considereremo alcuni problemi in quali sviluppatori che sono iniziante a React frequentemente usano ereditarietà, e mostreremo come possiamo risolverli con composizione.
 
-## Containment {#containment}
+## Contenimento {#containment}
 
-Some components don't know their children ahead of time. This is especially common for components like `Sidebar` or `Dialog` that represent generic "boxes".
+Alcuni componenti non sanno quali sono i loro figli in anticipo. Questo è specialmente comune per componenti come `Sidebar` oppure `Dialog` che rappresentano "scatole" generici.
 
-We recommend that such components use the special `children` prop to pass children elements directly into their output:
+Raccomandiamo che questi componenti usano la prop speciale `children`, per passare elementi figli direttamente nella sua produzione.
 
 ```js{4}
 function FancyBorder(props) {
@@ -27,29 +27,28 @@ function FancyBorder(props) {
   );
 }
 ```
-
-This lets other components pass arbitrary children to them by nesting the JSX:
+Questo permette che altri componenti gli passino qualsiasi figli annidandoli il codice JSX:
 
 ```js{4-9}
-function WelcomeDialog() {
+function DialogBenvenuti() {
   return (
     <FancyBorder color="blue">
       <h1 className="Dialog-title">
-        Welcome
+        Benvenuti
       </h1>
       <p className="Dialog-message">
-        Thank you for visiting our spacecraft!
+        Grazie per visitare il nostro veicolo spaziale!
       </p>
     </FancyBorder>
   );
 }
 ```
 
-**[Try it on CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+**[Provalo su CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
 
-Anything inside the `<FancyBorder>` JSX tag gets passed into the `FancyBorder` component as a `children` prop. Since `FancyBorder` renders `{props.children}` inside a `<div>`, the passed elements appear in the final output.
+Tutto che è dentro la tag JSX `<FancyBorder>` è passato nel componente `FancyBorder` come un prop `children` (figlio). Come `FancyBorder` renderizza `{props.children}` dentro di un `<div>`, gli elementi passati appaiano nella produzione finale.
 
-While this is less common, sometimes you might need multiple "holes" in a component. In such cases you may come up with your own convention instead of using `children`:
+Anche se questo è meno comune, qualche volte potrebbe necessitare qualche "buco" dentro di un componente. In questi casi, si potrebbe sviluppare una propria convenzione invece di usare la prop `children`.
 
 ```js{5,8,18,21}
 function SplitPane(props) {
@@ -78,15 +77,15 @@ function App() {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
 
-React elements like `<Contacts />` and `<Chat />` are just objects, so you can pass them as props like any other data. This approach may remind you of "slots" in other libraries but there are no limitations on what you can pass as props in React.
+Elementi di React come `<Contatti />` e `<Chat />` sono solo oggetti, allora loro possono essere passati come prop come qualsiasi altri dati. Questo approccio potrebbe sembrare "*slots*" in qualche biblioteca però non hanno nessun limitazione in relazione al che potrebbe essere passato come prop in React.
 
-## Specialization {#specialization}
+## Specializzazione {#specialization}
 
-Sometimes we think about components as being "special cases" of other components. For example, we might say that a `WelcomeDialog` is a special case of `Dialog`.
+Spesso pensiamo in componenti com'essendo "casi speciali" di altri componenti. Per esempio, potremmo dire che `DialogBenvenuti` è un caso speciale di `Dialog`.
 
-In React, this is also achieved by composition, where a more "specific" component renders a more "generic" one and configures it with props:
+In React, questo anch'è realizzato con il uso di composizione, dove un componente più "specifico" renderizza un componente più "generico" e lo configura con prop:
 
 ```js{5,8,16-18}
 function Dialog(props) {
@@ -102,18 +101,18 @@ function Dialog(props) {
   );
 }
 
-function WelcomeDialog() {
+function DialogBenvenuti() {
   return (
     <Dialog
-      title="Welcome"
-      message="Thank you for visiting our spacecraft!" />
+      title="Benvenuti"
+      message="Grazie per visitare il nostro veicolo spaziale!" />
   );
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
 
-Composition works equally well for components defined as classes:
+Composizione funziona ugualmente per componenti definiti come classi:
 
 ```js{10,27-31}
 function Dialog(props) {
@@ -130,7 +129,7 @@ function Dialog(props) {
   );
 }
 
-class SignUpDialog extends React.Component {
+class DialogIscriversi extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -140,12 +139,12 @@ class SignUpDialog extends React.Component {
 
   render() {
     return (
-      <Dialog title="Mars Exploration Program"
-              message="How should we refer to you?">
+      <Dialog title="Programma di esplorazione di Marte"
+              message="Come doviamo vi referire?">
         <input value={this.state.login}
                onChange={this.handleChange} />
         <button onClick={this.handleSignUp}>
-          Sign Me Up!
+          Iscrivimi!
         </button>
       </Dialog>
     );
@@ -161,12 +160,12 @@ class SignUpDialog extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
 
-## So What About Inheritance? {#so-what-about-inheritance}
+## E l'ereditarietà? {#so-what-about-inheritance}
 
-At Facebook, we use React in thousands of components, and we haven't found any use cases where we would recommend creating component inheritance hierarchies.
+Su Facebook, usiamo React in migliaia di componenti, e non abbiamo trovato nessun uso dove raccomanderemmo la creazione gerarchie di ereditarietà di componenti. 
 
-Props and composition give you all the flexibility you need to customize a component's look and behavior in an explicit and safe way. Remember that components may accept arbitrary props, including primitive values, React elements, or functions.
+Prop e composizioni danno tutta la flessibilità che potrebbe essere necessitata per personalizzare gli aspetto e comportamento di un componente di un modo esplicito e sicuro. Ricordatevi che componenti possono accettare prop arbitrarie, compresi valori primitivi, elementi di React, o funzioni.
 
-If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or a class, without extending it.
+Se vorrebbe usare funzionalità visuale tra componenti, vi consigliamo di estrarre queste funzionalità in un modulo Javascript separato. I componenti possono importarlo e utilizzare questa funzione, oggetto, oppure una classe, senza l'estendere.
