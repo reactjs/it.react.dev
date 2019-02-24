@@ -68,9 +68,9 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://introducing-jsx)
+[Provalo su CodePen](codepen://introducing-jsx)
 
-Abbiamo suddiviso il codice JSX su più linee per renderlo più leggibile. Sebbene non sia obbligatorio, se segui questa pratica ti consigliamo di racchiudere il codice in parentesi per evitare i problemi che possono derivare dall'[inserimento automatico dei punto e virgola](http://stackoverflow.com/q/2846283).
+Abbiamo suddiviso il codice JSX su più linee per renderlo più leggibile. Sebbene non sia obbligatorio, se segui questa pratica ti consigliamo di racchiudere il codice in parentesi per evitare i problemi che possono derivare dall'[inserimento automatico dei punto e virgola](https://stackoverflow.com/q/2846283).
 
 ### JSX è un'Espressione {#jsx-is-an-expression-too}
 
@@ -138,7 +138,7 @@ const title = response.contenutoPotenzialmentePericoloso;
 const element = <h1>{title}</h1>;
 ```
 
-React DOM effettua automaticamente l'[escape](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) di qualsiasi valore inserito in JSX prima di renderizzarlo. In questo modo, garantisce che non sia possibile iniettare nulla che non sia esplicitamente scritto nella tua applicazione. Ogni cosa è convertita in stringa prima di essere renderizzata. Questo aiuta a prevenire gli attacchi [XSS (cross-site-scripting)](https://it.wikipedia.org/wiki/Cross-site_scripting).
+React DOM effettua automaticamente l'[escape](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) di qualsiasi valore inserito in JSX prima di renderizzarlo. In questo modo, garantisce che non sia possibile iniettare nulla che non sia esplicitamente scritto nella tua applicazione. Ogni cosa è convertita in stringa prima di essere renderizzata. Questo aiuta a prevenire gli attacchi [XSS (cross-site-scripting)](https://it.wikipedia.org/wiki/Cross-site_scripting).
 
 ### JSX Rappresenta Oggetti {#jsx-represents-objects}
 
@@ -181,4 +181,4 @@ Esploreremo la renderizzazione degli elementi React nel DOM nella prossima sezio
 
 >**Consiglio:**
 >
->Ti raccomandiamo di [indicare "Babel" come linguaggio](http://babeljs.io/docs/editors) nel tuo editor preferito, in modo che il codice ES6 ed il codice JSX siano entrambi evidenziati correttamente. Questo sito utilizza lo schema di colori compatibile [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/).
+>Ti raccomandiamo di [indicare "Babel" come linguaggio](https://babeljs.io/docs/editors) nel tuo editor preferito, in modo che il codice ES6 ed il codice JSX siano entrambi evidenziati correttamente. Questo sito utilizza lo schema di colori compatibile [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/).
