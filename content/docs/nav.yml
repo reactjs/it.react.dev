@@ -18,11 +18,11 @@
     - id: rendering-elements
       title: Renderizzare Elementi
     - id: components-and-props
-      title: Components and Props
+      title: Componenti e Props
     - id: state-and-lifecycle
       title: State and Lifecycle
     - id: handling-events
-      title: Handling Events
+      title: Gestione degli Eventi
     - id: conditional-rendering
       title: Renderizzazione Condizionale
     - id: lists-and-keys
