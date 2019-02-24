@@ -66,7 +66,7 @@ Nell'esempio di seguito, creeremo un [componente stateful](/docs/state-and-lifec
 
 Esso renderizzerà `<BottoneLogin />` o `<BottoneLogout />` a seconda del suo stato corrente. Renderizzerà inoltre il componente `<Benvenuto />` dell'esempio precedente:
 
-```javascript{20-25,29,30}
+```javascript{21-29,33,34}
 class ControlloLogin extends React.Component {
   constructor(props) {
     super(props);
@@ -191,7 +191,7 @@ In alcuni rari casi potresti volere che un componente sia nascosto anche se vien
 
 Nell'esempio di seguito, il componente `<MessaggioAvviso />` viene renderizzato a seconda del valore della prop chiamata `attenzione`. Se il valore della prop è `false`, il componente non viene renderizzato:
 
-```javascript{2-4,29}
+```javascript{2-4,28}
 function MessaggioAvviso(props) {
   if (!props.attenzione) {
     return null;
