@@ -1,8 +1,12 @@
 class ControlloLogin extends React.Component {
   constructor(props) {
     super(props);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.handleLoginClick = this.handleLoginClick.bind(
+      this
+    );
+    this.handleLogoutClick = this.handleLogoutClick.bind(
+      this
+    );
     this.state = {utenteAutenticato: false};
   }
 
@@ -19,9 +23,13 @@ class ControlloLogin extends React.Component {
     let bottone;
 
     if (utenteAutenticato) {
-      bottone = <BottoneLogout onClick={this.handleLogoutClick} />;
+      bottone = (
+        <BottoneLogout onClick={this.handleLogoutClick} />
+      );
     } else {
-      bottone = <BottoneLogin onClick={this.handleLoginClick} />;
+      bottone = (
+        <BottoneLogin onClick={this.handleLoginClick} />
+      );
     }
 
     return (
@@ -49,21 +57,12 @@ function Benvenuto(props) {
   return <BenvenutoOspite />;
 }
 
-
 function BottoneLogin(props) {
-  return (
-    <button onClick={props.onClick}>
-      Login
-    </button>
-  );
+  return <button onClick={props.onClick}>Login</button>;
 }
 
 function BottoneLogout(props) {
-  return (
-    <button onClick={props.onClick}>
-      Logout
-    </button>
-  );
+  return <button onClick={props.onClick}>Logout</button>;
 }
 
 ReactDOM.render(

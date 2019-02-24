@@ -5,7 +5,7 @@ function BenvenutoUtente(props) {
 function BenvenutoOspite(props) {
   return <h1>Autenticati, per favore</h1>;
 }
-  
+
 function Benvenuto(props) {
   const utenteAutenticato = props.utenteAutenticato;
   if (utenteAutenticato) {

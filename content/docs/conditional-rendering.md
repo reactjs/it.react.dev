@@ -54,19 +54,11 @@ Considera questi due nuovi componenti che rappresentano bottoni di Logout e Logi
 
 ```js
 function BottoneLogin(props) {
-  return (
-    <button onClick={props.onClick}>
-      Login
-    </button>
-  );
+  return <button onClick={props.onClick}>Login</button>;
 }
 
 function BottoneLogout(props) {
-  return (
-    <button onClick={props.onClick}>
-      Logout
-    </button>
-  );
+  return <button onClick={props.onClick}>Logout</button>;
 }
 ```
 
@@ -96,9 +88,13 @@ class ControlloLogin extends React.Component {
     let bottone;
 
     if (utenteAutenticato) {
-      bottone = <BottoneLogout onClick={this.handleLogoutClick} />;
+      bottone = (
+        <BottoneLogout onClick={this.handleLogoutClick} />
+      );
     } else {
-      bottone = <BottoneLogin onClick={this.handleLoginClick} />;
+      bottone = (
+        <BottoneLogin onClick={this.handleLoginClick} />
+      );
     }
 
     return (
@@ -114,6 +110,7 @@ ReactDOM.render(
   <ControlloLogin />,
   document.getElementById('root')
 );
+
 ```
 
 [](codepen://conditional-rendering/2)
@@ -130,11 +127,11 @@ function CasellaDiPosta(props) {
   return (
     <div>
       <h1>Ciao!</h1>
-      {messaggiNonLetti.length > 0 &&
+      {messaggiNonLetti.length > 0 && (
         <h2>
           Hai {messaggiNonLetti.length} messaggi non letti.
         </h2>
-      }
+      )}
     </div>
   );
 }
@@ -144,6 +141,7 @@ ReactDOM.render(
   <CasellaDiPosta messaggiNonLetti={messaggi} />,
   document.getElementById('root')
 );
+
 ```
 [](codepen://conditional-rendering/3)
 
@@ -199,30 +197,30 @@ function MessaggioAvviso(props) {
     return null;
   }
 
-  return (
-    <div className="warning">
-      Attenzione!
-    </div>
-  );
+  return <div className="warning">Attenzione!</div>;
 }
 
 class Pagina extends React.Component {
   constructor(props) {
     super(props);
     this.state = {mostraAvviso: true};
-    this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleToggleClick = this.handleToggleClick.bind(
+      this
+    );
   }
 
   handleToggleClick() {
     this.setState(state => ({
-      mostraAvviso: !state.mostraAvviso
+      mostraAvviso: !state.mostraAvviso,
     }));
   }
 
   render() {
     return (
       <div>
-        <MessaggioAvviso attenzione={this.state.mostraAvviso} />
+        <MessaggioAvviso
+          attenzione={this.state.mostraAvviso}
+        />
         <button onClick={this.handleToggleClick}>
           {this.state.mostraAvviso ? 'Nascondi' : 'Mostra'}
         </button>
@@ -235,6 +233,7 @@ ReactDOM.render(
   <Pagina />,
   document.getElementById('root')
 );
+
 ```
 [](codepen://conditional-rendering/4)
 

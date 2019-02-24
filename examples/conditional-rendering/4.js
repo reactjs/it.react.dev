@@ -3,30 +3,30 @@ function MessaggioAvviso(props) {
     return null;
   }
 
-  return (
-    <div className="warning">
-      Attenzione!
-    </div>
-  );
+  return <div className="warning">Attenzione!</div>;
 }
 
 class Pagina extends React.Component {
   constructor(props) {
     super(props);
     this.state = {mostraAvviso: true};
-    this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleToggleClick = this.handleToggleClick.bind(
+      this
+    );
   }
 
   handleToggleClick() {
     this.setState(state => ({
-      mostraAvviso: !state.mostraAvviso
+      mostraAvviso: !state.mostraAvviso,
     }));
   }
 
   render() {
     return (
       <div>
-        <MessaggioAvviso attenzione={this.state.mostraAvviso} />
+        <MessaggioAvviso
+          attenzione={this.state.mostraAvviso}
+        />
         <button onClick={this.handleToggleClick}>
           {this.state.mostraAvviso ? 'Nascondi' : 'Mostra'}
         </button>

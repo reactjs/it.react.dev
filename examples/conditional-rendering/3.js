@@ -3,11 +3,11 @@ function CasellaDiPosta(props) {
   return (
     <div>
       <h1>Ciao!</h1>
-      {messaggiNonLetti.length > 0 &&
+      {messaggiNonLetti.length > 0 && (
         <h2>
           Hai {messaggiNonLetti.length} messaggi non letti.
         </h2>
-      }
+      )}
     </div>
   );
 }
