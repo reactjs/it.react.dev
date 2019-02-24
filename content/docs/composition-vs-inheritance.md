@@ -44,7 +44,7 @@ function DialogBenvenuti() {
 }
 ```
 
-**[Provalo su CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+**[Provalo su CodePen](https://codepen.io/GCrispino/pen/OqLyzz?editors=0010)**
 
 Tutto che è dentro la tag JSX `<FancyBorder>` è passato nel componente `FancyBorder` come un prop `children` (figlio). Come `FancyBorder` renderizza `{props.children}` dentro di un `<div>`, gli elementi passati appaiano nella produzione finale.
 
@@ -68,7 +68,7 @@ function App() {
   return (
     <SplitPane
       left={
-        <Contacts />
+        <Contatti />
       }
       right={
         <Chat />
@@ -77,7 +77,7 @@ function App() {
 }
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/GCrispino/pen/jJNbze)
 
 Elementi di React come `<Contatti />` e `<Chat />` sono solo oggetti, allora loro possono essere passati come prop come qualsiasi altri dati. Questo approccio potrebbe sembrare "*slots*" in qualche biblioteca però non hanno nessun limitazione in relazione al che potrebbe essere passato come prop in React.
 
@@ -110,7 +110,7 @@ function DialogBenvenuti() {
 }
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/GCrispino/pen/OqLyzz?editors=0010)
 
 Composizione funziona ugualmente per componenti definiti come classi:
 
@@ -155,12 +155,12 @@ class DialogIscriversi extends React.Component {
   }
 
   handleSignUp() {
-    alert(`Welcome aboard, ${this.state.login}!`);
+    alert(`Benvenuto a bordo!, ${this.state.login}!`);
   }
 }
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/GCrispino/pen/NJKGzB?editors=0010)
 
 ## E l'ereditarietà? {#so-what-about-inheritance}
 
