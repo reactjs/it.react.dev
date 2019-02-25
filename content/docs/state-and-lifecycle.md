@@ -413,7 +413,7 @@ Quello che viene effettuato è uno ["shallow merge"](https://stackoverflow.com/q
 
 ## I Dati Fluiscono Verso il Basso {#the-data-flows-down}
 
-Né i componenti genitori né i componenti figli possono sapere se un certo componente è "stateful" o "stateless" (cioè se è dotato o meno di stato) e non dovrebbero preoccuparsi se è definito come funzione o come classe.
+Né i componenti genitori né i componenti figli possono sapere se un certo componente è "stateful" o "stateless" (cioè se è dotato o meno di stato) e non dovrebbero preoccuparsi del fatto di essere definiti come funzione o come classe.
 
 Questa è la ragione per cui lo stato è spesso definito locale o incapsulato. Esso non è accessibile a nessun componente a parte quello a cui appartiene.
 
