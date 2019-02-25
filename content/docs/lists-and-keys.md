@@ -1,301 +1,301 @@
 ---
 id: lists-and-keys
-title: Lists and Keys
+title: Liste e Chiavi
 permalink: docs/lists-and-keys.html
 prev: conditional-rendering.html
 next: forms.html
 ---
 
-First, let's review how you transform lists in JavaScript.
+Prima di iniziare, rivediamo come trasformare le liste in JavaScript.
 
-Given the code below, we use the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function to take an array of `numbers` and double their values. We assign the new array returned by `map()` to the variable `doubled` and log it:
+Nel codice qui sotto, usiamo la funzione [`map()`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array/map) per prendere un array di `numeri` e raddoppiare i loro valori. Assegniamo il nuovo array restituito da `map()` alla variabile `lista` e lo stampiamo a console:
 
 ```javascript{2}
-const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map((number) => number * 2);
-console.log(doubled);
+const numeri = [1, 2, 3, 4, 5];
+const lista = numeri.map((numero) => numero * 2);
+console.log(lista);
 ```
 
-This code logs `[2, 4, 6, 8, 10]` to the console.
+Questo codice mostra `[2, 4, 6, 8, 10]` nella console.
 
-In React, transforming arrays into lists of [elements](/docs/rendering-elements.html) is nearly identical.
+Trasformare array in liste di [elementi](/docs/rendering-elements.html) con React è quasi identico.
 
-### Rendering Multiple Components {#rendering-multiple-components}
+### Renderizzare Liste di Componenti {#rendering-multiple-components}
 
-You can build collections of elements and [include them in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) using curly braces `{}`.
+Puoi creare liste di elementi e [usarle in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) usando le parentesi graffe `{}`.
 
-Below, we loop through the `numbers` array using the JavaScript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. We return a `<li>` element for each item. Finally, we assign the resulting array of elements to `listItems`:
+Di seguito, eseguiamo un ciclo sull'array `numeri` usando la funzione JavaScript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Ritorniamo un elemento `<li>` per ogni elemento dell'array. Infine, assegniamo l'array risultante a `lista`:
 
 ```javascript{2-4}
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li>{number}</li>
+const numeri = [1, 2, 3, 4, 5];
+const lista = numeri.map((numero) =>
+  <li>{numero}</li>
 );
 ```
 
-We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+Includiamo l'intero array `lista` all'interno di un elemento `<ul>` e [lo renderizziamo nel DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
 ReactDOM.render(
-  <ul>{listItems}</ul>,
+  <ul>{lista}</ul>,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
-This code displays a bullet list of numbers between 1 and 5.
+Questo codice visualizza un elenco puntato di numeri tra 1 e 5.
 
-### Basic List Component {#basic-list-component}
+### Semplice Componente Lista {#basic-list-component}
 
-Usually you would render lists inside a [component](/docs/components-and-props.html).
+È comune voler renderizzare liste all'interno di un [componente](/docs/components-and-props.html).
 
-We can refactor the previous example into a component that accepts an array of `numbers` and outputs a list of elements.
+Possiamo rifattorizzare l'esempio precedente in un componente che accetta un array di `numeri` e produce un elenco di elementi.
 
 ```javascript{3-5,7,13}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <li>{number}</li>
+function ListaNumeri(props) {
+  const numeri = props.numeri;
+  const lista = numeri.map((numero) =>
+    <li>{numero}</li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul>{lista}</ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
 ```
 
-When you run this code, you'll be given a warning that a key should be provided for list items. A "key" is a special string attribute you need to include when creating lists of elements. We'll discuss why it's important in the next section.
+Quando esegui questo codice, appare un _warning_ che una chiave (`key`) deve essere fornita per gli elementi della lista. Una "chiave" è una prop speciale di tipo stringa che devi includere quando crei liste di elementi. Discuteremo perché è importante nella prossima sezione.
 
-Let's assign a `key` to our list items inside `numbers.map()` and fix the missing key issue.
+Assegniamo una `key` ai nostri elementi della lista all'interno di `numeri.map()` e risolviamo il problema della chiave mancante.
 
 ```javascript{4}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <li key={number.toString()}>
-      {number}
+function ListaNumeri(props) {
+  const numeri = props.numeri;
+  const lista = numeri.map((numero) =>
+    <li key={numero.toString()}>
+      {numero}
     </li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul>{lista}</ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
-## Keys {#keys}
+## Chiavi {#keys}
 
-Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+Le chiavi aiutano React a identificare quali elementi sono stati aggiornati, aggiunti o rimossi. Le chiavi dovrebbero essere fornite agli elementi all'interno dell'array per dare agli elementi un'identità stabile:
 
 ```js{3}
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li key={number.toString()}>
-    {number}
+const numeri = [1, 2, 3, 4, 5];
+const lista = numeri.map((numero) =>
+  <li key={numero.toString()}>
+    {numero}
   </li>
 );
 ```
 
-The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:
+Il modo migliore per scegliere una chiave è utilizzare una stringa che identifichi univocamente un elemento della lista tra i suoi elementi adiacenti (_siblings_). L'esempio più comune è usare gli identificativi dei tuoi dati come chiavi:
 
 ```js{2}
-const todoItems = todos.map((todo) =>
-  <li key={todo.id}>
-    {todo.text}
+const listaArticoli = articoli.map((articolo) =>
+  <li key={articolo.id}>
+    {articolo.testo}
   </li>
 );
 ```
 
-When you don't have stable IDs for rendered items, you may use the item index as a key as a last resort:
+Quando non disponi di identificativi stabili per gli elementi da renderizzare, puoi assegnare l'indice dell'elemento corrente alla chiave come ultima scelta:
 
 ```js{2,3}
-const todoItems = todos.map((todo, index) =>
-  // Only do this if items have no stable IDs
-  <li key={index}>
-    {todo.text}
+const listaArticoli = articoli.map((articolo, indice) =>
+  // Fallo solo se gli elementi non hanno identificativi stabili
+  <li key={indice}>
+    {articolo.testo}
   </li>
 );
 ```
 
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+Non consigliamo di utilizzare gli indici per le chiavi se l'ordine degli elementi potrebbe cambiare. Potrebbe avere un impatto negativo sulle prestazioni e causare problemi con lo stato dei componenti. Leggi l'articolo di Robin Pokorny per una [spiegazione approfondita sugli impatti negativi dell'uso di un indice come chiave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). React utilizza gli indici come chiavi se non assegni esplicitamente una chiave per renderizzare gli elementi.
 
-Here is an [in-depth explanation about why keys are necessary](/docs/reconciliation.html#recursing-on-children) if you're interested in learning more.
+Qui trovi una [spiegazione approfondita sul perché le chiavi sono necessarie](/docs/reconciliation.html#recursing-on-children) se sei interessato a saperne di più.
 
-### Extracting Components with Keys {#extracting-components-with-keys}
+### Estrarre Componenti con Chiavi {#extracting-components-with-keys}
 
-Keys only make sense in the context of the surrounding array.
+Le chiavi hanno senso solo nel contesto dell'array circostante.
 
-For example, if you [extract](/docs/components-and-props.html#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the `<li>` element in the `ListItem` itself.
+Per esempio, se [estrai](/docs/components-and-props.html#extracting-components) un componente `Numero`, dovresti mantenere la chiave sugli elementi `<Numero />` nell'array piuttosto che su l'elemento `<li>` nel `Numero` stesso.
 
-**Example: Incorrect Key Usage**
+**Esempio: Errato Utilizzo della Chiave**
 
 ```javascript{4,5,14,15}
-function ListItem(props) {
-  const value = props.value;
+function Numero(props) {
+  const valore = props.valore;
   return (
-    // Wrong! There is no need to specify the key here:
-    <li key={value.toString()}>
-      {value}
+    // Sbagliato! Non è necessario specificare la chiave qui:
+    <li key={valore.toString()}>
+      {valore}
     </li>
   );
 }
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    // Wrong! The key should have been specified here:
-    <ListItem value={number} />
+function ListaNumeri(props) {
+  const numeri = props.numeri;
+  const lista = numeri.map((numero) =>
+    // Sbagliato! La chiave deve essere stata specificata qui:
+    <Numero valore={numero} />
   );
   return (
     <ul>
-      {listItems}
+      {lista}
     </ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
 ```
 
-**Example: Correct Key Usage**
+**Esempio: Corretto Utilizzo della Chiave**
 
 ```javascript{2,3,9,10}
-function ListItem(props) {
-  // Correct! There is no need to specify the key here:
-  return <li>{props.value}</li>;
+function Numero(props) {
+  // Corretto! Non è necessario specificare la chiave qui:
+  return <li>{props.valore}</li>;
 }
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    // Correct! Key should be specified inside the array.
-    <ListItem key={number.toString()}
-              value={number} />
+function ListaNumeri(props) {
+  const numeri = props.numeri;
+  const lista = numeri.map((numero) =>
+    // Corretto! La chiave deve essere specificata all'interno dell'array.
+    <Numero key={numero.toString()}
+            valore={numero} />
   );
   return (
     <ul>
-      {listItems}
+      {lista}
     </ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5];
+const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-A good rule of thumb is that elements inside the `map()` call need keys.
+È buona regola ricordarsi che che gli elementi all'interno della chiamata `map()` hanno bisogno di chiavi.
 
-### Keys Must Only Be Unique Among Siblings {#keys-must-only-be-unique-among-siblings}
+### Le Chiavi Devono Essere Uniche Tra Gli Elementi Adiacenti {#keys-must-only-be-unique-among-siblings}
 
-Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+Chiavi usate all'interno degli array dovrebbero essere uniche tra gli elementi adiacenti. Tuttavia, non hanno bisogno di essere unici a livello globale. Possiamo usare le stesse chiavi quando creiamo due array diversi:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
   const sidebar = (
     <ul>
-      {props.posts.map((post) =>
-        <li key={post.id}>
-          {post.title}
+      {props.articoli.map((articolo) =>
+        <li key={articolo.id}>
+          {articolo.titolo}
         </li>
       )}
     </ul>
   );
-  const content = props.posts.map((post) =>
-    <div key={post.id}>
-      <h3>{post.title}</h3>
-      <p>{post.content}</p>
+  const contenuto = props.articoli.map((articolo) =>
+    <div key={articolo.id}>
+      <h3>{articolo.titolo}</h3>
+      <p>{articolo.testo}</p>
     </div>
   );
   return (
     <div>
       {sidebar}
       <hr />
-      {content}
+      {contenuto}
     </div>
   );
 }
 
-const posts = [
-  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+const articoli = [
+  {id: 1, titolo: 'Ciao Mondo', testo: 'Benvenuto in imparando React!'},
+  {id: 2, titolo: 'Installazione', testo: 'Puoi installare React usando npm.'}
 ];
 ReactDOM.render(
-  <Blog posts={posts} />,
+  <Blog articoli={articoli} />,
   document.getElementById('root')
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
+Le chiavi servono a React come suggerimento, ma non vengono passate ai componenti. Se hai bisogno di quel valore nel tuo componente, passalo come prop esplicitamente con un nome diverso:
 
 ```js{3,4}
-const content = posts.map((post) =>
-  <Post
-    key={post.id}
-    id={post.id}
-    title={post.title} />
+const contenuto = articoli.map((articolo) =>
+  <Articolo
+    key={articolo.id}
+    id={articolo.id}
+    titolo={articolo.titolo} />
 );
 ```
 
-With the example above, the `Post` component can read `props.id`, but not `props.key`.
+In questo esempio, il componente `Articolo` può leggere` props.id`, ma non `props.key`.
 
-### Embedding map() in JSX {#embedding-map-in-jsx}
+### Incorporare map() in JSX {#embedding-map-in-jsx}
 
-In the examples above we declared a separate `listItems` variable and included it in JSX:
+Nell'esempio di prima abbiamo dichiarato una variabile separata `contenuto` e l'abbiamo usata nel codice JSX:
 
 ```js{3-6}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <ListItem key={number.toString()}
-              value={number} />
+function Blog(props) {
+  const articoli = props.articoli;
+  const contenuto = articoli.map((articolo) =>
+    <Articolo key={articolo.id}
+              titolo={articolo.titolo} />
   );
   return (
     <ul>
-      {listItems}
+      {contenuto}
     </ul>
   );
 }
 ```
 
-JSX allows [embedding any expression](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
+JSX consente [incorporare qualsiasi espressione](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in parentesi graffe in modo da poter scrivere direttamente il risultato di `map()`:
 
 ```js{5-8}
-function NumberList(props) {
-  const numbers = props.numbers;
+function Blog(props) {
+  const articoli = props.articoli;
   return (
     <ul>
-      {numbers.map((number) =>
-        <ListItem key={number.toString()}
-                  value={number} />
+      {articoli.map((articolo) =>
+        <Articolo key={articolo.id}
+                  titolo={articolo.titolo} />
       )}
     </ul>
   );
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+[**Provalo su CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/docs/components-and-props.html#extracting-components).
+A volte questo codice risulta più chiaro, ma questa alternativa può anche essere abusata. Come in JavaScript, spetta a te decidere se vale la pena estrarre una variabile per ragioni di leggibilità del codice. Tieni presente che se vi sono troppi elementi _nested_ nel corpo `map()`, potrebbe essere arrivato il momento di [estrarre un componente](/docs/components-and-props.html#extracting-components).
