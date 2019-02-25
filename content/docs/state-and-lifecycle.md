@@ -29,9 +29,9 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-In questa sezione, apprenderemo come rendere il componente `Clock` davvero riutilizzabile ed incapsulato. Esso si occuperà di impostare il proprio timer e di aggiornarsi da solo ogni secondo.
+In questa sezione, apprenderemo come rendere il componente `Clock` davvero riutilizzabile ed incapsulato. Esso si occuperà di impostare il proprio timer e di aggiornarsi ogni secondo.
 
 Possiamo iniziare incapsulando l'aspetto dell'orologio:
 
@@ -55,7 +55,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 Tuttavia, manca un requisito fondamentale: il fatto che `Clock` imposti un timer ed aggiorni la propria UI ogni secondo dovrebbe essere un dettaglio implementativo di `Clock`.
 
@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-Per implementare questo, abbiamo bisogno di aggiungere uno "stato" al componente `Clock`.
+Per implementare ciò, abbiamo bisogno di aggiungere uno "stato" al componente `Clock`.
 
 Lo state (o stato) è simile alle props, ma è privato e completamente controllato dal componente.
 
@@ -86,7 +86,7 @@ Puoi convertire un componente funzione come `Clock` in una classe in cinque pass
 
 4. Sostituisci `props` con `this.props` nel corpo del metodo `render()`.
 
-5. Cancella la dichiarazione della funzione rimasta vuota.
+5. Rimuovi la dichiarazione della funzione rimasta vuota.
 
 ```js
 class Clock extends React.Component {
@@ -101,13 +101,13 @@ class Clock extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` è ora definito da una classe, invece che da una funzione.
 
 Il metodo `render` viene invocato ogni volta che si verifica un aggiornamento, ma finché renderizziamo `<Clock />` nello stesso nodo del DOM, verrà utilizzata un'unica istanza della classe `Clock`. Questo ci consente di utilizzare funzionalità aggiuntive come il local state e i metodi del lifecycle del componente.
 
-## Aggiungere il Local State a una Classe {#adding-local-state-to-a-class}
+## Aggiungere il Local State ad una Classe {#adding-local-state-to-a-class}
 
 Sposteremo `date` dalle props allo state in tre passaggi:
 
@@ -193,11 +193,11 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Adesso, faremo in modo che `Clock` imposti il proprio timer e si aggiorni da solo ogni secondo.
+Adesso, faremo in modo che `Clock` imposti il proprio timer e si aggiorni ogni secondo.
 
-## Aggiungere i Metodi del Lifecycle a una Classe {#adding-lifecycle-methods-to-a-class}
+## Aggiungere Metodi di Lifecycle ad una Classe {#adding-lifecycle-methods-to-a-class}
 
 Nelle applicazioni con molti componenti, è molto importante rilasciare le risorse occupate dai componenti quando questi vengono distrutti.
 
@@ -302,7 +302,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 In questo modo l'orologio scatta ogni secondo.
 
@@ -316,9 +316,9 @@ Ricapitoliamo velocemente quello che sta succedendo e l'ordine con cui i metodi 
 
 4) Ogni secondo, il browser invoca il metodo `tick()`. Al suo interno, il componente `Clock` pianifica un aggiornamento della UI invocando `setState()` con un oggetto che contiene la nuova ora corrente. Grazie alla chiamata a `setState()`, React viene informato del fatto che lo state è cambiato e invoca di nuovo il metodo `render()` per sapere che cosa deve essere mostrato sullo schermo. Questa volta, `this.state.date` nel metodo `render()` avrà un valore differente, di conseguenza l'output della renderizzazione includerà l'orario aggiornato. React aggiorna il DOM di conseguenza.
 
-5) Se il componente `Clock` dovesse mai essere rimosso dal DOM, React invocherebbe il metodo del lifecycle `componentWillUnmount()` e il timer verrebbe cancellato.
+5) Se il componente `Clock` dovesse mai essere rimosso dal DOM, React invocherebbe il metodo del lifecycle `componentWillUnmount()` ed il timer verrebbe cancellato.
 
-## Utilizzare lo Stato Correttamente {#using-state-correctly}
+## Utilizzare Correttamente lo Stato {#using-state-correctly}
 
 Ci sono tre cose che devi sapere a proposito di `setState()`.
 
@@ -349,7 +349,7 @@ Poiché `this.props` e `this.state` potrebbero essere aggiornate in modo asincro
 Ad esempio, questo codice potrebbe non riuscire ad aggiornare correttamente il contatore:
 
 ```js
-// Wrong
+// Sbagliato
 this.setState({
   counter: this.state.counter + this.props.increment,
 });
@@ -358,7 +358,7 @@ this.setState({
 Per effettuare correttamente questa operazione, bisogna utilizzare una seconda forma di `setState()` che accetta in input una funzione invece che un oggetto. Quella funzione riceverà come primo argomento lo stato precedente e come secondo argomento le proprietà, aggiornate al momento in cui l'aggiornamento di stato è applicato:
 
 ```js
-// Correct
+// Giusto
 this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
@@ -367,7 +367,7 @@ this.setState((state, props) => ({
 Qui abbiamo utilizzato una [arrow function](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Functions_and_function_scope/Arrow_functions), ma puoi utilizzare anche una funzione tradizionale:
 
 ```js
-// Correct
+// Giusto
 this.setState(function(state, props) {
   return {
     counter: state.counter + props.increment
@@ -437,7 +437,7 @@ function FormattedDate(props) {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 Questo è spesso definito flusso di dati "top-down" (dall'alto verso il basso) o "unidirezionale". In questo paradigma, lo stato è sempre posseduto da uno specifico componente, e tutti i dati o la UI derivati da quello stato possono influenzare solamente i componenti "più in basso" nell'albero.
 
@@ -462,7 +462,7 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Prova su CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Ciascun `Clock` imposta il proprio timer e si aggiorna indipendentemente dagli altri.
 
