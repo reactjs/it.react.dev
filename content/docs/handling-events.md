@@ -72,7 +72,7 @@ class Interruttore extends React.Component {
 
   handleClick() {
     this.setState(state => ({
-      acceso: !state.acceso,
+      acceso: !state.acceso
     }));
   }
 
