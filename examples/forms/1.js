@@ -1,4 +1,4 @@
-class NameForm extends React.Component {
+class FormNome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -12,7 +12,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('E\' stato inserito un nome: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -20,11 +20,20 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          Nome:
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
         </label>
         <input type="submit" value="Submit" />
       </form>
     );
   }
 }
+
+ReactDOM.render(
+  <FormNome />,
+  document.getElementById('root')
+);

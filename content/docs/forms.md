@@ -9,13 +9,13 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+Gli elementi HTML `form` funzionano in un modo un po' differente rispetto agli altri elementi DOM in React, la motivazione risiede nel fatto che gli elementi form mantengono naturalmente uno stato interno. Ad esempio, questo form in puro HTML accetta un singolo nome:
 
 ```html
 <form>
   <label>
-    Name:
-    <input type="text" name="name" />
+    Nome:
+    <input type="text" name="nome" />
   </label>
   <input type="submit" value="Submit" />
 </form>

@@ -1,7 +1,7 @@
-class FlavorForm extends React.Component {
+class FormGusto extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'coconut'};
+    this.state = {value: 'cocco'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,7 +12,7 @@ class FlavorForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Your favorite flavor is: ' + this.state.value);
+    alert('Il tuo gusto preferito è: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -20,11 +20,13 @@ class FlavorForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Pick your favorite flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
+          Seleziona il tuo gusto preferito:
+          <select
+            value={this.state.value}
+            onChange={this.handleChange}>
+            <option value="pompelmo">Pompelmo</option>
+            <option value="limone">Limone</option>
+            <option value="cocco">Cocco</option>
             <option value="mango">Mango</option>
           </select>
         </label>
@@ -33,3 +35,8 @@ class FlavorForm extends React.Component {
     );
   }
 }
+
+ReactDOM.render(
+  <FormGusto />,
+  document.getElementById('root')
+);

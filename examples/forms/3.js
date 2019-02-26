@@ -1,21 +1,26 @@
-class Reservation extends React.Component {
+class Prenotazione extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGoing: true,
-      numberOfGuests: 2
+      presente: true,
+      numeroOspiti: 2,
     };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(
+      this
+    );
   }
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value =
+      target.type === 'checkbox'
+        ? target.checked
+        : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -23,23 +28,30 @@ class Reservation extends React.Component {
     return (
       <form>
         <label>
-          Is going:
+          Sarà presente:
           <input
-            name="isGoing"
+            name="presente"
             type="checkbox"
-            checked={this.state.isGoing}
-            onChange={this.handleInputChange} />
+            checked={this.state.presente}
+            onChange={this.handleInputChange}
+          />
         </label>
         <br />
         <label>
-          Number of guests:
+          Numero di ospiti:
           <input
-            name="numberOfGuests"
+            name="numeroOspiti"
             type="number"
-            value={this.state.numberOfGuests}
-            onChange={this.handleInputChange} />
+            value={this.state.numeroOspiti}
+            onChange={this.handleInputChange}
+          />
         </label>
       </form>
     );
   }
 }
+
+ReactDOM.render(
+  <Prenotazione />,
+  document.getElementById('root')
+);
