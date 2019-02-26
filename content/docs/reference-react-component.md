@@ -563,7 +563,7 @@ this.setState((state) => {
 
 For more detail, see:
 
-* [State and Lifecycle guide](/docs/state-and-lifecycle.html)
+* [State e Lifecycle](/docs/state-and-lifecycle.html)
 * [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
 * [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
@@ -637,6 +637,6 @@ The state contains data specific to this component that may change over time. Th
 
 If some value isn't used for rendering or data flow (for example, a timer ID), you don't have to put it in the state. Such values can be defined as fields on the component instance.
 
-See [State and Lifecycle](/docs/state-and-lifecycle.html) for more information about the state.
+See [State e Lifecycle](/docs/state-and-lifecycle.html) for more information about the state.
 
 Never mutate `this.state` directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
