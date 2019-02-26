@@ -9,10 +9,9 @@ function ListaNumeri(props) {
   const numeri = props.numeri;
   return (
     <ul>
-      {numeri.map((numero) =>
-        <Numero key={numero.toString()}
-                valore={numero} />
-      )}
+      {numeri.map(numero => (
+        <Numero key={numero.toString()} valore={numero} />
+      ))}
     </ul>
   );
 }
