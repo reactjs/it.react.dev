@@ -20,7 +20,7 @@
     - id: components-and-props
       title: Componenti e Props
     - id: state-and-lifecycle
-      title: State and Lifecycle
+      title: State e Lifecycle
     - id: handling-events
       title: Gestione degli Eventi
     - id: conditional-rendering
