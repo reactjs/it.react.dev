@@ -80,12 +80,14 @@ A volte pensiamo ai componenti come se fossero "casi speciali" di altri componen
 
 In React, ciò si ottiene mediante composizione, dove componenti più "specifici" renderizzano la versione più "generica" configurandola mediante props:
 
-```js{4,5,13,14}
+```js{4,6,15,16}
 function Finestra(props) {
   return (
     <BordoFigo colore="blue">
       <h1 className="Finestra-title">{props.titolo}</h1>
-      <p className="Finestra-message">{props.messaggio}</p>
+      <p className="Finestra-messaggio">
+        {props.messaggio}
+      </p>
     </BordoFigo>
   );
 }

@@ -14,7 +14,9 @@ function Finestra(props) {
   return (
     <BordoFigo colore="blue">
       <h1 className="Finestra-titolo">{props.titolo}</h1>
-      <p className="Finestra-messaggio">{props.messaggio}</p>
+      <p className="Finestra-messaggio">
+        {props.messaggio}
+      </p>
     </BordoFigo>
   );
 }
