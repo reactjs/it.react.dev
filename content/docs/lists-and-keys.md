@@ -42,7 +42,7 @@ ReactDOM.render(
 );
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+**[Prova su CodeSandbox](codesandbox://lists-and-keys/1.js)**
 
 Questo codice visualizza un elenco puntato di numeri tra 1 e 5.
 
@@ -94,7 +94,7 @@ ReactDOM.render(
 );
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+**[Prova su CodeSandbox](codesandbox://lists-and-keys/2.js)**
 
 ## Chiavi {#keys}
 
@@ -202,7 +202,7 @@ ReactDOM.render(
 );
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
+**[Prova su CodeSandbox](codesandbox://lists-and-keys/3.js)**
 
 È buona regola ricordarsi che che gli elementi all'interno della chiamata `map()` hanno bisogno di chiavi.
 
@@ -246,7 +246,7 @@ ReactDOM.render(
 );
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+**[Prova su CodeSandbox](codesandbox://lists-and-keys/4.js)**
 
 Le chiavi servono a React come suggerimento, ma non vengono passate ai componenti. Se hai bisogno di quel valore nel tuo componente, passalo come prop esplicitamente con un nome diverso:
 
@@ -263,18 +263,18 @@ In questo esempio, il componente `Articolo` può leggere` props.id`, ma non `pro
 
 ### Incorporare map() in JSX {#embedding-map-in-jsx}
 
-Nell'esempio di prima abbiamo dichiarato una variabile separata `contenuto` e l'abbiamo usata nel codice JSX:
+Nell'esempio di prima abbiamo dichiarato una variabile separata `lista` e l'abbiamo usata nel codice JSX:
 
 ```js{3-6}
-function Blog(props) {
-  const articoli = props.articoli;
-  const contenuto = articoli.map((articolo) =>
-    <Articolo key={articolo.id}
-              titolo={articolo.titolo} />
+function ListaNumeri(props) {
+  const numeri = props.numeri;
+  const lista = numeri.map((numero) =>
+    <Numero key={numero.toString()}
+            valore={numero} />
   );
   return (
     <ul>
-      {contenuto}
+      {lista}
     </ul>
   );
 }
@@ -283,19 +283,19 @@ function Blog(props) {
 JSX consente [incorporare qualsiasi espressione](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in parentesi graffe in modo da poter scrivere direttamente il risultato di `map()`:
 
 ```js{5-8}
-function Blog(props) {
-  const articoli = props.articoli;
+function ListaNumeri(props) {
+  const numeri = props.numeri;
   return (
     <ul>
-      {articoli.map((articolo) =>
-        <Articolo key={articolo.id}
-                  titolo={articolo.titolo} />
+      {numeri.map((numero) =>
+        <Numero key={numero.toString()}
+                valore={numero} />
       )}
     </ul>
   );
 }
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+**[Prova su CodeSandbox](codesandbox://lists-and-keys/5.js)**
 
 A volte questo codice risulta più chiaro, ma questa alternativa può anche essere abusata. Come in JavaScript, spetta a te decidere se vale la pena estrarre una variabile per ragioni di leggibilità del codice. Tieni presente che se vi sono troppi elementi _nested_ nel corpo `map()`, potrebbe essere arrivato il momento di [estrarre un componente](/docs/components-and-props.html#extracting-components).
