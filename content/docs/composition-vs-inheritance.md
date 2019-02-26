@@ -1,6 +1,6 @@
 ---
 id: composition-vs-inheritance
-title: Composition vs Inheritance
+title: Composizione vs Ereditarità
 permalink: docs/composition-vs-inheritance.html
 redirect_from:
   - "docs/multiple-components.html"
@@ -8,129 +8,118 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
-React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components.
+React ha un potente modello di composizione, raccomandiamo che lo si usi in alternativa all'ereditarietà per riutilizzare codice tra componenti.
 
-In this section, we will consider a few problems where developers new to React often reach for inheritance, and show how we can solve them with composition.
+In questa sezione, considereremo alcuni problemi nei quali gli sviluppatori che sono ancora agli inizi in React utilizzano l'ereditarietà, mostreremo come si possa invece risolverli con la composizione.
 
-## Containment {#containment}
+## Contentimento {#containment}
 
-Some components don't know their children ahead of time. This is especially common for components like `Sidebar` or `Dialog` that represent generic "boxes".
+Esistono componenti che si comportano da contenitori per altri componenti, non possono quindi sapere a priori quali componenti avranno come figli. Si pensi ad esempio a `Sidebar` (barra laterale) oppure `Dialog` (finestra di dialogo) che rappresentano "scatole" generiche.
 
-We recommend that such components use the special `children` prop to pass children elements directly into their output:
+Raccomandiamo che questi componenti facciano uso della prop speciale `children` per passare elementi figli direttamente nell'output:
 
 ```js{4}
-function FancyBorder(props) {
+function BordoFigo(props) {
   return (
-    <div className={'FancyBorder FancyBorder-' + props.color}>
+    <div className={'BordoFigo BordoFigo-' + props.colore}>
       {props.children}
     </div>
   );
 }
 ```
 
-This lets other components pass arbitrary children to them by nesting the JSX:
+Ciò permette di passare componenti figli arbitrariamente annidandoli nel codice JSX:
 
-```js{4-9}
-function WelcomeDialog() {
+```js{4-8}
+function FinestraBenvenuto() {
   return (
-    <FancyBorder color="blue">
-      <h1 className="Dialog-title">
-        Welcome
-      </h1>
-      <p className="Dialog-message">
-        Thank you for visiting our spacecraft!
+    <BordoFigo colore="blue">
+      <h1 className="Finestra-titolo">Benvenuto/a!</h1>
+      <p className="Finestra-messaggio">
+        Ti ringraziamo per questa tua visita nella nostra
+        nave spaziale!
       </p>
-    </FancyBorder>
+    </BordoFigo>
   );
 }
 ```
 
-**[Try it on CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+**[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/1.js,composition-vs-inheritance/1.css)**
 
-Anything inside the `<FancyBorder>` JSX tag gets passed into the `FancyBorder` component as a `children` prop. Since `FancyBorder` renders `{props.children}` inside a `<div>`, the passed elements appear in the final output.
+Il contenuto del tag JSX `<BordoFigo>` viene passato nel componente `BordoFigo` come prop `children`. Dato che `BordoFigo` renderizza `{props.children}` all'interndo di un `<div>`, gli elementi passati appaiono nell'output finale.
 
-While this is less common, sometimes you might need multiple "holes" in a component. In such cases you may come up with your own convention instead of using `children`:
+Anche se si tratta di un approccio meno comune, a volte potresti ritrovarti ad aver bisongno di più di un "buco" all'interno di un componente. In questi casi potresti creare una tua convenzione invece di ricorrere all'uso di `children`:
 
-```js{5,8,18,21}
-function SplitPane(props) {
+```js{5,7,14}
+function Pannello(props) {
   return (
-    <div className="SplitPane">
-      <div className="SplitPane-left">
-        {props.left}
+    <div className="Pannello">
+      <div className="Pannello-sinistra">
+        {props.sinistra}
       </div>
-      <div className="SplitPane-right">
-        {props.right}
-      </div>
+      <div className="Pannello-destra">{props.destra}</div>
     </div>
   );
 }
 
 function App() {
   return (
-    <SplitPane
-      left={
-        <Contacts />
-      }
-      right={
-        <Chat />
-      } />
+    <Pannello sinistra={<Contatti />} destra={<Chat />} />
   );
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
+**[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/2.js,composition-vs-inheritance/2.css)**
 
-React elements like `<Contacts />` and `<Chat />` are just objects, so you can pass them as props like any other data. This approach may remind you of "slots" in other libraries but there are no limitations on what you can pass as props in React.
 
-## Specialization {#specialization}
+Gli elementi React `<Contatti />` e `<Chat />` sono dei semplici oggetti, puoi quindi passarli come props esattamente come faresti con altri dati. Questo approccio potrebbe ricordarti il concetto di "slots" in altre librerie ma non ci sono limitazioni su cosa puoi passare come props in React.
 
-Sometimes we think about components as being "special cases" of other components. For example, we might say that a `WelcomeDialog` is a special case of `Dialog`.
+## Specializzazioni {#specialization}
 
-In React, this is also achieved by composition, where a more "specific" component renders a more "generic" one and configures it with props:
+A volte pensiamo ai componenti come se fossero "casi speciali" di altri componenti. Ad esempio, potremmo dire che `FinestraBenvenuto` è una specializzazione di `Finestra`.
 
-```js{5,8,16-18}
-function Dialog(props) {
+In React, ciò si ottiene mediante composizione, dove componenti più "specifici" renderizzano la versione più "generica" configurandola mediante props:
+
+```js{4,5,13,14}
+function Finestra(props) {
   return (
-    <FancyBorder color="blue">
-      <h1 className="Dialog-title">
-        {props.title}
-      </h1>
-      <p className="Dialog-message">
-        {props.message}
-      </p>
-    </FancyBorder>
+    <BordoFigo colore="blue">
+      <h1 className="Finestra-title">{props.titolo}</h1>
+      <p className="Finestra-message">{props.messaggio}</p>
+    </BordoFigo>
   );
 }
 
-function WelcomeDialog() {
+function FinestraBenvenuto() {
   return (
-    <Dialog
-      title="Welcome"
-      message="Thank you for visiting our spacecraft!" />
+    <Finestra
+      titolo="Benvenuto/a!"
+      messaggio="Ti ringraziamo per questa tua visita nella nostra
+      nave spaziale!"
+    />
   );
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
+**[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/3.js,composition-vs-inheritance/3.css)**
 
-Composition works equally well for components defined as classes:
 
-```js{10,27-31}
-function Dialog(props) {
+La composizione funziona ugualmente bene per i componenti definiti come classi:
+
+```js{8,26-32}
+function Finestra(props) {
   return (
-    <FancyBorder color="blue">
-      <h1 className="Dialog-title">
-        {props.title}
-      </h1>
-      <p className="Dialog-message">
-        {props.message}
+    <BordoFigo colore="blue">
+      <h1 className="Finestra-titolo">{props.titolo}</h1>
+      <p className="Finestra-messaggio">
+        {props.messaggio}
       </p>
       {props.children}
-    </FancyBorder>
+    </BordoFigo>
   );
 }
 
-class SignUpDialog extends React.Component {
+class FinestraRegistrazione extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -140,14 +129,17 @@ class SignUpDialog extends React.Component {
 
   render() {
     return (
-      <Dialog title="Mars Exploration Program"
-              message="How should we refer to you?">
-        <input value={this.state.login}
-               onChange={this.handleChange} />
+      <Finestra
+        titolo="Programma di Esplorazione di Marte"
+        messaggio="Qual'è il tuo nome?">
+        <input
+          value={this.state.login}
+          onChange={this.handleChange}
+        />
         <button onClick={this.handleSignUp}>
-          Sign Me Up!
+          Registrami!
         </button>
-      </Dialog>
+      </Finestra>
     );
   }
 
@@ -156,17 +148,18 @@ class SignUpDialog extends React.Component {
   }
 
   handleSignUp() {
-    alert(`Welcome aboard, ${this.state.login}!`);
+    alert(`Benvenuto/a a bordo, ${this.state.login}!`);
   }
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
+**[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/4.js,composition-vs-inheritance/4.css)**
 
-## So What About Inheritance? {#so-what-about-inheritance}
 
-At Facebook, we use React in thousands of components, and we haven't found any use cases where we would recommend creating component inheritance hierarchies.
+## E per quanto riguarda l'ereditarietà? {#so-what-about-inheritance}
 
-Props and composition give you all the flexibility you need to customize a component's look and behavior in an explicit and safe way. Remember that components may accept arbitrary props, including primitive values, React elements, or functions.
+In Facebook, usiamo React in migliaia di componenti ma non abbiamo mai avuto alcun caso in cui sarebbe raccomandabile utilizzare gerarchie di ereditarietà per i componenti.
 
-If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or a class, without extending it.
+Le props e la composizione ti offrono tutta la flessibilità di cui hai bisogno per personalizzare l'aspetto ed il comportamento di un componente in modo esplicito e sicuro. Ricorda che i componenti possono accettare props arbitrarie, inclusi valori primitivi, elementi React o funzioni.
+
+Se vuoi riutilizzare le funzionalità non strettamente legate alla UI tra componenti, suggeriamo di estrarre tali logiche all'interno di un modulo JavaScript separato. I componenti potranno quindi importarlo ed utilizzare quella funzione, oggetto o classe di cui hanno bisogno, senza dover estendere tale modulo.
