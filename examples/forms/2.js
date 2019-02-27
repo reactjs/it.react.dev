@@ -1,4 +1,6 @@
-class FormGusto extends React.Component {
+import React from 'react';
+import ReactDOM from 'react-dom';
+class FormGusti extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: 'cocco'};
@@ -37,6 +39,6 @@ class FormGusto extends React.Component {
 }
 
 ReactDOM.render(
-  <FormGusto />,
+  <FormGusti />,
   document.getElementById('root')
 );

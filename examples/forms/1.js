@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 class FormNome extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class FormNome extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('E\' stato inserito un nome: ' + this.state.value);
+    alert("E' stato inserito un nome: " + this.state.value);
     event.preventDefault();
   }
 
