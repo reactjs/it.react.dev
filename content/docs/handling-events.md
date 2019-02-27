@@ -58,13 +58,13 @@ In questo esempio, il parametro `e` è un evento sintetico (_synthetic event_). 
 
 Usando React, in generale, non dovresti aver bisogno di chiamare `addEventListener` per aggiungere listeners ad un elemento DOM dopo la sua creazione. Invece, basta fornire un listener quando l'elemento è inizialmente renderizzato.
 
-Quando definisci un componente usando una [classe ES6](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes), un pattern comune è usare un metodo della classe come gestore di eventi. Ad esempio, questo componente `Toggle` renderizza un pulsante che consente all'utente di alternare gli stati "ON" e "OFF":
+Quando definisci un componente usando una [classe ES6](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes), un pattern comune è usare un metodo della classe come gestore di eventi. Ad esempio, questo componente `Interruttore` renderizza un pulsante che consente all'utente di alternare gli stati "Acceso" e "Spento":
 
 ```js{6,7,10-14,18}
-class Toggle extends React.Component {
+class Interruttore extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: true};
+    this.state = {acceso: true};
 
     // Necessario per accedere al corretto valore di `this` all'interno della callback
     this.handleClick = this.handleClick.bind(this);
@@ -72,26 +72,26 @@ class Toggle extends React.Component {
 
   handleClick() {
     this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+      acceso: !state.acceso
     }));
   }
 
   render() {
     return (
       <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'ON' : 'OFF'}
+        {this.state.acceso ? 'Acceso' : 'Spento'}
       </button>
     );
   }
 }
 
 ReactDOM.render(
-  <Toggle />,
+  <Interruttore />,
   document.getElementById('root')
 );
 ```
 
-[**Provalo su CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+**[Prova su CodeSandbox](codesandbox://handling-events/1.js)**
 
 Fai attenzione al valore di `this` nelle callback JSX. In JavaScript, i metodi delle classi non sono [associati](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_objects/Function/bind) (_bound_) di default. Se dimentichi di applicare `bind` a `this.handleClick` e di passarlo a `onClick`, `this` sarà `undefined` quando la funzione verrà effettivamente chiamata.
 
