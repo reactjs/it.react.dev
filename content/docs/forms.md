@@ -275,24 +275,24 @@ this.setState({
 });
 ```
 
-Che in ES5 corrisponde al codice:
+Il che in ES5 corrisponde al codice:
 
 ```js{2}
-var partialState = {};
-partialState[name] = value;
-this.setState(partialState);
+var statoParziale = {};
+statoParziale[name] = value;
+this.setState(statoParziale);
 ```
 
 Inoltre, dato che `setState()` [unisce uno stato parziale nello stato corrente](/docs/state-and-lifecycle.html#state-updates-are-merged) automaticamente, dobbiamo chiamarla con le sole parti modificate.
 
-## Controlled Input Null Value {#controlled-input-null-value}
+## Valore Null in Input Controllati {#controlled-input-null-value}
 
-Specifying the value prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+Specificando la prop `value` in un [componente controllato](/docs/forms.html#controlled-components) può far si che l'utente non possa cambiare l'input, a meno che tu lo desideri. Se hai specificato un `value` ma l'input è ancora editabile, potresti aver accidentalmente impostato `value` come `undefined` o `null`.
 
-The following code demonstrates this. (The input is locked at first but becomes editable after a short delay.)
+Il codice seguente lo dimostra. (L'input è inizialmente bloccato ma diventa editabile dopo un secondo)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.render(<input value="ciao" />, mountNode);
 
 setTimeout(function() {
   ReactDOM.render(<input value={null} />, mountNode);
@@ -300,10 +300,10 @@ setTimeout(function() {
 
 ```
 
-## Alternatives to Controlled Components {#alternatives-to-controlled-components}
+## Alternative ai Componenti Controllati {#alternatives-to-controlled-components}
 
-It can sometimes be tedious to use controlled components, because you need to write an event handler for every way your data can change and pipe all of the input state through a React component. This can become particularly annoying when you are converting a preexisting codebase to React, or integrating a React application with a non-React library. In these situations, you might want to check out [uncontrolled components](/docs/uncontrolled-components.html), an alternative technique for implementing input forms.
+Utilizzare componenti controllati può sembrare laborioso a volte, soprattutto perché è necessario scrivere un _event handler_ per ogni modo in cui i tuoi dati possono cambiare e perchè si deve collegare lo stato di tutti gli input a quello di un componente React. Il tutto diventa particolarmente noioso quando bisogna convertire progetti preesistenti in React, o integrare un'applicazione React con una libreria non-React. In queste situazioni, si potrebbe ricorrere ai [componenti non controllati](/docs/uncontrolled-components.html), una tecnica alternativa per implementare forms ed i relativi campi di input.
 
-## Fully-Fledged Solutions {#fully-fledged-solutions}
+## Soluzioni Chiavi In Mano {#fully-fledged-solutions}
 
-If you're looking for a complete solution including validation, keeping track of the visited fields, and handling form submission, [Formik](https://jaredpalmer.com/formik) is one of the popular choices. However, it is built on the same principles of controlled components and managing state — so don't neglect to learn them.
+Se stai cercando una soluzione che include la validazione dei dati, il tener traccia dei campi visitati e la sottomissione del form, [Formik](https://jaredpalmer.com/formik) è una delle scelte popolari. Comunque, si basa sugli stessi principi dei componenti controllati e della gestione dello stato — ecco perché è bene essere familiari con questi concetti.
