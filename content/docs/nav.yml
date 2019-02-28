@@ -24,7 +24,7 @@
     - id: handling-events
       title: Gestione degli Eventi
     - id: conditional-rendering
-      title: Conditional Rendering
+      title: Renderizzazione Condizionale
     - id: lists-and-keys
       title: Lists and Keys
     - id: forms
