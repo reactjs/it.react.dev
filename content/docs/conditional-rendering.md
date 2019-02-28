@@ -145,7 +145,7 @@ ReactDOM.render(
 ```
 [](codepen://conditional-rendering/3)
 
-Funziona perchè in JavaScript, `true && espressione` si risolve sempre in `espressione`, mentre `false && espressione` si risolve sempre in `false`.
+Funziona perché in JavaScript, `true && espressione` si risolve sempre in `espressione`, mentre `false && espressione` si risolve sempre in `false`.
 
 Per questo, se la condizione è `true`, l'elemento dopo `&&` verrà renderizzato. Se invece è `false`, React lo ignorerà.
 
