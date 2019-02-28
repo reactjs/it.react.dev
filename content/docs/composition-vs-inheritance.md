@@ -72,7 +72,7 @@ function App() {
 **[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/2.js,composition-vs-inheritance/2.css)**
 
 
-Gli elementi React `<Contatti />` e `<Chat />` sono dei semplici oggetti, puoi quindi passarli come props esattamente come faresti con altri dati. Questo approccio potrebbe ricordarti il concetto di "slots" in altre librerie ma non ci sono limitazioni su cosa puoi passare come props in React.
+Gli elementi React `<Contatti />` e `<Chat />` sono dei semplici oggetti, quindi puoi passarli come props esattamente come faresti con altri dati. Questo approccio potrebbe ricordarti il concetto di "slots" in altre librerie, ma non ci sono limitazioni su cosa puoi passare come props in React.
 
 ## Specializzazioni {#specialization}
 
