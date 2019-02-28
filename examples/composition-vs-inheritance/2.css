@@ -1,0 +1,33 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+}
+
+.Pannello {
+    width: 100%;
+    height: 100%;
+}
+
+.Pannello-sinistra {
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+.Pannello-destra {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.Contatti {
+    width: 100%;
+    height: 100%; 
+    background: lightblue;
+}
+
+.Chat {
+    width: 100%;
+    height: 100%; 
+    background: pink;
+}

@@ -1,0 +1,17 @@
+.BordoFigo {
+    padding: 10px 10px;
+    border: 10px solid;
+}
+
+.BordoFigo-blue {
+    border-color: blue;
+}
+
+.Finestra-titolo {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.Finestra-messaggio {
+    font-size: larger;
+}
