@@ -76,7 +76,7 @@ ReactDOM.render(
 );
 ```
 
-[**Prova in CodePen**](codepen://components-and-props/rendering-a-component)
+[](codepen://components-and-props/rendering-a-component)
 
 Ricapitoliamo cosa succede nell'esempio:
 
@@ -118,7 +118,7 @@ ReactDOM.render(
 );
 ```
 
-[**Prova in CodePen**](codepen://components-and-props/composing-components)
+[](codepen://components-and-props/composing-components)
 
 Normalmente, le nuove applicazioni React hanno un singolo componente chiamato `App` al livello più alto che racchiude tutti gli altri componenti. Ad ogni modo, quando si va ad integrare React in una applicazione già esistente, è bene partire dal livello più basso e da piccoli componenti come ad esempio `Bottone` procedendo da lì fino alla cima della gerarchia della vista.
 
@@ -152,7 +152,7 @@ function Commento(props) {
 }
 ```
 
-[**Prova in CodePen**](codepen://components-and-props/extracting-components)
+[](codepen://components-and-props/extracting-components)
 
 Esso accetta come props: `autore` (un oggetto), `testo` (una stringa) e `data` (sotto forma di oggetto [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)) al fine di renderizzare un commento in un sito di social media, come Facebook.
 
@@ -231,7 +231,7 @@ function Commento(props) {
 }
 ```
 
-[**Prova in CodePen**](codepen://components-and-props/extracting-components-continued)
+[](codepen://components-and-props/extracting-components-continued)
 
 Estrarre componenti può semprare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sé (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
 

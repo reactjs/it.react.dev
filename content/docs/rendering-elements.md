@@ -38,7 +38,7 @@ Per renderizzare un elemento React nel nodo DOM radice, bisogna passare entrambi
 
 `embed:rendering-elements/render-an-element.js`
 
-[Prova in CodePen](codepen://rendering-elements/render-an-element)
+[](codepen://rendering-elements/render-an-element)
 
 Ciò visualizzerà "Hello, world" nella pagina.
 
@@ -52,7 +52,7 @@ Preniamo in considerazione il prossimo esempio, nel quale abbiamo un orologio:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[Prova in CodePen](codepen://rendering-elements/update-rendered-element)
+[](codepen://rendering-elements/update-rendered-element)
 
 La funzione `ReactDOM.render()` viene richiamata ogni secondo dalla [callback](https://it.wikipedia.org/wiki/Callback) passata a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 

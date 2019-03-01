@@ -20,7 +20,7 @@ Glossary of the translations of technical and React-specific terms.
 - callback
 - console
 - warning
-
+- form/forms
 
 # Common Translations
 
