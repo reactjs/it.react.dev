@@ -29,7 +29,7 @@ In HTML, gli elementi di un form come `<input>`, `<textarea>` e `<select>` mante
 
 Possiamo combinare le due cose rendendo lo _state_ in React la "singola fonte attendibile" ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth)). Possiamo poi fare in modo che il componente React che renderizza il form controlli anche cosa succede all'interno del form in risposta agli input dell'utente. In un form, un elemento di input il cui valore è controllato da React viene così chiamato "componente controllato".
 
-Ad esempio, se vogliiamo far si che l'esempio precedente registri il nome inserito, possiamo riscrivere il form sotto forma di componente controllato:
+Ad esempio, se vogliamo far sì che l'esempio precedente registri il nome inserito, possiamo riscrivere il form sotto forma di componente controllato:
 
 ```javascript{4,10-12,24}
 class FormNome extends React.Component {
