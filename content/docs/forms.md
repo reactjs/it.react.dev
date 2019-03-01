@@ -202,7 +202,7 @@ In HTML, un `<input type="file">` permette all'utente di selezionare uno o più 
 <input type="file" />
 ```
 
-Dato che il suo valore è sola-lettura, è un componente **non controllato** in React. Riprenderemo il discorso riguardo questo ed altri componenti non controllati [in seguito](/docs/uncontrolled-components.html#the-file-input-tag).
+Dato che il suo valore è in sola-lettura, è un componente **non controllato** in React. Riprenderemo il discorso riguardo questo ed altri componenti non controllati [in seguito](/docs/uncontrolled-components.html#the-file-input-tag).
 
 ## Gestione di Input Multipli {#handling-multiple-inputs}
 
