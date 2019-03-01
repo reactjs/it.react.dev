@@ -21,7 +21,7 @@ Gli elementi HTML `form` funzionano in un modo un po' differente rispetto agli a
 </form>
 ```
 
-La sottomissione di questo form porta l'utente in una nuova pagina, questo è il comportamento di _default_ (di fabbrica). In React, se vuoi avere lo stesso comportamento, funziona. Ad ogni modo, potrebbe essere più conveniente avere una funzione JavaScript che gestisce la sottomissione del form e che ha accesso ai dati inseriti dall'utente. La tecnica standard con cui si può ottenere ciò prende il nome di "componenti controllati".
+Questo form si comporta come di consueto, facendo navigare l'utente in una nuova pagina quando viene inviato. In React, se vuoi avere lo stesso comportamento, non c'è bisogno di fare alcuna modifica. Ad ogni modo, potrebbe essere più conveniente avere una funzione JavaScript che gestisce l'invio del form e che ha accesso ai dati inseriti dall'utente. La tecnica standard con cui si può ottenere ciò prende il nome di "componenti controllati".
 
 ## Componenti Controllati {#controlled-components}
 
