@@ -298,4 +298,4 @@ function ListaNumeri(props) {
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/5.js)**
 
-A volte questo codice risulta più chiaro, ma questa alternativa può anche essere abusata. Come in JavaScript, spetta a te decidere se vale la pena estrarre una variabile per ragioni di leggibilità del codice. Tieni presente che se vi sono troppi elementi _nested_ nel corpo `map()`, potrebbe essere arrivato il momento di [estrarre un componente](/docs/components-and-props.html#extracting-components).
+A volte questo codice risulta più chiaro, ma questa alternativa può anche essere abusata. Come in JavaScript, spetta a te decidere se vale la pena estrarre una variabile per ragioni di leggibilità del codice. Tieni presente che se vi sono troppi elementi _nested_ (ovvero: annidati) nel corpo `map()`, potrebbe essere arrivato il momento di [estrarre un componente](/docs/components-and-props.html#extracting-components).
