@@ -66,7 +66,7 @@ class FormNome extends React.Component {
 
 **[Prova su CodeSandbox](codesandbox://forms/1.js)**
 
-Dato che l'attributo `value` viene impostato nel nostro elemento form, il valore visualizzato sarà sempre `this.state.value`, rendendo lo stato in React l'unica fonte dati attendibile. Dato che la funzione `handleChange` viene eseguita ad ogni battitura per aggiornare lo stato di React, il valore visualizzato verrà aggiornato man mano che l'utente preme i tasti.
+Dato che l'attributo `value` viene impostato nel nostro elemento form, il valore visualizzato sarà sempre `this.state.value`, rendendo lo stato in React l'unica fonte di dati attendibile. Dato che la funzione `handleChange` viene eseguita ad ogni battitura per aggiornare lo stato di React, il valore visualizzato verrà aggiornato man mano che l'utente preme i tasti.
 
 Con un componente controllato, ogni mutazione dello stato deve aver associata una funzione _handler_. Tutto ciò rende il processo di modifica e la validazione dell'input dell'utente semplice e lineare. Ad esempio, se volessimo definire una regola che vuole che i nomi vengano sempre scritti tutti in maiuscolo, possiamo definire `handleChange` così:
 
