@@ -1,6 +1,7 @@
 .cache
 .DS_STORE
 .idea
+.vscode
 node_modules
 public
 yarn-error.log

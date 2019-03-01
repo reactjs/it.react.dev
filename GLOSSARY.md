@@ -18,6 +18,7 @@ Glossary of the translations of technical and React-specific terms.
 - tag
 - lifecycle
 - callback
+- form/forms
 
 
 # Common Translations
