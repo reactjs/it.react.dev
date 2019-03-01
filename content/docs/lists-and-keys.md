@@ -44,7 +44,7 @@ ReactDOM.render(
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/1.js)**
 
-Questo codice visualizza un elenco puntato di numeri tra 1 e 5.
+Questo codice visualizza un elenco puntato di numeri da 1 a 5.
 
 ### Semplice Componente Lista {#basic-list-component}
 
