@@ -280,7 +280,7 @@ function ListaNumeri(props) {
 }
 ```
 
-JSX consente [incorporare qualsiasi espressione](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in parentesi graffe in modo da poter scrivere direttamente il risultato di `map()`:
+JSX consente di [incorporare qualsiasi espressione](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in parentesi graffe in modo da poter scrivere direttamente il risultato di `map()`:
 
 ```js{5-8}
 function ListaNumeri(props) {
