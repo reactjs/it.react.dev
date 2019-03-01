@@ -107,7 +107,7 @@ class FormTema extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Un tema è stato sottomesso: ' + this.state.value);
+    alert('Un tema è stato inviato: ' + this.state.value);
     event.preventDefault();
   }
 
