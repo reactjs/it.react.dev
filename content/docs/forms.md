@@ -184,7 +184,7 @@ class FormGusti extends React.Component {
 
 **[Prova su CodeSandbox](codesandbox://forms/2.js)**
 
-Ricapitolando, ciò fa si che `<input type="text">`, `<textarea>` e `<select>` funzionino in modo molto simile - tutti accettano un attributo `value` che puoi utilizzare per implementare un componente controllato.
+Ricapitolando, ciò fa sì che `<input type="text">`, `<textarea>` e `<select>` funzionino in modo molto simile - tutti accettano un attributo `value` che puoi utilizzare per implementare un componente controllato.
 
 > **Nota bene**
 >
