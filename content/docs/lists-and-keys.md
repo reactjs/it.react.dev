@@ -132,7 +132,7 @@ const listaArticoli = articoli.map((articolo, indice) =>
 
 Non consigliamo di utilizzare gli indici per le chiavi se l'ordine degli elementi potrebbe cambiare. Potrebbe avere un impatto negativo sulle prestazioni e causare problemi con lo stato dei componenti. Leggi l'articolo di Robin Pokorny per una [spiegazione approfondita sugli impatti negativi dell'uso di un indice come chiave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). React utilizza gli indici come chiavi se non assegni esplicitamente una chiave per renderizzare gli elementi.
 
-Qui trovi una [spiegazione approfondita sul perché le chiavi sono necessarie](/docs/reconciliation.html#recursing-on-children) se sei interessato a saperne di più.
+Qui trovi una [spiegazione approfondita sul perché le chiavi sono necessarie](/docs/reconciliation.html#recursing-on-children) se vuoi saperne di più.
 
 ### Estrarre Componenti con Chiavi {#extracting-components-with-keys}
 
