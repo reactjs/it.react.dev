@@ -25,7 +25,7 @@ Questo form si comporta come di consueto, facendo navigare l'utente in una nuova
 
 ## Componenti Controllati {#controlled-components}
 
-In HTML, gli eleenti di un form come `<input>`, `<textarea>` e `<select>` mantengono tipicamente il proprio stato e lo aggiornano in base all'input dell'utente. In React, lo stato mutabile viene tipicamente mantenuto nella proprietà `state` dei componenti eviene poi aggiornato solo mediante [`setState()`](/docs/react-component.html#setstate).
+In HTML, gli elementi di un form come `<input>`, `<textarea>` e `<select>` mantengono tipicamente il proprio stato e lo aggiornano in base all'input dell'utente. In React, lo stato mutabile viene tipicamente mantenuto nella proprietà `state` dei componenti e viene poi aggiornato solo mediante [`setState()`](/docs/react-component.html#setstate).
 
 Possiamo combinare le due cose rendendo lo _state_ in React la "singola fonte attendibile" ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth)). Possiamo poi fare in modo che il componente React che renderizza il form controlli anche cosa succede all'interno del form in risposta agli input dell'utente. Un elemento di input in un form, il quale valore è controllato da React viene così chiamato "componente controllato".
 
