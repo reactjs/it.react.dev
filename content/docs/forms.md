@@ -206,7 +206,7 @@ Dato che il suo valore è in sola-lettura, è un componente **non controllato** 
 
 ## Gestione di Input Multipli {#handling-multiple-inputs}
 
-Quando devi gestire diversi elementi `input`, puoi aggiungere un attributo `name` ad ognuno di essi e far si che la funzione handler controlli cosa fare in base al valore di `event.target.name`.
+Quando devi gestire diversi elementi `input`, puoi aggiungere un attributo `name` ad ognuno di essi e far sì che la funzione handler controlli cosa fare in base al valore di `event.target.name`.
 
 Ad esempio:
 
