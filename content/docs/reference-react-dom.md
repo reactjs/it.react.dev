@@ -68,7 +68,7 @@ React si aspetta che il contenuto renderizzato sia identico tra server e client.
 
 Se l'attributo o il testo di un singolo elemento è inevitabilmente diverso tra server e client (per esempio, un timestamp), potresti silenziare il warning aggiungendo `suppressHydrationWarning={true}` all'elemento. Questo funziona solamente ad un livello di profondità ed è un modo per aggirare il problema. Non abusarne. A meno che non sia testo, React non tenterà di ripararlo, perciò rimarrà inconsistente fino ad aggiornamenti futuri.
 
-Se hai bisogno di renderizzare intenzionalmente qualcosa di diverso sul server e sul client, puoi eseguire una renderizzazione in due passaggi. I componenti che renderizzano qualcosa di diverso sul client possono leggere una variabile di stato come `this.state.isClient`, che setterai a `true` in `componentDidMount()`. In questo modo il passo iniziale renderizzerà lo stesso contenuto del server, evitando discrepanze, ma il passo successivo avverrà in maniera sincrona appena dopo l'hydration. Notare come questo approccio renda i tuoi componenti più lenti perché devono renderizzare due volte, quindi usalo con cautela.
+Se hai bisogno di renderizzare intenzionalmente qualcosa di diverso sul server e sul client, puoi eseguire una renderizzazione in due passaggi. I componenti che renderizzano qualcosa di diverso sul client possono leggere una variabile dello state come `this.state.isClient`, che setterai a `true` in `componentDidMount()`. In questo modo il passo iniziale renderizzerà lo stesso contenuto del server, evitando discrepanze, ma il passo successivo avverrà in maniera sincrona appena dopo l'hydration. Notare come questo approccio renda i tuoi componenti più lenti perché devono renderizzare due volte, quindi usalo con cautela.
 
 Ricorda di essere consapevole dell'esperienza utente su connessioni lente. Il codice JavaScript potrebbe caricarsi significativamente più tardi rispetto allla renderizzazione iniziale dell'HTML, perciò se renderizzi qualcosa di diverso nel passaggio solo client, la transizione può risultare irritante. Tuttavia, se eseguito bene, può essere vantaggioso renderizzare uno "scheletro" dell'applicazione sul server, e mostrare solo alcuni dei widget supplementari sul client. Per capire come fare ciò senza imbattersi in problemi di discrepanze nel markup, consulta la spiegazione nel precedente paragrafo.
 
@@ -80,7 +80,7 @@ Ricorda di essere consapevole dell'esperienza utente su connessioni lente. Il co
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Rimuove un componente React montato dal DOM e ripulisce i suoi gestori degli eventi e il suo stato. Se nessun componente era stato montato nel contenitore, chiamare questa funzione non fa nulla. Ritorna `true` se un componente è stato smontato e `false` se non c'era nessun componente da smontare.
+Rimuove un componente React montato dal DOM e ripulisce i suoi gestori degli eventi e il suo state. Se nessun componente era stato montato nel contenitore, chiamare questa funzione non fa nulla. Ritorna `true` se un componente è stato smontato e `false` se non c'era nessun componente da smontare.
 
 * * *
 
