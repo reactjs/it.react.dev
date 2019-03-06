@@ -80,7 +80,8 @@ module.exports = {
                 hidenavigation: 1,
                 fontsize: 13,
               },
-              getIframe: url => `<iframe src="${url}" style="width: 100%; overflow:hidden; display:block;max-width: none;" height="600" class="embedded-codesandbox" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>`,
+              getIframe: url =>
+                `<iframe src="${url}" style="width: 100%; overflow:hidden; display:block;max-width: none;" height="600" class="embedded-codesandbox" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>`,
             },
           },
           {
