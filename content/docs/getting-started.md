@@ -89,9 +89,9 @@ If you prefer to **learn by doing,** check out our [practical tutorial](/tutoria
 
 If you prefer to **learn concepts step by step,** our [guide to main concepts](/docs/hello-world.html) is the best place to start. Every next chapter in it builds on the knowledge introduced in the previous chapters so you won't miss anything as you go along.
 
-### Thinking in React {#thinking-in-react}
+### Pensare in React {#thinking-in-react}
 
-Many React users credit reading [Thinking in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
+Many React users credit reading [Pensare in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
 
 ### Recommended Courses {#recommended-courses}
 
