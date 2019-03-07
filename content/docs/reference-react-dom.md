@@ -93,7 +93,7 @@ Rimuove un componente React montato dal DOM e ripulisce i suoi gestori degli eve
 ```javascript
 ReactDOM.findDOMNode(component)
 ```
-Se questo componente è stato montato nel DOM, ritorna il corrispondente elemento DOM nativo del browser. Questo metodo è utile per leggere valori fuori dal DOM, come i valori dei campi di un form o eseguire misure del DOM. **Nella maggior parte dei casi, puoi collegare un ref al nodo DOM ed evitare di usare `findDOMNode`.**
+Se questo componente è stato montato nel DOM, ritorna il corrispondente elemento DOM nativo del browser. Questo metodo è utile per leggere valori fuori dal DOM, come i valori dei campi di un form o per eseguire misurazioni del DOM. **Nella maggior parte dei casi, puoi collegare un ref al nodo DOM ed evitare l'uso di `findDOMNode`.**
 
 Quando un componente renderizza come `null` o `false`, `findDOMNode` ritorna `null`. Quando un componente renderizza come stringa, `findDOMNode` ritorna un nodo DOM testuale contenente quel valore. A partire da React 16, un componente può ritornare un frammento con diversi figli, in tal caso `findDOMNode` ritornerà il nodo DOM corrispondente al primo figlio non vuoto. 
 
