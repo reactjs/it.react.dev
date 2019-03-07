@@ -111,4 +111,4 @@ Quando un componente renderizza come `null` o `false`, `findDOMNode` ritorna `nu
 ReactDOM.createPortal(child, container)
 ```
 
-Crea un portale. I porali forniscono un modo per [renderizzare dei figli in un nodo DOM che esiste al di fuori della gerarchia del componente DOM](/docs/portals.html).
+Crea un portale. I portali forniscono un modo per [renderizzare dei figli in un nodo DOM che esiste al di fuori della gerarchia del componente DOM](/docs/portals.html).
