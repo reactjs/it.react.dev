@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-Se carichi React da un tag `<script>`, queste API di alto livello sono disponibili nell'oggetto `ReactDOM` globale. Se usi ES6 con npm, puoi scrivere `import ReactDOM from 'react-dom'`. Se usi ES5 con npm, puoi scrivere `var ReactDOM = require('react-dom')`.
+Se carichi React da un tag `<script>`, queste API di alto livello sono disponibili nell'oggetto globale `ReactDOM`. Se usi ES6 con npm, puoi scrivere `import ReactDOM from 'react-dom'`. Se usi ES5 con npm, puoi scrivere `var ReactDOM = require('react-dom')`.
 
 ## Panoramica {#overview}
 
