@@ -10,7 +10,7 @@ Se carichi React da un tag `<script>`, queste API di alto livello sono disponibi
 
 ## Panoramica {#overview}
 
-Il package `react-dom` fornisce dei metodi specifici per il DOM che possono essere usati ad alto livello nella tua app e come scorciatoie per uscire fuori dal modello di React qualora ne avessi bisogno. La maggior parte dei tuoi componenti non dovrebbero aver bisogno di usare questo modulo.
+Il *package* `react-dom` fornisce dei metodi specifici per il DOM che possono essere usati al livello più in alto nella tua app e come scorciatoie per uscire fuori dal modello di React qualora ne avessi bisogno. La maggior parte dei tuoi componenti non dovrebbero aver bisogno di usare questo modulo.
 
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
