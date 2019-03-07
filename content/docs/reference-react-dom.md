@@ -44,7 +44,7 @@ Se viene fornita la callback opzionale, essa sarà eseguita dopo che il componen
 
 > Nota:
 >
-> `ReactDOM.render()` controlla il contenuto del nodo contenitore che passi in input. Qualunque elemento DOM esistente all'interno di esso viene sostituito non appena viene invocato questo metodo. Le chiamate successive utilizzano l'algoritmo di diffing del DOM di React per effettuare aggiornamenti più efficienti.
+> `ReactDOM.render()` controlla il contenuto del nodo contenitore che passi in input. Qualunque elemento DOM esistente all'interno di esso viene sostituito non appena viene invocato questo metodo. Le chiamate successive utilizzano l'algoritmo di [diffing](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm) del DOM di React per effettuare aggiornamenti più efficienti.
 >
 > `ReactDOM.render()` non modifica il nodo contenitore (modifica solamente i figli del contenitore). Potrebbe essere possibile inserire un componente in un nodo DOM esistente senza sovrascrivere i figli esistenti.
 >
