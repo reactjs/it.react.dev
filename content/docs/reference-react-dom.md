@@ -6,11 +6,11 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-If you load React from a `<script>` tag, these top-level APIs are available on the `ReactDOM` global. If you use ES6 with npm, you can write `import ReactDOM from 'react-dom'`. If you use ES5 with npm, you can write `var ReactDOM = require('react-dom')`.
+Se carichi React da un tag `<script>`, queste API di alto livello sono disponibili nell'oggetto globale `ReactDOM`. Se usi ES6 con npm, puoi scrivere `import ReactDOM from 'react-dom'`. Se usi ES5 con npm, puoi scrivere `var ReactDOM = require('react-dom')`.
 
-## Overview {#overview}
+## Panoramica {#overview}
 
-The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.
+Il *package* `react-dom` fornisce dei metodi specifici per il DOM che possono essere usati al livello più in alto nella tua app e come scorciatoie per uscire fuori dal modello di React qualora ne avessi bisogno. La maggior parte dei tuoi componenti non dovrebbero aver bisogno di usare questo modulo.
 
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
@@ -18,17 +18,17 @@ The `react-dom` package provides DOM-specific methods that can be used at the to
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Browser Support {#browser-support}
+### Supporto ai browser {#browser-support}
 
-React supports all popular browsers, including Internet Explorer 9 and above, although [some polyfills are required](/docs/javascript-environment-requirements.html) for older browsers such as IE 9 and IE 10.
+React supporta tutti i browser più popolari, incluso Internet Explorer 9 e superiori, anche se [sono richiesti alcuni polyfill](/docs/javascript-environment-requirements.html) per i browser più vecchi come IE 9 e IE 10.
 
-> Note
+> Nota
 >
-> We don't support older browsers that don't support ES5 methods, but you may find that your apps do work in older browsers if polyfills such as [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) are included in the page. You're on your own if you choose to take this path.
+> Non diamo supporto ai browser più vecchi che non supportano metodi di ES5, le tue app potrebbero comunque funzionare su browser più vecchi se nella pagina sono inclusi polyfill come [es5-shim e es5-sham](https://github.com/es-shims/es5-shim). Se scegli questa strada, dovrai vedertela da solo.
 
 * * *
 
-## Reference {#reference}
+## Riferimento {#reference}
 
 ### `render()` {#render}
 
@@ -36,23 +36,23 @@ React supports all popular browsers, including Internet Explorer 9 and above, al
 ReactDOM.render(element, container[, callback])
 ```
 
-Render a React element into the DOM in the supplied `container` and return a [reference](/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/docs/components-and-props.html#functional-and-class-components)).
+Renderizza un elemento React nel DOM all'interno del [`container`](docs/composition-vs-inheritance.html#containment) fornito in input e ritorna un [riferimento](/docs/more-about-refs.html) al componente (o ritorna `null` per i [componenti funzione](/docs/components-and-props.html#functional-and-class-components)).
 
-If the React element was previously rendered into `container`, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.
+Se l'elemento React era stato precedentemente renderizzato nel `container`, verrà eseguito un aggiornamento dell'elemento e verrà modificato solo il DOM necessario in modo da rispecchiare l'ultimo elemento React.
 
-If the optional callback is provided, it will be executed after the component is rendered or updated.
+Se viene fornita la callback opzionale, essa sarà eseguita dopo che il componente è stato renderizzato o aggiornato.
 
-> Note:
+> Nota:
 >
-> `ReactDOM.render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
+> `ReactDOM.render()` controlla il contenuto del nodo contenitore che passi in input. Qualunque elemento DOM esistente all'interno di esso viene sostituito non appena viene invocato questo metodo. Le chiamate successive utilizzano l'algoritmo di [diffing](/docs/reconciliation.html#the-diffing-algorithm) del DOM di React per effettuare aggiornamenti più efficienti.
 >
-> `ReactDOM.render()` does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.
+> `ReactDOM.render()` non modifica il nodo contenitore (modifica solamente i figli del contenitore). Potrebbe essere possibile inserire un componente in un nodo DOM esistente senza sovrascrivere i figli esistenti.
 >
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
+> `ReactDOM.render()` attualmente ritorna un riferimento all'instanza principale di `ReactComponent`. Tuttavia, l'utilizzo di questo valore di ritorno è obsoleto 
+> e dovrebbe essere evitato perché le versioni future di React potrebbero renderizzare i componenti in maniera asincrona in alcuni casi. Se hai bisogno di un riferimento all'istanza principale di `ReactComponent`, la soluzione preferita è quella di connettere una 
+> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) all'elemento principale.
 >
-> Using `ReactDOM.render()` to hydrate a server-rendered container is deprecated and will be removed in React 17. Use [`hydrate()`](#hydrate) instead.
+> Usare `ReactDOM.render()` per fare l'hydrate di un contenitore renderizzato lato server è deprecato e sarà rimosso in React 17. A questo scopo, usare il metodo [`hydrate()`](#hydrate).
 
 * * *
 
@@ -62,15 +62,15 @@ If the optional callback is provided, it will be executed after the component is
 ReactDOM.hydrate(element, container[, callback])
 ```
 
-Same as [`render()`](#render), but is used to hydrate a container whose HTML contents were rendered by [`ReactDOMServer`](/docs/react-dom-server.html). React will attempt to attach event listeners to the existing markup.
+Identico a [`render()`](#render), ma viene utilizzato per fare l'hydrate di un contenitore il cui HTML è stato renderizzato da [`ReactDOMServer`](/docs/react-dom-server.html). React proverà a connettere i listener degli eventi al markup esistente.
 
-React expects that the rendered content is identical between the server and the client. It can patch up differences in text content, but you should treat mismatches as bugs and fix them. In development mode, React warns about mismatches during hydration. There are no guarantees that attribute differences will be patched up in case of mismatches. This is important for performance reasons because in most apps, mismatches are rare, and so validating all markup would be prohibitively expensive.
+React si aspetta che il contenuto renderizzato sia identico tra server e client. Può risolvere autonomamente differenze di testo, ma altre discrepanze dovresti trattarle come bug e risolverle. In modalità sviluppo, React avvisa quando ci sono eventuali discrepanze durante l'hydration. Non viene garantita la riparazione automatica nel caso di differenze negli attributi. Questo è importante per ragioni di performance perché nella maggior parte delle app, le discrepanze sono rare e quindi validare tutto il markup diventerebbe troppo costoso.
 
-If a single element's attribute or text content is unavoidably different between the server and the client (for example, a timestamp), you may silence the warning by adding `suppressHydrationWarning={true}` to the element. It only works one level deep, and is intended to be an escape hatch. Don't overuse it. Unless it's text content, React still won't attempt to patch it up, so it may remain inconsistent until future updates.
+Se l'attributo o il testo di un singolo elemento è inevitabilmente diverso tra server e client (per esempio, un timestamp), potresti silenziare il warning aggiungendo `suppressHydrationWarning={true}` all'elemento. Questo funziona solamente ad un livello di profondità ed è un modo per aggirare il problema. Non abusarne. A meno che non sia testo, React non tenterà di ripararlo, perciò rimarrà inconsistente fino ad aggiornamenti futuri.
 
-If you intentionally need to render something different on the server and the client, you can do a two-pass rendering. Components that render something different on the client can read a state variable like `this.state.isClient`, which you can set to `true` in `componentDidMount()`. This way the initial render pass will render the same content as the server, avoiding mismatches, but an additional pass will happen synchronously right after hydration. Note that this approach will make your components slower because they have to render twice, so use it with caution.
+Se hai bisogno di renderizzare intenzionalmente qualcosa di diverso sul server e sul client, puoi eseguire una renderizzazione in due passaggi. I componenti che renderizzano qualcosa di diverso sul client possono leggere una variabile dello state come `this.state.isClient`, che setterai a `true` in `componentDidMount()`. In questo modo il passo iniziale renderizzerà lo stesso contenuto del server, evitando discrepanze, ma il passo successivo avverrà in maniera sincrona appena dopo l'hydration. Notare come questo approccio renda i tuoi componenti più lenti perché devono renderizzare due volte, quindi usalo con cautela.
 
-Remember to be mindful of user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so if you render something different in the client-only pass, the transition can be jarring. However, if executed well, it may be beneficial to render a "shell" of the application on the server, and only show some of the extra widgets on the client. To learn how to do this without getting the markup mismatch issues, refer to the explanation in the previous paragraph.
+Ricorda di essere consapevole dell'esperienza utente su connessioni lente. Il codice JavaScript potrebbe caricarsi significativamente più tardi rispetto allla renderizzazione iniziale dell'HTML, perciò se renderizzi qualcosa di diverso nel passaggio solo client, la transizione può risultare irritante. Tuttavia, se eseguito bene, può essere vantaggioso renderizzare uno "scheletro" dell'applicazione sul server, e mostrare solo alcuni dei widget supplementari sul client. Per capire come fare ciò senza imbattersi in problemi di discrepanze nel markup, consulta la spiegazione nel precedente paragrafo.
 
 * * *
 
@@ -80,28 +80,28 @@ Remember to be mindful of user experience on slow connections. The JavaScript co
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns `true` if a component was unmounted and `false` if there was no component to unmount.
+Rimuove un componente React montato dal DOM e ripulisce i suoi gestori degli eventi e il suo state. Se nessun componente era stato montato nel contenitore, chiamare questa funzione non fa nulla. Ritorna `true` se un componente è stato smontato e `false` se non c'era nessun componente da smontare.
 
 * * *
 
 ### `findDOMNode()` {#finddomnode}
 
-> Note:
+> Nota:
 >
-> `findDOMNode` is an escape hatch used to access the underlying DOM node. In most cases, use of this escape hatch is discouraged because it pierces the component abstraction. [It has been deprecated in `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` è un modo per accedere al nodo DOM sottostante. Nella maggior parte dei casi, l'uso di questo metodo è scoraggiato perché attraversa l'astrazione del componente. [E' stato deprecato in `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)
 ```
-If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. This method is useful for reading values out of the DOM, such as form field values and performing DOM measurements. **In most cases, you can attach a ref to the DOM node and avoid using `findDOMNode` at all.**
+Se questo componente è stato montato nel DOM, ritorna il corrispondente elemento DOM nativo del browser. Questo metodo è utile per leggere valori fuori dal DOM, come i valori dei campi di un form o per eseguire misurazioni del DOM. **Nella maggior parte dei casi, puoi collegare un ref al nodo DOM ed evitare l'uso di `findDOMNode`.**
 
-When a component renders to `null` or `false`, `findDOMNode` returns `null`. When a component renders to a string, `findDOMNode` returns a text DOM node containing that value. As of React 16, a component may return a fragment with multiple children, in which case `findDOMNode` will return the DOM node corresponding to the first non-empty child.
+Quando un componente renderizza come `null` o `false`, `findDOMNode` ritorna `null`. Quando un componente renderizza come stringa, `findDOMNode` ritorna un nodo DOM testuale contenente quel valore. A partire da React 16, un componente può ritornare un frammento con diversi figli, in tal caso `findDOMNode` ritornerà il nodo DOM corrispondente al primo figlio non vuoto. 
 
-> Note:
+> Nota:
 >
-> `findDOMNode` only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling `findDOMNode()` in `render()` on a component that has yet to be created) an exception will be thrown.
+> `findDOMNode` funziona solo su componenti montati (ossia, componenti che sono stati piazzati nel DOM). Se provi a chiamarlo su un componente che non è stato ancora montato (come chiamare `findDOMNode()` nella `render()` di un componente non ancora creato) verrà lanciata un'eccezione.
 >
-> `findDOMNode` cannot be used on function components.
+> `findDOMNode` non può essere usata su componenti funzione.
 
 * * *
 
@@ -111,4 +111,4 @@ When a component renders to `null` or `false`, `findDOMNode` returns `null`. Whe
 ReactDOM.createPortal(child, container)
 ```
 
-Creates a portal. Portals provide a way to [render children into a DOM node that exists outside the hierarchy of the DOM component](/docs/portals.html).
+Crea un portale. I portali forniscono un modo per [renderizzare dei figli in un nodo DOM che esiste al di fuori della gerarchia del componente DOM](/docs/portals.html).
