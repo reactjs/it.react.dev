@@ -274,83 +274,83 @@ Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UN
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
+`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un ogetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
 
-This method exists for [rare use cases](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) where the state depends on changes in props over time. For example, it might be handy for implementing a `<Transition>` component that compares its previous and next children to decide which of them to animate in and out.
+Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
-Deriving state leads to verbose code and makes your components difficult to think about.  
-[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+Derivare lo stato è spesso causa di codice verboso e rende difficile la gestione dei tuoi componenti.  
+[Assicurati di familiarizzare con alternative più semplici:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
+* Se hai bisogno di **causare un effetto collaterale** (ad esempio una richiesta di dati o un'animazione) in risposta a un cambiamento nelle props, utilizza invece il metodo del lifecycle [`componentDidUpdate`](#componentdidupdate).
 
-* If you want to **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Se vuoi **ricalcolare alcuni dati solo quando una prop cambia**, [utilizza un "memoization helper" (helper di memorizzazione)](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* If you want to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+* Se vui **"resettare" lo stato quando una prop cambia**, valuta invece se rendere il componente [completamente controllato](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) oppure [completamente non controllato con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 
-This method doesn't have access to the component instance. If you'd like, you can reuse some code between `getDerivedStateFromProps()` and the other class methods by extracting pure functions of the component props and state outside the class definition.
+Questo metodo non ha accesso all'istanza del componente. Se vuoi, puoi riutilizzare parti del codice di `getDerivedStateFromProps()` e di altri metodi di classe dichiarando, all'esterno della definizione della classe del componente, funzioni pure che accettano come argomenti le props e lo state.
 
-Note that this method is fired on *every* render, regardless of the cause. This is in contrast to `UNSAFE_componentWillReceiveProps`, which only fires when the parent causes a re-render and not as a result of a local `setState`.
+Nota che questo metodo viene chiamato *ogni volta* che viene effettuato un render, a prescindere dalla causa. Al contrario, `UNSAFE_componentWillReceiveProps` viene invocato solo quando il parent causa la ri-renderizzazione e non quando quest'ultima è il risultato di una chiamata a `setState` all'interno del componente stesso.
 
 * * *
 
 ### `getSnapshotBeforeUpdate()` {#getsnapshotbeforeupdate}
 
 ```javascript
-getSnapshotBeforeUpdate(prevProps, prevState)
+getSnapshotBeforeUpdate(propsPrecedenti, statePrecedente)
 ```
 
-`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle will be passed as a parameter to `componentDidUpdate()`.
+`getSnapshotBeforeUpdate()` è invocato subito prima che il più recente output della renderizzazione sia consolidato ad esempio nel DOM. Rende possibile al tuo componente catturare informazioni del DOM (e.g. la posizione dello scroll) prima che avvenga un potenziale cambiamento. Qualsiasi valore restituito da questo metodo del lifecycle verrà passato come parametro a `componentDidUpdate()`.
 
-This use case is not common, but it may occur in UIs like a chat thread that need to handle scroll position in a special way.
+Questo caso d'uso non è comune, ma potrebbe verificarsi in UI come i canali delle chat, che hanno bisogno di gestire la posizione dello scroll in modo speciale.
 
-A snapshot value (or `null`) should be returned.
+Il metodo dovrebbe restituire un valore di "snapshot" (o `null`).
 
-For example:
+Ad esempio:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
-In the above examples, it is important to read the `scrollHeight` property in `getSnapshotBeforeUpdate` because there may be delays between "render" phase lifecycles (like `render`) and "commit" phase lifecycles (like `getSnapshotBeforeUpdate` and `componentDidUpdate`).
+Nell'esempio qui sopra, è importante leggere la proprietà `scrollHeight` in `getSnapshotBeforeUpdate` perché potrebbero verificarsi ritardi fra i metodi del lifecycle che appartengono alla fase della renderizzazione (come `render`) e i metodi che appartengono alla fase del "consolidamento" (come `getSnapshotBeforeUpdate` e `componentDidUpdate`).
 
 * * *
 
-### Error boundaries {#error-boundaries}
+### Contenitori di Errori {#error-boundaries}
 
-[Error boundaries](/docs/error-boundaries.html) are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+I [Contenitori di Errori](/docs/error-boundaries.html) sono componenti React che si occupano di catturare gli errori JavaScript in qualunque punto nell'albero dei loro componenti figli, loggarli e visualizzare una UI di ripiego invece dell'albero di componenti che si è rotto. I COntenitori di Errori catturano gli errori durante la renderizzazione, nei metodi del lifecycle e nei costruttori dell'intero albero sotto di loro.
 
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`. Updating state from these lifecycles lets you capture an unhandled JavaScript error in the below tree and display a fallback UI.
+Un componente classe diventa un contenitore di errori se definisce uno entrambi i metodi del lifecycle `static getDerivedStateFromError()` o `componentDidCatch()`. Aggiornare lo stato all'interno di questi metodi del lifecycle ti consente di catturare un errore JavaScript non gestito nell'albero più in basso e mostrare una UI di ripiego.
 
-Only use error boundaries for recovering from unexpected exceptions; **don't try to use them for control flow.**
+Utilizza i contenitori di errori solamente per recuperare errori inaspettati; **non utilizzarli per il controllo di flusso dell'applicazione.**
 
-For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
+Per maggiori informazioni, vedi [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
-> Note
+> Nota
 > 
-> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
+> I contenitori di errori catturano solamente gli errori sollevati dai componenti **sotto di loro** nell'albero. Un contenitore di errori non è in grado di catturare un errore sollevato da lui stesso.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
 static getDerivedStateFromError(error)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives the error that was thrown as a parameter and should return a value to update state.
+Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discendente.
+Riceve l'errore che è stato sollevato come parametro e dovrebbe restituire un valore da usare per aggiornare lo state.
 
 ```js{7-10,13-16}
-class ErrorBoundary extends React.Component {
+class ContenitoreErrori extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { inErrore: false };
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
+    // Aggiorno lo stato in modo che il prossimo render visualizzi la UI di ripiego.
+    return { inErrore: true };
   }
 
   render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+    if (this.state.inErrore) {
+      // Puoi renderizzare una qualsiasi interfaccia di ripiego
+      return <h1>Oh no! Si è verificato un errore!</h1>;
     }
 
     return this.props.children; 
@@ -358,10 +358,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Nota
 >
-> `getDerivedStateFromError()` is called during the "render" phase, so side-effects are not permitted.
-For those use cases, use `componentDidCatch()` instead.
+> `getDerivedStateFromError()` è chiamato durante la fase di renderizzazione, quindi i side-effects (effetti collaterali) non sono permessi.
+Per questi casi d'uso, utilizza invece `componentDidCatch()`.
 
 * * *
 
@@ -371,41 +371,41 @@ For those use cases, use `componentDidCatch()` instead.
 componentDidCatch(error, info)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives two parameters:
+Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discentente.
+Riceve due parametri:
 
-1. `error` - The error that was thrown.
-2. `info` - An object with a `componentStack` key containing [information about which component threw the error](/docs/error-boundaries.html#component-stack-traces).
+1. `error` - L'errore che è stato sollevato.
+2. `info` - Un ogetto con una chiave `componentStack` che contiene [informazioni a proposito di quale componente ha sollevato l'errore](/docs/error-boundaries.html#component-stack-traces).
 
 
-`componentDidCatch()` is called during the "commit" phase, so side-effects are permitted.
-It should be used for things like logging errors:
+`componentDidCatch()` è chiamato durante la fase di consolidamento, quindi i side-effects sono ammessi.
+Dovrebbe essere utilizzato per cose come il log degli errori:
 
-```js{12-19}
-class ErrorBoundary extends React.Component {
+```js {12-19}
+class ContenitoreErrori extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { inErrore: false };
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
+    // Aggiorno lo stato in modo che il prossimo render visualizzi la UI di ripiego.
+    return { inErrore: true };
   }
 
   componentDidCatch(error, info) {
-    // Example "componentStack":
-    //   in ComponentThatThrows (created by App)
-    //   in ErrorBoundary (created by App)
+    // "componentStack" di esempio:
+    //   in ComponenteMalfunzionante (created by App)
+    //   in ContenitoreErrori (created by App)
     //   in div (created by App)
     //   in App
-    logComponentStackToMyService(info.componentStack);
+    loggaStackNelMioServizio(info.componentStack);
   }
 
   render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+    if (this.state.inErrore) {
+      // Puoi renderizzare una qualsiasi interfaccia di ripiego
+      return <h1>Oh no! Si è verificato un errore!</h1>;
     }
 
     return this.props.children; 
@@ -413,14 +413,14 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Nota
 > 
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
+> Quando si verifica un errore, puoi anche renderizzare una UI di ripiego con `componentDidCatch()` chiamando `setState`, ma questo comportamento verrà deprecato in una futura release di React.
+> Utilizza invece `static getDerivedStateFromError()` per gestire la renderizzazione in questi casi.
 
 * * *
 
-### Legacy Lifecycle Methods {#legacy-lifecycle-methods}
+### Metodi del Lifecycle Obsoleti {#legacy-lifecycle-methods}
 
 The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
 

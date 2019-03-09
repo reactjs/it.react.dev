@@ -189,9 +189,9 @@ function MyComponent() {
 }
 ```
 
-### Error boundaries {#error-boundaries}
+### Contenitori di Errori {#error-boundaries}
 
-If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Error Boundaries](/docs/error-boundaries.html). Once you've created your Error Boundary, you can use it anywhere above your lazy components to display an error state when there's a network error.
+If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Contenitori di Errori](/docs/error-boundaries.html). Once you've created your Contenitore di Errori, you can use it anywhere above your lazy components to display an error state when there's a network error.
 
 ```js
 import MyErrorBoundary from './MyErrorBoundary';

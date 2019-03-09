@@ -44,7 +44,7 @@
     - id: context
       title: Context
     - id: error-boundaries
-      title: Error Boundaries
+      title: Contenitori di Errori
     - id: forwarding-refs
       title: Forwarding Refs
     - id: fragments

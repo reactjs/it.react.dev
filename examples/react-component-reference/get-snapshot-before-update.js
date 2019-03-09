@@ -1,32 +1,33 @@
-class ScrollingList extends React.Component {
+class ListaScorrimento extends React.Component {
   constructor(props) {
     super(props);
-    this.listRef = React.createRef();
+    this.rifLista = React.createRef();
   }
 
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    // Are we adding new items to the list?
-    // Capture the scroll position so we can adjust scroll later.
-    if (prevProps.list.length < this.props.list.length) {
-      const list = this.listRef.current;
-      return list.scrollHeight - list.scrollTop;
+  getSnapshotBeforeUpdate(propsPrecedenti, statePrecedente) {
+    // Stiamo aggiungendo nuovi elementi alla lista?
+    // Salviamo la posizione dello scroll in modo da poterla aggiustare in seguito.
+    if (propsPrecedenti.list.length < this.props.list.length) {
+      const lista = this.rifLista.current;
+      return lista.scrollHeight - lista.scrollTop;
     }
     return null;
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    // If we have a snapshot value, we've just added new items.
-    // Adjust scroll so these new items don't push the old ones out of view.
-    // (snapshot here is the value returned from getSnapshotBeforeUpdate)
+  componentDidUpdate(propsPrecedenti, statePrecedente, snapshot) {
+    // Se snapshot è definito, abbiamo appenan aggiunto nuovi elementi alla lista.
+    // Aggiustiamo lo scroll in modo che i nuovi elementi non spingano quelli
+    // preesistenti fuori dallo schermo.
+    // (snapshot contiene il valore restituito da getSnapshotBeforeUpdate)
     if (snapshot !== null) {
-      const list = this.listRef.current;
-      list.scrollTop = list.scrollHeight - snapshot;
+      const lista = this.rifLista.current;
+      lista.scrollTop = lista.scrollHeight - snapshot;
     }
   }
 
   render() {
     return (
-      <div ref={this.listRef}>{/* ...contents... */}</div>
+      <div ref={this.rifLista}>{/* ...contenuti... */}</div>
     );
   }
 }
