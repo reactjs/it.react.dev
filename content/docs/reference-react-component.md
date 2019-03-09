@@ -117,23 +117,23 @@ I metodi in questa sezione copro la maggior parte dei casi d'uso che incontrerai
 render()
 ```
 
-The `render()` method is the only required method in a class component.
+Il metodo `render()` è l'unico metodo obbligatorio in un componente classe.
 
-When called, it should examine `this.props` and `this.state` and return one of the following types:
+Il suo compito è esaminare `this.props` e `this.state` e restituire in output uno dei seguenti tipi:
 
-- **React elements.** Typically created via [JSX](/docs/introducing-jsx.html). For example, `<div />` and `<MyComponent />` are React elements that instruct React to render a DOM node, or another user-defined component, respectively.
-- **Arrays and fragments.** Let you return multiple elements from render. See the documentation on [fragments](/docs/fragments.html) for more details.
-- **Portals**. Let you render children into a different DOM subtree. See the documentation on [portals](/docs/portals.html) for more details.
-- **String and numbers.** These are rendered as text nodes in the DOM.
-- **Booleans or `null`**. Render nothing. (Mostly exists to support `return test && <Child />` pattern, where `test` is boolean.)
+- **Elementi React.** Creati solitamente utilizzando [JSX](/docs/introducing-jsx.html). Ad esempio, `<div />` e `<MyComponent />` sono elementi React che indicano a React di renderizzare rispettivamente un nodo del DOM e un altro componente definito dall'utente.
+- **Array e "fragments" (frammenti).** Ti consentono di restituire in output più di un elemento. Leggi la documentazione sui [fragments](/docs/fragments.html) per maggiori informazioni.
+- **Portali**. Ti consentono di renderizzare i figli del componente in un sottoalbero del DOM diverso da quello in cui si trova il componente. Leggi la documentazione sui [portali](/docs/portals.html) per maggiori informazioni.
+- **Stringhe e numeri.** Sono renderizzati come nodi di testo nel DOM.
+- **Booleani o `null`**. Non renderizzano niente. (Esistono soprattutto per supportare il pattern `return test && <Figlio />`, in cui `test` è booleano.)
 
-The `render()` function should be pure, meaning that it does not modify component state, it returns the same result each time it's invoked, and it does not directly interact with the browser.
+La funzione `render()` deve essere pura, ovvero non modificare lo stato del componente, restituire sempre lo stesso risultato ogni volta che viene invocata e non interagire direttamente con il browser.
 
-If you need to interact with the browser, perform your work in `componentDidMount()` or the other lifecycle methods instead. Keeping `render()` pure makes components easier to think about.
+Se hai bisogno di interagire con il browser, fallo all'interno del metodo `componentDidMount()` o negli altri metodi del lifecycle. Mantenere pura la funzione `render()` rende più semplice la gestione dei componenti.
 
-> Note
+> Nota
 >
-> `render()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `render()` non viene chiamato se [`shouldComponentUpdate()`](#shouldcomponentupdate) ritorna un valore falso.
 
 * * *
 
@@ -143,47 +143,47 @@ If you need to interact with the browser, perform your work in `componentDidMoun
 constructor(props)
 ```
 
-**If you don't initialize state and you don't bind methods, you don't need to implement a constructor for your React component.**
+**Se non hai bisogno di inizializzare lo stato del componente e di non effettuare il bind di metodi, non c'è bisogno di implementare un costruttore per il tuo componente React.**
 
-The constructor for a React component is called before it is mounted. When implementing the constructor for a `React.Component` subclass, you should call `super(props)` before any other statement. Otherwise, `this.props` will be undefined in the constructor, which can lead to bugs.
+Il costruttore di un componente React è chiamato prima che il componente venga montato. Quando imoplementi il costruttore in una sottoclasse di `React.Component`, dovresti chiamare `super(props)` prima di ogni altra istruzione. In caso contrario, `this.props` rimarrebbe undefined nel costruttore, il che può causare bug.
 
-Typically, in React constructors are only used for two purposes:
+Di solito in React i costruttori sono utilizzati solamente per due scopi:
 
-* Initializing [local state](/docs/state-and-lifecycle.html) by assigning an object to `this.state`.
-* Binding [event handler](/docs/handling-events.html) methods to an instance.
+* Inizializzare lo [stato locale](/docs/state-and-lifecycle.html) assegnando un oggetto a `this.state`.
+* Effettuare il bind dei [gestori di eventi (event handlers)](/docs/handling-events.html) ad una istanza.
 
-You **should not call `setState()`** in the `constructor()`. Instead, if your component needs to use local state, **assign the initial state to `this.state`** directly in the constructor:
+**Non dovresti chiamare `setState()`** nel `constructor()`. Al contrario, se il tuo componente ha bisogno di impostare lo stato locale, **assegna lo stato iniziale a `this.state`** direttamente nel costruttore:
 
 ```js
 constructor(props) {
   super(props);
-  // Don't call this.setState() here!
-  this.state = { counter: 0 };
-  this.handleClick = this.handleClick.bind(this);
+  // Non chiamre this.setState() qui!
+  this.state = { contatore: 0 };
+  this.gestoreClick = this.gestoreClick.bind(this);
 }
 ```
 
-Constructor is the only place where you should assign `this.state` directly. In all other methods, you need to use `this.setState()` instead.
+Il costruttore è l'unico punto in cui puoi assegnare direttamente un valore a `this.state`. In tutti gli altri metodi, devi invece utilizzare `this.setState()`.
 
-Avoid introducing any side-effects or subscriptions in the constructor. For those use cases, use `componentDidMount()` instead.
+Evita di introdurre i cosiddetti "side-effects" (effetti collaterali) o di effettuare sottoscrizioni nel costruttore. Per questi casi d'uso, utilizza invece `componentDidMount()`.
 
->Note
+>Nota
 >
->**Avoid copying props into state! This is a common mistake:**
+>**Evita di copiare le props nello stato! Questo è un errore comune:**
 >
 >```js
 >constructor(props) {
 >  super(props);
->  // Don't do this!
->  this.state = { color: props.color };
+>  // Non fare così!
+>  this.state = { colore: props.colore };
 >}
 >```
 >
->The problem is that it's both unnecessary (you can use `this.props.color` directly instead), and creates bugs (updates to the `color` prop won't be reflected in the state).
+>Il problema è che questa soluzione non solo è superflua (puoi utilizzare direttamente `this.props.color`) ma è anche causa di bug (gli aggiornamenti alla prop `color` non verranno propagati allo stato, contrariamente a quanto si potrebbe erroneamente pensare).
 >
->**Only use this pattern if you intentionally want to ignore prop updates.** In that case, it makes sense to rename the prop to be called `initialColor` or `defaultColor`. You can then force a component to "reset" its internal state by [changing its `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) when necessary.
+>**Utilizza questo pattern solamente se vuoi intenzionalmente ignorare gli aggiornamenti delle props.** In quel caso, però, per rendere più comprensibile il codice ha senso rinominare la prop e chiamarla `coloreIniziale` o `coloreDefault`. A quel punto puoi costringere un componente a "resettare" il suo stato interno [cambiandone la `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) quando necessario.
 >
->Read our [blog post on avoiding derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html) to learn about what to do if you think you need some state to depend on the props.
+>Leggi il [post del blog a proposito di come evitare lo stato derivato](/blog/2018/06/07/you-probably-dont-need-derived-state.html) per sapere cosa fare quando pensi di aver bisogno di far dipendere parti dello stato di un componente dalle sue props.
 
 
 * * *
@@ -194,40 +194,40 @@ Avoid introducing any side-effects or subscriptions in the constructor. For thos
 componentDidMount()
 ```
 
-`componentDidMount()` is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
+`componentDidMount()` è invocato dopo che il componente è montato (cioè inserito nell'albero del DOM). Le logiche di inizializzazione che dipendono dai nodi del DOM dovrebbero essere dichiarate in questo metodo. Inoltre, se hai bisogno di caricare dei dati chiamando un endpoint remoto, questo è un buon punto per instanziare la chiamata.
 
-This method is a good place to set up any subscriptions. If you do that, don't forget to unsubscribe in `componentWillUnmount()`.
+Questo metodo è anche un buon punto in cui creare le sottoscrizioni. Se lo fai, non scordarti di cancellare in `componentWillUnmount()` tutte le sottoscrizioni create.
 
-You **may call `setState()` immediately** in `componentDidMount()`. It will trigger an extra rendering, but it will happen before the browser updates the screen. This guarantees that even though the `render()` will be called twice in this case, the user won't see the intermediate state. Use this pattern with caution because it often causes performance issues. In most cases, you should be able to assign the initial state in the `constructor()` instead. It can, however, be necessary for cases like modals and tooltips when you need to measure a DOM node before rendering something that depends on its size or position.
+Puoi **chiamare `setState()` immediatamente** in `componentDidMount()`. Farlo scatenerà una richiesta di rendering in più, che però verrà gestita prima che il browser aggiorni lo schermo. QUesto garantisce che l'utente non visualizzi lo stato intermedio anche se il metodo `render()` viene chiamato due volte. Utilizza questo pattern con cautela in quanto spesso causa problemi di performance. Nella maggior parte dei casi, dovresti poter assegnare lo stato iniziale del componente nel `constructor()`. Tuttavia, potrebbe essere necessario utilizzare questo pattern in casi come i popup o i tooltip, in cui hai bisogno di misurare un nodo del DOM prima di renderizzare qualcosa che dipende dalla sua posizione o dalle sue dimensioni.
 
 * * *
 
 ### `componentDidUpdate()` {#componentdidupdate}
 
 ```javascript
-componentDidUpdate(prevProps, prevState, snapshot)
+componentDidUpdate(propsPrecedenti, statePrecedente, snapshot)
 ```
 
-`componentDidUpdate()` is invoked immediately after updating occurs. This method is not called for the initial render.
+`componentDidUpdate()` è invocato immediatamente dopo che avviene un aggiornamento del componente. Non viene chiamato per la renderizzazione iniziale.
 
-Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+Utilizza questo metodo come un'opportunità di effettuare operazioni sul DOM dopo che il componente si è aggiornato, oppure per effettuare richieste di rete dopo aver comparato i valori attuali delle props con quelli passati (e.g. una richiesta di rete potrebbe non essere necessaria se le props non sono cambiate).
 
 ```js
-componentDidUpdate(prevProps) {
-  // Typical usage (don't forget to compare props):
-  if (this.props.userID !== prevProps.userID) {
-    this.fetchData(this.props.userID);
+componentDidUpdate(propsPrecedenti) {
+  // Utilizzo tipico (non dimenticarti di comparare le props):
+  if (this.props.idUtente !== propsPrecedenti.idUtente) {
+    this.fetchData(this.props.idUtente);
   }
 }
 ```
 
-You **may call `setState()` immediately** in `componentDidUpdate()` but note that **it must be wrapped in a condition** like in the example above, or you'll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance. If you're trying to "mirror" some state to a prop coming from above, consider using the prop directly instead. Read more about [why copying props into state causes bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Puoi chiamare `setState()` immediatamente** in `componentDidUpdate()` ma nota che la chiamata **deve sempre essere subordinata a un'espressione condizionale** come nell'esempio in alto, altrimenti causerai un loop infinito e una renderizzazione extra che, anche se non visibile dall'utente, può peggiorare la performance del componente. Se la tua intenzione è quella di "rispecchiare" nello stato una prop che viene dall'alto, valuta invece di utilizzare direttamente quella prop. Per saperne di più, leggi [operché copiare le props nello stato è fonte di bug](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is rare), the value it returns will be passed as a third "snapshot" parameter to `componentDidUpdate()`. Otherwise this parameter will be undefined.
+Se il tuo componente implementa il metodo del lifecycle `getSnapshotBeforeUpdate()` (il che avviene raramente), il valore restituito da quest'ultimo verrà passato come terzo argomento ("snapshot" nell'esempio in alto) al metodo `componentDidUpdate()`. In caso contrario, "snapshot" sarà undefined.
 
-> Note
+> Nota
 >
-> `componentDidUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `componentDidUpdate()` non viene chiamato se [`shouldComponentUpdate()`](#shouldcomponentupdate) restituisce un valore falso.
 
 * * *
 
@@ -237,34 +237,34 @@ If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is
 componentWillUnmount()
 ```
 
-`componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount()`.
+`componentWillUnmount()` è invocato subito prima che un componente sia smontato e distrutto. Effettua tutte le necessarie operazioni di pulizia in questo metodo, come la cancellazione di timer, richieste di rete o sottoscrizioni che avevi creato in `componentDidMount()`.
 
-You **should not call `setState()`** in `componentWillUnmount()` because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.
+**Non dovresti chiamare `setState()`** in `componentWillUnmount()` perché il componente non verrà ri-renderizzato. Una volta che un'istanza di un componente è smontata, non verrà mai più montata.
 
 * * *
 
-### Rarely Used Lifecycle Methods {#rarely-used-lifecycle-methods}
+### Metodi del Lifecycle Utilizzati Raramente {#rarely-used-lifecycle-methods}
 
-The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
+I metodi in questa sezione corrispondono a casi d'uso non comuni. Possono tornare utili qualche volta, ma la maggior parte dei tuoi componenti non dovrebbe averne bisogno. **Puoi visualizzare la maggior parte dei metodi descritti in questa sezione in questo [diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se spunti il checkbox "Show less common lifecycles" ("Mostra i metodi del lifecycle meno comuni") in alto.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
 
 ```javascript
-shouldComponentUpdate(nextProps, nextState)
+shouldComponentUpdate(propsSuccessive, stateSucessivo)
 ```
 
-Use `shouldComponentUpdate()` to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+Utilizza `shouldComponentUpdate()` per informare React del fatto che l'output di un componente non è influenzato dall'attuale modifica dello state o delle props. Il comportamento predefinito di React è quello di ri-renderizzare un componente ogni volta che lo stato cambia e nella stragrande maggioranza dei casi dovresti affidarti a questo comportamento.
 
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received. Defaults to `true`. This method is not called for the initial render or when `forceUpdate()` is used.
+`shouldComponentUpdate()` è invocato prima della renderizzazione, quando il componente sta ricevendo nuove proprietà o un nuovo stato. Il risultato di default restituito dal metodo è `true`. Questo metodo non è chiamato durante la renderizzazione del componente oppure quando viene utilizzato il metodo `forceUpdate()`.
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a rendering, as this can lead to bugs. **Consider using the built-in [`PureComponent`](/docs/react-api.html#reactpurecomponent)** instead of writing `shouldComponentUpdate()` by hand. `PureComponent` performs a shallow comparison of props and state, and reduces the chance that you'll skip a necessary update.
+Questo metodo esiste al solo scopo di **[ottimizzare la performance](/docs/optimizing-performance.html).** Non devi utilizzarlo per "prevenire" una renderizzazione, in quanto questo può essere causa di bug. **Valuta se utilizzare la classe predefinita [`PureComponent`](/docs/react-api.html#reactpurecomponent)** invece di scrivere `shouldComponentUpdate()` a mano. `PureComponent` effettua una comparazione "shallow" delle props e dello state e riduce il rischio di saltare erroneamente un aggiornamento necessario.
 
-If you are confident you want to write it by hand, you may compare `this.props` with `nextProps` and `this.state` with `nextState` and return `false` to tell React the update can be skipped. Note that returning `false` does not prevent child components from re-rendering when *their* state changes.
+Se sei sicuro di voler scrivere a mano il metodo, puoi comparare `this.props` con `propsSuccessive` e `this.state` con `stateSucessivo` e restituire `false` per comunicare a React che l'aggiornamento può essere saltato. Nota che restituire `false` non impedisce ai componenti figli di essere ri-renderizzati quando il *loro* stato cambia.
 
-We do not recommend doing deep equality checks or using `JSON.stringify()` in `shouldComponentUpdate()`. It is very inefficient and will harm performance.
+Non raccomandiamo di effettuare comparazioni "deep" o di utilizzare `JSON.stringify()` in `shouldComponentUpdate()`. Farlo è molto inefficiente e peggiorerà sicuramente la performance del componente.
 
-Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), and [`componentDidUpdate()`](#componentdidupdate) will not be invoked. In the future React may treat `shouldComponentUpdate()` as a hint rather than a strict directive, and returning `false` may still result in a re-rendering of the component.
+Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), e [`componentDidUpdate()`](#componentdidupdate) non vengono invocati. In futuro, React potrebbe però considerare il risultato di `shouldComponentUpdate()` semplicemente come un suggerimento, e non un ordine tassativo, nel cui caso restituire `false` potrebbe comunque risultare in una nuova renderizzazione del componente.
 
 * * *
 
