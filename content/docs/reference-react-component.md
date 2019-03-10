@@ -422,7 +422,7 @@ class ContenitoreErrori extends React.Component {
 
 ### Metodi del Lifecycle Obsoleti {#legacy-lifecycle-methods}
 
-The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
+I metodi del lifecycle seguenti sono marcati come "obsoleti". Funzionano ancora, ma non raccomandiamo di utilizzarli nel nuovo codice. Puoi saperne di più a proposito di come effettuare la migrazione dai metodi del lifecycle obsoleti in [questo post del blog](/blog/2018/03/27/update-on-async-rendering.html).
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
@@ -430,65 +430,65 @@ The lifecycle methods below are marked as "legacy". They still work, but we don'
 UNSAFE_componentWillMount()
 ```
 
-> Note
+> Nota
 >
-> This lifecycle was previously named `componentWillMount`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Questo metodo del lifecycle era originariamente chiamato `componentWillMount`. Quel nome continuerà a funzionare fino alla versione 17. Utilizza il ["codemod" `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) per aggiornare automaticamente i tuoi componenti.
 
-`UNSAFE_componentWillMount()` is invoked just before mounting occurs. It is called before `render()`, therefore calling `setState()` synchronously in this method will not trigger an extra rendering. Generally, we recommend using the `constructor()` instead for initializing state.
+`UNSAFE_componentWillMount()` viene invocato prima del montaggio del componente e prima di `render()`, quindi chiamare `setState()` in modo sincrono in questo metodo non scatenerà una renderizzazione aggiuntiva. In generale, ti raccomandiamo di utilizzare `constructor()` invece di questo metodo per inizializzare lo stato.
 
-Avoid introducing any side-effects or subscriptions in this method. For those use cases, use `componentDidMount()` instead.
+Evita di introdurre side-effects o sottoscrizioni in questo metodo. Per quei casi d'uso, utilizza invece `componentDidMount()`.
 
-This is the only lifecycle method called on server rendering.
+Questo è l'unico metodo del lifecycle invocato quando si utilizza il server rendering.
 
 * * *
 
 ### `UNSAFE_componentWillReceiveProps()` {#unsafe_componentwillreceiveprops}
 
 ```javascript
-UNSAFE_componentWillReceiveProps(nextProps)
+UNSAFE_componentWillReceiveProps(propsSuccessive)
 ```
 
-> Note
+> Nota
 >
-> This lifecycle was previously named `componentWillReceiveProps`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Questo metodo del lifecycle era originariamente chiamato `componentWillReceiveProps`. Quel nome continuerà a funzionare fino alla versione 17. Utilizza il ["codemod" `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) per aggiornare automaticamente i tuoi componenti.
 
-> Note:
+> Nota:
 >
-> Using this lifecycle method often leads to bugs and inconsistencies
+> Utilizzare questo metodo del lifecycle spesso conduce a bug e inconsistenze.
 >
-> * If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
-> * If you used `componentWillReceiveProps` for **re-computing some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * If you used `componentWillReceiveProps` to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+> * Se hai bisogno di **causare un side effect** (ad esempio, recupero di dati o animazioni) in risposta a un cambiamento nelle proprietà, utilizza invece il metodo del lifecycle [`componentDidUpdate`](#componentdidupdate).
+> * Se hai utilizzato `componentWillReceiveProps` per **ricalcolare alcuni dati solamente quando una proprietà cambia**, [utilizza invece un helper di memorizzazione](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Se hai utilizzato `componentWillReceiveProps` per **"resettare" lo stato quando una proprietà cambia**, valuta piuttosto se creare un componente [completamente controllato](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [completamente non controllato con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
-> For other use cases, [follow the recommendations in this blog post about derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Per gli altri casi d'uso, [segui le raccomandazioni in questo post del blog a proposito dello stato derivato](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare `this.props` and `nextProps` and perform state transitions using `this.setState()` in this method.
+`UNSAFE_componentWillReceiveProps()` viene invocato prima che un componente montato riceva nuove proprietà. Se hai bisogno di aggiornare lo stato in risposta a cambiamenti nelle proprietà (ad esempio per resettarlo), puoi comparare `this.props` e `propsSuccessive` ed effettuare l'aggiornamento dello stato utilizzando `this.setState()` in questo metodo.
 
-Note that if a parent component causes your component to re-render, this method will be called even if props have not changed. Make sure to compare the current and next values if you only want to handle changes.
+Nota che se un componente padre causa la ri-renderizzazione del tuo componente, questo metodo verrà chiamato anche se le proprietà non sono cambiate. Assicurati di comparare i valori attuali e quelli successivi delle proprietà se vuoi solo reagire ai cambiamenti delle proprietà.
 
-React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props during [mounting](#mounting). It only calls this method if some of component's props may update. Calling `this.setState()` generally doesn't trigger `UNSAFE_componentWillReceiveProps()`.
+React non chiama `UNSAFE_componentWillReceiveProps()` con le proprietà iniziali durante il [montaggio](#mounting). Questo metodo viene chiamato solamente se alcune delle proprietà del componente si potrebbero aggiornarsi. In generale, le chiamate a `this.setState()` non attivano `UNSAFE_componentWillReceiveProps()`.
 
 * * *
 
 ### `UNSAFE_componentWillUpdate()` {#unsafe_componentwillupdate}
 
 ```javascript
-UNSAFE_componentWillUpdate(nextProps, nextState)
+UNSAFE_componentWillUpdate(propsSuccessive, stateSuccessivo)
 ```
 
 > Note
 >
-> This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Questo metodo del lifecycle era originariamente chiamato `componentWillUpdate`. Quel nome continuerà a funzionare fino alla versione 17. Utilizza il ["codemod" `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) per aggiornare automaticamente i tuoi componenti.
 
-`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+`UNSAFE_componentWillUpdate()` viene invocato subito prima della renderizzazione quando le nuove props o il nuovo stato vengono ricevuti. Utilizza questo metodo come un'opportunità di prepararti prima che avvenga un aggiornamento. Questo metodo non è chiamato nella renderizzazione iniziale.
 
-Note that you cannot call `this.setState()` here; nor should you do anything else (e.g. dispatch a Redux action) that would trigger an update to a React component before `UNSAFE_componentWillUpdate()` returns.
+Nota che non puoi chiamare `this.setState()`in questo metodo, né dovresti fare qualsiasi altra cosa (e.g. ad esempio il dispatch di una action di Redux) che potrebbe causare un aggiornamento di un componente React prima che l'esecuzione di `UNSAFE_componentWillUpdate()` arrivi al termine.
 
-Typically, this method can be replaced by `componentDidUpdate()`. If you were reading from the DOM in this method (e.g. to save a scroll position), you can move that logic to `getSnapshotBeforeUpdate()`.
+Tipicamente, questo metodo può essere sostituito da `componentDidUpdate()`. Se utilizzavi questo metodo per accedere al DOM (e.g. per salvare la posizione dello scroll), puoi spostare quella logica in `getSnapshotBeforeUpdate()`.
 
-> Note
+> Nota
 >
-> `UNSAFE_componentWillUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `UNSAFE_componentWillUpdate()` non viene invocato se [`shouldComponentUpdate()`](#shouldcomponentupdate) restituisce un valore falso.
 
 * * *
 
