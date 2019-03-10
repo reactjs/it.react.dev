@@ -492,11 +492,11 @@ Tipicamente, questo metodo può essere sostituito da `componentDidUpdate()`. Se 
 
 * * *
 
-## Other APIs {#other-apis-1}
+## Altre API {#other-apis-1}
 
-Unlike the lifecycle methods above (which React calls for you), the methods below are the methods *you* can call from your components.
+A differenza dei metodi del lifecycle descritti in alto (che React invoca automaticamente per te), quelli seguenti sono metodi che *tu* puoi chiamare nei tuoi componenti.
 
-There are just two of them: `setState()` and `forceUpdate()`.
+Sono solamente due: `setState()` e `forceUpdate()`.
 
 ### `setState()` {#setstate}
 
@@ -504,68 +504,68 @@ There are just two of them: `setState()` and `forceUpdate()`.
 setState(updater[, callback])
 ```
 
-`setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state. This is the primary method you use to update the user interface in response to event handlers and server responses.
+`setState()` accoda modifiche allo stato del componente e comunica a React che il componente e i suoi figli devono essere ri-renderizzati con lo stato aggiornato. Questo è il metodo principale che puoi utilizzare per aggiornare l'interfaccia utente in risposta agli event handler e alle risposte del server.
 
-Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. React does not guarantee that the state changes are applied immediately.
+Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. React non garantisce che i cambiamenti allo stato vengano applicati immediatamente.
 
-`setState()` does not always immediately update the component. It may batch or defer the update until later. This makes reading `this.state` right after calling `setState()` a potential pitfall. Instead, use `componentDidUpdate` or a `setState` callback (`setState(updater, callback)`), either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the `updater` argument below.
+`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardardare l'aqggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
 
-`setState()` will always lead to a re-render unless `shouldComponentUpdate()` returns `false`. If mutable objects are being used and conditional rendering logic cannot be implemented in `shouldComponentUpdate()`, calling `setState()` only when the new state differs from the previous state will avoid unnecessary re-renders.
+`setState()` causerà sempre una ri-renderizzazione a meno che `shouldComponentUpdate()` restituisca `false`. Se stai utilizzando oggetti mutabili e non puoi implementare una logica di renderizzazione condizionale in `shouldComponentUpdate()`, chiamare `setState()` solo quando il nuovo stato è effettivamente diverso dal precedente eviterà renderizzazioni non necessarie
 
-The first argument is an `updater` function with the signature:
+Il primo argomento è una funzione `updater` ("aggiornatrice") con la seguente firma:
 
 ```javascript
-(state, props) => stateChange
+(state, props) => cambiamentoState
 ```
 
-`state` is a reference to the component state at the time the change is being applied. It should not be directly mutated. Instead, changes should be represented by building a new object based on the input from `state` and `props`. For instance, suppose we wanted to increment a value in state by `props.step`:
+`state` è un riferimento allo stato del componente nel momento in cui il cambiamento sta venendo applicato. Non dovebbe mai essere mutato direttamente. Piuttosto, gli aggiornamenti dovrebbero essere rappresentati costruendo un nuovo oggetto basato sull'input di `state` e `props`. Ad esempio, supponiamo di voler incrementare un valore nello stato a seconda del valore di `props.intervallo`:
 
 ```javascript
 this.setState((state, props) => {
-  return {counter: state.counter + props.step};
+  return {counter: state.contatore + props.intervallo};
 });
 ```
 
-Both `state` and `props` received by the updater function are guaranteed to be up-to-date. The output of the updater is shallowly merged with `state`.
+I valori di `state` e `props` ricevuti dalla funzione updater sono sicuramente aggiornati. Il risultato restituito dall'updater viene applicato a `state` con uno shallow merge.
 
-The second parameter to `setState()` is an optional callback function that will be executed once `setState` is completed and the component is re-rendered. Generally we recommend using `componentDidUpdate()` for such logic instead.
+Il secondo parametro di `setState()` è una callback opzionle che verrà chiamata automaticamente una volta che `setState` è stato completato e il componente è stato ri-renderizzato. In generale, ti raccomandiamo di utilizzare `componentDidUpdate()` a questo scopo.
 
-You may optionally pass an object as the first argument to `setState()` instead of a function:
-
-```javascript
-setState(stateChange[, callback])
-```
-
-This performs a shallow merge of `stateChange` into the new state, e.g., to adjust a shopping cart item quantity:
+Puoi anche passare un oggetto come primo argomento di `setState()`, invece che una funzione:
 
 ```javascript
-this.setState({quantity: 2})
+setState(cambiamentoState[, callback])
 ```
 
-This form of `setState()` is also asynchronous, and multiple calls during the same cycle may be batched together. For example, if you attempt to increment an item quantity more than once in the same cycle, that will result in the equivalent of:
+In questo caso viene eseguito direttamente uno shallow merge di `cambiamentoState` nel nuovo stato, ad esempio per modificare la quantità di un prodotto in un carrello della spesa:
+
+```javascript
+this.setState({quantita: 2})
+```
+
+Anche questa variante di `setState()` è sincrona, e chiamate successive durante lo stesso ciclo potrebbero essere accorpate. Ad esempio, se provi ad aumentare la quantità di un prodotto in un carrello più di una volta nello stesso ciclo, otterrai lo stesso effetto di:
 
 ```javaScript
 Object.assign(
   previousState,
-  {quantity: state.quantity + 1},
-  {quantity: state.quantity + 1},
+  {quantita: state.quantita + 1},
+  {quantita: state.quantita + 1},
   ...
 )
 ```
 
-Subsequent calls will override values from previous calls in the same cycle, so the quantity will only be incremented once. If the next state depends on the current state, we recommend using the updater function form, instead:
+Le chiamatre successive sovrascriveranno i valori delle chiamate precedenti nello stesso ciclo, quindi la quantità verrà incrementata una volta sola. Se lo stato successivo dipende dallo stato corrente, ti raccomandiamo la variante che utilizza la funzione updater:
 
 ```js
 this.setState((state) => {
-  return {quantity: state.quantity + 1};
+  return {quantita: state.quantita + 1};
 });
 ```
 
-For more detail, see:
+Per maggiori dettagli, leggi:
 
 * [State e Lifecycle](/docs/state-and-lifecycle.html)
-* [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
-* [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
+* [Approfondimento: Quando e come le chiamate a `setState()` vengono accorpate?](https://stackoverflow.com/a/48610973/458193)
+* [Approfondimento: Perché `this.state` non viene aggiornato immediatamente?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 
@@ -575,43 +575,43 @@ For more detail, see:
 component.forceUpdate(callback)
 ```
 
-By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
+Per definizione, quando lo state o le props del tuo componente cambiano, il componente verrà ri-renderizzato. Se il tuo metodo `render()` dipende da qualche altro dato, puoi informare React del fatto che il componente ha bisogno di essere ri-renderizzato chiamando il metodo `forceUpdate()`.
 
-Calling `forceUpdate()` will cause `render()` to be called on the component, skipping `shouldComponentUpdate()`. This will trigger the normal lifecycle methods for child components, including the `shouldComponentUpdate()` method of each child. React will still only update the DOM if the markup changes.
+Chiamare `forceUpdate()` farà sì che il metodo `render()` del componente venga subito chiamato, saltando `shouldComponentUpdate()`. Questo attiverà normalmente tutti i metodi del lifecycle dei componenti figli, incluso il metodo `shouldComponentUpdate()` di ciascun figlio. React continuerà ad aggiornare il DOM come al solito solamente se il markup cambia.
 
-Normally you should try to avoid all uses of `forceUpdate()` and only read from `this.props` and `this.state` in `render()`.
+Normalmente dovresti cercare di evitare tutti i casi d'uso in cui ti trovi nella necessità di utilizzare `forceUpdate()` ed utilizzare solamente i valori di `this.props` e `this.state` nel metodo `render()`.
 
 * * *
 
-## Class Properties {#class-properties-1}
+## Proprietà della Classe {#class-properties-1}
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props. For example:
+`defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props undefined, ma non per le props nulle. Ad esempio:
 
 ```js
-class CustomButton extends React.Component {
+class BottonePersonalizzato extends React.Component {
   // ...
 }
 
-CustomButton.defaultProps = {
-  color: 'blue'
+BottonePersonalizzato.defaultProps = {
+  colore: 'blu'
 };
 ```
 
-If `props.color` is not provided, it will be set by default to `'blue'`:
+Se `props.colore` non è fornito dall'esterno, verrà automaicamente valorizzato con il valore `'blu'`:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <BottonePersonalizzato /> ; // props.colore verrà impostato a blu
   }
 ```
 
-If `props.color` is set to null, it will remain null:
+Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente nullo:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <BottonePersonalizzato colore={null} /> ; // props.colore resterà nullo
   }
 ```
 
@@ -619,24 +619,24 @@ If `props.color` is set to null, it will remain null:
 
 ### `displayName` {#displayname}
 
-The `displayName` string is used in debugging messages. Usually, you don't need to set it explicitly because it's inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component, see [Wrap the Display Name for Easy Debugging](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) for details.
+La stringa `displayName` è utilizzata nei messaggi di debug. Di solito, non hai bisogno di impostarla in quanto viene derivata automaticamente dal nome della funzione o della classe che definisce il componente. Potresti avere bisogno di impostarla esplicitamente se vuoi mostrare un nome diverso per ragioni di debug oppure se crei un componente di ordine superiore, come descritto dettagliatamente in [Wrap the Display Name for Easy Debugging](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging).
 
 * * *
 
-## Instance Properties {#instance-properties-1}
+## Proprietà dell'Istanza {#instance-properties-1}
 
 ### `props` {#props}
 
-`this.props` contains the props that were defined by the caller of this component. See [Componenti e Props](/docs/components-and-props.html) for an introduction to props.
+`this.props` contiene le props che erano state definite da chi ha chiamato il componente. Leggi [Componenti e Props](/docs/components-and-props.html) per un'introduzione alle props.
 
-In particular, `this.props.children` is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
+In particolare, `this.props.children` è una proprietà speciale, tipicamente definita dai tag figli nelle espressioni JSX piuttosto che nel tag stesso.
 
 ### `state` {#state}
 
-The state contains data specific to this component that may change over time. The state is user-defined, and it should be a plain JavaScript object.
+Lo state contiene i dati specifici del componente che potrebbero cambiare nel tempo. Lo stato è definito dall'utente e dovrebbe essere un semplice oggetto JavaScript.
 
-If some value isn't used for rendering or data flow (for example, a timer ID), you don't have to put it in the state. Such values can be defined as fields on the component instance.
+Se un valore non è utilizzato per la renderizzazione o per il flusso dei dati (ad esempio, l'ID di un timer), non c'è bisogno di includerlo nello state. Questi valori possono semplicemente essere definiti come campi nell'istanza del componente.
 
-See [State e Lifecycle](/docs/state-and-lifecycle.html) for more information about the state.
+Leggi [State e Lifecycle](/docs/state-and-lifecycle.html) per maggiori informazioni a proposito dello stato.
 
-Never mutate `this.state` directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
+Non mutare mai direttamente `this.state`, in quanto chiamate successive a `setState()` potrebbero sovrascrivere la mutazione che hai effettuato. Tratta `this.state` come se fosse immutabile.
