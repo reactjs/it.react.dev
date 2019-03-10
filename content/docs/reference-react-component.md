@@ -15,9 +15,9 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Questa pagina contiene un riferimento dettagliato delle API della definizione della classe componente React. Viene dato per scontato che ti siano familiari i concetti fondamentali di React, come [Componenti e Props](/docs/components-and-props.html), così come [State and Lifecycle](/docs/state-and-lifecycle.html). Se non è così, studiali prima di proseguire.
+Questa pagina contiene un riferimento dettagliato delle API della definizione della classe componente React. Viene dato per scontato che ti siano familiari i concetti fondamentali di React, come [Componenti e Props](/docs/components-and-props.html), così come [State e Lifecycle](/docs/state-and-lifecycle.html). Se non è così, studiali prima di proseguire.
 
-## Overview {#overview}
+## Panoramica {#overview}
 
 React ti consente di definire componenti come classi o come funzioni. I componenti definiti come classi attualmente sono dotati di più funzionalità, che sono descritte dettagliatamente in questa pagina. Per definire una classe componente React, devi estendere `React.Component`:
 
@@ -39,7 +39,7 @@ L'unico metodo che è *obbligatorio* definire in una sottoclasse `React.Componen
 
 ### Il Lifecycle del Componente {#the-component-lifecycle}
 
-Ogni componente ha numerosi "metodi del lifecycle" (ciclo di vita) che puoi sovrascrivere per eseguire del codice in momenti particolari nel processo. **Puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) come riferimento.** Nella lista più in basso, i metodi del lifecycle più frequentemente utilizzati sono evidenziati in **grassetto**. Gli altri metodi non evidenziati esistono per casi d'uso relativamente rari.
+Ogni componente ha numerosi "metodi del lifecycle" (metodi del ciclo di vita) che puoi sovrascrivere per eseguire del codice in momenti particolari nel processo. **Puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) come riferimento.** Nella lista più in basso, i metodi del lifecycle più frequentemente utilizzati sono evidenziati in **grassetto**. Gli altri metodi non evidenziati esistono per casi d'uso relativamente rari.
 
 #### Mounting (Montaggio) {#mounting}
 
@@ -56,7 +56,7 @@ Quando un'istanza di un componente viene creata e inserita nel DOM, questi metod
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Updating (Aggiornamento) {#updating}
+#### Aggiornamento {#updating}
 
 Un aggiornamento può essere causato da cambiamenti alle props o allo state. Quando un componente viene ri-renderizzato, questi metodi sono chiamati nel seguente ordine:
 
@@ -179,7 +179,7 @@ Evita di introdurre i cosiddetti "side-effects" (effetti collaterali) o di effet
 >}
 >```
 >
->Il problema è che questa soluzione non solo è superflua (puoi utilizzare direttamente `this.props.color`) ma è anche causa di bug (gli aggiornamenti alla prop `color` non verranno propagati allo stato, contrariamente a quanto si potrebbe erroneamente pensare).
+>Il problema è che questa soluzione non solo è superflua (puoi utilizzare direttamente `this.props.colore`) ma è anche causa di bug (gli aggiornamenti alla prop `colore` non verranno propagati allo stato, contrariamente a quanto si potrebbe erroneamente pensare).
 >
 >**Utilizza questo pattern solamente se vuoi intenzionalmente ignorare gli aggiornamenti delle props.** In quel caso, però, per rendere più comprensibile il codice ha senso rinominare la prop e chiamarla `coloreIniziale` o `coloreDefault`. A quel punto puoi costringere un componente a "resettare" il suo stato interno [cambiandone la `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) quando necessario.
 >
