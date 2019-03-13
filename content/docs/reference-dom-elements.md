@@ -126,7 +126,7 @@ L'attributo `value` è supportato dai componenti `<input>` e `<textarea>`. Puoi 
 
 Fino a React 16, tutti gli attributi DOM standard [o custom](/blog/2017/09/08/dom-attributes-in-react-16.html) sono pienamente supportati.
 
-React ha sempre offerto delle API JavaScript-centriche per il DOM. Dato che i componenti React utilizzano spesso sia props custom che props relative al DOM, React usa la `notazione a cammello` come convenzione così come avviene con le API del DOM:
+React ha sempre offerto delle API JavaScript-centriche per il DOM. Dato che i componenti React utilizzano spesso sia props custom che props relative al DOM, React usa la notazione camel case  ("notazione a cammello") come convenzione così come avviene con le API del DOM:
 
 ```js
 <div tabIndex="-1" />      // Come avviene nelle API del DOM node.tabIndex
