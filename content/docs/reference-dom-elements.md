@@ -90,7 +90,7 @@ function ComponenteConTransizione() {
 }
 ```
 
-Le chiavi di stile sono in notazione a cammello in modo da essere consistenti con l'accesso alle proprietà dei nodi DOM da JavaScript (ad esempio `node.style.backgroundImage`). Prefissi vendor (terze parti) [diversi da `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) dovrebbero iniziare con la lettera maiuscola. Ecco perché `WebkitTransition` inizia con "W".
+Le chiavi di stile sono in notazione camel case in modo da essere consistenti con l'accesso alle proprietà dei nodi DOM da JavaScript (ad esempio `node.style.backgroundImage`). I prefissi vendor (terze parti) [diversi da `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) dovrebbero iniziare con la lettera maiuscola. Ecco perché `WebkitTransition` inizia con "W".
 
 React aggiunge automaticamente un suffisso "px" ad alcune proprietà di stile in formato numerico. Se vorrai utilizzare unità diverse al posto di "px", dovrai specificare il valore come stringa insieme all'unità desiderata. Per esempio:
 
