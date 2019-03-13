@@ -52,7 +52,7 @@ Dato che `for` è una parola riservata in JavaScript, gli elementi React utilizz
 
 ### onChange {#onchange}
 
-L'evento `onChange` si comporta così come di consueto: qualndo un campo in un form cambia, l'evento viene lanciato. Non utilizziamo intenzionalmente il comportamento esistente nel browser perché il nome `onChange` non descrive molto bene il suo comportamento e React si basa su questo evento per gestire gli input dell'utente in tempo reale.
+L'evento `onChange` si comporta così come di consueto: quando un campo in un form cambia, l'evento viene lanciato. Non utilizziamo intenzionalmente il comportamento esistente nel browser perché il nome `onChange` non descrive molto bene il suo comportamento e React si basa su questo evento per gestire gli input dell'utente in tempo reale.
 
 ### selected {#selected}
 
