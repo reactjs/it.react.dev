@@ -106,7 +106,7 @@ React aggiunge automaticamente un suffisso "px" ad alcune proprietà di stile in
 </div>
 ```
 
-Non tutte proprietà di stile vengono convertite in stringhe. Alcune di esse restano senza unità (ad esempio `zoom`, `order`, `flex`). Una lista completa delle proprietà senza unità è disponibile [qui](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Non tutte le proprietà di stile vengono convertite in stringhe. Alcune di esse restano senza unità (ad esempio `zoom`, `order`, `flex`). Una lista completa delle proprietà senza unità è disponibile [qui](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
