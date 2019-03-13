@@ -56,7 +56,7 @@ L'evento `onChange` si comporta così come di consueto: quando un campo in un fo
 
 ### selected {#selected}
 
-L'attributo `selected` è supportato dai componenti `<option>`. Puoi utilizzarlo quando devi far si che un componente sia selezionato. Questo attributo ci torna utile anche nella costruzione di componenti controllati.
+L'attributo `selected` è supportato dai componenti `<option>`. Puoi utilizzarlo quando devi far sì che un componente sia selezionato. Questo attributo ci torna utile anche nella costruzione di componenti controllati.
 
 ### style {#style}
 
