@@ -64,7 +64,7 @@ L'attributo `selected` è supportato dai componenti `<option>`. Puoi utilizzarlo
 >
 >Alcuni esempi nella documentazione fanno uso di `style` per comodità, tuttavia **l'utilizzo dell'attributo `style` come metodo principale per la personalizzazione degli stili degli elementi non è generalmente raccomandato.** Nella maggioranza dei casi, [`className`](#classname) dovrebbe essere usato per far riferimento a classi definite in fogli di stile CSS esterni. `style` viene usato maggiormente nelle applicazioni React per aggiungere stili calcolati dinamicamente durante la renderizzazione. Vedi anche [FAQ: Stili e CSS](/docs/faq-styling.html).
 
-L'attributo `style` accetta un oggetto JavaScript con proprietà [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello) invece di una stringa CSS. Parallelamente alla proprietà `style` del DOM JavaScript, è più efficiente e previene vulnerabilità XSS. Ad esempop:
+L'attributo `style` accetta un oggetto JavaScript con proprietà [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello) invece di una stringa CSS. Proprio come la proprietà `style` del DOM JavaScript, è più efficiente e previene vulnerabilità XSS. Ad esempio:
 
 ```js
 const divStile = {
