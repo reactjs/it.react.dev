@@ -16,7 +16,7 @@ redirect_from:
 
 React implementa un sistema DOM indipendente dal browser per massimizzare le prestazioni e la compatibilità con i vari browsers. Abbiamo colto l'occasione per smussare gli angoli di alcune implementazioni nel DOM del browser.
 
-In React, tutte le proprietà DOM e gli attributi (inclusi i gestori degli eventi) dovrebbero essere [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello). Ad esempio, l'attributo HTML `tabindex` corrisponde all'attributo `tabIndex` in React. Fanno eccezione gli attributi `aria-*` e `data-*`, i quali dovrebbero essere in minuscolo. Poi mantenere `aria-label` come `aria-label` per esempio.
+In React, tutte le proprietà DOM e gli attributi (inclusi i gestori degli eventi) dovrebbero essere [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello). Ad esempio, l'attributo HTML `tabindex` corrisponde all'attributo `tabIndex` in React. Fanno eccezione gli attributi `aria-*` e `data-*`, i quali dovrebbero essere in minuscolo. Puoi mantenere `aria-label` come `aria-label` per esempio.
 
 ## Differenze Negli Attributi {#differences-in-attributes}
 
