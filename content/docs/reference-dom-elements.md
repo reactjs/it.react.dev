@@ -30,7 +30,7 @@ L'attributo `checked` è supportato dai componenti `<input>` di tipo `checkbox` 
 
 Per specificate una classe CSS, utilizza l'attributo `className`. Si applica a tutti i normali elementi DOM ed SVG come `<div>`, `<a>` ed altri.
 
-Se stai utilizzando React con i [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) (fatto poco comune), usa l'attributo `class` invece.
+Se stai utilizzando React con i [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) (fatto poco comune), usa invece l'attributo `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
