@@ -24,7 +24,7 @@ React components let you split the UI into independent, reusable pieces, and thi
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
 
-If you don't use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](/docs/react-without-es6.html) for more information.
+If you don't use ES6 classes, you may use the `create-react-class` module instead. See [React senza ES6](/docs/react-without-es6.html) for more information.
 
 React components can also be defined as functions which can be wrapped:
 

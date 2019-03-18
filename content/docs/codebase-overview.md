@@ -209,7 +209,7 @@ Its main goals are:
 * Ability to prioritize, rebase and reuse work in progress.
 * Ability to yield back and forth between parents and children to support layout in React.
 * Ability to return multiple elements from `render()`.
-* Better support for error boundaries.
+* Migliore supporto per i contenitori di errori.
 
 You can read more about React Fiber Architecture [here](https://github.com/acdlite/react-fiber-architecture) and [here](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). While it has shipped with React 16, the async features are not enabled by default yet.
 

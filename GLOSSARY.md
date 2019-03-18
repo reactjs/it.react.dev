@@ -34,6 +34,7 @@ Suggestion on words and terms:
 | React component class | classe componente React |
 | React component type | tipo componente React |
 | function component | componente funzione |
+| error boundary | contenitore di errori |
 
 ## Problematic terms
 

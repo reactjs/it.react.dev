@@ -1,6 +1,6 @@
 ---
 id: react-without-es6
-title: React Without ES6
+title: React senza ES6
 permalink: docs/react-without-es6.html
 ---
 
