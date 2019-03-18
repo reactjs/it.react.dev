@@ -6,8 +6,8 @@ layout: docs
 category: Reference
 ---
 
-#### Nota sulla traduzione
-
+> **Nota sulla traduzione:**
+>
 > La definizione inglese `Shallow Renderer` si traduce letteralmente in `Renderizzatore Superficiale`, dato che il modulo è chiamato `shallow`, abbiamo deciso di non tradurlo di seguito.
 
 **Importazione**
