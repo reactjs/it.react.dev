@@ -109,7 +109,7 @@ Ciascun componente fornisce anche altre API:
 
 ### Metodi del Lifecycle Utilizzati Frequentemente {#commonly-used-lifecycle-methods}
 
-I metodi in questa sezione copro la maggior parte dei casi d'uso che incontrerai durante la creazione di componenti React. **Come riferimento grafico, puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+I metodi in questa sezione coprono la maggior parte dei casi d'uso che incontrerai durante la creazione di componenti React. **Come riferimento grafico, puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
@@ -145,7 +145,7 @@ constructor(props)
 
 **Se non hai bisogno di inizializzare lo stato del componente e di non effettuare il bind di metodi, non c'è bisogno di implementare un costruttore per il tuo componente React.**
 
-Il costruttore di un componente React è chiamato prima che il componente venga montato. Quando imoplementi il costruttore in una sottoclasse di `React.Component`, dovresti chiamare `super(props)` prima di ogni altra istruzione. In caso contrario, `this.props` rimarrebbe undefined nel costruttore, il che può causare bug.
+Il costruttore di un componente React è chiamato prima che il componente venga montato. Quando implementi il costruttore in una sottoclasse di `React.Component`, dovresti chiamare `super(props)` prima di ogni altra istruzione. In caso contrario, `this.props` rimarrebbe _undefined_ nel costruttore, il che può causare bug.
 
 Di solito in React i costruttori sono utilizzati solamente per due scopi:
 
@@ -194,11 +194,11 @@ Evita di introdurre i cosiddetti "side-effects" (effetti collaterali) o di effet
 componentDidMount()
 ```
 
-`componentDidMount()` è invocato dopo che il componente è montato (cioè inserito nell'albero del DOM). Le logiche di inizializzazione che dipendono dai nodi del DOM dovrebbero essere dichiarate in questo metodo. Inoltre, se hai bisogno di caricare dei dati chiamando un endpoint remoto, questo è un buon punto per instanziare la chiamata.
+`componentDidMount()` è invocato dopo che il componente è montato (cioè inserito nell'albero del DOM). Le logiche di inizializzazione che dipendono dai nodi del DOM dovrebbero essere dichiarate in questo metodo. Inoltre, se hai bisogno di caricare dei dati chiamando un endpoint remoto, questo è un buon punto per istanziare la chiamata.
 
 Questo metodo è anche un buon punto in cui creare le sottoscrizioni. Se lo fai, non scordarti di cancellare in `componentWillUnmount()` tutte le sottoscrizioni create.
 
-Puoi **chiamare `setState()` immediatamente** in `componentDidMount()`. Farlo scatenerà una richiesta di rendering in più, che però verrà gestita prima che il browser aggiorni lo schermo. QUesto garantisce che l'utente non visualizzi lo stato intermedio anche se il metodo `render()` viene chiamato due volte. Utilizza questo pattern con cautela in quanto spesso causa problemi di performance. Nella maggior parte dei casi, dovresti poter assegnare lo stato iniziale del componente nel `constructor()`. Tuttavia, potrebbe essere necessario utilizzare questo pattern in casi come i popup o i tooltip, in cui hai bisogno di misurare un nodo del DOM prima di renderizzare qualcosa che dipende dalla sua posizione o dalle sue dimensioni.
+Puoi **chiamare `setState()` immediatamente** in `componentDidMount()`. Farlo scatenerà una richiesta di rendering aggiuntiva, che però verrà gestita prima che il browser aggiorni lo schermo. Questo garantisce che l'utente non visualizzi lo stato intermedio anche se il metodo `render()` viene chiamato due volte. Utilizza questo pattern con cautela in quanto spesso causa problemi di performance. Nella maggior parte dei casi, dovresti poter assegnare lo stato iniziale del componente nel `constructor()`. Tuttavia, potrebbe essere necessario utilizzare questo pattern in casi come i popup o i tooltip, in cui hai bisogno di misurare un nodo del DOM prima di renderizzare qualcosa che dipende dalla sua posizione o dalle sue dimensioni.
 
 * * *
 
@@ -221,7 +221,7 @@ componentDidUpdate(propsPrecedenti) {
 }
 ```
 
-**Puoi chiamare `setState()` immediatamente** in `componentDidUpdate()` ma nota che la chiamata **deve sempre essere subordinata a un'espressione condizionale** come nell'esempio in alto, altrimenti causerai un loop infinito e una renderizzazione extra che, anche se non visibile dall'utente, può peggiorare la performance del componente. Se la tua intenzione è quella di "rispecchiare" nello stato una prop che viene dall'alto, valuta invece di utilizzare direttamente quella prop. Per saperne di più, leggi [operché copiare le props nello stato è fonte di bug](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Puoi chiamare `setState()` immediatamente** in `componentDidUpdate()` ma nota che la chiamata **deve sempre essere subordinata a un'espressione condizionale** come nell'esempio in alto, altrimenti causerai un loop infinito e una renderizzazione extra che, anche se non visibile dall'utente, può peggiorare la performance del componente. Se la tua intenzione è quella di "rispecchiare" nello stato una prop che viene dall'alto, valuta invece di utilizzare direttamente quella prop. Per saperne di più, leggi [perché copiare le props nello stato è fonte di bug](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 Se il tuo componente implementa il metodo del lifecycle `getSnapshotBeforeUpdate()` (il che avviene raramente), il valore restituito da quest'ultimo verrà passato come terzo argomento ("snapshot" nell'esempio in alto) al metodo `componentDidUpdate()`. In caso contrario, "snapshot" sarà undefined.
 
@@ -251,7 +251,7 @@ I metodi in questa sezione corrispondono a casi d'uso non comuni. Possono tornar
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
 
 ```javascript
-shouldComponentUpdate(propsSuccessive, stateSucessivo)
+shouldComponentUpdate(propsSuccessive, stateSuccessivo)
 ```
 
 Utilizza `shouldComponentUpdate()` per informare React del fatto che l'output di un componente non è influenzato dall'attuale modifica dello state o delle props. Il comportamento predefinito di React è quello di ri-renderizzare un componente ogni volta che lo stato cambia e nella stragrande maggioranza dei casi dovresti affidarti a questo comportamento.
@@ -260,7 +260,7 @@ Utilizza `shouldComponentUpdate()` per informare React del fatto che l'output di
 
 Questo metodo esiste al solo scopo di **[ottimizzare la performance](/docs/optimizing-performance.html).** Non devi utilizzarlo per "prevenire" una renderizzazione, in quanto questo può essere causa di bug. **Valuta se utilizzare la classe predefinita [`PureComponent`](/docs/react-api.html#reactpurecomponent)** invece di scrivere `shouldComponentUpdate()` a mano. `PureComponent` effettua una comparazione "shallow" delle props e dello state e riduce il rischio di saltare erroneamente un aggiornamento necessario.
 
-Se sei sicuro di voler scrivere a mano il metodo, puoi comparare `this.props` con `propsSuccessive` e `this.state` con `stateSucessivo` e restituire `false` per comunicare a React che l'aggiornamento può essere saltato. Nota che restituire `false` non impedisce ai componenti figli di essere ri-renderizzati quando il *loro* stato cambia.
+Se sei sicuro di voler scrivere a mano il metodo, puoi comparare `this.props` con `propsSuccessive` e `this.state` con `stateSuccessivo` e restituire `false` per comunicare a React che l'aggiornamento può essere saltato. Nota che restituire `false` non impedisce ai componenti figli di essere ri-renderizzati quando il *loro* stato cambia.
 
 Non raccomandiamo di effettuare comparazioni "deep" o di utilizzare `JSON.stringify()` in `shouldComponentUpdate()`. Farlo è molto inefficiente e peggiorerà sicuramente la performance del componente.
 
@@ -274,7 +274,7 @@ Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UN
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un ogetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
+`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
 
 Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
@@ -283,7 +283,7 @@ Derivare lo stato è spesso causa di codice verboso e rende difficile la gestion
 
 * Se hai bisogno di **causare un effetto collaterale** (ad esempio una richiesta di dati o un'animazione) in risposta a un cambiamento nelle props, utilizza invece il metodo del lifecycle [`componentDidUpdate`](#componentdidupdate).
 
-* Se vuoi **ricalcolare alcuni dati solo quando una prop cambia**, [utilizza un "memoization helper" (helper di memorizzazione)](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Se vuoi **ricalcolare alcuni dati solo quando una prop cambia**, [utilizza un "memoization helper" (helper di memoizzazione)](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
 * Se vui **"resettare" lo stato quando una prop cambia**, valuta invece se rendere il componente [completamente controllato](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) oppure [completamente non controllato con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 
@@ -299,7 +299,7 @@ Nota che questo metodo viene chiamato *ogni volta* che viene effettuato un rende
 getSnapshotBeforeUpdate(propsPrecedenti, statePrecedente)
 ```
 
-`getSnapshotBeforeUpdate()` è invocato subito prima che il più recente output della renderizzazione sia consolidato ad esempio nel DOM. Rende possibile al tuo componente catturare informazioni del DOM (e.g. la posizione dello scroll) prima che avvenga un potenziale cambiamento. Qualsiasi valore restituito da questo metodo del lifecycle verrà passato come parametro a `componentDidUpdate()`.
+`getSnapshotBeforeUpdate()` è invocato subito prima che il più recente output della renderizzazione sia consolidato ad esempio nel DOM. Permette al tuo componente di catturare informazioni riguardo al DOM (e.g. la posizione dello scroll) prima che avvenga un potenziale cambiamento. Qualsiasi valore restituito da questo metodo del lifecycle verrà passato come parametro a `componentDidUpdate()`.
 
 Questo caso d'uso non è comune, ma potrebbe verificarsi in UI come i canali delle chat, che hanno bisogno di gestire la posizione dello scroll in modo speciale.
 
@@ -315,13 +315,13 @@ Nell'esempio qui sopra, è importante leggere la proprietà `scrollHeight` in `g
 
 ### Contenitori di Errori {#error-boundaries}
 
-I [Contenitori di Errori](/docs/error-boundaries.html) sono componenti React che si occupano di catturare gli errori JavaScript in qualunque punto nell'albero dei loro componenti figli, loggarli e visualizzare una UI di ripiego invece dell'albero di componenti che si è rotto. I COntenitori di Errori catturano gli errori durante la renderizzazione, nei metodi del lifecycle e nei costruttori dell'intero albero sotto di loro.
+I [Contenitori di Errori](/docs/error-boundaries.html) sono componenti React che si occupano di catturare gli errori JavaScript in qualunque punto nell'albero dei loro componenti figli, loggarli e visualizzare una UI di ripiego invece dell'albero di componenti che si è rotto. I Contenitori di Errori catturano gli errori durante la renderizzazione, nei metodi del lifecycle e nei costruttori dell'intero albero sotto di loro.
 
-Un componente classe diventa un contenitore di errori se definisce uno entrambi i metodi del lifecycle `static getDerivedStateFromError()` o `componentDidCatch()`. Aggiornare lo stato all'interno di questi metodi del lifecycle ti consente di catturare un errore JavaScript non gestito nell'albero più in basso e mostrare una UI di ripiego.
+Un componente classe diventa un contenitore di errori se definisce uno (o entrambi) dei metodi del lifecycle `static getDerivedStateFromError()` o `componentDidCatch()`. Aggiornare lo stato all'interno di questi metodi del lifecycle ti consente di catturare un errore JavaScript non gestito nell'albero più in basso e mostrare una UI di ripiego.
 
 Utilizza i contenitori di errori solamente per recuperare errori inaspettati; **non utilizzarli per il controllo di flusso dell'applicazione.**
 
-Per maggiori informazioni, vedi [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
+Per maggiori informazioni, vedi [*Gestione degli Errori in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
 > Nota
 > 
@@ -375,7 +375,7 @@ Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da
 Riceve due parametri:
 
 1. `error` - L'errore che è stato sollevato.
-2. `info` - Un ogetto con una chiave `componentStack` che contiene [informazioni a proposito di quale componente ha sollevato l'errore](/docs/error-boundaries.html#component-stack-traces).
+2. `info` - Un oggetto con una chiave `componentStack` che contiene [informazioni a proposito di quale componente ha sollevato l'errore](/docs/error-boundaries.html#component-stack-traces).
 
 
 `componentDidCatch()` è chiamato durante la fase di consolidamento, quindi i side-effects sono ammessi.
@@ -457,7 +457,7 @@ UNSAFE_componentWillReceiveProps(propsSuccessive)
 > Utilizzare questo metodo del lifecycle spesso conduce a bug e inconsistenze.
 >
 > * Se hai bisogno di **causare un side effect** (ad esempio, recupero di dati o animazioni) in risposta a un cambiamento nelle proprietà, utilizza invece il metodo del lifecycle [`componentDidUpdate`](#componentdidupdate).
-> * Se hai utilizzato `componentWillReceiveProps` per **ricalcolare alcuni dati solamente quando una proprietà cambia**, [utilizza invece un helper di memorizzazione](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Se hai utilizzato `componentWillReceiveProps` per **ricalcolare alcuni dati solamente quando una proprietà cambia**, [utilizza invece un helper di memoizzazione](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 > * Se hai utilizzato `componentWillReceiveProps` per **"resettare" lo stato quando una proprietà cambia**, valuta piuttosto se creare un componente [completamente controllato](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) o [completamente non controllato con una `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
 > Per gli altri casi d'uso, [segui le raccomandazioni in questo post del blog a proposito dello stato derivato](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
@@ -508,7 +508,7 @@ setState(updater[, callback])
 
 Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. React non garantisce che i cambiamenti allo stato vengano applicati immediatamente.
 
-`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardardare l'aqggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
+`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
 
 `setState()` causerà sempre una ri-renderizzazione a meno che `shouldComponentUpdate()` restituisca `false`. Se stai utilizzando oggetti mutabili e non puoi implementare una logica di renderizzazione condizionale in `shouldComponentUpdate()`, chiamare `setState()` solo quando il nuovo stato è effettivamente diverso dal precedente eviterà renderizzazioni non necessarie
 
@@ -518,7 +518,7 @@ Il primo argomento è una funzione `updater` ("aggiornatrice") con la seguente f
 (state, props) => cambiamentoState
 ```
 
-`state` è un riferimento allo stato del componente nel momento in cui il cambiamento sta venendo applicato. Non dovebbe mai essere mutato direttamente. Piuttosto, gli aggiornamenti dovrebbero essere rappresentati costruendo un nuovo oggetto basato sull'input di `state` e `props`. Ad esempio, supponiamo di voler incrementare un valore nello stato a seconda del valore di `props.intervallo`:
+`state` è un riferimento allo stato del componente nel momento in cui il cambiamento sta venendo applicato. Non dovrebbe mai essere mutato direttamente. Piuttosto, gli aggiornamenti dovrebbero essere rappresentati costruendo un nuovo oggetto basato sull'input di `state` e `props`. Ad esempio, supponiamo di voler incrementare un valore nello stato a seconda del valore di `props.intervallo`:
 
 ```javascript
 this.setState((state, props) => {
@@ -528,7 +528,7 @@ this.setState((state, props) => {
 
 I valori di `state` e `props` ricevuti dalla funzione updater sono sicuramente aggiornati. Il risultato restituito dall'updater viene applicato a `state` con uno shallow merge.
 
-Il secondo parametro di `setState()` è una callback opzionle che verrà chiamata automaticamente una volta che `setState` è stato completato e il componente è stato ri-renderizzato. In generale, ti raccomandiamo di utilizzare `componentDidUpdate()` a questo scopo.
+Il secondo parametro di `setState()` è una callback opzionale che verrà chiamata automaticamente una volta che `setState` è stato completato e il componente è stato ri-renderizzato. In generale, ti raccomandiamo di utilizzare `componentDidUpdate()` a questo scopo.
 
 Puoi anche passare un oggetto come primo argomento di `setState()`, invece che una funzione:
 
@@ -599,7 +599,7 @@ BottonePersonalizzato.defaultProps = {
 };
 ```
 
-Se `props.colore` non è fornito dall'esterno, verrà automaicamente valorizzato con il valore `'blu'`:
+Se `props.colore` non è fornito dall'esterno, verrà automaticamente valorizzato con il valore `'blu'`:
 
 ```js
   render() {
