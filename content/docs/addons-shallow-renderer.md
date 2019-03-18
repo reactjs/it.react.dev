@@ -1,68 +1,72 @@
 ---
 id: shallow-renderer
-title: Shallow Renderer
+title: Renderizzatore Shallow
 permalink: docs/shallow-renderer.html
 layout: docs
 category: Reference
 ---
 
-**Importing**
+> **Nota sulla traduzione:**
+>
+> La definizione inglese `Shallow Renderer` si traduce letteralmente in `Renderizzatore Superficiale`, dato che il modulo è chiamato `shallow`, abbiamo deciso di non tradurlo di seguito.
+
+**Importazione**
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow'; // ES6
-var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 with npm
+var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 con npm
 ```
 
-## Overview {#overview}
+## Panoramica {#overview}
 
-When writing unit tests for React, shallow rendering can be helpful. Shallow rendering lets you render a component "one level deep" and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered. This does not require a DOM.
+Quando scriviamo unit test per React, la renderizzazione shallow può tornare molto utile. Essa permette di renderizzare un componente "ad un livello di profondità" e di asserire fatti riguardo cosa viene ritornato dal suo metodo `render`. Il vantaggio risiede nel fatto che non dobbiamo preoccuparci del comportamento dei componenti figli, i quali non vengono istanziati o renderizzati. Non è richiesto nemmeno un DOM.
 
-For example, if you have the following component:
+Ad esempio, dato il seguente componente:
 
 ```javascript
-function MyComponent() {
+function MioComponente() {
   return (
     <div>
-      <span className="heading">Title</span>
-      <Subcomponent foo="bar" />
+      <span className="testata">Titolo</span>
+      <SottoComponente foo="bar" />
     </div>
   );
 }
 ```
 
-Then you can assert:
+Possiamo asserire:
 
 ```javascript
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-// in your test:
+// nel tuo test:
 const renderer = new ShallowRenderer();
-renderer.render(<MyComponent />);
+renderer.render(<MioComponente />);
 const result = renderer.getRenderOutput();
 
 expect(result.type).toBe('div');
 expect(result.props.children).toEqual([
-  <span className="heading">Title</span>,
-  <Subcomponent foo="bar" />
+  <span className="testata">Titolo</span>,
+  <SottoComponente foo="bar" />
 ]);
 ```
 
-Shallow testing currently has some limitations, namely not supporting refs.
+Il testing shallow, attualmente, ha alcune limitazioni quali il mancato supporto ai `refs`.
 
-> Note:
+> Nota:
 >
-> We also recommend checking out Enzyme's [Shallow Rendering API](https://airbnb.io/enzyme/docs/api/shallow.html). It provides a nicer higher-level API over the same functionality.
+> Ti raccomandiamo inoltre di dare uno sguardo alle [API Shallow Rendering](https://airbnb.io/enzyme/docs/api/shallow.html) di Enzyme. Ti offrono una migliore API di più alto livello attorno alla stessa funzionalità.
 
-## Reference {#reference}
+## Riferimento {#reference}
 
 ### `shallowRenderer.render()` {#shallowrendererrender}
 
-You can think of the shallowRenderer as a "place" to render the component you're testing, and from which you can extract the component's output.
+Puoi pensare allo _shallowRenderer_ come ad un "posto" nel quale renderizzare i componenti che stai testando, dal quale puoi estrarre l'output del componente.
 
-`shallowRenderer.render()` is similar to [`ReactDOM.render()`](/docs/react-dom.html#render) but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+`shallowRenderer.render()` è simile a [`ReactDOM.render()`](/docs/react-dom.html#render) ma non richiede un DOM e renderizza ad un solo livello di profondità. Ciò significa che potrai testare i componenti in isolamento rispetto a come sono implementati i componenti figli.
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
-After `shallowRenderer.render()` has been called, you can use `shallowRenderer.getRenderOutput()` to get the shallowly rendered output.
+Quando `shallowRenderer.render()` è stato chiamato, puoi usare `shallowRenderer.getRenderOutput()` per ottenere l'output renderizzato in modo "superficiale".
 
-You can then begin to assert facts about the output.
+Potrai allora asserire fatti riguardo ad esso nei tuoi test.
