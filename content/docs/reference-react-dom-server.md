@@ -90,4 +90,4 @@ Se hai intenzione di usare React sul client per creare un markup interattivo, no
 >
 > Solo server. Questa API non è disponibile nel browser.
 >
-> Lo stream ritornato da questo metodo sarà uno stream di bytes codificato in utf-8. Se hai bisogno di uno stream in un'altra codifica, da uno sguardo a un progetto tipo [iconv-lite](https://www.npmjs.com/package/iconv-lite), il quale fornisce stream di transformazione per la transcodifica del testo.
+> Lo stream ritornato da questo metodo sarà uno stream di bytes codificato in utf-8. Se hai bisogno di uno stream in un'altra codifica, da uno sguardo a un progetto tipo [iconv-lite](https://www.npmjs.com/package/iconv-lite), il quale fornisce stream di trasformazione per la transcodifica del testo.
