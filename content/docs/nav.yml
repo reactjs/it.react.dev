@@ -79,7 +79,7 @@
       title: Uncontrolled Components
     - id: web-components
       title: Web Components
-- title: API Reference
+- title: API di Riferimento
   items:
     - id: react-api
       title: React
@@ -91,7 +91,7 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: DOM Elements
+      title: Elementi DOM
     - id: events
       title: SyntheticEvent
     - id: test-utils
