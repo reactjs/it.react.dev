@@ -19,7 +19,8 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 con npm
 
 > Nota:
 >
-> Suggeriamo l'utilizzo di [`react-testing-library`](https://git.io/react-testing-library), concepito per abilitare e favorire la scrittura di test che utilizzino i tuoi componenti così come farebbero gli utenti finali.
+> Suggeriamo l'utilizzo di [`react-testing-library`](https://git.io/react-testing-library), concepito per abilitare e favorire la scrittura di test che 
+simulano il reale utilizzo dei componenti.
 >
 > In alternativa, Airbnb ha rilasciato una libreria per i test chiamata [Enzyme](https://airbnb.io/enzyme/), che semplifica le operazioni di verifica, manipolazione, e analisi dell'output dei tuoi componenti.
 
@@ -40,7 +41,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 con npm
  - [`renderIntoDocument()`](#renderintodocument)
  - [`Simulate`](#simulate)
 
-## Casi d'uso {#reference}
+## Riferimento {#reference}
 
 ### `act()` {#act}
 
@@ -306,8 +307,7 @@ ReactDOM.render(element, domContainer);
 
 > Nota:
 >
-> Dovrai avere `window`, `window.document` e `window.document.createElement` disponibili globalmente **prima** di importare `React`. Altrimenti React penserà di non poter accedere al DOM,  
-e metodi come `setState` non funzioneranno.
+> Dovrai avere `window`, `window.document` e `window.document.createElement` disponibili globalmente **prima** di importare `React`. Altrimenti React penserà di non poter accedere al DOM, e metodi come `setState` non funzioneranno.
 
 * * *
 
@@ -324,9 +324,9 @@ Simulate.{eventName}(
 
 Simula la generazione di un evento su un nodo DOM, con un `eventData` opzionale.
 
-`Simulate` ha un metodo per [every event that React understands](/docs/events.html#supported-events).
+`Simulate` ha un metodo per [ogni evento che React supporta](/docs/events.html#supported-events).
 
-**Clicking an element**
+**Cliccare un elemento**
 
 ```javascript
 // <button ref={(node) => this.button = node}>...</button>
