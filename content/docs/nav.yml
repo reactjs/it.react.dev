@@ -34,7 +34,7 @@
     - id: composition-vs-inheritance
       title: Composizione vs Ereditarità
     - id: thinking-in-react
-      title: Thinking In React
+      title: Pensare in React
 - title: Advanced Guides
   items:
     - id: accessibility
@@ -44,7 +44,7 @@
     - id: context
       title: Context
     - id: error-boundaries
-      title: Error Boundaries
+      title: Contenitori di Errori
     - id: forwarding-refs
       title: Forwarding Refs
     - id: fragments
@@ -97,11 +97,11 @@
     - id: test-utils
       title: Test Utilities
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Renderizzatore Shallow
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: Requisiti Ambiente JS
     - id: glossary
       title: Glossary
 - title: Hooks (New)

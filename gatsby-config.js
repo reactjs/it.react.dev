@@ -71,6 +71,20 @@ module.exports = {
             },
           },
           {
+            resolve: 'gatsby-remark-embedded-codesandbox',
+            options: {
+              directory: `${__dirname}/examples/`,
+              protocol: 'embedded-codesandbox://',
+              embedOptions: {
+                view: 'preview',
+                hidenavigation: 1,
+                fontsize: 13,
+              },
+              getIframe: url =>
+                `<iframe src="${url}" style="width: 100%; overflow:hidden; display:block;max-width: none;" height="600" class="embedded-codesandbox" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>`,
+            },
+          },
+          {
             resolve: 'gatsby-remark-embed-snippet',
             options: {
               classPrefix: 'gatsby-code-',
