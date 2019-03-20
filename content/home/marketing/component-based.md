@@ -1,8 +1,9 @@
 ---
-title: Componentizzato
+title: Componenti
 order: 1
 ---
 
-Costruisci componenti che incapsulano e gestiscono il proprio stato interno, componili in modo da creare UI complesse.
+Crea componenti in isolamento e componili per creare UI complesse.
 
-Dato che la logica dei componenti è scritta in JavaScript e non semplicemente in templates, puoi passare strutture dati ricche mantenendo lo stato fuori dal DOM.
+Dato che interazioni e logica per i componenti sono implementate in JavaScript, puoi facilmente passare ed accedere strutture dati complesse in vari punti della tua applicazione senza dover salvare informazioni sul DOM.
+

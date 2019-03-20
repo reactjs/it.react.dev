@@ -50,7 +50,7 @@ class Home extends Component {
     return (
       <Layout location={location}>
         <TitleAndMetaTags
-          title="React &ndash; Una libreria JavaScript per costruire interfacce utente"
+          title="React &ndash; Una libreria JavaScript per creare interfacce utente"
           ogUrl={createOgUrl('index.html')}
         />
         <div css={{width: '100%'}}>
@@ -133,7 +133,7 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    Una libreria JavaScript per costruire interfacce utente
+                    Una libreria JavaScript per creare interfacce utente
                   </p>
                   <Flex
                     valign="center"
