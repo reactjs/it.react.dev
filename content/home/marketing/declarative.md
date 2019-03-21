@@ -3,6 +3,6 @@ title: Dichiarativo
 order: 0
 ---
 
-React rende indolore la creazione di UI interattive. Costruisci semplici viste per ogni stato nella tua applicazione e React aggiornerà e renderizzerà efficientemente i componenti affetti dai cambiamenti quando essi avvengono.
+React rende la creazione di UI interattive facile e indolore. Progetta interfacce per ogni stato della tua applicazione. Ad ogni cambio di stato React aggiornerà efficientemente solamente le parti della UI che dipendono da tali dati.
 
-Le viste dichiarative rendono il tuo codice più prevedibile e facile da debuggare.
+La natura dichiarativa dell'UI rende il tuo codice più prevedibile e facile da debuggare.
