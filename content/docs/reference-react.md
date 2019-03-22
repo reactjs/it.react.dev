@@ -309,7 +309,7 @@ Puoi utilizzarlo anche tramite la notazione compatta `<></>`. Per saperne di pi�
 
 `embed:reference-react-forward-ref.js`
 
-Nell'esempio in alto, React passa una `ref` passata all'elemento `<FancyButton ref={ref}>` come secondo argomento alla funzione di renderizzazione all'interno della chiamata a `React.forwardRef`. Questa funzione di renderizzazione a sua volta passa la `ref` all'elemento `<button ref={ref}>`.
+Nell'esempio in alto, React passa una `ref` all'elemento `<BottoneFigo ref={ref}>` come secondo argomento alla funzione di renderizzazione all'interno della chiamata a `React.forwardRef`. Questa funzione di renderizzazione a sua volta passa la `ref` all'elemento `<button ref={ref}>`.
 
 Il risultato è che, dopo che React ha connesso la ref, `ref.current` punterà direttamente all'istanza dell'elemento del DOM `<button>`.
 
