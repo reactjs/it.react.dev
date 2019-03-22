@@ -1,6 +1,6 @@
 ---
 id: optimizing-performance
-title: Optimizing Performance
+title: Ottimizzare le Prestazioni
 permalink: docs/optimizing-performance.html
 redirect_from:
   - "docs/advanced-performance.html"

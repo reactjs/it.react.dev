@@ -1,6 +1,6 @@
 ---
 id: uncontrolled-components
-title: Uncontrolled Components
+title: Componenti Non Controllati
 permalink: docs/uncontrolled-components.html
 ---
 

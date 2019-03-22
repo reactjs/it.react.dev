@@ -1,6 +1,6 @@
 ---
 id: portals
-title: Portals
+title: Portali
 permalink: docs/portals.html
 ---
 

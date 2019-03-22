@@ -1,6 +1,6 @@
 ---
 id: how-to-contribute
-title: How to Contribute
+title: Come Contribuire
 layout: contributing
 permalink: docs/how-to-contribute.html
 next: codebase-overview.html
