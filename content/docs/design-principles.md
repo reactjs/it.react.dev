@@ -1,6 +1,6 @@
 ---
 id: design-principles
-title: Design Principles
+title: Principi di Design
 layout: contributing
 permalink: docs/design-principles.html
 prev: implementation-notes.html

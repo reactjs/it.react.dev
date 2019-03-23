@@ -1,6 +1,6 @@
 ---
 id: reconciliation
-title: Reconciliation
+title: Riconciliazione
 permalink: docs/reconciliation.html
 ---
 

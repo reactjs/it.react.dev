@@ -1,6 +1,6 @@
 ---
 id: faq-functions
-title: Passing Functions to Components
+title: Passare Funzioni ai Componenti
 permalink: docs/faq-functions.html
 layout: docs
 category: FAQ

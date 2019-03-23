@@ -1,6 +1,6 @@
 ---
 id: faq-versioning
-title: Versioning Policy
+title: Regole di Versionamento
 permalink: docs/faq-versioning.html
 layout: docs
 category: FAQ

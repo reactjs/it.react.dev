@@ -1,6 +1,6 @@
 ---
 id: implementation-notes
-title: Implementation Notes
+title: Note sull'Implementazione
 layout: contributing
 permalink: docs/implementation-notes.html
 prev: codebase-overview.html

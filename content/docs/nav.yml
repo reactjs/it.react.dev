@@ -1,13 +1,13 @@
-- title: Installation
+- title: Installazione
   items:
     - id: getting-started
-      title: Getting Started
+      title: Primi Passi
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: Aggiungere React Ad Un Sito
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: Creare una Nuova App React
     - id: cdn-links
-      title: CDN Links
+      title: Collegamenti a CDN
 - title: Concetti Chiave
   isOrdered: true
   items:
@@ -35,10 +35,10 @@
       title: Composizione vs Ereditarità
     - id: thinking-in-react
       title: Pensare in React
-- title: Advanced Guides
+- title: Guide Avanzate
   items:
     - id: accessibility
-      title: Accessibility
+      title: Accessibilità
     - id: code-splitting
       title: Code-Splitting
     - id: context
@@ -46,37 +46,37 @@
     - id: error-boundaries
       title: Contenitori di Errori
     - id: forwarding-refs
-      title: Forwarding Refs
+      title: Inoltrare Refs
     - id: fragments
-      title: Fragments
+      title: Frammenti
     - id: higher-order-components
-      title: Higher-Order Components
+      title: Componenti di Ordine Superiore
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Integrazione Con Altre Librerie
     - id: jsx-in-depth
-      title: JSX In Depth
+      title: JSX In Dettaglio
     - id: optimizing-performance
-      title: Optimizing Performance
+      title: Ottimizzare le Prestazioni
     - id: portals
-      title: Portals
+      title: Portali
     - id: react-without-es6
-      title: React Without ES6
+      title: React senza ES6
     - id: react-without-jsx
-      title: React Without JSX
+      title: React senza JSX
     - id: reconciliation
-      title: Reconciliation
+      title: Riconciliazione
     - id: refs-and-the-dom
-      title: Refs and the DOM
+      title: Refs ed il DOM
     - id: render-props
       title: Render Props
     - id: static-type-checking
-      title: Static Type Checking
+      title: Controllo Tipi Statico
     - id: strict-mode
       title: Strict Mode
     - id: typechecking-with-proptypes
-      title: Typechecking With PropTypes
+      title: Controllo Tipi con PropTypes
     - id: uncontrolled-components
-      title: Uncontrolled Components
+      title: Componenti Non Controllati
     - id: web-components
       title: Web Components
 - title: API di Riferimento
@@ -103,51 +103,51 @@
     - id: javascript-environment-requirements
       title: Requisiti Ambiente JS
     - id: glossary
-      title: Glossary
-- title: Hooks (New)
+      title: Glossario
+- title: Hooks (Novità)
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Introducing Hooks
+        title: Introduzione agli Hooks
       - id: hooks-overview
-        title: Hooks at a Glance
+        title: Panoramica sugli Hooks
       - id: hooks-state
-        title: Using the State Hook
+        title: Usare l'Hook State
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Usare l'Hook Effect
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Regole degli Hooks
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Hooks Personalizzati
       - id: hooks-reference
-        title: Hooks API Reference
+        title: API di Riferimento degli Hooks
       - id: hooks-faq
-        title: Hooks FAQ
-- title: Contributing
+        title: FAQ sugli Hooks
+- title: Contribuire
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: Come Contribuire
   - id: codebase-overview
-    title: Codebase Overview
+    title: Panoramica sul Codice
   - id: implementation-notes
-    title: Implementation Notes
+    title: Note sull'Implementazione
   - id: design-principles
-    title: Design Principles
+    title: Principi di Design
 - title: FAQ
   items:
     - id: faq-ajax
-      title: AJAX and APIs
+      title: AJAX ed APIs
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX, e Build Steps
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Passare Funzioni ai Componenti
     - id: faq-state
-      title: Component State
+      title: State dei Componenti
     - id: faq-styling
-      title: Styling and CSS
+      title: Stili e CSS
     - id: faq-structure
-      title: File Structure
+      title: Struttura dei File
     - id: faq-versioning
-      title: Versioning Policy
+      title: Regole di Versionamento
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: Virtual DOM ed Interni
