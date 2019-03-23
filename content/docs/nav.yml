@@ -50,7 +50,7 @@
     - id: fragments
       title: Frammenti
     - id: higher-order-components
-      title: Componenti di Alto Livello
+      title: Componenti di Ordine Superiore
     - id: integrating-with-other-libraries
       title: Integrazione Con Altre Librerie
     - id: jsx-in-depth
