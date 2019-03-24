@@ -61,8 +61,12 @@ class InputTemperatura extends React.Component {
 class Calcolatore extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChangeCelsius = this.handleChangeCelsius.bind(this);
-    this.handleChangeFahrenheit = this.handleChangeFahrenheit.bind(this);
+    this.handleChangeCelsius = this.handleChangeCelsius.bind(
+      this
+    );
+    this.handleChangeFahrenheit = this.handleChangeFahrenheit.bind(
+      this
+    );
     this.state = {temperatura: '', scala: 'c'};
   }
 
@@ -77,8 +81,14 @@ class Calcolatore extends React.Component {
   render() {
     const scala = this.state.scala;
     const temperatura = this.state.temperatura;
-    const celsius = scala === 'f' ? conversione(temperatura, toCelsius) : temperatura;
-    const fahrenheit = scala === 'c' ? conversione(temperatura, toFahrenheit) : temperatura;
+    const celsius =
+      scala === 'f'
+        ? conversione(temperatura, toCelsius)
+        : temperatura;
+    const fahrenheit =
+      scala === 'c'
+        ? conversione(temperatura, toFahrenheit)
+        : temperatura;
 
     return (
       <div>
