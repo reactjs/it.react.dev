@@ -229,7 +229,7 @@ Il `onPointerEnter` e `onPointerLeave` eventi si propagano dal elemento essendo 
 
 Proprietà:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Eventi del Mouse](#mouse-events) with the following proprietà:
+Come definato nel [W3 specificazione](https://www.w3.org/TR/pointerevents/), eventi del cursore estendono [Eventi del Mouse](#mouse-events) con le seguente proprietà:
 
 ```javascript
 number pointerId
@@ -244,11 +244,11 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Una nota di cross-browser supporto:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Eventi del cursore non sono ancora supportato in tutti browser (al tempo di scrittando questo articolo), browsers supportati includono: Chrome, Firefox, Edge, e Internet Explorer). React deliberatamente non polyfill supporto per altri browser perché un conforme-normale polyfill aumenterebbe il dimensione di carico di `react-dom` molto.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Se tua applicazione desideri eventi del cursore, raccomandiamo aggiungiendo un cursore evento polyfill di terzo.
 
 * * *
 
@@ -270,7 +270,7 @@ Nomi dell'eventi:
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Proprietà:
 
 ```javascript
 boolean altKey
