@@ -19,10 +19,9 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 con npm
 
 > Nota:
 >
-> Suggeriamo l'utilizzo di [`react-testing-library`](https://git.io/react-testing-library), concepito per abilitare e favorire la scrittura di test che 
-simulano il reale utilizzo dei componenti.
+> Suggeriamo l'utilizzo di [`react-testing-library`](https://git.io/react-testing-library), concepito per abilitare e favorire la scrittura di test che simulano il reale utilizzo dei componenti.
 >
-> In alternativa, Airbnb ha rilasciato una libreria per i test chiamata [Enzyme](https://airbnb.io/enzyme/), che semplifica le operazioni di verifica, manipolazione, e analisi dell'output dei tuoi componenti.
+> In alternativa, Airbnb ha rilasciato una libreria per i test chiamata [Enzyme](https://airbnb.io/enzyme/), che semplifica le operazioni di verifica, manipolazione ed analisi dell'output dei tuoi componenti.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
@@ -136,7 +135,7 @@ mockComponent(
 )
 ```
 
-Passare il mock di un componente a questo metodo consente di migliorarlo, mettendo a disposizione delle funzionalità che permettono di utilizzare quest'ultimo come un componente React base. Il componente diventerà quindi un semplie `<div>` (o un altro tag se è presente `mockTagNme`), che conterrà degli eventuali componenti figli.
+Passare il mock di un componente a questo metodo consente di migliorarlo, mettendo a disposizione delle funzionalità che permettono di utilizzare quest'ultimo come un componente React base. Il componente diventerà quindi un semplice `<div>` (o un altro tag se è presente `mockTagNme`), che conterrà degli eventuali componenti figli.
 
 > Nota:
 >
@@ -297,8 +296,7 @@ Come [`scryRenderedComponentsWithType()`](#scryrenderedcomponentswithtype) ma si
 renderIntoDocument(element)
 ```
 
-Renderizza un elemento React in un nodo DOM separato, all'interno del documento.
-Render a React element into a detached DOM node in the document. **Questa funzione richiede un DOM.** Equivale a:
+Renderizza un elemento React in un nodo DOM separato, all'interno del documento. **Questa funzione richiede un DOM.** Equivale a:
 
 ```js
 const domContainer = document.createElement('div');
