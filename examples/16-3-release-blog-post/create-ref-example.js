@@ -1,4 +1,4 @@
-class MyComponent extends React.Component {
+class MioComponente extends React.Component {
   constructor(props) {
     super(props);
 
