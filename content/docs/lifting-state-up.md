@@ -234,7 +234,7 @@ class InputTemperatura extends React.Component {
 
 Ora passiamo al componente `Calcolatore`.
 
-Memorizzeremo `temperatura` e `scale` dall'input corrente nel suo stato locale. Questo è lo stato che abbiamo "spostato su" dagli input, e servirà da "unica fonte di verità" per entrambi. È la rappresentazione minima di tutti i dati di cui dobbiamo essere a conoscenza per rendereizzare entrambi gli input.
+Memorizzeremo `temperatura` e `scale` dall'input corrente nel suo stato locale. Questo è lo stato che abbiamo "spostato su" dagli input, e servirà da "unica fonte di verità" per entrambi. È la rappresentazione minima di tutti i dati di cui dobbiamo essere a conoscenza per renderizzare entrambi gli input.
 
 Ad esempio, se inseriamo 37 nell'input Celsius, lo stato del componente `Calcolatore` è:
 
