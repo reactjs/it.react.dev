@@ -171,7 +171,7 @@ class InputTemperatura extends React.Component {
 
 Tuttavia, vogliamo che i valori di questi due input siano sincronizzati tra loro. Quando aggiorniamo l'input Celsius, l'input Fahrenheit dovrebbe aggiornare la temperatura convertita e viceversa.
 
-In React, la condivisione dello stato si ottiene spostandolo verso il più vicino antenato comune dei componenti che ne hanno bisogno. Questo viene processo detto "spostare lo stato verso l'alto" (_lifting state up_). Rimuoviamo lo stato locale da `InputTemperatura` e invece lo spostiamo nel `Calcolatore`.
+In React, la condivisione dello stato si ottiene spostandolo verso il più vicino antenato comune dei componenti che ne hanno bisogno. Questo processo viene detto "spostare lo stato verso l'alto" (_lifting state up_). Rimuoviamo lo stato locale da `InputTemperatura` e invece lo spostiamo nel `Calcolatore`.
 
 Se il `Calcolatore` possiede lo stato condiviso, diventa la "unica fonte di verità" per la temperatura corrente in entrambi gli input. Può istruire entrambi ad avere valori coerenti l'uno con l'altro. Poiché le props di entrambi i componenti `InputTemperatura` provengono dallo stesso componente `Calcolatore` padre, i due input saranno sempre sincronizzati.
 
