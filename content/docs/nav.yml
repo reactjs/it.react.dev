@@ -30,7 +30,7 @@
     - id: forms
       title: Forms
     - id: lifting-state-up
-      title: Lifting State Up
+      title: Spostare lo stato
     - id: composition-vs-inheritance
       title: Composizione vs Ereditarità
     - id: thinking-in-react
