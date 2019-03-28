@@ -8,18 +8,18 @@ prev: getting-started.html
 next: create-a-new-react-app.html
 ---
 
-Use as little or as much React as you need.
+Utilizza React quel poco o quel tanto che ti basta.
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need**. Perhaps you only want to add some "sprinkles of interactivity" to an existing page. React components are a great way to do that.
+React è stato progettato fin dall'inizio per essere adottato gradualmente, e **puoi utilizzarlo quel poco o quel tanto che ti basta**. Forse devi solamente aggiungere un "pizzico di interattività" a una pagina esistente. I componenti React sono un ottimo modo per farlo.
 
-The majority of websites aren't, and don't need to be, single-page apps. With **a few lines of code and no build tooling**, try React in a small part of your website. You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+La maggior parte dei siti non sono applicazioni single-page e non hanno bisogno di esserlo. Prova ad utilizzare React in una piccola parte del tuo sito, con **poche righe di codice e nessuno strumento di build**. In seguito, puoi espandere gradualmente la sua presenza, oppure lo puoi mantenere confinato ad alcuni widget dinamici.
 
 ---
 
-- [Add React in One Minute](#add-react-in-one-minute)
-- [Optional: Try React with JSX](#optional-try-react-with-jsx) (no bundler necessary!)
+- [Aggiungi React in Un Minuto](#add-react-in-one-minute)
+- [Opzionale: Prova React con JSX](#optional-try-react-with-jsx) (non è necessario alcun bundler!)
 
-## Add React in One Minute {#add-react-in-one-minute}
+## Aggiungi React in Un Minuto {#add-react-in-one-minute}
 
 In this section, we will show how to add a React component to an existing HTML page. You can follow along with your own website, or create an empty HTML file to practice.
 
@@ -121,7 +121,7 @@ If you already minify the application scripts, **your site will be production-re
 
 If you don't have a minification step for your scripts, [here's one way to set it up](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 
-## Optional: Try React with JSX {#optional-try-react-with-jsx}
+## Opzionale: Prova React con JSX {#optional-try-react-with-jsx}
 
 In the examples above, we only relied on features that are natively supported by the browsers. This is why we used a JavaScript function call to tell React what to display:
 
