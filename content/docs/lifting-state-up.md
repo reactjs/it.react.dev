@@ -203,7 +203,7 @@ Ora, quando `InputTemperatura` vuole aggiornare la sua temperatura, chiama `this
 >
 > Non vi è alcun significato speciale nei nomi delle props `temperatura` o `onChangeTemperatura` nei componenti personalizzati. Avremmo potuto chiamarle in qualsiasi altro modo, come chiamarle `value` e `onChange`, come da convenzione comune.
 
-La prop `onChangeTemperatura` viene fornita insieme alla prop `temperatura` dal componente padre `Calcolatore`. Gestirà i cambiamenti nel proprio stato locale, poi re-renderizzando gli input con i nuovi valori. A breve, vedremo la nuova implementazione di `Calcolatore`.
+La prop `onChangeTemperatura` viene fornita insieme alla prop `temperatura` dal componente padre `Calcolatore`. Gestirà i cambiamenti nel proprio stato locale, ri-renderizzando poi gli input con i nuovi valori. A breve, vedremo la nuova implementazione di `Calcolatore`.
 
 Prima di immergerti nei cambiamenti del `Calcolatore`, ricapitoliamo le modifiche al componente `InputTemperatura`. Abbiamo rimosso lo stato locale e invece di leggere `this.state.temperatura`, ora leggiamo `this.props.temperatura`. Invece di chiamare `this.setState()` quando vogliamo apportare una modifica, ora chiamiamo `this.props.onChangeTemperatura()`, che sarà fornita dal `Calcolatore`:
 
