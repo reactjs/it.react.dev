@@ -1,6 +1,6 @@
 ---
 id: react-api
-title: API di React di Primo Livello
+title: API di Primo Livello di React
 layout: docs
 category: Reference
 permalink: docs/react-api.html
