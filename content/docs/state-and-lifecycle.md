@@ -72,9 +72,13 @@ Per implementare ciò, abbiamo bisogno di aggiungere uno "stato" al componente `
 
 Lo state (o stato) è simile alle props, ma è privato e completamente controllato dal componente.
 
+<<<<<<< HEAD
 Abbiamo [detto in precedenza](/docs/components-and-props.html#functional-and-class-components) che i componenti definiti come classi hanno alcune funzionalità aggiuntive. Il local state (stato locale) è esattamente una di queste: una caratteristica disponibile solo nelle classi.
 
 ## Convertire una Funzione in una Classe {#converting-a-function-to-a-class}
+=======
+## Converting a Function to a Class {#converting-a-function-to-a-class}
+>>>>>>> d0f2db967a38e358bd59c65e981862cdf38f3d0b
 
 Puoi convertire un componente funzione come `Clock` in una classe in cinque passaggi:
 
