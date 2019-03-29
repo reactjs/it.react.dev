@@ -8,17 +8,17 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+Utilizza una toolchain integrata per avere la migliore esperienza utente e di sviluppo.
 
-This page describes a few popular React toolchains which help with tasks like:
+Questa pagina descrive alcune toolchains popolari di React che ti aiuteranno per compiti come:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* Scalare su molti file e componenti.
+* Utilizzare librerie di terze parti importate da npm.
+* Individuare subito errori comuni.
+* Visualizzare in tempo reale l'effetto delle modifiche al codice JavaScript e CSS durante lo sviluppo.
+* Ottimizzare l'output per la produzione.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+I toolchains raccomandati in questa pagina **non hanno bisogno di una configurazione per essere utilizzati**.
 
 ## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
 
