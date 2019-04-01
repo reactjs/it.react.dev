@@ -94,7 +94,7 @@ Se hai bisogno di modificare alcuni valori in risposta a input dell'utente o una
 
 ### `props.children` {#propschildren}
 
-`props.children` è disponibile su ogni componente. Essa comprende il contenuto tra i tag di apertura e chiusura di un componente. Ad esempio:
+`props.children` è disponibile in ogni componente. Essa comprende il contenuto tra i tag di apertura e chiusura di un componente. Ad esempio:
 
 ```js
 <Welcome>Hello world!</Welcome>
