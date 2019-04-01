@@ -124,7 +124,7 @@ Un componente ha bisogno dello `state` quando alcuni dati associati con esso cam
 
 La differenza più importante tra `state` e `props` è che le `props` sono passate da un componente padre, ma lo `state` viene gestito dal componente stesso. Un componente non può cambiare le sue `props`, ma può cambiare il suo `state`. Per farlo, deve chiamare `this.setState()`. Solo i componenti definiti come classi possono avere uno state. 
 
-Per ogni pezzo di dato che cambia, ci dovrebbe essere solo un componente che "possiede" tale dato nel suo state. Non provare a sincronizzare gli state di due componenti diversi. Invece, [sollevalo](/docs/lifting-state-up.html) verso l'antenato comune più vicino, e passalo come props ad entrambi.
+Per ogni pezzo di dato che cambia, ci dovrebbe essere solo un componente che "possiede" tale dato nel suo state. Non provare a sincronizzare lo state di due componenti diversi. Invece, [sollevalo](/docs/lifting-state-up.html) verso l'antenato comune più vicino, e passalo come props ad entrambi.
 
 ## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
