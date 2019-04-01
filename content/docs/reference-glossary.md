@@ -23,7 +23,7 @@ Un compilatore JavaScript prende il codice JavaScript, lo trasforma e ritorna co
 
 ## Bundlers {#bundlers}
 
-I bundlers prendono codice JavaScript e CSS scritto in moduli separati (spesso sono centinaia di essi), e li raggruppa in alcuni file meglio ottimizzati per i browser. Tra i bundler più comunemente usati nelle applicazioni React troviamo [Webpack](https://webpack.js.org/) e [Browserify](http://browserify.org/).
+I bundlers prendono codice JavaScript e CSS scritto in moduli separati (spesso sono centinaia) e li raggruppa in alcuni file meglio ottimizzati per i browser. Tra i bundler più comunemente usati nelle applicazioni React troviamo [Webpack](https://webpack.js.org/) e [Browserify](http://browserify.org/).
 
 ## Gestori dei pacchetti {#package-managers}
 
