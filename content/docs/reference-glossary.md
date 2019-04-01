@@ -15,7 +15,7 @@ Sebbene tu possa creare applicazioni single-page in React, questo non rappresent
 
 ## ES6, ES2015, ES2016, ecc {#es6-es2015-es2016-etc}
 
-Tutti questi acronimi si riferiscono alle versioni più recenti dello standard ECMAScript Language Specification, di cui il linguaggio JavaScript ne è un'implementazione. La versione ES6 (nota anche come ES2015) include molte aggiunte rispetto alle versioni precedenti come: arrow functions, classi, stringhe template, istruzioni `let` e `const`. Puoi scoprire di più riguardo le versioni specifiche [qui](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Tutti questi acronimi si riferiscono alle versioni più recenti dello standard ECMAScript Language Specification, di cui il linguaggio JavaScript è un'implementazione. La versione ES6 (nota anche come ES2015) include molte aggiunte rispetto alle versioni precedenti, ad esempio: arrow functions, classi, stringhe template, istruzioni `let` e `const`. Puoi scoprire di più riguardo le versioni specifiche [qui](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
 ## Compilatori {#compilers}
 
