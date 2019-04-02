@@ -1,6 +1,6 @@
 ---
 id: static-type-checking
-title: Static Type Checking
+title: Controllo Tipi Statico
 permalink: docs/static-type-checking.html
 prev: typechecking-with-proptypes.html
 next: refs-and-the-dom.html

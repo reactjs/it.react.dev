@@ -1,6 +1,6 @@
 ---
 id: fragments
-title: Fragments
+title: Frammenti
 permalink: docs/fragments.html
 ---
 

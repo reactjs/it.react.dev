@@ -5,6 +5,8 @@ Glossary of the translations of technical and React-specific terms.
 ## Untranslatable terms
 - props (**core concept**)
 - state (**core concept**)
+- hooks (**core concept**)
+- ref (**core concept**)
 - footer
 - bug
 - browser
@@ -21,6 +23,10 @@ Glossary of the translations of technical and React-specific terms.
 - console
 - warning
 - form/forms
+- render props
+- strict mode
+- web components
+- build steps
 
 # Common Translations
 

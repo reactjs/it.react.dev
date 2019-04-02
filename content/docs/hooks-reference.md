@@ -1,6 +1,6 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: API di Riferimento degli Hooks
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html
@@ -67,7 +67,7 @@ function Counter({initialCount}) {
 }
 ```
 
-The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to 0.
+The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to the initial value.
 
 > Note
 >

@@ -1,6 +1,6 @@
 ---
 id: codebase-overview
-title: Codebase Overview
+title: Panoramica sul Codice
 layout: contributing
 permalink: docs/codebase-overview.html
 prev: how-to-contribute.html
@@ -165,7 +165,7 @@ The "core" of React includes all the [top-level `React` APIs](/docs/top-level-ap
 * `React.Component`
 * `React.Children`
 
-**React core only includes the APIs necessary to define components.** It does not include the [reconciliation](/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
+**React core only includes the APIs necessary to define components.** It does not include the [riconciliazione](/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
 
 The code for React core is located in [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) in the source tree. It is available on npm as the [`react`](https://www.npmjs.com/package/react) package. The corresponding standalone browser build is called `react.js`, and it exports a global called `React`.
 
@@ -189,7 +189,7 @@ The only other officially supported renderer is [`react-art`](https://github.com
 
 ### Reconcilers {#reconcilers}
 
-Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
+Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [riconciliazione](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
 
 To solve this, different renderers share some code between them. We call this part of React a "reconciler". When an update such as `setState()` is scheduled, the reconciler calls `render()` on components in the tree and mounts, updates, or unmounts them.
 

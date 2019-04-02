@@ -1,6 +1,6 @@
 ---
 id: faq-structure
-title: File Structure
+title: Struttura dei File
 permalink: docs/faq-structure.html
 layout: docs
 category: FAQ
