@@ -52,13 +52,23 @@ June 21, 2019 Chicago, Illinois USA
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
+<<<<<<< HEAD
 ### React Rally 2019 {#react-rally-2019}
+=======
+### Chain React 2019
+July 11-12, 2019. Portland, OR, USA.
+
+[Website](https://infinite.red/ChainReactConf)
+
+### React Rally 2019
+>>>>>>> 2a1b08943c2c65bbf5a6a1e63777488833909f45
 August 22-23, 2019. Salt Lake City, USA.
 
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
 
 ### ComponentsConf 2019 {#componentsconf-2019}
 September 6, 2019 in Melbourne, Australia
+
 [Website](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/componentsconf)
 
 ### React Native EU 2019 {#react-native-eu-2019}
