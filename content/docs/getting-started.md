@@ -18,27 +18,27 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-This page is an overview of the React documentation and related resources.
+Questa pagina offre una panoramica sulla documentazione di React e sulle risorse correlate.
 
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+**React** è una liberia JavaScript per lo sviluppo di interfacce utente. Impara cos'è React cominciando dalla [nostra homepage](/) o [dal tutorial](/tutorial/tutorial.html).
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [Prova React](#try-react)
+- [Impara React](#learn-react)
+- [Rimanere Aggiornati](#staying-informed)
+- [Documentazione Versionata](#versioned-documentation)
+- [Manca Qualcosa?](#something-missing)
 
-## Try React {#try-react}
+## Prova React {#try-react}
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React è stato progettato sin dal principio per la sua graduale adozione, per questo **puoi utilizzare quel poco o quel tanto di React di cui hai bisogno.** Se vuoi avere un assaggio di React, aggiungere un po' di interattività ad una semplice pagina HTML, o se vuoi cominciare lo sviluppo di una intera app complessa basata su React, i link in questa sezione ti aiuteranno nei primi passi.
 
 ### Online Playgrounds {#online-playgrounds}
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
+Se ti interessa giocare con il codice React, puoi utilizzare uno dei "Parchi Giochi" disponibili online. Prova un template "Hello World" su [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) o [Glitch](https://glitch.com/edit/#!/remix/starter-react-template).
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+Se invece preferisci utilizzare il tuo editor di testo, puoi [scaricare questo file HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), modificarlo, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
 
 ### Add React to a Website {#add-react-to-a-website}
 
