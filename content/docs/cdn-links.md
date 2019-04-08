@@ -6,32 +6,32 @@ prev: create-a-new-react-app.html
 next: hello-world.html
 ---
 
-Both React and ReactDOM are available over a CDN.
+Sia React che ReactDOM sono disponibili su una CDN.
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-The versions above are only meant for development, and are not suitable for production. Minified and optimized production versions of React are available at:
+Le versioni di cui sopra sono intese solo per ambienti di sviluppo, e non sono adatte per ambienti di produzione. Le versioni minificate e ottimizzate di produzione di React sono disponibili ai seguenti link:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-To load a specific version of `react` and `react-dom`, replace `16` with the version number.
+Per caricare una versione specifica di `react` e `react-dom`, sostituisci `16` con il numero di versione desiderato.
 
-### Why the `crossorigin` Attribute? {#why-the-crossorigin-attribute}
+### Perché l'attributo `crossorigin`? {#why-the-crossorigin-attribute}
 
-If you serve React from a CDN, we recommend to keep the [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute set:
+Se servi React da una CDN, consigliamo di settare l'attributo [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes):
 
 ```html
 <script crossorigin src="..."></script>
 ```
 
-We also recommend to verify that the CDN you are using sets the `Access-Control-Allow-Origin: *` HTTP header:
+Consigliamo anche di verificare che la CDN che stai usando abbia settato l'header HTTP `Access-Control-Allow-Origin: *`:
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-This enables a better [error handling experience](/blog/2017/07/26/error-handling-in-react-16.html) in React 16 and later.
+Questo consente una migliore [esperienza nella gestione degli errori](/blog/2017/07/26/error-handling-in-react-16.html) in React 16 e successivi.
