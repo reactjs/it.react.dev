@@ -91,4 +91,4 @@ Una toolchain JavaScript di build tipicamente comprende i seguenti strumenti:
 
 Se preferisci realizzare la tua toolchain JavaScript da zero, [leggi questa guida](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) in cui alcune delle funzionalità di Create React App vengono ricreate.
 
-Non ti dimenticare di assicurarti che la tua toolchain personalizzata [sia impostata correttamente per la produzione](/docs/optimizing-performance.html#use-the-production-build).
+Non dimenticarti di controllare che la tua toolchain personalizzata [sia impostata correttamente per la produzione](/docs/optimizing-performance.html#use-the-production-build).
