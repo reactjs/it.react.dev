@@ -27,6 +27,10 @@ Glossary of the translations of technical and React-specific terms.
 - strict mode
 - web components
 - build steps
+- wrapper
+- provider
+- consumer
+- reducer
 
 # Common Translations
 
