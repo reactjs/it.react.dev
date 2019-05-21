@@ -59,7 +59,7 @@ Prima di continuare, ricorda che gli Hooks sono:
 
 Gli Hooks risolvono un'ampia varietà di problemi che sembrano disconnessi tra loro in React. Problemi che abbiamo incontrato in oltre cinque anni di scrittura e manutenzione di decine di migliaia di componenti. Se stai imparando React, se lo usi quotidianamente o anche se preferisci una libreria diversa che ha un modello simile basato sui componenti, riconoscerai alcuni di questi problemi.
 
-### È difficile riutilizzare logica dipendente dallo stato tra diversi componenti {#its-hard-to-reuse-stateful-logic-between-components}
+### È difficile riutilizzare logica dipendente dallo stato in componenti diversi {#its-hard-to-reuse-stateful-logic-between-components}
 
 React non offre un modo per "collegare" comportamenti riutilizzabili ad un componente (per esempio, connetterlo ad uno store). Se hai acquisito un po' di esperienza in React, sarai a conoscenza di concetti come [render props](/docs/render-props.html) e [componenti di ordine superiore](/docs/higher-order-components.html) che provano a risolvere questo problema. Tuttavia, questi patterns ti richiedono di ristrutturare i tuoi componenti quando vuoi utilizzarli, il che può essere difficile oltre a rendere il codice più difficile da seguire. Se osservi una tipica applicazione React usando React DevTools, noterai molto probabilmente un "wrapper hell" di componenti circondato da livelli di providers, consumers, componenti di ordine superiore, render props, ed altre astrazioni. Anche se possiamo [filtrarli in DevTools](https://github.com/facebook/react-devtools/pull/503), il problema principale resta: React ha bisogno di una migliore primitiva per condividere logica basata sullo stato (stateful).
 
