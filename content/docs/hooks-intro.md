@@ -57,7 +57,7 @@ Prima di continuare, ricorda che gli Hooks sono:
 
 ## Motivazioni {#motivation}
 
-Gli Hooks risolvono una ampia varietà di problemi che sembrano disconnessi tra loro in React. Problemi che abbiamo incontrato in oltre cinque anni di scrittura e manutenzione di decine di migliaia di componenti. Se stai imparando React, se lo usi quotidianamente o anche se preferisci una diversa libreria che ha un simile modello basato sui componenti, riconoscerai alcuni di questi problemi.
+Gli Hooks risolvono un'ampia varietà di problemi che sembrano disconnessi tra loro in React. Problemi che abbiamo incontrato in oltre cinque anni di scrittura e manutenzione di decine di migliaia di componenti. Se stai imparando React, se lo usi quotidianamente o anche se preferisci una libreria diversa che ha un modello simile basato sui componenti, riconoscerai alcuni di questi problemi.
 
 ### È difficile riutilizzare logica dipendente dallo stato tra diversi componenti {#its-hard-to-reuse-stateful-logic-between-components}
 
