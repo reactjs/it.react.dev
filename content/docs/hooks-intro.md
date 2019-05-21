@@ -49,7 +49,7 @@ Prima di continuare, ricorda che gli Hooks sono:
 * **100% retrocompatibili.** Gli Hooks non contengono alcun cambiamento che possa rompere funzionalità esistenti.
 * **Disponibili ora.** Gli Hooks sono disponibili a partire dalla release v16.8.0.
 
-**Non esiste alcun piano per la rimozioone delle classi da React.** Puoi leggere di più riguardo alla strategia di adozione graduale degli Hooks nella [sezione in basso](#gradual-adoption-strategy) in questa pagina.
+**Non esiste alcun piano per la rimozione delle classi da React.** Puoi leggere di più riguardo alla strategia di adozione graduale degli Hooks nella [sezione in basso](#gradual-adoption-strategy) in questa pagina.
 
 **Gli Hooks non cambiano la tua conoscenza dei concetti di React.** Invece, gli Hooks offrono un accesso più diretto alle API dei concetti React che conosci già: props, state, context, refs, e lifecycle. Come mostreremo di seguito, gli Hooks offrono anche un nuovo potente modo per combinarli.
 
