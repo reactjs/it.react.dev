@@ -41,7 +41,7 @@ Durante React Conf 2018, Sophie Alpert e Dan Abramov hanno introdotto gli Hooks,
 
 <iframe width="650" height="366" src="//www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allowfullscreen></iframe>
 
-## Retrocompatibile {#no-breaking-changes}
+## Retrocompatibili {#no-breaking-changes}
 
 Prima di continuare, ricorda che gli Hooks sono:
 
