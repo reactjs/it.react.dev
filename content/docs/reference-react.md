@@ -198,7 +198,7 @@ Questa API è stata introdotta per sostituire il metodo deprecato `React.addons.
 React.createFactory(type)
 ```
 
-Restituisce una funzione che produce elementi React di un certo tipo. Così come [`React.createElement()`](#createElement), l'argomento `type` può essere un nome di tag (ad esempio `'div'` o `'span'`), un tipo di [componente React](/docs/components-and-props.html) (una classe o una funzione), o un tipo di [frammento React](#reactfragment).
+Restituisce una funzione che produce elementi React di un certo tipo. Così come [`React.createElement()`](#createelement), l'argomento `type` può essere un nome di tag (ad esempio `'div'` o `'span'`), un tipo di [componente React](/docs/components-and-props.html) (una classe o una funzione), o un tipo di [frammento React](#reactfragment).
 
 Questo metodo è considerato obsoleto e ti incoraggiamo ad utilizzare al suo posto JSX oppure direttamente `React.createElement()`.
 

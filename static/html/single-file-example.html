@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World</title>
+    <title>Ciao Mondo</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     
-    <!-- Don't use this in production: -->
+    <!-- /!\ Non importare Babel nel browser in produzione: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
@@ -14,23 +14,23 @@
     <script type="text/babel">
 
       ReactDOM.render(
-        <h1>Hello, world!</h1>,
+        <h1>Ciao Mondo</h1>,
         document.getElementById('root')
       );
 
     </script>
     <!--
-      Note: this page is a great way to try React but it's not suitable for production.
-      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+      Nota: questa pagina è un ottimo modo per provare React ma non è adatta all'uso in produzione.
+      Essa compila il codice JSX con Babel nel browser in modo molto lento ed utilizza una build di sviluppo di React non compressa.
 
-      Read this section for a production-ready setup with JSX:
-      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+      Leggi in questa sezione per i dettagli riguardo un setup di produzione con JSX:
+      https://it.reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
 
-      In a larger project, you can use an integrated toolchain that includes JSX instead:
-      https://reactjs.org/docs/create-a-new-react-app.html
+      Nei progetti più grandi, puoi invece utilizzare una toolchain integrata che include JSX:
+      https://it.reactjs.org/docs/create-a-new-react-app.html
 
-      You can also use React without JSX, in which case you can remove Babel:
-      https://reactjs.org/docs/react-without-jsx.html
+      Poi anche utilizzare React senza JSX, in tal caso puoi rimuovere Babel:
+      https://it.reactjs.org/docs/react-without-jsx.html
     -->
   </body>
 </html>
