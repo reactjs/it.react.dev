@@ -35,13 +35,23 @@ La nostra API JSON ritorna dati in questa forma:
 
 La prima cosa da fare è disegnare rettangoli attorno ad ogni componente (e sotto-componente) presente nella bozza e di dare un nome ad ognuno di essi. Se stai lavorando con un designer, probabilmente qualche passo in questa direzione è stato già fatto, consultatevi! I nomi dei livelli in Photoshop usati dai designers potrebbero dare nome anche ai tuoi componenti React!
 
+<<<<<<< HEAD
 Ma come fare a sapere cosa deve essere un componente a se stante? Usa le stesse tecniche che usi per decidere se devi creare una nuova funzione od un oggetto. Una di queste tecniche è il [principio di singola responsabilità](https://it.wikipedia.org/wiki/Principio_di_singola_responsabilit%C3%A0), che dice che un componente dovrebbe idealmente occuparsi di una cosa soltanto. Nel caso in cui un componente diventi troppo grande e complesso, dovrebbe essere decomposto in sotto-componenti più piccoli e semplici.
 
 Dato che ti ritroverai spesso a dover presentare all'utente dei modelli dati JSON, noterai che se tali modelli sono stati definiti correttamente, la tua UI (e di conseguenza la struttura della gerarchia dei tuoi componenti) corrisponderanno. Ciò avviene perché entrambe tendono ad aderire alla stessa *architettura dell'informazione*, il che rende la separazione della tua UI in componenti talvolta estremamente semplice. Basta solo rappresentare ogni parte del tuo modello dati con esattamente un componente.
+=======
+But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+
+Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*, which means the work of separating your UI into components is often trivial. Break it up into components that represent exactly one piece of your data model.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
 ![Diagramma dei componenti](../images/blog/thinking-in-react-components.png)
 
+<<<<<<< HEAD
 Abbiamo identificato cinque componenti nella nostra semplice applicazione. In corsivo, la parte del modello dati rappresentata da ogni componente.
+=======
+You'll see here that we have five components in our app. We've italicized the data each component represents.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
   1. **`TabellaProdottiRicercabile` (arancione):** contiene l'intero esempio
   2. **`BarraRicerca` (blu):** riceve tutti gli *input dell'utente*
@@ -51,7 +61,11 @@ Abbiamo identificato cinque componenti nella nostra semplice applicazione. In co
 
 Se dai un'occhiata a `TabellaProdotti`, noterai che la testata della tabella (contenente le etichette "Nome" e "Prezzo") non rappresenta un componente a se stante. Si tratta di una questione soggettiva, e ci sono argomenti validi in entrambi i sensi. In questo esempio, l'abbiamo lasciata come parte di `TabellaProdotti` perché fa parte della renderizzazione della *lista dei prodotti* che è una responsabilità di `TabellaProdotti`. Comunque, qualora questa testata dovesse diventare complessa (per esempio se volessimo aggiungere la gestione dell'ordinamento per colonna), avrebbe sicuramente senso creare un suo proprio componente `TestataTabellaProdotti`.
 
+<<<<<<< HEAD
 Adesso che abbiamo identificato i componenti nella nostra bozza, ordiniamoli gerarchicamente. È facile. I componenti che appaiono all'interno di un altro componente nella bozza, devono essere loro figli nella gerarchia:
+=======
+Now that we've identified the components in our mock, let's arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
   * `TabellaProdottiRicercabile`
     * `BarraRicerca`
@@ -69,9 +83,15 @@ Per costruire una versione statica della tua applicazione che renderizza il tuo 
 
 Puoi cominciare partendo dall'alto (top-down) o dal basso (bottom-up). Il che significa che puoi cominciare con l'implementazione dei componenti più un alto nella gerarchia (per esempio cominciando da `TabellaProdottiRicercabile`) o con quelli più in basso al suo interno (`RigaProdotto`). Nei casi più semplici, è meglio preferire l'approccio top-down, nei progetti più grandi, è più facile l'approccio bottom-up e la contestuale scrittura di test man mano che si implementa.
 
+<<<<<<< HEAD
 Alla fine di questo passo, avrai una libreria di componenti riutilizzabili che renderizza il tuo modello dati. I componenti avranno solo metodi `render()` dati che è una versione statica dell'applicazione. Il componente al vertice della gerarchia (`TabellaProdottiRicercabile`) riceverà il tuo modello dati come prop. Qualora tu cambiassi il modello dati sottostante, richiamando `ReactDOM.render()` di nuovo, la UI verrà aggiornata. È facile vedere come la UI si aggiorna al fine di individuare i necessari cambiamenti dato che quanto sta accadendo non è per nulla complicato. Il **flusso dati monodirezionale** di React (noto anche come *one-way binding*) mantiene ogni cosa modulare e veloce.
 
 Fai riferimento alla [Documentazione](/docs/) se hai bisogno di aiuto nell'esecuzione di questo passo.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `ReactDOM.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+
+Refer to the [React docs](/docs/) if you need help executing this step.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
 ### Un Breve Intervallo: Props vs State {#a-brief-interlude-props-vs-state}
 
@@ -79,9 +99,15 @@ Esistono due tipi di "modello" dati in React: props e state. È importante capir
 
 ## Passo 3: Identifica la Minima (ma completa) Rappresentazione dello Stato della UI {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
+<<<<<<< HEAD
 Per rendere la tua UI interattiva, devi fare in modo che sia possibile alterare il modello dati sottostante. React rende ciò semplice grazie all'uso di **state**.
 
 Al fine di implementare l'applicazione correttamente, devi innanzitutto pensare alla minima parte di stato mutabile del quale la tua applicazione ha bisogno. La chiave qui è [DRY: *Don't Repeat Yourself*](https://it.wikipedia.org/wiki/Don%27t_repeat_yourself). Individua la minima rappresentazione di stato richiesta dall'applicazione e calcola tutto il resto al bisogno. Ad esempio, se stai costruendo una "Lista delle cose da fare"; mantieni solo l'array degli elementi della lista; non mantenere una variabile separata nello stato per il conteggio, utilizza semplicemente la proprietà `length` dell'array.
+=======
+To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**.
+
+To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, take the length of the TODO items array.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
 Pensa a tutte le parti di dati nell'applicazione d'esempio. Abbiamo:
 
@@ -90,7 +116,11 @@ Pensa a tutte le parti di dati nell'applicazione d'esempio. Abbiamo:
   * Il valore della checkbox
   * La lista filtrata dei prodotti
 
+<<<<<<< HEAD
 Vediamoli uno alla volta al fine di individuare quali rappresentano stato. Poniti tre semplici domande per ognuno:
+=======
+Let's go through each one and figure out which one is state. Ask three questions about each piece of data:
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
   1. Viene ricevuto da un genitore via props? In tal caso, probabilmente non si tratta di stato.
   2. Rimane invariato nel tempo? Se si, probabilmente non si tratta di stato.
@@ -113,10 +143,17 @@ Ricorda: React è del tutto basato sul concetto di flusso dati unidirezionale da
 
 Per ogni parte di stato nella tua applicazione:
 
+<<<<<<< HEAD
   * Identifica ogni componente che renderizza qualcosa in base a quello stato.
   * Identifica un componente proprietario comune (un singolo componente al di sopra di tutti i componenti che richiedono quello stato nella gerarchia).
   * Lo stato dovrà risiedere nel proprietario comune oppure in un altro componente più in alto nella gerarchia.
   * Se non riesci ad individuare facilmente il componente che sensatamente dovrebbe mantenere lo stato, crea un nuovo componente semplicemente per fare ciò e posizionalo da qualche parte nella gerarchia al di sopra del componente proprietario comune.
+=======
+  * Identify every component that renders something based on that state.
+  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
+  * Either the common owner or another component higher up in the hierarchy should own the state.
+  * If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
 Applichiamo questa strategia nella nostra applicazione:
 
@@ -134,14 +171,24 @@ Puoi cominciare a vedere come si comporta l'applicazione: imposta `testoRicerca`
 
 Fino ad ora, abbiamo implementato una applicazione che renderizza correttamente con props e state che fluiscono in basso nella gerarchia. Adesso è il momento di supportare il flusso inverso: dobbiamo fare in modo che i componenti form più in basso nella gerarchia, possano aggiornare lo stato in `TabellaProdottiRicercabile`.
 
+<<<<<<< HEAD
 React rende questo flusso dati esplicito in modo da facilitare la comprensione del funzionamento del programma, tuttavia richiede la scrittura di un po' più codice rispetto ad altre soluzioni con flusso dati bidirezionale (*two-way data binding*).
+=======
+React makes this data flow explicit to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
 
 Se provi a scrivere qualcosa o a selezionare la casella nella versione vista nel passo precedente, noterai che React ignora completamente il tuo input. Si tratta di un fatto intenzionale, abbiamo infatti impostato la prop `value` dell'`input` per essere sempre uguale allo `state` che riceve da da `TabellaProdottiRicercabile`.
 
 Proviamo a pensare a cosa vogliamo far si che avvenga. Vogliamo fare in modo che a seconda di come l'utente alteri il form, lo stato verrà alterato di conseguenza. Dato che i componenti possono alterare solamente il proprio stato, `TabellaProdottiRicercabile` passerà [callbacks](https://it.wikipedia.org/wiki/Callback) a `BarraRicerca` che verranno invocate ogni qual volta lo stato deve essere aggiornato. Possiamo utilizzare l'evento `onChange` degli input per ricevere tale notifica. Le callbacks passate da `TabellaProdottiRicercabile` chiameranno `setState()` facendo si che la applicazione venga aggiornata.
 
+<<<<<<< HEAD
 Anche se può sembrare complesso, si tratta in realtà di poche righe di codice. Non dimentichiamoci inoltre del beneficio di essere veramente espliciti riguardo a come i nostri dati fluiscono all'interno dell'applicazione.
 
 ## È Tutto {#and-thats-it}
 
 Speriamo che adesso tu abbia un'idea su come pensare all'implementazione di componenti ed applicazioni in React. Anche se può sembrare che tu abbia bisogno di scrivere più codice di quanto tu sia abituato/a, ricorda che tale codice viene molto più letto che scritto, ed è estremamente facile da comprendere grazie alla modularità e al fatto che è molto esplicito negli intenti. Non appena comincerai a costruire grandi librerie di componenti, apprezzerai queste caratteristiche ancor di più, inoltre, grazie al riutilizzo del codice, alla fine ti ritroverai a scrivere meno righe di codice. :)
+=======
+## And That's It {#and-thats-it}
+
+Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+>>>>>>> 92ad9c2f7abb36a306f563fe48b7f52649929608
