@@ -12,7 +12,7 @@ Gli Hooks sono [retrocompatibili](/docs/hooks-intro.html#no-breaking-changes). Q
 
 >Spiegazione Dettagliata
 >
->Leggi la [Motivazione](/docs/hooks-intro.html#motivation) per capire perchè abbiamo introdotto gli Hooks in React.
+>Leggi la [Motivazione](/docs/hooks-intro.html#motivation) per capire perché abbiamo introdotto gli Hooks in React.
 
 **↑↑↑ Ogni sezione termina con un rettangolo giallo come questo.** Essi forniscono collegamenti a spiegazioni dettagliate.
 
