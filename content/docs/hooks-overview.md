@@ -62,7 +62,7 @@ L'[assegnamento di destrutturazione](https://developer.mozilla.org/it/docs/Web/J
 
 Gli Hooks sono funzioni che ti permettono di "ancorarti” all'interno delle funzioni di React state e lifecycle da componenti funzione. Gli Hooks non funzionano all'interno delle classi -- ti permettono di usare React senza classi. ([Non raccomandiamo](/docs/hooks-intro.html#gradual-adoption-strategy) la riscrittura dei tuoi componenti già esistenti tutto d'un fiato, raccomandiamo invece di scrivere quelli nuovi usando gli Hooks se ti va.)
 
-React offre Hooks predefiniti come `useState`. YouPuoi anche creare i tuoi Hooks per riutilizzare comportamenti stateful (facenti uso di stato) tra i vari componenti. Per cominciare, diamo uno sguardo agli Hooks predefiniti.
+React offre Hooks predefiniti come `useState`. Puoi anche creare i tuoi Hooks per riutilizzare comportamenti stateful (facenti uso di stato) tra i vari componenti. Per cominciare, diamo uno sguardo agli Hooks predefiniti.
 
 >Spiegazione Dettagliata
 >
