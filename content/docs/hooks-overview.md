@@ -153,7 +153,7 @@ function FriendStatusConContatore(props) {
   // ...
 ```
 
-Gli Hooks ti permettono di organizzare gli effetti collaterani in un componente a seconda di come le parti sono collegate tra loro (come aggiungere o rimuovere una sottoscrizione), piuttosto che forzarti a doverle suddividere in base a metodi di lifecycle.
+Gli Hooks ti permettono di organizzare gli effetti collaterali in un componente a seconda di come le parti sono collegate tra loro (come aggiungere o rimuovere una sottoscrizione), piuttosto che forzarti a doverle suddividere in base a metodi di lifecycle.
 
 >Spiegazione Dettagliata
 >
