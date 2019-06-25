@@ -128,7 +128,7 @@ function FriendStatus(props) {
 }
 ```
 
-In questo esempio, React rimuoverebbe la sottoscrizione alla nostra `ChatAPI` quando il componente viene smontato, ed anche prima che l'effetto venga eseguito nuovamente nel caso di una renderizzazione successiva. (Se vuoi, esiste un modo per [dire a React di evitare che avvengano sottoscrizioni multiple](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) nel caso in cui `props.friend.id` che viene passato a `ChatAPI` non è cambiato.)
+In questo esempio, React rimuoverebbe la sottoscrizione alla nostra `ChatAPI` quando il componente viene smontato, ed anche prima che l'effetto venga eseguito nuovamente nel caso di una renderizzazione successiva. (Se vuoi, esiste un modo per [dire a React di evitare che avvengano sottoscrizioni multiple](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) nel caso in cui `props.friend.id` che viene passato a `ChatAPI` non sia cambiato.)
 
 Come avviene con `useState`, puoi usare più di un singolo effetto in un componente:
 
