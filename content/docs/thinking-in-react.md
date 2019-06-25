@@ -41,7 +41,7 @@ Dato che ti ritroverai spesso a dover presentare all'utente dei modelli dati JSO
 
 ![Diagramma dei componenti](../images/blog/thinking-in-react-components.png)
 
-Abbiamo identificato cinque componenti nella nostra semplice applicazione. In corsivo, la parte del modello dati rappresentata da ogni componente.
+Abbiamo identificato cinque componenti nella nostra applicazione. In corsivo, la parte del modello dati rappresentata da ogni componente.
 
   1. **`TabellaProdottiRicercabile` (arancione):** contiene l'intero esempio
   2. **`BarraRicerca` (blu):** riceve tutti gli *input dell'utente*
@@ -51,7 +51,7 @@ Abbiamo identificato cinque componenti nella nostra semplice applicazione. In co
 
 Se dai un'occhiata a `TabellaProdotti`, noterai che la testata della tabella (contenente le etichette "Nome" e "Prezzo") non rappresenta un componente a se stante. Si tratta di una questione soggettiva, e ci sono argomenti validi in entrambi i sensi. In questo esempio, l'abbiamo lasciata come parte di `TabellaProdotti` perché fa parte della renderizzazione della *lista dei prodotti* che è una responsabilità di `TabellaProdotti`. Comunque, qualora questa testata dovesse diventare complessa (per esempio se volessimo aggiungere la gestione dell'ordinamento per colonna), avrebbe sicuramente senso creare un suo proprio componente `TestataTabellaProdotti`.
 
-Adesso che abbiamo identificato i componenti nella nostra bozza, ordiniamoli gerarchicamente. È facile. I componenti che appaiono all'interno di un altro componente nella bozza, devono essere loro figli nella gerarchia:
+Adesso che abbiamo identificato i componenti nella nostra bozza, ordiniamoli gerarchicamente. I componenti che appaiono all'interno di un altro componente nella bozza, devono essere loro figli nella gerarchia:
 
   * `TabellaProdottiRicercabile`
     * `BarraRicerca`
@@ -69,7 +69,7 @@ Per costruire una versione statica della tua applicazione che renderizza il tuo 
 
 Puoi cominciare partendo dall'alto (top-down) o dal basso (bottom-up). Il che significa che puoi cominciare con l'implementazione dei componenti più un alto nella gerarchia (per esempio cominciando da `TabellaProdottiRicercabile`) o con quelli più in basso al suo interno (`RigaProdotto`). Nei casi più semplici, è meglio preferire l'approccio top-down, nei progetti più grandi, è più facile l'approccio bottom-up e la contestuale scrittura di test man mano che si implementa.
 
-Alla fine di questo passo, avrai una libreria di componenti riutilizzabili che renderizza il tuo modello dati. I componenti avranno solo metodi `render()` dati che è una versione statica dell'applicazione. Il componente al vertice della gerarchia (`TabellaProdottiRicercabile`) riceverà il tuo modello dati come prop. Qualora tu cambiassi il modello dati sottostante, richiamando `ReactDOM.render()` di nuovo, la UI verrà aggiornata. È facile vedere come la UI si aggiorna al fine di individuare i necessari cambiamenti dato che quanto sta accadendo non è per nulla complicato. Il **flusso dati monodirezionale** di React (noto anche come *one-way binding*) mantiene ogni cosa modulare e veloce.
+Alla fine di questo passo, avrai una libreria di componenti riutilizzabili che renderizza il tuo modello dati. I componenti avranno solo metodi `render()` dati che è una versione statica dell'applicazione. Il componente al vertice della gerarchia (`TabellaProdottiRicercabile`) riceverà il tuo modello dati come prop. Qualora tu cambiassi il modello dati sottostante, richiamando `ReactDOM.render()` di nuovo, la UI verrà aggiornata. Vedrai come la UI si aggiorna al fine di individuare i necessari cambiamenti dato che quanto sta accadendo non è per nulla complicato. Il **flusso dati monodirezionale** di React (noto anche come *one-way binding*) mantiene ogni cosa modulare e veloce.
 
 Fai riferimento alla [Documentazione](/docs/) se hai bisogno di aiuto nell'esecuzione di questo passo.
 
@@ -79,7 +79,7 @@ Esistono due tipi di "modello" dati in React: props e state. È importante capir
 
 ## Passo 3: Identifica la Minima (ma completa) Rappresentazione dello Stato della UI {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-Per rendere la tua UI interattiva, devi fare in modo che sia possibile alterare il modello dati sottostante. React rende ciò semplice grazie all'uso di **state**.
+Per rendere la tua UI interattiva, devi fare in modo che sia possibile alterare il modello dati sottostante. React rende ciò possibile grazie all'uso di **state**.
 
 Al fine di implementare l'applicazione correttamente, devi innanzitutto pensare alla minima parte di stato mutabile del quale la tua applicazione ha bisogno. La chiave qui è [DRY: *Don't Repeat Yourself*](https://it.wikipedia.org/wiki/Don%27t_repeat_yourself). Individua la minima rappresentazione di stato richiesta dall'applicazione e calcola tutto il resto al bisogno. Ad esempio, se stai costruendo una "Lista delle cose da fare"; mantieni solo l'array degli elementi della lista; non mantenere una variabile separata nello stato per il conteggio, utilizza semplicemente la proprietà `length` dell'array.
 
@@ -90,7 +90,7 @@ Pensa a tutte le parti di dati nell'applicazione d'esempio. Abbiamo:
   * Il valore della checkbox
   * La lista filtrata dei prodotti
 
-Vediamoli uno alla volta al fine di individuare quali rappresentano stato. Poniti tre semplici domande per ognuno:
+Vediamoli uno alla volta al fine di individuare quali rappresentano stato. Poniti tre domande per ognuno:
 
   1. Viene ricevuto da un genitore via props? In tal caso, probabilmente non si tratta di stato.
   2. Rimane invariato nel tempo? Se si, probabilmente non si tratta di stato.
@@ -116,7 +116,7 @@ Per ogni parte di stato nella tua applicazione:
   * Identifica ogni componente che renderizza qualcosa in base a quello stato.
   * Identifica un componente proprietario comune (un singolo componente al di sopra di tutti i componenti che richiedono quello stato nella gerarchia).
   * Lo stato dovrà risiedere nel proprietario comune oppure in un altro componente più in alto nella gerarchia.
-  * Se non riesci ad individuare facilmente il componente che sensatamente dovrebbe mantenere lo stato, crea un nuovo componente semplicemente per fare ciò e posizionalo da qualche parte nella gerarchia al di sopra del componente proprietario comune.
+  * Se non riesci ad individuare facilmente il componente che sensatamente dovrebbe mantenere lo stato, crea un nuovo componente per fare ciò e posizionalo da qualche parte nella gerarchia al di sopra del componente proprietario comune.
 
 Applichiamo questa strategia nella nostra applicazione:
 
@@ -140,8 +140,6 @@ Se provi a scrivere qualcosa o a selezionare la casella nella versione vista nel
 
 Proviamo a pensare a cosa vogliamo far si che avvenga. Vogliamo fare in modo che a seconda di come l'utente alteri il form, lo stato verrà alterato di conseguenza. Dato che i componenti possono alterare solamente il proprio stato, `TabellaProdottiRicercabile` passerà [callbacks](https://it.wikipedia.org/wiki/Callback) a `BarraRicerca` che verranno invocate ogni qual volta lo stato deve essere aggiornato. Possiamo utilizzare l'evento `onChange` degli input per ricevere tale notifica. Le callbacks passate da `TabellaProdottiRicercabile` chiameranno `setState()` facendo si che la applicazione venga aggiornata.
 
-Anche se può sembrare complesso, si tratta in realtà di poche righe di codice. Non dimentichiamoci inoltre del beneficio di essere veramente espliciti riguardo a come i nostri dati fluiscono all'interno dell'applicazione.
-
 ## È Tutto {#and-thats-it}
 
-Speriamo che adesso tu abbia un'idea su come pensare all'implementazione di componenti ed applicazioni in React. Anche se può sembrare che tu abbia bisogno di scrivere più codice di quanto tu sia abituato/a, ricorda che tale codice viene molto più letto che scritto, ed è estremamente facile da comprendere grazie alla modularità e al fatto che è molto esplicito negli intenti. Non appena comincerai a costruire grandi librerie di componenti, apprezzerai queste caratteristiche ancor di più, inoltre, grazie al riutilizzo del codice, alla fine ti ritroverai a scrivere meno righe di codice. :)
+Speriamo che adesso tu abbia un'idea su come pensare all'implementazione di componenti ed applicazioni in React. Anche se può sembrare che tu abbia bisogno di scrivere più codice di quanto tu sia abituato/a, ricorda che tale codice viene molto più letto che scritto, ed è meno difficile da comprendere grazie alla modularità e al fatto che è molto esplicito negli intenti. Non appena comincerai a costruire grandi librerie di componenti, apprezzerai queste caratteristiche ancor di più, inoltre, grazie al riutilizzo del codice, alla fine ti ritroverai a scrivere meno righe di codice. :)
