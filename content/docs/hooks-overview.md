@@ -164,7 +164,7 @@ Gli Hooks ti permettono di organizzare gli effetti collaterani in un componente 
 Gli Hooks sono funzioni JavaScript, ma hanno due regole aggiuntive:
 
 * Puoi richiamare gli Hooks solo **al livello più alto**. Non richiamare gli Hooks all'interno di cicli, condizioni o funzioni nidificate.
-* Puoi richiamare gli Hooks solo **da componenti funzione di React**. Non richiamare gli Hooks da normali funzioni JavaScript. (Esiste solo un altro valido posto dal quale puoi richiamare gli Hooks -- i tuoi Hooks customizzati. Ne parleremo in un momento.)
+* Puoi richiamare gli Hooks solo **da componenti funzione di React**. Non richiamare gli Hooks da normali funzioni JavaScript. (Esiste solo un altro valido posto dal quale puoi richiamare gli Hooks -- i tuoi Hooks customizzati. Ne parleremo fra poco.)
 
 Offriamo un [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) per imporre tali regole automaticamente. Siamo consapevoli del fatto che tali regole possano sembrare limitanti o complicate all'inizio, sono però essenziali nel far sì che gli Hooks funzionino bene.
 
