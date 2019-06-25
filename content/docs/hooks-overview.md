@@ -241,7 +241,7 @@ Puoi scrivere Hooks custom che coprono un ampio ventaglio di casi d'uso quali la
 
 ## 🔌 Altri Hooks {#other-hooks}
 
-Esistono pochi altri Hooks di fabbrica usati meno frequentemente che potrai ritenere utili. Per esempio, [`useContext`](/docs/hooks-reference.html#usecontext) ti permette di sottoscriverti al React context senza dover introdurre nidificazione:
+Esistono pochi altri Hooks di fabbrica usati meno frequentemente che potresti ritenere utili. Per esempio, [`useContext`](/docs/hooks-reference.html#usecontext) ti permette di sottoscriverti al React context senza dover introdurre nidificazione:
 
 ```js{2,3}
 function Esempio() {
