@@ -74,7 +74,7 @@ React offre Hooks predefiniti come `useState`. Puoi anche creare i tuoi Hooks pe
 
 L'Effect Hook, `useEffect`, aggiunge la possibilità di eseguire effetti collaterali da componenti funzione. Svolge gli stessi compiti di `componentDidMount`, `componentDidUpdate`, e `componentWillUnmount` nelle classi React, unificate sotto una singola API. (Mostreremo degli esempi che mettono a confronto `useEffect` con questi metodi nella pagina [Usare l'Effect Hook](/docs/hooks-effect.html).)
 
-Ad esempio, questo componente imposta il titolo del documento dopo che React abbia aggiornato il DOM:
+Ad esempio, questo componente imposta il titolo del documento dopo che React ha aggiornato il DOM:
 
 ```js{1,6-10}
 import React, { useState, useEffect } from 'react';
