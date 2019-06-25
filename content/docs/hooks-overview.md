@@ -101,7 +101,7 @@ function Esempio() {
 
 Quando invochi `useEffect`, stai sostanzialmente dicendo a React di eseguire la tua funzione "effetto" dopo aver applicato i cambiamenti al DOM. Gli effetti vengono dichiarati all'interno dei componenti in modo che abbiano accesso alle sue props e state. Di default, React esegue gli effetti ad ogni renderizzazione -- *inclusa* la prima. (Discuteremo più in dettagli su come ciò si possa confrontare ai lifecycles delle classi nella pagina dedicata [Usare l'Effect Hook](/docs/hooks-effect.html).)
 
-Gli effetti possono anche opzionalmente specificare come "fare pulizia" dopo la loro esecuzione. Ad esempio, questo componente utilizza un effetto per sottoscrivere allo stato online di un amico, per poi rimuovere la sottoscrizione nella fase di pulizia:
+Gli effetti possono anche opzionalmente specificare come "fare pulizia" dopo la loro esecuzione. Ad esempio, questo componente utilizza un effetto per sottoscrivere lo stato online di un amico, per poi rimuovere la sottoscrizione nella fase di pulizia:
 
 ```js{10-16}
 import React, { useState, useEffect } from 'react';
