@@ -18,7 +18,7 @@ Gli Hooks sono [retrocompatibili](/docs/hooks-intro.html#no-breaking-changes). Q
 
 ## 📌 State Hook {#state-hook}
 
-Questo esempio renderizza un contatore. Quando clicchiamo il bottone, il valore incrementa:
+Questo esempio renderizza un contatore. Quando clicchiamo il bottone, il valore aumenta:
 
 ```js{1,4,5}
 import React, { useState } from 'react';
