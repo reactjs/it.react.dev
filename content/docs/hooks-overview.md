@@ -157,7 +157,7 @@ Gli Hooks ti permettono di organizzare gli effetti collaterani in un componente 
 
 >Spiegazione Dettagliata
 >
->Puoi saperne di più riguardo `useEffect` leggendo la pagiana dedicata: [Usare l'Effect Hook](/docs/hooks-effect.html).
+>Puoi saperne di più riguardo `useEffect` leggendo la pagina dedicata: [Usare l'Effect Hook](/docs/hooks-effect.html).
 
 ## ✌️ Regole degli Hooks {#rules-of-hooks}
 
