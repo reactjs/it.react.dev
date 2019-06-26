@@ -37,7 +37,11 @@ La prima cosa da fare è disegnare rettangoli attorno ad ogni componente (e sott
 
 Ma come fare a sapere cosa deve essere un componente a se stante? Usa le stesse tecniche che usi per decidere se devi creare una nuova funzione od un oggetto. Una di queste tecniche è il [principio di singola responsabilità](https://it.wikipedia.org/wiki/Principio_di_singola_responsabilit%C3%A0), che dice che un componente dovrebbe idealmente occuparsi di una cosa soltanto. Nel caso in cui un componente diventi troppo grande e complesso, dovrebbe essere decomposto in sotto-componenti più piccoli e semplici.
 
+<<<<<<< HEAD
 Dato che ti ritroverai spesso a dover presentare all'utente dei modelli dati JSON, noterai che se tali modelli sono stati definiti correttamente, la tua UI (e di conseguenza la struttura della gerarchia dei tuoi componenti) corrisponderanno. Ciò avviene perché entrambe tendono ad aderire alla stessa *architettura dell'informazione*, il che rende la separazione della tua UI in componenti talvolta estremamente semplice. Basta solo rappresentare ogni parte del tuo modello dati con esattamente un componente.
+=======
+Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+>>>>>>> cb5a61cdbfa5e72646cfb954056c6a4fde490a8c
 
 ![Diagramma dei componenti](../images/blog/thinking-in-react-components.png)
 
