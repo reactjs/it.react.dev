@@ -49,11 +49,7 @@ Abbiamo identificato cinque componenti nella nostra applicazione. In corsivo, la
   4. **`RigaCategoriaProdotti` (turchese):** visualizza una testata per ogni *categoria*
   5. **`RigaProdotto` (rosso):** visualizza una riga per ogni *prodotto*
 
-<<<<<<< HEAD
 Se dai un'occhiata a `TabellaProdotti`, noterai che la testata della tabella (contenente le etichette "Nome" e "Prezzo") non rappresenta un componente a se stante. Si tratta di una questione soggettiva, e ci sono argomenti validi in entrambi i sensi. In questo esempio, l'abbiamo lasciata come parte di `TabellaProdotti` perché fa parte della renderizzazione della *lista dei prodotti* che è una responsabilità di `TabellaProdotti`. Comunque, qualora questa testata dovesse diventare complessa (per esempio se volessimo aggiungere la gestione dell'ordinamento per colonna), avrebbe sicuramente senso creare un suo proprio componente `TestataTabellaProdotti`.
-=======
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
->>>>>>> 986381c56879983269c52863d9c205c7a7ba0174
 
 Adesso che abbiamo identificato i componenti nella nostra bozza, ordiniamoli gerarchicamente. I componenti che appaiono all'interno di un altro componente nella bozza, devono essere loro figli nella gerarchia:
 
@@ -79,11 +75,8 @@ Fai riferimento alla [Documentazione](/docs/) se hai bisogno di aiuto nell'esecu
 
 ### Un Breve Intervallo: Props vs State {#a-brief-interlude-props-vs-state}
 
-<<<<<<< HEAD
-Esistono due tipi di "modello" dati in React: props e state. È importante capire la distinzione tra le due cose; sfoglia [la documentazione ufficiale di React](/docs/interactivity-and-dynamic-uis.html) nel caso avessi dubbi.
-=======
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
->>>>>>> 986381c56879983269c52863d9c205c7a7ba0174
+Esistono due tipi di "modello" dati in React: props e state. È importante capire la distinzione tra le due cose; sfoglia [la documentazione ufficiale di React](/docs/state-and-lifecycle.html) nel caso avessi dubbi.
+Puoi leggere inoltre [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Passo 3: Identifica la Minima (ma completa) Rappresentazione dello Stato della UI {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 

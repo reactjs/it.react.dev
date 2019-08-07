@@ -244,11 +244,7 @@ Il metodo `componentDidMount()` viene eseguito dopo che l'output del componente 
   }
 ```
 
-<<<<<<< HEAD
-Nota come salviamo l'ID del timer direttamente in `this`.
-=======
-Note how we save the timer ID right on `this` (`this.timerID`).
->>>>>>> 986381c56879983269c52863d9c205c7a7ba0174
+Nota come salviamo l'ID del timer direttamente in `this` (`this.timerID`).
 
 Mentre `this.props` viene impostato da React stesso e `this.state` ha un significato speciale, sei libero di aggiungere altri campi alla classe se hai bisogno di salvare qualcosa che non partecipa al flusso dei dati (come l'ID di un timer).
 
