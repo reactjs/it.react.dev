@@ -8,7 +8,7 @@ prev: hooks-effect.html
 
 Gli *Hooks* sono stati aggiunti in React 16.8. Ti permettono di utilizzare `state` ed altre funzioni di React senza dover scrivere una classe.
 
-Gli Hooks sono funzioni JavaScript, ma occorre seguire due regole quando li utilizziamo. Forniamo un [plugin linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) per imporre queste regole automaticamente.
+Gli Hooks sono funzioni JavaScript, ma devi seguire due regole quando li utilizzi. Forniamo un [plugin linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) per imporre queste regole automaticamente.
 
 ### Chiama gli Hooks solo al livello più alto {#only-call-hooks-at-the-top-level}
 
@@ -118,7 +118,7 @@ useState('Poppins')        // 🔴 2 (ma era 3). Impossibile leggere la variabil
 useEffect(updateTitle)     // 🔴 3 (ma era 4). Impossibile sostituire l'effect per aggiornare il title
 ```
 
-React non saprebbe cosa restituire per la seconda chiamata all'Hook `useState`. React si aspettava che la seconda chiamata all'Hook in questo componente corrispondesse all'effect `persistForm`, esattamente come nel render precedente, ma non è più così. Da quel punto in poi, anche ogni successiva chiamata ad un Hook dopo quella che è stata saltata risulterebbe shiftata di uno, introducendo dei bug.
+React non saprebbe cosa restituire per la seconda chiamata all'Hook `useState`. React si aspettava che la seconda chiamata all'Hook in questo componente corrispondesse all'effect `persistForm`, esattamente come nel render precedente, ma non è più così. Da quel punto in poi, anche ogni successiva chiamata ad un Hook dopo quella che è stata saltata risulterebbe traslata di uno, introducendo dei bug.
 
 **Ecco perché gli Hooks devono essere chiamati dal livello più alto dei nostri componenti.** Se vogliamo eseguire un effect in maniera condizionata, possiamo mettere la condizione *dentro* il nostro Hook:
 
@@ -135,4 +135,4 @@ React non saprebbe cosa restituire per la seconda chiamata all'Hook `useState`. 
 
 ## Prossimi passi {#next-steps}
 
-Finalmente, siamo pronti per imparare a [scrivere i tuoi Hooks](/docs/hooks-custom.html)! Gli Hooks Personalizzati ti permettono di utilizzare gli Hooks forniti da React all'interno delle tue astrazioni, e riutilizzare la logica di stato comune tra componenti diversi.
+Finalmente, siamo pronti per imparare a [scrivere i tuoi Hooks](/docs/hooks-custom.html)! Gli Hooks personalizzati ti permettono di utilizzare gli Hooks forniti da React all'interno delle tue astrazioni, e riutilizzare la logica di stato comune tra componenti diversi.
