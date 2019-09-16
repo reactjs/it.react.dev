@@ -111,7 +111,7 @@ Crea un'istanza di `TestRenderer` tramite l'elemento React passato in input. Non
 TestRenderer.act(callback);
 ```
 
-Similarmente all'[helper `act()` di `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepara un componente per le asserzioni. Usa questa versione di `act()` per il wrapping di chiamate a `TestRenderer.create` e `testRenderer.update`.
+In modo simile all'[helper `act()` di `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepara un componente per le asserzioni. Usa questa versione di `act()` per il wrapping di chiamate a `TestRenderer.create` e `testRenderer.update`.
 
 ```javascript
 import {create, act} from 'react-test-renderer';
