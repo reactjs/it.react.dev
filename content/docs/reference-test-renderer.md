@@ -70,6 +70,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 ### TestRenderer {#testrenderer}
 
 * [`TestRenderer.create()`](#testrenderercreate)
+* [`TestRenderer.act()`](#testrendereract)
 
 ### Istanza di TestRenderer {#testrenderer-instance}
 
@@ -102,7 +103,37 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 TestRenderer.create(element, options);
 ```
 
-Crea un'istanza di `TestRenderer` tramite l'elemento React passato in input. Non utilizza il DOM reale, ma renderizza comunque in maniera completa l'alberatura del componente in memoria così da poter fare asserzioni su di essa.
+Crea un'istanza di `TestRenderer` tramite l'elemento React passato in input. Non utilizza il DOM reale, ma renderizza comunque in maniera completa l'alberatura del componente in memoria così da poter fare asserzioni su di essa. Ritorna una [istanza di TestRenderer](#testrenderer-instance).
+
+### `TestRenderer.act()` {#testrendereract}
+
+```javascript
+TestRenderer.act(callback);
+```
+
+In modo simile all'[helper `act()` di `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepara un componente per le asserzioni. Usa questa versione di `act()` per il wrapping di chiamate a `TestRenderer.create` e `testRenderer.update`.
+
+```javascript
+import {create, act} from 'react-test-renderer';
+import App from './app.js'; // Il componente in test
+
+// renderizzazione del componente
+let root; 
+act(() => {
+  root = create(<App value={1}/>)
+});
+
+// asserzioni sulla root 
+expect(root.toJSON()).toMatchSnapshot();
+
+// aggiornamenti qualche props
+act(() => {
+  root = root.update(<App value={2}/>);
+})
+
+// asserzioni sulla root
+expect(root.toJSON()).toMatchSnapshot();
+```
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 
@@ -118,7 +149,7 @@ Ritorna un oggetto che raffigura l'albero renderizzato. Questo albero contiene s
 testRenderer.toTree()
 ```
 
-Ritorna un oggetto che raffigura l'albero renderizzato. A differenza di `toJSON()`, la rappresentazione è più dettagliata di quella fornita da `toJSON()`, e include componenti scritti dall'utente. Probabilmente non hai bisogno di questo metodo a meno che non stia scrivendo una tua libreria di asserzioni sul test renderer.
+Ritorna un oggetto che raffigura l'albero renderizzato. La rappresentazione è più dettagliata di quella fornita da `toJSON()`, e include componenti scritti dall'utente. Probabilmente non hai bisogno di questo metodo a meno che non stia scrivendo una tua libreria di asserzioni sul test renderer.
 
 ### `testRenderer.update()` {#testrendererupdate}
 

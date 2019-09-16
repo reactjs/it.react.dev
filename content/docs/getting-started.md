@@ -119,7 +119,7 @@ Non tutte le release di React meritano un blog post, potrai comunque trovare la 
 
 ## Documentazione Versionata {#versioned-documentation}
 
-Questa documentazione riflette sempre l'ultima versione stabile di React. A partire da React 16, puoi trovare le vecchie versioni della documentazione [in una pagina separata](/versions). Nota che la documentazione per le versioni precedenti viene salvata al momento del rilascio, non riceve più aggiornamenti in seguito.
+Questa documentazione riflette sempre l'ultima versione stabile di React. A partire da React 16, puoi trovare le vecchie versioni della documentazione in una  [pagina separata](/versions). Nota che la documentazione per le versioni precedenti viene salvata al momento del rilascio, non riceve più aggiornamenti in seguito.
 
 ## Manca Qualcosa? {#something-missing}
 
