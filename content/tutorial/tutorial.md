@@ -335,7 +335,7 @@ L'estensione React Devtools per [Chrome](https://chrome.google.com/webstore/deta
 
 React DevTools ti permette di vedere le props e lo state dei tuoi componenti React.
 
-Dopo aver installato React DevTools, clicca col tasto destro del mouse su qualunque elemento di una pagina, poi su "Ispeziona elemento" per aprire i developer tools, ed il tab React apparirà come ultimo tab sulla destra.
+Dopo aver installato React DevTools, clicca col tasto destro del mouse su qualunque elemento di una pagina, poi su "Ispeziona elemento" per aprire i developer tools, ed i tabs React ("⚛️ Components" e "⚛️ Profiler") appariranno come ultimi tabs sulla destra. Usa "⚛️ Components" per ispezionare l'albero dei componenti.
 
 **Comunque, nota che ci sono alcuni passi aggiuntivi per farli funzionare con CodePen:**
 
