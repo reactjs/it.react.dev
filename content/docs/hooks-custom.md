@@ -8,7 +8,7 @@ prev: hooks-rules.html
 
 Gli *Hooks* sono stati aggiunti in React 16.8. Ti permettono di utilizzare `state` ed altre funzioni di React senza dover scrivere una classe.
 
-Costruire i tuoin Hooks personalizzati ti permette di estrarre la logica dei componenti all'interno di funzioni riutilizzabili.
+Costruire i tuoi Hooks personalizzati ti permette di estrarre la logica dei componenti all'interno di funzioni riutilizzabili.
 
 Quando stavamo imparando a [usare l'Hook Effect](/docs/hooks-effect.html#example-using-hooks-1), abbiamo visto questo componente di un'applicazione chat che mostra un messaggio per indicare se un amico è online oppure offline:
 
