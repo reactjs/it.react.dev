@@ -334,7 +334,11 @@ Nota che la renderizzazione dei componenti `lazy` richiede che sia presente un c
 
 ### `React.Suspense` {#reactsuspense}
 
+<<<<<<< HEAD
 `React.Suspense` ti consente di specificare un indicatore di caricamento nel caso in cui alcuni componenti dell'albero sotto di esso non siano ancora pronti per la renderizzazione. Ad oggi, il caricamento lazy dei componenti è **l'unico** caso d'uso supportato da `<React.Suspense>`:
+=======
+`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 ```js
 // Questo componente viene caricato dinamicamente
