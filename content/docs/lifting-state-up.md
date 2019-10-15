@@ -324,11 +324,7 @@ Spostare lo stato in alto nella gerarchia implica la scrittura di un codice più
 
 Se qualcosa può essere derivato da props o stato, probabilmente non dovrebbe essere nello stato. Ad esempio, invece di memorizzare sia `valoreCelsius` che `valoreFahrenheit`, memorizziamo solo l'ultima `temperatura` modificata e la sua `scala`. Il valore dell'altro input può sempre essere calcolato da loro nel metodo `render()`. Questo ci consente di cancellare o applicare l'arrotondamento all'altro campo senza perdere precisione nell'input dell'utente.
 
-<<<<<<< HEAD
-Quando vedi qualcosa di sbagliato nell'interfaccia utente, puoi utilizzare [React Developer Tools](https://github.com/facebook/react-devtools) per ispezionare le props e spostarti nell'albero finché non si trova il componente responsabile dell'aggiornamento dello stato. Questo ti permette di tracciare i bug alla loro fonte:
-=======
-When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
+Quando vedi qualcosa di sbagliato nell'interfaccia utente, puoi utilizzare [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) per ispezionare le props e spostarti nell'albero finché non si trova il componente responsabile dell'aggiornamento dello stato. Questo ti permette di tracciare i bug alla loro fonte:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 
