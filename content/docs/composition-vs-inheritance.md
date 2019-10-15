@@ -12,7 +12,7 @@ React ha un potente modello di composizione, raccomandiamo che lo si usi in alte
 
 In questa sezione, considereremo alcuni problemi nei quali gli sviluppatori che sono ancora agli inizi in React utilizzano l'ereditarietà, mostreremo come si possa invece risolverli con la composizione.
 
-## Contentimento {#containment}
+## Contenimento {#containment}
 
 Esistono componenti che si comportano da contenitori per altri componenti, non possono quindi sapere a priori quali componenti avranno come figli. Si pensi ad esempio a `Sidebar` (barra laterale) oppure `Dialog` (finestra di dialogo) che rappresentano "scatole" generiche.
 
@@ -46,9 +46,9 @@ function FinestraBenvenuto() {
 
 **[Prova su CodeSandbox](codesandbox://composition-vs-inheritance/1.js,composition-vs-inheritance/1.css)**
 
-Il contenuto del tag JSX `<BordoFigo>` viene passato nel componente `BordoFigo` come prop `children`. Dato che `BordoFigo` renderizza `{props.children}` all'interndo di un `<div>`, gli elementi passati appaiono nell'output finale.
+Il contenuto del tag JSX `<BordoFigo>` viene passato nel componente `BordoFigo` come prop `children`. Dato che `BordoFigo` renderizza `{props.children}` all'interno di un `<div>`, gli elementi passati appaiono nell'output finale.
 
-Anche se si tratta di un approccio meno comune, a volte potresti ritrovarti ad aver bisongno di più di un "buco" all'interno di un componente. In questi casi potresti creare una tua convenzione invece di ricorrere all'uso di `children`:
+Anche se si tratta di un approccio meno comune, a volte potresti ritrovarti ad aver bisogno di più di un "buco" all'interno di un componente. In questi casi potresti creare una tua convenzione invece di ricorrere all'uso di `children`:
 
 ```js{5,7,14}
 function Pannello(props) {
