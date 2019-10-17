@@ -302,7 +302,7 @@ setTimeout(function() {
 
 ## Alternative ai Componenti Controllati {#alternatives-to-controlled-components}
 
-Utilizzare componenti controllati può sembrare laborioso a volte, soprattutto perché è necessario scrivere un _event handler_ per ogni modo in cui i tuoi dati possono cambiare e perchè si deve collegare lo stato di tutti gli input a quello di un componente React. Il tutto diventa particolarmente noioso quando bisogna convertire progetti preesistenti in React, o integrare un'applicazione React con una libreria non-React. In queste situazioni, si potrebbe ricorrere ai [componenti non controllati](/docs/uncontrolled-components.html), una tecnica alternativa per implementare forms ed i relativi campi di input.
+Utilizzare componenti controllati può sembrare laborioso a volte, soprattutto perché è necessario scrivere un _event handler_ per ogni modo in cui i tuoi dati possono cambiare e perché si deve collegare lo stato di tutti gli input a quello di un componente React. Il tutto diventa particolarmente noioso quando bisogna convertire progetti preesistenti in React, o integrare un'applicazione React con una libreria non-React. In queste situazioni, si potrebbe ricorrere ai [componenti non controllati](/docs/uncontrolled-components.html), una tecnica alternativa per implementare forms ed i relativi campi di input.
 
 ## Soluzioni Chiavi In Mano {#fully-fledged-solutions}
 

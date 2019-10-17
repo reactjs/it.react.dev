@@ -83,7 +83,7 @@ Ti raccomandiamo di dare un'occhiata a [questa panoramica su JavaScript](https:/
 
 ### Tutorial Pratico {#practical-tutorial}
 
-Se preferisci **imparare facendo,** dà uno sguardo al nostro [tutorial pratico](/tutorial/tutorial.html). In esso, sviluppiamo un gioco tic-tac-toe (tris) in React. Potresti avere la tentazione di non seguire il tutorial perchè normalmente non sviluppi giochi -- ma dagli una possibilità. Le tecniche che imparerai nel tutorial sono fondamentali per la costruzione di *ogni* app in React, impararle ti darà una comprensione molto più profonda.
+Se preferisci **imparare facendo,** dà uno sguardo al nostro [tutorial pratico](/tutorial/tutorial.html). In esso, sviluppiamo un gioco tic-tac-toe (tris) in React. Potresti avere la tentazione di non seguire il tutorial perché normalmente non sviluppi giochi -- ma dagli una possibilità. Le tecniche che imparerai nel tutorial sono fondamentali per la costruzione di *ogni* app in React, impararle ti darà una comprensione molto più profonda.
 
 ### Guide Passo-Passo {#step-by-step-guide}
 
