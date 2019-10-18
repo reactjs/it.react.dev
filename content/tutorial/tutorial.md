@@ -168,7 +168,7 @@ Se vuoi curiosare, `createElement()` viene descritto con maggior dettaglio nella
 
 JSX ha in se tutte le funzionalità di JavaScript. Puoi inserire *qualunque* espressione JavaScript all'interno di parentesi in JSX. Ogni elemento React è un oggetto JavaScript che puoi salvare in una variabile e/o passare di qua e di là nel tuo programma.
 
-Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti, come `<div />` e `<li />`. Ma puoi comporre e visualizzare anche componenti React personalizzati al suo interno. Per esempio, adesso possiamo riferifci all'intera lista della spesa scrivendo `<ShoppingList />`. Ogni componente React è incapsulato e può operare indipendentemente; ciò ci permette di costruire UI complesse a partire da semplici componenti.
+Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti, come `<div />` e `<li />`. Ma puoi comporre e visualizzare anche componenti React personalizzati al suo interno. Per esempio, adesso possiamo riferirci all'intera lista della spesa scrivendo `<ShoppingList />`. Ogni componente React è incapsulato e può operare indipendentemente; ciò ci permette di costruire UI complesse a partire da semplici componenti.
 
 ## Uno Sguardo al Codice Iniziale {#inspecting-the-starter-code}
 
