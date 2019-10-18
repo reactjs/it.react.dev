@@ -82,7 +82,7 @@ npx create-react-app my-app
 
 > Nota Bene:
 >
->**Non eliminare l'intera cartella `src`, rimuovi solo i files al suo interno.** We'll replace the default source files with examples for this project in the next step.
+>**Non eliminare l'intera cartella `src`, rimuovi solo i files al suo interno.** Nel passo successivo sostituiremo i sorgenti predefiniti con gli esempi relativi a questo progetto.
 
 ```bash
 cd my-app
