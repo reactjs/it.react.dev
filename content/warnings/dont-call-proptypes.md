@@ -6,15 +6,15 @@ permalink: warnings/dont-call-proptypes.html
 
 > Note:
 >
-> `React.PropTypes` sono stati spostati in un diverso package dalla React v15.5. Perfavore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
+> `React.PropTypes` sono stati spostati in un diverso package dalla React v15.5. Per favore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
 >
 >Abbiamo [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
 
-In una futara realease maggiore di React, il codice che implementa le funzioni di validazione dei PropType saranno rimosse. Quando questo accadrà, qualsiasi codice che chiama queste funzioni manualmente (che non sono rimosse in produzione) lanceranno un errore.
+In una futura pubblicazione maggiore di React, il codice che implementa le funzioni di validazione dei PropType saranno rimosse. Quando questo accadrà, qualsiasi codice che chiama queste funzioni manualmente (che non sono rimosse in produzione) lanceranno un errore.
 
-### Dichiarare i PropTypes contina ad essere correcto {#declaring-proptypes-is-still-fine}
+### Dichiarare i PropTypes continua a essere corretto {#declaring-proptypes-is-still-fine}
 
-L'utilizzo normale degli PropTypes continua ad essere supportata:
+L'utilizzo normale degli PropTypes continua a essere supportata:
 
 ```javascript
 Button.propTypes = {
@@ -38,13 +38,13 @@ var apiShape = PropTypes.shape({
 var error = apiShape(json, 'response');
 ```
 
-Se dipendi dall'utilizzo di PropTypes come questo, ti incoraggiamo ad utilizzare o creare un fork di PropTypes (come [questi](https://github.com/aackerman/PropTypes) [due](https://github.com/developit/proptypes) pacchetti)
+Se dipendi dall'utilizzo di PropTypes come questo, ti incoraggiamo a utilizzare o creare un fork di PropTypes (come [questi](https://github.com/aackerman/PropTypes) [due](https://github.com/developit/proptypes) pacchetti)
 
 Se non risolvi il _warning_, questo codice si romperà in produzione con React 16.
 
 ### Se non chiami PropTypes direttamente però continui ad avere il _warning_ {#if-you-dont-call-proptypes-directly-but-still-get-the-warning}
 
-Inspezionando lo stack trace prodotto dal _warning_. Troverai il componente definito reponsabile per la chiamata diretta ai PropTypes. Il più delle volte, il problema è dovuto da un Proptypes di terze parti che ingloba i PropsTypes di React, per esempio:
+Inspezionando lo stack trace prodotto dal _warning_. Troverai il componente definito responsabile per la chiamata diretta ai PropTypes. Il più delle volte, il problema è dovuto da un Proptypes di terze parti che ingloba i PropsTypes di React, per esempio:
 
 ```js
 Button.propTypes = {
