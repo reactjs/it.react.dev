@@ -6,7 +6,7 @@ permalink: warnings/dont-call-proptypes.html
 
 > Note:
 >
-> `React.PropTypes` sono stati spostati in un diverso package dalla React v15.5. Per favore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
+> `React.PropTypes` sono stati spostati in un diverso pacchetto dalla React v15.5. Per favore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
 >
 >Abbiamo [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
 
@@ -26,7 +26,7 @@ Nulla da cambiare qui.
 
 ### Non chiamare PropTypes direttamente {#dont-call-proptypes-directly}
 
-Usare PropTypes in qualsiasi altro modo che quello annotato con loro nei componenti di React non è più supportato:
+Usare PropTypes in qualsiasi altro modo che quello annotato nei componenti di React non è più supportato:
 
 ```javascript
 var apiShape = PropTypes.shape({
