@@ -39,7 +39,7 @@ Qui puoi vedere cosa costruiremo: **[Risultato Finale](https://codepen.io/gaearo
 
 Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata a destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita e si aggiorna man mano che il gioco prosegue.
 
-Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicchè potrai costruire il gioco tu stesso/a.
+Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicché potrai costruire il gioco tu stesso/a.
 
 ### Prerequisiti {#prerequisites}
 
@@ -82,7 +82,7 @@ npx create-react-app my-app
 
 > Nota Bene:
 >
->**Non eliminare l'intera cartella `src`, rimuovi solo i files al suo interno.** We'll replace the default source files with examples for this project in the next step.
+>**Non eliminare l'intera cartella `src`, rimuovi solo i files al suo interno.** Nel passo successivo sostituiremo i sorgenti predefiniti con gli esempi relativi a questo progetto.
 
 ```bash
 cd my-app
@@ -166,15 +166,15 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Se vuoi curiosare, `createElement()` viene descritto con maggior dettaglio nella [API di riferimento](/docs/react-api.html#createelement), ma non lo useremo in questo tutorial. Invece, continueremo ad usare JSX.
 
-JSX ha in se tutte le funzionalità di JavaScript. Puoi inserire *qualunque* espressione JavaScript all'interno di parentesi in JSX. Ogni elemento React è un oggetto JavaScript che puoi salvare in una variabile e/o passare di quà e di là nel tuo programma.
+JSX ha in se tutte le funzionalità di JavaScript. Puoi inserire *qualunque* espressione JavaScript all'interno di parentesi in JSX. Ogni elemento React è un oggetto JavaScript che puoi salvare in una variabile e/o passare di qua e di là nel tuo programma.
 
-Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti, come `<div />` e `<li />`. Ma puoi comporre e visualizzare anche componenti React personalizzati al suo interno. Per esempio, adesso possiamo riferifci all'intera lista della spesa scrivendo `<ShoppingList />`. Ogni componente React è incapsulato e può operare indipendentemente; ciò ci permette di costruire UI complesse a partire da semplici componenti.
+Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti, come `<div />` e `<li />`. Ma puoi comporre e visualizzare anche componenti React personalizzati al suo interno. Per esempio, adesso possiamo riferirci all'intera lista della spesa scrivendo `<ShoppingList />`. Ogni componente React è incapsulato e può operare indipendentemente; ciò ci permette di costruire UI complesse a partire da semplici componenti.
 
 ## Uno Sguardo al Codice Iniziale {#inspecting-the-starter-code}
 
 Se hai scelto di lavorare sul tutorial **nel tuo browser,** apri questo codice in un nuovo tab: **[Codice Iniziale](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Se invece vuoi lavorare **localmente,** apri `src/index.js` nella cartella del progetto (hai già aperto questo file durante il [setup](#setup-option-2-local-development-environment)).
 
-Il Codice Iniziale è la base di quello che vogliamo costruire. Abbiamo già fornito gli stili CSS cosicchè ti potrai concentrare solo sull'imparare React e programmare il gioco tic-tac-toe.
+Il Codice Iniziale è la base di quello che vogliamo costruire. Abbiamo già fornito gli stili CSS cosicché ti potrai concentrare solo sull'imparare React e programmare il gioco tic-tac-toe.
 
 Ispezionando il codice, noterai che ci sono tre componenti React:
 
@@ -262,7 +262,7 @@ Adesso, se clicchiamo su uno Square, riceviamo un alert nel browser.
 >
 >Nota come con `onClick={() => alert('click')}`, stiamo passando *una funzione* come prop `onClick`. Essa viene eseguita a seguito di un click. Dimenticare `() =>` e scrivere `onClick={alert('click')}` è un errore comune, e risulterebbe nel lanciare l'alert ogni volta che il componente viene ridisegnato (chiamata a `render()`).
 
-Come passo successivo, vogliamo far si che il componente Square si "ricordi" di essere stato cliccato, e che visualizzi il segno "X" al suo interno. Per "ricordare" cose, i componenti usano **state** (inteso come ["stato"](https://en.wikipedia.org/wiki/State_(computer_science))).
+Come passo successivo, vogliamo far sì che il componente Square si "ricordi" di essere stato cliccato, e che visualizzi il segno "X" al suo interno. Per "ricordare" cose, i componenti usano **state** (inteso come ["stato"](https://en.wikipedia.org/wiki/State_(computer_science))).
 
 I componenti React possono avere uno stato impostando `this.state` nei loro costruttori. `this.state` dovrebbe essere considerato privato (in termini di accesso) al componente React nel quale è definito. Andiamo a salvare il valore attuale di Square in `this.state`, e cambiamolo quando Square viene cliccato.
 
@@ -392,9 +392,9 @@ Il metodo `renderSquare` di Board attualmente è:
   }
 ```
 
-All'inizio, abbiamo [passato la prop `value` verso il basso](#passing-data-through-props) da Board per visualizzare i numeri da 0 a 8 in ogni Square. In un altro passo, abbiamo sostituito i numeri con il segno "X" [determinato dallo stato interno di Square](#making-an-interactive-component). Ecco perchè al momento Square ignora la prop `value` che riceve da Board.
+All'inizio, abbiamo [passato la prop `value` verso il basso](#passing-data-through-props) da Board per visualizzare i numeri da 0 a 8 in ogni Square. In un altro passo, abbiamo sostituito i numeri con il segno "X" [determinato dallo stato interno di Square](#making-an-interactive-component). Ecco perché al momento Square ignora la prop `value` che riceve da Board.
 
-Andiamo ad usare di nuovo questo meccanismo di passaggio di props. Modifichiamo Board per far si che ogni Square riceva il proprio valore corrente (`'X'`, `'O'`, o `null`). Abbiamo già definito l'array `squares` nel costruttore di Board, adesso dobbiamo cambiare anche il metodo `renderSquare` di Board facendo si che possa leggere dall'array:
+Andiamo ad usare di nuovo questo meccanismo di passaggio di props. Modifichiamo Board per far sì che ogni Square riceva il proprio valore corrente (`'X'`, `'O'`, o `null`). Abbiamo già definito l'array `squares` nel costruttore di Board, adesso dobbiamo cambiare anche il metodo `renderSquare` di Board facendo sì che possa leggere dall'array:
 
 ```javascript{2}
   renderSquare(i) {
@@ -521,9 +521,9 @@ Dato che i componenti Square non mantengono più il proprio stato, essi ricevono
 
 Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array `squares` invece di modificare l'array esistente. Nella prossima sezione spiegheremo il perché.
 
-### Perchè l'Immutabilità è Importante {#why-immutability-is-important}
+### Perché l'Immutabilità è Importante {#why-immutability-is-important}
 
-Nel precedente esempio di codice, abbiamo suggerito l'uso dell'operatore `.slice()` per creare una copia dell'array `squares` prima di modificarlo al posto della modifica diretta dell'array. Cerchiamo di capire cosa è l'immutabilità e perchè si tratta di un concetto importante da imparare.
+Nel precedente esempio di codice, abbiamo suggerito l'uso dell'operatore `.slice()` per creare una copia dell'array `squares` prima di modificarlo al posto della modifica diretta dell'array. Cerchiamo di capire cosa è l'immutabilità e perché si tratta di un concetto importante da imparare.
 
 In generale, ci sono due approcci per modificare i dati. Il primo appoccio è quello di *mutarli* direttamente, cambiandone i valori. Il secondo approccio è quello di sostituire i dati con una nuova copia che ha i cambiamenti desiderati.
 
@@ -555,7 +555,7 @@ L'immutabilità rende funzionalità complesse molto più semplici da implementar
 
 #### Rilevare Cambiamenti {#detecting-changes}
 
-Rilevare cambiamenti in oggetti mutabili è difficile perchè essi vengono modificati direttamente. Questo tipo di rilevazione richiede il confronto dell'oggetto mutato con le versioni precedenti dello stesso e quindi, l'intero albero dell'oggetto deve essere attraversato.
+Rilevare cambiamenti in oggetti mutabili è difficile perché essi vengono modificati direttamente. Questo tipo di rilevazione richiede il confronto dell'oggetto mutato con le versioni precedenti dello stesso e quindi, l'intero albero dell'oggetto deve essere attraversato.
 
 Rilevare cambiamenti negli oggetti immutabili è considerevolmente più semplice. Se il riferimento dell'oggetto immutabile è diverso dal precedente, allora l'oggetto è cambiato.
 
@@ -623,7 +623,7 @@ Ogni volta che un giocatore muove, `xIsNext` (booleano) viene invertito per dete
 
 Con questo cambiamento, "X" e "O" adesso vengono usati alternativamente di turno in turno. Prova!
 
-Dobbiamo anche cambiare il testo "status" nel `render` di Board cosicchè verremo informati a video del giocatore che deve muovere nel turno successivo:
+Dobbiamo anche cambiare il testo "status" nel `render` di Board cosicché verremo informati a video del giocatore che deve muovere nel turno successivo:
 
 ```javascript{2}
   render() {
@@ -736,7 +736,7 @@ Richiameremo `calculateWinner(squares)` nella funzione `render` di Board per ver
       // il resto non cambia
 ```
 
-Dobbiamo modificare anche la funzione `handleClick` di Board per far si che ritorni immediatamente, ignorando i click, nel caso in cui qualcuno ha già vinto la partita o nel caso in cui Square sia già riempito:
+Dobbiamo modificare anche la funzione `handleClick` di Board per far sì che ritorni immediatamente, ignorando i click, nel caso in cui qualcuno ha già vinto la partita o nel caso in cui Square sia già riempito:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -836,7 +836,7 @@ class Game extends React.Component {
 }
 ```
 
-Poi, dobbiamo far si che il componente Board riceva le props `squares` ed `onClick` dal componente Game. Dato che adesso abbiamo un solo handler per il click in Board per i vari Squares, dobbiamo passare la posizione di ogni Square nell'handler `onClick` per indicare quale Square è stato cliccato. Questi sono i passi necessari per trasformare il componente Board:
+Poi, dobbiamo far sì che il componente Board riceva le props `squares` ed `onClick` dal componente Game. Dato che adesso abbiamo un solo handler per il click in Board per i vari Squares, dobbiamo passare la posizione di ogni Square nell'handler `onClick` per indicare quale Square è stato cliccato. Questi sono i passi necessari per trasformare il componente Board:
 
 * Rimuovere il `constructor` in Board.
 * Sostituire `this.state.squares[i]` con `this.props.squares[i]` nel metodo `renderSquare` di Board.
@@ -900,7 +900,7 @@ class Board extends React.Component {
 }
 ```
 
-Modifichiamo la funzione `render` del componente Board per far si che utilizzi l'elemento più recente nello storico per visualizzare lo stato della partita:
+Modifichiamo la funzione `render` del componente Board per far sì che utilizzi l'elemento più recente nello storico per visualizzare lo stato della partita:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -1098,7 +1098,7 @@ Le chiavi non devono essere globalmente uniche; devono essere uniche solo tra i 
 
 Nello storico della partita di tic-tac-toe, ogni mossa precedente ha un ID unico ad essa associata: si tratta del numero sequenziale della mossa. Le mosse non vengono mai riordinate, rimosse o inserite nel mezzo, per questo motivo in questo caso possiamo usare l'indice della mossa come chiave.
 
-Nel metodo `render` del componente Game, possiamo aggiungere la chiave come `<li key={move}>` dopodichè il messaggio di avviso di React riguardo le chiavi dovrebbe sparire:
+Nel metodo `render` del componente Game, possiamo aggiungere la chiave come `<li key={move}>` dopodiché il messaggio di avviso di React riguardo le chiavi dovrebbe sparire:
 
 ```js{6}
     const moves = history.map((step, move) => {

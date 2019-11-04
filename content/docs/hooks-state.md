@@ -150,7 +150,7 @@ Dichiariamo una variabile di stato chiamata `contatore`, e la settiamo a `0`. Re
 
 >Nota
 >
->Potresti chiederti: perchè `useState` non è stato chiamato `createState`?
+>Potresti chiederti: perché `useState` non è stato chiamato `createState`?
 >
 >"Create" non sarebbe perfettamente accurato perché lo stato è solo creato la prima volta che il nostro componente viene renderizzato. Durante i successivi render, `useState` ci fornisce lo stato corrente. Altrimenti non sarebbe "stato"! C'è anche una ragione per cui i nomi degli Hook iniziano *sempre* con `use`. Lo scopriremo più tardi in [Regole degli Hooks](/docs/hooks-rules.html).
 
@@ -213,7 +213,7 @@ Facciamo un **riepilogo di cosa abbiamo imparato linea per linea** e controlliam
 ```
 
 * **Linea 1:** Importiamo l'Hook `useState` da React. Ci permette di tenere lo stato locale in un componente funzione.
-* **Linea 4:** Dentro il componente `Esempio`, dichiariamo una nuova variabile di stato chiamando l'Hook `useState`. Questo ritorna una coppia di valori, ai quali diamo dei nomi. Chiameremo la nostra variabile `contatore` perchè conterà il numero di click del bottone. Lo inizializziamo a zero passando `0` come unico argomento a `useState`. Il secondo elemento ritornato è una funzione. Questa ci permette di aggiornare `contatore` quindi la chiameremo `setContatore`.
+* **Linea 4:** Dentro il componente `Esempio`, dichiariamo una nuova variabile di stato chiamando l'Hook `useState`. Questo ritorna una coppia di valori, ai quali diamo dei nomi. Chiameremo la nostra variabile `contatore` perché conterà il numero di click del bottone. Lo inizializziamo a zero passando `0` come unico argomento a `useState`. Il secondo elemento ritornato è una funzione. Questa ci permette di aggiornare `contatore` quindi la chiameremo `setContatore`.
 * **Linea 9:** Quando l'utente clicca, chiamiamo `setContatore` con un nuovo valore. React renderizzerà nuovamente il componente `Esempio`, passandogli il nuovo valore `contatore`.
 
 Questo potrebbe sembrare troppo da gestire inizialmente. Ma non correre! Se ti sei perso durante la spiegazione, guarda di nuovo il codice sopra e prova a leggerlo dall'inizio alla fine. Ti promettiamo che se provi a "dimenticare" come funziona lo stato all'interno delle classi, e a leggere nuovamente questo codice, tutto avrà senso.
@@ -240,7 +240,7 @@ Questa sintassi JavaScript è chiamata ["destrutturazione di array"](https://dev
   var setFrutta = variebileDiStatoFrutta[1]; // Il secondo elemento della coppia
 ```
 
-Quando dichiariamo una variabile di stato con `useState`, questo ritorna una coppia - un array con due elementi. Il primo elemento è il valore attuale, e il secondo è la funzione che ci permette di aggiornarlo. Usando `[0]` e `[1]` per accedervi è un po' fuorviante perchè hanno un significato specifico. Questo è il motivo per cui utilizziamo la destrutturazione di array.
+Quando dichiariamo una variabile di stato con `useState`, questo ritorna una coppia - un array con due elementi. Il primo elemento è il valore attuale, e il secondo è la funzione che ci permette di aggiornarlo. Usando `[0]` e `[1]` per accedervi è un po' fuorviante perché hanno un significato specifico. Questo è il motivo per cui utilizziamo la destrutturazione di array.
 
 >Nota
 >
