@@ -46,7 +46,7 @@ Puoi [aggiungere React ad una pagina HTML in in minuto](/docs/add-react-to-a-web
 
 ### Creare una Nuova App React {#create-a-new-react-app}
 
-Quando si deve incominciare un nuovo progetto React, [una semplice pagina HTML con script tags](/docs/add-react-to-a-website.html) potrebbe ancora essere la migliore opzione. Richiede solo un minuto per il setup!
+Quando si deve incominciare un nuovo progetto React, una [semplice pagina HTML con script tags](/docs/add-react-to-a-website.html) potrebbe ancora essere la migliore opzione. Richiede solo un minuto per il setup!
 
 Man mano che la tua applicazione cresce, potresti voler considerare un setup più integrato. Esistono [diverse toolchains JavaScript](/docs/create-a-new-react-app.html) che raccomandiamo per lo sviluppo di applicazioni più complesse. Ognuna di esse può funzionare con poche impostazioni oppure senza dover impostare nulla permettendoti di ottenere tutti i vantaggi del ricco ecosistema di React.
 
@@ -115,7 +115,7 @@ Il [blog di React](/blog/) è la fonte ufficiale per gli aggiornamenti dal team 
 
 Puoi inoltre seguire l'[account @reactjs](https://twitter.com/reactjs) su Twitter, ma non ti perderai nulla di essenziale leggendo solo il blog.
 
-Non tutte le release di React meritano un blog post, potrai comunque trovare la lista dei cambiamenti per ogni release [nel file `CHANGELOG.md` nella repository di React](https://github.com/facebook/react/blob/master/CHANGELOG.md), oltre che nella pagina [Releases](https://github.com/facebook/react/releases).
+Non tutte le release di React meritano un blog post, potrai comunque trovare la lista dei cambiamenti per ogni release nel file [`CHANGELOG.md` nella repository di React](https://github.com/facebook/react/blob/master/CHANGELOG.md), oltre che nella pagina [Releases](https://github.com/facebook/react/releases).
 
 ## Documentazione Versionata {#versioned-documentation}
 
