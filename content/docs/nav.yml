@@ -7,15 +7,10 @@
     - id: create-a-new-react-app
       title: Creare una Nuova App React
     - id: cdn-links
-<<<<<<< HEAD
       title: Collegamenti a CDN
-- title: Concetti Chiave
-=======
-      title: CDN Links
     - id: release-channels
-      title: Release Channels
-- title: Main Concepts
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+      title: Canali di Rilascio      
+- title: Concetti Chiave
   isOrdered: true
   items:
     - id: hello-world
