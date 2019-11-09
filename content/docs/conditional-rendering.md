@@ -237,4 +237,4 @@ ReactDOM.render(
 ```
 [](codepen://conditional-rendering/4)
 
-Ritornando `null` dal metodo `render` di un componente, non modifica il comportamnento dei metodi di lifecycle del componente. Ad esempio `componentDidUpdate` viene ancora chiamato.
+Ritornando `null` dal metodo `render` di un componente, non modifica il comportamento dei metodi di lifecycle del componente. Ad esempio `componentDidUpdate` viene ancora chiamato.
