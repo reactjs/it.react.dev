@@ -901,7 +901,7 @@ class Board extends React.Component {
 }
 ```
 
-Modifichiamo la funzione `render` del componente Board per far sì che utilizzi l'elemento più recente nello storico per visualizzare lo stato della partita:
+Modifichiamo la funzione `render` del componente Game per far sì che utilizzi l'elemento più recente nello storico per visualizzare lo stato della partita:
 
 ```javascript{2-11,16-19,22}
   render() {
