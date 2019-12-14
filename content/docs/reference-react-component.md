@@ -553,7 +553,7 @@ Object.assign(
 )
 ```
 
-Le chiamatre successive sovrascriveranno i valori delle chiamate precedenti nello stesso ciclo, quindi la quantità verrà incrementata una volta sola. Se lo stato successivo dipende dallo stato corrente, ti raccomandiamo la variante che utilizza la funzione updater:
+Le chiamate successive sovrascriveranno i valori delle chiamate precedenti nello stesso ciclo, quindi la quantità verrà incrementata una volta sola. Se lo stato successivo dipende dallo stato corrente, ti raccomandiamo la variante che utilizza la funzione updater:
 
 ```js
 this.setState((state) => {
