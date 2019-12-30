@@ -56,11 +56,7 @@ function ActionLink() {
 
 In questo esempio, il parametro `e` è un evento sintetico (_synthetic event_). React definisce questi eventi sintetici in base alle [specifiche W3C](https://www.w3.org/TR/DOM-Level-3-Events/), quindi non hai bisogno di preoccuparti della compatibilità tra browser. Consulta la guida di riferimento [`SyntheticEvent`](/docs/events.html) per saperne di più.
 
-<<<<<<< HEAD
 Usando React, in generale, non dovresti aver bisogno di chiamare `addEventListener` per aggiungere listeners ad un elemento DOM dopo la sua creazione. Invece, basta fornire un listener quando l'elemento è inizialmente renderizzato.
-=======
-When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 Quando definisci un componente usando una [classe ES6](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes), un pattern comune è usare un metodo della classe come gestore di eventi. Ad esempio, questo componente `Interruttore` renderizza un pulsante che consente all'utente di alternare gli stati "Acceso" e "Spento":
 
@@ -146,11 +142,7 @@ Il problema con questa sintassi è che viene creata una callback diversa ogni vo
 
 ## Passare Argomenti ai Gestori di Eventi {#passing-arguments-to-event-handlers}
 
-<<<<<<< HEAD
 All'interno di un ciclo, è comune avere l'esigenza di passare un parametro aggiuntivo ad un gestore di eventi. Ad esempio, avendo `id` come l'identificativo della riga, le seguenti dichiarazioni sarebbero entrambe valide:
-=======
-Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Elimina riga</button>
