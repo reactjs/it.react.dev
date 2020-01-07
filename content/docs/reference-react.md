@@ -104,7 +104,7 @@ Leggi i [Riferimenti di React.Component](/docs/react-component.html) per un elen
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` è simile a [`React.Component`](#reactcomponent). La differenza è che [`React.Component`](#reactcomponent) non implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) mentre `React.PureComponent` lo implementa con una comparazione "shallow" delle props e dello state. 
+`React.PureComponent` è simile a [`React.Component`](#reactcomponent). La differenza è che [`React.Component`](#reactcomponent) non implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) mentre `React.PureComponent` lo implementa con una comparazione "shallow" delle props e dello state.
 
 Se il metodo `render()` del tuo componente React produce sempre lo stesso risultato a partire dagli stessi valori di props e state (ovvero è un componente "puro"), puoi utilizzare `React.PureComponent` per avere un miglioramento della performance in alcuni casi.
 
@@ -127,6 +127,8 @@ const MioComponente = React.memo(function MioComponente(props) {
 `React.memo` è un cosiddetto [higher order component](/docs/higher-order-components.html) (componente di ordine superiore). È simile a [`React.PureComponent`](#reactpurecomponent) ma è dedicato ai componenti funzione invece che alle classi componente.
 
 Se il tuo componente funzione renderizza lo stesso risultato a partire dalle stesse props, puoi racchiuderlo in una chiamata a `React.memo` per ottenere un miglioramento della performance in alcuni casi tramite la memoizzazione del risultato. In altre parole, React eviterà di ri-renderizzare il componente, riutilizzando l'ultima renderizzazione.
+
+`React.memo` ha effetto solo sui cambiamenti delle props. Se il tuo componente funzione racchiuso in `React.memo` ha un Hook [`useState`](/docs/hooks-state.html) o [`useContext`](/docs/hooks-reference.html#usecontext) nella sua implementazione, verrà comunque rirenderizzato al cambiamento di state o del context.
 
 Il comportamento predefinito di React è quello di limitarsi a una comparazione shallow degli oggetti complessi contenuti in props. Se vuoi avere un controllo diretto sulla comparazione effettuata, puoi fornire una funzione personalizzata che effettui la comparazione come secondo argomento.
 
