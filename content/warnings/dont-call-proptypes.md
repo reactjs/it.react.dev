@@ -77,7 +77,7 @@ export default function deprecated(propType, explanation) {
   };
 }
 ```
-Per riparare il falso positivo, stai attento a passare l'argomento **all** sotto il PropType inglobato. Questo che facile da fare con la notazione `...rest` di ES6:
+Per riparare il falso positivo, fai attenzione passare l'argomento **all** sotto il PropType inglobato. Questo è facile da fare con la notazione `...rest` di ES6:
 
 ```javascript
 export default function deprecated(propType, explanation) {
