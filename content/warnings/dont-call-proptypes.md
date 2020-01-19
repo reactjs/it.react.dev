@@ -6,7 +6,7 @@ permalink: warnings/dont-call-proptypes.html
 
 > Note:
 >
-> `React.PropTypes` sono stati spostati in un diverso pacchetto dalla React v15.5. Dobbiamo utilizzare [la libreria `prop-types`](https://www.npmjs.com/package/prop-types).
+> `React.PropTypes` sono stati spostati in un pacchetto diverso dalla React v15.5. Perfavore utilizza invece [la libreria `prop-types`](https://www.npmjs.com/package/prop-types).
 >
 >Esiste [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
 
