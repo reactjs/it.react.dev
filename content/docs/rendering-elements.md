@@ -16,7 +16,7 @@ Un elemento descrive cosa vuoi vedere sullo schermo:
 const element = <h1>Hello, world</h1>;
 ```
 
-Contrariamente agli elementi [DOM](https://developer.mozilla.org/it/docs/Web/API/Document_Object_Model) del browser, gli elementi React sono oggetti semplici e per questo poco costosi da creare. Il DOM di React tiene cura di aggiornare il DOM del browser per essere consistente con gli elementi React.
+Contrariamente agli elementi [DOM](https://developer.mozilla.org/it/docs/Web/API/Document_Object_Model) del browser, gli elementi React sono oggetti semplici e per questo più veloci da creare. Il DOM di React tiene cura di aggiornare il DOM del browser per essere consistente con gli elementi React.
 
 >**Nota bene:**
 >
@@ -32,7 +32,7 @@ Supponiamo di avere un `<div>` da qualche parte nel tuo file HTML:
 
 Lo chiameremo nodo DOM "radice" (o root) in quanto ogni cosa al suo interno verrà gestita dal DOM di React.
 
-Applicazioni costruite solo con React di solito hanno un solo nodo DOM radice. Se stai integranto Reat all'interno di apps esistenti, potresti avere più elementi DOM radice isolati, dipende dai casi.
+Applicazioni costruite solo con React di solito hanno un solo nodo DOM radice. Se stai integrando React all'interno di apps esistenti, potresti avere più elementi DOM radice isolati, dipende dai casi.
 
 Per renderizzare un elemento React nel nodo DOM radice, bisogna passare entrambi a `ReactDOM.render()`:
 
@@ -48,7 +48,7 @@ Gli elementi React sono [immutabili](https://en.wikipedia.org/wiki/Immutable_obj
 
 Con la conoscenza che abbiamo fino a questo punto, l'unico modo per aggiornare l'UI è quello di creare un nuovo elemento e di passarlo a `ReactDOM.render()`.
 
-Preniamo in considerazione il prossimo esempio, nel quale abbiamo un orologio:
+Prendiamo in considerazione il prossimo esempio, nel quale abbiamo un orologio:
 
 `embed:rendering-elements/update-rendered-element.js`
 
