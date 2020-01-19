@@ -6,7 +6,11 @@ permalink: warnings/dont-call-proptypes.html
 
 > Note:
 >
+<<<<<<< HEAD
 > `React.PropTypes` sono stati spostati in un diverso pacchetto dalla React v15.5. Dobbiamo utilizzare [la libreria `prop-types`](https://www.npmjs.com/package/prop-types).
+=======
+> `React.PropTypes` sono stati spostati in un diverso pacchetto dalla React v15.5. Per favore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
+>>>>>>> 543e480a7bf060b72ad79f0f80da8dc6fe1f47c3
 >
 >Esiste [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
 
@@ -26,7 +30,11 @@ Nulla da cambiare qui.
 
 ### Non chiamare PropTypes direttamente {#dont-call-proptypes-directly}
 
+<<<<<<< HEAD
 Utilizzare PropTypes in qualsiasi altro modo che quello annotato con i rispettivi componenti di React non è più supportato:
+=======
+Usare PropTypes in qualsiasi altro modo che quello annotato nei componenti di React non è più supportato:
+>>>>>>> 543e480a7bf060b72ad79f0f80da8dc6fe1f47c3
 
 ```javascript
 var apiShape = PropTypes.shape({
@@ -60,7 +68,11 @@ In questo caso, `ThirdPartyPropTypes.deprecated` è un involucro chiamato `PropT
 
 Nel caso tu sia un autore di una libreria di PropTypes di terze parti e lasci i consumitori inglobare i React PropTypes esistenti, possono incominciare a vedere questo _warning_ venire dalla stessa. Questo succede perchè React non vede un "segreto" come ultimo argomento che [è passato](https://github.com/facebook/react/pull/7132) per detettare chiamate manuali dei PropTypes
 
+<<<<<<< HEAD
 Ecco come soluzionarlo. Utilizzeremo `deprecated` da [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) come esempio. Questa implementazioen passa solamente sotto gli argomenti: `props`, `propName` e `componentName`:
+=======
+Ecco come soluzionarlo. Utilizzeremo `deprecated` da [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) come esempio. Questa implementazione passa solamente sotto gli argomenti: `props`, `propName`, e `componentName`:
+>>>>>>> 543e480a7bf060b72ad79f0f80da8dc6fe1f47c3
 
 ```javascript
 export default function deprecated(propType, explanation) {
