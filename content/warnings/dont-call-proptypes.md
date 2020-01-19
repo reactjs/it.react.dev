@@ -6,11 +6,11 @@ permalink: warnings/dont-call-proptypes.html
 
 > Note:
 >
-> `React.PropTypes` sono stati spostati in un diverso package dalla React v15.5. Per favore utilizza [la `prop-types` libreria invece](https://www.npmjs.com/package/prop-types).
+> `React.PropTypes` sono stati spostati in un diverso pacchetto dalla React v15.5. Dobbiamo utilizzare [la libreria `prop-types`](https://www.npmjs.com/package/prop-types).
 >
->Abbiamo [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
+>Esiste [un codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) per automatizzare questa conversazione.
 
-In una futura pubblicazione maggiore di React, il codice che implementa le funzioni di validazione dei PropType saranno rimosse. Quando questo accadrà, qualsiasi codice che chiama queste funzioni manualmente (che non sono rimosse in produzione) lanceranno un errore.
+In una futura pubblicazione attualizzata di React, il codice che implementa le funzioni di validazione dei PropType saranno rimosse. Quando questo accadrà, qualsiasi codice che chiamasse queste funzioni manualmente (che non sono state rimosse in produzione) lanceranno un errore.
 
 ### Dichiarare i PropTypes continua a essere corretto {#declaring-proptypes-is-still-fine}
 
@@ -26,7 +26,7 @@ Nulla da cambiare qui.
 
 ### Non chiamare PropTypes direttamente {#dont-call-proptypes-directly}
 
-Usare PropTypes in qualsiasi altro modo che quello annotato con loro nei componenti di React non è più supportato:
+Utilizzare PropTypes in qualsiasi altro modo che quello annotato con i rispettivi componenti di React non è più supportato:
 
 ```javascript
 var apiShape = PropTypes.shape({
@@ -38,13 +38,13 @@ var apiShape = PropTypes.shape({
 var error = apiShape(json, 'response');
 ```
 
-Se dipendi dall'utilizzo di PropTypes come questo, ti incoraggiamo a utilizzare o creare un fork di PropTypes (come [questi](https://github.com/aackerman/PropTypes) [due](https://github.com/developit/proptypes) pacchetti)
+Quando dipendi dall'utilizzo dei PropTypes come questo, ti incoraggiamo a utilizzare o creare un fork dei PropTypes (come [questi](https://github.com/aackerman/PropTypes) [due](https://github.com/developit/proptypes) pacchetti)
 
-Se non risolvi il _warning_, questo codice si romperà in produzione con React 16.
+Quando non risolvi il _warning_, questo codice si romperà in produzione con React 16.
 
 ### Se non chiami PropTypes direttamente però continui ad avere il _warning_ {#if-you-dont-call-proptypes-directly-but-still-get-the-warning}
 
-Inspezionando lo stack trace prodotto dal _warning_. Troverai il componente definito responsabile per la chiamata diretta ai PropTypes. Il più delle volte, il problema è dovuto da un Proptypes di terze parti che ingloba i PropsTypes di React, per esempio:
+Inspezionando lo stack trace prodotto dal _warning_. Troverai il componente definito responsabile per la chiamata diretta ai PropTypes. Il più delle volte, il problema è dovuto da un Proptypes di terze parti che ingloba i PropTypes di React, per esempio:
 
 ```js
 Button.propTypes = {
@@ -54,13 +54,13 @@ Button.propTypes = {
   )
 }
 ```
-In questo caso, `ThirdPartyPropTypes.deprecated` è un involucro chiamato `PropTypes.bool`. Questo pattern di per se va bene, ma innesca un falso positivo perché React pensa che tu stia chiamando PropTypes direttamente. La prossima sezione spiega come sistemare questo problema per una libreria implementando qualcosa come `ThirdPartyPropTypes`. Se non è una libreria che hai scritto tu, puoi riportare un problema su di esso.
+In questo caso, `ThirdPartyPropTypes.deprecated` è un involucro chiamato `PropTypes.bool`. Questo pattern di per se va bene, ma innesca un falso positivo perché React pensa che tu stia chiamando PropTypes direttamente. La prossima sezione spiega come sistemare questo problema per una libreria implementando qualcosa come `ThirdPartyPropTypes`. Nel caso non fosse una libreria che hai scritto tu, puoi riportare un problema su di essa.
 
 ### Riparando un falso positivo in PropTypes di terze parti {#fixing-the-false-positive-in-third-party-proptypes}
 
-Se sei un autore di una libreria di PropTypes di terze parti e lasci i consumitori inglobare i React PropTypes esistenti, possono incominciare a vedere questo _warning_ venire dalla tua libreria. Questo succede perchè React non vede un "segreto" ultimo argomento che [è passato](https://github.com/facebook/react/pull/7132) per detettare chiamate manuali dei PropTypes
+Nel caso tu sia un autore di una libreria di PropTypes di terze parti e lasci i consumitori inglobare i React PropTypes esistenti, possono incominciare a vedere questo _warning_ venire dalla stessa. Questo succede perchè React non vede un "segreto" come ultimo argomento che [è passato](https://github.com/facebook/react/pull/7132) per detettare chiamate manuali dei PropTypes
 
-Ecco come soluzionarlo. Utilizzeremo `deprecated` da [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) come esempio. Questa implementazioen passa solamente sotto gli argomenti: `props`, `propName`, e `componentName`:
+Ecco come soluzionarlo. Utilizzeremo `deprecated` da [react-bootstrap/react-prop-types](https://github.com/react-bootstrap/react-prop-types/blob/0d1cd3a49a93e513325e3258b28a82ce7d38e690/src/deprecated.js) come esempio. Questa implementazioen passa solamente sotto gli argomenti: `props`, `propName` e `componentName`:
 
 ```javascript
 export default function deprecated(propType, explanation) {
@@ -77,7 +77,7 @@ export default function deprecated(propType, explanation) {
   };
 }
 ```
-Per riparare il falso positivo, stai attento di passare l'argomento **all** sotto il PropType inglobato. Questo che facile da fare con la notazione `...rest` di ES6:
+Per riparare il falso positivo, stai attento a passare l'argomento **all** sotto il PropType inglobato. Questo che facile da fare con la notazione `...rest` di ES6:
 
 ```javascript
 export default function deprecated(propType, explanation) {
