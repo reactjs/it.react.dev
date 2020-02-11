@@ -37,7 +37,7 @@ In questo tutorial, ti mostreremo come costruire in React una versione interatti
 
 Qui puoi vedere cosa costruiremo: **[Risultato Finale](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se non capisci il codice, o se non riconosci la sintassi, non ti preoccupare! L'obiettivo di questo tutorial è appunto di aiutarti a capire React e la sua sintassi.
 
-Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata a destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita e si aggiorna man mano che il gioco prosegue.
+Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata a destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita, la quale si aggiorna man mano che il gioco prosegue.
 
 Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicché potrai costruire il gioco tu stesso/a.
 
