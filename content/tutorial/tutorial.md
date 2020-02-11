@@ -37,11 +37,7 @@ In questo tutorial, ti mostreremo come costruire in React una versione interatti
 
 Qui puoi vedere cosa costruiremo: **[Risultato Finale](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se non capisci il codice, o se non riconosci la sintassi, non ti preoccupare! L'obiettivo di questo tutorial è appunto di aiutarti a capire React e la sua sintassi.
 
-<<<<<<< HEAD
-Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata a destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita e si aggiorna man mano che il gioco prosegue.
-=======
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+Ti consigliamo di guardare il gioco prima di continuare. Una delle funzionalità che noterai è che c'è una lista numerata a destra del piano di gioco. Questa lista contiene l'elenco delle mosse che sono avvenute durante una partita, la quale si aggiorna man mano che il gioco prosegue.
 
 Puoi chiudere il gioco non appena ci hai familiarizzato. Cominceremo con un template più semplice in questo tutorial. Nel passo successivo ti aiuteremo ad impostare i prerequisiti, cosicché potrai costruire il gioco tu stesso/a.
 
