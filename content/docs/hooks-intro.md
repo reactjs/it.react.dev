@@ -31,7 +31,8 @@ Questa nuova funzione `useState` è il primo "Hook" che impareremo, l'esempio ap
 
 >Nota
 >
->React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM. React Native supporterà gli Hooks nella prossima release stabile.
+>React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM. 
+>React Native supporta gli Hooks a partire dalla [release 0.59 di React Native](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
 
 ## Introduzione Video {#video-introduction}
 
@@ -69,9 +70,9 @@ Ne discuteremo più in dettaglio nella sezione [Hooks Personalizzati](/docs/hook
 
 ### Componenti complessi diventano difficili da capire {#complex-components-become-hard-to-understand}
 
-Ci siamo ritrovati più volte a dover mantenere componenti che sono passati dall'essere semplici fino a crescere in un groviglio di logica stateful ed effetti collaterali. Ogni metodo di lifecycle spesso contiene un mix di logica non correlata. Per esempio, i componenti potrebbero richiamare dati da qualche API in `componentDidMount` e `componentDidUpdate`. Comunque, lo stesso metodo `componentDidMount` può contenere anche logica per l'impostazione di event listeners, con le relative operazioni di pulizia eseguite in `componentWillUnmount`. Parti di codice correlate e che generalmente cambiano allo stesso tempo finiscono per essere divise perchè abbiamo codice completamente non correlato all'interno dello stesso metodo. Ciò rende troppo semplice l'introduzione di bugs ed inconsistenze.
+Ci siamo ritrovati più volte a dover mantenere componenti che sono passati dall'essere semplici fino a crescere in un groviglio di logica stateful ed effetti collaterali. Ogni metodo di lifecycle spesso contiene un mix di logica non correlata. Per esempio, i componenti potrebbero richiamare dati da qualche API in `componentDidMount` e `componentDidUpdate`. Comunque, lo stesso metodo `componentDidMount` può contenere anche logica per l'impostazione di event listeners, con le relative operazioni di pulizia eseguite in `componentWillUnmount`. Parti di codice correlate e che generalmente cambiano allo stesso tempo finiscono per essere divise perché abbiamo codice completamente non correlato all'interno dello stesso metodo. Ciò rende troppo semplice l'introduzione di bugs ed inconsistenze.
 
-In molti casi non è possibile suddividere questi componenti in altri più piccoli in quanto la logica stateful è dappertutto. È difficile anche testare questi componenti. Ecco perchè molti preferiscono utilizzare una libreria di gestione dello stato separata. Comunque, ciò spesso introduce troppa astrazione, richiede di saltare da un file all'altro frequentemente e rende la riutilizzazione dei componenti più difficile.
+In molti casi non è possibile suddividere questi componenti in altri più piccoli in quanto la logica stateful è dappertutto. È difficile anche testare questi componenti. Ecco perché molti preferiscono utilizzare una libreria di gestione dello stato separata. Comunque, ciò spesso introduce troppa astrazione, richiede di saltare da un file all'altro frequentemente e rende la riutilizzazione dei componenti più difficile.
 
 Per risolvere questo problema, **gli Hooks ti permettono di dividere un componente in funzioni più piccole basate sui pezzi che sono correlati (quali una sottoscrizione ad un particolare evento o la richiesta di dati)**, piuttosto che forzare una suddivisione basata sui metodi di lifecycle. Puoi anche decidere di gestire lo stato del tuo componente con un reducer per renderlo più prevedibile.
 

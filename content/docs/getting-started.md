@@ -46,9 +46,9 @@ Puoi [aggiungere React ad una pagina HTML in in minuto](/docs/add-react-to-a-web
 
 ### Creare una Nuova App React {#create-a-new-react-app}
 
-Quando si deve incominciare un nuovo progetto React, [una semplice pagina HTML con script tags](/docs/add-react-to-a-website.html) potrebbe ancora essere la migliore opzione. Richiede solo un minuto per il setup!
+Quando si deve incominciare un nuovo progetto React, una [semplice pagina HTML con script tags](/docs/add-react-to-a-website.html) potrebbe ancora essere la migliore opzione. Richiede solo un minuto per il setup!
 
-Man mano che la tua applicazione cresce, potresti voler considerare un setup più integrato. Esistono [diverse toolchains JavaScript](/docs/create-a-new-react-app.html) che raccomandiamo per lo sviluppo di applicazioni più complesse. Ognuna di esse può funzionare con poche impostazioni oppure senza dover impostare nulla permettendoti di ottenere tutti i vantaggi del ricco ecosistema di React.
+Man mano che la tua applicazione cresce, potresti voler considerare un setup più integrato. Esistono diverse toolchains JavaScript che raccomandiamo per lo sviluppo di applicazioni più complesse. Ognuna di esse può funzionare con poche impostazioni oppure senza dover impostare nulla permettendoti di ottenere tutti i vantaggi del ricco ecosistema di React. [Impara come.](/docs/create-a-new-react-app.html)
 
 ## Impara React {#learn-react}
 
@@ -83,7 +83,7 @@ Ti raccomandiamo di dare un'occhiata a [questa panoramica su JavaScript](https:/
 
 ### Tutorial Pratico {#practical-tutorial}
 
-Se preferisci **imparare facendo,** dà uno sguardo al nostro [tutorial pratico](/tutorial/tutorial.html). In esso, sviluppiamo un gioco tic-tac-toe (tris) in React. Potresti avere la tentazione di non seguire il tutorial perchè normalmente non sviluppi giochi -- ma dagli una possibilità. Le tecniche che imparerai nel tutorial sono fondamentali per la costruzione di *ogni* app in React, impararle ti darà una comprensione molto più profonda.
+Se preferisci **imparare facendo,** dà uno sguardo al nostro [tutorial pratico](/tutorial/tutorial.html). In esso, sviluppiamo un gioco tic-tac-toe (tris) in React. Potresti avere la tentazione di non seguire il tutorial perché normalmente non sviluppi giochi -- ma dagli una possibilità. Le tecniche che imparerai nel tutorial sono fondamentali per la costruzione di *ogni* app in React, impararle ti darà una comprensione molto più profonda.
 
 ### Guide Passo-Passo {#step-by-step-guide}
 
@@ -115,11 +115,11 @@ Il [blog di React](/blog/) è la fonte ufficiale per gli aggiornamenti dal team 
 
 Puoi inoltre seguire l'[account @reactjs](https://twitter.com/reactjs) su Twitter, ma non ti perderai nulla di essenziale leggendo solo il blog.
 
-Non tutte le release di React meritano un blog post, potrai comunque trovare la lista dei cambiamenti per ogni release [nel file `CHANGELOG.md` nella repository di React](https://github.com/facebook/react/blob/master/CHANGELOG.md), oltre che nella pagina [Releases](https://github.com/facebook/react/releases).
+Non tutte le release di React meritano un blog post, potrai comunque trovare la lista dei cambiamenti per ogni release nel file [`CHANGELOG.md` nella repository di React](https://github.com/facebook/react/blob/master/CHANGELOG.md), oltre che nella pagina [Releases](https://github.com/facebook/react/releases).
 
 ## Documentazione Versionata {#versioned-documentation}
 
-Questa documentazione riflette sempre l'ultima versione stabile di React. A partire da React 16, puoi trovare le vecchie versioni della documentazione [in una pagina separata](/versions). Nota che la documentazione per le versioni precedenti viene salvata al momento del rilascio, non riceve più aggiornamenti in seguito.
+Questa documentazione riflette sempre l'ultima versione stabile di React. A partire da React 16, puoi trovare le vecchie versioni della documentazione in una  [pagina separata](/versions). Nota che la documentazione per le versioni precedenti viene salvata al momento del rilascio, non riceve più aggiornamenti in seguito.
 
 ## Manca Qualcosa? {#something-missing}
 

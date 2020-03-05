@@ -73,8 +73,6 @@ Le toolchains seguenti offrono più scelta e flessibilità. Le raccomandiamo per
 
 - **[Neutrino](https://neutrinojs.org/)** combina la potenza di [webpack](https://webpack.js.org/) con la semplicità dei presets, e include un preset per le [applicazioni React](https://neutrinojs.org/packages/react/) e per i [componenti React](https://neutrinojs.org/packages/react-components/).
 
-- **[nwb](https://github.com/insin/nwb)** è particolarmente valido per [pubblicare componenti React su npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). [Può essere usato](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) anche per creare applicazioni React.
-
 - **[Parcel](https://parceljs.org/)** è un builder di applicazioni rapido e senza configurazioni che [funziona con React](https://parceljs.org/recipes.html#react).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** è un framework di renderizzazione lato server che non ha bisogno di configurazioni, ma offre più flessibilità di Next.js.

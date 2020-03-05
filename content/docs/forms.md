@@ -27,7 +27,7 @@ Questo form si comporta come di consueto, facendo navigare l'utente in una nuova
 
 In HTML, gli elementi di un form come `<input>`, `<textarea>` e `<select>` mantengono tipicamente il proprio stato e lo aggiornano in base all'input dell'utente. In React, lo stato mutabile viene tipicamente mantenuto nella proprietà `state` dei componenti e viene poi aggiornato solo mediante [`setState()`](/docs/react-component.html#setstate).
 
-Possiamo combinare le due cose rendendo lo _state_ in React la "singola fonte attendibile" ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth)). Possiamo poi fare in modo che il componente React che renderizza il form controlli anche cosa succede all'interno del form in risposta agli input dell'utente. In un form, un elemento di input il cui valore è controllato da React viene così chiamato "componente controllato".
+Possiamo combinare le due cose rendendo lo _state_ in React la "singola fonte attendibile" ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth)). Possiamo poi fare in modo che il componente React che renderizza il form controlli anche cosa succede all'interno del form in risposta agli input dell'utente. In un form, un elemento di input il cui valore è controllato da React in questo modo viene chiamato "componente controllato".
 
 Ad esempio, se vogliamo far sì che l'esempio precedente registri il nome inserito, possiamo riscrivere il form sotto forma di componente controllato:
 
@@ -302,7 +302,7 @@ setTimeout(function() {
 
 ## Alternative ai Componenti Controllati {#alternatives-to-controlled-components}
 
-Utilizzare componenti controllati può sembrare laborioso a volte, soprattutto perché è necessario scrivere un _event handler_ per ogni modo in cui i tuoi dati possono cambiare e perchè si deve collegare lo stato di tutti gli input a quello di un componente React. Il tutto diventa particolarmente noioso quando bisogna convertire progetti preesistenti in React, o integrare un'applicazione React con una libreria non-React. In queste situazioni, si potrebbe ricorrere ai [componenti non controllati](/docs/uncontrolled-components.html), una tecnica alternativa per implementare forms ed i relativi campi di input.
+Utilizzare componenti controllati può sembrare laborioso a volte, soprattutto perché è necessario scrivere un _event handler_ per ogni modo in cui i tuoi dati possono cambiare e perché si deve collegare lo stato di tutti gli input a quello di un componente React. Il tutto diventa particolarmente noioso quando bisogna convertire progetti preesistenti in React, o integrare un'applicazione React con una libreria non-React. In queste situazioni, si potrebbe ricorrere ai [componenti non controllati](/docs/uncontrolled-components.html), una tecnica alternativa per implementare forms ed i relativi campi di input.
 
 ## Soluzioni Chiavi In Mano {#fully-fledged-solutions}
 

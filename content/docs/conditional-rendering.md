@@ -10,7 +10,7 @@ redirect_from:
 
 In React, puoi creare componenti distinti che incapsulano il funzionamento di cui hai bisogno. Quindi, puoi renderizzarne solo alcuni, a seconda dello stato della tua applicazione.
 
-La renderizzazione condizionale in React funziona nello stesso modo in cui funzionano le condizioni in JavaScript. Puoi perciò usare operatori come [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o l'[operatore condizionale]([https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Operator_Condizionale)) per creare elementi che rappresentano lo stato corrente cosicchè React possa aggiornare la UI di conseguenza.
+La renderizzazione condizionale in React funziona nello stesso modo in cui funzionano le condizioni in JavaScript. Puoi perciò usare operatori come [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o l'[operatore condizionale]([https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Operator_Condizionale)) per creare elementi che rappresentano lo stato corrente cosicché React possa aggiornare la UI di conseguenza.
 
 Considera i due componenti:
 
@@ -237,4 +237,4 @@ ReactDOM.render(
 ```
 [](codepen://conditional-rendering/4)
 
-Ritornando `null` dal metodo `render` di un componente, non modifica il comportamnento dei metodi di lifecycle del componente. Ad esempio `componentDidUpdate` viene ancora chiamato.
+Ritornando `null` dal metodo `render` di un componente, non modifica il comportamento dei metodi di lifecycle del componente. Ad esempio `componentDidUpdate` viene ancora chiamato.

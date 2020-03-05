@@ -30,7 +30,7 @@ function Ciao(props) {
 }
 ```
 
-Questa funzione è un componente React valido in quanto accetta un oggetto parametro contenente dati sotto forma di una singola "props" (che prende il nome da "properties" in inglese, ossia "proprietà") che è un oggetto parametro avente dati al suo interno e ritorna un elemento React. Chiameremo questo tipo di componenti "componenti funzione" perchè sono letteralmente funzioni JavaScript.
+Questa funzione è un componente React valido in quanto accetta un oggetto parametro contenente dati sotto forma di una singola "props" (che prende il nome da "properties" in inglese, ossia "proprietà") che è un oggetto parametro avente dati al suo interno e ritorna un elemento React. Chiameremo questo tipo di componenti "componenti funzione" perché sono letteralmente funzioni JavaScript.
 
 Puoi anche usare una [classe ES6](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes) per definire un componente:
 
@@ -171,7 +171,7 @@ function Avatar(props) {
 }
 ```
 
-`Avatar` non ha bisogno di sapere che viene renderizzato all'interno di un `Commento`. Ecco perchè abbiamo dato alla sua prop un nome più generico: `utente` al posto di `autore`.
+`Avatar` non ha bisogno di sapere che viene renderizzato all'interno di un `Commento`. Ecco perché abbiamo dato alla sua prop un nome più generico: `utente` al posto di `autore`.
 
 Consigliamo di dare il nome alle props dal punto di vista del componente piuttosto che dal contesto in cui viene usato.
 
@@ -233,7 +233,7 @@ function Commento(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Estrarre componenti può semprare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sé (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
+Estrarre componenti può sembrare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sé (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
 
 ## Le Props Sono in Sola Lettura {#props-are-read-only}
 

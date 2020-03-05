@@ -40,7 +40,7 @@ function Esempio() {
 
 In questo caso, `useState` è un *Hook* (spiegheremo cosa significa fra poco). Lo richiamiamo all'interno di un componente funzione per aggiungervi uno stato interno. React preserverà questo stato tra le ri-renderizzazioni. `useState` ritorna una coppia: il valore dello stato *corrente* ed una funzione che ci permette di aggiornarlo. Puoi chiamare questa funzione da un event handler o altrove. È simile a `this.setState`in una classe, tranne per il fatto che non unisce il vecchio e nuovo stato. (Mostriamo un esempio nel quale confrontiamo `useState` e `this.state` in [Usare lo State Hook](/docs/hooks-state.html).)
 
-L'unico parametro di `useState` è il suo stato iniziale. Nell'esempio di sopra, è appunto `0` perchè il contatore comincia da zero. Nota come contrariamente a `this.state`, lo stato non deve essere un oggetto -- anche se può esserlo se lo vuoi. Il parametro che determina lo stato iniziale viene usato solo durante la prima renderizzazione.
+L'unico parametro di `useState` è il suo stato iniziale. Nell'esempio di sopra, è appunto `0` perché il contatore comincia da zero. Nota come contrariamente a `this.state`, lo stato non deve essere un oggetto -- anche se può esserlo se lo vuoi. Il parametro che determina lo stato iniziale viene usato solo durante la prima renderizzazione.
 
 #### Dichiarazione di variabili di stato multiple{#declaring-multiple-state-variables}
 
@@ -56,7 +56,7 @@ function EsempioConMoltiState() {
 }
 ```
 
-L'[assegnamento di destrutturazione](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) ci permette di dare nomi diversi alle variabili di stato che abbiamo dichiarato richiamando `useState`. Questi nomi non fanno parte della API di `useState`. Invece, React assume che se chiami `useState` più volte, lo farai nello stesso ordine durante ogni renderizzazione. Ritorneremo più tardi sul perchè ciò funziona ed è utile.
+L'[assegnamento di destrutturazione](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) ci permette di dare nomi diversi alle variabili di stato che abbiamo dichiarato richiamando `useState`. Questi nomi non fanno parte della API di `useState`. Invece, React assume che se chiami `useState` più volte, lo farai nello stesso ordine durante ogni renderizzazione. Ritorneremo più tardi sul perché ciò funziona ed è utile.
 
 #### Ma cosa è un Hook? {#but-what-is-a-hook}
 

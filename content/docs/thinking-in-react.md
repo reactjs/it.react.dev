@@ -75,7 +75,8 @@ Fai riferimento alla [Documentazione](/docs/) se hai bisogno di aiuto nell'esecu
 
 ### Un Breve Intervallo: Props vs State {#a-brief-interlude-props-vs-state}
 
-Esistono due tipi di "modello" dati in React: props e state. È importante capire la distinzione tra le due cose; sfoglia [la documentazione ufficiale di React](/docs/interactivity-and-dynamic-uis.html) nel caso avessi dubbi.
+Esistono due tipi di "modello" dati in React: props e state. È importante capire la distinzione tra le due cose; sfoglia [la documentazione ufficiale di React](/docs/state-and-lifecycle.html) nel caso avessi dubbi.
+Puoi leggere inoltre [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Passo 3: Identifica la Minima (ma completa) Rappresentazione dello Stato della UI {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
@@ -138,7 +139,7 @@ React rende questo flusso dati esplicito in modo da facilitare la comprensione d
 
 Se provi a scrivere qualcosa o a selezionare la casella nella versione vista nel passo precedente, noterai che React ignora completamente il tuo input. Si tratta di un fatto intenzionale, abbiamo infatti impostato la prop `value` dell'`input` per essere sempre uguale allo `state` che riceve da da `TabellaProdottiRicercabile`.
 
-Proviamo a pensare a cosa vogliamo far si che avvenga. Vogliamo fare in modo che a seconda di come l'utente alteri il form, lo stato verrà alterato di conseguenza. Dato che i componenti possono alterare solamente il proprio stato, `TabellaProdottiRicercabile` passerà [callbacks](https://it.wikipedia.org/wiki/Callback) a `BarraRicerca` che verranno invocate ogni qual volta lo stato deve essere aggiornato. Possiamo utilizzare l'evento `onChange` degli input per ricevere tale notifica. Le callbacks passate da `TabellaProdottiRicercabile` chiameranno `setState()` facendo si che la applicazione venga aggiornata.
+Proviamo a pensare a cosa vogliamo far sì che avvenga. Vogliamo fare in modo che a seconda di come l'utente alteri il form, lo stato verrà alterato di conseguenza. Dato che i componenti possono alterare solamente il proprio stato, `TabellaProdottiRicercabile` passerà [callbacks](https://it.wikipedia.org/wiki/Callback) a `BarraRicerca` che verranno invocate ogni qual volta lo stato deve essere aggiornato. Possiamo utilizzare l'evento `onChange` degli input per ricevere tale notifica. Le callbacks passate da `TabellaProdottiRicercabile` chiameranno `setState()` facendo sì che la applicazione venga aggiornata.
 
 ## È Tutto {#and-thats-it}
 

@@ -542,7 +542,7 @@ In questo caso viene eseguito direttamente uno shallow merge di `cambiamentoStat
 this.setState({quantita: 2})
 ```
 
-Anche questa variante di `setState()` è sincrona, e chiamate successive durante lo stesso ciclo potrebbero essere accorpate. Ad esempio, se provi ad aumentare la quantità di un prodotto in un carrello più di una volta nello stesso ciclo, otterrai lo stesso effetto di:
+Anche questa variante di `setState()` è asincrona, e chiamate successive durante lo stesso ciclo potrebbero essere accorpate. Ad esempio, se provi ad aumentare la quantità di un prodotto in un carrello più di una volta nello stesso ciclo, otterrai lo stesso effetto di:
 
 ```javaScript
 Object.assign(
@@ -553,7 +553,7 @@ Object.assign(
 )
 ```
 
-Le chiamatre successive sovrascriveranno i valori delle chiamate precedenti nello stesso ciclo, quindi la quantità verrà incrementata una volta sola. Se lo stato successivo dipende dallo stato corrente, ti raccomandiamo la variante che utilizza la funzione updater:
+Le chiamate successive sovrascriveranno i valori delle chiamate precedenti nello stesso ciclo, quindi la quantità verrà incrementata una volta sola. Se lo stato successivo dipende dallo stato corrente, ti raccomandiamo la variante che utilizza la funzione updater:
 
 ```js
 this.setState((state) => {
