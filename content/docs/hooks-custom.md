@@ -74,7 +74,7 @@ Quando vogliamo condividere della logica tra due funzioni JavaScript, la estraia
 **Un Hook personalizzato è una funzione JavaScript il cui nome inizia con "`use`" e che può invocare altri Hooks.** Per esempio, `useFriendStatus` qui sotto è il nostro primo Hook personalizzato:
 
 ```js{3}
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);

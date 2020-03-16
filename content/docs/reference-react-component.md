@@ -501,7 +501,7 @@ Sono solamente due: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater[, callback])
+setState(updater, [callback])
 ```
 
 `setState()` accoda modifiche allo stato del componente e comunica a React che il componente e i suoi figli devono essere ri-renderizzati con lo stato aggiornato. Questo è il metodo principale che puoi utilizzare per aggiornare l'interfaccia utente in risposta agli event handler e alle risposte del server.

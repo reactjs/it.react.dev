@@ -128,7 +128,11 @@ const MioComponente = React.memo(function MioComponente(props) {
 
 Se il tuo componente funzione renderizza lo stesso risultato a partire dalle stesse props, puoi racchiuderlo in una chiamata a `React.memo` per ottenere un miglioramento della performance in alcuni casi tramite la memoizzazione del risultato. In altre parole, React eviterà di ri-renderizzare il componente, riutilizzando l'ultima renderizzazione.
 
+<<<<<<< HEAD
 `React.memo` ha effetto solo sui cambiamenti delle props. Se il tuo componente funzione racchiuso in `React.memo` ha un Hook [`useState`](/docs/hooks-state.html) o [`useContext`](/docs/hooks-reference.html#usecontext) nella sua implementazione, verrà comunque rirenderizzato al cambiamento di state o del context.
+=======
+`React.memo` only checks for prop changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Il comportamento predefinito di React è quello di limitarsi a una comparazione shallow degli oggetti complessi contenuti in props. Se vuoi avere un controllo diretto sulla comparazione effettuata, puoi fornire una funzione personalizzata che effettui la comparazione come secondo argomento.
 
