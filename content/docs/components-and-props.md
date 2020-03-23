@@ -44,7 +44,11 @@ class Ciao extends React.Component {
 
 I due componenti appena visti sono equivalenti dal pundo di vista di React.
 
+<<<<<<< HEAD
 Le Classi hanno funzionalità aggiuntive che verranno discusse in dettaglio nelle [prossime sezioni](/docs/state-and-lifecycle.html). Fino ad allora, ci limiteremo all'uso dei componenti funzione per via della loro concisività.
+=======
+Function and Class components both have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html).
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 ## Renderizzare un Componente {#rendering-a-component}
 
@@ -60,7 +64,11 @@ Comunque, gli elementi possono rappresentare anche componenti definiti dall'uten
 const elemento = <Ciao nome="Sara" />;
 ```
 
+<<<<<<< HEAD
 Quando React incontra un elemento che rappresenta un componente definito dall'utente, passa gli attributi JSX a questo componente come un singolo oggetto. Tale oggetto prende il nome di "props".
+=======
+When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object "props".
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Ad esempio, il codice seguente renderizza il messaggio "Ciao, Sara" nella pagina:
 
