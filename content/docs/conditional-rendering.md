@@ -173,11 +173,18 @@ render() {
   const utenteAutenticato = this.state.utenteAutenticato;
   return (
     <div>
+<<<<<<< HEAD
       {utenteAutenticato ? (
         <BottoneLogout onClick={this.handleLogoutClick} />
       ) : (
         <BottoneLogin onClick={this.handleLoginClick} />
       )}
+=======
+      {isLoggedIn
+        ? <LogoutButton onClick={this.handleLogoutClick} />
+        : <LoginButton onClick={this.handleLoginClick} />
+      }
+>>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
     </div>
   );
 }

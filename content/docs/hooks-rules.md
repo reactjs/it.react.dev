@@ -27,6 +27,8 @@ Seguendo questa regola, ti assicuri che tutta la logica con stato in un componen
 
 Abbiamo rilasciato un plugin ESLint chiamato [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) che impone queste due regole. Puoi aggiungere questo plugin al tuo progetto, qualora volessi provarlo:
 
+This plugin is included by default in [Create React App](/docs/create-a-new-react-app.html#create-react-app).
+
 ```bash
 npm install eslint-plugin-react-hooks --save-dev
 ```
@@ -46,9 +48,13 @@ npm install eslint-plugin-react-hooks --save-dev
 }
 ```
 
+<<<<<<< HEAD
 Questo plugin è incluso di default in [Create React App](/docs/create-a-new-react-app.html#create-react-app).
 
 **Puoi passare alla pagina successiva che spiega come scrivere [i tuoi Hooks](/docs/hooks-custom.html) adesso.** In questa pagina, continueremo spiegando il ragionamento alla base di queste regole.
+=======
+**You can skip to the next page explaining how to write [your own Hooks](/docs/hooks-custom.html) now.** On this page, we'll continue by explaining the reasoning behind these rules.
+>>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
 
 ## Spiegazione {#explanation}
 
