@@ -226,14 +226,7 @@ class Prenotazione extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-<<<<<<< HEAD
-    const value =
-      target.type === 'checkbox'
-        ? target.checked
-        : target.value;
-=======
-    const value = target.name === 'isGoing' ? target.checked : target.value;
->>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
+    const value = target.name === 'presente' ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
