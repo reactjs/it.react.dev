@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -75,6 +76,7 @@ Gli event handlers di seguito vengono scatenati da un evento nella fase di [bubb
 - [Eventi della Tastiera](#keyboard-events)
 - [Eventi di Focus](#focus-events)
 - [Eventi di Form](#form-events)
+- [Eventi Generici](#generic-events)
 - [Eventi del Mouse](#mouse-events)
 - [Eventi del Puntatore](#pointer-events)
 - [Eventi della Selezione](#selection-events)
@@ -176,10 +178,20 @@ DOMEventTarget relatedTarget
 Nomi degli eventi:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 Per maggiori informazioni sull'evento onChange, vedi [Forms](/docs/forms.html).
+
+* * *
+
+### Generic Events {#generic-events}
+
+Event names:
+
+```
+onError onLoad
+```
 
 * * *
 
