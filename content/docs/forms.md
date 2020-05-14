@@ -140,7 +140,7 @@ Nota come l'opzione Cocco venga preselezionata grazie all'attributo `selected`. 
 class FormGusti extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'coconut'};
+    this.state = {value: 'cocco'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
