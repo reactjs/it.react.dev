@@ -1049,11 +1049,6 @@ Usiamo `map` su `history` nel metodo `render` di Game:
 
 Per ogni mossa nello storico delle mosse, creeremo una lista di elementi `<li>` che contengono un bottone `<button>`. Il bottone avrà un handler `onClick` che richiama un metodo chiamato `this.jumpTo()`. Non abbiamo ancora implementato `jumpTo()`. Per adesso, dovremmo essere in grado di vedere una lista delle mosse avvenute oltre ad un messaggio di errore nella console dei [developer tools](#developer-tools) che dice:
 
->  Warning:
->  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
-
-che significa:
-
 > Attenzione:
 > Ogni elemento di un array o iteratore dovrebbe avere una prop "key" (chiave). Verifica il metodo render di "Game"
 
