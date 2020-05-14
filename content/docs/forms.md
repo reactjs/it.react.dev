@@ -68,17 +68,7 @@ class FormNome extends React.Component {
 
 Dato che l'attributo `value` viene impostato nel nostro elemento form, il valore visualizzato sarà sempre `this.state.value`, rendendo lo stato in React l'unica fonte di dati attendibile. Dato che la funzione `handleChange` viene eseguita ad ogni battitura per aggiornare lo stato di React, il valore visualizzato verrà aggiornato man mano che l'utente preme i tasti.
 
-<<<<<<< HEAD
-Con un componente controllato, ogni mutazione dello stato deve aver associata una funzione _handler_. Tutto ciò rende il processo di modifica e la validazione dell'input dell'utente semplice e lineare. Ad esempio, se volessimo definire una regola che vuole che i nomi vengano sempre scritti tutti in maiuscolo, possiamo definire `handleChange` così:
-
-```javascript{2}
-handleChange(event) {
-  this.setState({value: event.target.value.toUpperCase()});
-}
-```
-=======
-With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
->>>>>>> bc91fe4101420f98454a59ac34c1cf1d4d4f4476
+Con un componente controllato, il valore dell'input viene sempre controllato dallo stato di React. Anche se ciò comporta la battitura di più codice, permette il passaggio del valore anche ad altri elementi della UI, o di resettarlo da altri _event handlers_.
 
 ## Il Tag Textarea {#the-textarea-tag}
 
