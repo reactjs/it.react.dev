@@ -181,12 +181,20 @@ function Numero(props) {
   return <li>{props.valore}</li>;
 }
 
+<<<<<<< HEAD
 function ListaNumeri(props) {
   const numeri = props.numeri;
   const lista = numeri.map((numero) =>
     // Corretto! La chiave deve essere specificata all'interno dell'array.
     <Numero key={numero.toString()}
             valore={numero} />
+=======
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    // Correct! Key should be specified inside the array.
+    <ListItem key={number.toString()} value={number} />
+>>>>>>> f81b909ce97dc253998a192f367551cb2b40d66f
   );
   return (
     <ul>
