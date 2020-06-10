@@ -4,7 +4,7 @@ title: Frammenti
 permalink: docs/fragments.html
 ---
 
-A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+Un modello comune in React è di restituire molteplici elementi per un componente. I frammenti ti consentono di raggruppare una lista di figli senza aggiungere nodi extra al DOM.
 
 ```js
 render() {
@@ -18,11 +18,11 @@ render() {
 }
 ```
 
-There is also a new [short syntax](#short-syntax) for declaring them.
+C'è anche una nuova [sintassi breve](#short-syntax) per dichiararli.
 
-## Motivation {#motivation}
+## Motivazione {#motivation}
 
-A common pattern is for a component to return a list of children. Take this example React snippet:
+Un modello comune per un componente è di restituire una lista di figli. Guarda questo esempio di una parte del codice React:
 
 ```jsx
 class Table extends React.Component {
@@ -38,7 +38,7 @@ class Table extends React.Component {
 }
 ```
 
-`<Columns />` would need to return multiple `<td>` elements in order for the rendered HTML to be valid. If a parent div was used inside the `render()` of `<Columns />`, then the resulting HTML will be invalid.
+`<Columns />` avrebbe bisogno di restituire multipli elementi `<td>` in ordine per affinchè l'HTML reindirizzato sia valido. Se un parente div è stato usato dentro il `render()` di `<Columns />`, l'HTML risultante non sarà valido.
 
 ```jsx
 class Columns extends React.Component {
@@ -53,7 +53,7 @@ class Columns extends React.Component {
 }
 ```
 
-results in a `<Table />` output of:
+genererà in `<Table />` il seguente risultato:
 
 ```jsx
 <table>
@@ -66,9 +66,9 @@ results in a `<Table />` output of:
 </table>
 ```
 
-Fragments solve this problem.
+I frammenti risolvono questo problema.
 
-## Usage {#usage}
+## Utilizzo {#usage}
 
 ```jsx{4,7}
 class Columns extends React.Component {
@@ -83,7 +83,7 @@ class Columns extends React.Component {
 }
 ```
 
-which results in a correct `<Table />` output of:
+che darà in `<Table />` un corretto risultato:
 
 ```jsx
 <table>
@@ -94,9 +94,9 @@ which results in a correct `<Table />` output of:
 </table>
 ```
 
-### Short Syntax {#short-syntax}
+### Sintassi Breve {#short-syntax}
 
-There is a new, shorter syntax you can use for declaring fragments. It looks like empty tags:
+C'è una nuova e breve sintassi che puoi usare per dichiarare i frammenti. Sembra come se avessimo dei tag vuoti:
 
 ```jsx{4,7}
 class Columns extends React.Component {
@@ -111,11 +111,11 @@ class Columns extends React.Component {
 }
 ```
 
-You can use `<></>` the same way you'd use any other element except that it doesn't support keys or attributes.
+Puoi utilizzare `<></>` allo stesso modo in cui hai utilizzato ogni altro elemento, ad accezzione che questa sintassi non supporta chiavi e attributi.
 
-### Keyed Fragments {#keyed-fragments}
+### Frammenti Chiave {#keyed-fragments}
 
-Fragments declared with the explicit `<React.Fragment>` syntax may have keys. A use case for this is mapping a collection to an array of fragments -- for example, to create a description list:
+I frammenti dichiarati con l'esplicita sintassi `<React.Fragment>` possono avere chiavi. Un caso di utilizzo può essere mappare una collezione su un array di frammenti -- per esempio, per creare una lista di descrizioni:
 
 ```jsx
 function Glossary(props) {
@@ -133,8 +133,8 @@ function Glossary(props) {
 }
 ```
 
-`key` is the only attribute that can be passed to `Fragment`. In the future, we may add support for additional attributes, such as event handlers.
+`key` è l'unico attributo che può essere accettato da `Fragment`. In futuro, potremo aggiungere un supporto per attributi aggiuntivi, come per i gestori di eventi.
 
-### Live Demo {#live-demo}
+### Dimostrazione dal vivo {#live-demo}
 
-You can try out the new JSX fragment syntax with this [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
+Puoi provare la nuova sintassi del frammento JSX con questo [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
