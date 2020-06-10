@@ -91,7 +91,7 @@ function Esempio() {
   return (
     <div>
       <p>Hai cliccato {contatore} volte</p>
-      <button onClick={() => setCount(contatore + 1)}>
+      <button onClick={() => setContatore(contatore + 1)}>
         Cliccami
       </button>
     </div>
