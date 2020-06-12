@@ -1197,11 +1197,7 @@ Congratulazioni! Abbiamo creato un gioco tic-tac-toe che:
 * Tiene traccia dello storico delle mosse man mano che la partita prosegue,
 * Permette al giocatore di rivedere lo storico e con esso le precedenti versioni della tavola di gioco.
 
-<<<<<<< HEAD
 Ottimo lavoro! Ci auguriamo che tu ti senta di aver avuto una decente introduzione al funzionamento di React.
-=======
-Nice work! We hope you now feel like you have a decent grasp of how React works.
->>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 Quì puoi vedere il risultato finale: **[Risultato Finale](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 

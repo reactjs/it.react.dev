@@ -233,11 +233,7 @@ function Commento(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-<<<<<<< HEAD
-Estrarre componenti può sembrare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sé (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati ad essere riutilizzabili.
-=======
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be extracted to a separate component.
->>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
+Estrarre componenti può sembrare un'attività pesante ma avere una tavolozza di componenti riutilizzabili ripaga molto bene nelle applicazioni più complesse. Una buona regola da tenere a mente è che se una parte della tua UI viene usata diverse volte (`Bottone`, `Pannello`, `Avatar`) o se è abbastanza complessa di per sé (`App`, `StoriaFeed`, `Commento`), allora questi componenti sono buoni candidati per essere estratti come componenti separati.
 
 ## Le Props Sono in Sola Lettura {#props-are-read-only}
 
