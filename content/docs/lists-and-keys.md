@@ -185,8 +185,7 @@ function ListaNumeri(props) {
   const numeri = props.numeri;
   const lista = numeri.map((numero) =>
     // Corretto! La chiave deve essere specificata all'interno dell'array.
-    <Numero key={numero.toString()}
-            valore={numero} />
+    <Numero key={numero.toString()} valore={numero} />
   );
   return (
     <ul>

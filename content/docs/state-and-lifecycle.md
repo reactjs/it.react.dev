@@ -418,12 +418,6 @@ Questa è la ragione per cui lo stato è spesso definito locale o incapsulato. E
 Un componente potrebbe decidere di passare il suo stato ai componenti figli sotto forma di props:
 
 ```js
-<h2>Sono le {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-Questo funziona anche con i componenti definiti dall'utente:
-
-```js
 <FormattedDate date={this.state.date} />
 ```
 

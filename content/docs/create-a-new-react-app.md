@@ -73,6 +73,8 @@ Le toolchains seguenti offrono più scelta e flessibilità. Le raccomandiamo per
 
 - **[Neutrino](https://neutrinojs.org/)** combina la potenza di [webpack](https://webpack.js.org/) con la semplicità dei presets, e include un preset per le [applicazioni React](https://neutrinojs.org/packages/react/) e per i [componenti React](https://neutrinojs.org/packages/react-components/).
 
+- **[Nx](https://nx.dev/react)** è uno strumento che permette lo sviluppo di monorepo full-stack, con supporto integrato per React, Next.js, [Express](https://expressjs.com/), ed altro.
+
 - **[Parcel](https://parceljs.org/)** è un builder di applicazioni rapido e senza configurazioni che [funziona con React](https://parceljs.org/recipes.html#react).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** è un framework di renderizzazione lato server che non ha bisogno di configurazioni, ma offre più flessibilità di Next.js.
