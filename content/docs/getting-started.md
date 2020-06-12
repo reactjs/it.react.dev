@@ -42,7 +42,7 @@ Se invece preferisci utilizzare il tuo editor di testo, puoi [scaricare questo f
 
 ### Aggiungere React ad un Sito {#add-react-to-a-website}
 
-Puoi [aggiungere React ad una pagina HTML in in minuto](/docs/add-react-to-a-website.html). Potrai a quel punto espandere la sua presenza o mantenerlo confinato in pochi widgets isolati.
+Puoi [aggiungere React ad una pagina HTML in un minuto](/docs/add-react-to-a-website.html). Potrai a quel punto espandere la sua presenza o mantenerlo confinato in pochi widgets isolati.
 
 ### Creare una Nuova App React {#create-a-new-react-app}
 
