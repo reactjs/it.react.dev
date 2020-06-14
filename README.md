@@ -1,80 +1,80 @@
 # it.reactjs.org 🇮🇹
 
-This repo contains the source code and documentation powering [it.reactjs.org](https://it.reactjs.org/).
+Questo archivio contiene il codice sorgente e la documentazione di [it.reactjs.org](https://it.reactjs.org/).
 
 [![CircleCI](https://circleci.com/gh/reactjs/it.reactjs.org.svg?style=svg)](https://circleci.com/gh/reactjs/it.reactjs.org)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c1ab8437-37e4-47bb-8ce8-59c03e7d70ae/deploy-status)](https://app.netlify.com/sites/it-react-org/deploys)
 
-> 👀 Preview: https://it-react-org.netlify.com/
+> 👀 Anteprima: https://it-react-org.netlify.com/
 
-## Before we start, some useful links:
+## Prima di iniziare, alcuni link utili:
 
-- [Glossary](GLOSSARY.md)
-- [Style Guide](STYLE_GUIDE.md)
+- [Glossario](GLOSSARY.md)
+- [Guida degli stili](STYLE_GUIDE.md)
 
-## Getting started
+## Primi passi
 
-### Prerequisites
+### Prerequisiti
 
 1. Git
-1. Node: any 12.x version starting with v12.0.0 or greater
-1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
-1. A fork of the repo (for any contributions)
-1. A clone of the [reactjs.org repo](https://github.com/reactjs/reactjs.org) on your local machine
+1. Node: qualsiasi versione 12.x iniziando dalla v12.0.0 o superiore
+1. Yarn: vai al [sito di Yarn per le istruzioni di installazione](https://yarnpkg.com/lang/en/docs/install/)
+1. Un fork dell'archivio (per qualsiasi contribuzione)
+1. Un clone di [reactjs.org repo](https://github.com/reactjs/reactjs.org) sul tuo computer
 
-### Installation
+### Installazione
 
-1. `cd reactjs.org` to go into the project root
-1. `yarn` to install the website's npm dependencies
+1. `cd reactjs.org` per andare alla radice del progetto
+1. `yarn` per installare le dipendenze di npm nel sito
 
-### Running locally
+### Eseguire localmente
 
-1. `yarn dev` to start the hot-reloading development server (powered by [Gatsby](https://www.gatsbyjs.org))
-1. `open http://localhost:8000` to open the site in your favorite browser
+1. `yarn dev` per iniziare il server hot-reloading di sviluppo (offerto da [Gatsby](https://www.gatsbyjs.org))
+1. `open http://localhost:8000` per aprire il sito nel tuo browser preferito
 
-## Contributing
+## Contribuire
 
-### Guidelines
+### Linee guida
 
-The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
+La documentazione é divisa in diverse sezioni con differenti toni e propositi. Se sei intenzionato a scriverre piu di qualche linea, postrebbe esserti utile per famigliarizzare con le [linee guida per contribuire](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) per la sezione appropriata.
 
-### Create a branch
+### Crear un branch
 
-1. `git checkout master` from any folder in your local `reactjs.org` repository
-1. `git pull origin master` to ensure you have the latest main code
-1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
+1. `git checkout master` da qualsiasi cartella nel tuo archivio locale di `reactjs.org` 
+1. `git pull origin master` per assicurarti di avere il codige aggiornato
+1. `git checkout -b the-name-of-my-branch` (rinominare `the-name-of-my-branch` con un nom adatto) per creare un branch
 
-### Make the change
+### Fare il cambio
 
-1. Follow the ["Running locally"](#running-locally) instructions
-1. Save the files and check in the browser
-  1. Changes to React components in `src` will hot-reload
-  1. Changes to markdown files in `content` will hot-reload
-  1. If working with plugins, you may need to remove the `.cache` directory and restart the server
+1. Segui le istruzioni di ["Eseguire localmente"](#running-locally) 
+1. Salva i file e controlla nel browser
+  1. Qualsisi cambio di un componente in `src` fará ricaricare la pagina
+  1. Quasiasi cambio i markdown in `content` fará ricaricare la pagina
+  1. Se stai lavorando con plugins, potresti aver bisogno di rimuovere l'archivio `.cache` e reiniziare il server
 
-### Test the change
+### Testare il cambio
 
-1. If possible, test any visual changes in all latest versions of common browsers, on both desktop and mobile.
-1. Run `yarn check-all` from the project root. (This will run Prettier, ESLint, and Flow.)
+1. Se é possibile, testa ogni cambio visuale in tutti i browser piu comuni, alla ultima versione, sia in desktop che in mobile.
+1. Esegui `yarn check-all` dalla radice del progetto. (Questo esecuterá Prettier, ESLint, e Flow.)
 
-### Push it
+### Pubblicalo
 
-1. `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fix header logo on Android`) to stage and commit your changes
+1. `git add -A && git commit -m "My message"` (sostituire `My message` con un messaggio del commit, come per esempio "Fix del logo nell'header su Android"per far stage e commit dei tuoi cambi.
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [reactjs.org repo](https://github.com/reactjs/reactjs.org) and you should see recently pushed branches.
-1. Follow GitHub's instructions.
-1. If possible, include screenshots of visual changes. A Netlify build will also be automatically created once you make your PR so other people can see your change.
+1. Vai all'[archivio reactjs.org](https://github.com/reactjs/reactjs.org) e dovresti vedere le branch pubblicate recentemente.
+1. Segui le instruzioni di GitHub.
+1. Se fosse possibile, aggiungere uno screenshot dei cambi. Inoltre si creerá automaticamente un Netlify build quando farai una PR, cosí che altre persone possano vedere i tuoi cambi.
 
-## Translation
+## Traduzione
 
-If you are interested in translating `reactjs.org`, please see the current translation efforts at [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
+Se sei interessato a tradurre `reactjs.org`, per favore invia la traduzione a [isreacttranslatedyet.com](https://www.isreacttranslatedyet.com/).
 
 
-If your language does not have a translation and you would like to create one, please follow the instructions at [reactjs.org Translations](https://github.com/reactjs/reactjs.org-translation#translating-reactjsorg).
+Se la tua lingua non ha una traduzione e vuoi crearne una, per favore segui le istruzioni su [Traduzioni reactjs.org](https://github.com/reactjs/reactjs.org-translation#translating-reactjsorg).
 
-## Troubleshooting
+## Risoluzione dei problemi
 
-- `yarn reset` to clear the local cache
+- `yarn reset` pr pulire la cache locale
 
-## License
-Content submitted to [reactjs.org](https://reactjs.org/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md) file.
+## Licenza
+Il materiale inviato a [reactjs.org](https://reactjs.org/) ha una licenza CC-BY-4.0, come citato nel file [LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md)
