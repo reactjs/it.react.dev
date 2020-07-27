@@ -52,7 +52,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
   1. Quasiasi cambio i markdown in `content` fará ricaricare la pagina
   1. Se stai lavorando con plugins, potresti aver bisogno di rimuovere l'archivio `.cache` e reiniziare il server
 
-### Testare il cambio
+### Testare la modifica
 
 1. Se é possibile, testa ogni cambio visuale in tutti i browser piu comuni, alla ultima versione, sia in desktop che in mobile.
 1. Esegui `yarn check-all` dalla radice del progetto. (Questo esecuterá Prettier, ESLint, e Flow.)
