@@ -371,7 +371,7 @@ Per questi casi d'uso, utilizza invece `componentDidCatch()`.
 componentDidCatch(error, info)
 ```
 
-Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discentente.
+Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discendente.
 Riceve due parametri:
 
 1. `error` - L'errore che è stato sollevato.
@@ -508,7 +508,7 @@ setState(updater, [callback])
 
 Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. React non garantisce che i cambiamenti allo stato vengano applicati immediatamente.
 
-`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
+`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
 
 `setState()` causerà sempre una ri-renderizzazione a meno che `shouldComponentUpdate()` restituisca `false`. Se stai utilizzando oggetti mutabili e non puoi implementare una logica di renderizzazione condizionale in `shouldComponentUpdate()`, chiamare `setState()` solo quando il nuovo stato è effettivamente diverso dal precedente eviterà renderizzazioni non necessarie
 
