@@ -44,7 +44,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 1. `git pull origin master` per assicurarti di avere il codige aggiornato
 1. `git checkout -b the-name-of-my-branch` (rinominare `the-name-of-my-branch` con un nom adatto) per creare un branch
 
-### Fare il cambio
+### Apportare una modifica
 
 1. Segui le istruzioni di ["Eseguire localmente"](#running-locally) 
 1. Salva i file e controlla nel browser
