@@ -41,7 +41,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 ### Creare un branch
 
 1. `git checkout master` da qualsiasi cartella nel tuo archivio locale di `reactjs.org` 
-1. `git pull origin master` per assicurarti di avere il codige aggiornato
+1. `git pull origin master` per assicurarti di avere il codice aggiornato
 1. `git checkout -b the-name-of-my-branch` (rinominare `the-name-of-my-branch` con un nom adatto) per creare un branch
 
 ### Apportare una modifica
