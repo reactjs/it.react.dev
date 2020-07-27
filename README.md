@@ -54,7 +54,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 
 ### Testare la modifica
 
-1. Se é possibile, testa ogni cambio visuale in tutti i browser piu comuni, alla ultima versione, sia in desktop che in mobile.
+1. Se é possibile, testa ogni cambiamento visuale in tutti i browser piu comuni, alla ultima versione, sia in desktop che in mobile.
 1. Esegui `yarn check-all` dalla radice del progetto. (Questo esecuterá Prettier, ESLint, e Flow.)
 
 ### Pubblicare
