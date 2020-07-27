@@ -229,7 +229,7 @@ function FriendListItem(props) {
 }
 ```
 
-Lo stato di questi componenti è completamente indipendente. Gli Hooks sono un modo per riutilizzare *logica stateful*, non lo stato direttamente. Infatti, ogni *chiamata* ad un Hook ha uno stato completamente isolato -- per questo puoi anche utilizzare lo stesso Hook custom più volte in un componente.
+Lo stato di ogni componente è completamente indipendente. Gli Hooks sono un modo per riutilizzare *logica stateful*, non lo stato direttamente. Infatti, ogni *chiamata* ad un Hook ha uno stato completamente isolato -- per questo puoi anche utilizzare lo stesso Hook custom più volte in un componente.
 
 Gli Hooks custom sono più una convenzione che una funzionalità. Se il nome di una funzione inizia con "`use`" e richiama altri Hooks, diremo che si tratta di un Hook custom. La convenzione `useQualcosa` è il modo in cui il nostro linter plugin è in grado di individuare bugs nel codice che utilizza gli Hooks.
 
