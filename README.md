@@ -48,7 +48,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 
 1. Segui le istruzioni di ["Eseguire localmente"](#running-locally) 
 1. Salva i file e controlla nel browser
-  1. Qualsisi cambio di un componente in `src` fará ricaricare la pagina
+  1. Qualsisi cambiamento di un componente in `src` fará ricaricare la pagina
   1. Quasiasi cambio i markdown in `content` fará ricaricare la pagina
   1. Se stai lavorando con plugins, potresti aver bisogno di rimuovere l'archivio `.cache` e reiniziare il server
 
