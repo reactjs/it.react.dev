@@ -36,7 +36,7 @@ Questo archivio contiene il codice sorgente e la documentazione di [it.reactjs.o
 
 ### Linee guida
 
-La documentazione é divisa in diverse sezioni con differenti toni e propositi. Se sei intenzionato a scriverre piu di qualche linea, postrebbe esserti utile per famigliarizzare con le [linee guida per contribuire](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) per la sezione appropriata.
+La documentazione é divisa in diverse sezioni con differenti toni e propositi. Se hai intenzione di scrivere più di qualche linea, potrebbe esserti utile familiarizzare con le [linee guida per contribuire](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) per la sezione appropriata.
 
 ### Creare un branch
 
