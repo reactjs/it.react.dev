@@ -74,7 +74,7 @@ Se la tua lingua non ha una traduzione e vuoi crearne una, per favore segui le i
 
 ## Risoluzione dei problemi
 
-- `yarn reset` pr pulire la cache locale
+- `yarn reset` per pulire la cache locale
 
 ## Licenza
 Il materiale inviato a [reactjs.org](https://reactjs.org/) ha una licenza CC-BY-4.0, come citato nel file [LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md)
