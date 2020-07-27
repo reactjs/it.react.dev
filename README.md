@@ -38,7 +38,7 @@ Questo archivio contiene il codice sorgente e la documentazione di [it.reactjs.o
 
 La documentazione é divisa in diverse sezioni con differenti toni e propositi. Se sei intenzionato a scriverre piu di qualche linea, postrebbe esserti utile per famigliarizzare con le [linee guida per contribuire](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text) per la sezione appropriata.
 
-### Crear un branch
+### Creare un branch
 
 1. `git checkout master` da qualsiasi cartella nel tuo archivio locale di `reactjs.org` 
 1. `git pull origin master` per assicurarti di avere il codige aggiornato
