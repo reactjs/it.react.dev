@@ -57,7 +57,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 1. Se é possibile, testa ogni cambio visuale in tutti i browser piu comuni, alla ultima versione, sia in desktop che in mobile.
 1. Esegui `yarn check-all` dalla radice del progetto. (Questo esecuterá Prettier, ESLint, e Flow.)
 
-### Pubblicalo
+### Pubblicare
 
 1. `git add -A && git commit -m "My message"` (sostituire `My message` con un messaggio del commit, come per esempio "Fix del logo nell'header su Android"per far stage e commit dei tuoi cambi.
 1. `git push my-fork-name the-name-of-my-branch`
