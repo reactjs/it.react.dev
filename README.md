@@ -63,7 +63,7 @@ La documentazione é divisa in diverse sezioni con differenti toni e propositi. 
 1. `git push my-fork-name the-name-of-my-branch`
 1. Vai all'[archivio reactjs.org](https://github.com/reactjs/reactjs.org) e dovresti vedere le branch pubblicate recentemente.
 1. Segui le instruzioni di GitHub.
-1. Se fosse possibile, aggiungere uno screenshot dei cambi. Inoltre si creerá automaticamente un Netlify build quando farai una PR, cosí che altre persone possano vedere i tuoi cambi.
+1. Se fosse possibile, aggiungere uno screenshot delle modifiche. Inoltre si creerá automaticamente una build Netlify  quando farai una PR, cosí che altre persone possano vedere i cambiamenti da te apportati.
 
 ## Traduzione
 
