@@ -12,7 +12,7 @@ Questa guida di riferimento documenta il contenitore `SyntheticEvent` che fa par
 
 I tuoi event handlers riceveranno istanze di `SyntheticEvent`, un contenitore cross-browser intorno all'evento nativo del browser.  Hanno entrambi la stessa interfaccia, compresi `stopPropagation()` e `preventDefault()`, l'eccezione sta nel fatto che gli eventi funzionano in modo identico in tutti i browser.
 
-Se constati di avere bisogno dell'evento del browser sottostante per qualche motivo, puoi ottenerlo semplicemente usando l'attributo `nativeEvent`. Ogni `SyntheticEvent` oggetto ha i seguenti attributi:
+Se constati di avere bisogno dell'evento del browser sottostante per qualche motivo, puoi ottenerlo semplicemente usando l'attributo `nativeEvent`. Gli eventi sintetici hanno una forma differente rispetto agli eventi nativi del browser. Per esempio: in `onMouseLeave` `event.nativeEvent` punta all'evento `mouseout`. La mappatura specifica non fa parte delle API pubbliche e per questo é soggetta a cambiamenti inaspettati. Ogni `SyntheticEvent` oggetto ha i seguenti attributi:
 
 ```javascript
 boolean bubbles
