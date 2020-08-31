@@ -124,9 +124,15 @@ const MioComponente = React.memo(function MioComponente(props) {
 });
 ```
 
+<<<<<<< HEAD
 `React.memo` è un cosiddetto [higher order component](/docs/higher-order-components.html) (componente di ordine superiore). È simile a [`React.PureComponent`](#reactpurecomponent) ma è dedicato ai componenti funzione invece che alle classi componente.
 
 Se il tuo componente funzione renderizza lo stesso risultato a partire dalle stesse props, puoi racchiuderlo in una chiamata a `React.memo` per ottenere un miglioramento della performance in alcuni casi tramite la memoizzazione del risultato. In altre parole, React eviterà di ri-renderizzare il componente, riutilizzando l'ultima renderizzazione.
+=======
+`React.memo` is a [higher order component](/docs/higher-order-components.html).
+
+If your component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+>>>>>>> 25cc703d1f23f1782ff96c5c7882a806f8741ec4
 
 `React.memo` controlla solo i cambiamenti delle props. Se il tuo componente funzione racchiuso in `React.memo` ha un Hook [`useState`](/docs/hooks-state.html) o [`useContext`](/docs/hooks-reference.html#usecontext) nella sua implementazione, verrà comunque rirenderizzato al cambiamento di state o del context.
 
