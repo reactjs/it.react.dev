@@ -307,7 +307,7 @@ Ricapitoliamo cosa succede quando modifichi un input:
 
 * React chiama la funzione specificata come `onChange` sul DOM `<input> `. Nel nostro caso, questo è il metodo `handleChange` nel componente `InputTemperatura`.
 * Il metodo `handleChange` nel componente `InputTemperatura` chiama `this.props.onChangeTemperatura()` con il nuovo valore desiderato. Le sue props, tra cui `onChangeTemperatura`, sono fornite dal suo componente principale, il `Calcolatore`.
-* Quando il `Calcolatore` renderizza, esso determina che `onChangeTemperatura` del `InputTemperatura` in Celsius sia il metodo `handleChangeCelsius` di `Calcolatore`, e `onChangeTemperature` del `InputTemperatura` in Fahrenheit sia il metodo `handleChangeFahrenheit` di `Calcolatore`. Quindi uno di questi due metodi `Calcolatore` viene chiamato a seconda di quale input viene modificato.
+* Quando il `Calcolatore` renderizza, esso determina che `onChangeTemperatura` del `InputTemperatura` in Celsius sia il metodo `handleChangeCelsius` di `Calcolatore`, e `onChangeTemperatura` del `InputTemperatura` in Fahrenheit sia il metodo `handleChangeFahrenheit` di `Calcolatore`. Quindi uno di questi due metodi `Calcolatore` viene chiamato a seconda di quale input viene modificato.
 * All'interno di questi metodi, il componente `Calcolatore` chiede a React di eseguire nuovamente la renderizzazione chiamando` this.setState()` con il nuovo valore inserito e la scala attuale dell'input appena modificato.
 * React chiama il metodo `render` del componente `Calcolatore` per sapere come l'interfaccia utente dovrebbe apparire. I valori di entrambi gli input vengono ricalcolati in base alla temperatura corrente e alla scala attiva. La conversione della temperatura viene eseguita qui.
 * React chiama i metodi `render` dei singoli componenti `InputTemperatura` con le nuove props passate dal `Calcolatore`. Vengono a conoscenza di come dovrebbe essere la loro UI.
@@ -327,4 +327,3 @@ Se qualcosa può essere derivato da props o stato, probabilmente non dovrebbe es
 Quando vedi qualcosa di sbagliato nell'interfaccia utente, puoi utilizzare [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) per ispezionare le props e spostarti nell'albero finché non si trova il componente responsabile dell'aggiornamento dello stato. Questo ti permette di tracciare i bug alla loro fonte:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
-
