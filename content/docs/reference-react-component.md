@@ -274,7 +274,11 @@ Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UN
 static getDerivedStateFromProps(props, state)
 ```
 
+<<<<<<< HEAD
 `getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
+=======
+`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
+>>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
@@ -587,7 +591,11 @@ Normalmente dovresti cercare di evitare tutti i casi d'uso in cui ti trovi nella
 
 ### `defaultProps` {#defaultprops}
 
+<<<<<<< HEAD
 `defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props undefined, ma non per le props nulle. Ad esempio:
+=======
+`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for `undefined` props, but not for `null` props. For example:
+>>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 ```js
 class BottonePersonalizzato extends React.Component {
@@ -607,7 +615,11 @@ Se `props.colore` non è fornito dall'esterno, verrà automaticamente valorizzat
   }
 ```
 
+<<<<<<< HEAD
 Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente nullo:
+=======
+If `props.color` is set to `null`, it will remain `null`:
+>>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 ```js
   render() {
