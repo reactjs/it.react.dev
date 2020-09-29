@@ -170,7 +170,7 @@ JSX ha in se tutte le funzionalità di JavaScript. Puoi inserire *qualunque* esp
 
 Il componente `ShoppingList` di prima visualizza solo componenti DOM predefiniti, come `<div />` e `<li />`. Ma puoi comporre e visualizzare anche componenti React personalizzati al suo interno. Per esempio, adesso possiamo riferirci all'intera lista della spesa scrivendo `<ShoppingList />`. Ogni componente React è incapsulato e può operare indipendentemente; ciò ci permette di costruire UI complesse a partire da semplici componenti.
 
-## Uno Sguardo al Codice Iniziale {#inspecting-the-starter-code}
+### Uno Sguardo al Codice Iniziale {#inspecting-the-starter-code}
 
 Se hai scelto di lavorare sul tutorial **nel tuo browser,** apri questo codice in un nuovo tab: **[Codice Iniziale](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Se invece vuoi lavorare **localmente,** apri `src/index.js` nella cartella del progetto (hai già aperto questo file durante il [setup](#setup-option-2-local-development-environment)).
 

@@ -274,7 +274,7 @@ Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UN
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
+`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure `null` per non effettuare aggiornamenti.
 
 Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
@@ -587,7 +587,7 @@ Normalmente dovresti cercare di evitare tutti i casi d'uso in cui ti trovi nella
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props undefined, ma non per le props nulle. Ad esempio:
+`defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props `undefined`, ma non per le props `null`. Ad esempio:
 
 ```js
 class BottonePersonalizzato extends React.Component {
@@ -607,7 +607,7 @@ Se `props.colore` non è fornito dall'esterno, verrà automaticamente valorizzat
   }
 ```
 
-Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente nullo:
+Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente `null`:
 
 ```js
   render() {
