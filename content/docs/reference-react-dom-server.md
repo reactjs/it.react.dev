@@ -39,7 +39,7 @@ ReactDOMServer.renderToString(element)
 
 Renderizza un elemento React nel suo HTML iniziale. React ritornerà una stringa HTML. Puoi usare questo metodo per generare HTML sul server e inviare il markup nella richiesta iniziale per rendere più veloce il caricamento della pagina e consentire ai motori di ricerca di indicizzare le tue pagine per scopi di SEO.
 
-Se invochi [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) su un nodo che già possiede questo markup renderizzato lato server, React lo preserverà e aggancierà solamente i gestori degli eventi, consentendoti di avere un caricamento iniziale molto performante.
+Se invochi [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) su un nodo che già possiede questo markup renderizzato lato server, React lo preserverà e aggancerà solamente i gestori degli eventi, consentendoti di avere un caricamento iniziale molto performante.
 
 
 * * *
@@ -64,7 +64,7 @@ ReactDOMServer.renderToNodeStream(element)
 
 Renderizza un elemento React nel suo HTML iniziale. Ritorna uno [stream Readable](https://nodejs.org/api/stream.html#stream_readable_streams) che produce una stringa HTML. Lo HTML prodotto da questo stream è esattamente identico a quello che ritornerebbe [`ReactDOMServer.renderToString`](#rendertostring). Puoi usare questo metodo per generare HTML sul server e inviare il markup nella richiesta iniziale per rendere più veloce il caricamento della pagina e consentire ai motori di ricerca di indicizzare le tue pagine per scopi di SEO.
 
-Se invochi [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) su un nodo che già possiede questo markup renderizzato lato server, React lo preserverà e aggancierà solamente i gestori degli eventi, consentendoti di avere un caricamento iniziale molto performante.
+Se invochi [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) su un nodo che già possiede questo markup renderizzato lato server, React lo preserverà e aggancerà solamente i gestori degli eventi, consentendoti di avere un caricamento iniziale molto performante.
 
 > Nota:
 >
