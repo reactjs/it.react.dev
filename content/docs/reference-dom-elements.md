@@ -56,7 +56,8 @@ L'evento `onChange` si comporta così come di consueto: quando un campo in un fo
 
 ### selected {#selected}
 
-L'attributo `selected` è supportato dai componenti `<option>`. Puoi utilizzarlo quando devi far sì che un componente sia selezionato. Questo attributo ci torna utile anche nella costruzione di componenti controllati.
+Se selezionare (marcando l'attributo `selected`) un `<option>`, utilizza il valore di quella option nel `value` della sua `<select>`.
+Dai uno sguardo ad ["il Tag select"](/docs/forms.html#the-select-tag) per maggiori informazioni.
 
 ### style {#style}
 
@@ -120,7 +121,7 @@ Se imposti `suppressHydrationWarning` a `true`, React non avviserà più in caso
 
 ### value {#value}
 
-L'attributo `value` è supportato dai componenti `<input>` e `<textarea>`. Puoi utilizzarlo per impostare il valore dei componenti. Torna utile nella costruzione di componenti controllati. `defaultValue` è la controparte non controllata, la quale imposta il valore del componente quando viene montato per la prima volta.
+L'attributo `value` è supportato dai componenti `<input>`, `<select>` e `<textarea>`. Puoi utilizzarlo per impostare il valore dei componenti. Torna utile nella costruzione di componenti controllati. `defaultValue` è la controparte non controllata, la quale imposta il valore del componente quando viene montato per la prima volta.
 
 ## Tutti gli Attributi HTML Supportati {#all-supported-html-attributes}
 

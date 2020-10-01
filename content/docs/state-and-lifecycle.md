@@ -325,14 +325,14 @@ Ci sono tre cose che devi sapere a proposito di `setState()`.
 Per esempio, questo codice non farebbe ri-renderizzare un componente:
 
 ```js
-// Wrong
+// Sbagliato
 this.state.comment = 'Hello';
 ```
 
 Devi invece utilizzare `setState()`:
 
 ```js
-// Correct
+// Giusto
 this.setState({comment: 'Hello'});
 ```
 

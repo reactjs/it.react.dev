@@ -274,7 +274,7 @@ Attualmente, quando `shouldComponentUpdate()` restituisce `false`, i metodi [`UN
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure null per non effettuare aggiornamenti.
+`getDerivedStateFromProps` è invocato subito prima di chiamare `render`, sia durante il montaggio iniziale del componente che negli aggiornamenti successivi. Dovrebbe restituire un oggetto per aggiornare lo stato, oppure `null` per non effettuare aggiornamenti.
 
 Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
@@ -371,7 +371,7 @@ Per questi casi d'uso, utilizza invece `componentDidCatch()`.
 componentDidCatch(error, info)
 ```
 
-Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discentente.
+Questo metodo del lifecycle è invocato dopo che un errore è stato sollevato da un componente discendente.
 Riceve due parametri:
 
 1. `error` - L'errore che è stato sollevato.
@@ -508,7 +508,7 @@ setState(updater, [callback])
 
 Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. React non garantisce che i cambiamenti allo stato vengano applicati immediatamente.
 
-`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
+`setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
 
 `setState()` causerà sempre una ri-renderizzazione a meno che `shouldComponentUpdate()` restituisca `false`. Se stai utilizzando oggetti mutabili e non puoi implementare una logica di renderizzazione condizionale in `shouldComponentUpdate()`, chiamare `setState()` solo quando il nuovo stato è effettivamente diverso dal precedente eviterà renderizzazioni non necessarie
 
@@ -587,7 +587,7 @@ Normalmente dovresti cercare di evitare tutti i casi d'uso in cui ti trovi nella
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props undefined, ma non per le props nulle. Ad esempio:
+`defaultProps` può essere definita come una proprietà della classe componente stessa, allo scopo di impostare i valori predefiniti delle props della classe. Questo è possibile per le props `undefined`, ma non per le props `null`. Ad esempio:
 
 ```js
 class BottonePersonalizzato extends React.Component {
@@ -607,7 +607,7 @@ Se `props.colore` non è fornito dall'esterno, verrà automaticamente valorizzat
   }
 ```
 
-Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente nullo:
+Se `props.colore` viene impostato a `null`, il suo valore sarà effettivamente `null`:
 
 ```js
   render() {
