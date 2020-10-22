@@ -42,7 +42,7 @@ class Ciao extends React.Component {
 }
 ```
 
-I due componenti appena visti sono equivalenti dal pundo di vista di React.
+I due componenti appena visti sono equivalenti dal punto di vista di React.
 
 Le Classi e i Componenti Funzione hanno funzionalità aggiuntive che verranno discusse in dettaglio nelle [prossime sezioni](/docs/state-and-lifecycle.html).
 
