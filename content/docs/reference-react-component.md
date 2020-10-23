@@ -39,7 +39,7 @@ L'unico metodo che è *obbligatorio* definire in una sottoclasse `React.Componen
 
 ### Il Lifecycle del Componente {#the-component-lifecycle}
 
-Ogni componente ha numerosi "metodi del lifecycle" (metodi del ciclo di vita) che puoi sovrascrivere per eseguire del codice in momenti particolari nel processo. **Puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) come riferimento.** Nella lista più in basso, i metodi del lifecycle più frequentemente utilizzati sono evidenziati in **grassetto**. Gli altri metodi non evidenziati esistono per casi d'uso relativamente rari.
+Ogni componente ha numerosi "metodi del lifecycle" (metodi del ciclo di vita) che puoi sovrascrivere per eseguire del codice in momenti particolari nel processo. **Puoi utilizzare [questo diagramma del lifecycle](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) come riferimento.** Nella lista più in basso, i metodi del lifecycle più frequentemente utilizzati sono evidenziati in **grassetto**. Gli altri metodi non evidenziati esistono per casi d'uso relativamente rari.
 
 #### Mounting (Montaggio) {#mounting}
 
@@ -109,7 +109,7 @@ Ciascun componente fornisce anche altre API:
 
 ### Metodi del Lifecycle Utilizzati Frequentemente {#commonly-used-lifecycle-methods}
 
-I metodi in questa sezione coprono la maggior parte dei casi d'uso che incontrerai durante la creazione di componenti React. **Come riferimento grafico, puoi utilizzare [questo diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+I metodi in questa sezione coprono la maggior parte dei casi d'uso che incontrerai durante la creazione di componenti React. **Come riferimento grafico, puoi utilizzare [questo diagramma del lifecycle](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
@@ -245,7 +245,7 @@ componentWillUnmount()
 
 ### Metodi del Lifecycle Utilizzati Raramente {#rarely-used-lifecycle-methods}
 
-I metodi in questa sezione corrispondono a casi d'uso non comuni. Possono tornare utili qualche volta, ma la maggior parte dei tuoi componenti non dovrebbe averne bisogno. **Puoi visualizzare la maggior parte dei metodi descritti in questa sezione in questo [diagramma del lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se spunti il checkbox "Show less common lifecycles" ("Mostra i metodi del lifecycle meno comuni") in alto.**
+I metodi in questa sezione corrispondono a casi d'uso non comuni. Possono tornare utili qualche volta, ma la maggior parte dei tuoi componenti non dovrebbe averne bisogno. **Puoi visualizzare la maggior parte dei metodi descritti in questa sezione in questo [diagramma del lifecycle](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se spunti il checkbox "Show less common lifecycles" ("Mostra i metodi del lifecycle meno comuni") in alto.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -278,7 +278,7 @@ static getDerivedStateFromProps(props, state)
 
 Questo metodo esiste per [rari casi d'uso](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) in cui lo stato dipende da cambiamenti delle proprietà nel corso del tempo. Ad esempio, potrebbe tornare utile per implementare un componente `<Transizione>` che compara i suoi figli precedenti e successivi per decidere quali di essi far comparire o sparire con un'animazione.
 
-Derivare lo stato è spesso causa di codice verboso e rende difficile la gestione dei tuoi componenti.  
+Derivare lo stato è spesso causa di codice verboso e rende difficile la gestione dei tuoi componenti.
 [Assicurati di familiarizzare con alternative più semplici:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
 * Se hai bisogno di **causare un effetto collaterale** (ad esempio una richiesta di dati o un'animazione) in risposta a un cambiamento nelle props, utilizza invece il metodo del lifecycle [`componentDidUpdate`](#componentdidupdate).
@@ -324,7 +324,7 @@ Utilizza i contenitori di errori solamente per recuperare errori inaspettati; **
 Per maggiori informazioni, vedi [*Gestione degli Errori in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
 > Nota
-> 
+>
 > I contenitori di errori catturano solamente gli errori sollevati dai componenti **sotto di loro** nell'albero. Un contenitore di errori non è in grado di catturare un errore sollevato da lui stesso.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
@@ -353,7 +353,7 @@ class ContenitoreErrori extends React.Component {
       return <h1>Oh no! Si è verificato un errore!</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -408,13 +408,13 @@ class ContenitoreErrori extends React.Component {
       return <h1>Oh no! Si è verificato un errore!</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
 
 > Nota
-> 
+>
 > Quando si verifica un errore, puoi anche renderizzare una UI di ripiego con `componentDidCatch()` chiamando `setState`, ma questo comportamento verrà deprecato in una futura release di React.
 > Utilizza invece `static getDerivedStateFromError()` per gestire la renderizzazione in questi casi.
 

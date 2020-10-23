@@ -181,5 +181,4 @@ Esploreremo la renderizzazione degli elementi React nel DOM nella [prossima sezi
 
 >**Consiglio:**
 >
->Ti raccomandiamo di [indicare "Babel" come linguaggio](https://babeljs.io/docs/editors) nel tuo editor preferito, in modo che il codice ES6 ed il codice JSX siano entrambi evidenziati correttamente. Questo sito utilizza lo schema di colori compatibile [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme).
-
+>Ti raccomandiamo di [indicare "Babel" come linguaggio](https://babeljs.io/docs/en/next/editors) nel tuo editor preferito, in modo che il codice ES6 ed il codice JSX siano entrambi evidenziati correttamente.
