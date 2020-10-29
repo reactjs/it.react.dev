@@ -34,41 +34,11 @@ string type
 
 > Nota:
 >
-<<<<<<< HEAD
-> A partire da v0.14, ritornare `false` da un event handler non fermerà la propagazione dell'evento come avveniva in precedenza. Invece, `e.stopPropagation()` o `e.preventDefault()` dovrebbero essere invocati manualmente, ove opportuno.
-
-### Pooling degli Eventi {#event-pooling}
-
-`SyntheticEvent` è _pooled_, ovvero "accomunato". Questo significa che un oggetto `SyntheticEvent` sarà riutilizzato e che tutte proprietà verranno resettate a `null` non appena la callback dell'evento è stata invocata.
-Ciò avviene per migliorare le prestazioni.
-Per questo, non puoi avere accesso all'evento in modo asincrono.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => oggetto nullifficato.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Non funzionerebbe. this.state.clickEvent conterrà solo valori nulli
-  this.setState({clickEvent: event});
-
-  // YPuoi comunque esportare le proprietà dell'evento.
-  this.setState({eventType: event.type});
-}
-```
-=======
-> As of v17, `e.persist()` doesn't do anything because the `SyntheticEvent` is no longer [pooled](/docs/legacy-event-pooling.html).
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+> A partire da v17, `e.persist()` non fa più nulla in quanto `SyntheticEvent` non è più [pooled](/docs/legacy-event-pooling.html).
 
 > Nota:
 >
-<<<<<<< HEAD
-> Se vuoi avere accesso alle proprietà in modo asincrono, dovresti invocare `event.persist()` sull'evento, il quale rimuoverà l'evento sintetico dal pool permettendo ai riferimenti all'evento di rimanere mantenuti dal codice utente.
+> A partire da v0.14, ritornare `false` da un event handler non fermerà più la propagazione dell'evento. In modo più appropriato, è invece necessario invocare `e.stopPropagation()` o `e.preventDefault()`.
 
 ## Eventi Supportati {#supported-events}
 
@@ -93,33 +63,6 @@ Gli event handlers di seguito vengono scatenati da un evento nella fase di [bubb
 - [Eventi delle Animazioni](#animation-events)
 - [Eventi della Transizione](#transition-events)
 - [Altri Eventi](#other-events)
-=======
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
-
-## Supported Events {#supported-events}
-
-React normalizes events so that they have consistent properties across different browsers.
-
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
-
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 * * *
 
@@ -411,15 +354,11 @@ Nomi degli eventi:
 onScroll
 ```
 
-<<<<<<< HEAD
-Proprietà:
-=======
->Note
+>Nota
 >
->Starting with React 17, the `onScroll` event **does not bubble** in React. This matches the browser behavior and prevents the confusion when a nested scrollable element fires events on a distant parent.
+>A partire da React 17, l'evento `onScroll` **non fa bubble** in React. Si comporta quindi come il browser e previene la confusione che si ha quando un elemendo scrollabile nidificato lancia eventi su genitori distanti nel DOM.
 
-Properties:
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+Proprietà:
 
 ```javascript
 number detail
