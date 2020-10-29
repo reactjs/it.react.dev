@@ -54,8 +54,8 @@ Successivamente, aggiungi questi tre tag `<script>` alla pagina HTML, subito pri
 
   <!-- Carica React. -->
   <!-- Nota: quando rilasci il codice in produzione, sostituisci "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Carica il nostro componente React. -->
   <script src="bottone_like.js"></script>
@@ -115,8 +115,8 @@ Prima di rilasciare il tuo sito in produzione, ricordati che il codice JavaScrip
 Se minimizzi già gli script dell'applicazione, **il tuo sito sarà pronto per la produzione** se ti assicuri che l'HTML rilasciato carichi le versioni degli script di React che finiscono con `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se invece non hai già un passaggio di minimizzazione dei tuoi script, [ecco un modo per introdurlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
