@@ -38,7 +38,7 @@ class Table extends React.Component {
 }
 ```
 
-`<Columns />` avrebbe bisogno di restituire multipli elementi `<td>` in ordine per affinchè l'HTML reindirizzato sia valido. Se un parente div è stato usato dentro il `render()` di `<Columns />`, l'HTML risultante non sarà valido.
+`<Columns />` avrebbe bisogno di restituire multipli elementi `<td>` in ordine per affinchè l'HTML renderizzato sia valido. Se un parente div è stato usato dentro il `render()` di `<Columns />`, l'HTML risultante non sarà valido.
 
 ```jsx
 class Columns extends React.Component {
