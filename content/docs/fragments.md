@@ -111,7 +111,7 @@ class Columns extends React.Component {
 }
 ```
 
-Puoi utilizzare `<></>` allo stesso modo in cui hai utilizzato ogni altro elemento, ad accezzione che questa sintassi non supporta chiavi e attributi.
+Puoi utilizzare `<></>` allo stesso modo in cui hai utilizzato ogni altro elemento, ad eccezione che questa sintassi non supporta chiavi e attributi.
 
 ### Frammenti Chiave {#keyed-fragments}
 
