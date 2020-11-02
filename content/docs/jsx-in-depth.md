@@ -331,7 +331,7 @@ JSX rimuove gli spazi bianchi all'inizio e alla fine della linea. Rimuove anche 
 </div>
 ```
 
-Un componente React può anche tornare un array di element:
+Un componente React può anche tornare un array di elementi:
 
 ```js
 render() {
