@@ -4,29 +4,29 @@ title: Accessibilità
 permalink: docs/accessibility.html
 ---
 
-## Why Accessibility? {#why-accessibility}
+## Perché usare l'accessibilità? {#why-accessibility}
 
-Web accessibility (also referred to as [**a11y**](https://en.wiktionary.org/wiki/a11y)) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.
+L'accessibilità su web (spesso indicata anche con [**a11y**](https://en.wiktionary.org/wiki/a11y)) è il processo attraverso il quale si creano applicazioni che siano fruibili da chiunque. L'accessibilità è necessaria per permettere a tutte quelle tecnologie di assistenza di interpretare le pagine web.
 
-React fully supports building accessible websites, often by using standard HTML techniques.
+React fornisce il pieno supporto per la creazione di siti web accessibili, spesso semplicemente utilizzando HTML nel modo standard.
 
-## Standards and Guidelines {#standards-and-guidelines}
+## Standards e linee guida {#standards-and-guidelines}
 
 ### WCAG {#wcag}
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+L'acronimo WCAG sta per [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) e fornisce linee guida per la creazione di pagine web accessibili.
 
-The following WCAG checklists provide an overview:
+La seguente lista fornisce un'anteprima:
 
-- [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
-- [WCAG checklist from WebAIM](https://webaim.org/standards/wcag/checklist)
+- [WCAG checklist dal sito Wuhcag](https://www.wuhcag.com/wcag-checklist/)
+- [WCAG checklist dal sito WebAIM](https://webaim.org/standards/wcag/checklist)
 - [Checklist from The A11Y Project](https://a11yproject.com/checklist.html)
 
 ### WAI-ARIA {#wai-aria}
 
-The [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets.
+Il documento [sull'iniziativa del web accessibile - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) contiene tecniche per costruire widget JavaScript accessibili.
 
-Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be hyphen-cased (also known as kebab-case, lisp-case, etc) as they are in plain HTML:
+Tutti gli attributi HTML `aria-*` sono pienamente supportati in JSX. Mentre la maggior parte delle proprietà e attributi in React sono camelCase, gli attributi `aria-*` sono separati da trattino (-, notazione anche nota come kebab-case, lisp-case ecc.) dal momento che sono elementi HTML.
 
 ```javascript{3,4}
 <input
@@ -39,16 +39,15 @@ Note that all `aria-*` HTML attributes are fully supported in JSX. Whereas most 
 />
 ```
 
-## Semantic HTML {#semantic-html}
-Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information
-in our websites will often give us accessibility for free.
+## HTML semantico {#semantic-html}
+L'HTML semantico costituisce la base per l'accessibilità in un'applicazione web. Usare diversi elementi HTML per rafforzare il significato dell'informazione nel vostro sito, spesso può portare ad avere accessibilità gratis. 
 
 - [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
-Sometimes we break HTML semantics when we add `<div>` elements to our JSX to make our React code work, especially when working with lists (`<ol>`, `<ul>` and `<dl>`) and the HTML `<table>`.
-In these cases we should rather use [React Fragments](/docs/fragments.html) to group together multiple elements.
+Alcune volte spezziamo la semantica di HTML quando inseriamo elementi come `<div>` all'interno di JSX solo per fare in modo che il nostro codice funzioni, specialmente quando lavoriamo con le liste  (`<ol>`, `<ul>` e `<dl>`) e tabelle `<table>`.
+In questi casi possiamo usare i [Fragments di React](/docs/fragments.html) per raggruppare più elmenti insieme.
 
-For example,
+Ad esempio diamo uno sguardo al seguente codice
 
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
@@ -73,7 +72,7 @@ function Glossary(props) {
 }
 ```
 
-You can map a collection of items to an array of fragments as you would any other type of element as well:
+è possibile mappare la collezione di elementi semplicemente all'interno di fragments, vedi il codice seguente, come faresti con qualsiasi altro tipo di elemento
 
 ```javascript{6,9}
 function Glossary(props) {
@@ -91,7 +90,7 @@ function Glossary(props) {
 }
 ```
 
-When you don't need any props on the Fragment tag you can use the [short syntax](/docs/fragments.html#short-syntax), if your tooling supports it:
+Quando non si ha bisogno delle props all'interno del tag Fragment è anche possibile utilizzare la sua [notazione abbreviata](/docs/fragments.html#short-syntax), naturalmente se è supportata:
 
 ```javascript{3,6}
 function ListItem({ item }) {
@@ -104,7 +103,7 @@ function ListItem({ item }) {
 }
 ```
 
-For more info, see [the Fragments documentation](/docs/fragments.html).
+Per maggiorni informazioni fai riferimento alla documentazione sui [Fragments di React](/docs/fragments.html).
 
 ## Accessible Forms {#accessible-forms}
 
