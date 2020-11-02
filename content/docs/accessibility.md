@@ -103,7 +103,7 @@ function ListItem({ item }) {
 }
 ```
 
-Per maggiorni informazioni fai riferimento alla documentazione sui [Fragments di React](/docs/fragments.html).
+Per maggiori informazioni fai riferimento alla documentazione sui [Fragments di React](/docs/fragments.html).
 
 ## Accessible Forms {#accessible-forms}
 
