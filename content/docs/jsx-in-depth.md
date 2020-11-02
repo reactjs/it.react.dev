@@ -403,7 +403,7 @@ function ListOfTenThings() {
 }
 ```
 
-I figli passati ad un componente custom possono essere qualsiasi cosa, visto che poi il componente li trasforma in qualcosa che React conosce prima di essere renderizzati. Questo uso non è comune, ma funiona se vuoi estendere tutte le capacità di JSX.
+I figli passati ad un componente custom possono essere qualsiasi cosa, visto che poi il componente li trasforma in qualcosa che React conosce prima di essere renderizzati. Questo uso non è comune, ma funziona se vuoi estendere tutte le capacità di JSX.
 
 ### I valori Booleani, Null, e Undefined vengono ignorati {#booleans-null-and-undefined-are-ignored}
 
