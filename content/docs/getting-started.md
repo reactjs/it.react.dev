@@ -36,7 +36,11 @@ React è stato progettato sin dal principio per la sua graduale adozione, per qu
 
 ### Online Playgrounds {#online-playgrounds}
 
+<<<<<<< HEAD
 Se ti interessa giocare con il codice React, puoi utilizzare uno dei "Parchi Giochi" disponibili online. Prova un template "Hello World" su [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template) o [Stackblitz](https://stackblitz.com/fork/react).
+=======
+If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Stackblitz](https://stackblitz.com/fork/react).
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Se invece preferisci utilizzare il tuo editor di testo, puoi [scaricare questo file HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), modificarlo ed aprirlo nel tuo browser dal tuo filesystem. Dato che viene eseguita una lenta trasformazione del codice a runtime, raccomandiamo l'uso di questa modalità solo per semplici demo.
 
