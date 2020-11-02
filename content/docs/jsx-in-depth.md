@@ -347,7 +347,7 @@ render() {
 
 ### JavaScript Expressions as Children {#javascript-expressions-as-children}
 
-É possibile passare una qualsiasi espressione JavaScript, come elemento figlio, semplicemente circondandola da `{}`. Ad esempio queste espressioni sono tutte equivalenti:
+É possibile passare una qualsiasi espressione JavaScript, come elemento figlio, semplicemente circondandola con `{}`. Ad esempio queste espressioni sono tutte equivalenti:
 
 ```js
 <MyComponent>foo</MyComponent>
