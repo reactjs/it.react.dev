@@ -93,9 +93,9 @@ function BlueDatePicker() {
 
 ### I componenti definiti dall'utente devono avere la prima lettera maiuscola {#user-defined-components-must-be-capitalized}
 
-Quando un elemento inizia con una lettera minuscola, allora si riferisce a componenti nativi come `<div>` o `<span>` e risulta come una stringa `'div'` o `'span'`passata a `React.createElement`. I tipi che iniziano con una lettera maiuscola, come `<Foo />` compilano in `React.createElement(Foo)` e corrispondono a componenti definiti o importati all'interno del file JavaScript.
+Quando un elemento inizia con una lettera minuscola, allora si riferisce a componenti nativi come ad esempio `<div>` o `<span>` ed essi risultano come se fossero una stringa, `'div'` o `'span'`, passata a `React.createElement`. I tipi che iniziano con una lettera maiuscola, come `<Foo />` compilano in `React.createElement(Foo)` e corrispondono a componenti definiti o importati all'interno del file JavaScript.
 
-É raccomandabile chiamare i componenti con una lettera maiuscola. Se abbiamo un componente che inizia con una lettera minuscola, effettua un'assegnazione ad una variabile con la prima lettera maiuscola, prima di utilizzarlo all'interno di JSX.
+É raccomandabile chiamare i componenti con una lettera maiuscola. Se avessimo un componente che inizia con una lettera minuscola, allora quello che possiamo fare è un'assegnazione ad una variabile, con la prima lettera maiuscola, prima di poterlo utilizzare all'interno di JSX.
 
 Ad esempio questo codice non verrà eseguito come ci si aspetta:
 
@@ -131,9 +131,9 @@ function HelloWorld() {
 }
 ```
 
-### Scegliere il tipo in fase di esecuzione {#choosing-the-type-at-runtime}
+### Scelta del tipo di componente in fase di esecuzione {#choosing-the-type-at-runtime}
 
-Non è possibile usare un'espressione come tipo di elemento React. Se si vuole utilizzare un'espressione per indicare un tipo di elemento, effettuate semplicemente un'assegnazione ad una variabile con la prima lettera maiuscola. Questo è particolarmente utile quando su vuole renderizzare un componente piuttosto che un altro in base ad una prop:
+Non è possibile usare un'espressione come tipo di elemento React. Se si vuole utilizzare un'espressione per indicare un tipo di elemento, effettuate semplicemente un'assegnazione ad una variabile con la prima lettera maiuscola. Questo è particolarmente utile quando si vuole renderizzare un componente piuttosto che un altro in base ad una prop:
 
 ```js{10,11}
 import React from 'react';
@@ -174,13 +174,13 @@ Ci sono diversi modi per dichiarare le props in JSX.
 
 ### Espressioni JavaScript come Props {#javascript-expressions-as-props}
 
-É possibile passare una qualsiasi espressione JavaScript come prop semplicemente circondandola da `{}`. Ad esempio, in questo pezzo di codice JSX:
+É possibile passare una qualsiasi espressione JavaScript come prop semplicemente circondandola da `{}`. Ad esempio, in questo pezzo di codice JSX
 
 ```js
 <MyComponent foo={1 + 2 + 3 + 4} />
 ```
 
-Per il componente `MyComponent`, il valore di `props.foo` sarà `10` che è il valore restituito dall'espressione `1 + 2 + 3 + 4`.
+nel componente `MyComponent`, il valore di `props.foo` sarà `10` che è esattamente il valore restituito dall'espressione `1 + 2 + 3 + 4`.
 
 Le espressioni `if` e `for` non sono considerate espressioni in JavaScript, quindi non possono essere usate direttamente in JSX, ma è possibile utilizzarle nel codice. Ad esempio:
 
@@ -196,7 +196,7 @@ function NumberDescriber(props) {
 }
 ```
 
-Puoi approfondire la [renderizzazione condizionale](/docs/conditional-rendering.html) e [loops](/docs/lists-and-keys.html) nelle relative sezioni.
+Puoi approfondire la [renderizzazione condizionale](/docs/conditional-rendering.html) e i [cicli](/docs/lists-and-keys.html) nelle relative sezioni.
 
 ### String Literals {#string-literals}
 
@@ -208,7 +208,7 @@ Puoi approfondire la [renderizzazione condizionale](/docs/conditional-rendering.
 <MyComponent message={'hello world'} />
 ```
 
-Quando si passano stringhe, HTML non effettua l'escape del loro valore, quindi queste due espressioni JSX sono equivalenti:
+Quando si passano stringhe, HTML non effettua l'escape del loro valore, quindi anche queste due espressioni JSX sono equivalenti:
 
 ```js
 <MyComponent message="&lt;3" />
@@ -228,7 +228,7 @@ Se non passiamo nessun valore per una prop, questa verrà valutata a `true` di d
 <MyTextBox autocomplete={true} />
 ```
 
-In linea generale non è raccomandato non passare alcun valore ad una prop in quanto può essere confusa con il [metodo per dichiarare oggetti in ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` che sarebbe la scrittura breve di `{foo: foo}` piuttosto che `{foo: true}`. Questo comportamento è presente solo per corrispondere al comportamente di HTML.
+In linea generale non è raccomandabile non passare alcun valore ad una prop in quanto può essere confusa con il [metodo per dichiarare oggetti in ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` che sarebbe la scrittura breve di `{foo: foo}` piuttosto che `{foo: true}`. Questo comportamento è presente solo per corrispondere al comportamente di HTML.
 
 ### Operatore Spread come attributo {#spread-attributes}
 
@@ -266,9 +266,9 @@ const App = () => {
 ```
 
 Nell'esempio precedente la prop `kind` è consumata e non viene passata all'elemento `<button>` nel DOM.
-Tutte le altre props sono passate con l'oggetto `...other` rendendo il componente veramente flessibile. Puoi vedere che vengono passte le props `onClick` e `children`.
+Tutte le altre props sono passate con l'oggetto `...other` rendendo il componente veramente flessibile. É possibile vedere che vengono passate le props `onClick` e `children`.
 
-Gli attributi spread possono essere molto utili ma rendono anche semplice il passaggio di props non necessarie al componente o il passaggio di attributi HTML non validi. Raccomandiamo di usare questa sintassi con parsimonia.
+Gli attributi spread possono essere molto utili ma rendono anche semplice il passaggio di props non necessarie al componente o il passaggio di attributi HTML non validi. La raccomandazione è quella di utilizzare questa sintassi con parsimonia.
 
 ## Elementi figli in JSX {#children-in-jsx}
 
@@ -276,7 +276,7 @@ Nelle espressioni JSX che contengono sia un tag di apertura che un tag di chiusu
 
 ### String Literals {#string-literals-1}
 
-É possibile inserire una stringa fra il tag di apertura e chiusura e `props.children` sarà proprio quella stringa. Questo è molto utile per molti degli elementi HTMl. Ad esempio:
+É possibile inserire una stringa fra il tag di apertura e chiusura e `props.children` sarà proprio quella stringa. Questo è molto utile per molti degli elementi HTML. Ad esempio:
 
 ```js
 <MyComponent>Hello world!</MyComponent>
@@ -347,7 +347,7 @@ render() {
 
 ### JavaScript Expressions as Children {#javascript-expressions-as-children}
 
-You can pass any JavaScript expression as children, by enclosing it within `{}`. For example, these expressions are equivalent:
+É possibile passare una qualsiasi espressione JavaScript, come elemento figlio, semplicemente circondandola da `{}`. Ad esempio queste espressioni sono tutte equivalenti:
 
 ```js
 <MyComponent>foo</MyComponent>
@@ -355,7 +355,7 @@ You can pass any JavaScript expression as children, by enclosing it within `{}`.
 <MyComponent>{'foo'}</MyComponent>
 ```
 
-This is often useful for rendering a list of JSX expressions of arbitrary length. For example, this renders an HTML list:
+Spesso questo è utile per renderizzare liste di espressioni JSX di qualsiasi lunghezza. Ad esempio il codice seguente renderizza una lista HTML:
 
 ```js{2,9}
 function Item(props) {
@@ -372,7 +372,7 @@ function TodoList() {
 }
 ```
 
-JavaScript expressions can be mixed with other types of children. This is often useful in lieu of string templates:
+Le espressioni JavaScript possono essere mixate con altri tipi di elementi figli e questo è particolarmente utile nei templates:
 
 ```js{2}
 function Hello(props) {
@@ -380,9 +380,9 @@ function Hello(props) {
 }
 ```
 
-### Functions as Children {#functions-as-children}
+### Le funzioni come elementi figli {#functions-as-children}
 
-Normally, JavaScript expressions inserted in JSX will evaluate to a string, a React element, or a list of those things. However, `props.children` works just like any other prop in that it can pass any sort of data, not just the sorts that React knows how to render. For example, if you have a custom component, you could have it take a callback as `props.children`:
+Solitamente le espressioni JavaScript inserite all'interno del codice JSX sono valutate come stringhe, un elemento React o come una lista dei precedenti due casi. Ad ogni modo `props.children` lavora esattamente come ogni altra prop in cui è possibile passare qualsiasi tipo di dati, non solamente quelli conosciuti da React che conosce come renderizzare. Ad esempio se abbiamo un componente custom, questo potrebbe essere richiamato come `props.children`: 
 
 ```js{4,13}
 // Calls the children callback numTimes to produce a repeated component
@@ -403,11 +403,11 @@ function ListOfTenThings() {
 }
 ```
 
-Children passed to a custom component can be anything, as long as that component transforms them into something React can understand before rendering. This usage is not common, but it works if you want to stretch what JSX is capable of.
+I figli passati ad un componente custom possono essere qualsiasi cosa, visto che poi il componente li trasforma in qualcosa che React conosce prima di essere renderizzati. Questo uso non è comune, ma funiona se vuoi estendere tutte le capacità di JSX.
 
-### I valori Booleans, Null, e Undefined vengono ignorati {#booleans-null-and-undefined-are-ignored}
+### I valori Booleani, Null, e Undefined vengono ignorati {#booleans-null-and-undefined-are-ignored}
 
-`false`, `null`, `undefined`, e `true` sono elementi figli validi, ma semplicemente non vengono renderizzati. Queste espressioni JSX vengono renderizzate tutto allo stesso modo:
+`true`, `false`, `null`, e `undefined` sono elementi figli validi, ma semplicemente non vengono renderizzati. Queste espressioni JSX vengono renderizzate tutte allo stesso modo:
 
 ```js
 <div />
@@ -452,7 +452,7 @@ La fix è semplice: l'espressione prima di `&&` deve essere sempre un'espression
 </div>
 ```
 
-Al contrario, se vogliamo che valori come `false`, `true`, `null`, oppure `undefined` appaiano in output è necessario prima [convertirli a stringa](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion)
+Al contrario, se vogliamo che valori come `true`, `false`, `null`, oppure `undefined` appaiano in output è necessario prima effettuare una [conversione a stringa](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion)
 
 ```js{2}
 <div>
