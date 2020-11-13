@@ -138,7 +138,7 @@ Assicurati che la tua applicazione web sia totalmente utilizzabile tramite tasti
 
 ### Keyboard focus and focus outline {#keyboard-focus-and-focus-outline}
 
-Il focus della tastiera fa riferimento all'elemento del DOM selezionato per accettare un input da tastiera. É semplicemente riconoscibile come un contorno sul campo di input come quello che si vede nell'immagine seguente:
+Il focus della tastiera fa riferimento all'elemento del DOM selezionato per accettare un input. É semplicemente riconoscibile come un contorno sul campo di input come quello che si vede nell'immagine seguente:
 
 <img src="../images/docs/keyboard-focus.png" alt="Blue keyboard focus outline around a selected link." />
 
