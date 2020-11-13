@@ -116,7 +116,7 @@ Le seguenti risorse mostrano come raggiungere tale scopo:
 - [WebAIM mostra come etichettare elementi](https://webaim.org/techniques/forms/controls)
 - [La Paciello Group spiega come mettere nomi accessibili](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
-Sebbene tutte queste pratiche standard HTML possano essere usate in React, nota che l'attributo `for` in JSX viene scritto come `htmlFor`:
+Sebbene tutte queste pratiche standard possano essere utilizzate in React, tieni presente che l'attributo `for` in JSX viene scritto come `htmlFor`:
 
 ```javascript{1}
 <label htmlFor="namedInput">Name:</label>
