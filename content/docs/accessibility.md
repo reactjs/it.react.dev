@@ -293,7 +293,7 @@ class OuterClickExample extends React.Component {
 }
 ```
 
-Questo può funzionare bene per gli utenti che usano strumenti di puntamento, come ad esempio un mouse, ma utilizzando solamente la tastiera porta ad una rottura della funzionalità quando ci spostiamo sul successivo elemento col pulsante di Tab, in quanto l'oggetto `window` non riceverà mai l'evento di `click`. Questo errato comportamento può portare a nascondere una certa funzionalità dell'applicazione e di conseguenza di ha un allontamento degli utente.
+Questo può funzionare bene per gli utenti che usano strumenti di puntamento, come ad esempio un mouse, ma utilizzando solamente la tastiera porta ad una rottura della funzionalità quando ci spostiamo sul successivo elemento col pulsante di Tab, in quanto l'oggetto `window` non riceverà mai l'evento di `click`. Questo errato comportamento può portare a nascondere una certa funzionalità dell'applicazione e di conseguenza ad un allontamento degli utenti.
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
