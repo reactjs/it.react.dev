@@ -112,7 +112,7 @@ Ogni elemento di un form, come ad esempio `<input>` e `<textarea>`, necessitano 
 
 Le seguenti risorse mostrano come raggiungere tale scopo:
 
-- [W3C mostra come etichettare gli elementi](https://www.w3.org/WAI/tutorials/forms/labels/)
+- [W3C mostra come etichettare elementi](https://www.w3.org/WAI/tutorials/forms/labels/)
 - [WebAIM mostra come etichettare elementi](https://webaim.org/techniques/forms/controls)
 - [La Paciello Group spiega come mettere nomi accessibili](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
