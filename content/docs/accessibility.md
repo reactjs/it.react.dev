@@ -198,7 +198,7 @@ Una volta creato il ref all'elemento è possibile fare il focus ovunque sul prop
  }
  ```
 
-Qualche volta un componente padre necessita di fare focus su un elemento in un componente figlio. E' possibile raggiungere questo scopo [esponendo il refs del DOM al componente padre](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) attraverso delle speciali prop, nel componente figlio, che inoltra il ref ai nodi figli.
+Qualche volta un componente padre necessita di fare focus su un elemento di un componente figlio. E' possibile raggiungere questo scopo [esponendo il refs del DOM al componente padre](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) attraverso delle speciali prop, nel componente figlio, che inoltra il ref ai nodi figli.
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
