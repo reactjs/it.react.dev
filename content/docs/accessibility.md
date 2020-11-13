@@ -363,7 +363,7 @@ Il codice appena visto mostra come esporre la funzionalità sia per utenti che u
 
 <img src="../images/docs/blur-popover-close.gif" alt="A popover list correctly closing for both mouse and keyboard users." />
 
-Questo è solo un esempio di molti dove dipendere solamente da dispositivi di puntamento e eventi del mouse portano ad una rottura delle funzionalità delle tastiera degli utenti. Testare sempre con la tastiera evidenzia immediatamente eventuali problemi che dovranno essere corretti utilizzando eventi della tastiera.
+Questo è solo un esempio di molti casi dove dipendere solamente da dispositivi di puntamento e eventi del mouse portano ad una rottura delle funzionalità per gli utenti che utilizzano la tastiera. Testare sempre con la tastiera evidenzia immediatamente eventuali problemi che dovranno essere corretti utilizzando eventi della tastiera.
 
 ## More Complex Widgets {#more-complex-widgets}
 
