@@ -144,11 +144,12 @@ Il focus della tastiera fa riferimento all'elemento del DOM selezionato per acce
 
 É consigliabile usare il CSS per rimuovere questo contorno, ad esempio con `outline: 0`, se e solo se verrà rimpiazzato con un contorno in uno stile diverso.
 
-### Mechanisms to skip to desired content {#mechanisms-to-skip-to-desired-content}
+### Meccanismi per spostarsi sui diversi contenuti {#mechanisms-to-skip-to-desired-content}
 
 Fornisci all'utente un meccanismo per saltare da una sezione all'altra dell'applicazione in quanto questo aiuta a velocizzare le operazioni di navigazione tramite tastiera.
 
-Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:
+Skiplinks o i Skip Navigation Links sono link di navigazione nascosti che diventano visibili solo quando l'utente interagisce con la pagina web. Sono molto facili da implementare utilizzando ancore interne alla pagina e un po' di stile:
+
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
@@ -158,7 +159,7 @@ Per avere maggiori informazioni sull'uso di questi elementi per aumentare l'acce
 
 - [Punti di riferimento accessibili](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
-### Programmatically managing focus {#programmatically-managing-focus}
+### Gestione del focus in modo programmatico {#programmatically-managing-focus}
 
 Un'applicazione React modifica continuamente il DOM durante la sua esecuzione, quindi qualche volte è possibile che il focus della tastiera venga perso oppure si trovi su un elemento diverso da quello che ci si aspettava. Per correggere questo comportamento errato è necessario intervenire programmaticamente, ad esempio resettando il focus della tastiera sul bottone che ha aperto una finestra modale dopo che è stata chiusa.
 
@@ -232,9 +233,9 @@ Un buon esempio di gestione del focus è [react-aria-modal](https://github.com/d
 
 >Nota:
 >
->Sebbene questa sia una caratteristica di accessibilità molto importante, è anche una tecnica che dovrebbe essere usata con giudizio. Usalo per aggiustare il focus della tastiera quando è rotto piutoosto che cercare di anticipare le mosse dell'utente 
+>Sebbene questa sia una caratteristica di accessibilità molto importante, è anche una tecnica che dovrebbe essere usata con giudizio. Usalo per aggiustare il focus della tastiera quando è rotto piuttosto che cercare di anticipare le mosse dell'utente 
 
-## Mouse and pointer events {#mouse-and-pointer-events}
+## Eventi del mouse e di altri dispositivi di puntamento {#mouse-and-pointer-events}
 
 Assicurati che tutte le funzionalità accessibili da mouse siano anche accessibili utilizzando solamente la tastiera. Dipendere solamente da elementi di puntamento porta gli utenti che utilizzano solo la tastiera a non utilizzare la tua applicazione.
 
@@ -365,7 +366,7 @@ Il codice appena visto mostra come esporre la funzionalità sia per utenti che u
 
 Questo è solo un esempio di molti casi dove dipendere solamente da dispositivi di puntamento e eventi del mouse portano ad una rottura delle funzionalità per gli utenti che utilizzano la tastiera. Testare sempre con la tastiera evidenzia immediatamente eventuali problemi che dovranno essere corretti utilizzando eventi della tastiera.
 
-## More Complex Widgets {#more-complex-widgets}
+## Widget più complessi {#more-complex-widgets}
 
 Una più complessa esperienza utente non significa avere meno accessibilità. L'accessibilità si ottiene più facilmente scrivendo HTML, ma anche i widget più complessi possono essere resi accessibili.
 
@@ -378,7 +379,7 @@ Ogni tipo di widget ha uno specifico pattern e gli utenti si aspettano che funzi
 - [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Other Points for Consideration {#other-points-for-consideration}
+## Altri punti da tenere in considerazione {#other-points-for-consideration}
 
 ### Impostazioni della lingua {#setting-the-language}
 
@@ -390,17 +391,17 @@ Scrivete in un linguaggio naturale i testi delle pagine in modo tale che i letto
 
 Imposta il `<title>` del documento in modo che descriva in modo corretto il contenuto della pagina in quanto questo garantisce che l'utente rimanga sempre consapevole del contenuto della pagina in cui si trova:
 
-- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
+- [WCAG - Capire come utilizzare il `title`](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
 Per farlo in React basta semplicemente usare il [componente Document Title](https://github.com/gaearon/react-document-title).
 
-### Color contrast {#color-contrast}
+### Contrasto di colore {#color-contrast}
 
 Assicuratevi che tutti i testi leggibili sul vostro sito abbiamo colori adatti in modo tale da rimanere sempre visibili anche ad utenti con carenze visive:
 
-- [WCAG - Understanding the Color Contrast Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-- [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
-- [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
+- [WCAG - Capire il contrasto](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [Tutto sul contrasto dei colori e perché dovresti ripensarlo](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
+- [A11yProject - Cosa è il contrasto di colore](https://a11yproject.com/posts/what-is-color-contrast/)
 
 Può risultare molto noioso calcolare tutte le combinazioni di colori per tutti i casi, per questo motivo è possibile [calcolare l'intera palette di colori accessibili con Colorable](https://jxnblk.com/colorable/).
 
@@ -415,7 +416,7 @@ Se vuoi estendere per conto tuo il test sul contrasto dei colori puoi utilizzare
 
 Ci sono numerosi strumenti che possono essere utilizzati e che ti "assistono" nella creazione di applicazioni web accessibili.
 
-### The keyboard {#the-keyboard}
+### La tastiera {#the-keyboard}
 
 Il test più facile da fare, e anche quello più importante, è di navigare tutta l'applicazione utilizzando esclusivamente la tastiera. Fai questi passi:
 
@@ -424,7 +425,7 @@ Il test più facile da fare, e anche quello più importante, è di navigare tutt
 1. Utilizza il tasto di `Enter` per interagire con gli elementi.
 1. Quando richiesto utilizza i tasti freccia per interagire con elementi come ad esempio i menù a tendina.
 
-### Development assistance {#development-assistance}
+### Assistenza durante lo sviluppo {#development-assistance}
 
 E' possibile accedere a delle funzionalità di accessibilità direttamente tramite il codice JSX. Spesso i controlli intellisense sono già forniti negli IDE che supportano JSX per i ruoli, gli stati e le proprietà ARIA. Abbiamo anche accesso al seguente strumento:
 
@@ -441,11 +442,11 @@ Il plugin [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-
   }
   ```
 
-### Testing accessibility in the browser {#testing-accessibility-in-the-browser}
+### Testare l'accessibilità all'interno del browser {#testing-accessibility-in-the-browser}
 
 Esistono numerosi tool che eseguono verifiche di accessibilità sulla pagine web nel tuo browser. Utilizza uno di questo in combinazione con altri strumenti qua menzionati, in quanto questi testano solamente l'accessibilità "tecnica" del tuo codice HTML.
 
-#### aXe, aXe-core and react-axe {#axe-axe-core-and-react-axe}
+#### aXe, aXe-core e react-axe {#axe-axe-core-and-react-axe}
 
 Deque Systems offre [aXe-core](https://github.com/dequelabs/axe-core) per test end-to-end e automatici di accessibilità. Questo modulo include alcune integrazioni per Selenium.
 
@@ -457,7 +458,7 @@ Puoi anche usare il modulo [react-axe](https://github.com/dylanb/react-axe) per 
 
 Il [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) è un'altra estensione per il browser riguardante l'accessibilità.
 
-#### Accessibility inspectors and the Accessibility Tree {#accessibility-inspectors-and-the-accessibility-tree}
+#### Ispezionare l'accessibilità e l'albero di accessibilità{#accessibility-inspectors-and-the-accessibility-tree}
 
 [L'albero dell'accessibilità](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) è un sottoinsieme dell'albero del DOM che contiene tutti gli oggetti accessibili da ogni elemento del DOM che deve essere esposto a tecnologie di assistenza come ad esempio i lettori di schermo.
 
