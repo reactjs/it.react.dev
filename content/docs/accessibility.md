@@ -297,7 +297,7 @@ Questo può funzionare bene per gli utenti che usano strumenti di puntamento, co
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
-La stessa funzionalità può essere ottenuta semplicemente utilizzando in modo appropriato eventi come `onBlur` e `onFocus`: 
+La stessa funzionalità può essere ottenuta semplicemente utilizzando in modo appropriato eventi come `onBlur` e `onFocus`:
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
