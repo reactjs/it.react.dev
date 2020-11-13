@@ -236,7 +236,7 @@ Un buon esempio di gestione del focus è [react-aria-modal](https://github.com/d
 
 ## Mouse and pointer events {#mouse-and-pointer-events}
 
-Assicurati che tutte le funzionalità accessibili da mouse siano anche accessibili utilizzando solamente la tastiera. Dipendere solamente da elementi di puntamento portano gli utenti che utilizzano solo la tastiera a non utilizzare la tua applicazione.
+Assicurati che tutte le funzionalità accessibili da mouse siano anche accessibili utilizzando solamente la tastiera. Dipendere solamente da elementi di puntamento porta gli utenti che utilizzano solo la tastiera a non utilizzare la tua applicazione.
 
 Per mostrare questo comportamento diamo uno sguardo a questo esempio di accessibilità rotta causata da un evento di click. Questo pattern viene chiamato "click esterno" e si riferisce all'utente che può chiudere un popover semplicemente facendo click al di fuori dell'elemento.
 
