@@ -407,7 +407,7 @@ Può risultare molto noioso calcolare tutte le combinazioni di colori per tutti 
 
 Entrambi gli strumenti menzionati prima (aXe e WAVE) includono test sul contrasto dei colori.
 
-Se vuoi estenedere per conto tuo il test sul contrasto dei colori puoi utilizzare i seguenti strumenti:
+Se vuoi estendere per conto tuo il test sul contrasto dei colori puoi utilizzare i seguenti strumenti:
 
 - [WebAIM - Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [The Paciello Group - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
