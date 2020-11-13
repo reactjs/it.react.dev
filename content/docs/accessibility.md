@@ -160,7 +160,7 @@ Per avere maggiori informazioni sull'uso di questi elementi per aumentare l'acce
 
 ### Programmatically managing focus {#programmatically-managing-focus}
 
-Un'applicazione React modifica continuamente il DOM dell'applicazione durante la sua esecuzione, quindi qualche volte è possibile che il focus della tastiera venga perso oppure sia su un elemento diverso da quello che ci si aspettava. Per correggere questo comportamento errato è necessario intervenire programmaticamente. Ad esempio resettando il focus della tastiera sul bottone che ha aperto una finestra modale dopo che è stata chiusa.
+Un'applicazione React modifica continuamente il DOM durante la sua esecuzione, quindi qualche volte è possibile che il focus della tastiera venga perso oppure si trovi su un elemento diverso da quello che ci si aspettava. Per correggere questo comportamento errato è necessario intervenire programmaticamente, ad esempio resettando il focus della tastiera sul bottone che ha aperto una finestra modale dopo che è stata chiusa.
 
 MDN Web Docs descrive come creare dei [widget JavaScript navigabili da tastiera](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
