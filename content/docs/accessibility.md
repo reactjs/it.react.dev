@@ -132,7 +132,7 @@ Gli errori devono essere compresi da tutti gli utenti. I link seguenti mostrano 
 
 ## Focus Control {#focus-control}
 
-Assicurati che la tua applicazione web sia totalmente compatibile con le operazioni fatte da tastiera:
+Assicurati che la tua applicazione web sia totalmente utilizzabile tramite tastiera:
 
 - [La WebAIM parla di accessibilità tramite tastiera](https://webaim.org/techniques/keyboard/)
 
