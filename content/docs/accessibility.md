@@ -47,7 +47,7 @@ L'HTML semantico costituisce la base per l'accessibilità in un'applicazione web
 Alcune volte spezziamo la semantica di HTML quando inseriamo elementi come `<div>` all'interno di JSX solo per fare in modo che il nostro codice funzioni, specialmente quando lavoriamo con le liste  (`<ol>`, `<ul>` e `<dl>`) e tabelle `<table>`.
 In questi casi possiamo usare i [Fragments di React](/docs/fragments.html) per raggruppare più elmenti insieme.
 
-Ad esempio diamo uno sguardo al seguente codice
+Ad esempio, diamo uno sguardo al seguente codice
 
 ```javascript{1,5,8}
 import React, { Fragment } from 'react';
