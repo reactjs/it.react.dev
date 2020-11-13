@@ -125,7 +125,7 @@ Sebbene tutte queste pratiche standard possano essere utilizzate in React, tieni
 
 ### Notifica degli errori all'utente {#notifying-the-user-of-errors}
 
-Gli errori devono essere compresi da tutti gli utenti. I link seguenti mostrano come esporre testi di errore ai lettori di schermo:
+Gli errori devono essere compresi da tutti gli utenti. Le seguenti risorse mostrano come esporre testi di errore ai lettori di schermo:
 
 - [La W3C mostra le notifiche utente](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [La WebAIM guarda alla validazione dei form](https://webaim.org/techniques/formvalidation/)
