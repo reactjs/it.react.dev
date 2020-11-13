@@ -233,7 +233,6 @@ Un buon esempio di gestione del focus è [react-aria-modal](https://github.com/d
 >Nota:
 >
 >Sebbene questa sia una caratteristica di accessibilità molto importante, è anche una tecnica che dovrebbe essere usata con giudizio. Usalo per aggiustare il focus della tastiera quando è rotto piutoosto che cercare di anticipare le mosse dell'utente 
->anticipare le mosse dell'utente.
 
 ## Mouse and pointer events {#mouse-and-pointer-events}
 
