@@ -359,7 +359,7 @@ class BlurExample extends React.Component {
 }
 ```
 
-Il codice appena visto mostra come esporre la funzionalità sia per utenti che usano strumenti di puntamento sia per utenti che usano la tastiera. Nota anche che è stata aggiunta la props `aria-*` per fornire supporto ai lettori di schermo degli utenti. Per semplicità l'evento della tastiera per abilitare l'interazione con il popover tramite `tasti freccia` non è stato implementato.
+Il codice appena visto mostra come esporre la funzionalità sia per utenti che usano strumenti di puntamento sia per utenti che usano la tastiera. Nota anche che è stata aggiunta la props `aria-*` per fornire supporto agli utenti che utilizzano i lettori di schermo. Per semplicità l'evento della tastiera per abilitare l'interazione con il popover tramite `tasti freccia` non è stato implementato.
 
 <img src="../images/docs/blur-popover-close.gif" alt="A popover list correctly closing for both mouse and keyboard users." />
 
