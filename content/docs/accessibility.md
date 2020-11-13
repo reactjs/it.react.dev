@@ -152,7 +152,7 @@ Skiplinks or Skip Navigation Links are hidden navigation links that only become 
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
-Utilizza elementi di riferimento e ruoli, come ad esempio `<main>` and `<aside>`, per creare delle regioni nella pagina per permettere all'utente di navigare da una sezione all'altra.
+Utilizza elementi di riferimento e ruoli, come ad esempio `<main>` e `<aside>`, per creare delle regioni, all'interno della pagina, per permettere all'utente di navigare da una sezione all'altra.
 
 Per avere maggiori informazioni sull'uso di questi elementi per aumentare l'accessibilità si consiglia questa lettura:
 
