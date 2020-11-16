@@ -413,7 +413,17 @@ class ContenitoreErrori extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 > Nota
+=======
+Production and development builds of React slightly differ in the way `componentDidCatch()` handles errors.
+
+On development, the errors will bubble up to `window`, this means that any `window.onerror` or `window.addEventListener('error', callback)` will intercept the errors that have been caught by `componentDidCatch()`.
+
+On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explictly caught by `componentDidCatch()`.
+
+> Note
+>>>>>>> 957276e1e92bb48e5bb6b1c17fd0e7a559de0748
 >
 > Quando si verifica un errore, puoi anche renderizzare una UI di ripiego con `componentDidCatch()` chiamando `setState`, ma questo comportamento verrà deprecato in una futura release di React.
 > Utilizza invece `static getDerivedStateFromError()` per gestire la renderizzazione in questi casi.
