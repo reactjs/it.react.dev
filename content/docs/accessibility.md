@@ -448,7 +448,7 @@ Esistono numerosi tool che eseguono verifiche di accessibilità sulla pagine web
 
 #### aXe, aXe-core e react-axe {#axe-axe-core-and-react-axe}
 
-Deque Systems offre [aXe-core](https://github.com/dequelabs/axe-core) per test end-to-end e automatici di accessibilità. Questo modulo include alcune integrazioni per Selenium.
+Deque Systems offre [aXe-core](https://github.com/dequelabs/axe-core) per test di accessibilità end-to-end automatizzati. Questo modulo include alcune integrazioni per Selenium.
 
 [L'Accessibility Engine](https://www.deque.com/products/axe/) (abbreviato con aXe), è un'estensione per il proprio browser costruita con `aXe-core`.
 
