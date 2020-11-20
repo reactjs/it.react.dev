@@ -108,7 +108,7 @@ Per maggiori informazioni fai riferimento alla documentazione sui [Fragments di 
 ## Form accessibili {#accessible-forms}
 
 ### Labeling {#labeling}
-Ogni elemento di un form, come ad esempio `<input>` e `<textarea>`, necessitano di essere etichettati come accessibili. É necessario mettere label descrittive, dato che queste vengono processate dai lettori di schermi.
+Ogni elemento di un form, come ad esempio `<input>` e `<textarea>`, necessita di essere etichettato come accessibile. É necessario mettere label descrittive, dato che queste vengono processate dai lettori di schermi.
 
 Le seguenti risorse mostrano come raggiungere tale scopo:
 
