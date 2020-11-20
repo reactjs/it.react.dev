@@ -45,7 +45,7 @@ L'HTML semantico costituisce la base per l'accessibilità in un'applicazione web
 - [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
 Alcune volte spezziamo la semantica di HTML quando inseriamo elementi come `<div>` all'interno di JSX solo per fare in modo che il nostro codice funzioni, specialmente quando lavoriamo con le liste  (`<ol>`, `<ul>` e `<dl>`) e tabelle `<table>`.
-In questi casi possiamo usare i [Fragments di React](/docs/fragments.html) per raggruppare più elmenti insieme.
+In questi casi possiamo usare i [Fragments di React](/docs/fragments.html) per raggruppare più elementi insieme.
 
 Ad esempio, diamo uno sguardo al seguente codice
 
