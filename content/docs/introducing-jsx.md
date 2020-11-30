@@ -92,7 +92,7 @@ function getGreeting(user) {
 Puoi utilizzare le virgolette per valorizzare gli attributi con una stringa:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <div tabIndex={0}></div>;
 ```
 
 Puoi anche utilizzare le parentesi graffe per includere un'espressione JavaScript in un attributo:
