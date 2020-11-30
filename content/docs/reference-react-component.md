@@ -417,11 +417,7 @@ Le build di sviluppo e di produzione di React gestiscono in modo leggermente div
 
 In sviluppo, gli errori effettuano il bubble up a `window`, ciò significa che ogni `window.onerror` o `window.addEventListener('error', callback)` intercetterà gli errori che sono colti da `componentDidCatch()`.
 
-<<<<<<< HEAD
 In produzione, invece, gli errori non effetuano il bubble up, il che signidica che ogni error handler antenato riceverà solamente gli errori esplicitamente non colti da `componentDidCatch()`.
-=======
-On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explicitly caught by `componentDidCatch()`.
->>>>>>> 8f9ef00db1b36ee3e5a0e6072eb601257a6f8ccb
 
 > Nota
 >
