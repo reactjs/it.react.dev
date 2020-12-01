@@ -130,7 +130,7 @@ Fino a React 16, tutti gli attributi DOM standard [o custom](/blog/2017/09/08/do
 React ha sempre offerto delle API JavaScript-centriche per il DOM. Dato che i componenti React utilizzano spesso sia props custom che props relative al DOM, React usa la notazione camel case  ("notazione a cammello") come convenzione così come avviene con le API del DOM:
 
 ```js
-<div tabIndex="-1" />      // Come avviene nelle API del DOM node.tabIndex
+<div tabIndex={-1} />      // Come avviene nelle API del DOM node.tabIndex
 <div className="Button" /> // Come avviene nelle API del DOM node.className
 <input readOnly={true} />  // Come avviene nelle API del DOM node.readOnly
 ```
