@@ -4,11 +4,11 @@ title: Code-Splitting
 permalink: docs/code-splitting.html
 ---
 
-## Bundling {#bundling}
+## Impacchettamento {#bundling}
 
-Most React apps will have their files "bundled" using tools like [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) or [Browserify](http://browserify.org/). Bundling is the process of following imported files and merging them into a single file: a "bundle". This bundle can then be included on a webpage to load an entire app at once.
+Molte applicazioni React hanno i loro file "impacchettati" usando strumenti come [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) oppure [Browserify](http://browserify.org/). Il processo di "impacchettamento" avviene prendendo tutti i file importati e unendoli tutti in un unico file, chiamato "bundle". Questo file può essere poi incluso all'interno della webpage per caricare l'intera applicazione tutta in una volta.
 
-#### Example {#example}
+#### Esempio {#example}
 
 **App:**
 
@@ -36,28 +36,28 @@ function add(a, b) {
 console.log(add(16, 26)); // 42
 ```
 
-> Note:
+> Nota:
 >
-> Your bundles will end up looking a lot different than this.
+> I tuoi pacchetti avranno un aspetto molto diverso da questo.
 
-If you're using [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), or a similar tool, you will have a Webpack setup out of the box to bundle your app.
+Se state usando [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), o qualche tool similare, potreste avere una configurazione di Webpack che effettua il processo d'impacchettamento della tua applicazione.
 
-If you aren't, you'll need to setup bundling yourself. For example, see the [Installation](https://webpack.js.org/guides/installation/) and [Getting Started](https://webpack.js.org/guides/getting-started/) guides on the Webpack docs.
+In caso contrario è necessario impostare l'impacchettamento dell'applicazione manualmente. Ad esempio puoi seguire queste guide sulla documentazione di Webpack, [Installation](https://webpack.js.org/guides/installation/) e [Getting Started](https://webpack.js.org/guides/getting-started/).
 
 ## Code Splitting {#code-splitting}
 
-Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party libraries. You need to keep an eye on the code you are including in your bundle so that you don't accidentally make it so large that your app takes a long time to load.
+Il processo d'impacchettamento va bene, ma se la tua applicazione cresce di conseguenza pure il bundle cresce, e questo specialmente se si includono librerie di terze parti. E' necessario prestare attenzione al codice che si include all'interno del proprio bundle, in modo tale da non renderlo troppo pesante per non causare rallentamenti nella sua esecuzione.
 
-To avoid winding up with a large bundle, it's good to get ahead of the problem and start "splitting" your bundle. Code-Splitting is a feature
-supported by bundlers like [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) and Browserify (via [factor-bundle](https://github.com/browserify/factor-bundle)) which can create multiple bundles that can be dynamically loaded at runtime.
+Per evitare di avere un bundle enorme, è buona pratica iniziare a suddividere il proprio bundle. Lo "spezzamento del codice" è una funzionalità supportata da [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) e Browserify (attraverso [factor-bundle](https://github.com/browserify/factor-bundle))
+i quali creano molteplici bundle che possono essere caricati dinamicamente a tempo di esecuzione.
 
-Code-splitting your app can help you "lazy-load" just the things that are currently needed by the user, which can dramatically improve the performance of your app. While you haven't reduced the overall amount of code in your app, you've avoided loading code that the user may never need, and reduced the amount of code needed during the initial load.
+Spezzare il codice della propria applicazione ti può aiutare ad effettuare il "lazy-load (caricamento pigro)" di funzionalità che sono necessario in quel preciso istante, e questo processo può incrementare di parecchio le performance della propria applicazione. Anche se non hai ridotto la quantità complessiva di codice nella tua applicazione, hai evitato di caricare codice di cui l'utente potrebbe non avere mai bisogno e hai ridotto la quantità di codice necessaria durante il caricamento iniziale.
 
 ## `import()` {#import}
 
-The best way to introduce code-splitting into your app is through the dynamic `import()` syntax.
+Il miglior modo per introdurre lo "spezzamento del codice" all'interno dell'applicazione è attraverso la sinassi `import()`.
 
-**Before:**
+**Prima:**
 
 ```js
 import { add } from './math';
@@ -65,7 +65,7 @@ import { add } from './math';
 console.log(add(16, 26));
 ```
 
-**After:**
+**Dopo:**
 
 ```js
 import("./math").then(math => {
@@ -87,13 +87,13 @@ When using [Babel](https://babeljs.io/), you'll need to make sure that Babel can
 
 The `React.lazy` function lets you render a dynamic import as a regular component.
 
-**Before:**
+**Prima:**
 
 ```js
 import OtherComponent from './OtherComponent';
 ```
 
-**After:**
+**Dopo:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
