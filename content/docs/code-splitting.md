@@ -6,7 +6,7 @@ permalink: docs/code-splitting.html
 
 ## Impacchettamento {#bundling}
 
-Molte applicazioni React hanno i loro file "impacchettati" usando strumenti come [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) oppure [Browserify](http://browserify.org/). Il processo di "impacchettamento" avviene prendendo tutti i file importati e unendoli tutti in un unico file, chiamato "bundle". Questo file può essere poi incluso all'interno della webpage per caricare l'intera applicazione tutta in una volta.
+Molte applicazioni React hanno i loro file "impacchettati" usando strumenti come [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) oppure [Browserify](http://browserify.org/). Il processo di "impacchettamento" avviene prendendo tutti i file importati e unendoli tutti in un unico file, chiamato "bundle". Questo file può essere poi incluso all'interno della pagina web per caricare l'intera applicazione tutta in una volta.
 
 #### Esempio {#example}
 
