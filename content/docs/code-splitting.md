@@ -51,7 +51,7 @@ Il processo d'impacchettamento va bene, ma se l'applicazione cresce allora, di c
 Per evitare di avere un bundle enorme, è buona pratica iniziare a suddividere il proprio bundle. Lo "spezzamento del codice" è una funzionalità supportata da [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) e Browserify (attraverso [factor-bundle](https://github.com/browserify/factor-bundle))
 i quali creano molteplici bundle che possono essere caricati dinamicamente a tempo di esecuzione.
 
-Spezzare il codice della propria applicazione ti può aiutare ad effettuare il "lazy-load (caricamento pigro)" di funzionalità che sono necessario in quel preciso istante, e questo processo può incrementare di parecchio le performance della propria applicazione. Anche se non hai ridotto la quantità complessiva di codice nella tua applicazione, hai evitato di caricare codice di cui l'utente potrebbe non avere mai bisogno e hai ridotto la quantità di codice necessaria durante il caricamento iniziale.
+Spezzare il codice della propria applicazione può aiutare ad effettuare il "lazy-load (caricamento pigro)" di funzionalità che sono necessarie in quel preciso istante, e questo processo può incrementare di parecchio le performance della propria applicazione. Anche se non è stato ridotto la quantità complessiva di codice dell'applicazione, abbiamo evitato di caricare codice di cui l'utente potrebbe non avere mai bisogno ed è stata ridotta la quantità di codice necessaria durante il caricamento iniziale.
 
 ## `import()` {#import}
 
