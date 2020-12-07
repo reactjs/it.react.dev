@@ -40,7 +40,7 @@ console.log(add(16, 26)); // 42
 >
 > I tuoi pacchetti avranno un aspetto molto diverso da questo.
 
-Se state usando [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), o qualche tool similare, potreste avere una configurazione di Webpack che effettua il processo d'impacchettamento della tua applicazione.
+Se state usando [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), o qualche tool simile, potreste avere una configurazione di Webpack che effettua il processo d'impacchettamento della tua applicazione.
 
 In caso contrario è necessario impostare l'impacchettamento dell'applicazione manualmente. Ad esempio puoi seguire queste guide sulla documentazione di Webpack, [Installation](https://webpack.js.org/guides/installation/) e [Getting Started](https://webpack.js.org/guides/getting-started/).
 
