@@ -46,7 +46,7 @@ In caso contrario è necessario impostare l'impacchettamento dell'applicazione m
 
 ## Code Splitting {#code-splitting}
 
-Il processo d'impacchettamento va bene, ma se la tua applicazione cresce di conseguenza pure il bundle cresce, e questo specialmente se si includono librerie di terze parti. E' necessario prestare attenzione al codice che si include all'interno del proprio bundle, in modo tale da non renderlo troppo pesante per non causare rallentamenti nella sua esecuzione.
+Il processo d'impacchettamento va bene, ma se l'applicazione cresce allora, di conseguenza, pure il bundle cresce, e questo specialmente se si includono librerie di terze parti. E' necessario prestare attenzione al codice che si include all'interno del proprio bundle, in modo tale da non renderlo troppo pesante per non causare rallentamenti nella sua esecuzione.
 
 Per evitare di avere un bundle enorme, è buona pratica iniziare a suddividere il proprio bundle. Lo "spezzamento del codice" è una funzionalità supportata da [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) e Browserify (attraverso [factor-bundle](https://github.com/browserify/factor-bundle))
 i quali creano molteplici bundle che possono essere caricati dinamicamente a tempo di esecuzione.
