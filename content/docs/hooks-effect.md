@@ -35,7 +35,7 @@ function Example() {
 
 Questo snippet è basato sull' [esempio del contatore della pagina precedente](/docs/hooks-state.html), ma abbiamo aggiunto una nuova funzione: settiamo il titolo del documento con un messaggio custom contenente il numero di click.
 
-Il fetching dei dati, il settaggio di una subscription, ed il cambiamento manuale del DOM nei componenti React sono tutti esempi di side effects. Abituato o meno a chiamare queste operazioni "side effects" (o solo "effects"), è probabile li abbia già utilizzati.
+Il fetching dei dati, il settaggio di una subscription, ed il cambiamento manuale del DOM nei componenti React sono tutti esempi di side effects. Abituato o meno a chiamare queste operazioni "side effects" (o solo "effects"), è probabile che tu li abbia già utilizzati.
 
 >Consiglio
 >
