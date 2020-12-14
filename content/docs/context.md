@@ -84,7 +84,7 @@ Con questo cambiamento, solo il componente Page più in alto deve conoscere l'ut
 
 Questa *inversione del controllo* può rendere il tuo codice più pulito in molti casi riducendo il numero di props che hai bisgno di passare attraverso la tua applicazione e fornendo un maggiore controllo ai componenti radice.
 
-Tuttavia, questa non è la scelta giusta in ogni caso: spostare più complessità nell'albero verso alto rende più complicati quei componenti di alto livello e costringe i componenti di basso livello a essere più flessibili di quanto ne vorresti.
+Tuttavia, questa non è la scelta giusta in ogni caso: spostare più complessità nell'albero verso l'alto rende più complicati i componenti di alto livello e costringe i componenti di basso livello a essere più flessibili di quanto vorresti.
 
 Non sei limitato a un singolo figlio per un componente. Potresti passare figli multipli, o anche avere più "slot" separati per i figli, [come documentato qui](/docs/composition-vs-inheritance.html#containment):
 
