@@ -35,7 +35,7 @@ Usando il Context, possiamo evitare di passare i props attraverso elementi inter
 
 `embed:context/motivation-solution.js`
 
-## Prima di utilizzare lo Context {#before-you-use-context}
+## Prima di utilizzare il Context {#before-you-use-context}
 
 Context è principalmente utilizzato quando alcuni dati devono essere accessibili da *molti* componenti ai diversi livelli di nidificazione. Applicarlo con moderazione perché rende più difficile il riutilizzo dei componenti.
 
