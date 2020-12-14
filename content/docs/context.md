@@ -209,7 +209,7 @@ Richiede una [funzione come un figlio](/docs/render-props.html#using-props-other
 
 ### `Context.displayName` {#contextdisplayname}
 
-Oggetto Context accetta una proprietà stringa `displayName`. I React DevTools utilizzano questa stringa per determinare cosa visualizzare per lo context.
+L'oggetto Context accetta una proprietà stringa `displayName`. I React DevTools utilizzano questa stringa per determinare cosa visualizzare per lo context.
 
 Per esempio, il seguente componente apparirà come MyDisplayName nei DevTools:
 
