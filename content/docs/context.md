@@ -37,7 +37,7 @@ Usando il Context, possiamo evitare di passare i props attraverso elementi inter
 
 ## Prima di utilizzare il Context {#before-you-use-context}
 
-Context è principalmente utilizzato quando alcuni dati devono essere accessibili da *molti* componenti ai diversi livelli di nidificazione. Applicarlo con moderazione perché rende più difficile il riutilizzo dei componenti.
+Context è principalmente utilizzato quando alcuni dati devono essere accessibili da *molti* componenti ai diversi livelli di nidificazione. Dovrebbe essere applicato con moderazione in quanto rende più difficile il riutilizzo dei componenti.
 
 **Se vuoi solo evitare di passare alcuni prop attraverso molti livelli, [composizione del componente](/docs/composition-vs-inheritance.html) è spesso una soluzione più semplice dello context.**
 
