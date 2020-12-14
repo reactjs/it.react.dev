@@ -199,7 +199,7 @@ class MyClass extends React.Component {
 </MyContext.Consumer>
 ```
 
-Un componente React che si iscrive alle modifiche. Ciò consente di iscriverti ad uno context dentro una [componente funzione](/docs/components-and-props.html#function-and-class-components).
+Un componente React che si iscrive alle modifiche. Ciò consente di iscriverti ad un context dentro un [componente funzione](/docs/components-and-props.html#function-and-class-components).
 
 Richiede una [funzione come un figlio](/docs/render-props.html#using-props-other-than-render). La funzione riceve il valore dello context corrente e restituisce un nodo React. L'argomento `value` passato alla funzione sarà uguale al prop `value` dello Provider per questo context sopra nell'albero. Se non c'è uno Provider per questo context sopra, l'argomento `value` sarà uguale a `defaultValue` che era stato passato a `createContext()`.
 
