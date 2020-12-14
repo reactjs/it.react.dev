@@ -177,7 +177,7 @@ Ciò consente di consumare il valore corrente più vicino di quel tipo di Contex
 
 > Nota:
 >
-> Puoi iscriverti solo aa uno singolo context utilizzando questa API. Se hai bisogno di leggere più di uno vedi [Consumo di Più Context](#consuming-multiple-contexts).
+> Puoi iscriverti solo ad un singolo context utilizzando questa API. Se hai bisogno di leggere più di uno vedi [Consumo di Più Context](#consuming-multiple-contexts).
 >
 > Se si utilizza la [sintassi dei campi di classe pubblica](https://babeljs.io/docs/plugins/transform-class-properties/) sperimentale, puoi usare un campo di classe **statico** per inizializzare il tuo `contextType`
 
