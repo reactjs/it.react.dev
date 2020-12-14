@@ -137,7 +137,7 @@ Questo può essere utile per testare i componenti in isolamento senza avvolgerli
 
 Ogni oggetto Context viene con un componente React Provider che consente ai componenti consumer di iscriversi alle modifiche del context.
 
-Il componente Provider accetta un props `value` da essere passato alle componenti consumer che sono discendenti di questo Provider. Uno Provider può essere connesso a consumer multipli. I Provider possono essere nidificati per sovrascrivere i valori più profondi all'interno dell'albero.
+Il componente Provider accetta un props `value` da passare ai componenti consumer che sono discendenti di questo Provider. Un Provider può essere connesso a consumer multipli. I Provider possono essere nidificati per sovrascrivere i valori più profondi all'interno dell'albero.
 
 Tutti i consumer che sono discendenti di uno Provider si ri-renderizzeranno ogni volta il props `value` dello Provider cambia.  La propagazione dallo Provider fino ai suoi consumer discendenti (includendo [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)) non sono soggetti al metodo `shouldComponentUpdate`, quindi il consumer è aggiornato anche quando un componente antenato salta un aggiornamento.
 
