@@ -236,7 +236,7 @@ Un esempio più complesso con valori dinamici per il tema:
 **app.js**
 `embed:context/theme-detailed-app.js`
 
-### Aggiornamento dello Context da un Componente Nidificato {#updating-context-from-a-nested-component}
+### Aggiornamento del Context da un Componente Nidificato {#updating-context-from-a-nested-component}
 
 Spesso è necessario aggiornare il context da un componente che è nidificato profondamente da qualche parte nell'albero dei componenti. In questo caso è possibile passare una funzione attraverso lo context per consentire ai consumer di aggiornare il context:
 
