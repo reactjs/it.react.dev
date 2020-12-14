@@ -31,7 +31,7 @@ Context é progettato per condividire i dati che possono essere considerati "glo
 
 `embed:context/motivation-problem.js`
 
-Usando lo Context, possiamo evitare di passare i props attraverso elementi intermedi:
+Usando il Context, possiamo evitare di passare i props attraverso elementi intermedi:
 
 `embed:context/motivation-solution.js`
 
