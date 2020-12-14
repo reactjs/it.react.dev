@@ -171,7 +171,7 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-La proprietà `contextType` su una classe può essere assegnata un oggetto Context creato da [`React.createContext()`](#reactcreatecontext).
+La proprietà `contextType` in una classe può essere assegnata ad un oggetto Context creato da [`React.createContext()`](#reactcreatecontext).
 Ciò consente di consumare il valore corrente più vicino di quel tipo di Context usando `this.context`.
 È possibile fare riferimento a questo in uno qualsiasi dei metodi lifecycle, inclusa la funzione render.
 
