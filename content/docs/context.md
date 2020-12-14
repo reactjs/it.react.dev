@@ -238,7 +238,7 @@ Un esempio più complesso con valori dinamici per il tema:
 
 ### Aggiornamento dello Context da un Componente Nidificato {#updating-context-from-a-nested-component}
 
-Spesso è necessario aggiornare lo context da un componente che è nidificato profondamente da qualche parte nell'albero dei componenti. In questo caso è possibile passare una funzione attraverso lo context per consentire ai consumer di aggiornare lo context:
+Spesso è necessario aggiornare il context da un componente che è nidificato profondamente da qualche parte nell'albero dei componenti. In questo caso è possibile passare una funzione attraverso lo context per consentire ai consumer di aggiornare il context:
 
 **theme-context.js**
 `embed:context/updating-nested-context-context.js`
@@ -275,4 +275,3 @@ Per aggirare questo problema, sollevare il valore nello state del genitore:
 > Nota
 >
 > React precedentemente fornito con un'API sperimentale dello context. La vecchia API sarà supportata in tutte le 16.x versioni, ma le applicazioni che lo utilizzano dovrebbero migrare alla nuova versione. L'API Legacy verrà rimossa in una versione futura principale di React. Leggi i [docs dello context legacy](/docs/legacy-context.html).
-
