@@ -27,7 +27,7 @@ complicato per certi tipi di props (ad esempio una preferenza locale, il cambio 
 
 ## Quando usare il Context {#when-to-use-context}
 
-Context é progettato per condividire i dati che possono essere considerati "globali" per un albero di componenti React, come l'utente autenticato corrente, tema, o lingua preferita. Per esempio, nel codice qui sotto manualmente infiliamo attraverso un prop "theme" per dare style al componente Button:
+Context é progettato per condividire i dati che possono essere considerati "globali" per un albero di componenti React, come l'attuale utente autenticato, tema, o lingua preferita. Ad esempio, nel codice seguente passiamo manualmente attraverso un prop "theme" per dare style al componente Button:
 
 `embed:context/motivation-problem.js`
 
