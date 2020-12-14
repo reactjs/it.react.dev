@@ -82,7 +82,7 @@ function Page(props) {
 
 Con questo cambiamento, solo il componente Page più in alto deve conoscere l'utilizzo di `user` e `avatarSize` da componenti `Link` e `Avatar`.
 
-Questa *inversione del controllo* può rendere il tuo codice più pulito in molti casi riducendo il numero di props che hai bisgno di passare attraverso la tua applicazione e fornendo un maggiore controllo ai componenti alle radici.
+Questa *inversione del controllo* può rendere il tuo codice più pulito in molti casi riducendo il numero di props che hai bisgno di passare attraverso la tua applicazione e fornendo un maggiore controllo ai componenti radice.
 
 Tuttavia, questa non è la scelta giusta in ogni caso: spostare più complessità nell'albero verso alto rende più complicati quei componenti di alto livello e costringe i componenti di basso livello a essere più flessibili di quanto ne vorresti.
 
