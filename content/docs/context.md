@@ -135,7 +135,7 @@ Questo può essere utile per testare i componenti in isolamento senza avvolgerli
 <MyContext.Provider value={/* some value */}>
 ```
 
-Ogni oggetto Context viene con un componente React Provider che consente ai componenti consumer di iscriversi alle modifiche dello context.
+Ogni oggetto Context viene con un componente React Provider che consente ai componenti consumer di iscriversi alle modifiche del context.
 
 Il componente Provider accetta un props `value` da essere passato alle componenti consumer che sono discendenti di questo Provider. Uno Provider può essere connesso a consumer multipli. I Provider possono essere nidificati per sovrascrivere i valori più profondi all'interno dell'albero.
 
