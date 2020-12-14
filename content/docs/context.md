@@ -10,8 +10,8 @@ In una tipica applicazione React, i dati sono passati dall'alto verso basso (da 
 complicato per certi tipi di props (ad esempio una preferenza locale, il cambio di tema dell'interfaccia utente) che sono richiesti da molti componenti all'interno di un'applicazione. Context fornisce un modo per condividere valori come questi attraverso i diversi componenti senza dover passare esplicitamente una prop attraverso ogni livello dell'albero.
 
 
-- [Quando usare lo Context](#when-to-use-context)
-- [Prima di usare lo Context](#before-you-use-context)
+- [Quando usare il Context](#when-to-use-context)
+- [Prima di usare il Context](#before-you-use-context)
 - [API](#api)
   - [React.createContext](#reactcreatecontext)
   - [Context.Provider](#contextprovider)
@@ -57,7 +57,7 @@ Per esempio, considera un componente `Page` che passa i props `user` e `avatarSi
 
 Potrebbe sembrare ridondante passare i props `user` e `avatarSize` attraverso molti livelli se alla fine solo il componente `Avatar` ne ha davvero bisogno. È anche fastidioso che ogni volta che il componente `Avatar` ha bisogno di più props dall'alto, devi aggiungerli anche a tutti i livelli intermedi.
 
-Un modo per risolvere questo problema **senza lo context** è di [passare giù il componente `Avatar` stesso](/docs/composition-vs-inheritance.html#containment) in modo che i componenti intermedi non debbano conoscere i props `user` o `avatarSize`:
+Un modo per risolvere questo problema **senza il context** è di [passare giù il componente `Avatar` stesso](/docs/composition-vs-inheritance.html#containment) in modo che i componenti intermedi non debbano conoscere i props `user` o `avatarSize`:
 
 ```js
 function Page(props) {
@@ -112,7 +112,7 @@ Questo modello è sufficiente per molti casi in cui è necessario disaccoppiare 
 Lo puoi portare ancora avanti con [render props](/docs/render-props.html) se il figlio ha bisogno di comunicare con il genitore prima di renderizzare.
 
 Tuttavia, alcune volte i stessi dati devono essere accessbili da molti componenti nell'albero, ed ai diversi livelli di nidificazione.
-Lo context permette di "trasmettere" tale dati, e le modifiche ad essi , a tutte i componenti di seguito.
+Il context permette di "trasmettere" tale dati, e le modifiche ad essi , a tutte i componenti di seguito.
 
 Esempi comuni dove context potrebbe essere più semplice delle alternative includono la gestione del locale corrente, del tema, o di una cache dei dati.
 
@@ -209,7 +209,7 @@ Richiede una [funzione come un figlio](/docs/render-props.html#using-props-other
 
 ### `Context.displayName` {#contextdisplayname}
 
-L'oggetto Context accetta una proprietà stringa `displayName`. I React DevTools utilizzano questa stringa per determinare cosa visualizzare per lo context.
+L'oggetto Context accetta una proprietà stringa `displayName`. I React DevTools utilizzano questa stringa per determinare cosa visualizzare per il context.
 
 Per esempio, il seguente componente apparirà come MyDisplayName nei DevTools:
 
@@ -238,7 +238,7 @@ Un esempio più complesso con valori dinamici per il tema:
 
 ### Aggiornamento del Context da un Componente Nidificato {#updating-context-from-a-nested-component}
 
-Spesso è necessario aggiornare il context da un componente che è nidificato profondamente da qualche parte nell'albero dei componenti. In questo caso è possibile passare una funzione attraverso lo context per consentire ai consumer di aggiornare il context:
+Spesso è necessario aggiornare il context da un componente che è nidificato profondamente da qualche parte nell'albero dei componenti. In questo caso è possibile passare una funzione attraverso il context per consentire ai consumer di aggiornare il context:
 
 **theme-context.js**
 `embed:context/updating-nested-context-context.js`
@@ -251,15 +251,15 @@ Spesso è necessario aggiornare il context da un componente che è nidificato pr
 
 ### Consumo dei Context Multipli {#consuming-multiple-contexts}
 
-Per mantenere veloce la ri-renderizzazione dello context, React deve rendere ogni consumer dello context un nodo separato nell'albero.
+Per mantenere veloce la ri-renderizzazione del context, React deve rendere ogni consumer del context un nodo separato nell'albero.
 
 `embed:context/multiple-contexts.js`
 
-Se due o più valori dello context sono spesso utilizzati insieme, si potrebbe prendere in considerazione la creazione di un proprio componente render props che fornisce entrambi.
+Se due o più valori del context sono spesso utilizzati insieme, si potrebbe prendere in considerazione la creazione di un proprio componente render props che fornisce entrambi.
 
 ## Avvertenze {#caveats}
 
-Poiché lo context utilizza l'identità di riferimento per determinare quando ri-renderizzare, ci sono alcuni trabocchetti che potrebbero innescare renderizzazioni non intenzionali nei consumer quando il genitore di uno provider si ri-renderizza.
+Poiché il context utilizza l'identità di riferimento per determinare quando ri-renderizzare, ci sono alcuni trabocchetti che potrebbero innescare renderizzazioni non intenzionali nei consumer quando il genitore di uno provider si ri-renderizza.
 
 Per esempio, il codice sotto ri-renderizzerà tutti i consumer ogni volta che lo Provider si ri-renderizza perchè un nuovo oggetto è sempre creato per `value`:
 
@@ -274,4 +274,4 @@ Per aggirare questo problema, sollevare il valore nello state del genitore:
 
 > Nota
 >
-> React precedentemente fornito con un'API sperimentale dello context. La vecchia API sarà supportata in tutte le 16.x versioni, ma le applicazioni che lo utilizzano dovrebbero migrare alla nuova versione. L'API Legacy verrà rimossa in una versione futura principale di React. Leggi i [docs dello context legacy](/docs/legacy-context.html).
+> React precedentemente fornito con un'API sperimentale del context. La vecchia API sarà supportata in tutte le 16.x versioni, ma le applicazioni che lo utilizzano dovrebbero migrare alla nuova versione. L'API Legacy verrà rimossa in una versione futura principale di React. Leggi i [docs del context legacy](/docs/legacy-context.html).
