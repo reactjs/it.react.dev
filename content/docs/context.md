@@ -20,7 +20,7 @@ complicato per certi tipi di props (ad esempio una preferenza locale, il cambio 
   - [Context.displayName](#contextdisplayname)
 - [Esempi](#examples)
   - [Context dinamico](#dynamic-context)
-  - [Aggiornare lo Context da un Componente Annidato](#updating-context-from-a-nested-component)
+  - [Aggiornare il Context da un Componente Annidato](#updating-context-from-a-nested-component)
   - [Consumare più Context](#consuming-multiple-contexts)
 - [Avvertenze](#caveats)
 - [API Legacy](#legacy-api)
