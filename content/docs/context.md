@@ -6,7 +6,7 @@ permalink: docs/context.html
 
 Context fornisce un modo per passare i dati attraverso l'albero dei componenti senza dover passare manualmente i props ad ogni livello.
 
-In un'applicazione tipica di React, i dati sono passati dall'alto verso basso (da genitore a figlio) tramite i props, ma questo può essere
+In una tipica applicazione React, i dati sono passati dall'alto verso basso (da genitore a figlio) tramite i props, ma questo può essere
 complicato per alcuni props (e.g.  preferenza locale, tema interfaccia utente) che sono richiesti da molti componenti all'interno di un'applicazione. Context fornisce un modo per condividere valori come questi tra i componenti senza dover passare esplicitamente un prop attraverso ogni livello dell'albero.
 
 
