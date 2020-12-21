@@ -55,7 +55,7 @@ Spezzare il codice della propria applicazione può aiutare ad effettuare il "laz
 
 ## `import()` {#import}
 
-Il miglior modo per introdurre lo "spezzamento del codice" all'interno dell'applicazione è attraverso la sintassi `import()`.
+Il miglior modo per introdurre il code splitting all'interno dell'applicazione è attraverso la sintassi `import()`.
 
 **Prima:**
 
@@ -73,9 +73,9 @@ import("./math").then(math => {
 });
 ```
 
-Quando Webpack incontra questa sintassi, inizia automaticamente lo "spezzamento del codice" dell'applicazione. Se state utilizzando Create React App, questo è già automaticamente configurato per te e tu puoi [iniziare ad utilizzarlo](https://create-react-app.dev/docs/code-splitting/) immediatamente. E' anche supportato da [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
+Quando Webpack incontra questa sintassi, inizia automaticamente il code splitting dell'applicazione. Se state utilizzando Create React App, questo è già automaticamente configurato per te e tu puoi [iniziare ad utilizzarlo](https://create-react-app.dev/docs/code-splitting/) immediatamente. E' anche supportato da [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
 
-Se state configurando Webpack autonomamente, probabilmente dovrai leggere la guida sullo ["spezzamento del codice" di Webpack](https://webpack.js.org/guides/code-splitting/). Il tuo webpack dovrebbe [assomigliare a questo](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+Se state configurando Webpack autonomamente, probabilmente dovrai leggere la guida sul ["code splitting" di Webpack](https://webpack.js.org/guides/code-splitting/). Il tuo webpack dovrebbe [assomigliare a questo](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
 Quando usate [Babel](https://babeljs.io/) dovete assicurarvi che esso possa effettuare il parsing degli import dinamici. Per fare questo avete bisogno di [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
 
@@ -168,13 +168,13 @@ const MyComponent = () => (
 );
 ```
 
-## "Spezzamento del codice" basato su rotte {#route-based-code-splitting}
+## Code splitting basato su rotte {#route-based-code-splitting}
 
-Decidere dove, nella propria app, introdurre lo "spezzamento del code" può essere complicato. Assicurati di scegliere posti che divideranno i pacchetti in modo uniforme, senza diminuire l'esperienza dell'utente.
+Decidere dove, nella propria app, introdurre il code splitting può essere complicato. Assicurati di scegliere posti che divideranno i pacchetti in modo uniforme, senza diminuire l'esperienza dell'utente.
 
 Un buon posto per iniziare sono le rotte. La maggior parte delle persone sul Web è abituata a caricare le transizioni di pagina che richiedono un po 'di tempo. Tendi anche a rieseguire il rendering dell'intera pagina contemporaneamente, quindi è improbabile che i tuoi utenti interagiscano contemporaneamente con altri elementi della pagina.
 
-Qui di seguito possiamo vedere un esempio "spezzamento del codice", basato sulle rotte, utilizzando libreria come [React Router](https://reacttraining.com/react-router/) con `React.lazy`.
+Qui di seguito possiamo vedere un esempio code splitting, basato sulle rotte, utilizzando libreria come [React Router](https://reacttraining.com/react-router/) con `React.lazy`.
 
 ```js
 import React, { Suspense, lazy } from 'react';
