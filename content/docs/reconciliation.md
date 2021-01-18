@@ -167,4 +167,4 @@ Dato che React si basa su euristiche, se le assunzioni iniziali non vengono risp
 
 1. L'algoritmo non cercherà di confrontare sottoalberi di tipi di componente diverso. Se il tuo caso è quello di alternare tra due componenti con diverso tipo ma con output molto simile, potresti renderli dello stesso tipo. in pratica, non abbiamo trovato problemi nel farlo.
 
-2. Le chiavi dovrebbero essere stabili, predicibili ed univoche. Chiavi non stabili (come quell prodotte da `Math.random()`) causeranno la ricreazione unutile di diverse istanze dei componenti e nodi DOM, ciò può causare degradazione delle prestazioni e perdita di state nei componenti figlio.
+2. Le chiavi dovrebbero essere stabili, predicibili ed univoche. Chiavi non stabili (come quell prodotte da `Math.random()`) causeranno l'inutile ricreazione di diverse istanze dei componenti e nodi DOM, ciò può causare degradazione delle prestazioni e perdita di state nei componenti figlio.
