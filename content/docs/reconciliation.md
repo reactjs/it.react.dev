@@ -27,7 +27,7 @@ Nel paragonare due alberi, React confronta prima i due elementi alla radice. Il 
 
 Se gli elementi radice hanno tipo diverso, React abbattera il vecchio albero e costruirà da zero quello nuovo. Nel passaggio da `<a>` a `<img>`, da `<Article>` a `<Comment>`, da `<Button>` a `<div>` - ognuno di questi porterà ad una ricostruzione dell'albero completa.
 
-Nell'abbattere un albero, vengono distrutti i vecchi nodi del DOM e le istanze dei Componenti ricevono il `componentWillUnmount()`. Nella costruzione del nuovo albero, nuovi nodi vengono inseriti nel DOM. Le istanze dei Componenti ricevono prima il `componentWillMount()` e dopo il `componentDidMount()`. Ogni state associato con il vecchio albero va perso.
+Nell'abbattere un albero, vengono distrutti i vecchi nodi del DOM e le istanze dei Componenti ricevono il `componentWillUnmount()`. Nella costruzione del nuovo albero, nuovi nodi vengono inseriti nel DOM. Le istanze dei Componenti ricevono prima l'`UNSAFE_componentWillMount()` e dopo il `componentDidMount()`. Ogni state associato con il vecchio albero va perso.
 
 Ogni componente che sta sotto la radice verrà smontato e il suo state verrà distrutto. Per esempio, nel confronto tra:
 
@@ -44,6 +44,12 @@ Ogni componente che sta sotto la radice verrà smontato e il suo state verrà di
 Verrà distrutto il vecchio `Counter` e ne verrà montato uno nuovo.
 
 ### Elementi DOM dello stesso tipo {#dom-elements-of-the-same-type}
+
+>Nota:
+>
+>Questi metodi sono considerati legacy quindi dovresti [evitarli](/blog/2018/03/27/update-on-async-rendering.html) nel nuovo codice:
+>
+>- `UNSAFE_componentWillMount()`
 
 Nel confrontare due elementi DOM di React che hanno lo stesso tipo, React guarderà gli attributi di entrambi, manterrà lo stesso nodo sottostante ed aggiornerà solo gli attributi cambiati. Per esempio:
 
@@ -69,11 +75,18 @@ Dopo aver gestito il nodo DOM, React esegue le stesse operazioni in ricorsione s
 
 ### Elementi Componente dello stesso tipo {#component-elements-of-the-same-type}
 
-Quando un componente si aggiorna, l'istanza rimane la stessa, così che lo state persista tra le renderizzazioni. React aggiorna le props dell'istanza sottostante del componente facendola combaciare con il nuovo elemento, e chiama `componentWillReceiveProps()` e `componentWillUpdate()` sull'istanza sottostante. 
+Quando un componente si aggiorna, l'istanza rimane la stessa, così che lo state persista tra le renderizzazioni. React aggiorna le props dell'istanza sottostante del componente facendola combaciare con il nuovo elemento, e chiama `componentWillReceiveProps()` e `UNSAFE_componentWillUpdate()` e `componentDidUpdate()` sull'istanza sottostante. 
 
 In seguito, viene chiamato il metodo `render()` e l'algoritmo di confronto va in ricorsione sui risultati precedenti e su quelli nuovi.
 
+
 ### Ricorsione sui figli {#recursing-on-children}
+>Nota:
+>
+>Questi metodi sono considerati legacy quindi dovresti [evitarli](/blog/2018/03/27/update-on-async-rendering.html) nel nuovo codice:
+>
+>- `UNSAFE_componentWillUpdate()`
+>- `UNSAFE_componentWillReceiveProps()`
 
 Di base, quando React va in ricorsione sui figli di un nodo DOM, itera su entrambe le liste di figli allo stesso tempo e genera una mutazione ogni volta che trova differenze.
 
