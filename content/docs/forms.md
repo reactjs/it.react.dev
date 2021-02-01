@@ -32,7 +32,11 @@ Possiamo combinare le due cose rendendo lo _state_ in React la "singola fonte at
 Ad esempio, se vogliamo far sì che l'esempio precedente registri il nome inserito, possiamo riscrivere il form sotto forma di componente controllato:
 
 ```javascript{4,10-12,21,24}
+<<<<<<< HEAD
 class FormNome extends React.Component {
+=======
+class NameForm extends React.Component {
+>>>>>>> 5e2a231e02bd76061fd2f89814ee1e3f9fad82d3
   constructor(props) {
     super(props);
     this.state = {value: ''};
