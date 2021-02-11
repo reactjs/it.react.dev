@@ -269,4 +269,4 @@ Phew, che velocità! Se qualcosa non ti è chiaro e vuoi impare le cose più in 
 
 Puoi anche dare uno sguardo alla [API di Riferimento degli Hooks](/docs/hooks-reference.html) ed alle [FAQ sugli Hooks](/docs/hooks-faq.html).
 
-Concludendo, non ti perdere la [pagina intrroduttiva](/docs/hooks-intro.html) in quanto spiega *perché* abbiamo aggiunto gli Hooks e come cominceremo ad utilizzarli parallelamente alle classi -- senza dover riscrivere le nostre applicazioni.
+Concludendo, non ti perdere la [pagina introduttiva](/docs/hooks-intro.html) in quanto spiega *perché* abbiamo aggiunto gli Hooks e come cominceremo ad utilizzarli parallelamente alle classi -- senza dover riscrivere le nostre applicazioni.
