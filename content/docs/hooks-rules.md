@@ -12,7 +12,7 @@ Gli Hooks sono funzioni JavaScript, ma devi seguire due regole quando li utilizz
 
 ### Chiama gli Hooks solo al livello più alto {#only-call-hooks-at-the-top-level}
 
-**Non chiamare gli Hooks all'interno di cicli, condizioni, o funzioni annidate.** Invece, utilizza sempre gli Hooks al livello più alto della tua funzione React. Seguendo questa regola, ti assicuri che gli Hooks siano chiamati nello stesso ordine ogni volta che un componente viene renderizzato. Questo è ciò che permette a React di mantenere correttamente lo stato degli Hooks tra più chiamate `useState` e `useEffect`. (Se sei curioso, lo spiegheremo in profondità [qui](#explanation).)
+**Non chiamare gli Hooks all'interno di cicli, condizioni, o funzioni annidate.** Invece, utilizza sempre gli Hooks al livello più alto della tua funzione React, prima di ogni return. Seguendo questa regola, ti assicuri che gli Hooks siano chiamati nello stesso ordine ogni volta che un componente viene renderizzato. Questo è ciò che permette a React di mantenere correttamente lo stato degli Hooks tra più chiamate `useState` e `useEffect`. (Se sei curioso, lo spiegheremo in profondità [qui](#explanation).)
 
 ### Chiama gli Hooks solo da Funzioni React {#only-call-hooks-from-react-functions}
 
