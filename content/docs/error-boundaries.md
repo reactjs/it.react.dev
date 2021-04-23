@@ -15,7 +15,6 @@ I contenitori di errori sono componenti React che **catturano gli errori JavaScr
 
 > Nota
 >
-> Error boundaries do **not** catch errors for:
 > I contenitori di errore non catturano gli errori di:
 >
 > * Gestore di eventi ([approfondisci](#how-about-event-handlers))
