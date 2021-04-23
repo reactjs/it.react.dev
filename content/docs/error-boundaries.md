@@ -71,7 +71,7 @@ Guarda [questo esempio di dichiarazione e utilizzo di un contenitore di errori](
 
 ## Dove si dichiarano i contenitori di errori? {#where-to-place-error-boundaries}
 
-La granularità dei contenitori di errori dipende interamente da te sviluppatore. Potresti voler wrappare i componenti di rotte di primo livello facendo vedere un messaggio, all'utente, tipo "Qualcosa è andato storto" proprio come i framework lato server, spesso, gestiscono i crash. Potresti anche voler wrappare singoli widget all'interno di un contenitore di errori per proteggerli dai crash che possono succedere all'interno dell'applicazione.
+La granularità dei contenitori di errori dipende interamente da te sviluppatore. Potresti voler wrappare i componenti di rotte di primo livello facendo vedere un messaggio, all'utente, tipo "Qualcosa è andato storto" proprio come i framework lato server, spesso, gestiscono i crash. Potresti anche voler wrappare singoli widget all'interno di un contenitore di errori per proteggerli da crash che possono avvenire all'interno dell'applicazione.
 
 
 ## Nuovi comportamenti per errori non rilevati {#new-behavior-for-uncaught-errors}
