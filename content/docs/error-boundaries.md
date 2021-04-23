@@ -97,7 +97,7 @@ E' anche possibile vedere i nomi dei fili e i numeri di linea nello stack trace 
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Error caught by Error Boundary component with line numbers">
 
-Se avete creato l'applicazione senza usare Create React App, potete usare [questo plugin] da aggiungere, manualmente, alla configurazione Babel. Tieni presente che tutto ciò vale solo per l'ambiente di sviluppo e **deve essere disabilitato in produzione**.
+Se avete creato l'applicazione senza usare Create React App, potete usare [questo plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) da aggiungere, manualmente, alla configurazione Babel. Tieni presente che tutto ciò vale solo per l'ambiente di sviluppo e **deve essere disabilitato in produzione**.
 
 > Nota
 >
