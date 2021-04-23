@@ -84,7 +84,7 @@ Questi cambiamenti significano che se migrate verso React 16 probabilmente scopr
 
 Ad esempio Facebook Messenger wrappa il contenuto della barra laterale, del pannello informativo, delle conversazioni e dei messaggi di input in contenitori di errori separati. Se qualche componente in una delle precedenti aree si rompe, il resto dell'applicazione rimane comunque interattiva.
 
-Vi incoraggiamo inoltre ad utilizzare dei servizi JavaScript di reportistica (o costruitene una personalizzato) cosicché da capire che tipo di eccezioni vengono sollevate in produzione, e che non vengono catturate, e fixarle.
+Vi incoraggiamo inoltre ad utilizzare dei servizi JavaScript di reportistica (o costruitene una personalizzata) cosicché da capire che tipo di eccezioni vengono sollevate in produzione, e che non vengono catturate, e fixarle.
 
 
 ## Stack trace dei componenti {#component-stack-traces}
