@@ -82,7 +82,7 @@ Abbiamo discusso molto prima di prendere questa decisione ma, secondo la nostra 
 
 Questi cambiamenti significano che se migrate verso React 16 probabilmente scoprirete, all'interno della vostra applicazione, dei crash che prima venivano ignorati. Aggiungere contenitori di errori vi aiuta a fornire una migliore user experience quando qualcosa va storto.
 
-Ad esempio Facebook Messenger wrappa il contenuto della barra laterale, del pannello informativo, delle conversazioni e dei messaggi di input in contenitori di errori separati. Se qualche componente in una delle precedenti aree si rompo, il resto dell'applicazione rimane comunque interattiva.
+Ad esempio Facebook Messenger wrappa il contenuto della barra laterale, del pannello informativo, delle conversazioni e dei messaggi di input in contenitori di errori separati. Se qualche componente in una delle precedenti aree si rompe, il resto dell'applicazione rimane comunque interattiva.
 
 Vi incoraggiamo inoltre ad utilizzare dei servizi JavaScript di reportistica (o costruitene una personalizzato) cosicché da capire che tipo di eccezioni vengono sollevate in produzione, e che non vengono catturate, e fixarle.
 
