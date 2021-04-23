@@ -128,7 +128,7 @@ I contenitori di errore preservano la natura dichiarativa di React e si comporta
 
 I contenitori di errori **non catturano** gli errori all'interno dei gestori degli eventi. 
 
-React non ha necessità di contenutori di errori per il gestore degli eventi. A differenza dei metodi di render e dei metodi del ciclo di vita, i gestori degli eventi non si hanno durante il rendering. Quindi se questi lanciano un errore, React continua comunque a sapere cosa visualizzare sullo schermo.
+React non ha necessità di contenitori di errori per il gestore degli eventi. A differenza dei metodi di render e dei metodi del ciclo di vita, i gestori degli eventi non si hanno durante il rendering. Quindi se questi lanciano un errore, React continua comunque a sapere cosa visualizzare sullo schermo.
 
 Se hai bisogno di catturare un errore all'interno di un gestore degli eventi, utilizza il `try` / `catch` di JavaScript:
 
