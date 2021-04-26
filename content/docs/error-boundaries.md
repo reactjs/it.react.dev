@@ -116,7 +116,7 @@ try {
 }
 ```
 
-Tuttavia i compoenti di React sono molto dichiarativi e specificano cosa deve essere renderizzato:
+Tuttavia i componenti di React sono molto dichiarativi e specificano cosa deve essere renderizzato:
 
 ```js
 <Button />
