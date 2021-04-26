@@ -22,7 +22,7 @@ I contenitori di errori sono componenti React che **catturano gli errori JavaScr
 > * Rendering lato server
 > * Errori sollevati all'interno del contenitore stesso (piuttosto che nei suoi figli)
 
-Un componente basato su classe diventa un contenitore di errori se definisce uno, o entrambi, i metodi del ciclo di vita [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) e [`componentDidCatch()`](/docs/react-component.html#componentdidcatch). Utilizza `static getDerivedStateFromError()` per renderizzare una UI di fallback dopo che l'errore è stato sollevato. Utilizzate `componentDidCatch()` per loggare informazioni sull'errore.
+Un componente basato su classe diventa un contenitore di errori se definisce uno, o entrambi, i metodi del ciclo di vita [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) e [`componentDidCatch()`](/docs/react-component.html#componentdidcatch). Utilizza `static getDerivedStateFromError()` per renderizzare una UI di fallback dopo che l'errore è stato sollevato. Utilizza `componentDidCatch()` per loggare informazioni sull'errore.
 
 ```js{7-10,12-15,18-21}
 class ErrorBoundary extends React.Component {
