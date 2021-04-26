@@ -93,7 +93,7 @@ La versione 16 di React stampa tutti gli errori, che vengono sollevati durante i
 
 <img src="../images/docs/error-boundaries-stack-trace.png" style="max-width:100%" alt="Error caught by Error Boundary component">
 
-E' anche possibile vedere i nomi dei fili e i numeri di linea nello stack trace del componente. Questo è il comportamento di default nei progetti creati con [Create React App](https://github.com/facebookincubator/create-react-app):
+E' anche possibile vedere i nomi dei file e i numeri di linea nello stack trace del componente. Questo è il comportamento di default nei progetti creati con [Create React App](https://github.com/facebookincubator/create-react-app):
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Error caught by Error Boundary component with line numbers">
 
