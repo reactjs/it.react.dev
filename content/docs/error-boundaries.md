@@ -4,7 +4,7 @@ title: Contenitori di Errori
 permalink: docs/error-boundaries.html
 ---
 
-In passato gli errori JavaScript all'interno dei componenti erano usati per corrompere lo stato interno di React e causavano l'[emissione](https://github.com/facebook/react/issues/4026) di [errori](https://github.com/facebook/react/issues/8579) [criptici](https://github.com/facebook/react/issues/6895) nei rendering successivi. Questi errori erano sempre causati da un errore precedente nel codice dell'applicazione, ma React non forniva nessun modo per poterli gestire correttamente nei componenti e non poteva ripristinarli.
+In passato, gli errori JavaScript all'interno dei componenti causavano la corruzione dello stato interno di React e l'[emissione](https://github.com/facebook/react/issues/4026) di [errori](https://github.com/facebook/react/issues/8579) [criptici](https://github.com/facebook/react/issues/6895) nei rendering successivi. Questi errori erano sempre causati da un errore precedente nel codice dell'applicazione, ma React non forniva nessun modo per poterli gestire correttamente nei componenti e non poteva ripristinarli.
 
 
 ## Introduzione ai contenitori di errori {#introducing-error-boundaries}
