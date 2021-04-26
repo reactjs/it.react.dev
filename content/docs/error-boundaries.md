@@ -122,7 +122,7 @@ Tuttavia i componenti di React sono molto dichiarativi e specificano cosa deve e
 <Button />
 ```
 
-I contenitori di errore preservano la natura dichiarativa di React e si comporta esattamente come ci si aspetta. Ad esempio, anche se l'errore capita nel metodo `componentDidUpdate`, causato da `setState` sollevato da qualche parte in profondità nell'albero, continuerà a propagare correttamente l'errore al più vicino contenitore di errori.
+I contenitori di errore preservano la natura dichiarativa di React e si comportano esattamente come ci si aspetta. Ad esempio, anche se l'errore capita nel metodo `componentDidUpdate`, causato da `setState` sollevato da qualche parte in profondità nell'albero, continuerà a propagare correttamente l'errore al più vicino contenitore di errori.
 
 ## Che dire del gestore degli eventi? {#how-about-event-handlers}
 
