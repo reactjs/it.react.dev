@@ -42,7 +42,11 @@ console.log(add(16, 26)); // 42
 
 Se state usando [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), o qualche tool simile, potreste avere una configurazione di Webpack che effettua il processo d'impacchettamento della tua applicazione.
 
+<<<<<<< HEAD
 In caso contrario è necessario impostare l'impacchettamento dell'applicazione manualmente. Ad esempio puoi seguire queste guide sulla documentazione di Webpack, [Installation](https://webpack.js.org/guides/installation/) e [Getting Started](https://webpack.js.org/guides/getting-started/).
+=======
+If you aren't, you'll need to set up bundling yourself. For example, see the [Installation](https://webpack.js.org/guides/installation/) and [Getting Started](https://webpack.js.org/guides/getting-started/) guides on the Webpack docs.
+>>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 ## Code Splitting {#code-splitting}
 
