@@ -84,7 +84,11 @@ Per rendere la tua UI interattiva, devi fare in modo che sia possibile alterare 
 
 Al fine di implementare l'applicazione correttamente, devi innanzitutto pensare alla minima parte di stato mutabile del quale la tua applicazione ha bisogno. La chiave qui è [DRY: *Don't Repeat Yourself*](https://it.wikipedia.org/wiki/Don%27t_repeat_yourself). Individua la minima rappresentazione di stato richiesta dall'applicazione e calcola tutto il resto al bisogno. Ad esempio, se stai costruendo una "Lista delle cose da fare"; mantieni solo l'array degli elementi della lista; non mantenere una variabile separata nello stato per il conteggio, utilizza semplicemente la proprietà `length` dell'array.
 
+<<<<<<< HEAD
 Pensa a tutte le parti di dati nell'applicazione d'esempio. Abbiamo:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
   * La lista originale dei prodotti
   * Il testo di ricerca inserito dall'utente
