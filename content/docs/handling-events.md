@@ -29,21 +29,12 @@ Per esempio, l'HTML:
 </button>
 ```
 
-<<<<<<< HEAD
-Un'altra differenza è che, in React, non è possibile ritornare `false` per impedire il comportamento predefinito. Devi chiamare `preventDefault` esplicitamente. Ad esempio, in un semplice codice HTML per impedire il comportamento predefinito del link di aprire una nuova pagina, potresti scrivere:
+Un'altra differenza è che, in React, non è possibile ritornare `false` per impedire il comportamento predefinito. Devi chiamare `preventDefault` esplicitamente. Ad esempio, in un semplice codice HTML per impedire il comportamento predefinito del form nel submit, potresti scrivere:
 
 ```html
-<a href="#" onclick="console.log('Hai cliccato sul link.'); return false">
-  Clicca qui
-</a>
-=======
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
-
-```html
-<form onsubmit="console.log('You clicked submit.'); return false">
-  <button type="submit">Submit</button>
+<form onsubmit="console.log('Hai cliccato Invia.'); return false">
+  <button type="submit">Invia</button>
 </form>
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 ```
 
 In React, invece sarebbe:
@@ -52,23 +43,13 @@ In React, invece sarebbe:
 function Form() {
   function handleSubmit(e) {
     e.preventDefault();
-<<<<<<< HEAD
-    console.log('Hai cliccato sul link.');
-  }
-
-  return (
-    <a href="#" onClick={handleClick}>
-      Clicca qui
-    </a>
-=======
-    console.log('You clicked submit.');
+    console.log('Hai cliccato Invia.');
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
+      <button type="submit">Invia</button>
     </form>
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
   );
 }
 ```
@@ -90,13 +71,8 @@ class Interruttore extends React.Component {
   }
 
   handleClick() {
-<<<<<<< HEAD
-    this.setState(state => ({
-      acceso: !state.acceso
-=======
     this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
+      acceso: !prevState.acceso
     }));
   }
 

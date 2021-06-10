@@ -207,11 +207,7 @@ ReactDOM.render(
 
 ### Le Chiavi Devono Essere Uniche Tra Gli Elementi Adiacenti {#keys-must-only-be-unique-among-siblings}
 
-<<<<<<< HEAD
 Chiavi usate all'interno degli array dovrebbero essere uniche tra gli elementi adiacenti. Tuttavia, non hanno bisogno di essere uniche a livello globale. Possiamo usare le stesse chiavi quando creiamo due array diversi:
-=======
-Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
