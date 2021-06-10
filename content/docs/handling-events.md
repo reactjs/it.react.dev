@@ -29,27 +29,27 @@ Per esempio, l'HTML:
 </button>
 ```
 
-Un'altra differenza è che, in React, non è possibile ritornare `false` per impedire il comportamento predefinito. Devi chiamare `preventDefault` esplicitamente. Ad esempio, in un semplice codice HTML per impedire il comportamento predefinito del link di aprire una nuova pagina, potresti scrivere:
+Un'altra differenza è che, in React, non è possibile ritornare `false` per impedire il comportamento predefinito. Devi chiamare `preventDefault` esplicitamente. Ad esempio, in un semplice codice HTML per impedire il comportamento predefinito del form nel submit, potresti scrivere:
 
 ```html
-<a href="#" onclick="console.log('Hai cliccato sul link.'); return false">
-  Clicca qui
-</a>
+<form onsubmit="console.log('Hai cliccato Invia.'); return false">
+  <button type="submit">Invia</button>
+</form>
 ```
 
 In React, invece sarebbe:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log('Hai cliccato sul link.');
+    console.log('Hai cliccato Invia.');
   }
 
   return (
-    <a href="#" onClick={handleClick}>
-      Clicca qui
-    </a>
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Invia</button>
+    </form>
   );
 }
 ```
@@ -71,8 +71,8 @@ class Interruttore extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      acceso: !state.acceso
+    this.setState(prevState => ({
+      acceso: !prevState.acceso
     }));
   }
 
