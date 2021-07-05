@@ -38,7 +38,11 @@ React è stato progettato sin dal principio per la sua graduale adozione, per qu
 
 Se ti interessa giocare con il codice React, puoi utilizzare uno dei "Parchi Giochi" disponibili online. Prova un template "Hello World" su [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), o [Stackblitz](https://stackblitz.com/fork/react).
 
+<<<<<<< HEAD
 Se invece preferisci utilizzare il tuo editor di testo, puoi [scaricare questo file HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), modificarlo ed aprirlo nel tuo browser dal tuo filesystem. Dato che viene eseguita una lenta trasformazione del codice a runtime, raccomandiamo l'uso di questa modalità solo per semplici demo.
+=======
+If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ### Aggiungere React ad un Sito {#add-react-to-a-website}
 
@@ -115,7 +119,11 @@ Il [blog di React](/blog/) è la fonte ufficiale per gli aggiornamenti dal team 
 
 Puoi inoltre seguire l'[account @reactjs](https://twitter.com/reactjs) su Twitter, ma non ti perderai nulla di essenziale leggendo solo il blog.
 
+<<<<<<< HEAD
 Non tutte le release di React meritano un blog post, potrai comunque trovare la lista dei cambiamenti per ogni release nel file [`CHANGELOG.md` nella repository di React](https://github.com/facebook/react/blob/master/CHANGELOG.md), oltre che nella pagina [Releases](https://github.com/facebook/react/releases).
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/main/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ## Documentazione Versionata {#versioned-documentation}
 
