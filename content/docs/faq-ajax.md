@@ -50,9 +50,9 @@ class MyComponent extends React.Component {
             items: result.items
           });
         },
-        // Nota: è importante gestire gli errori qui
-        // invece di un blocco catch() in modo da non fare passare
-        // eccezioni da bug reali nei componenti.
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -92,9 +92,9 @@ function MyComponent() {
   const [items, setItems] = useState([]);
 
 
-  // Nota: l'array deps vuoto [] significa
-  // questo useEffect verrà eseguito una volta
-  // simile a componentDidMount()
+  // Note: the empty deps array [] means
+  // this useEffect will run once
+  // similar to componentDidMount()
   useEffect(() => {
     fetch("https://api.example.com/items")
       .then(res => res.json())
@@ -103,9 +103,9 @@ function MyComponent() {
           setIsLoaded(true);
           setItems(result);
         },
-        // Nota: è importante gestire gli errori qui
-        // invece di un blocco catch() in modo da non fare passare
-        // eccezioni da bug reali nei componenti.
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
         (error) => {
           setIsLoaded(true);
           setError(error);
