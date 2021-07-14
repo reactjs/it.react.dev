@@ -6,15 +6,15 @@ layout: docs
 category: FAQ
 ---
 
-### Come posso fare una chiamata AJAX ? {#come-posso-fare-una-chiamata-ajax}
+### Come posso fare una chiamata AJAX ? {#how-can-i-make-an-ajax-call}
 
 Puoi usare qualsiasi libreria AJAX con React. Le piu popolari sono [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), e il e il browser integrato [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### In quale punto del ciclo di vita del componente devo effettuare una chiamata AJAX? {#dove-nel-ciclo-di-vita-del-componente-dovrei-fare-una-chiamata-ajax}
+### In quale punto del ciclo di vita del componente devo effettuare una chiamata AJAX? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
 Dovresti popolare i dati con chiamate AJAX nel metodo [`componentDidMount`](/docs/react-component.html#mounting). In questo modo puoi usare `setState` per aggiornare il tuo componente quando i dati vengono recuperati.
 
-### Esempio: utilizzo dei risultati AJAX per impostare lo stato locale {#esempio-usando-ajax-risultati-impostare-lo-stato-locale}
+### Esempio: utilizzo dei risultati AJAX per impostare lo stato locale {#example-using-ajax-results-to-set-local-state}
 
 Il componente seguente mostra come effettuare una chiamata AJAX in `componentDidMount` per popolare lo stato del componente locale.
 
@@ -50,9 +50,9 @@ class MyComponent extends React.Component {
             items: result.items
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+        // Nota: è importante gestire gli errori qui
+        // invece di un blocco catch() in modo da non fare passare
+        // eccezioni da bug reali nei componenti.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -92,9 +92,9 @@ function MyComponent() {
   const [items, setItems] = useState([]);
 
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
+  // Nota: l'array deps vuoto [] significa
+  // questo useEffect verrà eseguito una volta
+  // simile a componentDidMount()
   useEffect(() => {
     fetch("https://api.example.com/items")
       .then(res => res.json())
@@ -103,9 +103,9 @@ function MyComponent() {
           setIsLoaded(true);
           setItems(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+        // Nota: è importante gestire gli errori qui
+        // invece di un blocco catch() in modo da non fare passare
+        // eccezioni da bug reali nei componenti.
         (error) => {
           setIsLoaded(true);
           setError(error);
