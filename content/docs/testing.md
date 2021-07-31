@@ -16,7 +16,7 @@ Ci sono alcuni modi per testare i componenti di React. In linea di massima si di
 
 Questa sezione della documentazione si concentra sulle strategie di test per il primo caso. Sebbene i test end-to-end completi possano essere molto utili per prevenire regressioni a flussi di lavoro importanti, tali test non riguardano in particolare i componenti di React e non rientrano nell'ambito di questa sezione.
 
-### Compromessi {#compromessi}
+### Compromessi {#tradeoffs}
 
 
 Quando si scelgono gli strumenti di test, vale la pena considerare alcuni compromessi:
@@ -26,13 +26,13 @@ Quando si scelgono gli strumenti di test, vale la pena considerare alcuni compro
 
 Risposte diverse possono funzionare per team e prodotti diversi.
 
-### Strumenti consigliati {#strumenti}
+### Strumenti consigliati {#tools}
 
 **[Jest](https://facebook.github.io/jest/)** è un test runner JavaScript che ti consente di accedere al DOM tramite [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). Sebbene jsdom sia solo un'approssimazione di come funziona il browser, spesso è abbastanza buono per testare i componenti di React. Jest offre una grande velocità di iterazione combinata con potenti funzionalità come il mocking [modules](/docs/testing-environments.html#mocking-modules) e [timers](/docs/testing-environments.html#mocking-timers) così puoi avere un maggiore controllo su come viene eseguito il codice.
 
 **[Libreria di test React](https://testing-library.com/react)** è un insieme di helper che ti permettono di testare i componenti di React senza fare affidamento sui loro dettagli di implementazione. Questo approccio rende il refactoring un gioco da ragazzi e ti spinge anche verso le migliori pratiche per l'accessibilità. Anche se non fornisce un modo per "shallowly" enderizza un componente senza i suoi figli, un test runner come Jest ti consente di farlo da [mocking](/docs/testing-recipes.html#mocking-modules).
 
-### Per saperne di più {#per-saperne-di-più}
+### Per saperne di più {#learn-more}
 
 Questa sezione è divisa in due pagine:
 
