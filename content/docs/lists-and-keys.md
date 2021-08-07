@@ -203,7 +203,7 @@ ReactDOM.render(
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/3.js)**
 
-È buona regola ricordarsi che che gli elementi all'interno della chiamata `map()` hanno bisogno di chiavi.
+È buona regola ricordarsi che gli elementi all'interno della chiamata `map()` hanno bisogno di chiavi.
 
 ### Le Chiavi Devono Essere Uniche Tra Gli Elementi Adiacenti {#keys-must-only-be-unique-among-siblings}
 
