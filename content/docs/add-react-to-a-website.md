@@ -123,11 +123,7 @@ Se invece non hai già un passaggio di minimizzazione dei tuoi script, [ecco un 
 
 ## Opzionale: Prova React con JSX {#optional-try-react-with-jsx}
 
-<<<<<<< HEAD
 Negli esempi precedenti, abbiamo utilizzato solamente caratteristiche supportate nativamente dai browser. Ecco perché abbiamo utilizzato una funzione JavaScript per dire a React cosa visualizzare:
-=======
-In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
->>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 ```js
 const e = React.createElement;
