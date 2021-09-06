@@ -39,15 +39,9 @@ Ma come fare a sapere cosa deve essere un componente a se stante? Usa le stesse 
 
 Dato che ti ritroverai spesso a dover presentare all'utente dei modelli dati JSON, noterai che se tali modelli sono stati definiti correttamente, la tua UI (e di conseguenza la struttura della gerarchia dei tuoi componenti) corrisponderanno. Ciò avviene perché entrambe tendono ad aderire alla stessa *architettura dell'informazione*. Separa la tua UI in componenti, dove ognuno di essi corrisponde ad una parte del modello dati.
 
-<<<<<<< HEAD
-![Diagramma dei componenti](../images/blog/thinking-in-react-components.png)
+![Diagramma che mostra componenti annidati](../images/blog/thinking-in-react-components.png)
 
-Abbiamo identificato cinque componenti nella nostra applicazione. In corsivo, la parte del modello dati rappresentata da ogni componente.
-=======
-![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
-
-You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
->>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
+Abbiamo identificato cinque componenti nella nostra applicazione. In corsivo, la parte del modello dati rappresentata da ogni componente. I numeri nell'immagine corrispondono ai numeri di seguito.
 
   1. **`TabellaProdottiRicercabile` (arancione):** contiene l'intero esempio
   2. **`BarraRicerca` (blu):** riceve tutti gli *input dell'utente*
