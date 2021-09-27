@@ -451,11 +451,19 @@ class Square extends React.Component {
 
 Quando uno Square viene cliccato, viene richiamata la funzione `onClick` provvista da Board. Ecco in dettaglio come ciò avviene:
 
+<<<<<<< HEAD
 1. La prop `onClick` nel componente `<button>` presente nel DOM (di fabbrica) dice a React di impostare un event handler per il click.
 2. Quando il bottone viene cliccato, React richiama l'event handler `onClick` che è definito nel metodo `render()` di Square.
 3. Questo event handler chiama a sua volta `this.props.onClick()`. La prop `onClick` di Square è stata però specificata da Board.
 4. Dato che Board ha passato `onClick={() => this.handleClick(i)}` a Square, di conseguenza Square richiama `this.handleClick(i)` quando viene cliccato.
 5. Non abbiamo ancora definito alcun metodo `handleClick()`, per questo il nostro codice non funziona al momento. Infatti, se clicchi su uno Square adesso, dovresti ricevere un messaggio di errore che dice qualcosa del tipo: "this.handleClick is not a function". 
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 78f78a664fcfaa2e5d9650d9662a67a8ab028661
 
 >Nota Bene
 >
@@ -524,7 +532,11 @@ Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array
 
 ### Perché l'Immutabilità è Importante {#why-immutability-is-important}
 
+<<<<<<< HEAD
 Nel precedente esempio di codice, abbiamo suggerito l'uso dell'operatore `.slice()` per creare una copia dell'array `squares` prima di modificarlo al posto della modifica diretta dell'array. Cerchiamo di capire cosa è l'immutabilità e perché si tratta di un concetto importante da imparare.
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 78f78a664fcfaa2e5d9650d9662a67a8ab028661
 
 In generale, ci sono due approcci per modificare i dati. Il primo appoccio è quello di *mutarli* direttamente, cambiandone i valori. Il secondo approccio è quello di sostituire i dati con una nuova copia che ha i cambiamenti desiderati.
 

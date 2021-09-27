@@ -226,7 +226,11 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Quando usiamo degli HOC per estendere il comportamento dei componenti, è raccomandabile di [inoltrare i ref](/docs/forwarding-refs.html) al componente "wrappato" usando la funzione di React `forwardRef`. Se un componente, di tipo HOC, di terze parti non implementata l'inoltro del ref, il pattern spiegato precedentemente può essere usato come seconda alternativa.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 78f78a664fcfaa2e5d9650d9662a67a8ab028661
 
 Un buon esempio di gestione del focus è [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Questo è un esempio di piena accessibilità di una finestra modale. Non solo mette il focus iniziale sul bottone cancel
 (prevenendo un'attivazione accidentale dell'azione di successo) ma "imprigiona" il focus all'interno della finestra modale e lo rimette sull'elemento che inizialmente ha causato l'apertura della modale.
@@ -452,7 +456,11 @@ Deque Systems offre [aXe-core](https://github.com/dequelabs/axe-core) per test d
 
 [L'Accessibility Engine](https://www.deque.com/products/axe/) (abbreviato con aXe), è un'estensione per il proprio browser costruita con `aXe-core`.
 
+<<<<<<< HEAD
 Puoi anche usare il modulo [react-axe](https://github.com/dylanb/react-axe) per vedere errori e problemi vari di accessibilità direttamente nella console in fase di sviluppo e debug.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> 78f78a664fcfaa2e5d9650d9662a67a8ab028661
 
 #### WebAIM WAVE {#webaim-wave}
 
