@@ -48,15 +48,9 @@ Se viene fornita la callback opzionale, essa sarà eseguita dopo che il componen
 >
 > `ReactDOM.render()` non modifica il nodo contenitore (modifica solamente i figli del contenitore). Potrebbe essere possibile inserire un componente in un nodo DOM esistente senza sovrascrivere i figli esistenti.
 >
-<<<<<<< HEAD
 > `ReactDOM.render()` attualmente ritorna un riferimento all'instanza principale di `ReactComponent`. Tuttavia, l'utilizzo di questo valore di ritorno è obsoleto 
 > e dovrebbe essere evitato perché le versioni future di React potrebbero renderizzare i componenti in maniera asincrona in alcuni casi. Se hai bisogno di un riferimento all'istanza principale di `ReactComponent`, la soluzione preferita è quella di connettere una 
-> [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) all'elemento principale.
-=======
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/docs/refs-and-the-dom.html#callback-refs) to the root element.
->>>>>>> 78f78a664fcfaa2e5d9650d9662a67a8ab028661
+> [callback ref](/docs/refs-and-the-dom.html#callback-refs) all'elemento principale.
 >
 > Usare `ReactDOM.render()` per fare l'hydrate di un contenitore renderizzato lato server è deprecato e sarà rimosso in React 17. A questo scopo, usare il metodo [`hydrate()`](#hydrate).
 
