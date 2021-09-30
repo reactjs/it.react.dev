@@ -454,7 +454,7 @@ Quando uno Square viene cliccato, viene richiamata la funzione `onClick` provvis
 1. La prop `onClick` nel componente `<button>` presente nel DOM (di fabbrica) dice a React di impostare un event handler per il click.
 2. Quando il bottone viene cliccato, React richiama l'event handler `onClick` che è definito nel metodo `render()` di Square.
 3. Questo event handler chiama a sua volta `this.props.onClick()`. La prop `onClick` di Square è stata però specificata da Board.
-4. Dato che Board ha passato `onClick={() => this.handleClick(i)}` a Square, di conseguenza Square richiama `this.handleClick(i)` quando viene cliccato.
+4. Dato che Board ha passato `onClick={() => this.handleClick(i)}` a Square, di conseguenza Square richiama `handleClick(i)` di Board quando viene cliccato.
 5. Non abbiamo ancora definito alcun metodo `handleClick()`, per questo il nostro codice non funziona al momento. Infatti, se clicchi su uno Square adesso, dovresti ricevere un messaggio di errore che dice qualcosa del tipo: "this.handleClick is not a function". 
 
 >Nota Bene
@@ -524,7 +524,7 @@ Nota come in `handleClick`, chiamiamo `.slice()` per creare una copia dell'array
 
 ### Perché l'Immutabilità è Importante {#why-immutability-is-important}
 
-Nel precedente esempio di codice, abbiamo suggerito l'uso dell'operatore `.slice()` per creare una copia dell'array `squares` prima di modificarlo al posto della modifica diretta dell'array. Cerchiamo di capire cosa è l'immutabilità e perché si tratta di un concetto importante da imparare.
+Nel precedente esempio di codice, abbiamo suggerito di creare una copia dell'array `squares` usando il metodo `.slice()` invece di modificare direttamente l'array. Cerchiamo di capire cosa è l'immutabilità e perché si tratta di un concetto importante da imparare.
 
 In generale, ci sono due approcci per modificare i dati. Il primo appoccio è quello di *mutarli* direttamente, cambiandone i valori. Il secondo approccio è quello di sostituire i dati con una nuova copia che ha i cambiamenti desiderati.
 

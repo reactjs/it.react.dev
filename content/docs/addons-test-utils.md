@@ -142,7 +142,7 @@ Passare il mock di un componente a questo metodo consente di migliorarlo, metten
 
 > Nota:
 >
-> `mockComponent()` è un'API legacy. Raccomandiamo l'utilizzo di [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` è un'API legacy. Raccomandiamo l'utilizzo di [`jest.mock()`](https://jestjs.io/docs/tutorial-react-native#mock-native-modules-using-jestmock).
 
 * * *
 
