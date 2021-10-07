@@ -4,11 +4,11 @@ title: React senza JSX
 permalink: docs/react-without-jsx.html
 ---
 
-JSX is not a requirement for using React. Using React without JSX is especially convenient when you don't want to set up compilation in your build environment.
+JSX non è un requisito per l'utilizzo di React. Usare React senza JSX è particolarmente utile quando non si vuole impostare la compilazione nel proprio ambiente di sviluppo.
 
-Each JSX element is just syntactic sugar for calling `React.createElement(component, props, ...children)`. So, anything you can do with JSX can also be done with just plain JavaScript.
+Ogni elemento JSX è solo zucchero sintattico per chiamare `React.createElement(component, props, ...children)`. Quindi, tutto ciò che puoi fare con JSX può essere fatto anche solo semplicemente con JavaScript.
 
-For example, this code written with JSX:
+Ad esempio, questo codice scritto con JSX:
 
 ```js
 class Hello extends React.Component {
@@ -23,7 +23,7 @@ ReactDOM.render(
 );
 ```
 
-can be compiled to this code that does not use JSX:
+può essere compilato in questo codice che non usa JSX:
 
 ```js
 class Hello extends React.Component {
@@ -38,11 +38,11 @@ ReactDOM.render(
 );
 ```
 
-If you're curious to see more examples of how JSX is converted to JavaScript, you can try out [the online Babel compiler](babel://jsx-simple-example).
+Se sei curioso di vedere più esempi di come JSX viene convertito in JavaScript, puoi provare [il compilatore online di Babel](babel://jsx-simple-example).
 
-The component can either be provided as a string, as a subclass of `React.Component`, or a plain function.
+Il componente può essere fornito come una stringa, una sottoclasse di `React.Component`, o una semplice funzione.
 
-If you get tired of typing `React.createElement` so much, one common pattern is to assign a shorthand:
+Se ti stanchi di digitare tante volte `React.createElement`, un modello comune è di assegnare un'abbreviazione:
 
 ```js
 const e = React.createElement;
@@ -53,7 +53,6 @@ ReactDOM.render(
 );
 ```
 
-If you use this shorthand form for `React.createElement`, it can be almost as convenient to use React without JSX.
+Se utilizzi questa forma abbreviata di `React.createElement`, può essere quasi altrettanto conveniente usare React senza JSX.
 
-Alternatively, you can refer to community projects such as [`react-hyperscript`](https://github.com/mlmorg/react-hyperscript) and [`hyperscript-helpers`](https://github.com/ohanhi/hyperscript-helpers) which offer a terser syntax.
-
+In alternativa, puoi fare riferimento ai progetti della community come [`react-hyperscript`](https://github.com/mlmorg/react-hyperscript) e [`hyperscript-helpers`](https://github.com/ohanhi/hyperscript-helpers) che offrono una sintassi più concisa.
