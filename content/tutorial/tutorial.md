@@ -1047,7 +1047,13 @@ Usiamo `map` su `history` nel metodo `render` di Game:
 
 **[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 Per ogni mossa nello storico delle mosse, creeremo una lista di elementi `<li>` che contengono un bottone `<button>`. Il bottone avrà un handler `onClick` che richiama un metodo chiamato `this.jumpTo()`. Non abbiamo ancora implementato `jumpTo()`. Per adesso, dovremmo essere in grado di vedere una lista delle mosse avvenute oltre ad un messaggio di errore nella console dei [developer tools](#developer-tools) che dice:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 > Attenzione:
 > Ogni elemento di un array o iteratore dovrebbe avere una prop "key" (chiave). Verifica il metodo render di "Game"
