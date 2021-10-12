@@ -47,7 +47,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -126,7 +126,7 @@ I contenitori di errore preservano la natura dichiarativa di React e si comporta
 
 ## Che dire del gestore degli eventi? {#how-about-event-handlers}
 
-I contenitori di errori **non catturano** gli errori all'interno dei gestori degli eventi. 
+I contenitori di errori **non catturano** gli errori all'interno dei gestori degli eventi.
 
 React non ha necessità di contenitori di errori per i gestori degli eventi. A differenza dei metodi di render e dei metodi del ciclo di vita, i gestori degli eventi non si hanno durante il rendering. Quindi se questi lanciano un errore, React continua comunque a sapere cosa visualizzare sullo schermo.
 

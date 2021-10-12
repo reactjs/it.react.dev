@@ -78,7 +78,7 @@ Questo setup richiede qualche piccolo sforzo aggiuntivo ma ti permette di comple
 npx create-react-app my-app
 ```
 
-3. Elimina tutti i files nella cartella `src/` del nuovo progetto 
+3. Elimina tutti i files nella cartella `src/` del nuovo progetto
 
 > Nota Bene:
 >
@@ -228,7 +228,7 @@ Congratulazioni! Hai appena "passato una prop" da un componente genitore Board a
 
 ### Creare un Componente Interattivo {#making-an-interactive-component}
 
-Andiamo a riempire il componente Square con una "X" quando lo clicchiamo. 
+Andiamo a riempire il componente Square con una "X" quando lo clicchiamo.
 Prima di tutto, modifichiamo il tag `button` che è ritornato dalla funzione `render()` del componente Square:
 
 ```javascript{4}
@@ -357,7 +357,7 @@ Possiamo pensare che Board debba solo richiedere ad ogni Square il relativo stat
 
 **Per recuperare dati dai componenti figli a partire dal componente padre, o per far comunicare tra di loro due componenti figli, bisogna definire uno stato condiviso nel componente padre. Quest'ultimo può passare di nuovo lo stato in basso, ai figli, usando props; ciò mantiene i componenti figli in sincronia tra di loro ed ovviamente con il componente padre.**
 
-Elevare lo stato nel componente padre è un processo comune quando i componenti React vengono rifattorizzati -- proviamo già che ci siamo. 
+Elevare lo stato nel componente padre è un processo comune quando i componenti React vengono rifattorizzati -- proviamo già che ci siamo.
 
 Cominciamo aggiungendo un costruttore a Board ed impostandone lo stato iniziale così da contenere un array di 9 nulls. Questi 9 nulls corrispondono ai 9 quadrati:
 
@@ -455,7 +455,7 @@ Quando uno Square viene cliccato, viene richiamata la funzione `onClick` provvis
 2. Quando il bottone viene cliccato, React richiama l'event handler `onClick` che è definito nel metodo `render()` di Square.
 3. Questo event handler chiama a sua volta `this.props.onClick()`. La prop `onClick` di Square è stata però specificata da Board.
 4. Dato che Board ha passato `onClick={() => this.handleClick(i)}` a Square, di conseguenza Square richiama `handleClick(i)` di Board quando viene cliccato.
-5. Non abbiamo ancora definito alcun metodo `handleClick()`, per questo il nostro codice non funziona al momento. Infatti, se clicchi su uno Square adesso, dovresti ricevere un messaggio di errore che dice qualcosa del tipo: "this.handleClick is not a function". 
+5. Non abbiamo ancora definito alcun metodo `handleClick()`, per questo il nostro codice non funziona al momento. Infatti, se clicchi su uno Square adesso, dovresti ricevere un messaggio di errore che dice qualcosa del tipo: "this.handleClick is not a function".
 
 >Nota Bene
 >
@@ -544,7 +544,7 @@ var nuovoGiocatore = Object.assign({}, giocatore, {punti: 2});
 
 // In alternativa potremmo usare la sintassi "spread" (vedi nota di seguito), con la quale scriveremmo:
 // var nuovoGiocatore = {...giocatore, punti: 2};
-// 
+//
 ```
 >Per maggiori informazioni sulla sintassi [spread](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
@@ -590,7 +590,7 @@ Abbiamo cambiato `this.props` in `props` in entrambi i casi.
 
 >Nota Bene
 >
->Quando abbiamo convertito Square in un componente funzione, abbiamo anche cambiato `onClick={() => this.props.onClick()}` nella versione più corta `onClick={props.onClick}` (nota l'assenza delle parentesi da *entrambi* i lati). 
+>Quando abbiamo convertito Square in un componente funzione, abbiamo anche cambiato `onClick={() => this.props.onClick()}` nella versione più corta `onClick={props.onClick}` (nota l'assenza delle parentesi da *entrambi* i lati).
 
 ### Turni {#taking-turns}
 
@@ -998,7 +998,7 @@ In JavaScript, gli array hanno un [metodo `map()`](https://developer.mozilla.org
 ```js
 const numeri = [1, 2, 3];
 const raddoppiati = numeri.map(x => x * 2); // [2, 4, 6]
-``` 
+```
 
 Usando il metodo `map`, possiamo mappare il nostro storico delle mosse in elementi React che rappresentano i bottoni sullo schermo, e visualizzare una lista di bottoni per "saltare" alle mosse precedenti.
 
@@ -1046,6 +1046,8 @@ Usiamo `map` su `history` nel metodo `render` di Game:
 ```
 
 **[Visualizza tutto il codice scritto finora](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+
+Man mano che iteriamo l'array `history`, la variabile `step` si riferisce al valore corrente dell'elemento `history`, mentre `move` si riferisce all'indice dell'elemento `history`. Qui siamo interessati solo a `move`, per questo `step` non viene assegnato a nulla.
 
 Per ogni mossa nello storico delle mosse, creeremo una lista di elementi `<li>` che contengono un bottone `<button>`. Il bottone avrà un handler `onClick` che richiama un metodo chiamato `this.jumpTo()`. Non abbiamo ancora implementato `jumpTo()`. Per adesso, dovremmo essere in grado di vedere una lista delle mosse avvenute oltre ad un messaggio di errore nella console dei [developer tools](#developer-tools) che dice:
 
@@ -1150,7 +1152,7 @@ Poi, definitiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. 
 
 È ora di apportare qualche cambiamento al metodo `handleClick` di Game che verrà richiamato quando si clicca su un quadrato.
 
-Lo stato `stepNumber` che abbiamo appena aggiunto adesso riflette la mossa visualizzata. Dopo ogni nuova mossa, dobbiamo aggiornare `stepNumber` aggiungendo `stepNumber: history.length` come parte del parametro alla chiamata `this.setState`. Ciò farà in modo di non restare bloccati nella stessa mossa ogni qual volta ne viene effettuata una nuova. 
+Lo stato `stepNumber` che abbiamo appena aggiunto adesso riflette la mossa visualizzata. Dopo ogni nuova mossa, dobbiamo aggiornare `stepNumber` aggiungendo `stepNumber: history.length` come parte del parametro alla chiamata `this.setState`. Ciò farà in modo di non restare bloccati nella stessa mossa ogni qual volta ne viene effettuata una nuova.
 
 Sostituiremo anche `this.state.history` con `this.state.history.slice(0, this.state.stepNumber + 1)`. Ciò farà in modo che nel caso in cui volessimo "andare indietro nel tempo" e poi fare una nuova mossa da quel punto, possiamo buttare via tutta la storia "futura" che diverrebbe incorretta visto che in un certo senso la stiamo riscrivendo.
 
