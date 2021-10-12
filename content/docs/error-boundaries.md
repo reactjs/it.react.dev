@@ -47,7 +47,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -62,11 +62,7 @@ Dopodiché lo si può utilizzare come un normalissimo componente:
 
 I contenitori di errore lavorano all'incirca come il `catch {}` di JavaScript, ma sottoforma di componente. Solamente i componenti di tipo classe possono essere contenitori di errori. In pratica, nella maggioranza dei casi, si vuole scrivere un contenitore di errori una sola volta, per poi riutilizzarlo ovunque nell'applicazione.
 
-<<<<<<< HEAD
 Da notare che **i contenitori di errori catturano gli errori solo nei componenti sottostanti nell'albero dei componenti**. Un contenitore di errori non può catturare errori all'interno di se stesso. Se un contenitore di errore fallisce mentre prova a renderizzare il messaggio di errore, l'errore viene propagato sopra di lui al più vicino contenitore di errori sopra di lui. Anche questo aspetto è molto simile a come funzione il blocco `catch {}` di JavaScript.
-=======
-Note that **error boundaries only catch errors in the components below them in the tree**. An error boundary can’t catch an error within itself. If an error boundary fails trying to render the error message, the error will propagate to the closest error boundary above it. This, too, is similar to how the `catch {}` block works in JavaScript.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 ## Demo {#live-demo}
 
@@ -130,7 +126,7 @@ I contenitori di errore preservano la natura dichiarativa di React e si comporta
 
 ## Che dire del gestore degli eventi? {#how-about-event-handlers}
 
-I contenitori di errori **non catturano** gli errori all'interno dei gestori degli eventi. 
+I contenitori di errori **non catturano** gli errori all'interno dei gestori degli eventi.
 
 React non ha necessità di contenitori di errori per i gestori degli eventi. A differenza dei metodi di render e dei metodi del ciclo di vita, i gestori degli eventi non si hanno durante il rendering. Quindi se questi lanciano un errore, React continua comunque a sapere cosa visualizzare sullo schermo.
 

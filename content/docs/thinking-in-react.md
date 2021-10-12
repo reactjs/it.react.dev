@@ -129,7 +129,7 @@ Bene, abbiamo deciso che il nostro stato vive in `TabellaProdottiRicercabile`. P
 
 Puoi cominciare a vedere come si comporta l'applicazione: imposta `testoRicerca` a `"Palla"` e aggiornala. Vedrai che la tabella dati è stata aggiornata correttamente.
 
-## Step 5: Invertire il Flusso Dati {#step-5-add-inverse-data-flow}
+## Passo 5: Invertire il Flusso Dati {#step-5-add-inverse-data-flow}
 
 [Prova su CodeSandbox](embedded-codesandbox://thinking-in-react/3?view=split&editorsize=70)
 
@@ -137,11 +137,7 @@ Fino ad ora, abbiamo implementato una applicazione che renderizza correttamente 
 
 React rende questo flusso dati esplicito in modo da facilitare la comprensione del funzionamento del programma, tuttavia richiede la scrittura di un po' più codice rispetto ad altre soluzioni con flusso dati bidirezionale (*two-way data binding*).
 
-<<<<<<< HEAD
-Se provi a scrivere qualcosa o a selezionare la casella nella versione vista nel passo precedente, noterai che React ignora completamente il tuo input. Si tratta di un fatto intenzionale, abbiamo infatti impostato la prop `value` dell'`input` per essere sempre uguale allo `state` che riceve da da `TabellaProdottiRicercabile`.
-=======
-If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
+Se provi a scrivere qualcosa o a selezionare la casella nella precedente versione (passo 4), noterai che React ignora completamente il tuo input. Si tratta di un fatto intenzionale, abbiamo infatti impostato la prop `value` dell'`input` per essere sempre uguale allo `state` che riceve da da `TabellaProdottiRicercabile`.
 
 Proviamo a pensare a cosa vogliamo far sì che avvenga. Vogliamo fare in modo che a seconda di come l'utente alteri il form, lo stato verrà alterato di conseguenza. Dato che i componenti possono alterare solamente il proprio stato, `TabellaProdottiRicercabile` passerà [callbacks](https://it.wikipedia.org/wiki/Callback) a `BarraRicerca` che verranno invocate ogni qual volta lo stato deve essere aggiornato. Possiamo utilizzare l'evento `onChange` degli input per ricevere tale notifica. Le callbacks passate da `TabellaProdottiRicercabile` chiameranno `setState()` facendo sì che la applicazione venga aggiornata.
 
