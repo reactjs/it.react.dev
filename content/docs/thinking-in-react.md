@@ -71,11 +71,7 @@ Puoi cominciare partendo dall'alto (top-down) o dal basso (bottom-up). Il che si
 
 Alla fine di questo passo, avrai una libreria di componenti riutilizzabili che renderizza il tuo modello dati. I componenti avranno solo metodi `render()` dati che è una versione statica dell'applicazione. Il componente al vertice della gerarchia (`TabellaProdottiRicercabile`) riceverà il tuo modello dati come prop. Qualora tu cambiassi il modello dati sottostante, richiamando `ReactDOM.render()` di nuovo, la UI verrà aggiornata. Vedrai come la UI si aggiorna al fine di individuare i necessari cambiamenti dato che quanto sta accadendo non è per nulla complicato. Il **flusso dati monodirezionale** di React (noto anche come *one-way binding*) mantiene ogni cosa modulare e veloce.
 
-<<<<<<< HEAD
-Fai riferimento alla [Documentazione](/docs/) se hai bisogno di aiuto nell'esecuzione di questo passo.
-=======
-Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
->>>>>>> 4133943e718a77f11627888db2f59f6cb7a73403
+Fai riferimento alla [Documentazione](/docs/getting-started.html) se hai bisogno di aiuto nell'esecuzione di questo passo.
 
 ### Un Breve Intervallo: Props vs State {#a-brief-interlude-props-vs-state}
 
