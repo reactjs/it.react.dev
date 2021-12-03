@@ -174,7 +174,7 @@ Offriamo un [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-ho
 
 ## 💡 Costruire i Tuoi Hooks Custom {#building-your-own-hooks}
 
-A volte, ci ritroviamo a voler riutilizzare logica con stato tra vari componeti. Tradizionalmente, esistono due popolari soluzioni al problema: [componenti di ordine superiore](/docs/higher-order-components.html) e [render props](/docs/render-props.html). Gli Hooks Custom ti permettono di risolvere il problema, senza dover aggiungere altri componenti al tuo albero.
+A volte, ci ritroviamo a voler riutilizzare logica con stato tra vari componenti. Tradizionalmente, esistono due popolari soluzioni al problema: [componenti di ordine superiore](/docs/higher-order-components.html) e [render props](/docs/render-props.html). Gli Hooks Custom ti permettono di risolvere il problema, senza dover aggiungere altri componenti al tuo albero.
 
 Precedentemente in questa pagina, abbiamo introdotto un componente `FriendStatus` che richiama gli Hooks `useState` e `useEffect` per sottoscriversi allo stato online di un amico. Immaginiamo di voler riutilizzare questa logica di sottoscrizione in un altro componente.
 
