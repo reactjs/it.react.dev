@@ -189,7 +189,7 @@ In una funzione, abbiamo `setContatore` e `contatore` come variabili quindi non 
 
 ## Riepilogo {#recap}
 
-Facciamo un **riepilogo di cosa abbiamo imparato linea per linea** e controlliamo i nostri apprendimenti.
+Facciamo un **riepilogo di cosa abbiamo imparato riga per riga** e controlliamo cosa abbiamo capito.
 
 <!--
   Non vado fiero di questa riga. Per favore qualcuno la sistemi.
@@ -212,9 +212,9 @@ Facciamo un **riepilogo di cosa abbiamo imparato linea per linea** e controlliam
 14:  }
 ```
 
-* **Linea 1:** Importiamo l'Hook `useState` da React. Ci permette di tenere lo stato locale in un componente funzione.
-* **Linea 4:** Dentro il componente `Esempio`, dichiariamo una nuova variabile di stato chiamando l'Hook `useState`. Questo ritorna una coppia di valori, ai quali diamo dei nomi. Chiameremo la nostra variabile `contatore` perché conterà il numero di click del bottone. Lo inizializziamo a zero passando `0` come unico argomento a `useState`. Il secondo elemento ritornato è una funzione. Questa ci permette di aggiornare `contatore` quindi la chiameremo `setContatore`.
-* **Linea 9:** Quando l'utente clicca, chiamiamo `setContatore` con un nuovo valore. React renderizzerà nuovamente il componente `Esempio`, passandogli il nuovo valore `contatore`.
+* **Riga 1:** Importiamo l'Hook `useState` da React. Ci permette di tenere lo stato locale in un componente funzione.
+* **Riga 4:** Dentro il componente `Esempio`, dichiariamo una nuova variabile di stato chiamando l'Hook `useState`. Questo ritorna una coppia di valori, ai quali diamo dei nomi. Chiameremo la nostra variabile `contatore` perché conterà il numero di click del bottone. Lo inizializziamo a zero passando `0` come unico argomento a `useState`. Il secondo elemento ritornato è una funzione. Questa ci permette di aggiornare `contatore` quindi la chiameremo `setContatore`.
+* **Riga 9:** Quando l'utente clicca, chiamiamo `setContatore` con un nuovo valore. React renderizzerà nuovamente il componente `Esempio`, passandogli il nuovo valore `contatore`.
 
 Questo potrebbe sembrare troppo da gestire inizialmente. Ma non correre! Se ti sei perso durante la spiegazione, guarda di nuovo il codice sopra e prova a leggerlo dall'inizio alla fine. Ti promettiamo che se provi a "dimenticare" come funziona lo stato all'interno delle classi, e a leggere nuovamente questo codice, tutto avrà senso.
 
@@ -226,7 +226,7 @@ Potresti aver notato le parentesi quadre quando dichiariamo una variabile di sta
   const [contatore, setContatore] = useState(0);
 ```
 
-I nomi alla sinistra non sono parte delle API di React. Puoi chiamare la tua variabile di stato:
+I nomi a sinistra non sono parte delle API di React. Puoi chiamare la tua variabile di stato:
 
 ```js
   const [frutta, setFrutta] = useState('banana');
