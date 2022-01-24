@@ -92,7 +92,7 @@ function getGreeting(user) {
 Puoi utilizzare le virgolette per valorizzare gli attributi con una stringa:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Puoi anche utilizzare le parentesi graffe per includere un'espressione JavaScript in un attributo:

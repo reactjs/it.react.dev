@@ -174,11 +174,15 @@ Decidere dove, nella propria app, introdurre il code splitting può essere compl
 
 Un buon posto per iniziare sono le rotte. La maggior parte delle persone sul Web è abituata a caricare le transizioni di pagina che richiedono un po 'di tempo. Tendi anche a rieseguire il rendering dell'intera pagina contemporaneamente, quindi è improbabile che i tuoi utenti interagiscano contemporaneamente con altri elementi della pagina.
 
+<<<<<<< HEAD
 Qui di seguito possiamo vedere un esempio code splitting, basato sulle rotte, utilizzando libreria come [React Router](https://reacttraining.com/react-router/) con `React.lazy`.
+=======
+Here's an example of how to setup route-based code splitting into your app using libraries like [React Router](https://reactrouter.com/) with `React.lazy`.
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 
 ```js
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
@@ -186,10 +190,10 @@ const About = lazy(() => import('./routes/About'));
 const App = () => (
   <Router>
     <Suspense fallback={<div>Loading...</div>}>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </Suspense>
   </Router>
 );
