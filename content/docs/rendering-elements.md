@@ -38,7 +38,7 @@ Per renderizzare un elemento React nel nodo DOM radice, bisogna passare entrambi
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Ciò visualizzerà "Hello, world" nella pagina.
 
@@ -52,7 +52,7 @@ Prendiamo in considerazione il prossimo esempio, nel quale abbiamo un orologio:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 La funzione [`ReactDOM.render()`](/docs/react-dom.html#render) viene richiamata ogni secondo dalla [callback](https://it.wikipedia.org/wiki/Callback) passata a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
@@ -66,7 +66,11 @@ La funzione [`ReactDOM.render()`](/docs/react-dom.html#render) viene richiamata 
 
 Il DOM di React confronta l'elemento ed i suoi figli con il precedente, applicando solo gli aggiornamenti al DOM del browser necessari a renderlo consistente con lo stato desiderato.
 
+<<<<<<< HEAD
 Puoi verificare questo fatto ispezionando [l'ultimo esempio](codepen://rendering-elements/update-rendered-element) usando i developer tools:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 ![Ispezionando l'elemento DOM si vedono aggiornamenti granulari](../images/docs/granular-dom-updates.gif)
 
