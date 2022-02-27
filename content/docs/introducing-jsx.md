@@ -68,11 +68,7 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[Provalo su CodePen](codepen://introducing-jsx)
-=======
-**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
->>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
+**[Provalo su CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Abbiamo suddiviso il codice JSX su più linee per renderlo più leggibile. Sebbene non sia obbligatorio, se segui questa pratica ti consigliamo di racchiudere il codice in parentesi per evitare i problemi che possono derivare dall'[inserimento automatico dei punto e virgola](https://stackoverflow.com/q/2846283).
 

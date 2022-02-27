@@ -66,11 +66,7 @@ La funzione [`ReactDOM.render()`](/docs/react-dom.html#render) viene richiamata 
 
 Il DOM di React confronta l'elemento ed i suoi figli con il precedente, applicando solo gli aggiornamenti al DOM del browser necessari a renderlo consistente con lo stato desiderato.
 
-<<<<<<< HEAD
-Puoi verificare questo fatto ispezionando [l'ultimo esempio](codepen://rendering-elements/update-rendered-element) usando i developer tools:
-=======
-You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
->>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
+Puoi verificare questo fatto ispezionando [l'ultimo esempio](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) usando i developer tools:
 
 ![Ispezionando l'elemento DOM si vedono aggiornamenti granulari](../images/docs/granular-dom-updates.gif)
 

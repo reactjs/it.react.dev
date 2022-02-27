@@ -75,7 +75,7 @@ Se React fosse importato tramite il tag `<script>`, allora sarebbe già nello sc
 
 ### Usare la notazione puntata per i tipi JSX {#using-dot-notation-for-jsx-type}
 
-É possibile fare riferimento ad un componente React usando la notazione puntata direttamente da JSX. Questo è molto conveniente se avessimo un singolo modulo che esporta diversi componenti React. Ad esempio se `MyComponents.DatePicker` è un componente, allora è possibile utilizzarlo in JSX semplicemente scrivendo: 
+É possibile fare riferimento ad un componente React usando la notazione puntata direttamente da JSX. Questo è molto conveniente se avessimo un singolo modulo che esporta diversi componenti React. Ad esempio se `MyComponents.DatePicker` è un componente, allora è possibile utilizzarlo in JSX semplicemente scrivendo:
 
 ```js{10}
 import React from 'react';
@@ -232,11 +232,7 @@ In linea generale non è raccomandabile non passare alcun valore ad una prop in 
 
 ### Operatore Spread come attributo {#spread-attributes}
 
-<<<<<<< HEAD
-Se abbiamo già una `props` come oggetto e la si vuole passare in JSX, è possibile utilizzare l'operatore di spread `...` per passare l'intero oggetto props. Questi due componenti sono equivalenti: 
-=======
-If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" syntax to pass the whole props object. These two components are equivalent:
->>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
+Se abbiamo già una `props` come oggetto e la si vuole passare in JSX, è possibile utilizzare l'operatore di spread `...` per passare l'intero oggetto props. Questi due componenti sono equivalenti:
 
 ```js{7}
 function App1() {
@@ -249,11 +245,7 @@ function App2() {
 }
 ```
 
-<<<<<<< HEAD
 É anche possibile passare una singola proprietà dell'oggetto props e passare tutte le altre utilizzando l'operatore spread.
-=======
-You can also pick specific props that your component will consume while passing all other props using the spread syntax.
->>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
 ```js{2}
 const Button = props => {
@@ -390,7 +382,7 @@ function Hello(props) {
 
 ### Le funzioni come elementi figli {#functions-as-children}
 
-Solitamente le espressioni JavaScript inserite all'interno del codice JSX sono valutate come stringhe, un elemento React o come una lista dei precedenti due casi. Ad ogni modo `props.children` lavora esattamente come ogni altra prop in cui è possibile passare qualsiasi tipo di dati, non solamente quelli conosciuti da React che conosce come renderizzare. Ad esempio se abbiamo un componente custom, questo potrebbe essere richiamato come `props.children`: 
+Solitamente le espressioni JavaScript inserite all'interno del codice JSX sono valutate come stringhe, un elemento React o come una lista dei precedenti due casi. Ad ogni modo `props.children` lavora esattamente come ogni altra prop in cui è possibile passare qualsiasi tipo di dati, non solamente quelli conosciuti da React che conosce come renderizzare. Ad esempio se abbiamo un componente custom, questo potrebbe essere richiamato come `props.children`:
 
 ```js{4,13}
 // Calls the children callback numTimes to produce a repeated component
