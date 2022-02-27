@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-[Provalo su CodePen](codepen://introducing-jsx)
+**[Provalo su CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Abbiamo suddiviso il codice JSX su più linee per renderlo più leggibile. Sebbene non sia obbligatorio, se segui questa pratica ti consigliamo di racchiudere il codice in parentesi per evitare i problemi che possono derivare dall'[inserimento automatico dei punto e virgola](https://stackoverflow.com/q/2846283).
 
@@ -92,7 +92,7 @@ function getGreeting(user) {
 Puoi utilizzare le virgolette per valorizzare gli attributi con una stringa:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Puoi anche utilizzare le parentesi graffe per includere un'espressione JavaScript in un attributo:
