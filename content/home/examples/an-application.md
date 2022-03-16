@@ -1,5 +1,5 @@
 ---
-title: Una Applicazione
+title: Un'Applicazione
 order: 2
 domid: todos-example
 ---
