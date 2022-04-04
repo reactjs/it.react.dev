@@ -63,7 +63,11 @@ Il testing shallow, attualmente, ha alcune limitazioni quali il mancato supporto
 
 Puoi pensare allo _shallowRenderer_ come ad un "posto" nel quale renderizzare i componenti che stai testando, dal quale puoi estrarre l'output del componente.
 
+<<<<<<< HEAD
 `shallowRenderer.render()` è simile a [`ReactDOM.render()`](/docs/react-dom.html#render) ma non richiede un DOM e renderizza ad un solo livello di profondità. Ciò significa che potrai testare i componenti in isolamento rispetto a come sono implementati i componenti figli.
+=======
+`shallowRenderer.render()` is similar to [`root.render()`](/docs/react-dom-client.html#createroot) but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 
