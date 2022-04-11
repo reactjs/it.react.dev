@@ -117,7 +117,11 @@ Normalmente, si riceve un messaggio di avviso quando un elemento con figli viene
 
 Se utilizzi la renderizzazione lato server di React, normalmente si ha un avviso quando il server ed il client renderizzano contenuti differenti. Comunque, in alcuni rari casi, è molto difficile se non impossibile garantire una totale corrispondenza tra i contenuti. Ad esempio, i [timestamps](https://it.wikipedia.org/wiki/Marca_temporale) saranno certamente differenti tra server e client.
 
+<<<<<<< HEAD
 Se imposti `suppressHydrationWarning` a `true`, React non avviserà più in caso di differenze negli attributi e nel contenuto dell'elemento. Questa tecnica funziona solamente per il primo livello di profondità ed è un modo per aggirare il problema. Non abusarne. Puoi trovare maggiori dettagli riguardo l'_hydration_ nella [documentazione di `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 ### value {#value}
 

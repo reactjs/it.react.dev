@@ -52,10 +52,17 @@ Successivamente, aggiungi questi tre tag `<script>` alla pagina HTML, subito pri
 ```html{5,6,9}
   <!-- ... altro HTML ... -->
 
+<<<<<<< HEAD
   <!-- Carica React. -->
   <!-- Nota: quando rilasci il codice in produzione, sostituisci "development.js" con "production.min.js". -->
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+=======
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
   <!-- Carica il nostro componente React. -->
   <script src="bottone_like.js"></script>
@@ -77,6 +84,7 @@ Apri questo **[codice iniziale](https://gist.github.com/gaearon/0b180827c190fe4f
 
 Dopo il **[codice iniziale](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, aggiungi due linee in fondo a `bottone_like.js`:
 
+<<<<<<< HEAD
 ```js{3,4}
 // ... il codice iniziale che hai incollato ...
 
@@ -85,6 +93,17 @@ ReactDOM.render(e(LikeButton), contenitoreDom);
 ```
 
 Queste due linee di codice servono a trovare il `<div>` che abbiamo aggiunto al nostro HTML nel passo 1 e a visualizzare il nostro componente React del bottone "Mi Piace" al suo interno.
+=======
+```js{3,4,5}
+// ... the starter code you pasted ...
+
+const domContainer = document.querySelector('#like_button_container');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
+```
+
+These three lines of code find the `<div>` we added to our HTML in the first step, create a React app with it, and then display our "Like" button React component inside of it.
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 ### Tutto qua! {#thats-it}
 
@@ -115,8 +134,8 @@ Prima di rilasciare il tuo sito in produzione, ricordati che il codice JavaScrip
 Se minimizzi già gli script dell'applicazione, **il tuo sito sarà pronto per la produzione** se ti assicuri che l'HTML rilasciato carichi le versioni degli script di React che finiscono con `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se invece non hai già un passaggio di minimizzazione dei tuoi script, [ecco un modo per introdurlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
