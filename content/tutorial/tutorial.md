@@ -1150,13 +1150,17 @@ Poi, definitiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. 
   }
 ```
 
-Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as that is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
 
 È ora di apportare qualche cambiamento al metodo `handleClick` di Game che verrà richiamato quando si clicca su un quadrato.
 
 Lo stato `stepNumber` che abbiamo appena aggiunto adesso riflette la mossa visualizzata. Dopo ogni nuova mossa, dobbiamo aggiornare `stepNumber` aggiungendo `stepNumber: history.length` come parte del parametro alla chiamata `this.setState`. Ciò farà in modo di non restare bloccati nella stessa mossa ogni qual volta ne viene effettuata una nuova.
 
+<<<<<<< HEAD
 Sostituiremo anche `this.state.history` con `this.state.history.slice(0, this.state.stepNumber + 1)`. Ciò farà in modo che nel caso in cui volessimo "andare indietro nel tempo" e poi fare una nuova mossa da quel punto, possiamo buttare via tutta la storia "futura" che diverrebbe incorretta visto che in un certo senso la stiamo riscrivendo.
+=======
+We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
 ```javascript{2,13}
   handleClick(i) {

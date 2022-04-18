@@ -156,7 +156,11 @@ render() {
   const count = 0;
   return (
     <div>
+<<<<<<< HEAD
       { count && <h1>Messaggi: {count}</h1>}
+=======
+      {count && <h1>Messages: {count}</h1>}
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
     </div>
   );
 }

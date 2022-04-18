@@ -69,21 +69,34 @@ function Ciao(props) {
   return <h1>Ciao, {props.nome}</h1>;
 }
 
+<<<<<<< HEAD
 const elemento = <Ciao nome="Sara" />;
 ReactDOM.render(
   elemento,
   document.getElementById('root')
 );
+=======
+const element = <Welcome name="Sara" />;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(element);
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Ricapitoliamo cosa succede nell'esempio:
 
+<<<<<<< HEAD
 1. Richiamiamo `ReactDOM.render()` con l'elemento `<Ciao nome="Sara" />`.
 2. React chiama a sua volta il componente `Ciao` con `{nome: 'Sara'}` passato in input come props.
 3. Il nostro componente `Ciao` ritorna un elemento `<h1>Ciao, Sara</h1>` come risultato.
 4. React DOM aggiorna efficientemente il DOM per far sì che contenga `<h1>Ciao, Sara</h1>`.
+=======
+1. We call `root.render()` with the `<Welcome name="Sara" />` element.
+2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
+3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
+4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
 >**Nota Bene:** Ricordati di chiamare i tuoi componenti con la prima lettera in maiuscolo.
 >
@@ -111,11 +124,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
