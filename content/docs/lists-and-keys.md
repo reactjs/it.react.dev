@@ -33,6 +33,7 @@ const lista = numeri.map((numero) =>
 );
 ```
 
+<<<<<<< HEAD
 Includiamo l'intero array `lista` all'interno di un elemento `<ul>` e [lo renderizziamo nel DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
 ```javascript{2}
@@ -40,6 +41,12 @@ ReactDOM.render(
   <ul>{lista}</ul>,
   document.getElementById('root')
 );
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+
+```javascript{2}
+<ul>{listItems}</ul>
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/1.js)**
@@ -63,11 +70,17 @@ function ListaNumeri(props) {
   );
 }
 
+<<<<<<< HEAD
 const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
+=======
+const numbers = [1, 2, 3, 4, 5];
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 Quando esegui questo codice, appare un _warning_ che una chiave (`key`) deve essere fornita per gli elementi della lista. Una "chiave" è una prop speciale di tipo stringa che devi includere quando crei liste di elementi. Discuteremo perché è importante nella prossima sezione.
@@ -86,12 +99,15 @@ function ListaNumeri(props) {
     <ul>{lista}</ul>
   );
 }
+<<<<<<< HEAD
 
 const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/2.js)**
@@ -165,12 +181,15 @@ function ListaNumeri(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **Esempio: Corretto Utilizzo della Chiave**
@@ -193,12 +212,15 @@ function ListaNumeri(props) {
     </ul>
   );
 }
+<<<<<<< HEAD
 
 const numeri = [1, 2, 3, 4, 5];
 ReactDOM.render(
   <ListaNumeri numeri={numeri} />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/3.js)**
@@ -239,10 +261,16 @@ const articoli = [
   {id: 1, titolo: 'Ciao Mondo', testo: 'Benvenuto in imparando React!'},
   {id: 2, titolo: 'Installazione', testo: 'Puoi installare React usando npm.'}
 ];
+<<<<<<< HEAD
 ReactDOM.render(
   <Blog articoli={articoli} />,
   document.getElementById('root')
 );
+=======
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **[Prova su CodeSandbox](codesandbox://lists-and-keys/4.js)**

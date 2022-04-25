@@ -84,11 +84,14 @@ class Interruttore extends React.Component {
     );
   }
 }
+<<<<<<< HEAD
 
 ReactDOM.render(
   <Interruttore />,
   document.getElementById('root')
 );
+=======
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 ```
 
 **[Prova su CodeSandbox](codesandbox://handling-events/1.js)**
