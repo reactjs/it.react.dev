@@ -35,11 +35,6 @@ Nell'esempio in basso, dichiariamo una variabile chiamata `name` e poi la utiliz
 ```js{1,2}
 const name = 'Giuseppe Verdi';
 const element = <h1>Hello, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
 Puoi inserire qualsiasi [espressione JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) all'interno delle parentesi graffe in JSX. Ad esempio, `2 + 2`, `user.firstName` o `formatName(user)` sono tutte espressioni JavaScript valide.
@@ -60,11 +55,6 @@ const element = (
   <h1>
     Hello, {formatName(user)}!
   </h1>
-);
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
 );
 ```
 
