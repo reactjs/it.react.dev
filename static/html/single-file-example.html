@@ -2,9 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+<<<<<<< HEAD
     <title>Ciao Mondo</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+=======
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -12,11 +18,21 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+    
+      function MyApp() {
+        return <h1>Hello, world!</h1>;
+      }
 
+<<<<<<< HEAD
       ReactDOM.render(
         <h1>Ciao Mondo</h1>,
         document.getElementById('root')
       );
+=======
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
     </script>
     <!--
