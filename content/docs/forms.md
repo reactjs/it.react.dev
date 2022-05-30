@@ -283,10 +283,14 @@ Specificare la prop `value` in un [componente controllato](/docs/forms.html#cont
 Il codice seguente lo dimostra. (L'input è inizialmente bloccato ma diventa editabile dopo un secondo)
 
 ```javascript
+<<<<<<< HEAD
 ReactDOM.render(<input value="ciao" />, mountNode);
+=======
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```

@@ -66,7 +66,11 @@ Da notare che **i contenitori di errori catturano gli errori solo nei componenti
 
 ## Demo {#live-demo}
 
+<<<<<<< HEAD
 Guarda [questo esempio di dichiarazione e utilizzo di un contenitore di errori](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) fatto con [React 16](/blog/2017/09/26/react-v16.0.html).
+=======
+Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010).
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 
 ## Dove si dichiarano i contenitori di errori? {#where-to-place-error-boundaries}
