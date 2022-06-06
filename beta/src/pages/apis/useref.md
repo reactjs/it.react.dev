@@ -15,11 +15,14 @@ const ref = useRef(initialValue)
 - [Usage](#usage)
   - [Referencing a value with a ref](#referencing-a-value-with-a-ref)
   - [Manipulating the DOM with a ref](#manipulating-the-dom-with-a-ref)
+  - [Exposing a ref from your component](#exposing-a-ref-from-your-component)
   - [Avoiding recreating the ref contents](#avoiding-recreating-the-ref-contents)
 - [Reference](#reference)
   - [`useRef(initialValue)`](#useref)
 - [Troubleshooting](#troubleshooting)
   - [I can’t get a ref to a custom component](#i-cant-get-a-ref-to-a-custom-component)
+
+---
 
 ## Usage {/*usage*/}
 
@@ -203,7 +206,7 @@ When you break these rules, your component might still work, but most of the new
 
 ### Manipulating the DOM with a ref {/*manipulating-the-dom-with-a-ref*/}
 
-It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has bulit-in support for this.
+It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has built-in support for this.
 
 First, declare a <CodeStep step={1}>ref object</CodeStep> with an <CodeStep step={3}>initial value</CodeStep> of `null`:
 
@@ -589,7 +592,7 @@ const MyInput = forwardRef(({ value, onChange }, ref) => {
       ref={ref}
     />
   );
-};
+});
 
 export default MyInput;
 ```
