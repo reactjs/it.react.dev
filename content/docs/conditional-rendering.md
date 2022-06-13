@@ -35,11 +35,17 @@ function Benvenuto(props) {
   return <BenvenutoOspite />;
 }
 
+<<<<<<< HEAD
 ReactDOM.render(
   // Prova a cambiare in utenteAutenticato={true}:
   <Benvenuto utenteAutenticato={false} />,
   document.getElementById('root')
 );
+=======
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+// Try changing to isLoggedIn={true}:
+root.render(<Greeting isLoggedIn={false} />);
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 ```
 
 [](codepen://conditional-rendering/1)
@@ -106,11 +112,16 @@ class ControlloLogin extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(
   <ControlloLogin />,
   document.getElementById('root')
 );
 
+=======
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<LoginControl />);
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 ```
 
 [](codepen://conditional-rendering/2)
@@ -136,12 +147,19 @@ function CasellaDiPosta(props) {
   );
 }
 
+<<<<<<< HEAD
 const messaggi = ['React', 'Re: React', 'Re:Re: React'];
 ReactDOM.render(
   <CasellaDiPosta messaggiNonLetti={messaggi} />,
   document.getElementById('root')
 );
 
+=======
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Mailbox unreadMessages={messages} />);
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 ```
 [](codepen://conditional-rendering/3)
 
@@ -156,7 +174,11 @@ render() {
   const count = 0;
   return (
     <div>
+<<<<<<< HEAD
       { count && <h1>Messaggi: {count}</h1>}
+=======
+      {count && <h1>Messages: {count}</h1>}
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
     </div>
   );
 }
@@ -242,11 +264,16 @@ class Pagina extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(
   <Pagina />,
   document.getElementById('root')
 );
 
+=======
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Page />);
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 ```
 [](codepen://conditional-rendering/4)
 

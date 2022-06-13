@@ -6,7 +6,7 @@ import React, {createRef} from 'react';
 import cn from 'classnames';
 import {IconChevron} from 'components/Icon/IconChevron';
 import {ChallengeContents} from './Challenges';
-const debounce = require('debounce');
+import {debounce} from 'debounce';
 
 export function Navigation({
   challenges,
@@ -89,7 +89,7 @@ export function Navigation({
           {challenges.map(({name, id, order}, index) => (
             <button
               className={cn(
-                'py-2 mr-4 text-base border-b-4 duration-100 ease-in transition whitespace-nowrap overflow-ellipsis',
+                'py-2 mr-4 text-base border-b-4 duration-100 ease-in transition whitespace-nowrap text-ellipsis',
                 isRecipes &&
                   currentChallenge.id === id &&
                   'text-purple-50 border-purple-50 hover:text-purple-50 dark:text-purple-30 dark:border-purple-30 dark:hover:text-purple-30',
@@ -122,7 +122,7 @@ export function Navigation({
           onClick={handleScrollRight}
           aria-label="Scroll right"
           className={cn(
-            'bg-secondary-button dark:bg-secondary-button-dark h-8 px-2 rounded-r-lg',
+            'bg-secondary-button dark:bg-secondary-button-dark h-8 px-2 rounded-r',
             {
               'text-primary dark:text-primary-dark': canScrollRight,
               'text-gray-30': !canScrollRight,
