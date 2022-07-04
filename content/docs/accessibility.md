@@ -403,7 +403,11 @@ Assicuratevi che tutti i testi leggibili sul vostro sito abbiamo colori adatti i
 - [Tutto sul contrasto dei colori e perché dovresti ripensarlo](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Cosa è il contrasto di colore](https://a11yproject.com/posts/what-is-color-contrast/)
 
+<<<<<<< HEAD
 Può risultare molto noioso calcolare tutte le combinazioni di colori per tutti i casi, per questo motivo è possibile [calcolare l'intera palette di colori accessibili con Colorable](https://jxnblk.com/colorable/).
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
 
 Entrambi gli strumenti menzionati prima (aXe e WAVE) includono test sul contrasto dei colori.
 
