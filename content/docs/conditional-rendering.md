@@ -35,11 +35,9 @@ function Benvenuto(props) {
   return <BenvenutoOspite />;
 }
 
-ReactDOM.render(
-  // Prova a cambiare in utenteAutenticato={true}:
-  <Benvenuto utenteAutenticato={false} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+// Prova a cambiare in utenteAutenticato={true}:
+root.render(<Benvenuto utenteAutenticato={false} />);
 ```
 
 [](codepen://conditional-rendering/1)
@@ -106,11 +104,8 @@ class ControlloLogin extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <ControlloLogin />,
-  document.getElementById('root')
-);
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ControlloLogin />);
 ```
 
 [](codepen://conditional-rendering/2)
@@ -137,11 +132,9 @@ function CasellaDiPosta(props) {
 }
 
 const messaggi = ['React', 'Re: React', 'Re:Re: React'];
-ReactDOM.render(
-  <CasellaDiPosta messaggiNonLetti={messaggi} />,
-  document.getElementById('root')
-);
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CasellaDiPosta messaggiNonLetti={messaggi} />);
 ```
 [](codepen://conditional-rendering/3)
 
@@ -156,7 +149,7 @@ render() {
   const count = 0;
   return (
     <div>
-      { count && <h1>Messaggi: {count}</h1>}
+      {count && <h1>Messaggi: {count}</h1>}
     </div>
   );
 }
@@ -242,11 +235,8 @@ class Pagina extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Pagina />,
-  document.getElementById('root')
-);
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Pagina />);
 ```
 [](codepen://conditional-rendering/4)
 

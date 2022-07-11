@@ -81,10 +81,6 @@ Quando usate [Babel](https://babeljs.io/) dovete assicurarvi che esso possa effe
 
 ## `React.lazy` {#reactlazy}
 
-> Nota:
->
-> `React.lazy` and Suspense are not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/gregberge/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
-
 La funzione `React.lazy` ti permette di effettuare un import dinamico come se fosse un normale componente.
 
 **Prima:**
@@ -142,6 +138,52 @@ function MyComponent() {
   );
 }
 ```
+
+### Evitare fallbacks {#avoiding-fallbacks}
+Ogni componente può essere sospeso a seguito di un rendering, anche componenti che erano già visibili all'utente. Per fare in modo che il contenuto dello schermo sia sempre consistente, se un componente già visibile viene sospeso, React deve nascondere il suo albero fino al più vicino `<Suspense>`. Comunque, dal punto di vista dell'utente, ciò può creare confusione.
+
+Considera questo tab switcher:
+
+```js
+import React, { Suspense } from 'react';
+import Tabs from './Tabs';
+import Glimmer from './Glimmer';
+
+const Comments = React.lazy(() => import('./Comments'));
+const Photos = React.lazy(() => import('./Photos'));
+
+function MyComponent() {
+  const [tab, setTab] = React.useState('photos');
+
+  function handleTabSelect(tab) {
+    setTab(tab);
+  };
+
+  return (
+    <div>
+      <Tabs onTabSelect={handleTabSelect} />
+      <Suspense fallback={<Glimmer />}>
+        {tab === 'photos' ? <Photos /> : <Comments />}
+      </Suspense>
+    </div>
+  );
+}
+
+```
+
+In questo esempio, se il tab viene cambiato da `'photos'` a `'comments'`, ma `Comments` viene sospeso, l'utente vedrà un glimmer. Ciò si spiega col fatto che l'utente non vuole più vedere `Photos`, il componente `Comments` non è ancora pronto per renderizzare nulla e React cerca di mantenere l'esperienza utente consistente, per questo non ha scelta che mostrare il `Glimmer`.
+
+Ad ogni modo, a volte tale esperienza utente non è desiderabile. In particolare, a volte è meglio mostrare la vecchia UI mentre la nuova UI viene preparata. Puoi usare la nuova API [`startTransition`](/docs/react-api.html#starttransition) in questo caso:
+
+```js
+function handleTabSelect(tab) {
+  startTransition(() => {
+    setTab(tab);
+  });
+}
+```
+
+Qui, dici a React che settare il tab a `'comments'` non è un aggiornamento importante, ma che si tratta di una [transizione](/docs/react-api.html#transitions) che può richiedere del tempo. React manterrà quindi la vecchia UI al suo posto ed interattiva, mostrerà `<Comments />` quando sarà pronto. Dai uno sguardo a [Transizioni](/docs/react-api.html#transitions) per maggiori informazioni.
 
 ### Contenitori di Errori {#error-boundaries}
 

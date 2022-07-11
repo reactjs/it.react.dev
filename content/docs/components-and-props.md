@@ -64,24 +64,22 @@ Quando React incontra un elemento che rappresenta un componente definito dall'ut
 
 Ad esempio, il codice seguente renderizza il messaggio "Ciao, Sara" nella pagina:
 
-```js{1,5}
+```js{1,6}
 function Ciao(props) {
   return <h1>Ciao, {props.nome}</h1>;
 }
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 const elemento = <Ciao nome="Sara" />;
-ReactDOM.render(
-  elemento,
-  document.getElementById('root')
-);
+root.render(element);
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Ricapitoliamo cosa succede nell'esempio:
 
-1. Richiamiamo `ReactDOM.render()` con l'elemento `<Ciao nome="Sara" />`.
-2. React chiama a sua volta il componente `Ciao` con `{nome: 'Sara'}` passato in input come props.
+1. Richiamiamo `root.render()` con l'elemento `<Ciao nome="Sara" />`.
+2. React chiama a sua volta il componente `Welcome` con `{nome: 'Sara'}` passato in input come props.
 3. Il nostro componente `Ciao` ritorna un elemento `<h1>Ciao, Sara</h1>` come risultato.
 4. React DOM aggiorna efficientemente il DOM per far sì che contenga `<h1>Ciao, Sara</h1>`.
 
@@ -111,11 +109,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**

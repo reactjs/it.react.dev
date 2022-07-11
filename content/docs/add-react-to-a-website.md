@@ -25,7 +25,7 @@ In questa sezione, ti mostreremo come aggiungere un componente React ad una pagi
 
 Non ci saranno requisiti di installazione da soddisfare o strumenti complicati da utilizzare -- **per completare questa sezione, ti servono solamente una connessione a internet e un minuto del tuo tempo.**
 
-Opzionale: [Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+Opzionale: [Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)
 
 ### Passo 1: Aggiungi un Contenitore DOM all'HTML {#step-1-add-a-dom-container-to-the-html}
 
@@ -54,8 +54,8 @@ Successivamente, aggiungi questi tre tag `<script>` alla pagina HTML, subito pri
 
   <!-- Carica React. -->
   <!-- Nota: quando rilasci il codice in produzione, sostituisci "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Carica il nostro componente React. -->
   <script src="bottone_like.js"></script>
@@ -75,13 +75,14 @@ Apri questo **[codice iniziale](https://gist.github.com/gaearon/0b180827c190fe4f
 >
 >Questo codice definisce un componente React chiamato `LikeButton` (bottone "Mi Piace"). Non preoccuparti se non lo capisci subito -- illustreremo i concetti fondamentali di React nel [tutorial "mani in pasta"](/tutorial/tutorial.html) e nella [guida ai concetti fondamentali](/docs/hello-world.html). Per ora, limitiamoci a fare in modo che il componente venga mostrato sullo schermo!
 
-Dopo il **[codice iniziale](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, aggiungi due linee in fondo a `bottone_like.js`:
+Dopo il **[codice iniziale](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, aggiungi due linee in fondo a `like_button.js`:
 
-```js{3,4}
+```js{3,4,5}
 // ... il codice iniziale che hai incollato ...
 
-const contenitoreDom = document.querySelector('#contenitore_bottone_like');
-ReactDOM.render(e(LikeButton), contenitoreDom);
+const domContainer = document.querySelector('#like_button_container');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
 ```
 
 Queste due linee di codice servono a trovare il `<div>` che abbiamo aggiunto al nostro HTML nel passo 1 e a visualizzare il nostro componente React del bottone "Mi Piace" al suo interno.
@@ -94,7 +95,7 @@ Leggi le sezioni successive per avere più consigli su come integrare React.
 
 **[Guarda il codice completo dell'esempio](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
-**[Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+**[Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/87f0b6f34238595b44308acfb86df6ea43669c08.zip)**
 
 ### Consiglio: Riutilizza i Componenti {#tip-reuse-a-component}
 
@@ -102,7 +103,7 @@ Di solito, vorrai visualizzare i componenti React in più punti nella pagina HTM
 
 [Guarda il codice completo dell'esempio](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
 
-[Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
+[Scarica l'esempio completo (2KB zippato)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/279839cb9891bd41802ebebc5365e9dec08eeb9f.zip)
 
 >Nota
 >
@@ -115,8 +116,8 @@ Prima di rilasciare il tuo sito in produzione, ricordati che il codice JavaScrip
 Se minimizzi già gli script dell'applicazione, **il tuo sito sarà pronto per la produzione** se ti assicuri che l'HTML rilasciato carichi le versioni degli script di React che finiscono con `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se invece non hai già un passaggio di minimizzazione dei tuoi script, [ecco un modo per introdurlo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
@@ -182,7 +183,7 @@ Congratulazioni! Hai appena aggiunto un **setup JSX pronto per la produzione** a
 
 Crea una cartella chiamata `src` ed esegui questo comando dal terminale:
 
-```
+```console
 npx babel --watch src --out-dir . --presets react-app/prod
 ```
 

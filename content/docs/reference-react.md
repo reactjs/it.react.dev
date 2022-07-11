@@ -65,6 +65,13 @@ La Suspense consente ai componenti di "aspettare" qualcosa prima di renderizzare
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
 
+### Transitions {#transitions}
+
+*Transitions* are a new concurrent feature introduced in React 18. They allow you to mark updates as transitions, which tells React that they can be interrupted and avoid going back to Suspense fallbacks for already visible content.
+
+- [`React.startTransition`](#starttransition)
+- [`React.useTransition`](/docs/hooks-reference.html#usetransition)
+
 ### Hooks {#hooks}
 
 Gli *Hooks* sono una nuova aggiunta in React 16.8. Consentono di utilizzare lo state e altre feature di React senza dichiarare una classe. Gli Hooks hanno una [sezione dedicata della documentazione](/docs/hooks-intro.html) e un riferimento delle API separato:
@@ -81,6 +88,12 @@ Gli *Hooks* sono una nuova aggiunta in React 16.8. Consentono di utilizzare lo s
   - [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)
   - [`useLayoutEffect`](/docs/hooks-reference.html#uselayouteffect)
   - [`useDebugValue`](/docs/hooks-reference.html#usedebugvalue)
+  - [`useDeferredValue`](/docs/hooks-reference.html#usedeferredvalue)
+  - [`useTransition`](/docs/hooks-reference.html#usetransition)
+  - [`useId`](/docs/hooks-reference.html#useid)
+- [Library Hooks](/docs/hooks-reference.html#library-hooks)
+  - [`useSyncExternalStore`](/docs/hooks-reference.html#usesyncexternalstore)
+  - [`useInsertionEffect`](/docs/hooks-reference.html#useinsertioneffect)
 
 * * *
 
@@ -330,13 +343,11 @@ const UnComponente = React.lazy(() => import('./UnComponente'));
 
 Nota che la renderizzazione dei componenti `lazy` richiede che sia presente un componente `<React.Suspense>` più in alto nell'albero di renderizzazione. Questo è il modo in cui puoi specificare un indicatore di caricamento.
 
-> **Nota**
->
-> Utilizzare `React.lazy` con l'importazione dinamica richiede che l'ambiente JavaScript supporti le Promises. Questo significa che è necessario utilizzare un polyfill su IE11 e versioni precedenti.
-
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` ti consente di specificare un indicatore di caricamento nel caso in cui alcuni componenti dell'albero sotto di esso non siano ancora pronti per la renderizzazione. Ad oggi, il caricamento lazy dei componenti è **l'unico** caso d'uso supportato da `<React.Suspense>`:
+`React.Suspense` ti permette di specificare un indicatore di caricamento nel caso in cui qualche componente nell'albero sottostante non è ancora pronto per essere renderizzato. Nel futuro intendiamo far si che `Suspense` gestisca altri scenari quali ad esempio il data fetching. Puoi saperne di più dalla nostra [roadmap](/blog/2018/11/27/react-16-roadmap.html).
+
+Ad oggi, il lazy loading dei componenti è il **solo** use case supportato da `<React.Suspense>`:
 
 ```js
 // Questo componente viene caricato dinamicamente
@@ -356,8 +367,28 @@ function MioComponente() {
 
 Tutto ciò è documentato nella nostra [guida per la separazione del codice](/docs/code-splitting.html#reactlazy). Nota che i componenti `lazy` possono anche essere molto in profondità nell'albero che fa capo a `Suspense` -- non è necessario usarlo per racchiuderli uno per uno. La pratica consigliata è quella di inserire `<Suspense>` nel punto in cui vuoi visualizzare un indicatore di caricamento, e di utilizzare `lazy()` dovunque vuoi effettuare la separazione del codice.
 
-Anche se al momento non sono supportati, in futuro abbiamo in programma di utilizzare `Suspense` per gestire altri scenari, ad esempio il caricamento di dati. Puoi trovare maggiori informazioni al riguardo nella [nostra roadmap](/blog/2018/11/27/react-16-roadmap.html).
-
->Nota:
+> Nota
 >
->`React.lazy()` e `<React.Suspense>` non sono ancora supportati da `ReactDOMServer`. Questa è una limitazione nota che verrà risolta in futuro.
+> Per contenuto che è stati già mostrato all'utente, visualizzare nuovamente un indicatore di caricamento può creare confusione. A volte è meglio mostrare la "vecchia" UI mentre la nuova UI viene preparata. Per fare ciò puoi utilizzare le nuove APIs di transizione [`startTransition`](#starttransition) ed [`useTransition`](/docs/hooks-reference.html#usetransition) per marcare aggiornamenti come transizioni ed evitare fallbacks inaspettati.
+
+#### `React.Suspense` nel Server Side Rendering {#reactsuspense-in-server-side-rendering}
+Durante il server side rendering, Suspense Boundaries ti permettono di emettere contenuto in blocchi più piccoli sospendendo.
+QUando un componente si sospende, scheduliamo una task a bassa priorità per renderizzare la fallback della Suspense boundary più vicina. Se il componente si "desospende" prima che venga emessa la fallback, emetteremo il contenuto attuale ignorando del tutto la fallback.
+
+#### `React.Suspense` durante hydration {#reactsuspense-during-hydration}
+Suspense boundaries dipendono dall'idratazione dalle loro boundaries genitori prima che possano essere idratate, ma possono idratarsi indipendentemente dalle loro boundaries sibling. Eventi su una boundary prima che venga idradata causeranno una idratazione con una priorità maggiore rispetto alle bonduaries vicine. [Maggiori informazioni](https://github.com/reactwg/react-18/discussions/130)
+
+### `React.startTransition` {#starttransition}
+
+```js
+React.startTransition(callback)
+```
+`React.startTransition` ti permette di marcare aggiornamenti all'interno della callback come transizioni. Questo metodo è disegnato per essere usato quanto [`React.useTransition`](/docs/hooks-reference.html#usetransition) non è disponibile.
+
+> Nota:
+>
+> Aggiornamenti in una transizione creano aggiornamenti con maggiore priorità, come i clicks.
+>
+> Aggiornamenti in una transizione non mostreranno una fallback per contenuto sospeso, permettendo all'utente di interagire con la "vecchia" UI mentre la "nuova" UI viene preparata.
+>
+> `React.startTransition` non offre un flag `isPending`. Per tenere traccia dello stato pending di una transizione guarda [`React.useTransition`](/docs/hooks-reference.html#usetransition).

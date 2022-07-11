@@ -8,4 +8,4 @@ Il warning invalid-aria-prop appare quando provi a renderizzare un elemento del 
 
 1. Se pensi che la prop che stai usando sia valida, controlla attentamente eventuali errori di battitura. `aria-labelledby` e `aria-activedescendant` sono spesso scritte in modo scorretto.
 
-2. React ancora non riconosce l'attributo che hai specificato. Questo sarà probabilmente corretto in una versione futura di React. Comunque, attualmente React scarta tutti gli attributi sconosciuti, quindi specificandone uno nella tua applicazione React, questo non sarà renderizzato.
+2. React non riconosce ancora gli attributi che hai specificato. Una fix verrà rilasciata probabilmente in una futura versione di React.

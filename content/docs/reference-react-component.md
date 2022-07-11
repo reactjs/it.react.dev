@@ -507,12 +507,12 @@ Sono solamente due: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` accoda modifiche allo stato del componente e comunica a React che il componente e i suoi figli devono essere ri-renderizzati con lo stato aggiornato. Questo è il metodo principale che puoi utilizzare per aggiornare l'interfaccia utente in risposta agli event handler e alle risposte del server.
 
-Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. React non garantisce che i cambiamenti allo stato vengano applicati immediatamente.
+Puoi pensare a `setState()` come a una *richiesta* e non a un ordine immediato di aggiornare il componente. Per migliorare la performance percepita, React potrebbe ritardare l'aggiornamento, per poi aggiornare molti componenti in un sol colpo. Nel raro caso in cui tu abbia bisogno che React aggiorni il DOM in modalità sincrona, puoi utilizzare [`flushSync`](/docs/react-dom.html#flushsync) ma tieni presente che le prestazioni ne soffriranno.
 
 `setState()` non aggiorna sempre immediatamente il componente. Potrebbe accorpare o ritardare l'aggiornamento. Di conseguenza, leggere il valore di `this.state` subito dopo aver chiamato `setState()` è potenzialmente un errore. Invece di farlo, utilizza `componentDidUpdate` oppure una callback di `setState` (`setState(updater, callback)`). React garantisce che entrambe queste funzioni vengano chiamate dopo che l'aggiornamento è stato applicato. Se hai bisogno di impostare lo stato basandoti sullo stato precedente, leggi la parte riguardante l'argomento `updater` più in basso.
 

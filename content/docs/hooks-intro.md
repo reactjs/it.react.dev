@@ -31,7 +31,7 @@ Questa nuova funzione `useState` è il primo "Hook" che impareremo, l'esempio ap
 
 >Nota
 >
->React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM. 
+>React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM.
 >React Native supporta gli Hooks a partire dalla [release 0.59 di React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
 
 ## Introduzione Video {#video-introduction}
@@ -80,7 +80,7 @@ Ne parleremo più in dettaglio nella sezione [Usare l'Hook Effect](/docs/hooks-e
 
 ### Le classi confondono sia le persone che le macchine {#classes-confuse-both-people-and-machines}
 
-Oltre a rendere il riutilizzo del codice e la sua organizzazione più difficile, abbiamo notato che le classi costituiscono una grande barriera per l'apprendimento di React. Devi sapere come `this` funziona in JavaScript, il che è molto diverso da come funziona nella maggioranza dei linguaggi. Senza l'utilizzo di [proposte di sintassi](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) ancora instabili, il codice è molto verboso. Le persone possono capire perfettamente le props, lo state ed il flusso dati top-down, ma ritrovarsi ad avere difficoltà con le classi. La distinzione tra funzioni e componenti classe in React e quando usare l'una o l'altra alternativa causa spesso disaccordi anche tra gli sviluppatori React più esperti.
+Oltre a rendere il riutilizzo del codice e la sua organizzazione più difficile, abbiamo notato che le classi costituiscono una grande barriera per l'apprendimento di React. Devi sapere come `this` funziona in JavaScript, il che è molto diverso da come funziona nella maggioranza dei linguaggi. Senza l'utilizzo di [ES2022 public class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields), il codice è molto verboso. Le persone possono capire perfettamente le props, lo state ed il flusso dati top-down, ma ritrovarsi ad avere difficoltà con le classi. La distinzione tra funzioni e componenti classe in React e quando usare l'una o l'altra alternativa causa spesso disaccordi anche tra gli sviluppatori React più esperti.
 
 Inoltre, React è in uso da circa cinque anni e vogliamo fare in modo che resti rilevante anche per i prossimi cinque anni. Così come [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), ed altri dimostrano, [la compilazione ahead-of-time](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) dei componenti ha molto potenziale. Specialmente se non è limitata ai templates. Recentemente, abbiamo sperimentato con il [component folding](https://github.com/facebook/react/issues/7323) utilizzando [Prepack](https://prepack.io/) ed abbiamo ottenuto dei risultati preliminari molto promettenti. Comunque, abbiamo trovato che i componenti classe possono incoraggiare l'uso di patterns non intenzionali che possono invalidare queste ottimizzazioni facendole ricadere su percorsi più lenti. Le classi presentano problemi anche con gli strumenti ad oggi disponibili. Per esempio, non vengono minificate molto bene e rendono l'hot reloading ("caricamento a caldo") inaffidabile. Vogliamo presentare una API che può mantenere il codice sul percorso ottimizzabile.
 
