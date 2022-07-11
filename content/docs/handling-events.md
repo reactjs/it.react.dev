@@ -84,11 +84,14 @@ class Interruttore extends React.Component {
     );
   }
 }
+<<<<<<< HEAD
 
 ReactDOM.render(
   <Interruttore />,
   document.getElementById('root')
 );
+=======
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 ```
 
 **[Prova su CodeSandbox](codesandbox://handling-events/1.js)**
@@ -97,6 +100,7 @@ Fai attenzione al valore di `this` nelle callback JSX. In JavaScript, i metodi d
 
 Questo non è un comportamento specifico in React: è parte di [come funzionano le funzioni in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). In generale, se ti riferisci ad un metodo senza `()` dopo di esso, per esempio `onClick = {this.handleClick}`, potresti aver bisogno di applicare `bind` a quel metodo.
 
+<<<<<<< HEAD
 Se usare la chiamata al metodo `bind` ti sembra troppo, ci sono due alternative a disposizione. Puoi usare la sintassi sperimentale [proprietà pubbliche delle classi](https://babeljs.io/docs/plugins/transform-class-properties/), utilizzando le proprietà delle classi per associare correttamente le callback:
 
 ```js{2-6}
@@ -106,6 +110,16 @@ class LoggingButton extends React.Component {
   handleClick = () => {
     console.log('Il valore di `this` è: ', this);
   }
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+
+```js{2-6}
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  handleClick = () => {
+    console.log('this is:', this);
+  };
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
   render() {
     return (
