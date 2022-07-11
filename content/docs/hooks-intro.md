@@ -31,13 +31,8 @@ Questa nuova funzione `useState` è il primo "Hook" che impareremo, l'esempio ap
 
 >Nota
 >
-<<<<<<< HEAD
->React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM. 
+>React 16.8.0 è la prima versione che supporta gli Hooks. Durante l'upgrade, non dimenticare di aggiornare tutti i pacchetti, incluso React DOM.
 >React Native supporta gli Hooks a partire dalla [release 0.59 di React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
-=======
->React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM.
->React Native has supported Hooks since [the 0.59 release of React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 ## Introduzione Video {#video-introduction}
 
@@ -85,11 +80,7 @@ Ne parleremo più in dettaglio nella sezione [Usare l'Hook Effect](/docs/hooks-e
 
 ### Le classi confondono sia le persone che le macchine {#classes-confuse-both-people-and-machines}
 
-<<<<<<< HEAD
-Oltre a rendere il riutilizzo del codice e la sua organizzazione più difficile, abbiamo notato che le classi costituiscono una grande barriera per l'apprendimento di React. Devi sapere come `this` funziona in JavaScript, il che è molto diverso da come funziona nella maggioranza dei linguaggi. Senza l'utilizzo di [proposte di sintassi](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) ancora instabili, il codice è molto verboso. Le persone possono capire perfettamente le props, lo state ed il flusso dati top-down, ma ritrovarsi ad avere difficoltà con le classi. La distinzione tra funzioni e componenti classe in React e quando usare l'una o l'altra alternativa causa spesso disaccordi anche tra gli sviluppatori React più esperti.
-=======
-In addition to making code reuse and code organization more difficult, we've found that classes can be a large barrier to learning React. You have to understand how `this` works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers. Without [ES2022 public class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields), the code is very verbose. People can understand props, state, and top-down data flow perfectly well but still struggle with classes. The distinction between function and class components in React and when to use each one leads to disagreements even between experienced React developers.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+Oltre a rendere il riutilizzo del codice e la sua organizzazione più difficile, abbiamo notato che le classi costituiscono una grande barriera per l'apprendimento di React. Devi sapere come `this` funziona in JavaScript, il che è molto diverso da come funziona nella maggioranza dei linguaggi. Senza l'utilizzo di [ES2022 public class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields), il codice è molto verboso. Le persone possono capire perfettamente le props, lo state ed il flusso dati top-down, ma ritrovarsi ad avere difficoltà con le classi. La distinzione tra funzioni e componenti classe in React e quando usare l'una o l'altra alternativa causa spesso disaccordi anche tra gli sviluppatori React più esperti.
 
 Inoltre, React è in uso da circa cinque anni e vogliamo fare in modo che resti rilevante anche per i prossimi cinque anni. Così come [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), ed altri dimostrano, [la compilazione ahead-of-time](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) dei componenti ha molto potenziale. Specialmente se non è limitata ai templates. Recentemente, abbiamo sperimentato con il [component folding](https://github.com/facebook/react/issues/7323) utilizzando [Prepack](https://prepack.io/) ed abbiamo ottenuto dei risultati preliminari molto promettenti. Comunque, abbiamo trovato che i componenti classe possono incoraggiare l'uso di patterns non intenzionali che possono invalidare queste ottimizzazioni facendole ricadere su percorsi più lenti. Le classi presentano problemi anche con gli strumenti ad oggi disponibili. Per esempio, non vengono minificate molto bene e rendono l'hot reloading ("caricamento a caldo") inaffidabile. Vogliamo presentare una API che può mantenere il codice sul percorso ottimizzabile.
 
@@ -105,11 +96,7 @@ Per risolvere questi problemi, **gli Hooks ti permettono di utilizzare più funz
 
 Sappiamo che gli sviluppatori React sono focalizzati allo sviluppo di prodotti e non hanno tempo per osservare ogni nuova API appena rilasciata. Gli Hooks sono molto nuovi e potrebbe essere meglio aspettare più esempi e tutorials prima di considerarne l'apprendimento o l'adozione.
 
-<<<<<<< HEAD
 Sappiamo anche che la barra per aggiungere una nuova primitiva in React è estremamente alta. Per i lettori più curiosi, abbiamo preparato una [RFC dettagliata](https://github.com/reactjs/rfcs/pull/68) che spiega in dettaglio le motivazioni ed offre una prospettiva aggiuntiva riguardo le decisioni di design oltre riferimenti ad opere precedenti correlate.
-=======
-We also understand that the bar for adding a new primitive to React is extremely high. For curious readers, we have prepared a [detailed RFC](https://github.com/reactjs/rfcs/pull/68) that dives into the motivation with more details, and provides extra perspective on the specific design decisions and related prior art.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 **È importante notare che gli Hooks funzionano a fianco al codice esistente, puoi quindi adottarli in modo graduale.** Non c'è fretta nella migrazione agli Hooks. Raccomandiamo di evitare "grandi riscritture", specialmente per componenti classe complessi già esistenti. "Pensare in Hooks" richiede un po' di cambiamenti mentali. Nella nostra esperienza, è meglio far pratica partendo da componenti nuovi e non critici, assicurandosi che tutti i membri del tuo team siano a proprio agio. Dopo che hai avuto l'opportunità di provare gli Hooks, [inviaci pure un feedback](https://github.com/facebook/react/issues/new), positivo o negativo.
 

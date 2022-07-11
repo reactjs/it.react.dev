@@ -64,44 +64,24 @@ Quando React incontra un elemento che rappresenta un componente definito dall'ut
 
 Ad esempio, il codice seguente renderizza il messaggio "Ciao, Sara" nella pagina:
 
-<<<<<<< HEAD
-```js{1,5}
+```js{1,6}
 function Ciao(props) {
   return <h1>Ciao, {props.nome}</h1>;
 }
 
-const elemento = <Ciao nome="Sara" />;
-ReactDOM.render(
-  elemento,
-  document.getElementById('root')
-);
-=======
-```js{1,6}
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const element = <Welcome name="Sara" />;
+const elemento = <Ciao nome="Sara" />;
 root.render(element);
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Ricapitoliamo cosa succede nell'esempio:
 
-<<<<<<< HEAD
-1. Richiamiamo `ReactDOM.render()` con l'elemento `<Ciao nome="Sara" />`.
-2. React chiama a sua volta il componente `Ciao` con `{nome: 'Sara'}` passato in input come props.
+1. Richiamiamo `root.render()` con l'elemento `<Ciao nome="Sara" />`.
+2. React chiama a sua volta il componente `Welcome` con `{nome: 'Sara'}` passato in input come props.
 3. Il nostro componente `Ciao` ritorna un elemento `<h1>Ciao, Sara</h1>` come risultato.
 4. React DOM aggiorna efficientemente il DOM per far sì che contenga `<h1>Ciao, Sara</h1>`.
-=======
-1. We call `root.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 >**Nota Bene:** Ricordati di chiamare i tuoi componenti con la prima lettera in maiuscolo.
 >

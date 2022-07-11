@@ -81,15 +81,7 @@ Quando usate [Babel](https://babeljs.io/) dovete assicurarvi che esso possa effe
 
 ## `React.lazy` {#reactlazy}
 
-<<<<<<< HEAD
-> Nota:
->
-> `React.lazy` and Suspense are not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/gregberge/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
-
 La funzione `React.lazy` ti permette di effettuare un import dinamico come se fosse un normale componente.
-=======
-The `React.lazy` function lets you render a dynamic import as a regular component.
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 **Prima:**
 
@@ -147,13 +139,10 @@ function MyComponent() {
 }
 ```
 
-<<<<<<< HEAD
-### Contenitori di Errori {#error-boundaries}
-=======
-### Avoiding fallbacks {#avoiding-fallbacks}
-Any component may suspend as a result of rendering, even components that were already shown to the user. In order for screen content to always be consistent, if an already shown component suspends, React has to hide its tree up to the closest `<Suspense>` boundary. However, from the user's perspective, this can be disorienting.
+### Evitare fallbacks {#avoiding-fallbacks}
+Ogni componente può essere sospeso a seguito di un rendering, anche componenti che erano già visibili all'utente. Per fare in modo che il contenuto dello schermo sia sempre consistente, se un componente già visibile viene sospeso, React deve nascondere il suo albero fino al più vicino `<Suspense>`. Comunque, dal punto di vista dell'utente, ciò può creare confusione.
 
-Consider this tab switcher:
+Considera questo tab switcher:
 
 ```js
 import React, { Suspense } from 'react';
@@ -165,7 +154,7 @@ const Photos = React.lazy(() => import('./Photos'));
 
 function MyComponent() {
   const [tab, setTab] = React.useState('photos');
-  
+
   function handleTabSelect(tab) {
     setTab(tab);
   };
@@ -182,9 +171,9 @@ function MyComponent() {
 
 ```
 
-In this example, if tab gets changed from `'photos'` to `'comments'`, but `Comments` suspends, the user will see a glimmer. This makes sense because the user no longer wants to see `Photos`, the `Comments` component is not ready to render anything, and React needs to keep the user experience consistent, so it has no choice but to show the `Glimmer` above.
+In questo esempio, se il tab viene cambiato da `'photos'` a `'comments'`, ma `Comments` viene sospeso, l'utente vedrà un glimmer. Ciò si spiega col fatto che l'utente non vuole più vedere `Photos`, il componente `Comments` non è ancora pronto per renderizzare nulla e React cerca di mantenere l'esperienza utente consistente, per questo non ha scelta che mostrare il `Glimmer`.
 
-However, sometimes this user experience is not desirable. In particular, it is sometimes better to show the "old" UI while the new UI is being prepared. You can use the new [`startTransition`](/docs/react-api.html#starttransition) API to make React do this:
+Ad ogni modo, a volte tale esperienza utente non è desiderabile. In particolare, a volte è meglio mostrare la vecchia UI mentre la nuova UI viene preparata. Puoi usare la nuova API [`startTransition`](/docs/react-api.html#starttransition) in questo caso:
 
 ```js
 function handleTabSelect(tab) {
@@ -194,10 +183,9 @@ function handleTabSelect(tab) {
 }
 ```
 
-Here, you tell React that setting tab to `'comments'` is not an urgent update, but is a [transition](/docs/react-api.html#transitions) that may take some time. React will then keep the old UI in place and interactive, and will switch to showing `<Comments />` when it is ready. See [Transitions](/docs/react-api.html#transitions) for more info.
+Qui, dici a React che settare il tab a `'comments'` non è un aggiornamento importante, ma che si tratta di una [transizione](/docs/react-api.html#transitions) che può richiedere del tempo. React manterrà quindi la vecchia UI al suo posto ed interattiva, mostrerà `<Comments />` quando sarà pronto. Dai uno sguardo a [Transizioni](/docs/react-api.html#transitions) per maggiori informazioni.
 
-### Error boundaries {#error-boundaries}
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+### Contenitori di Errori {#error-boundaries}
 
 Se altri moduli falliscono nel caricamente (ad esempio a causa di problemi di rete), verrà sollevato un errore. Puoi gestire questi errori per mostrare un [Contenitore di Errori](/docs/error-boundaries.html). Una volta che è stato creato il proprio contenitore di errori, è possibile utilizzarlo ovunque sopra i componenti lazy per mostrare uno stato di errore quando ci sono errori di rete.
 

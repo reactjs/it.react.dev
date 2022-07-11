@@ -40,7 +40,7 @@ Tutti gli attributi HTML `aria-*` sono pienamente supportati in JSX. Mentre la m
 ```
 
 ## HTML semantico {#semantic-html}
-L'HTML semantico costituisce la base per l'accessibilità in un'applicazione web. Usare diversi elementi HTML per rafforzare il significato dell'informazione nel vostro sito, spesso può portare ad avere accessibilità gratis. 
+L'HTML semantico costituisce la base per l'accessibilità in un'applicazione web. Usare diversi elementi HTML per rafforzare il significato dell'informazione nel vostro sito, spesso può portare ad avere accessibilità gratis.
 
 - [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
@@ -233,7 +233,7 @@ Un buon esempio di gestione del focus è [react-aria-modal](https://github.com/d
 
 >Nota:
 >
->Sebbene questa sia una caratteristica di accessibilità molto importante, è anche una tecnica che dovrebbe essere usata con giudizio. Usala per aggiustare il focus della tastiera quando è rotto piuttosto che cercare di anticipare le mosse dell'utente 
+>Sebbene questa sia una caratteristica di accessibilità molto importante, è anche una tecnica che dovrebbe essere usata con giudizio. Usala per aggiustare il focus della tastiera quando è rotto piuttosto che cercare di anticipare le mosse dell'utente
 
 ## Eventi del mouse e di altri dispositivi di puntamento {#mouse-and-pointer-events}
 
@@ -403,11 +403,7 @@ Assicuratevi che tutti i testi leggibili sul vostro sito abbiamo colori adatti i
 - [Tutto sul contrasto dei colori e perché dovresti ripensarlo](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Cosa è il contrasto di colore](https://a11yproject.com/posts/what-is-color-contrast/)
 
-<<<<<<< HEAD
-Può risultare molto noioso calcolare tutte le combinazioni di colori per tutti i casi, per questo motivo è possibile [calcolare l'intera palette di colori accessibili con Colorable](https://jxnblk.com/colorable/).
-=======
-It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
->>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
+Può risultare molto noioso calcolare tutte le combinazioni di colori per tutti i casi, per questo motivo è possibile [calcolare l'intera palette di colori accessibili con Colorable](https://colorable.jxnblk.com/).
 
 Entrambi gli strumenti menzionati prima (aXe e WAVE) includono test sul contrasto dei colori.
 
