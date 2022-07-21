@@ -4,7 +4,7 @@ title: Installazione
 
 <Intro>
 
-React è stato progettato sin dal principio per essere adottato gradualmente. A seconda dei tuoi gusti, puoi usare il minimo o il maggior numero di funzionalità offerte da React. Se vuoi avere un assaggio di React, aggiungere un po' di interattività ad una pagina HTML, o sviluppare una applicazione complessa basata basata su React, questa sezione ti aiuterà nei primi passi.
+React è stato progettato sin dal principio per essere adottato gradualmente. A seconda dei tuoi gusti, puoi usare il minimo o il maggior numero di funzionalità offerte da React. Se vuoi avere un assaggio di React, aggiungere un po' di interattività ad una pagina HTML, o sviluppare una applicazione complessa basata su React, questa sezione ti aiuterà nei primi passi.
 
 </Intro>
 
