@@ -11,13 +11,13 @@ React è stato progettato sin dal principio per essere adottato gradualmente. A 
 <YouWillLearn isChapter={true}>
 
 * [Come aggiungere React ad una pagina HTML](/learn/add-react-to-a-website)
-* [Come cominciare un progetto React](/learn/start-a-new-react-project)
+* [Come iniziare un progetto React](/learn/start-a-new-react-project)
 * [Come configurare il tuo editor](/learn/editor-setup)
-* [Come installre i React Developer Tools](/learn/react-developer-tools)
+* [Come installare i React Developer Tools](/learn/react-developer-tools)
 
 </YouWillLearn>
 
-## Try React {/*try-react*/}
+## Prova React {/*try-react*/}
 
 Non devi installare nulla se vuoi divertirti con React. Prova a modificare questa sandbox!
 
@@ -47,7 +47,7 @@ Per provare React localmente sul suo computer, [scarica questa pagina HTML](http
 
 Se stai lavorando con un sito esistente ed hai bisogno di aggiungere un po' di React, puoi [aggiungere React con uno script tag.](/learn/add-react-to-a-website)
 
-## Cominciare un progetto React {/*start-a-react-project*/}
+## Iniziare un progetto React {/*start-a-react-project*/}
 
 Se sei pronto per [iniziare un progetto a se stante](/learn/start-a-new-react-project) con React, puoi configurare gli strumenti minimi indispensabili per una esperienza di sviluppo piacevole. Puoi anche cominciare con un framework che prende decisioni per te sin dall'inizio.
 
