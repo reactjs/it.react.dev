@@ -57,7 +57,7 @@ Per maggiori informazioni, [dai uno sguardo alla guida ufficiale](https://create
 
 ## Iniziare con un framework completo {/*building-with-a-full-featured-framework*/}
 
-Se intendi **iniziare un progetto pronto al rilascio in produzione,** [Next.js](https://nextjs.org/) è un ottimo punto di partenza. Next.js è un popolare framework leggero per la generazione di contenuto statico generato server-side con React. Include funzioni quali routing, styling, e server-side rendering, che ti permetteranno di lanciare il tuo progetto rapidamente.
+Se intendi **iniziare un progetto pronto al rilascio in produzione,** [Next.js](https://nextjs.org/) è un ottimo punto di partenza. Next.js è un popolare framework leggero per la generazione di contenuto statico generato server-side con React. Include funzioni quali routing, styling e server-side rendering, che ti permetteranno di lanciare il tuo progetto rapidamente.
 
 Il tutorial [Next.js Foundations](https://nextjs.org/learn/foundations/about-nextjs) rappresenta una ottima introduzione allo sviluppo con React e Next.js.
 
@@ -79,5 +79,5 @@ Potresti preferire la creazione e configurazione di una tua toolchain. Una toolc
 * Un **linter** che controlla che il codice non contenga errori comuni. Linters popolari: [ESLint](https://eslint.org/).
 * Un **test runner** che ti permette di eseguire tests sul tuo codice. Test runners popolari: [Jest](https://jestjs.io/).
 
-Se preferisci impostare la tua toolchain Javascript partendo da zero, [da uno sguardo a questa guida](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) che mostra come ricreare alcune delle funzionalità offerte da Create React App. Un framework offrirà inoltre anche soluzioni per il routing ed il data fetching. Per progetti più grandi, potresti aver bisogno di dover gestire pacchetti multipli in una repository singola usando tools come [Nx](https://nx.dev/react) o [Turborepo](https://turborepo.org/).
+Se preferisci impostare la tua toolchain JavaScript partendo da zero, [da uno sguardo a questa guida](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) che mostra come ricreare alcune delle funzionalità offerte da Create React App. Un framework offrirà inoltre anche soluzioni per il routing ed il data fetching. Per progetti più grandi, potresti aver bisogno di dover gestire pacchetti multipli in una repository singola usando tools come [Nx](https://nx.dev/react) o [Turborepo](https://turborepo.org/).
 
