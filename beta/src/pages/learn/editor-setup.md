@@ -4,7 +4,7 @@ title: Editor Setup
 
 <Intro>
 
-In editor correttamente configurato permette una più facile lettura del codice ed una scrittura più veloce. Può anche aiutare nell'individuazione di bugs durante la battitura! Se è la prima volta che configuri un editor o vuoi ritoccare la tua configurazione attuale, abbiamo alcune raccomandazioni.
+Un editor correttamente configurato permette una più facile lettura del codice ed una scrittura più veloce. Può anche aiutare nell'individuazione di bugs durante la battitura! Se è la prima volta che configuri un editor o vuoi ritoccare la tua configurazione attuale, abbiamo alcune raccomandazioni.
 
 </Intro>
 
