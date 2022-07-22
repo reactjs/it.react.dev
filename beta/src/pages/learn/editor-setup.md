@@ -17,13 +17,13 @@ In editor correttamente configurato permette una più facile lettura del codice 
 
 ## Il tuo editor {/*your-editor*/}
 
-[VS Code](https://code.visualstudio.com/) è uno degli editor più popolari al momenti. Ha un grande marketplace di estensioni e si integra molto bene con servizi popolari come GitHub. Molte delle funzioni elencate di seguito possono essere aggiunte a VS Code come estensioni, rendendolo altamente configurabile!
+[VS Code](https://code.visualstudio.com/) è uno degli editor più popolari al momento. Ha un grande marketplace di estensioni e si integra molto bene con servizi popolari come GitHub. Molte delle funzioni elencate di seguito possono essere aggiunte a VS Code come estensioni, rendendolo altamente configurabile!
 
 Altri editor di testo popolari in uso nella comunità React sono:
 
 * [WebStorm](https://www.jetbrains.com/webstorm/) che è un ambiente integrato di sviluppo progettato specificatamente per JavaScript.
 * [Sublime Text](https://www.sublimetext.com/) offre supporto JSX e TypeScript, [evidenziazione della sintassi](https://stackoverflow.com/a/70960574/458193) e autocompletamento.
-* [Vim](https://www.vim.org/) è un editor di testo altamente configurabile progettato per rendere la modifica di ogni tipo di testo molto efficiente. É incluso nella maggioranza delle distribuzoni UNIX e Apple OS X lanciando il comando "vi".
+* [Vim](https://www.vim.org/) è un editor di testo altamente configurabile progettato per rendere la modifica di ogni tipo di testo molto efficiente. É incluso nella maggioranza delle distribuzioni UNIX e Apple OS X lanciando il comando "vi".
 
 ## Funzioni degli editor di testo raccomandate {/*recommended-text-editor-features*/}
 
@@ -31,7 +31,7 @@ Alcuni editor hanno queste funzioni già incluse, altri potrebbero richiedere l'
 
 ### Linting {/*linting*/}
 
-I Code linters individuano problemi nel codice man mano che lo si scrive, permettendo di fixarli sul nascere. [ESLint](https://eslint.org/) è un linter per JavaScript open source molto popolare.
+I code linters individuano problemi nel codice man mano che lo si scrive, permettendo di fixarli sul nascere. [ESLint](https://eslint.org/) è un linter per JavaScript open source molto popolare.
 
 * [Installa ESLint con la configurazione raccomandata per React](https://www.npmjs.com/package/eslint-config-react-app) (accertati di avere [Node installato!](https://nodejs.org/en/download/current/))
 * [Integra ESLint in VSCode con l'estensione ufficiale](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
