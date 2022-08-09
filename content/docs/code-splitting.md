@@ -99,7 +99,7 @@ L'istruzione sopra carica il pezzo di codice contenente il componente `OtherComp
 
 La funzione `React.lazy` prende in ingresso una funzione che, dinamicamente, chiama il metodo `import()`. Quello che viene restituito è una `Promise` che si risolve in un modulo contente  l'export di default del componente React.
 
-Il componente "pigro" viene poi renderizzato all'interno di un componente `Suspense` il quale ci permette di mostrare dei contenuti di fallback (come ad esempio degli indicatori di caricamente) mentre stiamo aspettando che il componente sia completamente caricato.
+Il componente "pigro" viene poi renderizzato all'interno di un componente `Suspense` il quale ci permette di mostrare dei contenuti di fallback (come ad esempio degli indicatori di caricamento) mentre stiamo aspettando che il componente sia completamente caricato.
 
 ```js
 import React, { Suspense } from 'react';
