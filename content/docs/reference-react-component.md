@@ -52,7 +52,11 @@ Quando un'istanza di un componente viene creata e inserita nel DOM, questi metod
 
 >Nota:
 >
+<<<<<<< HEAD
 >Questi metodi sono considerati obsoleti e dovresti [evitare di utilizzarli](/blog/2018/03/27/update-on-async-rendering.html) quando scrivi del nuovo codice:
+=======
+>This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
