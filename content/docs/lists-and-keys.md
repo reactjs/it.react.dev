@@ -119,7 +119,11 @@ const listaArticoli = articoli.map((articolo, indice) =>
 );
 ```
 
+<<<<<<< HEAD
 Non consigliamo di utilizzare gli indici per le chiavi se l'ordine degli elementi potrebbe cambiare. Potrebbe avere un impatto negativo sulle prestazioni e causare problemi con lo stato dei componenti. Leggi l'articolo di Robin Pokorny per una [spiegazione approfondita sugli impatti negativi dell'uso di un indice come chiave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). React utilizza gli indici come chiavi se non assegni esplicitamente una chiave per renderizzare gli elementi.
+=======
+We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+>>>>>>> 42561f013aa0f6008cd1c5b811d8bacfc66a0779
 
 Qui trovi una [spiegazione approfondita sul perché le chiavi sono necessarie](/docs/reconciliation.html#recursing-on-children) se vuoi saperne di più.
 

@@ -53,7 +53,7 @@ Per maggiori informazioni, [dai uno sguardo alla guida ufficiale](https://create
 ### Alternative popolari {/*popular-alternatives*/}
 
 * [Vite](https://vitejs.dev/guide/)
-* [Parcel](https://parceljs.org/)
+* [Parcel](https://parceljs.org/getting-started/webapp/)
 
 ## Iniziare con un framework completo {/*building-with-a-full-featured-framework*/}
 
