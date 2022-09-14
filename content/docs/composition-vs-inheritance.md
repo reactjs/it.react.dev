@@ -164,4 +164,4 @@ In Facebook, usiamo React in migliaia di componenti ma non abbiamo mai avuto alc
 
 Le props e la composizione ti offrono tutta la flessibilità di cui hai bisogno per personalizzare l'aspetto ed il comportamento di un componente in modo esplicito e sicuro. Ricorda che i componenti possono accettare props arbitrarie, inclusi valori primitivi, elementi React o funzioni.
 
-Se vuoi riutilizzare le funzionalità non strettamente legate alla UI tra componenti, suggeriamo di estrarre tali logiche all'interno di un modulo JavaScript separato. I componenti potranno quindi importarlo ed utilizzare quella funzione, oggetto o classe di cui hanno bisogno, senza dover estendere tale modulo.
+Se vuoi riutilizzare le funzionalità non strettamente legate alla UI tra componenti, suggeriamo di estrarre tali logiche all'interno di un modulo JavaScript separato. I componenti potranno quindi importarlo ed utilizzare quella funzione, oggetto o una classe di cui hanno bisogno, senza dover estendere tale modulo.

@@ -52,7 +52,7 @@ Quando un'istanza di un componente viene creata e inserita nel DOM, questi metod
 
 >Nota:
 >
->Questi metodi sono considerati obsoleti e dovresti [evitare di utilizzarli](/blog/2018/03/27/update-on-async-rendering.html) quando scrivi del nuovo codice:
+>Questo metodo è considerato obsoleto e dovresti [evitare di utilizzarlo](/blog/2018/03/27/update-on-async-rendering.html) quando scrivi del nuovo codice:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 

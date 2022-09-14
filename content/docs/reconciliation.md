@@ -21,7 +21,7 @@ In pratica, queste assunzioni sono valide quasi per tutti i casi d'uso.
 
 ## L'Algoritmo di confronto {#the-diffing-algorithm}
 
-Nel paragonare due alberi, React confronta prima i due elementi alla radice. Il comportamento cambia a seconda del loro tipo. 
+Nel paragonare due alberi, React confronta prima i due elementi alla radice. Il comportamento cambia a seconda del loro tipo.
 
 ### Elementi con tipi diversi {#elements-of-different-types}
 
@@ -47,7 +47,7 @@ Verrà distrutto il vecchio `Counter` e ne verrà montato uno nuovo.
 
 >Nota:
 >
->Questi metodi sono considerati legacy quindi dovresti [evitarli](/blog/2018/03/27/update-on-async-rendering.html) nel nuovo codice:
+>Questo metodo è considerato legacy quindi dovresti [evitarlo](/blog/2018/03/27/update-on-async-rendering.html) nel nuovo codice:
 >
 >- `UNSAFE_componentWillMount()`
 
@@ -75,7 +75,7 @@ Dopo aver gestito il nodo DOM, React esegue le stesse operazioni in ricorsione s
 
 ### Elementi Componente dello stesso tipo {#component-elements-of-the-same-type}
 
-Quando un componente si aggiorna, l'istanza rimane la stessa, così che lo state persista tra le renderizzazioni. React aggiorna le props dell'istanza sottostante del componente facendola combaciare con il nuovo elemento, e chiama `componentWillReceiveProps()` e `UNSAFE_componentWillUpdate()` e `componentDidUpdate()` sull'istanza sottostante. 
+Quando un componente si aggiorna, l'istanza rimane la stessa, così che lo state persista tra le renderizzazioni. React aggiorna le props dell'istanza sottostante del componente facendola combaciare con il nuovo elemento, e chiama `componentWillReceiveProps()` e `UNSAFE_componentWillUpdate()` e `componentDidUpdate()` sull'istanza sottostante.
 
 In seguito, viene chiamato il metodo `render()` e l'algoritmo di confronto va in ricorsione sui risultati precedenti e su quelli nuovi.
 
