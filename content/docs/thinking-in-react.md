@@ -143,8 +143,4 @@ Proviamo a pensare a cosa vogliamo far sì che avvenga. Vogliamo fare in modo ch
 
 ## È Tutto {#and-thats-it}
 
-<<<<<<< HEAD
 Speriamo che adesso tu abbia un'idea su come pensare all'implementazione di componenti ed applicazioni in React. Anche se può sembrare che tu abbia bisogno di scrivere più codice di quanto tu sia abituato/a, ricorda che tale codice viene molto più letto che scritto, ed è meno difficile da comprendere grazie alla modularità e al fatto che è molto esplicito negli intenti. Non appena comincerai a costruire grandi librerie di componenti, apprezzerai queste caratteristiche ancor di più, inoltre, grazie al riutilizzo del codice, alla fine ti ritroverai a scrivere meno righe di codice. :)
-=======
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more often than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
->>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6

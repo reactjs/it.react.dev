@@ -36,13 +36,9 @@ I code linters individuano problemi nel codice man mano che lo si scrive, permet
 * [Installa ESLint con la configurazione raccomandata per React](https://www.npmjs.com/package/eslint-config-react-app) (accertati di avere [Node installato!](https://nodejs.org/en/download/current/))
 * [Integra ESLint in VSCode con l'estensione ufficiale](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-<<<<<<< HEAD:beta/src/pages/learn/editor-setup.md
-### Formattazione {/*formatting*/}
-=======
-**Make sure that you've enabled all the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) rules for your project.** They are essential and catch the most severe bugs early. The recommended [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) preset already includes them.
+**Accertati di aver attivato tutte le regole [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) per il tuo progetto.** Sono essenziali per individuare gravi bugs al più presto possibile. Il preset raccomandato [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) le include già.
 
-### Formatting {/*formatting*/}
->>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6:beta/src/content/learn/editor-setup.md
+### Formattazione {/*formatting*/}
 
 L'ultima cosa che vuoi avere quando condividi il tuo codice con un altro collaboratore è una discussione riguardo [tabs contro spazi](https://www.google.com/search?q=tabs+vs+spaces)! Fortunatamente, [Prettier](https://prettier.io/) ripulirà il tuo codice riformattandolo conformemente ad una configurazione presettata. Esegui Prettier, e tutti i tuoi tabs verranno convertiti in spazi e la tua indentazione, virgolette, ecc verranno cambiate a seconda della configurazione. Nel setup ideale, ogni volta che salvi un file, Prettier applicherà queste modifiche per conto tuo automaticamente.
 

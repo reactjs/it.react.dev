@@ -8,10 +8,6 @@ Il warning invalid-aria-prop appare quando provi a renderizzare un elemento del 
 
 1. Se pensi che la prop che stai usando sia valida, controlla attentamente eventuali errori di battitura. `aria-labelledby` e `aria-activedescendant` sono spesso scritte in modo scorretto.
 
-<<<<<<< HEAD
-2. React non riconosce ancora gli attributi che hai specificato. Una fix verrà rilasciata probabilmente in una futura versione di React.
-=======
-2. If you wrote `aria-role`, you may have meant `role`.
+2. Se hai scritto `aria-role`, probabilmente intendevi `role`.
 
-3. Otherwise, if you're on the latest version of React DOM and verified that you're using a valid property name listed in the ARIA specification, please [report a bug](https://github.com/facebook/react/issues/new/choose).
->>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
+3. Altrimenti, se stai utilizzando l'ultima versione di React DOM e verificato che stai usando un nome di proprietà valido presente nella lista della specifica ARIA, cortesemente [riporta un bug](https://github.com/facebook/react/issues/new/choose).
