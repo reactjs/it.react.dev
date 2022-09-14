@@ -71,7 +71,7 @@ function Ciao(props) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const elemento = <Ciao nome="Sara" />;
-root.render(element);
+root.render(elemento);
 ```
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
