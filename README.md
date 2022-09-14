@@ -2,9 +2,6 @@
 
 This repo contains the source code and documentation powering [it.reactjs.org](https://it.reactjs.org/).
 
-[![CircleCI](https://circleci.com/gh/reactjs/it.reactjs.org.svg?style=svg)](https://circleci.com/gh/reactjs/it.reactjs.org)
-
-
 # ⚠ Beta Website ⚠
 We are currently transitioning our translation efforts to the new website that is currently in [Beta](https://github.com/reactjs/reactjs.org/issues/4135).
 
