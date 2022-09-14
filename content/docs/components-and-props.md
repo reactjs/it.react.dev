@@ -79,7 +79,7 @@ root.render(elemento);
 Ricapitoliamo cosa succede nell'esempio:
 
 1. Richiamiamo `root.render()` con l'elemento `<Ciao nome="Sara" />`.
-2. React chiama a sua volta il componente `Welcome` con `{nome: 'Sara'}` passato in input come props.
+2. React chiama a sua volta il componente `Ciao` con `{nome: 'Sara'}` passato in input come props.
 3. Il nostro componente `Ciao` ritorna un elemento `<h1>Ciao, Sara</h1>` come risultato.
 4. React DOM aggiorna efficientemente il DOM per far sì che contenga `<h1>Ciao, Sara</h1>`.
 
