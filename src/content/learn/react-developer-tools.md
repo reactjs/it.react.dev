@@ -73,4 +73,4 @@ Dovrebbe connettersi ad una qualsiasi app React Native locale in esecuzione.
 
 > Prova a ricaricare l'app se developer tools non si connette dopo alcuni secondi.
 
-[Ulteriori informazioni sul debugging di React Native](https://reactnative.dev/docs/debugging)
+[Ulteriori informazioni sul debugging di React Native.](https://reactnative.dev/docs/debugging)
