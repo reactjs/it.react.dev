@@ -50,7 +50,11 @@ Per maggiori informazioni, [dai uno sguardo alla guida ufficiale.](https://creat
 
 > Create React App non gestisce logica backend o databases. Puoi usarlo con qualunque backend. Quando creerai un progetto, otterrai una cartella con HTML statico, CSS e JS. Dato che Create React App non fa uso di alcun server, non offre il meglio delle prestazioni. Se cerchi tempi di caricamento più veloci e funzionalità incluse quali routing e logica server-side, ti raccomandiamo l'uso di un framework.
 
+<<<<<<< HEAD
 ### Alternative popolari {/*popular-alternatives*/}
+=======
+### Popular alternatives {/*toolkit-popular-alternatives*/}
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 * [Vite](https://vitejs.dev/guide/)
 * [Parcel](https://parceljs.org/getting-started/webapp/)
@@ -61,7 +65,11 @@ Se intendi **iniziare un progetto pronto al rilascio in produzione,** [Next.js](
 
 Il tutorial [Next.js Foundations](https://nextjs.org/learn/foundations/about-nextjs) rappresenta una ottima introduzione allo sviluppo con React e Next.js.
 
+<<<<<<< HEAD
 ### Alternative popolari {/*popular-alternatives*/}
+=======
+### Popular alternatives {/*framework-popular-alternatives*/}
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
 * [Gatsby](https://www.gatsbyjs.org/)
 * [Remix](https://remix.run/)
