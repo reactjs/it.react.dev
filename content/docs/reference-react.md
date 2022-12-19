@@ -375,8 +375,13 @@ Tutto ciò è documentato nella nostra [guida per la separazione del codice](/do
 Durante il server side rendering, Suspense Boundaries ti permettono di emettere contenuto in blocchi più piccoli sospendendo.
 QUando un componente si sospende, scheduliamo una task a bassa priorità per renderizzare la fallback della Suspense boundary più vicina. Se il componente si "desospende" prima che venga emessa la fallback, emetteremo il contenuto attuale ignorando del tutto la fallback.
 
+<<<<<<< HEAD
 #### `React.Suspense` durante hydration {#reactsuspense-during-hydration}
 Suspense boundaries dipendono dall'idratazione dalle loro boundaries genitori prima che possano essere idratate, ma possono idratarsi indipendentemente dalle loro boundaries sibling. Eventi su una boundary prima che venga idradata causeranno una idratazione con una priorità maggiore rispetto alle bonduaries vicine. [Maggiori informazioni](https://github.com/reactwg/react-18/discussions/130)
+=======
+#### `React.Suspense` during hydration {#reactsuspense-during-hydration}
+Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before it is hydrated will cause the boundary to hydrate at a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 ### `React.startTransition` {#starttransition}
 
