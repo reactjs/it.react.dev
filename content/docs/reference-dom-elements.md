@@ -14,7 +14,24 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 React implementa un sistema DOM indipendente dal browser per massimizzare le prestazioni e la compatibilità con i vari browsers. Abbiamo colto l'occasione per smussare gli angoli di alcune implementazioni nel DOM del browser.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 In React, tutte le proprietà DOM e gli attributi (inclusi i gestori degli eventi) dovrebbero essere [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello). Ad esempio, l'attributo HTML `tabindex` corrisponde all'attributo `tabIndex` in React. Fanno eccezione gli attributi `aria-*` e `data-*`, i quali dovrebbero essere in minuscolo. Puoi mantenere `aria-label` come `aria-label` per esempio.
 
