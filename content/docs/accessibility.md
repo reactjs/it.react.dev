@@ -375,7 +375,7 @@ Questi sono strumenti con attributi HTML che sono pienamente supportati in JSX e
 
 Ogni tipo di widget ha uno specifico pattern e gli utenti si aspettano che funzioni in un determinato modo;
 
-- [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [ARIA Authoring Practices Guide (APG) - Design Patterns and Examples](https://www.w3.org/WAI/ARIA/apg/patterns/)
 - [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
