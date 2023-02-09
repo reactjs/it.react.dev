@@ -1131,7 +1131,7 @@ class Game extends React.Component {
   }
 ```
 
-Poi, definitiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. Imposteremo anche `xIsNext` a true (vero) nel caso in cui il numero in cui stiamo impostando in `stepNumber` sia pari:
+Poi, definiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. Imposteremo anche `xIsNext` a true (vero) nel caso in cui il numero in cui stiamo impostando in `stepNumber` sia pari:
 
 ```javascript{5-10}
   handleClick(i) {
@@ -1150,7 +1150,7 @@ Poi, definitiamo il metodo `jumpTo` in Game per aggiornare quello `stepNumber`. 
   }
 ```
 
-Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+Notate come, nella funzione `jumpTo`, non sia stata aggiornata la proprietà `history` dello stato. Questo perché gli aggiornamenti di stato vengono accorpati o, più semplicemente, React andrà ad aggiornare soltanto le proprietà specificate nella funzione `setState`, mantenendo invariate le altre proprietà dello stato. Per maggiori informazioni, **[potete fare riferimento alla documentazione](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
 
 È ora di apportare qualche cambiamento al metodo `handleClick` di Game che verrà richiamato quando si clicca su un quadrato.
 
