@@ -12,7 +12,17 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 Questo tutorial non presuppone alcuna pre-esistente conoscenza di React.
+=======
+> Try the new React documentation.
+> 
+> The updated [Tutorial](https://beta.reactjs.org/learn/tutorial-tic-tac-toe) teaches modern React and includes live examples.
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+This tutorial doesn't assume any existing React knowledge.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 ## Prima di Cominciare il Tutorial {#before-we-start-the-tutorial}
 
