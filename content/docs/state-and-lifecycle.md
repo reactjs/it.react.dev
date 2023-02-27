@@ -8,7 +8,20 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
+<<<<<<< HEAD
 Questa pagina introduce il concetto di *state* (stato) e *lifecycle* (ciclo di vita) in un componente React. Puoi trovare un [riferimento dettagliato alle API dei componenti qui](/docs/react-component.html).
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [State: A Component's Memory](https://beta.reactjs.org/learn/state-a-components-memory)
+> - [Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+This page introduces the concept of state and lifecycle in a React component. You can find a [detailed component API reference here](/docs/react-component.html).
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 
 Considera l'esempio dell'orologio di [una delle sezioni precedenti](/docs/rendering-elements.html#updating-the-rendered-element). In [Renderizzare Elementi](/docs/rendering-elements.html#rendering-an-element-into-the-dom), abbiamo appreso solamente un modo per aggiornare la UI. Chiamiamo `root.render()` per cambiare l'output renderizzato:
 
