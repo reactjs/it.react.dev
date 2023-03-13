@@ -4,7 +4,20 @@ title: Inoltrare Refs
 permalink: docs/forwarding-refs.html
 ---
 
+<<<<<<< HEAD
 L'inoltro delle ref è una tecnica per passare automaticamente una [ref](/docs/refs-and-the-dom.html) attraverso un componente ad uno dei suoi figli. Tipicamente questo non è necessario per la maggior parte dei componenti dell'applicazione. Può comunque essere molto utile per alcuni tipi di componenti, specialmente per i componenti riusabili appartenenti alle librerie. Lo scenario più comune è descritto di seguito.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Manipulating the DOM with Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Ref forwarding is a technique for automatically passing a [ref](/docs/refs-and-the-dom.html) through a component to one of its children. This is typically not necessary for most components in the application. However, it can be useful for some kinds of components, especially in reusable component libraries. The most common scenarios are described below.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 ## Inoltro delle refs ai componenti del DOM {#forwarding-refs-to-dom-components}
 
