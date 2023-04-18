@@ -4,6 +4,17 @@ title: Code-Splitting
 permalink: docs/code-splitting.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`lazy`](https://react.dev/reference/react/lazy)
+> - [`<Suspense>`](https://react.dev/reference/react/Suspense)
+
+</div>
+
 ## Impacchettamento {#bundling}
 
 Molte applicazioni React hanno i loro file "impacchettati" usando strumenti come [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) oppure [Browserify](http://browserify.org/). Il processo di "impacchettamento" avviene prendendo tutti i file importati e unendoli tutti in un unico file, chiamato "bundle". Questo file può essere poi incluso all'interno della pagina web per caricare l'intera applicazione tutta in una volta.

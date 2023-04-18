@@ -8,6 +8,17 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Conditional Rendering](https://react.dev/learn/conditional-rendering)
+
+</div>
+
+
 In React, puoi creare componenti distinti che incapsulano il funzionamento di cui hai bisogno. Quindi, puoi renderizzarne solo alcuni, a seconda dello stato della tua applicazione.
 
 La renderizzazione condizionale in React funziona nello stesso modo in cui funzionano le condizioni in JavaScript. Puoi perciò usare operatori come [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) o l'[operatore condizionale](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Operator_Condizionale) per creare elementi che rappresentano lo stato corrente cosicché React possa aggiornare la UI di conseguenza.

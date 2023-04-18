@@ -4,6 +4,16 @@ title: Contenitori di Errori
 permalink: docs/error-boundaries.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`React.Component`: Catching rendering errors with an error boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+
+</div>
+
 In passato, gli errori JavaScript all'interno dei componenti causavano la corruzione dello stato interno di React e l'[emissione](https://github.com/facebook/react/issues/4026) di [errori](https://github.com/facebook/react/issues/8579) [criptici](https://github.com/facebook/react/issues/6895) nei rendering successivi. Questi errori erano sempre causati da un errore precedente nel codice dell'applicazione, ma React non forniva nessun modo per poterli gestire correttamente nei componenti e non poteva ripristinarli.
 
 

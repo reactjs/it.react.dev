@@ -6,6 +6,19 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react-dom`: Components](https://react.dev/reference/react-dom/components)
+> - [`react-dom`: APIs](https://react.dev/reference/react-dom)
+> - [`react-dom`: Client APIs](https://react.dev/reference/react-dom/client)
+> - [`react-dom`: Server APIs](https://react.dev/reference/react-dom/server)
+
+</div>
+
 Il pacchetto `react-dom` offre metodi DOM-specifici che possono essere usati al livello più alto della tua applicazione come una forma di uscita di emergenza per permetterti di uscire dal modello React qualora ne avessi bisogno.
 
 ```js
@@ -50,6 +63,14 @@ React supporta tutti i browser moderni, comunque [alcune polyfills sono richiest
 
 ### `createPortal()` {#createportal}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createPortal`](https://react.dev/reference/react-dom/createPortal).
+
+</div>
+
 ```javascript
 createPortal(child, container)
 ```
@@ -57,6 +78,14 @@ createPortal(child, container)
 Crea un portale. I portali permettono di [renderizzare un nodo figlio all'interno di un nodo DOM che esiste all'esterno della gerarchia del componente DOM](/docs/portals.html).
 
 ### `flushSync()` {#flushsync}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`flushSync`](https://react.dev/reference/react-dom/flushSync).
+
+</div>
 
 ```javascript
 flushSync(callback)
@@ -84,6 +113,15 @@ flushSync(() => {
 
 ## Legacy Reference {#legacy-reference}
 ### `render()` {#render}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`render`](https://react.dev/reference/react-dom/render).
+
+</div>
+
 ```javascript
 render(element, container[, callback])
 ```
@@ -113,6 +151,14 @@ Se viene fornita la callback opzionale, essa sarà eseguita dopo che il componen
 
 ### `hydrate()` {#hydrate}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`hydrate`](https://react.dev/reference/react-dom/hydrate).
+
+</div>
+
 ```javascript
 hydrate(element, container[, callback])
 ```
@@ -135,6 +181,14 @@ Ricorda di essere consapevole dell'esperienza utente su connessioni lente. Il co
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`unmountComponentAtNode`](https://react.dev/reference/react-dom/unmountComponentAtNode).
+
+</div>
+
 ```javascript
 unmountComponentAtNode(container)
 ```
@@ -148,6 +202,14 @@ Rimuove un componente React montato dal DOM e ripulisce eventuali event handlers
 * * *
 
 ### `findDOMNode()` {#finddomnode}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`findDOMNode`](https://react.dev/reference/react-dom/findDOMNode).
+
+</div>
 
 > Nota:
 >

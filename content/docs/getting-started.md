@@ -18,6 +18,15 @@ redirect_from:
   - "docs/environments.html"
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> The new [Quick Start](https://react.dev/learn) teaches modern React and includes live examples.
+
+</div>
+
 Questa pagina offre una panoramica sulla documentazione di React e sulle risorse correlate.
 
 **React** è una libreria JavaScript per lo sviluppo d'interfacce utente. Impara cos'è React cominciando dalla [nostra homepage](/) o [dal tutorial](/tutorial/tutorial.html).

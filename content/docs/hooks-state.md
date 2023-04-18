@@ -6,6 +6,17 @@ next: hooks-effect.html
 prev: hooks-overview.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [State: A Component's Memory](https://react.dev/learn/state-a-components-memory)
+> - [`useState`](https://react.dev/reference/react/useState)
+
+</div>
+
 Gli *Hooks* sono stati aggiunti in React 16.8. Ti permettono di utilizzare `state` ed altre funzioni di React senza dover scrivere una classe.
 
 La [pagina di introduzione](/docs/hooks-intro.html) usa questo esempio per familiarizzare con gli Hooks:

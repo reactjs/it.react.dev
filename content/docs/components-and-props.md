@@ -16,6 +16,18 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Your First Component](https://react.dev/learn/your-first-component)
+> - [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
+
+</div>
+
 I Componenti ti permettono di suddividere la UI (*User Interface*, o interfaccia utente) in parti indipendenti, riutilizzabili e di pensare ad ognuna di esse in modo isolato. Questa pagina offre una introduzione al concetto dei componenti. Puoi trovare invece informazioni dettagliate nella [API di riferimento dei componenti](/docs/react-component.html).
 
 Concettualmente, i componenti sono come funzioni JavaScript: accettano in input dati arbitrari (sotto il nome di "props") e ritornano elementi React che descrivono cosa dovrebbe apparire sullo schermo.

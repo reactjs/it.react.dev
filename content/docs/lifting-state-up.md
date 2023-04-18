@@ -9,6 +9,16 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)
+
+</div>
+
 Spesso, l'aggiornamento di diversi componenti dipende dagli stessi dati. Raccomandiamo di spostare lo stato condiviso in alto nella gerarchia fino al loro antenato più vicino. Vediamo come questo avviene in pratica.
 
 In questa sezione creeremo un calcolatore della temperatura che calcola se l'acqua bolle ad una data temperatura.

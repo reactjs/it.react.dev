@@ -6,6 +6,16 @@ layout: docs
 category: Reference
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://react.dev/reference/react-dom/components/common)
+
+</div>
+
 Questa guida di riferimento documenta il contenitore `SyntheticEvent` che fa parte del sistema di eventi di React. Consulta la guida [Gestione degli Eventi](/docs/handling-events.html) per saperne di più.
 
 ## Panoramica {#overview}

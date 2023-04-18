@@ -13,6 +13,19 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react`: Components](https://react.dev/reference/react/components)
+> - [`react`: Hooks](https://react.dev/reference/react/)
+> - [`react`: APIs](https://react.dev/reference/react/apis)
+> - [`react`: Legacy APIs](https://react.dev/reference/react/legacy)
+
+</div>
+
 `React` è il punto d'ingresso della libreria React. Se carichi React da un tag `<script>`, le seguenti API di primo livello sono disponibili nella variabile globale `React`. Se utilizzi ES6 con npm, puoi scrivere `import React from 'react'`. Se utilizzi ES5 con npm, puoi scrivere `var React = require('react')`.
 
 ## Panoramica {#overview}
@@ -101,6 +114,14 @@ Gli *Hooks* sono una nuova aggiunta in React 16.8. Consentono di utilizzare lo s
 
 ### `React.Component` {#reactcomponent}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Component`](https://react.dev/reference/react/Component).
+
+</div>
+
 `React.Component` è la classe base per definire i componenti React utilizzando le [classi ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
@@ -117,6 +138,14 @@ Leggi i [Riferimenti di React.Component](/docs/react-component.html) per un elen
 
 ### `React.PureComponent` {#reactpurecomponent}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`PureComponent`](https://react.dev/reference/react/PureComponent).
+
+</div>
+
 `React.PureComponent` è simile a [`React.Component`](#reactcomponent). La differenza è che [`React.Component`](#reactcomponent) non implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) mentre `React.PureComponent` lo implementa con una comparazione "shallow" delle props e dello state.
 
 Se il metodo `render()` del tuo componente React produce sempre lo stesso risultato a partire dagli stessi valori di props e state (ovvero è un componente "puro"), puoi utilizzare `React.PureComponent` per avere un miglioramento della performance in alcuni casi.
@@ -130,6 +159,14 @@ Se il metodo `render()` del tuo componente React produce sempre lo stesso risult
 * * *
 
 ### `React.memo` {#reactmemo}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`memo`](https://react.dev/reference/react/memo).
+
+</div>
 
 ```javascript
 const MioComponente = React.memo(function MioComponente(props) {
@@ -169,6 +206,14 @@ Questo metodo esiste solamente come **[strumento per ottimizzare la performance]
 
 ### `createElement()` {#createelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createElement`](https://react.dev/reference/react/createElement).
+
+</div>
+
 ```javascript
 React.createElement(
   type,
@@ -184,6 +229,14 @@ Il codice scritto in [JSX](/docs/introducing-jsx.html) verrà convertito in modo
 * * *
 
 ### `cloneElement()` {#cloneelement}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`cloneElement`](https://react.dev/reference/react/cloneElement).
+
+</div>
 
 ```
 React.cloneElement(
@@ -209,6 +262,14 @@ Questa API è stata introdotta per sostituire il metodo deprecato `React.addons.
 
 ### `createFactory()` {#createfactory}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createFactory`](https://react.dev/reference/react/createFactory).
+
+</div>
+
 ```javascript
 React.createFactory(type)
 ```
@@ -223,6 +284,14 @@ Tipicamente, non invocherai direttamente `React.createFactory()` se utilizzi JSX
 
 ### `isValidElement()` {#isvalidelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`isValidElement`](https://react.dev/reference/react/isValidElement).
+
+</div>
+
 ```javascript
 React.isValidElement(object)
 ```
@@ -232,6 +301,14 @@ Verifica che l'oggetto sia un elemento React. Restituisce `true` o `false`.
 * * *
 
 ### `React.Children` {#reactchildren}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Children`](https://react.dev/reference/react/Children).
+
+</div>
 
 `React.Children` fornisce metodi utili per gestire la struttura dati opaca di `this.props.children`.
 
@@ -291,6 +368,14 @@ Restituisce la struttura opaca di `children` come un array appiattito, con una c
 
 ### `React.Fragment` {#reactfragment}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Fragment`](https://react.dev/reference/react/Fragment).
+
+</div>
+
 Il componente `React.Fragment` ti consente di restituire elementi multipli come risultato di un metodo `render()` senza dover creare un element DOM aggiuntivo per contenerli:
 
 ```javascript
@@ -309,11 +394,26 @@ Puoi utilizzarlo anche tramite la notazione compatta `<></>`. Per saperne di pi�
 
 ### `React.createRef` {#reactcreateref}
 
-`React.createRef` crea una [ref](/docs/refs-and-the-dom.html) che può essere assegnata agli elementi React tramite l'attributo ref.
+<div class="scary">
 
+> This content is out of date.
+>
+> Read the new React documentation for [`createRef`](https://react.dev/reference/react/createRef).
+
+</div>
+
+`React.createRef` crea una [ref](/docs/refs-and-the-dom.html) che può essere assegnata agli elementi React tramite l'attributo ref.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`forwardRef`](https://react.dev/reference/react/forwardRef).
+
+</div>
 
 `React.forwardRef` crea un componente React che inoltra l'attributo [ref](/docs/refs-and-the-dom.html) che riceve a un altro componente più in basso nell'albero. Questa tecnica non è molto comune, ma è particolarmente utile in due scenari:
 
@@ -332,6 +432,14 @@ Per maggiori informazioni, leggi [inoltrare le refs](/docs/forwarding-refs.html)
 
 ### `React.lazy` {#reactlazy}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`lazy`](https://react.dev/reference/react/lazy).
+
+</div>
+
 `React.lazy()` ti consente di definire un componente che è caricato dinamicamente ("lazy" significa letteralmente "pigro"). Questo aiuta a ridurre le dimensioni del pacchetto della tua applicazione ritardando il caricamento dei componenti che non sono utilizzati durante la renderizzazione iniziale.
 
 Puoi imparare come utilizzare questo metodo nella nostra [documentazione sulla suddivisione del codice](/docs/code-splitting.html#reactlazy). Potresti voler anche leggere [questo articolo](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) in cui si spiega con ancora maggior dettaglio come utilizzarlo.
@@ -344,6 +452,14 @@ const UnComponente = React.lazy(() => import('./UnComponente'));
 Nota che la renderizzazione dei componenti `lazy` richiede che sia presente un componente `<React.Suspense>` più in alto nell'albero di renderizzazione. Questo è il modo in cui puoi specificare un indicatore di caricamento.
 
 ### `React.Suspense` {#reactsuspense}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Suspense`](https://react.dev/reference/react/Suspense).
+
+</div>
 
 `React.Suspense` ti permette di specificare un indicatore di caricamento nel caso in cui qualche componente nell'albero sottostante non è ancora pronto per essere renderizzato. Nel futuro intendiamo far si che `Suspense` gestisca altri scenari quali ad esempio il data fetching. Puoi saperne di più dalla nostra [roadmap](/blog/2018/11/27/react-16-roadmap.html).
 
@@ -379,6 +495,14 @@ QUando un componente si sospende, scheduliamo una task a bassa priorità per ren
 Suspense boundaries dipendono dall'idratazione dalle loro boundaries genitori prima che possano essere idratate, ma possono idratarsi indipendentemente dalle loro boundaries sibling. Eventi su una boundary prima che venga idradata causeranno una idratazione con una priorità maggiore rispetto alle bonduaries vicine. [Maggiori informazioni](https://github.com/reactwg/react-18/discussions/130)
 
 ### `React.startTransition` {#starttransition}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`startTransition`](https://react.dev/reference/react/startTransition).
+
+</div>
 
 ```js
 React.startTransition(callback)

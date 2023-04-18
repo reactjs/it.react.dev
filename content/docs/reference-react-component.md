@@ -15,6 +15,16 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`React.Component`](https://react.dev/reference/react/Component)
+
+</div>
+
 Questa pagina contiene un riferimento dettagliato delle API della definizione della classe componente React. Viene dato per scontato che ti siano familiari i concetti fondamentali di React, come [Componenti e Props](/docs/components-and-props.html), così come [State e Lifecycle](/docs/state-and-lifecycle.html). Se non è così, studiali prima di proseguire.
 
 ## Panoramica {#overview}
