@@ -4,6 +4,16 @@ title: Riconciliazione
 permalink: docs/reconciliation.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+
+</div>
+
 React espone una API dichiarativa così che tu non debba sapere con esattezza che cosa cambia per ogni update. Questo semplifica molto la scrittura delle applicazioni, ma potrebbe non essere ovvio come sia stata implementata. Questo articolo descrive le scelte che abbiamo fatto sugli algoritmi di confronto usati da React al fine di rendere gli update dei componenti prevedibili ed allo stesso tempo abbastanza veloci da offrire applicazioni a prestazioni elevate.
 
 ## Motivazione {#motivation}

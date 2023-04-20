@@ -9,6 +9,18 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://react.dev/reference/react-dom/components/input)
+> - [`<select>`](https://react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://react.dev/reference/react-dom/components/textarea)
+
+</div>
+
 Gli elementi HTML `form` funzionano in un modo differente rispetto agli altri elementi DOM in React, la motivazione sta nel fatto che gli elementi form mantengono naturalmente uno stato interno. Ad esempio, questo form in puro HTML accetta un singolo nome:
 
 ```html

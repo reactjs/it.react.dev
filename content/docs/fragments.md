@@ -4,6 +4,16 @@ title: Frammenti
 permalink: docs/fragments.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`<Fragment>`](https://react.dev/reference/react/Fragment)
+
+</div>
+
 Un modello comune in React è di restituire molteplici elementi per un componente. I frammenti ti consentono di raggruppare una lista di figli senza aggiungere nodi extra al DOM.
 
 ```js

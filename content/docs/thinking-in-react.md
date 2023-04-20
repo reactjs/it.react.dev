@@ -8,6 +8,14 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> The updated [Thinking in React](https://react.dev/learn/thinking-in-react) guide teaches modern React and includes live examples.
+
+</div>
+
 React è, secondo noi, il miglior modo per sviluppare applicazioni web complesse e performanti in JavaScript. Ha [scalato](https://it.wikipedia.org/wiki/Scalabilit%C3%A0) molto bene per noi in Facebook ed Instagram.
 
 Una delle caratteristiche migliori di React è il modo in cui ti permette di pensare alle applicazioni mentre le sviluppi. In questo documento, ti guideremo nel processo di costruzione di una tabella di prodotti con funzionalità di ricerca usando React.

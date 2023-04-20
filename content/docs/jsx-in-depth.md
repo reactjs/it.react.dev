@@ -13,6 +13,12 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 Fondamentalmente JSX fornisce zucchero sintattico per la scrittura di funzioni della forma `React.createElement(component, props, ...children)`.
 Il codice seguente
 

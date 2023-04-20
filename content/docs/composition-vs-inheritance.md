@@ -8,6 +8,12 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React ha un potente modello di composizione, raccomandiamo che lo si usi in alternativa all'ereditarietà per riutilizzare codice tra componenti.
 
 In questa sezione, considereremo alcuni problemi nei quali gli sviluppatori che sono ancora agli inizi in React utilizzano l'ereditarietà, mostreremo come si possa invece risolverli con la composizione.

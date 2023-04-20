@@ -14,6 +14,21 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://react.dev/reference/react-dom/components/common)
+> - [`<input>`](https://react.dev/reference/react-dom/components/input)
+> - [`<option>`](https://react.dev/reference/react-dom/components/option)
+> - [`<progress>`](https://react.dev/reference/react-dom/components/progress)
+> - [`<select>`](https://react.dev/reference/react-dom/components/select)
+> - [`<textarea>`](https://react.dev/reference/react-dom/components/textarea)
+
+</div>
+
 React implementa un sistema DOM indipendente dal browser per massimizzare le prestazioni e la compatibilità con i vari browsers. Abbiamo colto l'occasione per smussare gli angoli di alcune implementazioni nel DOM del browser.
 
 In React, tutte le proprietà DOM e gli attributi (inclusi i gestori degli eventi) dovrebbero essere [_camelCased_](https://it.wikipedia.org/wiki/Notazione_a_cammello). Ad esempio, l'attributo HTML `tabindex` corrisponde all'attributo `tabIndex` in React. Fanno eccezione gli attributi `aria-*` e `data-*`, i quali dovrebbero essere in minuscolo. Puoi mantenere `aria-label` come `aria-label` per esempio.
