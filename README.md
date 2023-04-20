@@ -5,7 +5,7 @@ This repo contains the source code and documentation powering [it.reactjs.org](h
 # ⚠ Beta Website ⚠
 We are currently transitioning our translation efforts to the new website that is currently in [Beta](https://github.com/reactjs/reactjs.org/issues/4135).
 
-We are early stages and still setting up everything, all the previous translation efforts are stopped. 
+We are early stages and still setting up everything, all the previous translation efforts are stopped.
 
 Nothing is lost, all the translated content will be archived.
 
@@ -26,11 +26,11 @@ As usual you can follow the progress [here (#1)](https://github.com/reactjs/it.r
 1. Node: any 12.x version starting with v12.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
-1. A clone of the [react.dev repo](https://github.com/reactjs/react.dev) on your local machine
+1. A clone of the [it.react.dev repo](https://github.com/reactjs/it.react.dev) on your local machine
 
 ### Installation
 
-1. `cd react.dev` to go into the project root
+1. `cd it.react.dev` to go into the project root
 3. `yarn` to install the website's npm dependencies
 
 ### Running locally
@@ -67,7 +67,7 @@ The documentation is divided into several sections with a different tone and pur
 
 1. `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fix header logo on Android`) to stage and commit your changes
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [react.dev repo](https://github.com/reactjs/react.dev) and you should see recently pushed branches.
+1. Go to the [it.react.dev repo](https://github.com/reactjs/it.react.dev) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. If possible, include screenshots of visual changes. A preview build is triggered after your changes are pushed to GitHub.
 
