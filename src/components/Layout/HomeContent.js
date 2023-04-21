@@ -202,7 +202,7 @@ export function HomeContent() {
 
         <Section background="left-card">
           <Center>
-            Aggiungi interattività ovunque tu abbia bisogno
+            <Header>Aggiungi interattività ovunque tu abbia bisogno</Header>
             <Para>
               I componenti React ricevono dati e ritornano quello che dovrebbe
               apparire sullo schermo. Puoi passargli nuovi dati in risposta ad
