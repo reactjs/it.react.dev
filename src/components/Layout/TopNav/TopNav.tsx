@@ -289,7 +289,7 @@ export default function TopNav({
                   Riferimento
                 </NavItem>
                 <NavItem isActive={section === 'community'} url="/community">
-                  Community
+                  Comunità
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/blog">
                   Blog

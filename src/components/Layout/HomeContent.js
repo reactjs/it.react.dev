@@ -139,7 +139,7 @@ export function HomeContent() {
               type="primary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="Learn React">
+              label="Impara React">
               Impara React
             </ButtonLink>
             <ButtonLink
@@ -147,7 +147,7 @@ export function HomeContent() {
               type="secondary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="API Reference">
+              label="API di Riferimento">
               API di Riferimento
             </ButtonLink>
           </div>
