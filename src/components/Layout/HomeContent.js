@@ -400,11 +400,11 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                Con React, puoi essere uno sviluppatore web <i>e</i> nativo.
-                Il tuo team può rilasciare su molte piattaforme senza
-                sacrificare l&apos;esperienza utente. La tua organizzazione può
-                superare le barriere tra le piattaforme, e formare team che
-                possiedono intere funzionalità end-to-end.
+                Con React, puoi essere uno sviluppatore web <i>e</i> nativo. Il
+                tuo team può rilasciare su molte piattaforme senza sacrificare
+                l&apos;esperienza utente. La tua organizzazione può superare le
+                barriere tra le piattaforme, e formare team che possiedono
+                intere funzionalità end-to-end.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
