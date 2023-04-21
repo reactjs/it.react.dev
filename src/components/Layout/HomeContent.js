@@ -388,7 +388,7 @@ export function HomeContent() {
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
                           ti permettono di creare app in React per Android, iOS
                           e molto altro. Sono native perché le loro UI{' '}
-                          <i>sono</i> veramente native. Non è un web view, i
+                          <i>sono</i> veramente native. Non è una web view, i
                           tuoi componenti React vengono renderizzati come veri
                           componenti Android e iOS forniti dalla piattaforma.
                         </p>
