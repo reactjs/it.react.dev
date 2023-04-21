@@ -400,7 +400,7 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                Con React, puoi essere un web <i>e</i> un sviluppatore nativo.
+                Con React, puoi essere uno sviluppatore web <i>e</i> nativo.
                 Il tuo team può rilasciare su molte piattaforme senza
                 sacrificare l&apos;esperienza utente. La tua organizzazione può
                 superare le barriere tra le piattaforme, e formare team che
