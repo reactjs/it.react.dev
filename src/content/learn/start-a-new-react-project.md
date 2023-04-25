@@ -94,7 +94,7 @@ Queste funzionalità stanno diventando sempre più vicine alla prontezza per la 
 Next.js è mantenuto da [Vercel](https://vercel.com/). Puoi [distribuire un'app  Next.js](https://nextjs.org/docs/deployment) su qualsiasi hosting Node.js o serverless, o sul tuo server. Next.js supporta anche [l'esportazione statica](https://beta.nextjs.org/docs/configuring/static-export) che non richiede un server.
 <Pitfall>
 
-Il router dell'app di Next.js è **attualmente in fase beta e non è ancora consigliato per la produzione** (al marzo 2023). Per sperimentarlo in un progetto Next.js esistente,  [segui questa guida di migrazione incrementale.](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
+Il router dell'app di Next.js è **attualmente in fase beta e non è ancora consigliato per la produzione** (al marzo 2023). Per sperimentarlo in un progetto Next.js esistente, [segui questa guida di migrazione incrementale.](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
 
 </Pitfall>
 
