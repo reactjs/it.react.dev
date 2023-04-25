@@ -239,41 +239,41 @@ This means only the search text and the value of the checkbox are state! Nicely 
 
 #### Props vs State {/*props-vs-state*/}
 
-There are two types of "model" data in React: props and state. The two are very different:
+Esistono due tipi di "modelli" di dati in React: props e state. Sono molto diversi tra di loro
 
-* [**Props** are like arguments you pass](/learn/passing-props-to-a-component) to a function. They let a parent component pass data to a child component and customize its appearance. For example, a `Form` can pass a `color` prop to a `Button`.
-* [**State** is like a component’s memory.](/learn/state-a-components-memory) It lets a component keep track of some information and change it in response to interactions. For example, a `Button` might keep track of `isHovered` state.
+* [Le **Props** sono come argomenti che passi](/learn/passing-props-to-a-component) ad una funzione.  Permettono a un componente genitore di passare dei dati ad un componente figlio e di personalizzarne l'aspetto. Per esempio, un `Form` può passare una prop `color` ad un `Button`.
+* [**Lo State** è come se fosse la memoria di un componente.](/learn/state-a-components-memory) Permette a un componente di tenere traccia di alcune informazioni e modificarle in risposta ad interazioni. Per esempio, un `Button` potrebbe tenere traccia dello state `isHovered`.
 
-Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and *pass it down* to child components as their props. It's okay if the difference still feels fuzzy on the first read. It takes a bit of practice for it to really stick!
+Props e state sono diversi, ma lavorano insieme. Un componente genitore terrà spesso alcune informazioni nello state (in modo che possa modificarle) e *passarle* ai componenti figlio come props. È normale se questa differenza ti sembra ancora un po' confusa alla prima lettura. Ci vuole un po' di pratica per farla rimanere impressa!
 
 </DeepDive>
 
-## Step 4: Identify where your state should live {/*step-4-identify-where-your-state-should-live*/}
+## Step 4: Identifica dove lo state dovrebbe vivere {/*step-4-identify-where-your-state-should-live*/}
 
-After identifying your app’s minimal state data, you need to identify which component is responsible for changing this state, or *owns* the state. Remember: React uses one-way data flow, passing data down the component hierarchy from parent to child component. It may not be immediately clear which component should own what state. This can be challenging if you’re new to this concept, but you can figure it out by following these steps!
+Dopo aver identificato il valore minimo dello state della tua applicazione, devi identificare quale componente è responsabile per modificarlo, o *possiede* lo state. Ricorda: React usa un flusso di dati unidirezionale, passando i dati dalla gerarchia dei componenti da genitore a componente figlio. Potrebbe non essere immediatamente chiaro quale componente dovrebbe possedere quale stato. Questo concetto può essere difficile da capire se per te è nuovo, ma puoi capirlo seguendo questi passaggi!
 
-For each piece of state in your application:
+Per ogni pezzo di state nella tua applicazione:
 
-1. Identify *every* component that renders something based on that state.
-2. Find their closest common parent component--a component above them all in the hierarchy.
-3. Decide where the state should live:
-    1. Often, you can put the state directly into their common parent.
-    2. You can also put the state into some component above their common parent.
-    3. If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common parent component.
+1. Identifica *tutti* i componenti che mostrano qualcosa basandosi su quello state.
+2. Trova il loro componente genitore comune più vicino--un componente sopra di loro nella gerarchia.
+3. Decidi dove lo state dovrebbe vivere:
+    1. Spesso, puoi mettere lo state direttamente nel loro genitore comune.
+    2. Puoi anche mettere lo state in qualche componente sopra il loro genitore comune.
+    3. Se non puoi trovare un componente in cui abbia senso possedere lo state, crea un nuovo componente esclusivamente per contenere lo state e aggiungilo in qualche punto della gerarchia sopra il componente genitore comune.
 
-In the previous step, you found two pieces of state in this application: the search input text, and the value of the checkbox. In this example, they always appear together, so it makes sense to put them into the same place.
+Nello step precedente, hai identificato due pezzi di state in questa applicazione: il testo di input di ricerca e il valore della checkbox. In questo esempio, appaiono sempre insieme, quindi ha senso metterli nello stesso posto.
 
-Now let's run through our strategy for them:
+Adesso eseguiamo la nostra strategia per essi:
 
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-1. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-2. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+1. **Identifica i componenti che usano lo state:**
+    * `ProductTable` ha bisogno di filtrare la lista dei prodotti in base a quei valori di state (testo di ricerca e valore della checkbox).
+    * `SearchBar` ha bisogno di mostrare lo state (testo di ricerca e valore della checkbox).
+1. **Trova il loro genitore comune:** Il primo componente genitore che entrambi i componenti condividono è `FilterableProductTable`.
+2. **Decidi dove vive lo state**: Terremo i valori dello state del testo del filtro e della checkbox in `FilterableProductTable`.
 
-So the state values will live in `FilterableProductTable`. 
+Quindi i valori di state vivranno in `FilterableProductTable`.
 
-Add state to the component with the [`useState()` Hook.](/reference/react/useState) Hooks are special functions that let you "hook into" React. Add two state variables at the top of `FilterableProductTable` and specify their initial state:
+Aggiungi lo state al componente con l'[`useState()` Hook.](/reference/react/useState) Gli Hooks sono funzioni speciali che ti permettono di "collegarti" a React. Aggiungi due variabili state all'inizio di `FilterableProductTable` e specifica il loro stato iniziale:
 
 ```js
 function FilterableProductTable({ products }) {
@@ -281,7 +281,7 @@ function FilterableProductTable({ products }) {
   const [inStockOnly, setInStockOnly] = useState(false);  
 ```
 
-Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as props:
+Poi, passa `filterText` e `inStockOnly` a `ProductTable` e `SearchBar` come props:
 
 ```js
 <div>
@@ -295,7 +295,7 @@ Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as p
 </div>
 ```
 
-You can start seeing how your application will behave. Edit the `filterText` initial value from `useState('')` to `useState('fruit')` in the sandbox code below. You'll see both the search input text and the table update:
+Puoi iniziare a vedere come si comporterà la tua applicazione. Modifica il valore iniziale di `filterText` da `useState('')` a `useState('fruit')` nel codice sandbox qui sotto. Vedrai sia il testo di input di ricerca che la tabella si aggiornano:
 
 <Sandpack>
 
@@ -398,7 +398,7 @@ function SearchBar({ filterText, inStockOnly }) {
           type="checkbox" 
           checked={inStockOnly} />
         {' '}
-        Only show products in stock
+        Mostra solo prodotti in stock
       </label>
     </form>
   );
@@ -437,7 +437,7 @@ td {
 
 </Sandpack>
 
-Notice that editing the form doesn't work yet. There is a console error in the sandbox above explaining why:
+Nota che la modifica del form non funziona ancora. Nello sandbox sopra c'è un errore di console che spiega perché:
 
 <ConsoleBlock level="error">
 
@@ -445,7 +445,7 @@ You provided a \`value\` prop to a form field without an \`onChange\` handler. T
 
 </ConsoleBlock>
 
-In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
+Nel sandbox sopra, `ProductTable` e `SearchBar` leggono le props `filterText` e `inStockOnly` per renderizzare la tabella, l'input e checkbox. Ad esempio, ecco come `SearchBar` popola il valore dell'input:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
@@ -457,16 +457,15 @@ function SearchBar({ filterText, inStockOnly }) {
         placeholder="Search..."/>
 ```
 
-However, you haven't added any code to respond to the user actions like typing yet. This will be your final step.
+Tuttavia, non hai aggiunto alcun codice per rispondere alle azioni dell'utente come la digitazione. Questo sarà il tuo ultimo passaggio.
 
+## Step 5: Aggiungi il flusso di dati inverso {/*step-5-add-inverse-data-flow*/}
 
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
+Attualmente la tua applicazione viene visualizzata correttamente con le props e lo state che fluiscono verso il basso nella gerarchia. Ma per modificare lo state in base all'input dell'utente, è necessario supportare il flusso di dati anche in senso inverso: i componenti del modulo che si trovano più in basso nell'albero devono aggiornare lo state in `FilterableProductTable`.
 
-Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`. 
+React rende questo flusso di dati in modo esplicito, ma richiede un po' più di scrittura rispetto al two-way data binding. Se provi a digitare o a spuntare la checkbox nell'esempio qui sopra, vedrai che React ignora la tua input. Questo è voluto. Scrivendo `<input value={filterText} />`, hai impostato la prop `value` dell'`input` per essere sempre uguale allo stato `filterText` passato da `FilterableProductTable`. Poiché lo stato `filterText` non viene mai impostato, l'input non cambia mai.
 
-React makes this data flow explicit, but it requires a little more typing than two-way data binding. If you try to type or check the box in the example above, you'll see that React ignores your input. This is intentional. By writing `<input value={filterText} />`, you've set the `value` prop of the `input` to always be equal to the `filterText` state passed in from `FilterableProductTable`. Since `filterText` state is never set, the input never changes.
-
-You want to make it so whenever the user changes the form inputs, the state updates to reflect those changes. The state is owned by `FilterableProductTable`, so only it can call `setFilterText` and `setInStockOnly`. To let `SearchBar` update the `FilterableProductTable`'s state, you need to pass these functions down to `SearchBar`:
+L'obiettivo è che ogni volta che l'utente modifica gli input del form lo state si aggiorni per riflettere tali modifiche. Lo state è di proprietà di `FilterableProductTable`, quindi solo esso può chiamare `setFilterText` e `setInStockOnly`. Per consentire a `SearchBar` di aggiornare lo state di `FilterableProductTable`, è necessario passare queste funzioni a `SearchBar`:
 
 ```js {2,3,10,11}
 function FilterableProductTable({ products }) {
@@ -482,7 +481,8 @@ function FilterableProductTable({ products }) {
         onInStockOnlyChange={setInStockOnly} />
 ```
 
-Inside the `SearchBar`, you will add the `onChange` event handlers and set the parent state from them:
+All'interno di `SearchBar`, aggiungi l'evento `onChange` e imposta lo state del genitore da esso:
+
 
 ```js {5}
 <input 
@@ -492,6 +492,7 @@ Inside the `SearchBar`, you will add the `onChange` event handlers and set the p
   onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
+Adesso l'applicazione funziona completamente!
 Now the application fully works!
 
 <Sandpack>
@@ -603,7 +604,7 @@ function SearchBar({
           checked={inStockOnly} 
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
-        Only show products in stock
+        Mostra solo prodotti in stock
       </label>
     </form>
   );
@@ -642,8 +643,9 @@ td {
 
 </Sandpack>
 
-You can learn all about handling events and updating state in the [Adding Interactivity](/learn/adding-interactivity) section.
+Puoi imparare tutto su come gestire gli eventi e aggiornare lo state nella sezione [Adding Interactivity](/learn/adding-interactivity).
 
-## Where to go from here {/*where-to-go-from-here*/}
+## Come procedere {/*where-to-go-from-here*/}
 
-This was a very brief introduction to how to think about building components and applications with React. You can [start a React project](/learn/installation) right now or [dive deeper on all the syntax](/learn/describing-the-ui) used in this tutorial.
+Questa è stata una breve introduzione su come pensare alla costruzione di componenti e applicazioni con React. Puoi [iniziare un progetto React](/learn/installation) subito o [approfondire la sintassi](/learn/describing-the-ui) usata in questo tutorial.
+
