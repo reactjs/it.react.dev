@@ -222,7 +222,7 @@ Quale di questi può essere state? Identifica quelli che non lo sono:
 
 * **Rimane invariato** nel tempo? Allora non è state.
 * Viene **passato da un componente genitore** via props? Allora non è state.
-* **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora *sicuramente non é* state!
+* **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora **sicuramente non é** state!
 
 Quello che è rimane probabilmente può considerarsi state.
 
@@ -398,7 +398,7 @@ function SearchBar({ filterText, inStockOnly }) {
           type="checkbox" 
           checked={inStockOnly} />
         {' '}
-        Mostra solo prodotti in stock
+        Only show products in stock
       </label>
     </form>
   );
@@ -604,7 +604,7 @@ function SearchBar({
           checked={inStockOnly} 
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
-        Mostra solo prodotti in stock
+        Only show products in stock
       </label>
     </form>
   );
