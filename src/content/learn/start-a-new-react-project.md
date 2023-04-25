@@ -30,7 +30,7 @@ Next.js è mantenuto da [Vercel](https://vercel.com/). Puoi [distribuire un'app 
 
 ### Remix {/*remix*/}
 
-**[Remix](https://remix.run/) è un framework React a stack completo con routing nidificato.** Ti consente di suddividere la tua app in parti nidificate che possono caricare dati in parallelo e aggiornarsi in risposta alle azioni dell'utente. Per creare un nuovo progetto Remix, esegui il seguente comando:
+**[Remix](https://remix.run/) è un framework React full-stack con routing nidificato.** Ti consente di suddividere la tua app in parti nidificate che possono caricare dati in parallelo e aggiornarsi in risposta alle azioni dell'utente. Per creare un nuovo progetto Remix, esegui il seguente comando:
 
 <TerminalBlock>
 npx create-remix
