@@ -62,7 +62,7 @@ npx create-expo-app
 
 Se sei nuovo in Expo, puoi seguire [Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
 
-Expo è mantenuto da [Expo (l'azienda)](https://expo.dev/about). La creazione di app con Expo è gratuita e puoi inviarle ai negozi di app di Google e Apple senza restrizioni. Expo fornisce inoltre servizi cloud a pagamento opzionali.
+Expo è mantenuto da [Expo (l'azienda)](https://expo.dev/about). La creazione di app con Expo è gratuita e puoi inviarle agli app store di Google e Apple senza restrizioni. Expo fornisce inoltre servizi cloud a pagamento opzionali.
 
 <DeepDive>
 
@@ -128,6 +128,6 @@ Il router dell'app di Next.js integra anche il [recupero dei dati con Suspense.]
 </Suspense>
 ```
 
-Server Components e Suspense sono funzionalità di React che possono essere adottate a livello di framework. Al momento, il Next.js App Router è l'implementazione più completa di queste funzionalità tra i vari framework. Il team di React sta anche lavorando con gli sviluppatori di bundler per rendere più semplice l'implementazione di queste funzionalità nella prossima generazione di framework.
+Server Components e Suspense sono funzionalità di React che possono essere adottate a livello di framework. Al momento, il router dell'app di Next.js è l'implementazione più completa di queste funzionalità tra i vari framework. Il team di React sta anche lavorando con gli sviluppatori di bundler per rendere più semplice l'implementazione di queste funzionalità nella prossima generazione di framework.
 
 </DeepDive>
