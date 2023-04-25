@@ -120,7 +120,7 @@ async function Talks({ confId }) {
 }
 ```
 
-Il router dell'app di Next.js integra anche il [recupero dei dati con Suspense.](/blog/2022/03/29/react-v18#suspense-in-data-frameworks).Questo consente di specificare uno stato di caricamento (come un segnaposto scheletro) per diverse parti dell'interfaccia utente direttamente nell'albero di React:
+Il router dell'app di Next.js integra anche il [recupero dei dati con Suspense.](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Questo consente di specificare uno stato di caricamento (come un segnaposto scheletro) per diverse parti dell'interfaccia utente direttamente nell'albero di React:
 
 ```js
 <Suspense fallback={<TalksLoading />}>
