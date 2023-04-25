@@ -10,8 +10,8 @@ React è stato progettato sin dal principio per essere adottato gradualmente. A 
 
 <YouWillLearn isChapter={true}>
 
-* [Come aggiungere React ad una pagina HTML](/learn/add-react-to-a-website)
-* [Come iniziare un progetto React](/learn/start-a-new-react-project)
+* [How to start a new React project](/learn/start-a-new-react-project)
+* [How to add React to an existing project](/learn/add-react-to-an-existing-project)
 * [Come configurare il tuo editor](/learn/editor-setup)
 * [Come installare i React Developer Tools](/learn/react-developer-tools)
 
@@ -43,15 +43,10 @@ La maggioranza delle pagine della documentazione di React contengono sandboxes c
 
 Per provare React localmente sul suo computer, [scarica questa pagina HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Aprila nel tuo editor e nel tuo browser!
 
-## Aggiungere React ad una pagina {/*add-react-to-a-page*/}
+## Start a new React project {/*start-a-new-react-project*/}
 
-Se stai lavorando con un sito esistente ed hai bisogno di aggiungere un po' di React, puoi [aggiungere React con uno script tag.](/learn/add-react-to-a-website)
+If you want to build an app or a website fully with React, [start a new React project.](/learn/start-a-new-react-project)
 
-## Iniziare un progetto React {/*start-a-react-project*/}
+## Add React to an existing project {/*add-react-to-an-existing-project*/}
 
-Se sei pronto per [iniziare un progetto a se stante](/learn/start-a-new-react-project) con React, puoi configurare gli strumenti minimi indispensabili per una esperienza di sviluppo piacevole. Puoi anche cominciare con un framework che prende decisioni per te sin dall'inizio.
-
-## Passi successivi {/*next-steps*/}
-
-Prosegui con la [Guida Rapida](/learn) per una panoramica dei concetti React più importanti che incontrerai ogni giorno.
-
+If want to try using React in your existing app or a website, [add React to an existing project.](/learn/add-react-to-an-existing-project)
