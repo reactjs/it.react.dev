@@ -54,7 +54,7 @@ Gatsby è mantenuto da [Netlify](https://www.netlify.com/). Puoi [distribuire un
 
 ### Expo (for native apps) {/*expo*/}
 
-**[Expo](https://expo.dev/)  un framework per React che ti consente di creare app universali per Android, iOS e web con interfacce utente veramente native.** Fornisce un SDK per [React Native](https://reactnative.dev/) che semplifica l'utilizzo delle parti native. Per creare un nuovo progetto Expo, esegui il seguente comando:
+**[Expo](https://expo.dev/) è un framework per React che ti consente di creare app universali per Android, iOS e web con interfacce utente veramente native.** Fornisce un SDK per [React Native](https://reactnative.dev/) che semplifica l'utilizzo delle parti native. Per creare un nuovo progetto Expo, esegui il seguente comando:
 
 <TerminalBlock>
 npx create-expo-app
