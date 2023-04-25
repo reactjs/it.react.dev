@@ -62,7 +62,7 @@ npx create-expo-app
 
 Se sei nuovo in Expo, puoi seguire [Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
 
-Expo è mantenuto da [Expo ('l'azienda)](https://expo.dev/about). La creazione di app con Expo è gratuita e puoi inviarle ai negozi di app di Google e Apple senza restrizioni. Expo fornisce inoltre servizi cloud a pagamento opzionali.
+Expo è mantenuto da [Expo (l'azienda)](https://expo.dev/about). La creazione di app con Expo è gratuita e puoi inviarle ai negozi di app di Google e Apple senza restrizioni. Expo fornisce inoltre servizi cloud a pagamento opzionali.
 
 <DeepDive>
 
