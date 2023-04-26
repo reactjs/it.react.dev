@@ -21,19 +21,19 @@
       ]
     },
     {
-      "title": "Installation",
+      "title": "Installazione",
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Start a New React Project",
+          "title": "Inizia un nuovo progetto React",
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Add React to an Existing Project",
+          "title": "Aggiungi React ad un progetto esistente",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
-          "title": "Editor Setup",
+          "title": "Setup dell'editor",
           "path": "/learn/editor-setup"
         },
         {
