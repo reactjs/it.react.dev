@@ -273,7 +273,7 @@ Adesso eseguiamo la nostra strategia per essi:
 
 Quindi i valori di state vivranno in `FilterableProductTable`.
 
-Aggiungi lo state al componente con l'[`useState()` Hook.](/reference/react/useState) Gli Hooks sono funzioni speciali che ti permettono di "collegarti" a React. Aggiungi due variabili state all'inizio di `FilterableProductTable` e specifica il loro stato iniziale:
+Aggiungi lo state al componente con l'[Hook `useState()`.](/reference/react/useState) Gli Hooks sono funzioni speciali che ti permettono di "collegarti" a React. Aggiungi due variabili state all'inizio di `FilterableProductTable` e specifica il loro stato iniziale:
 
 ```js
 function FilterableProductTable({ products }) {
