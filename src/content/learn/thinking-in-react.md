@@ -461,7 +461,7 @@ Tuttavia, non hai aggiunto alcun codice per rispondere alle azioni dell'utente c
 
 ## Step 5: Aggiungi il flusso di dati inverso {/*step-5-add-inverse-data-flow*/}
 
-Attualmente la tua applicazione viene visualizzata correttamente con le props e lo state che fluiscono verso il basso nella gerarchia. Ma per modificare lo state in base all'input dell'utente, è necessario supportare il flusso di dati anche in senso inverso: i componenti del modulo che si trovano più in basso nell'albero devono aggiornare lo state in `FilterableProductTable`.
+Attualmente la tua applicazione viene visualizzata correttamente con le props e lo state che fluiscono verso il basso nella gerarchia. Ma per modificare lo state in base all'input dell'utente, è necessario supportare il flusso di dati anche in senso inverso: i componenti del form che si trovano più in basso nell'albero devono aggiornare lo state in `FilterableProductTable`.
 
 React rende questo flusso di dati in modo esplicito, ma richiede un po' più di scrittura rispetto al two-way data binding. Se provi a digitare o a spuntare la checkbox nell'esempio qui sopra, vedrai che React ignora il tuo input. Questo è voluto. Scrivendo `<input value={filterText} />`, hai impostato la prop `value` dell'`input` per essere sempre uguale allo stato `filterText` passato da `FilterableProductTable`. Poiché lo stato `filterText` non viene mai impostato, l'input non cambia mai.
 
