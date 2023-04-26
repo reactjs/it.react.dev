@@ -492,7 +492,6 @@ All'interno di `SearchBar`, aggiungi l'evento `onChange` e imposta lo state del 
 ```
 
 Adesso l'applicazione funziona completamente!
-Now the application fully works!
 
 <Sandpack>
 
