@@ -1,5 +1,5 @@
 ---
-title: Il tuo primo Componente
+title: Il Tuo Primo Componente
 ---
 
 <Intro>
@@ -341,9 +341,9 @@ Oppure racchiudendo il markup JSX restituito in una coppia di parentesi che si a
 ```js
 export default function Profile() {
   return (
-    <img 
-      src="https://i.imgur.com/jA8hHMpm.jpg" 
-      alt="Katsuko Saruhashi" 
+    <img
+      src="https://i.imgur.com/jA8hHMpm.jpg"
+      alt="Katsuko Saruhashi"
     />
   );
 }
