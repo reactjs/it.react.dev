@@ -490,7 +490,7 @@ function MyButton({ count, onClick }) {
 }
 ```
 
-Quando fai clic sul pulsante, viene attivato l'handler `onClick`. La prop `onClick` di ciascun pulsante è stata impostata sulla funzione `handleClick` all'interno di `MyApp`, quindi il codice al suo interno viene eseguito. Quel codice chiama `setCount(count + 1)`, incrementando la variabile state `count`. Il nuovo valore di `count` viene passato come prop a ciascun pulsante, quindi tutti mostrano il nuovo valore. Questo viene chiamato "sollevamento dello state". Sollevando lo state, lo hai condiviso tra i componenti.
+Quando fai click sul pulsante, viene attivato l'handler `onClick`. La prop `onClick` di ciascun pulsante è stata impostata sulla funzione `handleClick` all'interno di `MyApp`, quindi il codice al suo interno viene eseguito. Quel codice chiama `setCount(count + 1)`, incrementando la variabile state `count`. Il nuovo valore di `count` viene passato come prop a ciascun pulsante, quindi tutti mostrano il nuovo valore. Questo viene chiamato "sollevamento dello state". Sollevando lo state, lo hai condiviso tra i componenti.
 
 <Sandpack>
 
