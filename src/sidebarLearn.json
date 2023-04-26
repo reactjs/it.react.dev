@@ -21,11 +21,11 @@
       ]
     },
     {
-      "title": "Installation",
+      "title": "Installazione",
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Start a New React Project",
+          "title": "Avviare un Nuovo Progetto React",
           "path": "/learn/start-a-new-react-project"
         },
         {
@@ -186,7 +186,7 @@
         },
         {
           "title": "Removing Effect Dependencies",
-          "path": "/learn/removing-effect-dependencies"              
+          "path": "/learn/removing-effect-dependencies"
         },
         {
           "title": "Reusing Logic with Custom Hooks",
