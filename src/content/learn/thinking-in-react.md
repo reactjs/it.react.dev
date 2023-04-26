@@ -295,7 +295,7 @@ Poi, passa `filterText` e `inStockOnly` a `ProductTable` e `SearchBar` come prop
 </div>
 ```
 
-Puoi iniziare a vedere come si comporterà la tua applicazione. Modifica il valore iniziale di `filterText` da `useState('')` a `useState('fruit')` nel codice sandbox qui sotto. Vedrai sia il testo di input di ricerca che la tabella si aggiornano:
+Puoi iniziare a vedere come si comporterà la tua applicazione. Modifica il valore iniziale di `filterText` da `useState('')` a `useState('fruit')` nel codice sandbox qui sotto. Vedrai che sia il testo di input di ricerca che la tabella si aggiornano:
 
 <Sandpack>
 
