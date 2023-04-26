@@ -209,7 +209,7 @@ A questo punto, non dovresti usare alcun valore di state. Lo farai nel prossimo 
 
 Per rendere la UI interattiva, hai bisogno di permettere agli utenti di modificare il tuo modello di dati sottostante. Per questo userai lo *state*.
 
-Immaginati lo state come il set minimo di dati modificabili che la tua app deve ricordare per funzionare. Il principio più importante per la struttura dello state è quello di mantenerlo [DRY (Don't Repeat Yourself).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Trova la rappresentazione minima dello state che la tua applicazione ha bisogno e calcola tutto il resto on-demand. Per esempio, se stai costruendo una lista della spesa, puoi memorizzare gli elementi come un array nello state. Se vuoi anche visualizzare il numero di elementi nella lista, non memorizzare il numero di elementi come un altro valore di state--invece, leggi la lunghezza del tuo array.
+Immagina lo state come il set minimo di dati modificabili che la tua app deve ricordare per funzionare. Il principio più importante per la struttura dello state è quello di mantenerlo [DRY (Don't Repeat Yourself).](https://it.wikipedia.org/wiki/Don%27t_repeat_yourself) Trova la rappresentazione minima assoluta dello state che la tua applicazione ha bisogno e calcola tutto il resto on-demand. Per esempio, se stai costruendo una lista della spesa, puoi memorizzare gli elementi come un array nello state. Se vuoi anche visualizzare il numero di elementi nella lista, non memorizzare il numero di elementi come un altro valore di state--invece, leggi la lunghezza del tuo array.
 
 Adesso immaginati tutti i pezzi di dati in questa applicazione d'esempio:
 
