@@ -222,7 +222,7 @@ body {
 
 </Sandpack>
 
-We'd also like to highlight [Thinking in React](/learn/thinking-in-react)—that's the tutorial that made React "click" for many of us. **We've updated both of these classic tutorials to use function components and Hooks,** so they're as good as new.
+We'd also like to highlight [Pensare in React](/learn/thinking-in-react)—that's the tutorial that made React "click" for many of us. **We've updated both of these classic tutorials to use function components and Hooks,** so they're as good as new.
 
 <Note>
 
@@ -276,17 +276,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -314,17 +314,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -362,17 +362,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Space suit" 
+        <Item
+          importance={9}
+          name="Space suit"
         />
-        <Item 
-          importance={0} 
-          name="Helmet with a golden leaf" 
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          importance={6} 
-          name="Photo of Tam" 
+        <Item
+          importance={6}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -406,17 +406,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Space suit" 
+        <Item
+          importance={9}
+          name="Space suit"
         />
-        <Item 
-          importance={0} 
-          name="Helmet with a golden leaf" 
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          importance={6} 
-          name="Photo of Tam" 
+        <Item
+          importance={6}
+          name="Photo of Tam"
         />
       </ul>
     </section>
