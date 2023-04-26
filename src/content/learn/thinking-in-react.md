@@ -483,7 +483,6 @@ function FilterableProductTable({ products }) {
 
 All'interno di `SearchBar`, aggiungi l'evento `onChange` e imposta lo state del genitore da esso:
 
-
 ```js {5}
 <input 
   type="text" 
