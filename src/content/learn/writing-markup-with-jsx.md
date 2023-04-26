@@ -1,5 +1,5 @@
 ---
-title: Scrittura del Markup con JSX
+title: Scrivere Markup con JSX
 ---
 
 <Intro>
@@ -135,7 +135,7 @@ La maggior parte delle volte, i messaggi di errore di React ti aiuteranno a trov
 
 ### 1. Restituisci un singolo elemento root {/*1-return-a-single-root-element*/}
 
-Per restituire più elementi da un componente, **utilizza un tag padre per incapsularli(wrap)**
+Per restituire più elementi da un componente, **utilizza un tag padre per wrapparli**
 
 Per esempio, puoi usare un `<div>`:
 
@@ -215,19 +215,19 @@ Ecco perché in React molti attributi HTML e SVG sono scritti in camelCase. Ad e
 />
 ```
 
-You can [find all these attributes in the list of DOM component props.](/reference/react-dom/components/common) If you get one wrong, don't worry—React will print a message with a possible correction to the [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
+Puoi [trovare tutti questi attributi nell'elenco delle props del componente DOM.](/reference/react-dom/components/common) Se ne sbagli uno, non preoccuparti: React stamperà un messaggio con una possibile correzione nella [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
 
 <Pitfall>
 
-For historical reasons, [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) and [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) attributes are written as in HTML with dashes.
+Per ragioni storiche, gli attributi [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) e [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) sono scritti come in HTML con i trattini.
 
 </Pitfall>
 
-### Pro-tip: Use a JSX Converter {/*pro-tip-use-a-jsx-converter*/}
+### Pro-tip: Usa un convertitore JSX {/*pro-tip-use-a-jsx-converter*/}
 
-Converting all these attributes in existing markup can be tedious! We recommend using a [converter](https://transform.tools/html-to-jsx) to translate your existing HTML and SVG to JSX. Converters are very useful in practice, but it's still worth understanding what is going on so that you can comfortably write JSX on your own.
+Convertire tutti questi attributi nel markup esistente può essere noioso! Raccomandiamo di utilizzare un [converter](https://transform.tools/html-to-jsx) per tradurre il vostro HTML e SVG esistenti in JSX. I convertitori sono molto utili nella pratica, ma è comunque utile capire cosa succede in modo da poter scrivere JSX autonomamente.
 
-Here is your final result:
+Ecco il tuo risultato finale:
 
 <Sandpack>
 
@@ -259,11 +259,11 @@ img { height: 90px }
 
 <Recap>
 
-Now you know why JSX exists and how to use it in components:
+Ora sai perché JSX esiste e come usarlo nei componenti:
 
-* React components group rendering logic together with markup because they are related.
-* JSX is similar to HTML, with a few differences. You can use a [converter](https://transform.tools/html-to-jsx) if you need to.
-* Error messages will often point you in the right direction to fixing your markup.
+* I componenti React raggruppano la logica di rendering insieme al markup poiché sono correlati.
+* JSX è simile all'HTML, con alcune differenze. Puoi usare un [converter](https://transform.tools/html-to-jsx) se ne hai bisogno.
+* I messaggi di errore spesso ti indirizzeranno nella giusta direzione per correggere il tuo markup.
 
 </Recap>
 
@@ -271,9 +271,9 @@ Now you know why JSX exists and how to use it in components:
 
 <Challenges>
 
-#### Convert some HTML to JSX {/*convert-some-html-to-jsx*/}
+#### Converti un po' di HTML in JSX {/*convert-some-html-to-jsx*/}
 
-This HTML was pasted into a component, but it's not valid JSX. Fix it:
+Questo HTML è stato copiato in un componente, ma non è un JSX valido. Correggilo:
 
 <Sandpack>
 
@@ -309,7 +309,7 @@ export default function Bio() {
 
 </Sandpack>
 
-Whether to do it by hand or using the converter is up to you!
+Che tu lo faccia a mano o usando il convertitore, dipende da te!
 
 <Solution>
 
