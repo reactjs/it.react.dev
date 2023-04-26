@@ -437,7 +437,7 @@ td {
 
 </Sandpack>
 
-Nota che la modifica del form non funziona ancora. Nello sandbox sopra c'è un errore di console che spiega perché:
+Nota che la modifica del form non funziona ancora. Nel sandbox sopra c'è un errore di console che spiega perché:
 
 <ConsoleBlock level="error">
 
