@@ -423,7 +423,7 @@ Inizialmente, lo state `count` di `MyApp` è `0` e viene trasmesso ad entrambi i
 
 <Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
 
-Al clic, `MyApp` aggiorna il suo state `count` a `1` e lo trasmette ad entrambi i figli.
+Al click, `MyApp` aggiorna il suo state `count` a `1` e lo trasmette ad entrambi i figli.
 
 </Diagram>
 
