@@ -221,7 +221,7 @@ Adesso immaginati tutti i pezzi di dati in questa applicazione d'esempio:
 Quale di questi può essere state? Identifica quelli che non lo sono:
 
 * **Rimane invariato** nel tempo? Allora non è state.
-* Viene **passato da un componente genitore** via props? Allora non è state.
+* Viene **passato da un componente genitore** tramite props? Allora non è state.
 * **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora **sicuramente non é** state!
 
 Quello che è rimane probabilmente può considerarsi state.
