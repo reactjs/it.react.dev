@@ -37,7 +37,7 @@ Inizia disegnando rettangoli intorno a ogni componente e sottocomponente nel moc
 
 A seconda del tuo background, puoi pensare di dividere un design in componenti in diversi modi:
 
-* **Programming**--usa la stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è la [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
+* **Programming**--usa lo stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è il [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
 * **CSS**--considera cosa farebbe un selettore di classe. (Tuttavia, i componenti sono un po' meno granulari.)
 * **Design**--considera come organizzare i livelli del design.
 
