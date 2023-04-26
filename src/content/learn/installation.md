@@ -11,7 +11,7 @@ React è stato progettato sin dal principio per essere adottato gradualmente. A 
 <YouWillLearn isChapter={true}>
 
 * [Come avviare un nuovo progetto React](/learn/start-a-new-react-project)
-* [How to add React to an existing project](/learn/add-react-to-an-existing-project)
+* [Come aggiungere React ad un progetto esistente](/learn/add-react-to-an-existing-project)
 * [Come configurare il tuo editor](/learn/editor-setup)
 * [Come installare i React Developer Tools](/learn/react-developer-tools)
 
