@@ -429,7 +429,7 @@ Al click, `MyApp` aggiorna il suo state `count` a `1` e lo trasmette ad entrambi
 
 </DiagramGroup>
 
-Ora quando fai clic su uno dei due pulsanti, il `count` in `MyApp` cambierà, il quale cambierà entrambi i contatori in `MyButton`. Ecco come puoi esprimerlo nel codice.
+Ora quando fai click su uno dei due pulsanti, il `count` in `MyApp` cambierà, il quale cambierà entrambi i contatori in `MyButton`. Ecco come puoi esprimerlo nel codice.
 
 Per prima cosa, *sposta lo state in alto* da `MyButton` a `MyApp`:
 
