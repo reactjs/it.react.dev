@@ -43,7 +43,7 @@ A seconda del tuo background, puoi pensare di dividere un design in componenti i
 
 Se il tuo JSON è strutturato bene, noterai che spesso mappa naturalmente la struttura dei componenti della tua UI. Questo perché la UI e i modelli di dati spesso hanno la stessa architettura dell'informazione--ovvero la stessa forma. Separa la tua UI in componenti, in cui ogni componente corrisponde a una parte del tuo modello di dati.
 
-In questa schermata ci sono cinque componento:
+In questa schermata ci sono cinque componenti:
 
 <FullWidth>
 
