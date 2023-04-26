@@ -224,7 +224,7 @@ Quale di questi può essere state? Identifica quelli che non lo sono:
 * Viene **passato da un componente genitore** tramite props? Allora non è state.
 * **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora **sicuramente** non è state!
 
-Quello che è rimane probabilmente può considerarsi state.
+Quello che è rimasto probabilmente può considerarsi state.
 
 Analizziamo di nuovo questi dati uno alla volta:
 
