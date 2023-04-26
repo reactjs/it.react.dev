@@ -1,5 +1,5 @@
 ---
-title: Avviare un nuovo progetto React
+title: Avviare un Nuovo Progetto React
 ---
 
 <Intro>
