@@ -61,7 +61,7 @@ In questa schermata ci sono cinque componenti:
 
 </FullWidth>
 
-Se guardi il `ProductTable` (lavanda), noterai che l'intestazione della tabella (che contiene le label "Name" e "Price") non hanno i propri componenti. Questa è una questione di preferenza e puoi scegliere entrambe le opzioni. Per questo esempio, fa parte di `ProductTable` perché appare all'interno della lista di `ProductTable`. Tuttavia, se questa intestazione diventa complessa (ad esempio, se aggiungi la possibilità di ordinare), puoi spostarla in un proprio componente `ProductTableHeader`.
+Se guardi il `ProductTable` (lavanda), noterai che l'intestazione della tabella (che contiene le label "Name" e "Price") non ha un proprio componente. Questa è una questione di preferenza e puoi scegliere entrambe le opzioni. Per questo esempio, fa parte di `ProductTable` perché appare all'interno della lista di `ProductTable`. Tuttavia, se questa intestazione diventa complessa (ad esempio, se aggiungi la possibilità di ordinare), puoi spostarla in un proprio componente `ProductTableHeader`.
 
 Adesso che hai identificato i componenti nel mockup, organizzali in una gerarchia. I componenti che appaiono all'interno di un altro componente nel mockup dovrebbero apparire come figli:
 
