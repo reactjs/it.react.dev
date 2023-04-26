@@ -35,7 +35,7 @@ Per implementare una UI in React, di solito segui i seguenti cinque step.
 
 Inizia disegnando rettangoli intorno a ogni componente e sottocomponente nel mockup e assegna loro un nome. Se lavori con un designer, potrebbe avere già nominato questi componenti nel suo tool di design. Chiediglieli!
 
-A seconda del tuo background, puoi pensare a dividere un design in componenti in diversi modi:
+A seconda del tuo background, puoi pensare di dividere un design in componenti in diversi modi:
 
 * **Programming**--usa la stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è la [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
 * **CSS**--considera cosa farebbe un selettore di classe. (Tuttavia, i componenti sono un po' meno granulari.)
