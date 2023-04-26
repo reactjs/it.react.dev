@@ -445,7 +445,7 @@ You provided a \`value\` prop to a form field without an \`onChange\` handler. T
 
 </ConsoleBlock>
 
-Nel sandbox sopra, `ProductTable` e `SearchBar` leggono le props `filterText` e `inStockOnly` per renderizzare la tabella, l'input e checkbox. Ad esempio, ecco come `SearchBar` popola il valore dell'input:
+Nel sandbox sopra, `ProductTable` e `SearchBar` leggono le props `filterText` e `inStockOnly` per renderizzare la tabella, l'input e la checkbox. Ad esempio, ecco come `SearchBar` popola il valore dell'input:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
