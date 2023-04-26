@@ -239,7 +239,7 @@ Questo significa che solo il testo di ricerca e il valore della checkbox sono st
 
 #### Props vs State {/*props-vs-state*/}
 
-Esistono due tipi di "modelli" di dati in React: props e state. Sono molto diversi tra di loro
+Esistono due tipi di "modelli" di dati in React: props e state. Sono molto diversi tra di loro:
 
 * [Le **Props** sono come argomenti che passi](/learn/passing-props-to-a-component) ad una funzione.  Permettono a un componente genitore di passare dei dati ad un componente figlio e di personalizzarne l'aspetto. Per esempio, un `Form` può passare una prop `color` ad un `Button`.
 * [**Lo State** è come se fosse la memoria di un componente.](/learn/state-a-components-memory) Permette a un componente di tenere traccia di alcune informazioni e modificarle in risposta ad interazioni. Per esempio, un `Button` potrebbe tenere traccia dello state `isHovered`.
