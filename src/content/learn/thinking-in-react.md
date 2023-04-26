@@ -222,7 +222,7 @@ Quale di questi può essere state? Identifica quelli che non lo sono:
 
 * **Rimane invariato** nel tempo? Allora non è state.
 * Viene **passato da un componente genitore** tramite props? Allora non è state.
-* **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora **sicuramente non é** state!
+* **Puoi calcolarlo** basandoti su uno state diverso o da props nel tuo componente? Allora **sicuramente** non è state!
 
 Quello che è rimane probabilmente può considerarsi state.
 
