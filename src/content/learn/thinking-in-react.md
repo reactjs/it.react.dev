@@ -195,7 +195,7 @@ td {
 
 </Sandpack>
 
-(Se questo codice ti spaventa, leggi prima il [Quick Start](/learn/)!)
+(Se questo codice ti spaventa, leggi prima l'[Avvio Rapido](/learn/)!)
 
 Dopo aver costruito i tuoi componenti, avrai una libreria di componenti riutilizzabili che renderizzano il tuo modello di dati. Dato che questa è un'app statica, i componenti restituiranno solo JSX. Il componente alla cima della gerarchia (`FilterableProductTable`) prenderà il tuo modello di dati come prop. Questo viene chiamato _one-way data flow_ (flusso di dati unidirezionale) perché i dati fluiscono dal componente di livello superiore a quelli al fondo dell'albero.
 
