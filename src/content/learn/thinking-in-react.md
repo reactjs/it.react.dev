@@ -241,7 +241,7 @@ Questo significa che solo il testo di ricerca e il valore della checkbox sono st
 
 Esistono due tipi di "modelli" di dati in React: props e state. Sono molto diversi tra di loro:
 
-* [Le **Props** sono come argomenti che passi](/learn/passing-props-to-a-component) ad una funzione.  Permettono a un componente genitore di passare dei dati ad un componente figlio e di personalizzarne l'aspetto. Per esempio, un `Form` può passare una prop `color` ad un `Button`.
+* [Le **Props** sono come argomenti che passi](/learn/passing-props-to-a-component) ad una funzione. Permettono ad un componente genitore di passare dei dati ad un componente figlio e di personalizzarne l'aspetto. Per esempio, un `Form` può passare una prop `color` ad un `Button`.
 * [**Lo State** è come se fosse la memoria di un componente.](/learn/state-a-components-memory) Permette a un componente di tenere traccia di alcune informazioni e modificarle in risposta ad interazioni. Per esempio, un `Button` potrebbe tenere traccia dello state `isHovered`.
 
 Props e state sono diversi, ma lavorano insieme. Un componente genitore terrà spesso alcune informazioni nello state (in modo che possa modificarle) e *passarle* ai componenti figlio come props. È normale se questa differenza ti sembra ancora un po' confusa alla prima lettura. Ci vuole un po' di pratica per farla rimanere impressa!
