@@ -29,11 +29,11 @@
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Add React to an Existing Project",
+          "title": "Aggiungi React ad un progetto esistente",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
-          "title": "Editor Setup",
+          "title": "Setup dell'editor",
           "path": "/learn/editor-setup"
         },
         {
@@ -52,7 +52,7 @@
       "path": "/learn/describing-the-ui",
       "routes": [
         {
-          "title": "Your First Component",
+          "title": "Il Tuo Primo Componente",
           "path": "/learn/your-first-component"
         },
         {

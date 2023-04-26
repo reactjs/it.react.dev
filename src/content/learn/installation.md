@@ -10,6 +10,7 @@ React è stato progettato sin dal principio per essere adottato gradualmente. A 
 
 <YouWillLearn isChapter={true}>
 
+
 * [Come avviare un Nuovo Progetto React](/learn/start-a-new-react-project)
 * [Come aggiungere React ad un progetto esistente](/learn/add-react-to-an-existing-project)
 * [Come configurare il tuo editor](/learn/editor-setup)
@@ -43,10 +44,10 @@ La maggioranza delle pagine della documentazione di React contengono sandboxes c
 
 Per provare React localmente sul suo computer, [scarica questa pagina HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Aprila nel tuo editor e nel tuo browser!
 
-## Start a new React project {/*start-a-new-react-project*/}
+## Inizia un nuovo progetto React {/*start-a-new-react-project*/}
 
-If you want to build an app or a website fully with React, [start a new React project.](/learn/start-a-new-react-project)
+Se desideri creare un'app o un sito web completamente con React, [inizia un nuovo progetto React.](/learn/start-a-new-react-project)
 
-## Add React to an existing project {/*add-react-to-an-existing-project*/}
+## Aggiungi React ad un progetto esistente {/*add-react-to-an-existing-project*/}
 
-If want to try using React in your existing app or a website, [add React to an existing project.](/learn/add-react-to-an-existing-project)
+Se desideri provare ad utilizzare React nella tua app o in un sito web esistente, [aggiungi React ad un progetto esistente.](/learn/add-react-to-an-existing-project)
