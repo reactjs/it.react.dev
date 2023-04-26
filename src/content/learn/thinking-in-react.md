@@ -230,7 +230,7 @@ Analizziamo di nuovo questi dati uno alla volta:
 
 1. La lista originale di prodotti è **passata tramite props, quindi non è state.**
 2. Il testo di ricerca sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
-3. Il valore della checkbox sembra essere state visto che cambia nel tempo e non può essere ricavato da nulla.
+3. Il valore della checkbox sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
 4. La lista filtrata dei prodotti **non è state perchè può essere calcolata** prendendo la lista originale dei prodotti e filtrandola in base al testo di ricerca e al valore della checkbox.
 
 Quindi significa che solo il testo di ricerca e il valore della checkbox sono state! Bene fatto!
