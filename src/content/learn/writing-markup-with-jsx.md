@@ -201,7 +201,7 @@ Ecco come appaiono chiusi l'immagine di Hedy Lamarr e gli elementi della lista:
 </>
 ```
 
-### 3. Scrivi in camelCase <s>tutte</s> quasi tutte le cose! {/*3-camelcase-salls-most-of-the-things*/}
+### 3. Scrivi in camelCase quasi <s>tutte</s> le cose! {/*3-camelcase-salls-most-of-the-things*/}
 
 JSX diventa JavaScript e gli attributi scritti in JSX diventano chiavi degli oggetti JavaScript. Nelle proprie componenti, spesso si vorrà leggere questi attributi in variabili. Ma JavaScript ha limitazioni sui nomi delle variabili. Ad esempio, i loro nomi non possono contenere trattini o essere parole riservate come `class`.
 
