@@ -215,7 +215,7 @@ Ecco perché in React molti attributi HTML e SVG sono scritti in camelCase. Ad e
 />
 ```
 
-Puoi [trovare tutti questi attributi nell'elenco delle props del componente DOM.](/reference/react-dom/components/common) Se ne sbagli uno, non preoccuparti: React stamperà un messaggio con una possibile correzione nella [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
+Puoi [trovare tutti questi attributi nell'elenco delle props del componente DOM.](/reference/react-dom/components/common) Se ne sbagli uno, non preoccuparti: React stamperà un messaggio con una possibile correzione nella [console del browser.](https://developer.mozilla.org/docs/Tools/Browser_Console)
 
 <Pitfall>
 
