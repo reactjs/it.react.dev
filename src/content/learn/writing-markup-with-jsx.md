@@ -49,7 +49,7 @@ Componente React `Sidebar.js`
 
 <Diagram name="writing_jsx_form" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Form containing two handlers onClick and onSubmit highlighted in yellow. Following the handlers is HTML highlighted in purple. The HTML contains a form element with a nested input element, each with an onClick prop.">
 
-`Form.js` componente React
+Componente React `Form.js`
 
 </Diagram>
 
