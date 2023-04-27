@@ -203,7 +203,7 @@ Ecco come appaiono chiusi l'immagine di Hedy Lamarr e gli elementi della lista:
 
 ### 3. Scrivi in camelCase quasi <s>tutte</s> le cose! {/*3-camelcase-salls-most-of-the-things*/}
 
-JSX diventa JavaScript e gli attributi scritti in JSX diventano chiavi degli oggetti JavaScript. Nelle proprie componenti, spesso si vorrà leggere questi attributi in variabili. Ma JavaScript ha limitazioni sui nomi delle variabili. Ad esempio, i loro nomi non possono contenere trattini o essere parole riservate come `class`.
+JSX diventa JavaScript e gli attributi scritti in JSX diventano chiavi degli oggetti JavaScript. Nei propri componenti, spesso si vorrà leggere questi attributi in variabili. Ma JavaScript ha limitazioni sui nomi delle variabili. Ad esempio, i loro nomi non possono contenere trattini o essere parole riservate come `class`.
 
 Ecco perché in React molti attributi HTML e SVG sono scritti in camelCase. Ad esempio, invece di `stroke-width` si usa `strokeWidth`. Poiché `class` è una parola riservata, in React si scrive `className` invece, nominata in base alla [corrispondente proprietà DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
