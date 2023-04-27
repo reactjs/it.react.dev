@@ -67,7 +67,7 @@ JSX e React sono due cose separate. Sono spesso utilizzati insieme, ma *puoi* [u
 
 ## Convertire HTML in JSX {/*converting-html-to-jsx*/}
 
-Supponiamo di avere qualche HTML(perfettamente valido):
+Supponiamo di avere qualche HTML (perfettamente valido):
 
 ```html
 <h1>Hedy Lamarr's Todos</h1>
