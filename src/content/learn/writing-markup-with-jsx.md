@@ -83,7 +83,7 @@ Supponiamo di avere qualche HTML (perfettamente valido):
 </ul>
 ```
 
-E vogliamo inserirlo nel nostro componente:
+E di volerlo inserire nel nostro componente:
 
 ```js
 export default function TodoList() {
