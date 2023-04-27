@@ -1,24 +1,24 @@
 ---
-title: Writing Markup with JSX
+title: Scrivere Markup con JSX
 ---
 
 <Intro>
 
-*JSX* is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
+*JSX* è un'estensione della sintassi JavaScript che consente di scrivere markup simile all'HTML all'interno di un file JavaScript. Sebbene esistano altri modi per scrivere i componenti, la maggior parte degli sviluppatori React preferisce la concisione di JSX, e la maggior parte dei codebase lo utilizza.
 
 </Intro>
 
 <YouWillLearn>
 
-* Why React mixes markup with rendering logic
-* How JSX is different from HTML
-* How to display information with JSX
+* Perché React mescola markup e logica di rendering
+* Come JSX differisce dall'HTML
+* Come visualizzare le informazioni con JSX
 
 </YouWillLearn>
 
-## JSX: Putting markup into JavaScript {/*jsx-putting-markup-into-javascript*/}
+## JSX: Inserire il markup in JavaScript {/*jsx-putting-markup-into-javascript*/}
 
-The Web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript—often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript:
+Il Web è stato costruito su HTML, CSS e JavaScript. Per molti anni, gli sviluppatori Web hanno tenuto il contenuto in HTML, il design in CSS e la logica in JavaScript, spesso in file separati! Il contenuto veniva marcato all'interno dell'HTML mentre la logica della pagina viveva separata in JavaScript:
 
 <DiagramGroup>
 
@@ -36,37 +36,37 @@ JavaScript
 
 </DiagramGroup>
 
-But as the Web became more interactive, logic increasingly determined content. JavaScript was in charge of the HTML! This is why **in React, rendering logic and markup live together in the same place—components.**
+Ma mentre il Web diventava sempre più interattivo, la logica determinava sempre più il contenuto. JavaScript era responsabile dell'HTML! Ecco perché **in React, la logica di rendering e il markup vivono insieme nello stesso posto, ovvero nei componenti.**
 
 <DiagramGroup>
 
 <Diagram name="writing_jsx_sidebar" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Sidebar which calls the function isLoggedIn, highlighted in yellow. Nested inside the function highlighted in purple is the p tag from before, and a Form tag referencing the component shown in the next diagram.">
 
-`Sidebar.js` React component
+Componente React `Sidebar.js`
 
 </Diagram>
 
 <Diagram name="writing_jsx_form" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Form containing two handlers onClick and onSubmit highlighted in yellow. Following the handlers is HTML highlighted in purple. The HTML contains a form element with a nested input element, each with an onClick prop.">
 
-`Form.js` React component
+Componente React `Form.js`
 
 </Diagram>
 
 </DiagramGroup>
 
-Keeping a button's rendering logic and markup together ensures that they stay in sync with each other on every edit. Conversely, details that are unrelated, such as the button's markup and a sidebar's markup, are isolated from each other, making it safer to change either of them on their own.
+Mantenere la logica di rendering e il markup di un pulsante insieme garantisce che rimangano sincronizzati ogni volta che vengono modificati. Al contrario, i dettagli non correlati, come il markup di un pulsante e il markup di una barra laterale, sono isolati l'uno dall'altro, rendendo più sicuro modificare ognuno di essi da solo.
 
-Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information. The best way to understand this is to convert some HTML markup to JSX markup.
+Ogni componente React è una funzione JavaScript che può contenere del markup che React renderizza nel browser. I componenti React utilizzano un'estensione di sintassi chiamata JSX per rappresentare quel markup. JSX assomiglia molto all'HTML, ma è un po' più rigoroso e può visualizzare informazioni dinamiche. La migliore maniera per comprenderlo è quella di convertire un po' di markup HTML in markup JSX.
 
 <Note>
 
-JSX and React are two separate things. They're often used together, but you *can* [use them independently](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) of each other. JSX is a syntax extension, while React is a JavaScript library.
+JSX e React sono due cose separate. Sono spesso utilizzati insieme, ma *puoi* [utilizzarli indipendentemente](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) l'uno dall'altro. JSX è un'estensione di sintassi, mentre React è una libreria JavaScript.
 
 </Note>
 
-## Converting HTML to JSX {/*converting-html-to-jsx*/}
+## Convertire HTML in JSX {/*converting-html-to-jsx*/}
 
-Suppose that you have some (perfectly valid) HTML:
+Supponiamo di avere qualche HTML (perfettamente valido):
 
 ```html
 <h1>Hedy Lamarr's Todos</h1>
@@ -82,7 +82,7 @@ Suppose that you have some (perfectly valid) HTML:
 </ul>
 ```
 
-And you want to put it into your component:
+E di volerlo inserire nel nostro componente:
 
 ```js
 export default function TodoList() {
@@ -92,7 +92,7 @@ export default function TodoList() {
 }
 ```
 
-If you copy and paste it as is, it will not work:
+Se lo copiamo e incolliamo così com'è, non funzionerà:
 
 
 <Sandpack>
@@ -122,21 +122,21 @@ img { height: 90px }
 
 </Sandpack>
 
-This is because JSX is stricter and has a few more rules than HTML! If you read the error messages above, they'll guide you to fix the markup, or you can follow the guide below.
+Ciò è dovuto al fatto che JSX è più rigoroso e ha alcune regole in più rispetto a HTML! Se leggi i messaggi di errore sopra, ti guideranno nella correzione del markup o puoi seguire la guida di seguito.
 
 <Note>
 
-Most of the time, React's on-screen error messages will help you find where the problem is. Give them a read if you get stuck!
+La maggior parte delle volte, i messaggi di errore di React ti aiuteranno a trovare il problema. Leggili se ti blocchi!
 
 </Note>
 
-## The Rules of JSX {/*the-rules-of-jsx*/}
+## Le Regole di JSX {/*the-rules-of-jsx*/}
 
-### 1. Return a single root element {/*1-return-a-single-root-element*/}
+### 1. Restituisci un singolo elemento root {/*1-return-a-single-root-element*/}
 
-To return multiple elements from a component, **wrap them with a single parent tag.**
+Per restituire più elementi da un componente, **utilizza un tag padre per wrapparli**
 
-For example, you can use a `<div>`:
+Per esempio, puoi usare un `<div>`:
 
 ```js {1,11}
 <div>
@@ -153,7 +153,7 @@ For example, you can use a `<div>`:
 ```
 
 
-If you don't want to add an extra `<div>` to your markup, you can write `<>` and `</>` instead:
+Se non vuoi aggiungere un ulteriore `<div>` al tuo markup, puoi scrivere invece `<>` e `</>`:
 
 ```js {1,11}
 <>
@@ -169,21 +169,21 @@ If you don't want to add an extra `<div>` to your markup, you can write `<>` and
 </>
 ```
 
-This empty tag is called a *[Fragment.](/reference/react/Fragment)* Fragments let you group things without leaving any trace in the browser HTML tree.
+Questo tag vuoto è chiamato *[Fragment.](/reference/react/Fragment)* I fragments ti consentono di raggruppare elementi senza lasciare traccia nell'albero HTML del browser.
 
 <DeepDive>
 
-#### Why do multiple JSX tags need to be wrapped? {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
+#### Perché i tag JSX multipli devono essere wrappati?  {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
 
-JSX looks like HTML, but under the hood it is transformed into plain JavaScript objects. You can't return two objects from a function without wrapping them into an array. This explains why you also can't return two JSX tags without wrapping them into another tag or a Fragment.
+JSX sembra HTML, ma sotto il cofano viene trasformato in semplici oggetti JavaScript. Non è possibile restituire due oggetti da una funzione senza wrapparli in un array. Questo spiega perché non è possibile restituire due tag JSX senza wrapparli in un altro tag o in un Fragment.
 
 </DeepDive>
 
-### 2. Close all the tags {/*2-close-all-the-tags*/}
+### 2. Chiudi tutti i tag {/*2-close-all-the-tags*/}
 
-JSX requires tags to be explicitly closed: self-closing tags like `<img>` must become `<img />`, and wrapping tags like `<li>oranges` must be written as `<li>oranges</li>`.
+JSX richiede che i tag vengano chiusi esplicitamente: i tag auto-chiusi come  `<img>` devono diventare `<img />`, e i tag di wrapping come `<li>oranges` devono essere scritti come `<li>oranges</li>`.
 
-This is how Hedy Lamarr's image and list items look closed:
+Ecco come appaiono chiusi l'immagine di Hedy Lamarr e gli elementi della lista:
 
 ```js {2-6,8-10}
 <>
@@ -200,11 +200,11 @@ This is how Hedy Lamarr's image and list items look closed:
 </>
 ```
 
-### 3. camelCase <s>all</s> most of the things! {/*3-camelcase-salls-most-of-the-things*/}
+### 3. Scrivi in camelCase quasi <s>tutte</s> le cose! {/*3-camelcase-salls-most-of-the-things*/}
 
-JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names. For example, their names can't contain dashes or be reserved words like `class`.
+JSX diventa JavaScript e gli attributi scritti in JSX diventano chiavi degli oggetti JavaScript. Nei propri componenti, spesso si vorrà leggere questi attributi in variabili. Ma JavaScript ha limitazioni sui nomi delle variabili. Ad esempio, i loro nomi non possono contenere trattini o essere parole riservate come `class`.
 
-This is why, in React, many HTML and SVG attributes are written in camelCase. For example, instead of `stroke-width` you use `strokeWidth`. Since `class` is a reserved word, in React you write `className` instead, named after the [corresponding DOM property](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
+Ecco perché in React molti attributi HTML e SVG sono scritti in camelCase. Ad esempio, invece di `stroke-width` si usa `strokeWidth`. Poiché `class` è una parola riservata, in React si scrive `className` invece, nominata in base alla [corrispondente proprietà DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
 ```js {4}
 <img 
@@ -214,19 +214,19 @@ This is why, in React, many HTML and SVG attributes are written in camelCase. Fo
 />
 ```
 
-You can [find all these attributes in the list of DOM component props.](/reference/react-dom/components/common) If you get one wrong, don't worry—React will print a message with a possible correction to the [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
+Puoi [trovare tutti questi attributi nell'elenco delle props del componente DOM.](/reference/react-dom/components/common) Se ne sbagli uno, non preoccuparti: React stamperà un messaggio con una possibile correzione nella [console del browser.](https://developer.mozilla.org/docs/Tools/Browser_Console)
 
 <Pitfall>
 
-For historical reasons, [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) and [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) attributes are written as in HTML with dashes.
+Per ragioni storiche, gli attributi [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) e [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) sono scritti come in HTML con i trattini.
 
 </Pitfall>
 
-### Pro-tip: Use a JSX Converter {/*pro-tip-use-a-jsx-converter*/}
+### Pro-tip: Usa un Convertitore JSX {/*pro-tip-use-a-jsx-converter*/}
 
-Converting all these attributes in existing markup can be tedious! We recommend using a [converter](https://transform.tools/html-to-jsx) to translate your existing HTML and SVG to JSX. Converters are very useful in practice, but it's still worth understanding what is going on so that you can comfortably write JSX on your own.
+Convertire tutti questi attributi nel markup esistente può essere noioso! Raccomandiamo di utilizzare un [convertitore](https://transform.tools/html-to-jsx) per tradurre il tuo HTML e SVG esistenti in JSX. I convertitori sono molto utili nella pratica, ma è comunque utile capire cosa succede in modo da poter scrivere JSX autonomamente.
 
-Here is your final result:
+Ecco il tuo risultato finale:
 
 <Sandpack>
 
@@ -258,11 +258,11 @@ img { height: 90px }
 
 <Recap>
 
-Now you know why JSX exists and how to use it in components:
+Ora sai perché JSX esiste e come usarlo nei componenti:
 
-* React components group rendering logic together with markup because they are related.
-* JSX is similar to HTML, with a few differences. You can use a [converter](https://transform.tools/html-to-jsx) if you need to.
-* Error messages will often point you in the right direction to fixing your markup.
+* I componenti React raggruppano la logica di rendering insieme al markup poiché sono correlati.
+* JSX è simile all'HTML, con alcune differenze. Puoi usare un [convertitore](https://transform.tools/html-to-jsx) se ne hai bisogno.
+* I messaggi di errore spesso ti indirizzeranno nella giusta direzione per correggere il tuo markup.
 
 </Recap>
 
@@ -270,9 +270,9 @@ Now you know why JSX exists and how to use it in components:
 
 <Challenges>
 
-#### Convert some HTML to JSX {/*convert-some-html-to-jsx*/}
+#### Converti un po' di HTML in JSX {/*convert-some-html-to-jsx*/}
 
-This HTML was pasted into a component, but it's not valid JSX. Fix it:
+Questo HTML è stato copiato in un componente, ma non è un JSX valido. Correggilo:
 
 <Sandpack>
 
@@ -308,7 +308,7 @@ export default function Bio() {
 
 </Sandpack>
 
-Whether to do it by hand or using the converter is up to you!
+Che tu lo faccia a mano o usando il convertitore, dipende da te!
 
 <Solution>
 
