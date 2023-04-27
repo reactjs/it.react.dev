@@ -131,7 +131,7 @@ La maggior parte delle volte, i messaggi di errore di React ti aiuteranno a trov
 
 </Note>
 
-## Le regole di JSX {/*the-rules-of-jsx*/}
+## Le Regole di JSX {/*the-rules-of-jsx*/}
 
 ### 1. Restituisci un singolo elemento root {/*1-return-a-single-root-element*/}
 
