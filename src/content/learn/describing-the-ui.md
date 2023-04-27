@@ -21,7 +21,7 @@ React è una libreria JavaScript per il rendering delle interfacce utente(UI). L
 
 </YouWillLearn>
 
-## Il tuo primo componente {/*your-first-component*/}
+## Il tuo primo Componente {/*your-first-component*/}
 
 Le applicazioni React sono costruite da pezzi isolati di UI chiamati *componenti*. Un componente React è una funzione JavaScript che puoi arricchire con marcatura. I componenti possono essere piccoli come un pulsante o grandi come un'intera pagina. Ecco un componente `Gallery` che renderizza tre componenti `Profile`:
 
@@ -61,7 +61,7 @@ Leggi **[Il tuo primo componente](/learn/your-first-component)** per imparare a 
 
 </LearnMore>
 
-## Importazione ed esportazione di componenti {/*importing-and-exporting-components*/}
+## Importazione ed Esportazione di Componenti {/*importing-and-exporting-components*/}
 
 Puoi dichiarare molti componenti in un unico file, ma i file grandi possono diventare difficili da gestire. Per risolvere questo problema, puoi *esportare* un componente in un file separato e poi importare quel componente da un altro file:
 
@@ -184,7 +184,7 @@ Leggi **[Scrittura markup con JSX](/learn/writing-markup-with-jsx)** per imparar
 
 </LearnMore>
 
-## JavaScript in JSX con parentesi graffe {/*javascript-in-jsx-with-curly-braces*/}
+## JavaScript in JSX con Parentesi Graffe {/*javascript-in-jsx-with-curly-braces*/}
 
 JSX ti consente di scrivere markup simile all'HTML all'interno di un file JavaScript, mantenendo la logica di rendering e il contenuto nello stesso luogo. A volte vorrai aggiungere un po' di logica JavaScript o fare riferimento a una proprietà dinamica all'interno di quel markup. In questa situazione, puoi usare le parentesi graffe nel tuo JSX per "aprire una finestra" su JavaScript:
 
@@ -232,7 +232,7 @@ Leggi **[JavaScript in JSX con parentesi graffe](/learn/javascript-in-jsx-with-c
 
 </LearnMore>
 
-## Passare prop a un componente {/*passing-props-to-a-component*/}
+## Passare Prop a un Componente {/*passing-props-to-a-component*/}
 
 I componenti React usano *prop* per comunicare tra loro. Ogni componente padre può passare informazioni ai suoi componenti figlio dandogli delle props. Le props potrebbero farti pensare agli attributi HTML, ma puoi passare qualsiasi valore JavaScript attraverso di esse, inclusi oggetti, array, funzioni e persino JSX!
 
@@ -313,7 +313,7 @@ Leggi **[Passaggio di Props a un Componente](/learn/passing-props-to-a-component
 
 </LearnMore>
 
-## Rendering condizionale {/*conditional-rendering*/}
+## Rendering Condizionale {/*conditional-rendering*/}
 
 I tuoi componenti spesso dovranno mostrare cose diverse a seconda di diverse condizioni. In React, puoi renderizzare JSX in modo condizionale utilizzando la sintassi JavaScript come gli operatori `if`, `&&` e `? :`.
 
@@ -361,7 +361,7 @@ Leggi **[Rendering condizionale](/learn/conditional-rendering)** per imparare i 
 
 </LearnMore>
 
-## Rendering di liste  {/*rendering-lists*/}
+## Rendering di Liste  {/*rendering-lists*/}
 
 Spesso si desidera visualizzare più componenti simili da una raccolta di dati. È possibile utilizzare i metodi  `filter()` e `map()` di JavaScript con React per filtrare e trasformare l'array di dati in un array di componenti.
 
@@ -461,7 +461,7 @@ Leggi **[Rendering Lists](/learn/rendering-lists)** per imparare come renderizza
 
 </LearnMore>
 
-## Mantenere i componenti puri {/*keeping-components-pure*/}
+## Mantenere i Componenti Puri {/*keeping-components-pure*/}
 
 Alcune funzioni JavaScript sono *pure.* Una funzione pura:
 
@@ -522,7 +522,7 @@ Leggi **[Mantenere i componenti puri](/learn/keeping-components-pure)** per impa
 
 </LearnMore>
 
-## Qual è il prossimo passo? {/*whats-next*/}
+## Qual è il Prossimo Passo? {/*whats-next*/}
 
 Vai a [Il tuo primo componente](/learn/your-first-component) per iniziare a leggere questa pagina del capitolo pagina per pagina!
 
