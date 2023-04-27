@@ -10,7 +10,7 @@ Se vuoi aggiungere della interattività al tuo progetto esistente, non serve che
 
 <Note>
 
-**È necessario installare [Node.js](https://nodejs.org/en/) per lo sviluppo locale.** Sebbene tu possa [provare React](/learn/installation#try-react) online o con una semplice pagina HTML, realisticamente la maggior parte degli strumenti JavaScript che vorrai utilizzare per lo sviluppo richiedono Node.js.
+**È necessario installare [Node.js](https://nodejs.org/it/) per lo sviluppo locale.** Sebbene tu possa [provare React](/learn/installation#try-react) online o con una semplice pagina HTML, realisticamente la maggior parte degli strumenti JavaScript che vorrai utilizzare per lo sviluppo richiedono Node.js.
 
 </Note>
 
@@ -62,7 +62,7 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 <html>
   <head><title>My app</title></head>
   <body>
-    <!-- Your existing page content (in this example, it gets replaced) -->
+    <!-- Il contenuto esistente della tua pagina (in questo esempio viene sostituito) -->
   </body>
 </html>
 ```
@@ -70,10 +70,10 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 ```js index.js active
 import { createRoot } from 'react-dom/client';
 
-// Clear the existing HTML content
+// Pulisci il contenuto HTML esistente
 document.body.innerHTML = '<div id="app"></div>';
 
-// Render your React component instead
+// Sostituiscilo renderizzando il tuo componente React
 const root = createRoot(document.getElementById('app'));
 root.render(<h1>Hello, world</h1>);
 ```
@@ -95,10 +95,10 @@ Nello step precedente, hai inserito questo codice all'inizio del tuo file princi
 ```js
 import { createRoot } from 'react-dom/client';
 
-// Clear the existing HTML content
+// Pulisci il contenuto HTML esistente
 document.body.innerHTML = '<div id="app"></div>';
 
-// Render your React component instead
+// Sostituiscilo renderizzando il tuo componente React
 const root = createRoot(document.getElementById('app'));
 root.render(<h1>Hello, world</h1>);
 ```
@@ -110,9 +110,9 @@ Cancella questo codice.
 Invece, probabilmente vorrai renderizzare i tuoi componenti React in punti specifici del tuo codice HTML. Apri la tua pagina HTML (oppure i template server che la generano) ed aggiungi un attributo [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) univoco ad un qualsiasi tag, per esempio:
 
 ```html
-<!-- ... somewhere in your html ... -->
+<!-- ... da qualche parte nel tuo html ... -->
 <nav id="navigation"></nav>
-<!-- ... more html ... -->
+<!-- ... altro html ... -->
 ```
 
 Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) e di passarlo al metodo [`createRoot`](/reference/react-dom/client/createRoot) così da poter renderizzare il tuo componente React al suo interno:
@@ -135,7 +135,7 @@ Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementB
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {
-  // TODO: Actually implement a navigation bar
+  // TODO: Implementa una vera barra di navigazione
   return <h1>Hello from React!</h1>;
 }
 
