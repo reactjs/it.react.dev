@@ -25,11 +25,11 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Avviare un Nuovo Progetto React",
+          "title": "Avviare un nuovo progetto React",
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Aggiungi React ad un progetto esistente",
+          "title": "Aggiungere React ad un progetto esistente",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
