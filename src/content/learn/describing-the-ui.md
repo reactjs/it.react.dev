@@ -111,11 +111,11 @@ img { margin: 0 10px 10px 0; }
 
 <LearnMore path="/learn/importing-and-exporting-components">
 
-Read **[Importing and Exporting Components](/learn/importing-and-exporting-components)** to learn how to split components into their own files.
+Leggi **[Importazione ed Esportazione di Componenti](/learn/importing-and-exporting-components)** per imparare come suddividere i componenti in file separati.
 
 </LearnMore>
 
-## Scrivere markup con JSX {/*writing-markup-with-jsx*/}
+## Scrivere Markup con JSX {/*writing-markup-with-jsx*/}
 
 Ogni componente React è una funzione JavaScript che può contenere del markup che React renderizza nel browser. I componenti React utilizzano una estensione di sintassi chiamata JSX per rappresentare questo markup. JSX assomiglia molto all'HTML, ma è un po' più rigoroso e può mostrare informazioni dinamiche.
 
@@ -361,11 +361,11 @@ Leggi **[Rendering condizionale](/learn/conditional-rendering)** per imparare i 
 
 </LearnMore>
 
-## Rendering lists {/*rendering-lists*/}
+## Rendering di liste  {/*rendering-lists*/}
 
-You will often want to display multiple similar components from a collection of data. You can use JavaScript's `filter()` and `map()` with React to filter and transform your array of data into an array of components.
+Spesso si desidera visualizzare più componenti simili da una raccolta di dati. È possibile utilizzare i metodi  `filter()` e `map()` di JavaScript con React per filtrare e trasformare l'array di dati in un array di componenti.
 
-For each array item, you will need to specify a `key`. Usually, you will want to use an ID from the database as a `key`. Keys let React keep track of each item's place in the list even if the list changes.
+Per ogni elemento dell'array, è necessario specificare una `key`. Di solito, si vuole utilizzare un ID dal database come `key`. Le chiavi consentono a React di tenere traccia del posizionamento di ciascun elemento nella lista anche se la lista cambia.
 
 <Sandpack>
 
@@ -457,18 +457,18 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Read **[Rendering Lists](/learn/rendering-lists)** to learn how to render a list of components, and how to choose a key.
+Leggi **[Rendering Lists](/learn/rendering-lists)** per imparare come renderizzare una lista di componenti e come scegliere una chiave.
 
 </LearnMore>
 
-## Keeping components pure {/*keeping-components-pure*/}
+## Mantenere i componenti puri {/*keeping-components-pure*/}
 
-Some JavaScript functions are *pure.* A pure function:
+Alcune funzioni JavaScript sono *pure.* Una funzione pura:
 
-* **Minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Si cura solo dei suoi affari.** Non modifica oggetti o variabili che sono esistiti prima che fosse chiamata.
+* **Gli stessi input, lo stesso output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso risultato.
 
-By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:
+Scrivendo strettamente i tuoi componenti solo come funzioni pure, puoi evitare un'intera classe di errori strani e comportamenti imprevedibili man mano che la tua base di codice cresce. Ecco un esempio di componente non puro:
 
 <Sandpack>
 
@@ -494,7 +494,7 @@ export default function TeaSet() {
 
 </Sandpack>
 
-You can make this component pure by passing a prop instead of modifying a preexisting variable:
+Puoi rendere questo componente puro passando una prop invece di modificare una variabile esistente:
 
 <Sandpack>
 
@@ -518,12 +518,12 @@ export default function TeaSet() {
 
 <LearnMore path="/learn/keeping-components-pure">
 
-Read **[Keeping Components Pure](/learn/keeping-components-pure)** to learn how to write components as pure, predictable functions.
+Leggi **[Mantenere i componenti puri](/learn/keeping-components-pure)** per imparare a scrivere componenti come funzioni pure e prevedibili.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## Qual è il prossimo passo? {/*whats-next*/}
 
-Head over to [Your First Component](/learn/your-first-component) to start reading this chapter page by page!
+Vai a [Il tuo primo componente](/learn/your-first-component) per iniziare a leggere questa pagina del capitolo pagina per pagina!
 
-Or, if you're already familiar with these topics, why not read about [Adding Interactivity](/learn/adding-interactivity)?
+Oppure, se sei già familiare con questi argomenti, perché non leggere su [Aggiungere interattività](/learn/adding-interactivity)?
