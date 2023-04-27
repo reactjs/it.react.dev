@@ -21,7 +21,7 @@ React è una libreria JavaScript per il rendering delle interfacce utente(UI). L
 
 </YouWillLearn>
 
-## Il tuo primo Componente {/*your-first-component*/}
+## Il tuo Primo Componente {/*your-first-component*/}
 
 Le applicazioni React sono costruite da pezzi isolati di UI chiamati *componenti*. Un componente React è una funzione JavaScript che puoi arricchire con marcatura. I componenti possono essere piccoli come un pulsante o grandi come un'intera pagina. Ecco un componente `Gallery` che renderizza tre componenti `Profile`:
 
