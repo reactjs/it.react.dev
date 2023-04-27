@@ -43,7 +43,7 @@ Ma mentre il Web diventava sempre più interattivo, la logica determinava sempre
 
 <Diagram name="writing_jsx_sidebar" height={330} width={325} alt="React component with HTML and JavaScript from previous examples mixed. Function name is Sidebar which calls the function isLoggedIn, highlighted in yellow. Nested inside the function highlighted in purple is the p tag from before, and a Form tag referencing the component shown in the next diagram.">
 
-`Sidebar.js`componente React
+Componente React `Sidebar.js`
 
 </Diagram>
 
