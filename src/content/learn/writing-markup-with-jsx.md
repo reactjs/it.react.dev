@@ -65,7 +65,7 @@ JSX e React sono due cose separate. Sono spesso utilizzati insieme, ma *puoi* [u
 
 </Note>
 
-## Convertire HTML in JSX  {/*converting-html-to-jsx*/}
+## Convertire HTML in JSX {/*converting-html-to-jsx*/}
 
 Supponiamo di avere qualche HTML(perfettamente valido):
 
