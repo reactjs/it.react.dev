@@ -42,6 +42,7 @@ export default function Avatar() {
 </Sandpack>
 
 Qui, `"https://i.imgur.com/7vQD0fPs.jpg"` e `"Gregorio Y. Zara"` sono passati come stringhe.
+
 E se vuoi specificare dinamicamente il `src` o il testo `alt`? Puoi **usare un valore da JavaScript sostituendo `"` e `"` con `{` e `}`**:
 
 <Sandpack>
