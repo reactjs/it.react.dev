@@ -55,7 +55,7 @@ Componente React `Form.js`
 
 </DiagramGroup>
 
-Mantenere la logica di rendering e il markup di un pulsante insieme garantisce che rimangano sincronizzati ogni volta che vengono modificati. Al contrario, i dettagli non correlati, come il markup di un pulsante e il markup di una barra laterale, sono isolati l'uno dall'altro, rendendolo più sicuro modificare ognuno di essi da solo.
+Mantenere la logica di rendering e il markup di un pulsante insieme garantisce che rimangano sincronizzati ogni volta che vengono modificati. Al contrario, i dettagli non correlati, come il markup di un pulsante e il markup di una barra laterale, sono isolati l'uno dall'altro, rendendo più sicuro modificare ognuno di essi da solo.
 
 Ogni componente React è una funzione JavaScript che può contenere del markup che React renderizza nel browser. I componenti React utilizzano un'estensione di sintassi chiamata JSX per rappresentare quel markup. JSX assomiglia molto all'HTML, ma è un po' più rigoroso e può visualizzare informazioni dinamiche. La migliore maniera per comprenderlo è quella di convertire un po' di markup HTML in markup JSX.
 
