@@ -223,7 +223,7 @@ Per ragioni storiche, gli attributi [`aria-*`](https://developer.mozilla.org/doc
 
 </Pitfall>
 
-### Pro-tip: Usa un convertitore JSX {/*pro-tip-use-a-jsx-converter*/}
+### Pro-tip: Usa un Convertitore JSX {/*pro-tip-use-a-jsx-converter*/}
 
 Convertire tutti questi attributi nel markup esistente può essere noioso! Raccomandiamo di utilizzare un [converter](https://transform.tools/html-to-jsx) per tradurre il vostro HTML e SVG esistenti in JSX. I convertitori sono molto utili nella pratica, ma è comunque utile capire cosa succede in modo da poter scrivere JSX autonomamente.
 
