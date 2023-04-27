@@ -1,5 +1,5 @@
 ---
-title: Aggiungere React ad un progetto esistente
+title: Aggiungere React ad un Progetto Esistente
 ---
 
 <Intro>
@@ -14,7 +14,7 @@ Se vuoi aggiungere della interattività al tuo progetto esistente, non serve che
 
 </Note>
 
-## Utilizzare React per un'intera subroute di un sito esistente {/*using-react-for-an-entire-subroute-of-your-existing-website*/}
+## Utilizzare React per un'intera subroute di un sito web esistente {/*using-react-for-an-entire-subroute-of-your-existing-website*/}
 
 Supponiamo tu abbia una web app esistente a `example.com` costruita con un'altra tecnologia server (come Rails) e tu voglia implementare tutte le tue routes a partire da `example.com/some-app/` completamente con React.
 
@@ -43,7 +43,7 @@ L'approccio esatto dipende dalla configurazione della tua pagina esistente, esam
 
 Un ambiente JavaScript modulare ti consente di scrivere i tuoi componenti React in file individuali, invece di dover scrivere tutto il tuo codice in un singolo file. Questo ti consente anche di utilizzare tutti i meravigliosi pacchetti pubblicati da altri sviluppatori sul registro [npm](https://www.npmjs.com/)--incluso lo stesso React! Il modo in cui lo fai dipende dalla tua configurazione esistente:
 
-* **Se la tua app è già suddivisa in file che utilizzano istruzioni di `import`,** prova ad utilizzare la configurazione di cui già disponi. Controlla se la scrittura di `<div />` nel tuo codice JS causa un errore di sintassi. Se questo causa un errore di sintassi, potresti aver bisogno di [trasformare il tuo codice JavaScript con Babel](https://babeljs.io/setup), ed abilitare il [preset Babel React](https://babeljs.io/docs/babel-preset-react) per poter utilizzare la sintassi JSX.
+* **Se la tua app è già suddivisa in file che utilizzano istruzioni di `import`,** prova ad utilizzare la configurazione di cui già disponi. Controlla se la scrittura di `<div />` nel tuo codice JS causa un errore di sintassi. Se questo causa un errore di sintassi, potresti aver bisogno di [trasformare il tuo codice JavaScript con Babel](https://babeljs.io/setup) ed abilitare il [preset Babel React](https://babeljs.io/docs/babel-preset-react) per poter utilizzare la sintassi JSX.
 
 * **Se la tua app non dispone di una configurazione esistente per la compilazione di moduli JavaScript**, configurala con [Vite](https://vitejs.dev/). La community di Vite mantiene [molte integrazioni con i framework di backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), tra cui Rails, Django e Laravel. Se il tuo framework di backend non è elencato, [segui questa guida](https://vitejs.dev/guide/backend-integration.html) per integrare manualmente le build di Vite con il tuo backend.
 
@@ -53,7 +53,7 @@ Per controllare che la tua configurazione sia funzionante, lancia questo comando
 npm install react react-dom
 </TerminalBlock>
 
-Poi aggiungi queste linee di codice in alto al tuo file JavaScript principale (potrebbe essere chiamato `index.js` o `main.js`):
+Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (potrebbe essere chiamato `index.js` o `main.js`):
 
 <Sandpack>
 
