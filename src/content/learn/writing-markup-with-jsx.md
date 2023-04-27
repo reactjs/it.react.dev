@@ -262,7 +262,7 @@ img { height: 90px }
 Ora sai perché JSX esiste e come usarlo nei componenti:
 
 * I componenti React raggruppano la logica di rendering insieme al markup poiché sono correlati.
-* JSX è simile all'HTML, con alcune differenze. Puoi usare un [converter](https://transform.tools/html-to-jsx) se ne hai bisogno.
+* JSX è simile all'HTML, con alcune differenze. Puoi usare un [convertitore](https://transform.tools/html-to-jsx) se ne hai bisogno.
 * I messaggi di errore spesso ti indirizzeranno nella giusta direzione per correggere il tuo markup.
 
 </Recap>
