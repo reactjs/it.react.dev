@@ -6,7 +6,6 @@ title: Scrivere Markup con JSX
 
 *JSX* è un'estensione della sintassi JavaScript che consente di scrivere markup simile all'HTML all'interno di un file JavaScript. Sebbene esistano altri modi per scrivere i componenti, la maggior parte degli sviluppatori React preferisce la concisione di JSX, e la maggior parte dei codebase lo utilizza.
 
-
 </Intro>
 
 <YouWillLearn>
