@@ -19,6 +19,7 @@ I componenti React utilizzano le *props* per comunicare tra loro. Ogni component
 </YouWillLearn>
 
 ## Props familiari {/*familiar-props*/}
+
 Le props sono le informazioni che passi ad un tag JSX. Ad esempio, `className`, `src`, `alt`, `width` e `height` sono alcune delle props che puoi passare ad un `<img>`:
 
 <Sandpack>
@@ -95,7 +96,7 @@ Puoi leggere queste props elencando i loro nomi `person, size` separati da virgo
 
 ```js
 function Avatar({ person, size }) {
-  // person and size sono disponibili qui
+  // person e size sono disponibili qui
 }
 ```
 
