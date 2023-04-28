@@ -1,10 +1,10 @@
 ---
-title: Descrivere l'UI
+title: Descrivere la UI
 ---
 
 <Intro>
 
-React è una libreria JavaScript per il rendering delle interfacce utente(UI). L'UI è costruita da piccole unità come pulsanti, testo e immagini. React ti consente di combinare queste unità in *componenti* riutilizzabili e annidabili. Dalle pagine web alle app per telefoni, tutto sullo schermo può essere scomposto in componenti. In questo capitolo imparerai a creare, personalizzare e visualizzare condizionalmente i componenti React.
+React è una libreria JavaScript per il rendering delle interfacce utente(UI). La UI è costruita da piccole unità come pulsanti, testo e immagini. React ti consente di combinare queste unità in *componenti* riutilizzabili e annidabili. Dalle pagine web alle app per telefoni, tutto sullo schermo può essere scomposto in componenti. In questo capitolo imparerai a creare, personalizzare e visualizzare condizionalmente i componenti React.
 
 </Intro>
 
