@@ -1,5 +1,5 @@
 ---
-title: JavaScript in JSX con le parentesi graffe
+title: JavaScript in JSX con le Parentesi Graffe
 ---
 
 <Intro>
