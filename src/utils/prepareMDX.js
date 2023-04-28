@@ -94,7 +94,7 @@ function extractHeaders(children, depth, out) {
         header = {
           url: '#recap',
           depth: 2,
-          text: 'Recap',
+          text: 'Riepilogo',
         };
       } else if (child.type === 'TeamMember') {
         header = {
