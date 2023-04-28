@@ -57,7 +57,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 <LearnMore path="/learn/your-first-component">
 
-Leggi **[Il tuo primo componente](/learn/your-first-component)** per imparare a dichiarare e utilizzare i componenti React.
+Leggi **[Il tuo Primo Componente](/learn/your-first-component)** per imparare a dichiarare e utilizzare i componenti React.
 
 </LearnMore>
 
@@ -180,7 +180,7 @@ img { height: 90px; }
 
 <LearnMore path="/learn/writing-markup-with-jsx">
 
-Leggi **[Scrittura markup con JSX](/learn/writing-markup-with-jsx)** per imparare come scrivere JSX valido.
+Leggi **[Scrivere Markup con JSX](/learn/writing-markup-with-jsx)** per imparare come scrivere JSX valido.
 
 </LearnMore>
 
@@ -228,7 +228,7 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Leggi **[JavaScript in JSX con parentesi graffe](/learn/javascript-in-jsx-with-curly-braces)** per imparare come accedere ai dati JavaScript da JSX.
+Leggi **[JavaScript in JSX con Parentesi Graffe](/learn/javascript-in-jsx-with-curly-braces)** per imparare come accedere ai dati JavaScript da JSX.
 
 </LearnMore>
 
@@ -357,7 +357,7 @@ export default function PackingList() {
 
 <LearnMore path="/learn/conditional-rendering">
 
-Leggi **[Rendering condizionale](/learn/conditional-rendering)** per imparare i diversi modi per renderizzare contenuti condizionalmente.
+Leggi **[Rendering Condizionale](/learn/conditional-rendering)** per imparare i diversi modi per renderizzare contenuti condizionalmente.
 
 </LearnMore>
 
@@ -457,7 +457,7 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Leggi **[Rendering Lists](/learn/rendering-lists)** per imparare come renderizzare una lista di componenti e come scegliere una chiave.
+Leggi **[Renderizzare Liste](/learn/rendering-lists)** per imparare come renderizzare una lista di componenti e come scegliere una chiave.
 
 </LearnMore>
 
@@ -518,12 +518,12 @@ export default function TeaSet() {
 
 <LearnMore path="/learn/keeping-components-pure">
 
-Leggi **[Mantenere i componenti puri](/learn/keeping-components-pure)** per imparare a scrivere componenti come funzioni pure e prevedibili.
+Leggi **[Mantenere i Componenti Puri](/learn/keeping-components-pure)** per imparare a scrivere componenti come funzioni pure e prevedibili.
 
 </LearnMore>
 
 ## Qual è il Prossimo Passo? {/*whats-next*/}
 
-Vai a [Il tuo primo componente](/learn/your-first-component) per iniziare a leggere questa pagina del capitolo pagina per pagina!
+Vai a [Il Tuo Primo Componente](/learn/your-first-component) per iniziare a leggere questa pagina del capitolo pagina per pagina!
 
-Oppure, se sei già familiare con questi argomenti, perché non leggere su [Aggiungere interattività](/learn/adding-interactivity)?
+Oppure, se sei già familiare con questi argomenti, perché non leggere su [Aggiungere Interattività](/learn/adding-interactivity)?
