@@ -1,25 +1,25 @@
 ---
-title: JavaScript in JSX with Curly Braces
+title: JavaScript in JSX con le Parentesi Graffe
 ---
 
 <Intro>
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.
+JSX ti permette di scrivere codice HTML all'interno di un file JavaScript, mantenendo la logica di rendering e il contenuto nello stesso posto. A volte vorrai aggiungere un po' di logica JavaScript o fare riferimento a una proprietà dinamica all'interno di quel markup. In questa situazione, puoi usare le parentesi graffe nel tuo JSX per aprire una finestra su JavaScript.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to pass strings with quotes
-* How to reference a JavaScript variable inside JSX with curly braces
-* How to call a JavaScript function inside JSX with curly braces
-* How to use a JavaScript object inside JSX with curly braces
+* Come passare stringhe con virgolette
+* Come riferirti a una variabile JavaScript all'interno di JSX con le parentesi graffe
+* Come chiamare una funzione JavaScript all'interno di JSX con le parentesi graffe
+* Come passare oggetti JavaScript all'interno di JSX con le parentesi graffe
 
 </YouWillLearn>
 
-## Passing strings with quotes {/*passing-strings-with-quotes*/}
+## Passare stringhe con le virgolette {/*passing-strings-with-quotes*/}
 
-When you want to pass a string attribute to JSX, you put it in single or double quotes:
+Quando vuoi passare un attributo stringa a JSX, mettilo tra virgolette singole o doppie:
 
 <Sandpack>
 
@@ -41,9 +41,9 @@ export default function Avatar() {
 
 </Sandpack>
 
-Here, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings.
+Qui, `"https://i.imgur.com/7vQD0fPs.jpg"` e `"Gregorio Y. Zara"` sono passati come stringhe.
 
-But what if you want to dynamically specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `"` and `"` with `{` and `}`**:
+E se vuoi specificare dinamicamente il `src` o il testo `alt`? Puoi **usare un valore da JavaScript sostituendo `"` e `"` con `{` e `}`**:
 
 <Sandpack>
 
@@ -67,11 +67,11 @@ export default function Avatar() {
 
 </Sandpack>
 
-Notice the difference between `className="avatar"`, which specifies an `"avatar"` CSS class name that makes the image round, and `src={avatar}` that reads the value of the JavaScript variable called `avatar`. That's because curly braces let you work with JavaScript right there in your markup!
+Nota la differenza tra `className="avatar"`, che specifica un nome di classe CSS `"avatar"` che rende l'immagine rotonda, e `src={avatar}` che legge il valore della variabile JavaScript chiamata `avatar`. Questo perché le parentesi graffe ti permettono di lavorare con JavaScript proprio lì nel tuo markup!
 
-## Using curly braces: A window into the JavaScript world {/*using-curly-braces-a-window-into-the-javascript-world*/}
+## Usare le parentesi graffe: una finestra nel mondo JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX is a special way of writing JavaScript. That means it’s possible to use JavaScript inside it—with curly braces `{ }`. The example below first declares a name for the scientist, `name`, then embeds it with curly braces inside the `<h1>`:
+JSX è un modo speciale di scrivere JavaScript. Ciò significa che è possibile utilizzare JavaScript al suo interno, con le parentesi graffe `{ }`. L'esempio seguente dichiara prima un nome per lo scienziato, `name`, quindi lo incorpora con le parentesi graffe all'interno di `<h1>`:
 
 <Sandpack>
 
@@ -86,9 +86,9 @@ export default function TodoList() {
 
 </Sandpack>
 
-Try changing the `name`'s value from `'Gregorio Y. Zara'` to `'Hedy Lamarr'`. See how the list title changes?
+Prova a cambiare il valore di `name` da `'Gregorio Y. Zara'` a `'Hedy Lamarr'`. Vedi come cambia il titolo della lista?
 
-Any JavaScript expression will work between curly braces, including function calls like `formatDate()`:
+Qualsiasi espressione JavaScript funzionerà tra le parentesi graffe, inclusa la chiamata di funzioni come `formatDate()`:
 
 <Sandpack>
 
@@ -111,18 +111,18 @@ export default function TodoList() {
 
 </Sandpack>
 
-### Where to use curly braces {/*where-to-use-curly-braces*/}
+### Dove utilizzare le parentesi graffe {/*where-to-use-curly-braces*/}
 
-You can only use curly braces in two ways inside JSX:
+Puoi usare le parentesi graffe solo in due modi all'interno di JSX:
 
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
+1. **Come testo** direttamente all'interno di un tag JSX: `<h1>{name}'s To Do List</h1>` funziona, ma `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` non funzionerà.
+2. **Come attributi** immediatamente dopo il simbolo `=`: `src={avatar}` leggerà la variabile `avatar`, ma `src="{avatar}"` passerà la stringa `"{avatar}"`.
 
-## Using "double curlies": CSS and other objects in JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
+## Usare le "doppie graffe": CSS and altri oggetti in JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
-In addition to strings, numbers, and other JavaScript expressions, you can even pass objects in JSX. Objects are also denoted with curly braces, like `{ name: "Hedy Lamarr", inventions: 5 }`. Therefore, to pass a JS object in JSX, you must wrap the object in another pair of curly braces: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
+In aggiunta alle stringhe, numeri e altre espressioni JavaScript, puoi anche passare oggetti in JSX. Gli oggetti sono anche indicati con le parentesi graffe, come `{ name: "Hedy Lamarr", inventions: 5 }`. Pertanto, per passare un oggetto JS in JSX, devi avvolgere l'oggetto in un'altra coppia di parentesi graffe: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the `style` attribute:
+Potresti notarlo quando usi gli stili CSS in linea in JSX. React non richiede di utilizzare gli stili in linea (le classi CSS funzionano alla grande per la maggior parte dei casi). Ma quando hai bisogno di uno stile in linea, passi un oggetto all'attributo `style`:
 
 <Sandpack>
 
@@ -148,9 +148,9 @@ ul { padding: 20px 20px 20px 40px; margin: 0; }
 
 </Sandpack>
 
-Try changing the values of `backgroundColor` and `color`.
+Prova a cambiare i valori di `backgroundColor` e `color`.
 
-You can really see the JavaScript object inside the curly braces when you write it like this:
+Puoi vedere effettivamente l'oggetto JavaScript all'interno delle parentesi graffe quando lo scrivi in questo modo:
 
 ```js {2-5}
 <ul style={
@@ -161,7 +161,7 @@ You can really see the JavaScript object inside the curly braces when you write 
 }>
 ```
 
-The next time you see `{{` and `}}` in JSX, know that it's nothing more than an object inside the JSX curlies!
+La prossima volta che vedrai `{{` e `}}` in JSX, saprai che non è altro che un oggetto all'interno delle parentesi graffe JSX!
 
 <Pitfall>
 
@@ -169,9 +169,9 @@ Inline `style` properties are written in camelCase. For example, HTML `<ul style
 
 </Pitfall>
 
-## More fun with JavaScript objects and curly braces {/*more-fun-with-javascript-objects-and-curly-braces*/}
+## Più divertimento con gli oggetti e le parentesi graffe {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
-You can move several expressions into one object, and reference them in your JSX inside curly braces:
+Puoi spostare più espressioni in un unico oggetto e fare riferimento ad esse nel tuo JSX all'interno delle parentesi graffe:
 
 <Sandpack>
 
@@ -211,7 +211,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-In this example, the `person` JavaScript object contains a `name` string and a `theme` object:
+In questo esempio, l'oggetto JavaScript `person` contiene una stringa `name` e un oggetto `theme`:
 
 ```js
 const person = {
@@ -223,31 +223,31 @@ const person = {
 };
 ```
 
-The component can use these values from `person` like so:
+Il componente può usare questi valori da `person` in questo modo:
 
 ```js
 <div style={person.theme}>
   <h1>{person.name}'s Todos</h1>
 ```
 
-JSX is very minimal as a templating language because it lets you organize data and logic using JavaScript.
+JSX è molto minimalista come linguaggio di templating perché ti permette di organizzare dati e logica usando JavaScript.
 
 <Recap>
 
-Now you know almost everything about JSX:
+Adesso che sai quasi tutto su JSX, ricapitoliamo:
 
-* JSX attributes inside quotes are passed as strings.
-* Curly braces let you bring JavaScript logic and variables into your markup.
-* They work inside the JSX tag content or immediately after `=` in attributes.
-* `{{` and `}}` is not special syntax: it's a JavaScript object tucked inside JSX curly braces.
+* attributi JSX all'interno di virgolette vengono passati come stringhe.
+* Le parentesi graffe ti permettono di portare la logica e le variabili JavaScript nel tuo markup.
+* Esse funzionano all'intero del contenuto di un tag JSX o subito dopo `=` negli attributi.
+* `{{` e `}}` non fanno parte di una sintassi speciale: è un oggetto JavaScript riposto all'interno delle parentesi graffe JSX.
 
 </Recap>
 
 <Challenges>
 
-#### Fix the mistake {/*fix-the-mistake*/}
+#### Correggi lo sbaglio {/*fix-the-mistake*/}
 
-This code crashes with an error saying `Objects are not valid as a React child`:
+Questo codice _crasha_ con un errore che dice `Objects are not valid as a React child`:
 
 <Sandpack>
 
@@ -287,15 +287,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Can you find the problem?
+Riesci a trovare il problema?
 
-<Hint>Look for what's inside the curly braces. Are we putting the right thing there?</Hint>
+<Hint>Guarda cosa c'è all'interno delle parentesi graffe. Stiamo mettendo la cosa giusta?</Hint>
 
 <Solution>
 
-This is happening because this example renders *an object itself* into the markup rather than a string: `<h1>{person}'s Todos</h1>` is trying to render the entire `person` object! Including raw objects as text content throws an error because React doesn't know how you want to display them.
+Questo accade perchè questo esempio renderizza *un oggetto stesso* nel markup invece di una stringa: `<h1>{person}'s Todos</h1>` sta cercando di renderizzare l'intero oggetto `person`! Includere oggetti grezzi come contenuto testuale genera un errore perchè React non sa come vuoi visualizzarli.
 
-To fix it, replace `<h1>{person}'s Todos</h1>` with `<h1>{person.name}'s Todos</h1>`:
+Per correggerlo, sostituisci `<h1>{person}'s Todos</h1>` con `<h1>{person.name}'s Todos</h1>`:
 
 <Sandpack>
 
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Extract information into an object {/*extract-information-into-an-object*/}
+#### Estrai le informazioni in un oggetto {/*extract-information-into-an-object*/}
 
-Extract the image URL into the `person` object.
+Estrai l'URL dell'immagine nell'oggetto `person`.
 
 <Sandpack>
 
@@ -381,7 +381,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Move the image URL into a property called `person.imageUrl` and read it from the `<img>` tag using the curlies:
+Sposta l'URL dell'immagine in una proprietà chiamata `person.imageUrl` e leggila dal tag `<img>` usando le parentesi graffe:
 
 <Sandpack>
 
@@ -424,13 +424,13 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
+#### Scrivi un'espressione all'interno delle parentesi graffe JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-In the object below, the full image URL is split into four parts: base URL, `imageId`, `imageSize`, and file extension.
+Nell'oggetto sottosante, l'URL dell'immagine è diviso in quattro parti: base URL, `imageId`, `imageSize`, e l'estensione del file.
 
-We want the image URL to combine these attributes together: base URL (always `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), and file extension (always `'.jpg'`). However, something is wrong with how the `<img>` tag specifies its `src`.
+Vogliamo che l'URL dell'immagine combini questi attributi insieme: base URL (sempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), e l'estensione del file (sempre `'.jpg'`). Tuttavia, c'è qualcosa che non va con il modo in cui il tag `<img>` specifica il suo `src`.
 
-Can you fix it?
+Riesci a correggerlo?
 
 <Sandpack>
 
@@ -474,15 +474,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-To check that your fix worked, try changing the value of `imageSize` to `'b'`. The image should resize after your edit.
+Per controllare che la tua correzione funziona, prova a cambiare il valore di `imageSize` in `'b'`. L'immagine dovrebbe ridimensionarsi dopo la tua modifica.
 
 <Solution>
 
-You can write it as `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
+Puoi scriverlo come `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
 
-1. `{` opens the JavaScript expression
-2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produces the correct URL string
-3. `}` closes the JavaScript expression
+1. `{` apre l' espressione JavaScript
+2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produce la stringa URL corretta
+3. `}` chiude l'espressione JavaScript
 
 <Sandpack>
 
@@ -525,7 +525,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-You can also move this expression into a separate function like `getImageUrl` below:
+Puoi anche spostare questa espressione in una funzione separata come `getImageUrl` qui sotto:
 
 <Sandpack>
 
@@ -580,7 +580,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Variables and functions can help you keep the markup simple!
+Variabili e funzioni possono aiutarti a mantenere il markup semplice!
 
 </Solution>
 
