@@ -1,5 +1,5 @@
 ---
-title: Mantenimento Dei Componenti Puri
+title: Mantenere i Componenti Puri
 ---
 
 <Intro>
@@ -301,7 +301,7 @@ body > * {
 
 <Solution>
 
-You can fix this component by calculating the `className` and including it in the render output:
+Puoi risolvere questo componente calcolando `className` e includendolo nell'output di render:
 
 <Sandpack>
 
@@ -362,19 +362,19 @@ body > * {
 
 </Sandpack>
 
-In this example, the side effect (modifying the DOM) was not necessary at all. You only needed to return JSX.
+In questo esempio, l'effetto collaterale (modifica del DOM) non era necessario affatto. Dovevi solo restituire JSX.
 
 </Solution>
 
-#### Fix a broken profile {/*fix-a-broken-profile*/}
+#### Correggi un Profilo Rotto {/*fix-a-broken-profile*/}
 
-Two `Profile` components are rendered side by side with different data. Press "Collapse" on the first profile, and then "Expand" it. You'll notice that both profiles now show the same person. This is a bug.
+Due componenti  `Profile` vengono renderizzati affiancati con dati diversi. Premi "Collapse" sul primo profilo, quindi "Expand" su di esso. Noterai che entrambi i profili mostrano ora la stessa persona. Questo è un bug.
 
-Find the cause of the bug and fix it.
+Trova la causa del bug e correggilo.
 
 <Hint>
 
-The buggy code is in `Profile.js`. Make sure you read it all from top to bottom!
+Il codice problematico si trova in `Profile.js`. Assicurati di leggerlo tutto dall'inizio alla fine!
 
 </Hint>
 
@@ -475,9 +475,9 @@ h1 { margin: 5px; font-size: 18px; }
 
 <Solution>
 
-The problem is that the `Profile` component writes to a preexisting variable called `currentPerson`, and the `Header` and `Avatar` components read from it. This makes *all three of them* impure and difficult to predict.
+Il problema è che il componente `Profile` scrive in una variabile preesistente chiamata `currentPerson` mentre i componenti  `Header` e `Avatar` leggono da essa. Ciò rende *tutti e tre* impuri e difficili da prevedere.
 
-To fix the bug, remove the `currentPerson` variable. Instead, pass all information from `Profile` to `Header` and `Avatar` via props. You'll need to add a `person` prop to both components and pass it all the way down.
+Per risolvere il bug, rimuovi la variabile `currentPerson`. Invece, passa tutte le informazioni da `Profile` a `Header` e `Avatar` tramite props. Dovrai aggiungere una prop `person` ad entrambi i componenti e passarla fino in fondo.
 
 <Sandpack>
 
@@ -571,15 +571,15 @@ h1 { margin: 5px; font-size: 18px; }
 
 </Sandpack>
 
-Remember that React does not guarantee that component functions will execute in any particular order, so you can't communicate between them by setting variables. All communication must happen through props.
+Ricorda che React non garantisce che le funzioni dei componenti si eseguano in un ordine particolare, quindi non puoi comunicare tra di loro impostando variabili. Tutta la comunicazione deve avvenire tramite props.
 
 </Solution>
 
-#### Fix a broken story tray {/*fix-a-broken-story-tray*/}
+#### Sistema una Story Tray Rotta {/*fix-a-broken-story-tray*/}
 
-The CEO of your company is asking you to add "stories" to your online clock app, and you can't say no. You've written a `StoryTray` component that accepts a list of `stories`, followed by a "Create Story" placeholder.
+Il CEO della tua azienda ti sta chiedendo di aggiungere "storie" alla tua app orologio online, e non puoi dire di no. Hai scritto un componente `StoryTray`  che accetta una lista di `stories`, seguita da un segnaposto "Crea storia".
 
-You implemented the "Create Story" placeholder by pushing one more fake story at the end of the `stories` array that you receive as a prop. But for some reason, "Create Story" appears more than once. Fix the issue.
+Hai implementato il segnaposto "Crea storia" inserendo un'altra storia falsa alla fine dell'array `stories` che ricevi come prop. Ma per qualche motivo, "Crea storia" appare più di una volta. Risolvi il problema.
 
 <Sandpack>
 
@@ -675,11 +675,11 @@ li {
 
 <Solution>
 
-Notice how whenever the clock updates, "Create Story" is added *twice*. This serves as a hint that we have a mutation during rendering--Strict Mode calls components twice to make these issues more noticeable.
+Nota come ogni volta che l'orologio viene aggiornato, "Crea Storia" viene aggiunto *due volte*. Ciò serve come suggerimento che abbiamo una mutazione durante il rendering--Strict Mode chiama i componenti due volte per rendere questi problemi più evidenti.
 
-`StoryTray` function is not pure. By calling `push` on the received `stories` array (a prop!), it is mutating an object that was created *before* `StoryTray` started rendering. This makes it buggy and very difficult to predict.
+La funzione `StoryTray` non è pura. Chiamando `push` sull'array  `stories` ricevuto (una prop!), sta mutando un oggetto che è stato creato *prima* che `StoryTray` iniziasse a renderizzare. Questo lo rende buggato e molto difficile da prevedere.
 
-The simplest fix is to not touch the array at all, and render "Create Story" separately:
+La soluzione più semplice è di non toccare l'array affatto e renderizzare "Crea Storia" separatamente:
 
 <Sandpack>
 
@@ -763,7 +763,9 @@ li {
 
 </Sandpack>
 
-Alternatively, you could create a _new_ array (by copying the existing one) before you push an item into it:
+icona di pizzaGPT, una fetta di pizza
+
+In alternativa, potresti creare un _nuovo_ array (copia di quello esistente) prima di inserirvi un elemento:
 
 <Sandpack>
 
@@ -855,9 +857,9 @@ li {
 
 </Sandpack>
 
-This keeps your mutation local and your rendering function pure. However, you still need to be careful: for example, if you tried to change any of the array's existing items, you'd have to clone those items too.
+In questo modo, la mutazione avviene localmente e la funzione di rendering rimane pura. Tuttavia, è necessario fare attenzione: ad esempio, se si provasse a modificare uno degli elementi esistenti dell'array, bisognerebbe clonare anche quelli.
 
-It is useful to remember which operations on arrays mutate them, and which don't. For example, `push`, `pop`, `reverse`, and `sort` will mutate the original array, but `slice`, `filter`, and `map` will create a new one.
+È utile ricordare quali operazioni sui array li mutano e quali no. Ad esempio, `push`, `pop`, `reverse` e `sort` mutano l'array originale, mentre `slice`, `filter` e `map` ne creano uno nuovo.
 
 </Solution>
 
