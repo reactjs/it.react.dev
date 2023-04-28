@@ -67,7 +67,7 @@ export default function Avatar() {
 
 </Sandpack>
 
-Nota la differenza tra `className="avatar"`, che specifica un nome di classe CSS `"avatar"` che rende l'immagine rotonda, e `src={avatar}` che legge il valore della variabile JavaScript chiamata `avatar`. Questo perché le parentesi graffe ti permettono di lavorare con JavaScript proprio lì nel tuo markup! 
+Nota la differenza tra `className="avatar"`, che specifica un nome di classe CSS `"avatar"` che rende l'immagine rotonda, e `src={avatar}` che legge il valore della variabile JavaScript chiamata `avatar`. Questo perché le parentesi graffe ti permettono di lavorare con JavaScript proprio lì nel tuo markup!
 
 ## Usare le parentesi graffe: una finestra nel mondo JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
