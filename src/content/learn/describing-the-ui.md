@@ -57,7 +57,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 <LearnMore path="/learn/your-first-component">
 
-Leggi **[Il tuo Primo Componente](/learn/your-first-component)** per imparare a dichiarare e utilizzare i componenti React.
+Leggi **[Il Tuo Primo Componente](/learn/your-first-component)** per imparare a dichiarare e utilizzare i componenti React.
 
 </LearnMore>
 
