@@ -45,7 +45,7 @@ function double(number) {
 
 Nell'esempio sopra, `double` è una **funzione pura.** Se gli passi `3`, restituirà  `6`. Sempre.
 
-React è progettato attorno a questo concetto. **React presume che ogni componente che scrivi sia una funzione pura.** TCiò significa che i componenti React che scrivi devono sempre restituire lo stesso JSX dati gli stessi input:
+React è progettato attorno a questo concetto. **React presume che ogni componente che scrivi sia una funzione pura.** Ciò significa che i componenti React che scrivi devono sempre restituire lo stesso JSX dati gli stessi input:
 
 <Sandpack>
 
