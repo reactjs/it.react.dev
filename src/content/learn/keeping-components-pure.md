@@ -53,9 +53,9 @@ React è progettato attorno a questo concetto. **React presume che ogni componen
 function Recipe({ drinkers }) {
   return (
     <ol>    
-      <li>Boil {drinkers} cups of water.</li>
-      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+      <li>Fai bollire {drinkers} tazze di acqua.</li>
+      <li>Aggiungi {drinkers} cucchiaini di tè e {0.5 * drinkers} cucchiaini di spezie.</li>
+      <li>Aggiungi {0.5 * drinkers} tazze di latte da far bollire e zucchero a piacere.</li>
     </ol>
   );
 }
@@ -63,10 +63,10 @@ function Recipe({ drinkers }) {
 export default function App() {
   return (
     <section>
-      <h1>Spiced Chai Recipe</h1>
-      <h2>For two</h2>
+      <h1>Ricetta Chai Speziato</h1>
+      <h2>Per due persone</h2>
       <Recipe drinkers={2} />
-      <h2>For a gathering</h2>
+      <h2>Per un gruppo</h2>
       <Recipe drinkers={4} />
     </section>
   );
@@ -97,9 +97,9 @@ Ecco un componente che viola questa regola:
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Non corretto: modificare una variabile esistente!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Tazza di tè per ospite #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -171,7 +171,7 @@ Tuttavia, **è completamente permesso cambiare variabili e oggetti che hai creat
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Tazza di tè per ospite #{guest}</h2>;
 }
 
 export default function TeaGathering() {
@@ -771,10 +771,10 @@ In alternativa, potresti creare un _nuovo_ array (copia di quello esistente) pri
 
 ```js StoryTray.js active
 export default function StoryTray({ stories }) {
-  // Copy the array!
+  // Copia l'array!
   let storiesToDisplay = stories.slice();
 
-  // Does not affect the original array:
+  // Non influenza l'array originale:
   storiesToDisplay.push({
     id: 'create',
     label: 'Create Story'
@@ -805,8 +805,8 @@ export default function App() {
   let [stories, setStories] = useState([...initialStories])
   let time = useTime();
 
-  // HACK: Prevent the memory from growing forever while you read docs.
-  // We're breaking our own rules here.
+  // HACK: Prevenire che la memoria aumenti all'infinito durante la lettura dei documenti.
+  // Stiamo infrangendo le nostre stesse regole qui.
   if (stories.length > 100) {
     stories.length = 100;
   }
