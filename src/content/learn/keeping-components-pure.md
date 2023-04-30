@@ -81,7 +81,7 @@ Se si passa `drinkers={4}`, restituirà JSX contenente `4 tazze di acqua`. Sempr
 
 Proprio come una formula matematica.
 
-Si potrebbe pensare ai propri componenti come ricette: se le si segue e non si introducono nuovi ingredienti durante il processo di cottura, si otterrà lo stesso piatto ogni volta.  Quel "piatto" è il JSX che il componente fornisce a React per il [render.](/learn/render-and-commit)
+Si potrebbe pensare ai propri componenti come ricette: se le si segue e non si introducono nuovi ingredienti durante il processo di cottura, si otterrà lo stesso piatto ogni volta. Quel "piatto" è il JSX che il componente fornisce a React per il [render.](/learn/render-and-commit)
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add x spoons of tea and 0.5x spoons of spices, and 0.5x cups of milk" />
 
@@ -153,7 +153,7 @@ Anche se potresti non averne ancora utilizzati tutti, in React ci sono tre tipi 
 
 Quando vuoi *cambiare* qualcosa in risposta all'input dell'utente, dovresti [impostare lo stato](/learn/state-a-components-memory) anziché scrivere su una variabile. Non dovresti mai cambiare variabili o oggetti preesistenti durante il rendering del tuo componente.
 
-React offre una "Strict Mode" in cui chiama la funzione di ogni componente due volte durante lo sviluppo.  **Chiamando la funzione del componente due volte, Strict Mode aiuta a trovare i componenti che infrangono queste regole.**
+React offre una "Strict Mode" in cui chiama la funzione di ogni componente due volte durante lo sviluppo. **Chiamando la funzione del componente due volte, Strict Mode aiuta a trovare i componenti che infrangono queste regole.**
 
 Nota come l'esempio originale abbia visualizzato "Guest #2", "Guest #4" e "Guest #6" invece di "Guest #1", "Guest #2" e "Guest #3". La funzione originale era impura, quindi chiamarla due volte l'ha rotta. Ma la versione pura funziona correttamente anche se la funzione viene chiamata due volte ogni volta. **Le funzioni pure calcolano solo, quindi chiamarle due volte non cambierà nulla**--proprio come chiamare `double(2)` due volte non cambia ciò che viene restituito e risolvere  <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> due volte non cambia il valore di <MathI>y</MathI>. Gli stessi input, gli stessi output. Sempre.
 
@@ -185,13 +185,13 @@ export default function TeaGathering() {
 
 </Sandpack>
 
-Se la variabile `cups`  o l'array `[]`  fossero stati creati fuori dalla funzione `TeaGathering`, questo sarebbe stato un grande problema! Staresti cambiando un oggetto *preesistente* inserendo elementi in quell'array.
+Se la variabile `cups` o l'array `[]` fossero stati creati fuori dalla funzione `TeaGathering`, questo sarebbe stato un grande problema! Staresti cambiando un oggetto *preesistente* inserendo elementi in quell'array.
 
 Tuttavia, è permesso perché li hai creati *durante lo stesso render*, all'interno di `TeaGathering`. Nessun codice al di fuori di `TeaGathering` saprà mai che questo è accaduto. Questo si chiama **"mutazione locale"**—è come il piccolo segreto del tuo componente.
 
 ## Dove _Puoi_ Causare Side Effects {/*where-you-_can_-cause-side-effects*/}
 
-Mentre la programmazione funzionale si basa pesantemente sulla purezza, ad un certo punto, in qualche posto, _qualcosa_ deve cambiare. Questo è il punto della programmazione! Questi cambiamenti, come l'aggiornamento dello schermo, l'avvio di un'animazione, la modifica dei dati, sono chiamati **side effects.** Sono cose che accadono _"al margine"_, , non durante il rendering.
+Mentre la programmazione funzionale si basa pesantemente sulla purezza, ad un certo punto, in qualche posto, _qualcosa_ deve cambiare. Questo è il punto della programmazione! Questi cambiamenti, come l'aggiornamento dello schermo, l'avvio di un'animazione, la modifica dei dati, sono chiamati **side effects.** Sono cose che accadono _"al margine"_, non durante il rendering.
 
 In React, **side effect appartengono solitamente agli [event handlers.](/learn/responding-to-events)** Gli event handler sono funzioni che React esegue quando si esegue un'azione, ad esempio quando si fa clic su un pulsante. Anche se gli event handler sono definiti *all'interno* del componente, non vengono eseguiti *durante* il rendering! **Quindi gli event handler non devono essere puri**
 
@@ -475,7 +475,7 @@ h1 { margin: 5px; font-size: 18px; }
 
 <Solution>
 
-Il problema è che il componente `Profile` scrive in una variabile preesistente chiamata `currentPerson` mentre i componenti  `Header` e `Avatar` leggono da essa. Ciò rende *tutti e tre* impuri e difficili da prevedere.
+Il problema è che il componente `Profile` scrive in una variabile preesistente chiamata `currentPerson` mentre i componenti `Header` e `Avatar` leggono da essa. Ciò rende *tutti e tre* impuri e difficili da prevedere.
 
 Per risolvere il bug, rimuovi la variabile `currentPerson`. Invece, passa tutte le informazioni da `Profile` a `Header` e `Avatar` tramite props. Dovrai aggiungere una prop `person` ad entrambi i componenti e passarla fino in fondo.
 
