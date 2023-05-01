@@ -316,7 +316,7 @@ function MyButton() {
   // ...
 ```
 
-Otterrai due cose da `useState`: lo state attuale (`count`) e la funzione ti consente di aggiornarlo (`setCount`). Puoi dare loro qualsiasi nome, ma la convenzione è scrivere `[something, setSomething]`.
+Otterrai due cose da `useState`: lo state attuale (`count`) e la funzione che ti consente di aggiornarlo (`setCount`). Puoi dare loro qualsiasi nome, ma la convenzione è scrivere `[something, setSomething]`.
 
 La prima volta che il pulsante verrà mostrato, `count` sarà `0` perché hai passato `0` a `useState()`. Quando vuoi cambiare lo state, chiama `setCount()` e passagli il nuovo valore. Cliccando su questo pulsante, il contatore incrementerà:
 
