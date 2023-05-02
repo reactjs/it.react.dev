@@ -22,7 +22,7 @@ Alcune cose sullo schermo si aggiornano in risposta all'input dell'utente. Ad es
 
 ## Rispondere agli Eventi {/*responding-to-events*/}
 
-React ti consente di aggiungere degli *event handler* al tuo JSX. Gli event handler sono le tue funzioni personalizzate che vengono chiamate in risposta alle interazioni dell'utente, come il click, il passaggio del mouse, la messa a fuoco delle input e così via.
+React ti consente di aggiungere degli *event handler* al tuo JSX. Gli event handler sono le tue funzioni personalizzate che vengono chiamate in risposta alle interazioni dell'utente, come il click, il passaggio del mouse, la messa a fuoco degli input del form e così via.
 
 Componenti integrati come `<button>` supportano solo eventi integrati del browser come `onClick`. Tuttavia, è possibile anche creare i propri componenti e dare ai loro event handler dei nomi specifici, contestualizzati all'applicazione.
 
