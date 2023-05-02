@@ -185,7 +185,7 @@ export default function TeaGathering() {
 
 </Sandpack>
 
-Se la variabile `cups` o l'array `[]` fossero stati creati fuori dalla funzione `TeaGathering`, questo sarebbe stato un grande problema! Staresti cambiando un oggetto *preesistente* inserendo elementi in quell'array.
+Se la variabile `cups` o l'array `[]` fossero stati creati fuori dalla funzione `TeaGathering`, questo sarebbe stato un grande problema! Staresti cambiando un oggetto *pre-esistente* inserendo elementi in quell'array.
 
 Tuttavia, è permesso perché li hai creati *durante lo stesso render*, all'interno di `TeaGathering`. Nessun codice al di fuori di `TeaGathering` saprà mai che questo è accaduto. Questo si chiama **"mutazione locale"**—è come il piccolo segreto del tuo componente.
 
