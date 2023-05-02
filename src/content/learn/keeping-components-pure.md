@@ -857,7 +857,7 @@ li {
 
 </Sandpack>
 
-In questo modo, la mutazione avviene localmente e la funzione di rendering rimane pura. Tuttavia, è necessario fare attenzione: ad esempio, se si provasse a modificare uno degli elementi esistenti dell'array, bisognerebbe clonare anche quelli.
+Questo mantiene la mutazione locale e la funzione di rendering rimane pura. Tuttavia, è necessario fare attenzione: ad esempio, se si provasse a modificare uno degli elementi esistenti dell'array, bisognerebbe clonare anche quelli.
 
 È utile ricordare quali operazioni sui array li mutano e quali no. Ad esempio, `push`, `pop`, `reverse` e `sort` mutano l'array originale, mentre `slice`, `filter` e `map` ne creano uno nuovo.
 
