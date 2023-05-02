@@ -579,7 +579,7 @@ Ricorda che React non garantisce che le funzioni dei componenti si eseguano in u
 
 Il CEO della tua azienda ti sta chiedendo di aggiungere "storie" alla tua app orologio online, e non puoi dire di no. Hai scritto un componente `StoryTray`  che accetta una lista di `stories`, seguita da un segnaposto "Crea storia".
 
-Hai implementato il segnaposto "Crea storia" inserendo un'altra storia falsa alla fine dell'array `stories` che ricevi come prop. Ma per qualche motivo, "Crea storia" appare più di una volta. Risolvi il problema.
+Hai implementato il segnaposto "Create Story" inserendo un'altra storia falsa alla fine dell'array `stories` che ricevi come prop. Ma per qualche motivo, "Create Story" appare più di una volta. Risolvi il problema.
 
 <Sandpack>
 
