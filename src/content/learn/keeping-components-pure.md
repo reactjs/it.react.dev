@@ -77,7 +77,7 @@ export default function App() {
 
 Quando passi `drinkers={2}` a `Ricetta`, questo restituirà JSX contenente `2 tazze di acqua`. Sempre. 
 
-Se si passa `drinkers={4}`, restituirà JSX contenente `4 tazze di acqua`. Sempre.
+Se si passa `drinkers={4}`, questo restituirà JSX contenente `4 tazze di acqua`. Sempre.
 
 Proprio come una formula matematica.
 
