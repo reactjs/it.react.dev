@@ -366,7 +366,7 @@ setScore(score + 1); // setScore(0 + 1);
 console.log(score);  // 0
 ```
 
-Puoi risolvere questo problema passando una funzione *updater* quando imposti lo state. Nota come sostituire `setScore(score + 1)` con `setScore(s => s + 1)` aggiusta il bottone "+3". Questo consente di accodare più aggiornamenti dello state.
+Puoi risolvere questo problema passando una *funzione updater* quando imposti lo state. Nota come sostituire `setScore(score + 1)` con `setScore(s => s + 1)` aggiusta il pulsante "+3". Questo consente di accodare più aggiornamenti dello state.
 
 <Sandpack>
 
