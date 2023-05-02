@@ -264,10 +264,10 @@ body {
 Puoi anche seguire questo tutorial usando il tuo ambiente di sviluppo locale. Per fare ciò, è necessario:
 
 1. Installa [Node.js](https://nodejs.org/it)
-2. Nella scheda CodeSandbox che hai aperto prima, premi il pulsante nell'angolo in alto a sinistra per aprire il menu, quindi scegli **File > Export to Zip** in quel menu per scaricare un archivio dei file in locale
-3. Decomprimi l'archivio, quindi apri un terminale e `cd` nella cartella che hai decompresso.
-4. Installa le dipendenze con `npm install`
-5. Esegui `npm start` per avviare un server locale e segui le istruzioni per visualizzare il codice in esecuzione in un browser
+1. Nella scheda CodeSandbox che hai aperto prima, premi il pulsante nell'angolo in alto a sinistra per aprire il menu, quindi scegli **File > Export to Zip** in quel menu per scaricare un archivio dei file in locale
+1. Decomprimi l'archivio, quindi apri un terminale e `cd` nella cartella che hai decompresso.
+1. Installa le dipendenze con `npm install`
+1. Esegui `npm start` per avviare un server locale e segui le istruzioni per visualizzare il codice in esecuzione in un browser
 
 Se rimani bloccato, non lasciare che questo ti fermi! Segui invece online e riprova a configurare in locale più tardi.
 
@@ -284,8 +284,8 @@ In CodeSandbox vedrai tre sezioni principali:
 ![CodeSandbox con codice iniziale](../images/tutorial/react-starter-code-codesandbox.png)
 
 1. La sezione _Files_ con una lista di file come `App.js`, `index.js`, `styles.css` e una cartella chiamata `public`
-2. L'_editor del codice_ dove vedrai il codice sorgente del tuo file selezionato
-3. La sezione _browser_ dove vedrai come il codice che hai scritto sarà visualizzato
+1. L'_editor del codice_ dove vedrai il codice sorgente del tuo file selezionato
+1. La sezione _browser_ dove vedrai come il codice che hai scritto sarà visualizzato
 
 Il file `App.js` dovrebbe essere selezionato nella sezione _Files_. Il contenuto di quel file nell'_editor del codice_ dovrebbe essere:
 
@@ -1322,8 +1322,8 @@ Ora che la tua gestione dello state è nel componente `Board`, il componente gen
 Riepiloghiamo cosa succede quando un utente fa click sul quadrato in alto a sinistra del tabellone per aggiungere una `X`:
 
 1. Facendo click sul quadrato in alto a sinistra viene eseguita la funzione che il `button` ha ricevuto come prop `onClick` da `Square`. Il componente `Square` ha ricevuto quella funzione come prop `onSquareClick` da `Board`. Il componente `Board` ha definito quella funzione direttamente nel JSX. Chiama `handleClick` con un argomento `0`.
-2. `handleClick` utilizza l'argomento (`0`) per aggiornare il primo elemento dell'array `squares` da `null` a `X`.
-3. Lo state `squares` del componente `Board` è stato aggiornato, quindi `Board` e tutti i suoi figli vengono nuovamente renderizzati. Questo fa sì che la prop `value` del componente `Square` con indice `0` cambi da `null` a `X`.
+1. `handleClick` utilizza l'argomento (`0`) per aggiornare il primo elemento dell'array `squares` da `null` a `X`.
+1. Lo state `squares` del componente `Board` è stato aggiornato, quindi `Board` e tutti i suoi figli vengono nuovamente renderizzati. Questo fa sì che la prop `value` del componente `Square` con indice `0` cambi da `null` a `X`.
 
 Alla fine l'utente vede che il quadrato in alto a sinistra è cambiato da vuoto ad avere una `X` dopo aver fatto click su di esso.
 
@@ -2904,9 +2904,9 @@ body {
 Se hai tempo extra o vuoi mettere in pratica le tue nuove abilità di React, ecco alcune idee per miglioramenti che potresti apportare al gioco di tic-tac-toe, elencate in ordine di difficoltà crescente:
 
 1. Solo per la mossa corrente, mostra "You are at move #..." invece di un pulsante.
-2. Riscrivi `Board` per utilizzare due loop per creare i quadrati invece di hardcodarli.
-3. Aggiungi un pulsante interruttore che ti consente di ordinare le mosse in ordine crescente o decrescente.
-4. Quando qualcuno vince, evidenzia i tre quadrati che hanno causato la vittoria (e quando nessuno vince, mostra un messaggio che indica che il risultato è un pareggio).
-5. Visualizza la posizione di ciascuna mossa nel formato (riga, colonna) nell'elenco della cronologia delle mosse.
+1. Riscrivi `Board` per utilizzare due loop per creare i quadrati invece di hardcodarli.
+1. Aggiungi un pulsante interruttore che ti consente di ordinare le mosse in ordine crescente o decrescente.
+1. Quando qualcuno vince, evidenzia i tre quadrati che hanno causato la vittoria (e quando nessuno vince, mostra un messaggio che indica che il risultato è un pareggio).
+1. Visualizza la posizione di ciascuna mossa nel formato (riga, colonna) nell'elenco della cronologia delle mosse.
 
 Durante questo tutorial, hai toccato i concetti di React inclusi elementi, componenti, props e state. Ora che hai visto come funzionano questi concetti durante la creazione di un gioco, dai un'occhiata a [Pensare in React](/learn/thinking-in-react) per vedere come funzionano gli stessi concetti di React durante la creazione della UI di un'app.
