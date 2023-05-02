@@ -219,7 +219,7 @@ Ogni nuova funzione React che stiamo costruendo sfrutta la purezza. Dal recupero
   * **Si cura solo dei suoi affari.** Non deve cambiare alcun oggetto o variabile esistente prima del rendering.
   * **Same inputs, same output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso JSX. 
 * Il rendering può accadere in qualsiasi momento, quindi i componenti non dovrebbero dipendere dalla sequenza di rendering l'uno dell'altro.
-* Non devi mutare alcuna delle input che i tuoi componenti usano per il rendering. Ciò include props, stato e contesto. Per aggiornare lo schermo,  ["set" state](/learn/state-a-components-memory)  invece di modificare oggetti preesistenti.
+* Non devi mutare alcuno degli input che i tuoi componenti utilizzano per il rendering. Questo include props, stato e contesto. Per aggiornare lo schermo,  [imposta ("set") lo state](/learn/state-a-components-memory)  invece di modificare oggetti pre-esistenti.
 * Cerca di esprimere la logica del tuo componente all'interno del JSX che restituisci. Quando hai bisogno di "cambiare le cose", di solito vorrai farlo in un gestore di eventi. Come ultima risorsa, puoi utilizzare `useEffect`.
 * Scrivere funzioni pure richiede un po' di pratica, ma sblocca il potere del paradigma di React.
 
