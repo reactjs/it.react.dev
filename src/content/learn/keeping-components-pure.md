@@ -97,7 +97,7 @@ Ecco un componente che viola questa regola:
 let guest = 0;
 
 function Cup() {
-  // Non corretto: modificare una variabile esistente!
+  // Non corretto: sta modificando una variabile esistente!
   guest = guest + 1;
   return <h2>Tazza di tè per ospite #{guest}</h2>;
 }
