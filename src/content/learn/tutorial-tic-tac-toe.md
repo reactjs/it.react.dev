@@ -204,7 +204,6 @@ Una volta che hai giocato con il gioco di tic-tac-toe finito, continua a scorrer
 
 Nel live editor di codice di seguito, fai click su **Fork** nell'angolo in alto a destra per aprire l'editor in una nuova scheda utilizzando il sito CodeSandbox. CodeSandbox ti consente di scrivere codice nel tuo browser e visualizzare in anteprima come i tuoi utenti vedranno l'app che hai creato. La nuova scheda dovrebbe visualizzare un quadrato vuoto e il codice iniziale per questo tutorial.
 
-
 <Sandpack>
 
 ```js App.js
