@@ -75,7 +75,7 @@ export default function App() {
 
 </Sandpack>
 
-Quando passi `drinkers={2}` a `Ricetta`, restituirà JSX contenente `2 tazze di acqua`. Sempre. 
+Quando passi `drinkers={2}` a `Ricetta`, questo restituirà JSX contenente `2 tazze di acqua`. Sempre. 
 
 Se si passa `drinkers={4}`, restituirà JSX contenente `4 tazze di acqua`. Sempre.
 
