@@ -207,7 +207,7 @@ Scrivere funzioni pure richiede un po' di abitudine e disciplina. Ma sblocca anc
 
 * I tuoi componenti potrebbero funzionare in un ambiente diverso, ad esempio sul server! Poiché restituiscono lo stesso risultato per gli stessi input, un componente può soddisfare molte richieste degli utenti.
 * Puoi migliorare le prestazioni [saltando il rendering](/reference/react/memo) dei componenti il cui input non è cambiato. Ciò è sicuro perché le funzioni pure restituiscono sempre gli stessi risultati, quindi sono sicure da cache.
-* Se alcuni dati cambiano in mezzo al rendering di un albero di componenti profondo, React può riavviare il rendering senza perdere tempo per completare il rendering superato. La purezza rende sicuro interrompere il calcolo in qualsiasi momento.
+* Se alcuni dati cambiano nel mezzo del rendering di un albero di componenti profondo, React può riavviare il rendering senza perdere tempo per completare il rendering superato. La purezza rende sicura l'interruzione del calcolo in qualsiasi momento.
 
 Ogni nuova funzione React che stiamo costruendo sfrutta la purezza. Dal recupero dei dati alle animazioni alle prestazioni, mantenere i componenti puri sblocca il potere del paradigma React.
 
