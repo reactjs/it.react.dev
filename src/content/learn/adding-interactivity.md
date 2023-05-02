@@ -74,7 +74,7 @@ Leggi **[Rispondere agli Eventi](/learn/responding-to-events)** per imparare ad 
 
 ## State: La Memoria di un Componente {/*state-a-components-memory*/}
 
-Spesso i componenti devono cambiare ciò che c'è sullo schermo in seguito a un'interazione. Scrivere nel form deve aggiornare l'input, cliccare "avanti" su un carosello deve cambiare l'immagine mostrata, cliccare "acquista" inserisce un prodotto nel carrello. I componenti devono "ricordare" le cose: l'attuale valore della input, l'attuale immagine, il carrello. In React, questo specifico tipo di memoria è detto *state.*
+Spesso i componenti devono cambiare ciò che c'è sullo schermo in seguito a un'interazione. Scrivere nel form deve aggiornare l'input, cliccare "avanti" su un carosello deve cambiare l'immagine mostrata, cliccare "acquista" inserisce un prodotto nel carrello. I componenti devono "ricordare" le cose: l'attuale valore dell'input, l'attuale immagine, il carrello. In React, questo specifico tipo di memoria è detto *state.*
 
 Puoi aggiungere lo state a un componente con un hook [`useState`](/reference/react/useState). Gli *Hook* sono speciali funzioni che consentono ai componenti di usare le funzionalità di React (lo state è una di queste). L'hook `useState` consente di dichiarare una variabile state. Prende lo state iniziale e restituisce una coppia di valori: lo state attuale e una funzione *state setter* che consente di aggiornarlo.
 
