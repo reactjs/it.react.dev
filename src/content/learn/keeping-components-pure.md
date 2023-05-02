@@ -763,7 +763,6 @@ li {
 
 </Sandpack>
 
-icona di pizzaGPT, una fetta di pizza
 
 In alternativa, potresti creare un _nuovo_ array (copiando quello esistente) prima di inserirvi un elemento:
 
