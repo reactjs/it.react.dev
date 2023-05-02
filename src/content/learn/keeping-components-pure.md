@@ -362,7 +362,7 @@ body > * {
 
 </Sandpack>
 
-In questo esempio, l'effetto collaterale (modifica del DOM) non era necessario affatto. Dovevi solo restituire JSX.
+In questo esempio, l'effetto collaterale (modifica del DOM) non era affatto necessario. Dovevi solo restituire JSX.
 
 </Solution>
 
