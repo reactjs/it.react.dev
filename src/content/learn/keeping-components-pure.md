@@ -35,7 +35,7 @@ Se <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> non sarà a volte <Math>9
 
 Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> sarà sempre <Math>6</Math>. 
 
-Se trasformassimo questa formula in una funzione JavaScript, sarebbe così:
+Se trasformassimo questa formula in una funzione JavaScript, apparirebbe così:
 
 ```js
 function double(number) {
