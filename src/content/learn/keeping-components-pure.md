@@ -10,7 +10,7 @@ Alcune funzioni JavaScript sono *pure.* Le funzioni pure eseguono solo un calcol
 
 <YouWillLearn>
 
-* Che cosa è la purezza e come ti aiuta a evitare i bug
+* Che cosa è la purezza e come ti aiuta ad evitare i bug
 * Come mantenere i componenti puri, mantenendo i cambiamenti fuori dalla fase di renderizzazione
 * Come utilizzare la Strict Mode per trovare errori nei tuoi componenti
 
