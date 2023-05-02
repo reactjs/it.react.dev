@@ -679,7 +679,7 @@ Nota come ogni volta che l'orologio viene aggiornato, "Crea Storia" viene aggiun
 
 La funzione `StoryTray` non è pura. Chiamando `push` sull'array  `stories` ricevuto (una prop!), sta mutando un oggetto che è stato creato *prima* che `StoryTray` iniziasse a renderizzare. Questo lo rende buggato e molto difficile da prevedere.
 
-La soluzione più semplice è di non toccare l'array affatto e renderizzare "Crea Storia" separatamente:
+La soluzione più semplice è di non toccare affatto l'array e renderizzare "Create Story" separatamente:
 
 <Sandpack>
 
