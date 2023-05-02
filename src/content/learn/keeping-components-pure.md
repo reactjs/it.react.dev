@@ -23,7 +23,7 @@ In informatica (ed in particolare nel mondo della programmazione funzionale),  [
 * **Si cura solo dei suoi affari.** Non modifica oggetti o variabili che esistevano già prima che fosse chiamata.
 * **Same inputs, same output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso risultato.
 
-Potresti già essere familiare con un esempio di funzioni pure: le formule in matematica.
+Potresti avere già familiarità con un esempio di funzioni pure: le formule in matematica.
 
 Considera questa formula matematica:  <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
