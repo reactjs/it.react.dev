@@ -231,7 +231,7 @@ Ogni nuova funzione React che stiamo costruendo sfrutta la purezza. Dal recupero
 
 #### Riparare un Orologio Rotto {/*fix-a-broken-clock*/}
 
-Questo componente tenta di impostare la classe CSS dell'`<h1>` a `"night"` durante l'intervallo di tempo dalla mezzanotte alle sei del mattino, e a `"day"` in tutti gli altri momenti. Tuttavia, non funziona. Puoi correggerlo?
+Questo componente tenta di impostare la classe CSS dell'`<h1>` a `"night"` durante l'intervallo di tempo dalla mezzanotte alle sei del mattino, ed a `"day"` in tutti gli altri momenti. Tuttavia, non funziona. Puoi correggerlo?
 
 Puoi verificare se la tua soluzione funziona cambiando temporaneamente il fuso orario del computer. Quando l'ora corrente è compresa tra la mezzanotte e le sei del mattino, l'orologio dovrebbe avere i colori invertiti.
 
