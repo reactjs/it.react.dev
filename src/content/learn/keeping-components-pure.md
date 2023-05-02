@@ -18,7 +18,7 @@ Alcune funzioni JavaScript sono *pure.* Le funzioni pure eseguono solo un calcol
 
 ## Purezza: Componenti Come Formule {/*purity-components-as-formulas*/}
 
-In informatica (e in particolare nel mondo della programmazione funzionale),  [una funzione pura](https://wikipedia.org/wiki/Pure_function) è una funzione con le seguenti caratteristiche:
+In informatica (ed in particolare nel mondo della programmazione funzionale),  [una funzione pura](https://wikipedia.org/wiki/Pure_function) è una funzione con le seguenti caratteristiche:
 
 * **Si cura solo dei suoi affari.** Non modifica oggetti o variabili che sono esistiti prima che fosse chiamata.
 * **Same inputs, same output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso risultato.
