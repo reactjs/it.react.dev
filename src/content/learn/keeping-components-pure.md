@@ -119,7 +119,7 @@ Questo componente legge e scrive una variabile `guest` dichiarata esternamente. 
 
 Tornando alla nostra formula <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, anche se <Math><MathI>x</MathI> = 2</Math>, non possiamo essere certi che <Math><MathI>y</MathI> = 4</Math>. I nostri test potrebbero fallire, gli utenti sarebbero confusi, gli aerei cadrebbero dal cielo - si può vedere come ciò porterebbe a bug confusi!
 
-È possibile risolvere questo componente [passando "guest" come una prop:](/learn/passing-props-to-a-component):
+È possibile risolvere questo componente [passando `guest` come una prop:](/learn/passing-props-to-a-component):
 
 <Sandpack>
 
