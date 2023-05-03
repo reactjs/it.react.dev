@@ -62,7 +62,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Hai definito la funzione `handleClick` e poi l'hai [ passata come prop](/learn/passing-props-to-a-component) al tag `<button>`. `handleClick` è un **gestore di eventi**. Le funzioni gestore di eventi:
+Hai definito la funzione `handleClick` e poi l'hai [passata come prop](/learn/passing-props-to-a-component) al tag `<button>`. `handleClick` è un **gestore di eventi**. Le funzioni gestore di eventi:
 
 * Sono solitamente definite *all'interno* dei tuoi componenti.
 * Hanno nomi che iniziano con `handle`, seguiti dal nome dell'evento. 
@@ -104,6 +104,7 @@ Quando scrivi codice inline, la stessa insidia si presenta in modo diverso:
 | passando una funzione (corretto)     | chiamando una funzione (incorretto)     |
 | --------------------------------------- | --------------------------------- |
 | `<button onClick={() => alert('...')}>` | `<button onClick={alert('...')}>` |
+
 
 Passando il codice inline in questo modo non scatena l'evento al click — viene scatenato ogni volta che il componente viene renderizzato:
 
@@ -417,7 +418,7 @@ Come risultato di `e.stopPropagation()`, cliccando sui bottoni adesso mostra sol
 
 #### Catturare eventi di fase {/*capture-phase-events*/}
 
-In rari casi, potresti aver bisogno di catturare tutti gli eventi sugli elementi figli, *anche se la propagazione è stata stoppata*. Per esempio, potresti voler loggare ogni click per gli analytics, indipendentemente dalla logica di propagazione. Puoi farlo aggiungendo `Capture` al termine del nome dell'evento:
+In rari casi, potresti aver bisogno di catturare tutti gli eventi sugli elementi figli, *anche se la propagazione è stata fermata*. Per esempio, potresti voler loggare ogni click per gli analytics, indipendentemente dalla logica di propagazione. Puoi farlo aggiungendo `Capture` al termine del nome dell'evento:
 
 ```js
 <div onClickCapture={() => { /* questo scatta per primo */ }}>
