@@ -366,7 +366,7 @@ In questo esempio, l'effetto collaterale (modifica del DOM) non era affatto nece
 
 </Solution>
 
-#### Correggi un Profilo Rotto {/*fix-a-broken-profile*/}
+#### Correggi un profilo rotto {/*fix-a-broken-profile*/}
 
 Due componenti  `Profile` vengono renderizzati affiancati con dati diversi. Premi "Collapse" sul primo profilo, quindi "Expand" su di esso. Noterai che entrambi i profili mostrano ora la stessa persona. Questo è un bug.
 
