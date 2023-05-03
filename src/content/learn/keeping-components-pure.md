@@ -21,7 +21,7 @@ Alcune funzioni JavaScript sono *pure.* Le funzioni pure eseguono solo un calcol
 In informatica (ed in particolare nel mondo della programmazione funzionale),  [una funzione pura](https://wikipedia.org/wiki/Pure_function) è una funzione con le seguenti caratteristiche:
 
 * **Si cura solo dei suoi affari.** Non modifica oggetti o variabili che esistevano già prima che fosse chiamata.
-* **Same inputs, same output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso risultato.
+* **Stessi input, stessi output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso risultato.
 
 Potresti avere già familiarità con un esempio di funzioni pure: le formule in matematica.
 
