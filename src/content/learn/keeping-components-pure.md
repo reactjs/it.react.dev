@@ -189,7 +189,7 @@ Se la variabile `cups` o l'array `[]` fossero stati creati fuori dalla funzione 
 
 Tuttavia, è permesso perché li hai creati *durante lo stesso render*, all'interno di `TeaGathering`. Nessun codice al di fuori di `TeaGathering` saprà mai che questo è accaduto. Questo si chiama **"mutazione locale"**—è come il piccolo segreto del tuo componente.
 
-## Dove _Puoi_ Causare Side Effects {/*where-you-_can_-cause-side-effects*/}
+## Dove _puoi_ causare side effects {/*where-you-_can_-cause-side-effects*/}
 
 Mentre la programmazione funzionale si basa pesantemente sulla purezza, ad un certo punto, in qualche posto, _qualcosa_ deve cambiare. Questo è il punto della programmazione! Questi cambiamenti, come l'aggiornamento dello schermo, l'avvio di un'animazione, la modifica dei dati, sono chiamati **side effects.** Sono cose che accadono _"al margine"_, non durante il rendering.
 
