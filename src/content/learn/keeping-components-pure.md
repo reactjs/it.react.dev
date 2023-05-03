@@ -33,7 +33,7 @@ Se <Math><MathI>x</MathI> = 3</Math> allora <Math><MathI>y</MathI> = 6</Math>. S
 
 Se <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> non sarà a volte <Math>9</Math> o <Math>–1</Math> o <Math>2.5</Math> a seconda dell'ora del giorno o dello stato del mercato azionario.
 
-Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> sarà sempre <Math>6</Math>. 
+Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> sarà _sempre_ <Math>6</Math>. 
 
 Se trasformassimo questa formula in una funzione JavaScript, apparirebbe così:
 
