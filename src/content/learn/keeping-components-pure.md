@@ -151,7 +151,7 @@ In generale, non devi aspettarti che i tuoi componenti vengano renderizzati in u
 
 Anche se potresti non averne ancora utilizzati tutti, in React ci sono tre tipi di input che puoi leggere durante il rendering: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), e [context.](/learn/passing-data-deeply-with-context) Dovresti sempre trattare questi input come readonly.
 
-Quando vuoi *cambiare* qualcosa in risposta all'input dell'utente, dovresti [impostare lo stato](/learn/state-a-components-memory) anziché scrivere su una variabile. Non dovresti mai cambiare variabili o oggetti preesistenti durante il rendering del tuo componente.
+Quando vuoi *cambiare* qualcosa in risposta all'input dell'utente, dovresti [impostare lo state](/learn/state-a-components-memory) anziché scrivere su una variabile. Non dovresti mai cambiare variabili o oggetti preesistenti durante il rendering del tuo componente.
 
 React offre una "Strict Mode" in cui chiama la funzione di ogni componente due volte durante lo sviluppo. **Chiamando la funzione del componente due volte, Strict Mode aiuta a trovare i componenti che infrangono queste regole.**
 
