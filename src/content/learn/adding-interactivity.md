@@ -20,7 +20,7 @@ Alcune cose sullo schermo si aggiornano in risposta all'input dell'utente. Ad es
 
 </YouWillLearn>
 
-## Rispondere agli Eventi {/*responding-to-events*/}
+## Rispondere agli eventi {/*responding-to-events*/}
 
 React ti consente di aggiungere degli *event handler* al tuo JSX. Gli event handler sono le tue funzioni personalizzate che vengono chiamate in risposta alle interazioni dell'utente, come il click, il passaggio del mouse, la messa a fuoco degli input del form e così via.
 
@@ -72,7 +72,7 @@ Leggi **[Rispondere agli Eventi](/learn/responding-to-events)** per imparare ad 
 
 </LearnMore>
 
-## State: La Memoria di un Componente {/*state-a-components-memory*/}
+## State: La memoria di un componente {/*state-a-components-memory*/}
 
 Spesso i componenti devono cambiare ciò che c'è sullo schermo in seguito a un'interazione. Scrivere nel form deve aggiornare l'input, cliccare "avanti" su un carosello deve cambiare l'immagine mostrata, cliccare "acquista" inserisce un prodotto nel carrello. I componenti devono "ricordare" le cose: l'attuale valore dell'input, l'attuale immagine, il carrello. In React, questo specifico tipo di memoria è detto *state.*
 
@@ -233,7 +233,7 @@ Leggi **[State: La Memoria di un Componente](/learn/state-a-components-memory)**
 
 </LearnMore>
 
-## Renderizzazione e Commit {/*render-and-commit*/}
+## Renderizzazione e commit {/*render-and-commit*/}
 
 Prima che i tuoi componenti siano visualizzati sullo schermo, devono essere renderizzati da React. Comprendere le fasi di questo processo ti aiuterà a riflettere su come viene eseguito il tuo codice e a spiegarne il comportamento.
 
@@ -255,7 +255,7 @@ Leggi **[Renderizzazione e Commit](/learn/render-and-commit)** per imparare il c
 
 </LearnMore>
 
-## Lo State come Istantanea {/*state-as-a-snapshot*/}
+## Lo State come istantanea {/*state-as-a-snapshot*/}
 
 A differenza delle normali variabili JavaScript, lo state di React si comporta più come un'istantanea. Impostarlo non modifica la variabile state che già possiedi, ma triggera un re-render. Questo può sorprendere all'inizio!
 
@@ -318,7 +318,7 @@ Leggi **[Lo State come Istantanea](/learn/state-as-a-snapshot)** per imparare pe
 
 </LearnMore>
 
-## Accodare più Aggiornamenti dello State {/*queueing-a-series-of-state-updates*/}
+## Accodare più aggiornamenti dello state {/*queueing-a-series-of-state-updates*/}
 
 Questo componente è difettoso: cliccare "+3" incrementa lo score soltanto una volta.
 
@@ -406,7 +406,7 @@ Leggi **[Accodare più Aggiornamenti dello State](/learn/queueing-a-series-of-st
 
 </LearnMore>
 
-## Aggiornare gli Oggetti nello State {/*updating-objects-in-state*/}
+## Aggiornare gli oggetti nello state {/*updating-objects-in-state*/}
 
 Lo State può contenere qualsiasi tipo di valore JavaScript, inclusi gli oggetti. Tuttavia, non dovresti modificare direttamente gli oggetti e gli array contenuti nello State. Quando vuoi aggiornare un oggetto o un array, dovresti invece crearne uno nuovo (o copiare quello esistente) e, infine, impostare la copia nello state.
 
@@ -637,7 +637,7 @@ Leggi **[Aggiornare gli Oggetti nello State](/learn/updating-objects-in-state)**
 
 </LearnMore>
 
-## Aggiornare gli Array nello State {/*updating-arrays-in-state*/}
+## Aggiornare gli array nello state {/*updating-arrays-in-state*/}
 
 Gli array sono un altro tipo di oggetti JavaScript mutabili che puoi memorizzare nello state e che dovresti trattare come read-only. Come per gli oggetti, quando vuoi aggiornare un array contenuto nello state, devi crearne uno nuovo (o copiare l'esistente), e infine impostare il nuovo array nello state.
 
@@ -795,7 +795,7 @@ Leggi **[Aggiornare gli Array nello State](/learn/updating-arrays-in-state)** pe
 
 </LearnMore>
 
-## Qual è il Prossimo Passo? {/*whats-next*/}
+## Qual è il prossimo passo? {/*whats-next*/}
 
 Dirigiti su [Rispondere agli Eventi](/learn/responding-to-events) per iniziare a leggere questo capitolo pagina per pagina!
 
