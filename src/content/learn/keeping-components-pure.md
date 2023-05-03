@@ -201,7 +201,7 @@ Quando possibile, cerca di esprimere la tua logica solo con il rendering. Rimarr
 
 <DeepDive>
 
-#### Perché a React Importa la Purezza? {/*why-does-react-care-about-purity*/}
+#### Perché a React importa la purezza? {/*why-does-react-care-about-purity*/}
 
 Scrivere funzioni pure richiede un po' di abitudine e disciplina. Ma sblocca anche meravigliose opportunità:
 
