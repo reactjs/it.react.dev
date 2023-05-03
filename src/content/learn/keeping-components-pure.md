@@ -85,7 +85,7 @@ Si potrebbe pensare ai propri componenti come ricette: se le si segue e non si i
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add x spoons of tea and 0.5x spoons of spices, and 0.5x cups of milk" />
 
-## Side Effects: Conseguenze (In)aspettate {/*side-effects-unintended-consequences*/}
+## Side Effects: conseguenze (in)aspettate {/*side-effects-unintended-consequences*/}
 
 Il processo di rendering di React deve sempre essere puro. I componenti dovrebbero solo *restituire* il loro JSX e non *modificare* oggetti o variabili che esistevano prima del rendering, in quanto questo li renderebbe impuri!
 
