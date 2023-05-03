@@ -575,7 +575,7 @@ Ricorda che React non garantisce che le funzioni dei componenti si eseguano in u
 
 </Solution>
 
-#### Sistema una Cassetta Rotta {/*fix-a-broken-story-tray*/}
+#### Sistema una cassetta rotta {/*fix-a-broken-story-tray*/}
 
 Il CEO della tua azienda ti sta chiedendo di aggiungere "storie" alla tua app orologio online e non puoi dire di no. Hai scritto un componente `StoryTray`  che accetta una lista di `stories`, seguita da un segnaposto "Crea storia".
 
