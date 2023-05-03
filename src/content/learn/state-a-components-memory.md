@@ -4,7 +4,7 @@ title: "State: La Memoria di un Componente"
 
 <Intro>
 
-Spesso i componenti devono cambiare ciò che c'è sullo schermo in seguito a un'interazione. Scrivere nel form deve aggiornare l'input, cliccare "avanti" su un carosello deve cambiare l'immagine mostrata, cliccare "acquista" inserisce un prodotto nel carrello. I componenti devono "ricordare" le cose: l'attuale valore dell'input, l'attuale immagine, il carrello. In React, questo specifico tipo di memoria è detto *state*.
+Spesso i componenti devono modificare ciò che c'è sullo schermo in seguito a un'interazione. Scrivere nel form deve aggiornare l'input, cliccare "avanti" su un carosello deve cambiare l'immagine mostrata, cliccare "acquista" inserisce un prodotto nel carrello. I componenti devono "ricordare" le cose: l'attuale valore dell'input, l'attuale immagine, il carrello. In React, questo specifico tipo di memoria è detto *state*.
 
 </Intro>
 
@@ -19,7 +19,7 @@ Spesso i componenti devono cambiare ciò che c'è sullo schermo in seguito a un'
 
 ## Quando una variabile regolare non è sufficiente {/*when-a-regular-variable-isnt-enough*/}
 
-Ecco un componente che renderizza l'immagine di una scultura. Cliccare sul pulsante "Next" dovrebbe mostrare la scultura successiva, cambiando l'`index` a `1`, poi `2`, e così via. Tuttavia, questo **non funzionerà** (puoi provare!):
+Ecco un componente che renderizza l'immagine di una scultura. Cliccare sul pulsante "Next" dovrebbe mostrare la scultura successiva, modificando l'`index` a `1`, poi `2`, e così via. Tuttavia, questo **non funzionerà** (puoi provare!):
 
 <Sandpack>
 
@@ -151,20 +151,20 @@ button {
 
 </Sandpack>
 
-L'event handler `handleClick` sta aggiornando una variabile locale, `index`. Ma due cose impediscono al cambiamento di essere visibile:
+L'event handler `handleClick` sta aggiornando una variabile locale, `index`. Ma due cose impediscono alla modifica di essere visibile:
 
-1. **Le variabili locali non persistono tra una renderizzazione e l'altra.** Quando React renderizza questo componente una seconda volta, lo renderizza da zero e non considera alcun cambiamento alla variabile locale.
-2. **I cambiamenti alle variabili locali non triggerano il render.** React non si accorge di dover renderizzare un'altra volta il componente con i dati nuovi.
+1. **Le variabili locali non persistono tra le renderizzazioni.** Quando React renderizza questo componente una seconda volta, lo renderizza da zero e non considera eventuali modifiche alle variabili locali.
+2. **Le modifiche alle variabili locali non triggerano il render.** React non si accorge di dover renderizzare un'altra volta il componente con i dati nuovi.
 
-Per aggiornare un componente con dati nuovi, due cose devono accadere:
+Per aggiornare un componente con nuovi dati, devono accadere due cose:
 
-1. **Mantenere** i dati tra una renderizzazione e l'altra.
-2. **Triggerare** React a renderizzare il componente con i dati nuovi (re-renderizzazione).
+1. **Conservare** i dati tra le renderizzazioni.
+2. **Triggerare** React per renderizzare il componente con nuovi dati (re-renderizzazione).
 
 L'Hook [`useState`](/reference/react/useState) offre queste due cose:
 
-1. Una **variabile state** per mantenere i dati tra una renderizzazione e l'altra.
-2. Una **funzione state setter** per aggiornare la variabile e triggerare React a renderizzare di nuovo il componente.
+1. Una **variabile state** per conservare i dati tra le renderizzazioni.
+2. Una **funzione state setter** per aggiornare la variabile e triggerare React per renderizzare di nuovo il componente.
 
 ## Aggiungere una variabile state {/*adding-a-state-variable*/}
 
@@ -357,7 +357,7 @@ In questo caso, vuoi che React ricordi `index`.
 
 <Note>
 
-La convenzione prevede di chiamare questa coppia come `const [something, setSomething]`. Potresti darle il nome che preferisci, ma le convenzioni rendono le cose più facili da capire tra un progetto e l'altro.
+La convenzione prevede di chiamare questa coppia come `const [something, setSomething]`. Potresti darle il nome che preferisci, ma le convenzioni facilitano la comprensione tra i vari progetti.
 
 </Note>
 
@@ -730,9 +730,9 @@ Non è necessario che tu lo capisca per utilizzare React, ma potresti trovare ut
 
 ## Lo State è isolato e privato {/*state-is-isolated-and-private*/}
 
-Lo State è locale rispetto all'istanza di un componente sullo schermo. In altre parole, **se renderizzi lo stesso componente due volte, ogni copia avrà uno state completamente isolato!** Cambiare uno dei due non intaccherà l'altro.
+Lo State è locale rispetto all'istanza di un componente sullo schermo. In altre parole, **se renderizzi lo stesso componente due volte, ogni copia avrà uno state completamente isolato!** Modificare uno dei due non intaccherà l'altro.
 
-In questo esempio, il componente `Gallery` di prima viene renderizzato due volte con nessun cambiamento apportato alla sua logica. Prova a cliccare sui bottoni all'interno di entrambe le gallerie. Nota come i loro state sono indipendenti:
+In questo esempio, il componente `Gallery` di prima viene renderizzato due volte con nessuna modifica apportata alla sua logica. Prova a cliccare sui bottoni all'interno di entrambe le gallerie. Nota come i loro state sono indipendenti:
 
 <Sandpack>
 
@@ -899,7 +899,7 @@ E se volessi che entrambe le gallerie mantenessero lo state sincronizzato? Il mo
 
 <Recap>
 
-* Usa una variabile state quando un componente deve "ricordare" qualche informazione tra una renderizzazione e l'altra.
+* Usa una variabile state quando un componente deve "ricordare" qualche informazione tra le renderizzazioni.
 * Le variabili state sono dichiarate chiamando l'Hook `useState`.
 * Gli Hook sono funzioni speciali che iniziano per `use`. Ti consentono di "agganciarti" alle funzionalità di React come lo state.
 * Gli Hook potrebbero ricordati gli import: devono essere chiamati incondizionatamente. Chiamare gli Hook, incluso `useState`, è valido solo al livello superiore del componente o di un altro Hook.
@@ -1225,7 +1225,7 @@ Nota come `hasPrev` e `hasNext` vengono usati *sia* per il JSX ritornato che per
 
 #### Correggi gli input del form bloccati {/*fix-stuck-form-inputs*/}
 
-Quando digiti all'interno degli input, non appare nulla. È come se i valori degli input fossero "bloccati" con delle stringhe vuote. Il `value` del primo `<input>` è impostato per essere sempre uguale alla variabile `firstName` e il `value` per il secondo `<input>` è impostato per essere sempre uguale alla variabile `lastName`. Questo è corretto. Entrambi gli input hanno degli event handler per l'`onChange`, che cercano di aggiornare le variabili in base all'ultimo input dell'utente (`e.target.value`). Tuttavia, le variabili non sembrano "ricordare" il loro valore tra una renderizzazione e l'altra. Risolvi il problema usando invece le variabili state.
+Quando digiti all'interno degli input, non appare nulla. È come se i valori degli input fossero "bloccati" con delle stringhe vuote. Il `value` del primo `<input>` è impostato per essere sempre uguale alla variabile `firstName` e il `value` per il secondo `<input>` è impostato per essere sempre uguale alla variabile `lastName`. Questo è corretto. Entrambi gli input hanno degli event handler per l'`onChange`, che cercano di aggiornare le variabili in base all'ultimo input dell'utente (`e.target.value`). Tuttavia, le variabili non sembrano "ricordare" il loro valore tra le renderizzazioni. Risolvi il problema usando invece le variabili state.
 
 <Sandpack>
 
@@ -1506,7 +1506,7 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Una variabile state è necessaria solo per mantenere le informazioni tra le ri-renderizzazioni di un componente. All'interno di un singolo event handler, una variabile regolare è sufficiente. Non introdurre variabili state quando una variabile regolare funziona bene.
+Una variabile state è necessaria solo per conservare le informazioni tra le ri-renderizzazioni di un componente. All'interno di un singolo event handler, una variabile regolare è sufficiente. Non introdurre variabili state quando una variabile regolare funziona bene.
 
 </Solution>
 
