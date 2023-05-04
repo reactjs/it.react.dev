@@ -1,5 +1,5 @@
 ---
-title: Lo stato come un'instantanea
+title: Lo stato come un'istantanea
 ---
 
 <Intro>
@@ -13,7 +13,7 @@ Le variabili di stato possono sembrare delle normali variabili JavaScript su cui
 * Come l'assegnazione dello stato innesca re-renderizzazioni
 * Come e quando viene aggiornato lo stato
 * Perché lo stato non viene aggiornato immediatamente dopo averlo assegnato
-* Come i gestori di eventi accedono ad una "instantanea" dello stato
+* Come i gestori di eventi accedono ad un'"istantanea" dello stato
 
 </YouWillLearn>
 
@@ -71,24 +71,24 @@ Esaminiamo più da vicino la relazione tra lo stato e il renderizzato.
 ## La renderizzazione scatta un'istantanea nel tempo {/*la-renderizzazione-scatta-unistantanea-nel-tempo*/}
 {/*rendering-takes-a-snapshot-in-time*/}
 
-["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è una instantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo stato al momento del renderizzato.**
+["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è una istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo stato al momento del renderizzato.**
 
 A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di click dal JSX.
 
 Quando React re-renderizza un componente:
 
 1. React chiama di nuovo la tua funzione.
-2. La tua funzione restituisce una nuova instantanea JSX.
+2. La tua funzione restituisce una nuova istantanea JSX.
 3. React aggiorna quindi la schermata in modo che corrisponda all'istantanea restituita.
 
 <IllustrationBlock sequential>
     <Illustration caption="React esegue la funzione" src="/images/docs/illustrations/i_render1.png" />
-    <Illustration caption="Calcola la instantanea" src="/images/docs/illustrations/i_render2.png" />
+    <Illustration caption="Calcola la istantanea" src="/images/docs/illustrations/i_render2.png" />
     <Illustration caption="Aggiorna l'albero del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
 Come memoria di un componente, lo stato non è come una normale variabile che scompare dopo che la tua funzione restituisce un valore. Lo stato "vive" nello stesso React--come se si trattasse di uno scaffale!--fuori dalla tua funzione.
-Quando React chiama il tuo componente, fornisce un'instantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'instantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
+Quando React chiama il tuo componente, fornisce un'istantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'istantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
 
 <IllustrationBlock sequential>
   <Illustration caption="Tu dici a React di aggiornare lo state" src="/images/docs/illustrations/i_state-snapshot1.png" />
