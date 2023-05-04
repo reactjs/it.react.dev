@@ -19,7 +19,7 @@ Le variabili di stato possono sembrare delle normali variabili JavaScript su cui
 
 ## Come l'assegnazione dello stato innesca re-renderizzazioni {/*setting-state-triggers-renders*/}
 
-Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un clic. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo stato si richiede un nuovo renderizzato](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è neccessario *aggiornare lo stato*.
+Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un click. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo stato si richiede un nuovo renderizzato](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è neccessario *aggiornare lo stato*.
 In questo esempio, quando premi "Send", `setIsSent(true)` dice a React di re-renderizzare la UI.
 
 <Sandpack>
@@ -60,7 +60,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Ecco cosa succede quando fai clic sul pulsante:
+Ecco cosa succede quando fai click sul pulsante:
 
 1. Viene eseguito il gestore di eventi `onSubmit`.
 2. `setIsSent(true)` assegnat `isSent` a `true` e mette in coda un nuovo render.
@@ -73,7 +73,7 @@ Esaminiamo più da vicino la relazione tra lo stato e il renderizzato.
 
 ["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è una instantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo stato al momento del renderizzato.**
 
-A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di clic dal JSX.
+A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di click dal JSX.
 
 Quando React re-renderizza un componente:
 
@@ -98,7 +98,7 @@ Quando React chiama il tuo componente, fornisce un'instantanea della UI per quel
 
 Ecco qui un piccolo esperimento per mostrarti come questo funziona. In questo esempio, potresti aspettarti che, cliccando il bottone "+3", il contatore venga incrementato tre volte, perché viene richiamato `setNumber(number + 1)` tre volte.
 
-Guarda cosa succede quando fai clic sul bottone "+3":
+Guarda cosa succede quando fai click sul bottone "+3":
 
 <Sandpack>
 
@@ -128,7 +128,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Osserva che `number` viene incrementato solo una volta per clic!
+Osserva che `number` viene incrementato solo una volta per click!
 
 **L'assegnazione dello stato cambia solo per il *prossimo* renderizzato.** Durante il primo renderizzato, `number` era `0`. È per questo che, nel gestore `onClick` di *quel renderizzato*, il valore di `number` è ancora `0`  anche dopo che stato richiamato `setNumber(number + 1)`:
 
@@ -140,7 +140,7 @@ Osserva che `number` viene incrementato solo una volta per clic!
 }}>+3</button>
 ```
 
-Questo è ciò che il gestore del clic per questo pulsante dice a React di fare:
+Questo è ciò che il gestore del click per questo pulsante dice a React di fare:
 
 1. `setNumber(number + 1)`: `number` è `0` quindi `setNumber(0 + 1)`.
     - React si prepara per cambiare `number` a `1` nella prossima renderizzazione.
@@ -161,7 +161,7 @@ Puoi anche visualizzarlo sostituendo mentalmente le variabili di stato con i lor
 }}>+3</button>
 ```
 
-Per il prossimo renderizzato, `number` sarà `1`, quindi il gestore del clic di *quel prossimo renderizzato* avrà l'aspetto seguente:
+Per il prossimo renderizzato, `number` sarà `1`, quindi il gestore del click di *quel prossimo renderizzato* avrà l'aspetto seguente:
 
 ```js
 <button onClick={() => {
@@ -171,11 +171,11 @@ Per il prossimo renderizzato, `number` sarà `1`, quindi il gestore del clic di 
 }}>+3</button>
 ```
 
-Per questo, cliccando di nuovo il bottone, il contatore viene impostato a `2`, successivamente nel prossimo clic a `3` e cosi via.
+Per questo, cliccando di nuovo il bottone, il contatore viene impostato a `2`, successivamente nel prossimo click a `3` e cosi via.
 
 ## Lo stato nel tempo {/*state-over-time*/}
 
-Bene, questo è stato divertente. Prova a indovinare che cosa mostrerà l'alert al clic di questo bottone.
+Bene, questo è stato divertente. Prova a indovinare che cosa mostrerà l'alert al click di questo bottone.
 
 <Sandpack>
 
