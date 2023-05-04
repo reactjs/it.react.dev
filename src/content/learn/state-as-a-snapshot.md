@@ -1,5 +1,5 @@
 ---
-title: Lo stato come una instantanea
+title: Lo stato come un'instantanea
 ---
 
 <Intro>
