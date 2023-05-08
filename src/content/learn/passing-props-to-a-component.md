@@ -90,7 +90,7 @@ Se le doppie graffe dopo `person=` ti confondono, ricorda che [sono semplicement
 
 Adesso puoi leggere queste props all'interno del componente `Avatar`.
 
-### Step 2: Leggi le props all'interno del tuo componente figlio {/*step-2-read-props-inside-the-child-component*/}
+### Step 2: Leggi le props all'interno del componente figlio {/*step-2-read-props-inside-the-child-component*/}
 
 Puoi leggere queste props elencando i loro nomi `person, size` separati da virgole all'interno di `({` e `})` direttamente dopo `function Avatar`. Questo ti permette di usarle all'interno del codice di `Avatar`, come faresti con una variabile.
 
@@ -184,7 +184,7 @@ Solitamente non hai bisogno dell'intero oggetto `props` in sé, quindi lo destru
 
 <Pitfall>
 
-**Non dimenticare la coppia di `{` e `}` graffe** all'interno di `(` e `)` quando dichiari le props:
+**Non dimenticare la coppia di graffe `{` e `}`** all'interno di `(` e `)` quando dichiari le props:
 
 ```js
 function Avatar({ person, size }) {
@@ -411,17 +411,17 @@ Questo esempio illustra che **un componente può ricevere props diverse nel temp
 
 Tuttavia, le props sono [immutabili](https://en.wikipedia.org/wiki/Immutable_object)—un termine della scienza informatica che significa "non modificabile". Quando un componente ha bisogno di cambiare le sue props (ad esempio, in risposta a un'interazione dell'utente o a nuovi dati), dovrà "chiedere" al suo componente genitore di passargli _props diverse_—un nuovo oggetto! Le sue vecchie props verranno quindi scartate ed alla fine il motore JavaScript reclamerà la memoria occupata da esse.
 
-**Non provare a "cambiare le props".** Quando hai bisogno di rispondere all'input dell'utente (come cambiare il colore selezionato), dovrai "impostare lo stato", che puoi imparare in [State: La memoria di un Componente.](/learn/state-a-components-memory)
+**Non provare a "cambiare le props".** Quando hai bisogno di rispondere all'input dell'utente (come cambiare il colore selezionato), dovrai "impostare lo state", che puoi imparare in [State: La Memoria di un Componente.](/learn/state-a-components-memory)
 
 <Recap>
 
 * Per passare le props, aggiungile al JSX, proprio come faresti con gli attributi HTML.
 * Per leggere le props, usa la sintassi di destrutturazione `function Avatar({ person, size })`.
 * Puoi specificare un valore predefinito come `size = 100`, che viene utilizzato per le props mancanti ed `undefined`.
-* Puoi inoltra tutte le props con la sintassi di spread JSX `<Avatar {...props} />`, ma non abusarne!
+* Puoi inoltrare tutte le props con la sintassi di spread JSX `<Avatar {...props} />`, ma non abusarne!
 * Il JSX annidato come `<Card><Avatar /></Card>` apparirà come `children` della prop del componente `Card`.
 * Le props sono istantanee di sola lettura nel tempo: ogni render riceve una nuova versione delle props.
-* Non puoi cambiare le props. Quando hai bisogno di interattività, dovrai impostare lo stato.
+* Non puoi cambiare le props. Quando hai bisogno di interattività, dovrai impostare lo state.
 
 </Recap>
 
