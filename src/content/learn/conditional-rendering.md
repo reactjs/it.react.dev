@@ -54,7 +54,7 @@ export default function PackingList() {
 
 Nota che alcuni componenti `Item` hanno la loro prop `isPacked` settata a `true` invece che `false`. Vuoi aggiungere un segno di spunta (✔) agli elementi imballati se `isPacked={true}`.
 
-Puoi scrivere questo come un [`if`/`else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) in questo modo:
+Puoi scrivere questo come un'[istruzione `if`/`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) in questo modo:
 
 ```js
 if (isPacked) {
@@ -208,7 +208,7 @@ Puoi leggerlo come *"se `isPacked` è true, allora (`?`) renderizza `name + ' �
 
 #### Questi due esempi sono equivalenti? {/*are-these-two-examples-fully-equivalent*/}
 
-Se hai un background di programmazione orientata agli oggetti, potresti supporre che i due esempi sopra siano leggermente diversi perché uno di essi potrebbe creare due "istanze" diverse di `<li>`. Ma gli elementi JSX non sono "istanze" perché non mantengono alcuno stato interno e non sono nodi del DOM reali. Sono descrizioni leggere, come i progetti. Quindi questi due esempi, infatti, **sono** completamente equivalenti. [Preservare e Resettare lo Stato](/learn/preserving-and-resetting-state) entra nel dettaglio su come funziona questo.
+Se hai un background di programmazione orientata agli oggetti, potresti supporre che i due esempi sopra siano leggermente diversi perché uno di essi potrebbe creare due "istanze" diverse di `<li>`. Ma gli elementi JSX non sono "istanze" perché non mantengono alcuno stato interno e non sono nodi del DOM reali. Sono descrizioni leggere, come i progetti. Quindi questi due esempi, infatti, *sono* completamente equivalenti. [Preservare e Resettare lo Stato](/learn/preserving-and-resetting-state) entra nel dettaglio su come funziona questo.
 
 </DeepDive>
 
@@ -260,7 +260,7 @@ Questo stile funziona bene per condizioni semplici, ma utilizzalo con moderazion
 
 ### Operatore logico AND (`&&`) {/*logical-and-operator-*/}
 
-Un'altra scorciatoia comune che incontrerai è l'[operatore logico AND (`&&`).](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) All'interno dei componenti React, si presenta spesso quando si desidera renderizzare un po' di JSX quando la condizione è vera, **o altrimenti non si renderizzare nulla.** Con `&&`, potresti renderizzare condizionalmente il segno di spunta solo se `isPacked` è `true`:
+Un'altra scorciatoia comune che incontrerai è l'[operatore logico AND (`&&`).](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) All'interno dei componenti React, si presenta spesso quando si desidera renderizzare un po' di JSX quando la condizione è vera, **o altrimenti non si renderizza nulla.** Con `&&`, potresti renderizzare condizionalmente il segno di spunta solo se `isPacked` è `true`:
 
 
 ```js
