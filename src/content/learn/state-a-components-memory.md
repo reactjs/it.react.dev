@@ -17,7 +17,7 @@ Spesso i componenti devono modificare ciò che c'è sullo schermo in seguito a u
 
 </YouWillLearn>
 
-## Quando una variabile regolare non è sufficiente {/*when-a-regular-variable-isnt-enough*/}
+## Quando una variabile normale non è sufficiente {/*when-a-regular-variable-isnt-enough*/}
 
 Ecco un componente che renderizza l'immagine di una scultura. Cliccare sul pulsante "Next" dovrebbe mostrare la scultura successiva, modificando l'`index` a `1`, poi `2`, e così via. Tuttavia, questo **non funzionerà** (puoi provare!):
 
