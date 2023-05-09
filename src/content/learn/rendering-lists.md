@@ -407,7 +407,6 @@ Diverse fonti di dati forniscono diverse fonti di keys:
 * **Dati provenienti da un database:** Se i tuoi dati provengono da un database, puoi usare le chiavi / ID del database, che sono uniche per natura.
 * **Dati generati localmente:** Se i tuoi dati sono generati e mantenuti localmente (ad esempio note in un'app per prendere appunti), usa un contatore crescente, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) o un pacchetto come [`uuid`](https://www.npmjs.com/package/uuid) quando crei gli elementi.
 
-
 ### Regole delle key {/*rules-of-keys*/}
 
 * **Le key devono essere uniche tra i loro simili.** Tuttavia, è possibile utilizzare le stesse key per i nodi JSX in array _diversi_.
