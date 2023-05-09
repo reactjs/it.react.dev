@@ -375,7 +375,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-### Visualizzare vari nodi DOM per ogni elemento della lista {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Visualizzare vari nodi DOM per ogni elemento della lista {/*displaying-several-dom-nodes-for-each-list-item*/}
 
 Cosa farai se ogni elemento della lista deve renderizzare non uno, ma diversi nodi DOM?
 
@@ -404,7 +404,7 @@ I Fragment scompaiono dal DOM, quindi questo produrrà una lista piatta di `<h1>
 Diverse fonti di dati forniscono diverse fonti di keys:
 
 
-* ** Dati provenienti da un database: ** Se i tuoi dati provengono da un database, puoi usare le chiavi / ID del database, che sono uniche per natura.
+* **Dati provenienti da un database:** Se i tuoi dati provengono da un database, puoi usare le chiavi / ID del database, che sono uniche per natura.
 * **Dati generati localmente:** Se i tuoi dati sono generati e mantenuti localmente (ad esempio note in un'app per prendere appunti), usa un contatore crescente, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) o un pacchetto come [`uuid`](https://www.npmjs.com/package/uuid) quando crei gli elementi.
 
 
