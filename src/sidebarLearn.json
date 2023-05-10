@@ -80,18 +80,18 @@
           "path": "/learn/rendering-lists"
         },
         {
-          "title": "Keeping Components Pure",
+          "title": "Mantenere i Componenti Puri",
           "path": "/learn/keeping-components-pure"
         }
       ]
     },
     {
-      "title": "Adding Interactivity",
+      "title": "Aggiungere le Interazioni",
       "path": "/learn/adding-interactivity",
       "tags": [],
       "routes": [
         {
-          "title": "Responding to Events",
+          "title": "Rispondere agli Eventi",
           "path": "/learn/responding-to-events"
         },
         {

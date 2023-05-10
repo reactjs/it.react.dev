@@ -20,6 +20,7 @@ Le variabili di stato possono sembrare delle normali variabili JavaScript su cui
 ## Come l'assegnazione dello stato innesca re-renderizzazioni {/*setting-state-triggers-renders*/}
 
 Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un click. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo stato si richiede un nuovo renderizzato](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è neccessario *aggiornare lo stato*.
+
 In questo esempio, quando premi "Send", `setIsSent(true)` dice a React di re-renderizzare la UI.
 
 <Sandpack>
@@ -69,7 +70,6 @@ Ecco cosa succede quando fai click sul pulsante:
 Esaminiamo più da vicino la relazione tra lo stato e il renderizzato.
 
 ## La renderizzazione scatta un'istantanea nel tempo {/*la-renderizzazione-scatta-unistantanea-nel-tempo*/}
-{/*rendering-takes-a-snapshot-in-time*/}
 
 ["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è una istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo stato al momento del renderizzato.**
 
@@ -87,8 +87,7 @@ Quando React re-renderizza un componente:
     <Illustration caption="Aggiorna l'albero del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Come memoria di un componente, lo stato non è come una normale variabile che scompare dopo che la tua funzione restituisce un valore. Lo stato "vive" nello stesso React--come se si trattasse di uno scaffale!--fuori dalla tua funzione.
-Quando React chiama il tuo componente, fornisce un'istantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'istantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
+Come memoria di un componente, lo stato non è come una normale variabile che scompare dopo che la tua funzione restituisce un valore. Lo stato "vive" nello stesso React--come se si trattasse di uno scaffale!--fuori dalla tua funzione. Quando React chiama il tuo componente, fornisce un'istantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'istantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
 
 <IllustrationBlock sequential>
   <Illustration caption="Tu dici a React di aggiornare lo state" src="/images/docs/illustrations/i_state-snapshot1.png" />
@@ -366,7 +365,6 @@ h1 { margin-top: 20px; }
 Aggiungi un `alert` al gestore di click. Quando la luce è verde e dice "Walk", cliccando il bottone dovrebbe dire "Stop is next". Quando la luce è rossa e dice "Stop", cliccando il bottone dovrebbe dire "Walk is next".
 
 C'è qualche differenza se l'`alert` viene impostato prima o dopo la chiamata a `setWalk`? 
-Does it make a difference whether you put the `alert` before or after the `setWalk` call?
 
 <Solution>
 

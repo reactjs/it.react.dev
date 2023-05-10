@@ -11,7 +11,7 @@
       "path": "/learn"
     },
     {
-      "title": "Installation",
+      "title": "Installazione",
       "path": "/learn/installation"
     },
     {
@@ -19,11 +19,11 @@
       "sectionHeader": "LEARN REACT"
     },
     {
-      "title": "Describing the UI",
+      "title": "Descrivere la UI",
       "path": "/learn/describing-the-ui"
     },
     {
-      "title": "Adding Interactivity",
+      "title": "Aggiungere le Interazioni",
       "path": "/learn/adding-interactivity"
     },
     {
