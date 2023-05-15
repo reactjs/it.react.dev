@@ -146,9 +146,9 @@ Il comportamento predefinito di renderizzare tutti i componenti annidati all'int
 
 </DeepDive>
 
-## Step 3: React modifica il DOM  {/*step-3-react-commits-changes-to-the-dom*/}
+## Step 3: React aggiorna il DOM  {/*step-3-react-commits-changes-to-the-dom*/}
 
-Dopo aver renderizzato (chiamato) i componenti, React modificherà il DOM.
+Dopo aver renderizzato (chiamato) i componenti, React aggiornerà il DOM.
 
 * **Per la renderizzazione iniziale,** React utilizzerà l'API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) per inserire tutti i nodi DOM creati sullo schermo.
 * **Per ri-renderizzare,** React applicherà solo le operazioni minime necessarie (calcolate durante il rendering!) per rendere il DOM uguale all'ultimo output di rendering.
@@ -207,7 +207,7 @@ Dopo che la renderizzazione viene eseguita e React ha aggiornato il DOM, il brow
   2. Renderizzazione
   3. Commit
 * Puoi usare la Modalità Strict per trovare gli errori nei tuoi componenti
-* React non modifica il DOM se il risultato della renderizzazione è lo stesso della volta precedente
+* React non aggiorna il DOM se il risultato della renderizzazione è lo stesso della volta precedente
 
 </Recap>
 
