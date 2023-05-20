@@ -34,7 +34,7 @@ Immagina che i tuoi componenti siano chef in cucina, che assemblano piatti gusto
 Ci sono due motivi per cui un componente deve eseguire la renderizzazione:
 
 1. E' la **renderizzazione iniziale** del componente.
-2. Lo **stato** del componente(o uno dei suoi antenati) **è stato aggiornato.**
+2. Lo **state** del componente(o uno dei suoi antenati) **è stato aggiornato.**
 
 ### Renderizzazione iniziale {/*initial-render*/}
 
@@ -65,9 +65,9 @@ export default function Image() {
 
 Prova a commentare la chiamata `root.render()` e vedrai il componente scomparire!
 
-### Renderizzare nuovamente quando lo stato viene aggiornato{/*re-renders-when-state-updates*/}
+### Renderizzare nuovamente quando lo state viene aggiornato{/*re-renders-when-state-updates*/}
 
-Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo stato con la funzione [`set` function.](/reference/react/useState#setstate) Aggiornare lo stato del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
+Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo state con la funzione [`set` function.](/reference/react/useState#setstate) Aggiornare lo state del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
 
 <IllustrationBlock sequential>
   <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
@@ -80,7 +80,7 @@ Una volta che il componente è inizialmente renderizzato, è possibile avviare u
 Dopo aver avviato la renderizzazione, React richiama i tuoi componenti per capire cosa mostrare a schermo. **"Renderizzare"  è il termine che indica React che richiama i tuoi componenti.**
 
 * **Durante il rendering iniziale,** React richiama il componente radice.
-* **Per le renderizzazioni successive,** React richiama il componente funzione il cui aggiornamento di stato ha scatenato il rendering.
+* **Per le renderizzazioni successive,** React richiama il componente funzione il cui aggiornamento di state ha scatenato il rendering.
 
 Questo processo è ricorsivo: se il componente aggiornato restituisce un altro componente, React renderizzerà _quel_ componente successivamente, e se quel componente restituisce a sua volta qualcosa, renderizzerà _quel_ componente successivamente, e cosi via. Il processo continua finché non ci sono più componenti annidati e React sa esattamente cosa mostrare a schermo.
 
