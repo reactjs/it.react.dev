@@ -1851,7 +1851,7 @@ Il componente `Board` è completamente controllato dalle props che gli vengono p
 
 Cosa dovrebbe fare `handlePlay` quando viene chiamato? Ricorda che Board chiamava `setSquares` con un array aggiornato; ora passa l'array `squares` aggiornato a `onPlay`.
 
-La funzione `handlePlay` deve aggiornare lo stato di `Game` per attivare un nuovo rendering, ma non hai più una funzione `setSquares` che puoi chiamare: ora stai usando la variabile state `history` per memorizzare queste informazioni. Ti consigliamo di aggiornare `history` aggiungendo l'array `squares` aggiornato come nuova voce di history. Vuoi anche attivare `xIsNext`, proprio come faceva Board:
+La funzione `handlePlay` deve aggiornare lo stato di `Game` per attivare una nuova renderizzazione, ma non hai più una funzione `setSquares` che puoi chiamare: ora stai usando la variabile state `history` per memorizzare queste informazioni. Ti consigliamo di aggiornare `history` aggiungendo l'array `squares` aggiornato come una nuova voce della cronologia. Vuoi anche attivare `xIsNext`, proprio come faceva Board:
 
 ```js {4-5}
 export default function Game() {
