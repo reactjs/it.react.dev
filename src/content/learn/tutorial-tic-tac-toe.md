@@ -2509,7 +2509,7 @@ function handlePlay(nextSquares) {
 }
 ```
 
-Infine, modificherai il componente `Gioco` per eseguire il rendering della mossa attualmente selezionata, invece di eseguire sempre il rendering della mossa finale:
+Infine, modificherai il componente `Gioco` per eseguire la renderizzazione della mossa attualmente selezionata, invece di eseguire sempre la renderizzazione della mossa finale:
 
 ```js {5}
 export default function Game() {
