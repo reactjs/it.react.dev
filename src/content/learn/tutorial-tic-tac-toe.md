@@ -2276,7 +2276,7 @@ Oltre ai conteggi aggiornati, una lettura umana direbbe probabilmente che hai sc
 
 Quando un elenco viene nuovamente renderizzato, React prende la key di ogni elemento dell'elenco e cerca negli elementi dell'elenco precedente una key corrispondente. Se l'elenco corrente ha una key che prima non esisteva, React crea un componente. Se nell'elenco corrente manca una key che esisteva nell'elenco precedente, React distrugge il componente precedente. Se due keys corrispondono, il componente corrispondente viene spostato.
 
-Le keys comunicano a React l'identità di ciascun componente, il che consente a React di mantenere lo state tra i re-render. Se la key di un componente cambia, il componente verrà distrutto e ricreato con un nuovo state.
+Le keys comunicano a React l'identità di ciascun componente, il che consente a React di mantenere lo state tra le ri-renderizzazioni. Se la key di un componente cambia, il componente verrà distrutto e ricreato con un nuovo state.
 
 `key` è una proprietà speciale e riservata in React. Quando viene creato un elemento, React estrae la proprietà `key` e memorizza la key direttamente sull'elemento restituito. Anche se `key` può sembrare passato come prop, React utilizza automaticamente `key` per decidere quali componenti aggiornare. Non c'è modo per un componente di chiedere quale `key` sia stata specificata dal suo genitore.
 
