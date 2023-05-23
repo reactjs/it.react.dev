@@ -1785,7 +1785,7 @@ export default function Game() {
 
 Nota come `[Array(9).fill(null)]` è un array con un singolo elemento, che a sua volta è un array di 9 `null`.
 
-Per eseguire il rendering dei quadrati per la mossa corrente, vorrai leggere l'ultimo array di quadrati da `history`. Non hai bisogno di `useState` per questo: hai già abbastanza informazioni per calcolarlo durante il rendering:
+Per eseguire la renderizzazione dei quadrati per la mossa corrente, vorrai leggere l'ultimo array di quadrati da `history`. Non hai bisogno di `useState` per questo-- hai già abbastanza informazioni per calcolarlo durante la renderizzazione:
 
 ```js {4}
 export default function Game() {
