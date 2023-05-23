@@ -1161,7 +1161,7 @@ Successivamente, dovrai passare quella `i` a `handleClick`. Potresti provare a i
 <Square value={squares[0]} onSquareClick={handleClick(0)} />
 ```
 
-Ecco perché questo non funziona. La chiamata `handleClick(0)` farà parte del rendering del componente board. Poiché `handleClick(0)` altera lo state del componente board chiamando `setSquares`, l'intero componente board verrà nuovamente renderizzato. Ma questo esegue di nuovo `handleClick(0)`, portando a un ciclo infinito:
+Ecco perché questo non funziona. La chiamata `handleClick(0)` farà parte della renderizzazione del componente board. Poiché `handleClick(0)` altera lo state del componente board chiamando `setSquares`, l'intero componente board verrà nuovamente renderizzato. Ma questo esegue di nuovo `handleClick(0)`, portando a un ciclo infinito:
 
 <ConsoleBlock level="error">
 
