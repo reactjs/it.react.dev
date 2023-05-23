@@ -1191,7 +1191,7 @@ export default function Board() {
 
 Nota la nuova sintassi `() =>`. Qui, `() => handleClick(0)` è un'*arrow function*, che è un modo più breve per definire le funzioni. Quando si fa click sul quadrato, il codice dopo la `=>` "freccia" verrà eseguito, chiamando `handleClick(0)`.
 
-Ora devi aggiornare gli altri otto quadrati per chiamare `handleClick` dalle allow function che passi. Assicurati che l'argomento per ogni chiamata di `handleClick` corrisponda all'indice del quadrato corretto:
+Ora devi aggiornare gli altri otto quadrati per chiamare `handleClick` dalle arrow function che passi. Assicurati che l'argomento per ogni chiamata di `handleClick` corrisponda all'indice del quadrato corretto:
 
 ```js {6-8,11-13,16-18}
 export default function Board() {
