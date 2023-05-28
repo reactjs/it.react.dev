@@ -65,7 +65,7 @@ button { margin-right: 10px; }
 Hai definito la funzione `handleClick` e poi l'hai [passata come prop](/learn/passing-props-to-a-component) al tag `<button>`. `handleClick` è un **gestore di eventi**. Le funzioni gestore di eventi:
 
 * Sono solitamente definite *all'interno* dei tuoi componenti.
-* Hanno nomi che iniziano con `handle`, seguiti dal nome dell'evento. 
+* Hanno nomi che iniziano con `handle`, seguiti dal nome dell'evento.
 
 Per convenzione, è comune chiamare i gestori di eventi come `handle` seguito dal nome dell'evento. Vedrai spesso `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, e così via.
 
@@ -314,6 +314,12 @@ button { margin-right: 10px; }
 
 Nota come il componente `App` non ha bisogno di sapere *cosa* farà `Toolbar` con `onPlayMovie` o `onUploadImage`. Questo è un dettaglio di implementazione di `Toolbar`. Qui, `Toolbar` li passa come gestori di eventi `onClick` ai suoi `Button`, ma potrebbe anche attivarli con una scorciatoia da tastiera. Dare alle props nomi specifici relativi all'applicazione come `onPlayMovie` ti dà la flessibilità di cambiare come vengono utilizzate in seguito.
 
+<Note>
+
+Assicurati di utilizzare i tag HTML appropriati per i tuoi gestori di eventi. Ad esempio, per gestire i click, usa [`<button onClick={handleClick}>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/button) invece di `<div onClick={handleClick}>`. L'uso di un vero pulsante del browser `<button>` consente comportamenti del browser integrati come la navigazione da tastiera. Se non ti piace lo stile predefinito del browser di un pulsante e vuoi farlo sembrare più un link o un diverso elemento dell'interfaccia utente, puoi ottenerlo con CSS. [Scopri di più sulla scrittura di markup accessibile.](https://developer.mozilla.org/it/docs/Learn/Accessibility/HTML)
+
+</Note>
+
 ## Propagazione degli eventi {/*event-propagation*/}
 
 I gestori di eventi cattureranno gli eventi da ogni elemento figlio che il tuo componente può possedere. Diciamo che un evento "bolle" o "si propaga" verso l'alto nell'albero: inizia con dove è avvenuto l'evento, e poi sale nell'albero.
@@ -430,7 +436,7 @@ In rari casi, potresti aver bisogno di catturare tutti gli eventi sugli elementi
 Ogni evento si propaga in tre fasi:
 
 1. Viaggia verso il basso, chiamando tutti i gestori `onClickCapture`.
-2. Esegue il gestore `onClick` dell'elemento cliccato. 
+2. Esegue il gestore `onClick` dell'elemento cliccato.
 3. Viaggia verso l'alto, chiamando tutti i gestori `onClick`.
 
 Catturare gli eventi è utile per codice come router o analytics, ma probabilmente non li userai nel codice dell'app.
@@ -523,7 +529,7 @@ A differenza delle funzioni di rendering, i gestori di eventi non devono essere 
 * Puoi definire una funzione di gestione degli eventi separatamente oppure inline.
 * I gestori di eventi sono definiti all'interno di un componente, quindi possono accedere alle props.
 * Puoi dichiarare un gestore di eventi in un genitore e passarlo come prop ad un figlio.
-* Puoi definire le tue props di gestione degli eventi con nomi specifici dell'applicazione. 
+* Puoi definire le tue props di gestione degli eventi con nomi specifici dell'applicazione.
 * Gli eventi si propagano verso l'alto. Chiama `e.stopPropagation()` sul primo argomento per impedirlo.
 * Gli eventi possono avere alcuni comportamenti indesiderati di default del browser. Chiama `e.preventDefault()` per impedirlo.
 * Chiamare esplicitamente una prop di gestione degli eventi da un gestore figlio è un'ottima alternativa alla propagazione.
