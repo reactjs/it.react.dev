@@ -206,7 +206,7 @@ Dopo che la renderizzazione viene eseguita e React ha aggiornato il DOM, il brow
   1. Trigger
   2. Renderizzazione
   3. Commit
-* Puoi usare la Modalità Strict per trovare gli errori nei tuoi componenti
+* Puoi usare la Strict Mode per trovare gli errori nei tuoi componenti
 * React non aggiorna il DOM se il risultato della renderizzazione è lo stesso della volta precedente
 
 </Recap>
