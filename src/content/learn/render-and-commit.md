@@ -75,7 +75,7 @@ Una volta che il componente è inizialmente renderizzato, è possibile avviare u
   <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
 
-## Passo 2: React rappresenta i tuoi componenti {/*step-2-react-renders-your-components*/}
+## Passo 2: React renderizza i tuoi componenti {/*step-2-react-renders-your-components*/}
 
 Dopo aver avviato la renderizzazione, React richiama i tuoi componenti per capire cosa mostrare a schermo. **"Renderizzare"  è il termine che indica React che richiama i tuoi componenti.**
 
