@@ -125,7 +125,7 @@ Diciamo che vuoi ottenere un modo per mostrare solo le persone la cui profession
 
 Vuoi solamente gli elementi dove `profession` è uguale a`'chemist'`. La funzione "test" per questo scopo è `(person) => person.profession === 'chemist'`. Ecco come mettere insieme il tutto:
 
-1. **Crea** un nuovo array di sole persone 'chemist', `chemists`, chiamando `filter()` su `people` filtrando per `person.profession === 'chemist'`:
+1. **Crea** un nuovo array di sole persone “chemist”, `chemists`, chiamando `filter()` su `people` filtrando per `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
