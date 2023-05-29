@@ -16,7 +16,7 @@ Spesso vorrai visualizzare più componenti simili da una collezione di dati. Puo
 
 </YouWillLearn>
 
-## Renderizzare dati da un array {/*rendering-data-from-arrays*/}
+## Renderizzare dati da array {/*rendering-data-from-arrays*/}
 
 Immagina di avere una lista di contenuti.
 
