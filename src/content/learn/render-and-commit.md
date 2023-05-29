@@ -12,7 +12,7 @@ Prima che i tuoi componenti siano visualizzati sullo schermo, devono essere rend
 
 * Cosa significa renderizzare in React
 * Quando e perché React renderizza un componente
-* I passaggi coinvoltinecessari per visualizzare un componente sullo schermo
+* I passaggi coinvolti necessari per visualizzare un componente sullo schermo
 * Perché il renderizzare non sempre produce un aggiornamento del DOM
 
 </YouWillLearn>
