@@ -69,7 +69,7 @@ Ecco cosa succede quando fai click sul pulsante:
 
 Esaminiamo più da vicino la relazione tra lo state e il renderizzato.
 
-## La renderizzazione scatta un'istantanea nel tempo {/*la-renderizzazione-scatta-unistantanea-nel-tempo*/}
+## La renderizzazione scatta un'istantanea nel tempo {/*rendering-takes-a-snapshot-in-time*/}
 
 ["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è come un'istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo state al momento della renderizzazione.**
 
@@ -129,7 +129,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Osserva che `number` viene incrementato solo una volta per click!
 
-**L'assegnazione dello stato cambia solo per il *prossimo* renderizzato.** Durante il primo renderizzato, `number` era `0`. È per questo che, nel gestore `onClick` di *quel renderizzato*, il valore di `number` è ancora `0`  anche dopo che stato richiamato `setNumber(number + 1)`:
+**L'assegnazione dello state cambia solo per la *prossima* renderizzazione .** Durante la prima renderizzazione, `number` era `0`. È per questo che, nel gestore `onClick` di *quella renderizzazione*, il valore di `number` è ancora `0`  anche dopo che stato chiamato `setNumber(number + 1)`:
 
 ```js
 <button onClick={() => {
@@ -160,7 +160,7 @@ Puoi anche visualizzarlo sostituendo mentalmente le variabili di state con i lor
 }}>+3</button>
 ```
 
-Per il prossimo renderizzato, `number` sarà `1`, quindi il gestore del click di *quel prossimo renderizzato* avrà l'aspetto seguente:
+Per la prossima renderizzazione, `number` sarà `1`, quindi il gestore del click di *quella prossima renderizzazione* avrà il seguente aspetto:
 
 ```js
 <button onClick={() => {
@@ -428,7 +428,7 @@ Puoi verificare che ciò sia corretto applicando il metodo della sostituzione. Q
 </h1>
 ```
 
-Quindi, cliccando su "Change to Stop", si mette in coda un rendering con `walk` impostato su `false` e viene visualizzato "Stop is next". 
+Quindi, cliccando su "Change to Stop", si mette in coda una renderizzazione con `walk` impostato su `false` e viene visualizzato "Stop is next". 
 
 </Solution>
 
