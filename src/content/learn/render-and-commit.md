@@ -104,7 +104,7 @@ function Image() {
   return (
     <img
       src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica di Eduardo Catalano: una gigantesca scultura di fiori metallici con petali riflettenti"
+      alt="'Floralis Genérica' di Eduardo Catalano: una gigantesca scultura di fiori metallici con petali riflettenti"
     />
   );
 }
