@@ -121,7 +121,7 @@ const people = [{
 }];
 ```
 
-Diciamo che vuoi ottenere un modo per mostrare solo le persone il cui professione è `'chemist'`. Puoi usare il metodo `filter()` di JavaScript per ritornare solo quelle persone. Questo metodo prende un array di elementi, li passa attraverso un "test" (una funzione che ritorna `true` o `false`), e ritorna un nuovo array solo con gli elementi che hanno passato il test (ritornato `true`).
+Diciamo che vuoi ottenere un modo per mostrare solo le persone la cui professione è `'chemist'`. Puoi usare il metodo `filter()` di JavaScript per ritornare solo quelle persone. Questo metodo prende un array di elementi, li passa attraverso un “test” (una funzione che ritorna `true` o `false`), e ritorna un nuovo array solo con gli elementi che hanno passato il test (ritornato `true`).
 
 Vuoi solamente gli elementi dove `profession` è uguale a`'chemist'`. La funzione "test" per questo scopo è `(person) => person.profession === 'chemist'`. Ecco come mettere insieme il tutto:
 
