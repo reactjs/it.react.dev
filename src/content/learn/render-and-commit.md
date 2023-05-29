@@ -84,7 +84,7 @@ Dopo aver avviato la renderizzazione, React richiama i tuoi componenti per capir
 
 Questo processo è ricorsivo: se il componente aggiornato restituisce un altro componente, React renderizzerà _quel_ componente successivamente, e se quel componente restituisce a sua volta qualcosa, renderizzerà _quel_ componente successivamente, e cosi via. Il processo continua finché non ci sono più componenti annidati e React sa esattamente cosa mostrare a schermo.
 
-Nell'esempio seguente, React chiamerà `Gallery()` e  `Image()`diverse volte:
+Nell'esempio seguente, React chiamerà `Gallery()` e  `Image()` diverse volte:
 
 <Sandpack>
 
