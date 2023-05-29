@@ -146,7 +146,7 @@ Il comportamento predefinito di renderizzare tutti i componenti annidati all'int
 
 </DeepDive>
 
-## Step 3: React aggiorna il DOM  {/*step-3-react-commits-changes-to-the-dom*/}
+## Step 3: React aggiorna il DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
 Dopo aver renderizzato (chiamato) i componenti, React aggiornerà il DOM.
 
