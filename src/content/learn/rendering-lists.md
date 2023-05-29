@@ -1212,7 +1212,7 @@ hr {
 
 Se usi l'indice originale come `key` non funziona più perché ogni separatore e paragrafo sono ora nello stesso array. Tuttavia, puoi dare a ciascuno di essi una key distinta usando un suffisso, ad esempio `key={i + '-text'}`.
 
-In alternativa, potresti renderizzare una collection di fragments che contengono `<hr />` e `<p>...</p>`. Tuttavia, la sintassi abbreviata `<>...</>` non supporta il passaggio di key, quindi dovresti scrivere `<Fragment>` esplicitamente:
+In alternativa, potresti renderizzare una collezione di fragments che contengono `<hr />` e `<p>...</p>`. Tuttavia, la sintassi abbreviata `<>...</>` non supporta il passaggio di key, quindi dovresti scrivere `<Fragment>` esplicitamente:
 
 <Sandpack>
 
