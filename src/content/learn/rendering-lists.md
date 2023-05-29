@@ -976,7 +976,7 @@ export const recipes = [{
 
 </Sandpack>
 
-Ogni `recipe` nell'array ha già un campo `id`, quindi è quello che il ciclo esterno usa per il suo `key`. Non c'è nessun ID che potresti usare per ciclare sugli ingredienti. Tuttavia, è ragionevole supporre che lo stesso ingrediente non sarà elencato due volte all'interno della stessa ricetta, quindi il suo nome può servire come `key`. In alternativa, potresti cambiare la struttura dei dati per aggiungere gli ID, o usare l'indice come `key` (con il caveat che non puoi riordinare gli ingredienti in modo sicuro).
+Ogni `recipe` nell'array ha già un campo `id`, quindi è quello che il ciclo esterno usa per il suo `key`. Non c'è nessun ID che potresti usare per iterare sugli ingredienti. Tuttavia, è ragionevole supporre che lo stesso ingrediente non sarà elencato due volte all'interno della stessa ricetta, quindi il suo nome può servire come `key`. In alternativa, potresti cambiare la struttura dei dati per aggiungere gli ID, o usare l'indice come `key` (con il caveat che non puoi riordinare gli ingredienti in modo sicuro).
 
 </Solution>
 
