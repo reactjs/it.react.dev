@@ -892,7 +892,7 @@ Crea una lista di ricette! Per ogni ricetta nell'array, visualizza il suo nome c
 
 <Hint>
 
-Qui abbiamo bisogno di due cicli `map` annidati.
+Qui abbiamo bisogno di due chiamate a `map` annidate.
 
 </Hint>
 
