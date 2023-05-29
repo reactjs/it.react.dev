@@ -244,7 +244,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Pitfall>
 
-Le arrow functions ritornano implicitamente l'espressione che segue `=>`, quindi non hai bisogno di una dichiarazione `return`:
+Le arrow function ritornano implicitamente l'espressione che segue `=>`, quindi non hai bisogno di una dichiarazione `return`:
 
 ```js
 const listItems = chemists.map(person =>
