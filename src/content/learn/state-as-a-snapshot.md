@@ -1,25 +1,25 @@
 ---
-title: Lo stato come un'istantanea
+title: Lo State come un'Istantanea
 ---
 
 <Intro>
 
-Le variabili di stato possono sembrare delle normali variabili JavaScript su cui è possibile leggere e scrivere. Tuttavia lo stato si comporta più come un'istantanea. Quando lo si assegna, non si modifica la variabile di stato che si ha già, ma si innesca un nuovo renderizzato.
+Le variabili di state possono sembrare delle normali variabili JavaScript su cui è possibile leggere e scrivere. Tuttavia lo state si comporta più come un'istantanea. Quando lo si assegna, non si modifica la variabile di state che si ha già, ma si innesca una nuova renderizzazione.
 
 </Intro>
 
 <YouWillLearn>
 
-* Come l'assegnazione dello stato innesca re-renderizzazioni
-* Come e quando viene aggiornato lo stato
-* Perché lo stato non viene aggiornato immediatamente dopo averlo assegnato
-* Come i gestori di eventi accedono ad un'"istantanea" dello stato
+* Come l'assegnazione dello state innesca re-renderizzazioni
+* Come e quando viene aggiornato lo state
+* Perché lo state non viene aggiornato immediatamente dopo averlo assegnato
+* Come i gestori di eventi accedono ad un'"istantanea" dello state
 
 </YouWillLearn>
 
-## Come l'assegnazione dello stato innesca re-renderizzazioni {/*setting-state-triggers-renders*/}
+## Come l'assegnazione dello state innesca renderizzazioni {/*setting-state-triggers-renders*/}
 
-Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un click. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo stato si richiede un nuovo renderizzato](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è neccessario *aggiornare lo stato*.
+Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un click. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo state si richiede una nuova ri-renderizzazione](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è necessario *aggiornare lo state*.
 
 In questo esempio, quando premi "Send", `setIsSent(true)` dice a React di re-renderizzare la UI.
 
@@ -67,11 +67,11 @@ Ecco cosa succede quando fai click sul pulsante:
 2. `setIsSent(true)` assegnat `isSent` a `true` e mette in coda un nuovo render.
 3. React re-renderizza il componente in base al nuovo valore di `isSent`.
 
-Esaminiamo più da vicino la relazione tra lo stato e il renderizzato.
+Esaminiamo più da vicino la relazione tra lo state e il renderizzato.
 
 ## La renderizzazione scatta un'istantanea nel tempo {/*la-renderizzazione-scatta-unistantanea-nel-tempo*/}
 
-["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è una istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo stato al momento del renderizzato.**
+["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è come un'istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo state al momento della renderizzazione.**
 
 A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di click dal JSX.
 
@@ -87,12 +87,12 @@ Quando React re-renderizza un componente:
     <Illustration caption="Aggiorna l'albero del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Come memoria di un componente, lo stato non è come una normale variabile che scompare dopo che la tua funzione restituisce un valore. Lo stato "vive" nello stesso React--come se si trattasse di uno scaffale!--fuori dalla tua funzione. Quando React chiama il tuo componente, fornisce un'istantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'istantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
+Come memoria di un componente, lo state non è come una normale variabile che scompare dopo che la tua funzione restituisce un valore. Lo state "vive" nello stesso React--come se si trattasse di uno scaffale!--fuori dalla tua funzione. Quando React chiama il tuo componente, fornisce un'istantanea della UI per quel particolare renderizzato. Il tuo componente restituisce un'istantanea della UI con un nuovo set di props e gestori di eventi nel suo JSX, tutti calcolati **usando i valori dello stato di quel renderizzato.**
 
 <IllustrationBlock sequential>
   <Illustration caption="Tu dici a React di aggiornare lo state" src="/images/docs/illustrations/i_state-snapshot1.png" />
-  <Illustration caption="React aggiorna il valore dello stato" src="/images/docs/illustrations/i_state-snapshot2.png" />
-  <Illustration caption="React passa un'istantanea del valore dello stato al componente" src="/images/docs/illustrations/i_state-snapshot3.png" />
+  <Illustration caption="React aggiorna il valore dello state" src="/images/docs/illustrations/i_state-snapshot2.png" />
+  <Illustration caption="React passa un'istantanea del valore dello state al componente" src="/images/docs/illustrations/i_state-snapshot3.png" />
 </IllustrationBlock>
 
 Ecco qui un piccolo esperimento per mostrarti come questo funziona. In questo esempio, potresti aspettarti che, cliccando il bottone "+3", il contatore venga incrementato tre volte, perché viene richiamato `setNumber(number + 1)` tre volte.
@@ -148,9 +148,9 @@ Questo è ciò che il gestore del click per questo pulsante dice a React di fare
 3. `setNumber(number + 1)`: `number` è `0` quindi `setNumber(0 + 1)`.
     - React si prepara per cambiare `number` a `1` nella prossima renderizzazione.
 
-Anche se chiami `setNumber(number + 1)` tre volte, nel gestore di eventi di *questa renderizzazione* `number` è sempre `0`, quindi stai assegnando lo stato a `1` per tre volte. Questo è il motivo per cui, dopo che il tuo gestore di eventi ha finito, React re-renderizza il componente con `number` uguale a `1` piuttosto che `3`.
+Anche se hai chiamato `setNumber(number + 1)` tre volte, nel gestore di eventi di *questa renderizzazione* `number` è sempre `0`, quindi stai assegnando lo state a `1` per tre volte. Questo è il motivo per cui, dopo che il tuo gestore di eventi ha finito, React ri-renderizza il componente con `number` uguale a `1` piuttosto che `3`.
 
-Puoi anche visualizzarlo sostituendo mentalmente le variabili di stato con i loro valori nel tuo codice. Poiché il valore della variabile di stato `number` è `0` per *questo renderizzato*, il suo gestore di eventi si presenta in questo modo:
+Puoi anche visualizzarlo sostituendo mentalmente le variabili di state con i loro valori nel tuo codice. Poiché il valore della variabile di state `number` è `0` per *questa renderizzazione*, il suo gestore di eventi si presenta in questo modo:
 
 ```js
 <button onClick={() => {
@@ -172,7 +172,7 @@ Per il prossimo renderizzato, `number` sarà `1`, quindi il gestore del click di
 
 Per questo, cliccando di nuovo il bottone, il contatore viene impostato a `2`, successivamente nel prossimo click a `3` e cosi via.
 
-## Lo stato nel tempo {/*state-over-time*/}
+## Lo state nel tempo {/*state-over-time*/}
 
 Bene, questo è stato divertente. Prova a indovinare che cosa mostrerà l'alert al click di questo bottone.
 
@@ -241,7 +241,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Sorpreso? Se hai utilizzato il metodo di sostituzione, puoi vedere l'"istantanea" del valore dello stato passato all'alert.
+Sorpreso? Se hai utilizzato il metodo di sostituzione, puoi vedere l'"istantanea" del valore dello state passato all'alert.
 
 ```js
 setNumber(0 + 5);
@@ -250,9 +250,9 @@ setTimeout(() => {
 }, 3000);
 ```
 
-Il valore dello stato memorizzato in React potrebbe essere cambiato al momento in cui si esegue l'alert, ma questo è stato pianificato utilizzando un'istantanea dello stato nel momento in cui l'utente ha interagito con il esso!
+Il valore dello state memorizzato in React potrebbe essere cambiato al momento in cui si esegue l'alert, ma questo è stato pianificato utilizzando un'istantanea dello state nel momento in cui l'utente ha interagito con esso!
 
-**Il valore di una variabile di stato non cambia mai all'interno di un renderizzamento,** anche se il codice del suo gestore di eventi è asincrono. Dentro l'`onClick` di *quel render*, il valore di `number` continua a essere `0` anche dopo che `setNumber(number + 5)` è stato eseguito. Il suo valore è stato "fissato" quando React ha "scattato l'istantanea" della UI chiamanto il tuo componente. 
+**Il valore di una variabile di state non cambia mai all'interno di una renderizzazione,** anche se il codice del suo gestore di eventi è asincrono. Dentro l'`onClick` di *quella renderizzazione*, il valore di `number` continua a essere `0` anche dopo che `setNumber(number + 5)` è stato eseguito. Il suo valore è stato "fissato" quando React ha "scattato l'istantanea" della UI chiamando il tuo componente. 
 
 Ecco un esempio di come questo rende i gestori di eventi meno inclini a errori di sincronizzazione. Di seguito è riportato un formulario che invia un messaggio con un ritardo di cinque secondi. Immagina questo scenario:
 
@@ -305,19 +305,19 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React mantiene i valori di stato "fissi" all'interno dei gestori di eventi di un renderizzato.** Non c'è bisogno di preoccuparsi se lo stato è cambiato durante l'esecuzione del codice.
+**React mantiene i valori di state "fissi" all'interno dei gestori di eventi di una renderizzazione.** Non c'è bisogno di preoccuparsi se lo state è cambiato durante l'esecuzione del codice.
 
-Ma cosa succede se vuoi leggere lo stato più recente prima di una nuova renderizzazione? In questo caso, si dovrebbe utilizzare una [funzione di aggiornamento dello stato](/learn/queueing-a-series-of-state-updates), descritta pagina successiva!
+Ma cosa succede se vuoi leggere lo state più recente prima di una nuova renderizzazione? In questo caso, si dovrebbe utilizzare una [funzione di aggiornamento dello state](/learn/queueing-a-series-of-state-updates), descritta pagina successiva!
 
 <Recap>
 
-* L'assegnazione dello stato richiede un nuovo renderizzamento.
-* React memorizza lo stato al di fuori del tuo componente, come se fosse su uno scaffale.
-* Quando chiami `useState`, React ti fornisce un'istantanea dello stato per quella renderizzazione.
+* L'assegnazione dello state richiede una nuova renderizzazione.
+* React memorizza lo state al di fuori del tuo componente, come se fosse su uno scaffale.
+* Quando chiami `useState`, React ti fornisce un'istantanea dello state per quella renderizzazione.
 * Le variabili e i gestori di eventi non "sopravvivono" ai re-renderizzamenti. Ongi renderizzamento ha i propri gestori di eventi.
-* Ogni renderizzamento (e le funzioni al suo interno) "vedranno" sempre l'istantanea dello stato che React ha dato in *quel* renderizzamento.
-* Puoi sostituire mentalmente lo stato nei gestori di eventi, in modo simile a a come pensi nel JSX renderizzato. 
-* I gestori di eventi creati in passato hanno il valore di stato del renderizzato in cui sono stati creati
+* Ogni renderizzazione (e le funzioni al suo interno) "vedrà" sempre l'istantanea dello state che React ha dato in *quella* renderizzazione.
+* Puoi sostituire mentalmente lo state nei gestori di eventi, in modo simile a a come pensi nel JSX renderizzato. 
+* I gestori di eventi creati in passato hanno il valore di state della renderizzazione in cui sono stati creati
 
 </Recap>
 
