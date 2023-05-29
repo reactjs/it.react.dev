@@ -25,13 +25,13 @@ Nello state, puoi memorizzare qualsiasi tipo di valore JavaScript.
 const [x, setX] = useState(0);
 ```
 
-Fino a ora, hai lavorato con numeri, stringhe, e booleani. Questi tipi di valori JavaScript sono "immutabili", cioè non modificabili o "di sola lettura". Puoi triggerare una re-renderizzazione per _sostituire_ un valore:
+Fino a ora, hai lavorato con numeri, stringhe, e booleani. Questi tipi di valori JavaScript sono "immutabili", cioè non modificabili o "di sola lettura". Puoi triggerare una ri-renderizzazione per _sostituire_ un valore:
 
 ```js
 setX(5);
 ```
 
-Lo state `x` è cambiato da `0` a `5`, ma il _numero `0` in sé_ non è cambiato. Non è possibile apportare modifiche ai valori primitivi incorporati come numeri, stringhe, e booleani in JavaScript.
+Lo state `x` è cambiato da `0` a `5`, ma il _numero `0` in sé_ non è cambiato. Non è possibile apportare modifiche ai valori primitivi incorporati come numeri, stringhe e booleani in JavaScript.
 
 Considera ora un oggetto nello state:
 
@@ -45,7 +45,7 @@ Tecnicamente, è possibile modificare il contenuto dell'_oggetto in sé_. **Ques
 position.x = 5;
 ```
 
-Tuttavia, nonostante gli oggetti nello state di React siano tecnicamente mutabili, dovresti trattarli **come se** fossero immutabili, come numeri, booleani, e stringhe. Invece di mutarli, dovresti sempre sostituirli.
+Tuttavia, nonostante gli oggetti nello state di React siano tecnicamente mutabili, dovresti trattarli **come se** fossero immutabili, come numeri, booleani e stringhe. Invece di mutarli, dovresti sempre sostituirli.
 
 ## Tratta lo state come se fosse di sola lettura {/*treat-state-as-read-only*/}
 
@@ -105,7 +105,7 @@ onPointerMove={e => {
 
 Questo codice modifica l'oggetto assegnato a `position` dalla [renderizzazione precedente.](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) Ma senza utilizzare la funzione d'impostazione dello state, React non ha idea che l'oggetto sia cambiato. Quindi, React non fa nulla in risposta. È come cercare di cambiare l'ordine dopo aver già mangiato il pasto. Sebbene mutare lo state possa funzionare in alcuni casi, non lo consigliamo. Dovresti trattare il valore dello state a cui hai accesso in una renderizzazione come se fosse di sola lettura.
 
-Per [triggerare una re-renderizzazione](/learn/state-as-a-snapshot#setting-state-triggers-renders) in questo caso, **crea un *nuovo* oggetto e passalo alla funzione d'impostazione dello state:**
+Per [triggerare una ri-renderizzazione](/learn/state-as-a-snapshot#setting-state-triggers-renders) in questo caso, **crea un *nuovo* oggetto e passalo alla funzione d'impostazione dello state:**
 
 ```js
 onPointerMove={e => {
@@ -466,7 +466,7 @@ Se vuoi aggiornare `person.artwork.city`, è chiaro come farlo con una mutazione
 person.artwork.city = 'New Delhi';
 ```
 
-Ma in React, trattiamo lo state come immutabile! Per modificare `city`, dovresti prima produrre il nuovo oggetto `artwork` (pre-popolato con i dati di quello precedente), e poi produrre il nuovo oggetto `person` che punta al nuovo `artwork`.
+Ma in React, trattiamo lo state come immutabile! Per modificare `city`, dovresti prima produrre il nuovo oggetto `artwork` (pre-popolato con i dati di quello precedente), e poi produrre il nuovo oggetto `person` che punta al nuovo `artwork`:
 
 ```js
 const nextArtwork = { ...person.artwork, city: 'New Delhi' };
@@ -646,7 +646,7 @@ let obj3 = {
 };
 ```
 
-Se dovessi mutassare `obj3.artwork.city`, questo impatterebbe sia `obj2.artwork.city` che `obj1.city`. Questo perché `obj3.artwork`, `obj2.artwork` e `obj1` sono lo stesso oggetto. Questo è difficile da capire quando pensi agli oggetti come "nidificati". Invece, sono oggetti separati che si "puntano" a vicenda tramite le proprietà.
+Se dovessi mutare `obj3.artwork.city`, questo impatterebbe sia `obj2.artwork.city` che `obj1.city`. Questo perché `obj3.artwork`, `obj2.artwork` e `obj1` sono lo stesso oggetto. Questo è difficile da capire quando pensi agli oggetti come "nidificati". Invece, sono oggetti separati che si "puntano" a vicenda tramite le proprietà.
 
 </DeepDive>  
 
@@ -800,7 +800,7 @@ Per diversi motivi:
 * **Ottimizzazioni:** Le comuni [strategie di ottimizzazione](/reference/react/memo) di React si basano sull'evitare lavoro se le props o lo state precedenti sono gli stessi di quelli successivi. Se `prevObj === obj`, si può essere sicuri che nulla sia cambiato al suo interno.
 * **Nuove funzionalità:** Le nuove funzionalità di React che stiamo costruendo si basano sul [trattare lo state come un'istantanea.](/learn/state-as-a-snapshot) Se stai mutando versioni passate dello state, questo ti potrebbe impedire di usare le nuove funzionalità.
 * **Modifiche dei requisiti:** Alcune funzionalità, come implementare Undo/Redo, mostrare una cronologia dei cambiamenti, o consentire all'utente di resettare un form a dei valori precedenti, sono più semplici da attuare quando nulla viene mutato. Questo perché puoi conservare copie passate dello state in memoria, e riutilizzarle quando è appropriato. Se inizi con un approccio mutabile, funzionalità come queste possono essere difficili da aggiungere in seguito.
-* **Implementazioni facilitata:** Poiché React non si basa sulle mutazioni, non ha bisogno di fare nulla di speciale con i tuoi oggetti. Non ha bisogno di controllare le loro proprietà, continuamente wrapparle in dei Proxy, o fare altro lavoro all'inizializzazione come molte soluzioni "reattive". Questo è anche il motivo per cui React ti consente d'inserire qualsiasi oggetto nello state, indipendentemente dalla dimensione, senza ulteriori problemi di prestazioni o correttezza.
+* **Implementazione facilitata:** Poiché React non si basa sulle mutazioni, non ha bisogno di fare nulla di speciale con i tuoi oggetti. Non ha bisogno di controllare le loro proprietà, continuamente wrapparle in dei Proxy, o fare altro lavoro all'inizializzazione come molte soluzioni "reattive". Questo è anche il motivo per cui React ti consente d'inserire qualsiasi oggetto nello state, indipendentemente dalla dimensione, senza ulteriori problemi di prestazioni o correttezza.
 
 Nella pratica, spesso puoi "farla franca" con le mutazioni dello state in React, ma consigliamo caldamente di non farlo in modo da poter utilizzare le nuove funzionalità di React sviluppate in base a questo approccio. I futuri contributori e forse persino il te del futuro ne saranno grati!
 
@@ -964,7 +964,7 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-Il problema di `handlePlusClick` era mutare l'oggetto `player`. Di conseguenza, React non sapeva di dover ri-renderizzare, e non aggiornava il punteggio sullo schermo. Questo è il motivo per cui, quando modificavi il nome, lo state veniva aggiornare, triggerando una re-renderizzazione che aggiornava _anche_ il punteggio sullo schermo.
+Il problema di `handlePlusClick` era mutare l'oggetto `player`. Di conseguenza, React non sapeva di dover ri-renderizzare, e non aggiornava il punteggio sullo schermo. Questo è il motivo per cui, quando modificavi il nome, lo state veniva aggiornare, triggerando una ri-renderizzazione che aggiornava _anche_ il punteggio sullo schermo.
 
 Il problema di `handleLastNameChange` era non copiare i campi esistenti di `...player` nel nuovo oggetto. Questo è il motivo per cui il punteggio veniva perso una volta modificato il cognome.
 
@@ -1130,7 +1130,7 @@ select { margin-bottom: 10px; }
 
 <Solution>
 
-Il problema era nella mutazione dentro `handleMove`. Mutava `shape.position`, ma è lo stesso oggetto a cui punta `initialPosition`. Questo è il motivo per cui sia la forma che lo sfondo si muovono. (È una mutazione, quindi la modifica non si riflette sullo schermo finché un aggiornamento non correlato, la modifica del colore, non triggera una re-renderizzazione.)
+Il problema era nella mutazione dentro `handleMove`. Mutava `shape.position`, ma è lo stesso oggetto a cui punta `initialPosition`. Questo è il motivo per cui sia la forma che lo sfondo si muovono. (È una mutazione, quindi la modifica non si riflette sullo schermo finché un aggiornamento non correlato, la modifica del colore, non triggera una ri-renderizzazione.)
 
 La soluzione è rimuovere la mutazione in `handleMove` e usare la sintassi di spread per copiare la forma. Nota che `+=` è una mutazione, quindi hai bisogno di sostituirlo con una normale operazione `+`.
 
