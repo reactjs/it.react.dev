@@ -4,7 +4,7 @@ title: Renderizzare e Aggiornare
 
 <Intro>
 
-Prima che i tuoi componenti siano visualizzati sullo schermo, devono essere renderizzati da React. Comprendere i passaggi di questo processo ti aiuterà a pensare a come il tuo codice viene eseguito e a spiegare il suo comportamento
+Prima che i tuoi componenti siano visualizzati sullo schermo, devono essere renderizzati da React. Comprendere i passaggi di questo processo ti aiuterà a pensare a come il tuo codice viene eseguito e a spiegare il suo comportamento.
 
 </Intro>
 
