@@ -140,7 +140,7 @@ Altrimenti, è possibile incontrare bug confusi e comportamenti imprevedibili ma
 
 <DeepDive>
 
-#### Ottimizzazione delle prestazioni{/*optimizing-performance*/}
+#### Ottimizzazione delle prestazioni {/*optimizing-performance*/}
 
 Il comportamento predefinito di renderizzare tutti i componenti annidati all'interno del componente aggiornato non è ottimale in termini di prestazioni se il componente aggiornato è molto in alto nell'albero. Se si riscontra un problema di prestazioni, esistono diverse soluzioni favorite descritte nella sezione [Prestazioni](https://reactjs.org/docs/optimizing-performance.html). **Non ottimizzare prematuramente!**
 
