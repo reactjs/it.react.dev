@@ -159,7 +159,7 @@ L'event handler `handleClick` sta aggiornando una variabile locale, `index`. Ma 
 Per aggiornare un componente con nuovi dati, devono accadere due cose:
 
 1. **Conservare** i dati tra le renderizzazioni.
-2. **Triggerare** React per renderizzare il componente con nuovi dati (re-renderizzazione).
+2. **Triggerare** React per renderizzare il componente con nuovi dati (ri-renderizzazione).
 
 L'Hook [`useState`](/reference/react/useState) offre queste due cose:
 
@@ -341,7 +341,7 @@ Lo State è solo una di queste funzionalità, ma incontrerai gli altri Hook più
 
 <Pitfall>
 
-**Gli Hook (funzioni che iniziano per `use`) possono essere chiamati solo al livello superiore del tuo componente o [dei tuoi Hook.](/learn/reusing-logic-with-custom-hooks)** Non è possibile chiamare gli Hook all'interno di condizioni, cicli o altre funzioni nidificate. Gli Hook sono funzioni, ma è di aiuto considerarli come dichiarazioni incondizionate sulle necessità del tuo componente. "Usi" le funzionalità di React in cima al tuo componente in modo simile a come "importi" i moduli in cima al tuo file.  
+**Gli Hook (funzioni che iniziano per `use`) possono essere chiamati solo al livello superiore del tuo componente o [dei tuoi Hook.](/learn/reusing-logic-with-custom-hooks)** Non è possibile chiamare gli Hook all'interno di condizioni, cicli o altre funzioni nidificate. Gli Hook sono funzioni, ma è di aiuto considerarli come dichiarazioni incondizionate sulle necessità del tuo componente. "Usi" le funzionalità di React in cima al tuo componente in modo simile a come "importi" i moduli in cima al tuo file. 
 
 </Pitfall>
 
@@ -526,11 +526,11 @@ button {
 
 #### Come fa React a sapere quale state ritornare? {/*how-does-react-know-which-state-to-return*/}
 
-Avrai notato che la chiamata `useState` non riceve alcuna informazione circa *quale* variabile di stato prendere come riferimento. Non viene passato alcun "identificatore" a `useState`, quindi come fa a sapere quale delle variabili di stato restituire? Fa affidamento su qualche magia come il parsing delle tue funzioni? La risposta è no.
+Avrai notato che la chiamata `useState` non riceve alcuna informazione circa *quale* variabile di state prendere come riferimento. Non viene passato alcun "identificatore" a `useState`, quindi come fa a sapere quale delle variabili di state restituire? Fa affidamento su qualche magia come il parsing delle tue funzioni? La risposta è no.
 
 Invece, per consentire la loro sintassi concisa, gli Hook **si basano su un ordine di chiamata stabile a ogni renderizzazione dello stesso componente.** Questo funziona bene in pratica perché se segui la regola sopra ("chiamare solo gli Hook al livello superiore"), gli Hook verranno sempre chiamati nello stesso ordine. Inoltre, un [plugin linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) rileva la gran parte degli errori.
 
-Internamente, React mantiene un array di coppie di stato per ogni componente. Mantiene anche l'indice della coppia corrente, che viene impostato su `0` prima della renderizzazione. Ogni volta che chiami `useState`, React ti fornisce la coppia di stato successiva e incrementa l'indice. Puoi leggere di più su questo meccanismo in [React Hook: Non Magia, Solo Array.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
+Internamente, React mantiene un array di coppie di state per ogni componente. Mantiene anche l'indice della coppia corrente, che viene impostato su `0` prima della renderizzazione. Ogni volta che chiami `useState`, React ti fornisce la coppia di state successiva e incrementa l'indice. Puoi leggere di più su questo meccanismo in [React Hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
 Questo esempio **non utilizza React** ma ti dà un'idea di come `useState` funzioni internamente:
 
@@ -1059,7 +1059,7 @@ img { width: 120px; height: 120px; }
 
 <Solution>
 
-Questo codice aggiunge una condizione in entrambi gli event handlers e disabilita i pulsanti quando necessario:
+Questo codice aggiunge una condizione in entrambi gli event handler e disabilita i pulsanti quando necessario:
 
 <Sandpack>
 
@@ -1219,7 +1219,7 @@ img { width: 120px; height: 120px; }
 
 </Sandpack>
 
-Nota come `hasPrev` e `hasNext` vengono usati *sia* per il JSX ritornato che per gli event handlers! Questo comodo pattern funziona perché le funzioni event handlers ["chiudono sopra"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) qualsiasi variabile dichiarata durante la renderizzazione.
+Nota come `hasPrev` e `hasNext` vengono usati *sia* per il JSX ritornato che per gli event handler! Questo comodo pattern funziona perché le funzioni event handler ["chiudono sopra"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) qualsiasi variabile dichiarata durante la renderizzazione.
 
 </Solution>
 
@@ -1274,7 +1274,7 @@ h1 { margin-top: 10px; }
 
 <Solution>
 
-Per prima cosa, importa `useState` da React. Poi sostituisci `firstName` e `lastName` con delle variabili state dichiarate chiamando `useState`. Infine, sostituisci ogni assegnazione come `firstName = ...` con `setFirstName(...)`, e fai lo stesso per `lastName`. Non dimenticare di aggiornare anche `handleReset` in modo che il pulsante di reset funzioni.
+Per prima cosa, importa `useState` da React. Poi sostituisci `firstName` e `lastName` con delle variabili state dichiarate chiamando `useState`. Infine, sostituisci ogni assegnazione come `firstName = ...` con `setFirstName(...)` e fai lo stesso per `lastName`. Non dimenticare di aggiornare anche `handleReset` in modo che il pulsante di reset funzioni.
 
 <Sandpack>
 
@@ -1446,7 +1446,7 @@ export default function FeedbackForm() {
 
 Prova a spostare la seconda chiamata di `useState` dopo la condizione `if` e nota come questo rompe nuovamente il codice.
 
-Se il tuo liner è [configurato per React](/learn/editor-setup#linting), dovresti vedere un errore lint quando commetti uno sbaglio del genere.  Se non vedi un errore quando provi il codice difettoso localmente, devi impostare un linter per il tuo progetto.
+Se il tuo linter è [configurato per React](/learn/editor-setup#linting), dovresti vedere un errore lint quando commetti uno sbaglio del genere.  Se non vedi un errore quando provi il codice difettoso localmente, devi impostare un linter per il tuo progetto.
 
 </Solution>
 
