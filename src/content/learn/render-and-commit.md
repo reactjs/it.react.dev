@@ -33,7 +33,7 @@ Immagina che i tuoi componenti siano chef in cucina, che assemblano piatti gusto
 
 Ci sono due motivi per cui un componente deve eseguire la renderizzazione:
 
-1. E' la **renderizzazione iniziale** del componente.
+1. È la **renderizzazione iniziale** del componente.
 2. Lo **state** del componente(o uno dei suoi antenati) **è stato aggiornato.**
 
 ### Renderizzazione iniziale {/*initial-render*/}
