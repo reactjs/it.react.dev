@@ -196,7 +196,7 @@ export default function App() {
 Questo funziona perché durante l'ultimo passaggio, React aggiorna solo il contenuto di `<h1>` con il nuovo `time`. Vede che l' `<input>` appare nel JSX nello stesso punto come l'ultima volta, quindi React non tocca `<input>`— o il suo `value`!
 ## Epilogo: Dipingere il browser {/*epilogue-browser-paint*/}
 
-Dopo che la renderizzazione viene eseguita e React ha aggiornato il DOM, il browser dipinge la schermata. Sebbene questo processo sia noto come "renderizzazione del browser", lo chiameremo "dipingere" per evitare confusione in tutta la documentazione.
+Dopo che la renderizzazione viene eseguita e React ha aggiornato il DOM, il browser dipinge nuovamente la schermata. Sebbene questo processo sia noto come "renderizzazione del browser", lo chiameremo "dipingere" per evitare confusione in tutta la documentazione.
 
 <Illustration alt="Un browser che dipinge l'immagine 'still life with card element'." src="/images/docs/illustrations/i_browser-paint.png" />
 
