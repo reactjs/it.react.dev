@@ -21,7 +21,7 @@ Le variabili di state possono sembrare delle normali variabili JavaScript su cui
 
 Si potrebbe pensare che l'interfaccia dell'utente cambi direttamente in risposta ad un evento dell'utente stesso, come un click. In React funziona in modo leggermente diverso da questo modello mentale. Nella pagina precedente si è visto che quando [si assegna lo state si richiede una nuova ri-renderizzazione](/learn/render-and-commit#step-1-trigger-a-render) da React. Questo significa che per far reagire l'interfaccia al evento, è necessario *aggiornare lo state*.
 
-In questo esempio, quando premi "Send", `setIsSent(true)` dice a React di re-renderizzare la UI.
+In questo esempio, quando premi "send", `setIsSent(true)` dice a React di ri-renderizzare la UI:
 
 <Sandpack>
 
@@ -64,7 +64,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 Ecco cosa succede quando fai click sul pulsante:
 
 1. Viene eseguito il gestore di eventi `onSubmit`.
-2. `setIsSent(true)` assegnat `isSent` a `true` e mette in coda un nuovo render.
+2. `setIsSent(true)` assegna `isSent` a `true` e mette in coda un nuovo render.
 3. React re-renderizza il componente in base al nuovo valore di `isSent`.
 
 Esaminiamo più da vicino la relazione tra lo state e il renderizzato.
@@ -73,7 +73,7 @@ Esaminiamo più da vicino la relazione tra lo state e il renderizzato.
 
 ["Renderizzare"](/learn/render-and-commit#step-2-react-renders-your-components) significa che React chiama il componente, che è una funzione. Il JSX che restituisce tale funzione è come un'istantanea della UI nel tempo. Le props, i gestori di eventi e le variabili locali sono stati calcolati **utilizzando il suo state al momento della renderizzazione.**
 
-A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di click dal JSX.
+A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" della UI che viene restituita è interattiva. Include la logica, come i gestori di eventi che specificano cosa succede in risposta agli input. React aggiorna lo schermo in base a questa istantanea e collega i gestori di eventi. Di conseguenza, la pressione di un pulsante attiverà il gestore di click dal tuo JSX.
 
 Quando React re-renderizza un componente:
 
@@ -83,7 +83,7 @@ Quando React re-renderizza un componente:
 
 <IllustrationBlock sequential>
     <Illustration caption="React esegue la funzione" src="/images/docs/illustrations/i_render1.png" />
-    <Illustration caption="Calcola la istantanea" src="/images/docs/illustrations/i_render2.png" />
+    <Illustration caption="Calcola l'istantanea" src="/images/docs/illustrations/i_render2.png" />
     <Illustration caption="Aggiorna l'albero del DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
@@ -95,7 +95,7 @@ Come memoria di un componente, lo state non è come una normale variabile che sc
   <Illustration caption="React passa un'istantanea del valore dello state al componente" src="/images/docs/illustrations/i_state-snapshot3.png" />
 </IllustrationBlock>
 
-Ecco qui un piccolo esperimento per mostrarti come questo funziona. In questo esempio, potresti aspettarti che, cliccando il bottone "+3", il contatore venga incrementato tre volte, perché viene richiamato `setNumber(number + 1)` tre volte.
+Ecco qui un piccolo esperimento per mostrarti come questo funziona. In questo esempio, potresti aspettarti che, cliccando il bottone "+3", il contatore venga incrementato tre volte, perché viene chiamato `setNumber(number + 1)` tre volte.
 
 Guarda cosa succede quando fai click sul bottone "+3":
 
@@ -203,14 +203,14 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Se utilizzi  il metodo si sostituzione di prima, puoi intuire che l'alert mostra "0":
+Se utilizzi  il metodo di sostituzione di prima, puoi intuire che l'alert mostra "0":
 
 ```js
 setNumber(0 + 5);
 alert(0);
 ```
 
-Ma cosa succede se imposti un timer per l'alert, in modo che si attivi _dopo_ che il componente ha re-renderizzato? Mostrerà "0" o "5"? Indovina!
+Ma cosa succede se imposti un timer per l'alert, in modo che si attivi _dopo_ che il componente viene ri-renderizzato? Mostrerà "0" o "5"? Indovina!
 
 <Sandpack>
 
@@ -259,7 +259,7 @@ Ecco un esempio di come questo rende i gestori di eventi meno inclini a errori d
 1. Premi il pulsante "Send", inviando "Hello" ad Alice.
 2. Prima dello scadere dei cinque secondi, cambia il valore del campo "To" in "Bob".
 
-Cosa ti aspetti che mostri l'alert? Mostrerà "You said Hello to Alice"? Oppure "You said Hello to Bob"? Fai una previsione basandoti su che ciò che hai imparato e dopo provalo:
+Cosa ti aspetti che mostri l'`alert`? Mostrerà "You said Hello to Alice"? Oppure "You said Hello to Bob"? Fai una previsione basandoti su che ciò che hai imparato e dopo provalo:
 
 <Sandpack>
 
@@ -314,7 +314,7 @@ Ma cosa succede se vuoi leggere lo state più recente prima di una nuova renderi
 * L'assegnazione dello state richiede una nuova renderizzazione.
 * React memorizza lo state al di fuori del tuo componente, come se fosse su uno scaffale.
 * Quando chiami `useState`, React ti fornisce un'istantanea dello state per quella renderizzazione.
-* Le variabili e i gestori di eventi non "sopravvivono" ai re-renderizzamenti. Ongi renderizzamento ha i propri gestori di eventi.
+* Le variabili e i gestori di eventi non "sopravvivono" alle ri-renderizzazioni. Ogni renderizzazione ha i propri gestori di eventi.
 * Ogni renderizzazione (e le funzioni al suo interno) "vedrà" sempre l'istantanea dello state che React ha dato in *quella* renderizzazione.
 * Puoi sostituire mentalmente lo state nei gestori di eventi, in modo simile a a come pensi nel JSX renderizzato. 
 * I gestori di eventi creati in passato hanno il valore di state della renderizzazione in cui sono stati creati
@@ -404,7 +404,7 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Non fa differenza se lo imposti prima o dopo della chiamata `setWalk`. Il valore della renderizzazione di `walk` rimane fisso. La chiamata a `setWalk` lo modificherà solo per la prossima renderizzazione, ma non influenzerà il gestore di eventi di eventi della renderizzazione precendente.
+Non fa differenza se lo imposti prima o dopo della chiamata `setWalk`. Il valore della renderizzazione di `walk` rimane fisso. La chiamata a `setWalk` lo modificherà solo per la prossima renderizzazione, ma non influenzerà il gestore di eventi della renderizzazione precedente.
 
 Questa riga potrebbe sembrare controintuitiva all'inizio:
 
@@ -412,7 +412,7 @@ Questa riga potrebbe sembrare controintuitiva all'inizio:
 alert(walk ? 'Stop is next' : 'Walk is next');
 ```
 
-Però ha senso se la leggi come: "Se il semaforo mostra 'Walk now', il messaggio dovrebbe dire 'Stop is next.'" La variabile `walk` dentro il tuo gestore di eventi corrisponde al valore  di walk della renderizzazione e non cambia.
+Però ha senso se la leggi come: "Se il semaforo mostra 'Walk now', il messaggio dovrebbe dire 'Stop is next.'" La variabile `walk` dentro il tuo gestore di eventi corrisponde al valore  di `walk` della renderizzazione e non cambia.
 
 Puoi verificare che ciò sia corretto applicando il metodo della sostituzione. Quando `walk` è `true`, otterrai: 
 
