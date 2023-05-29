@@ -52,7 +52,7 @@ const people = [
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Ritorna** `listItems` dal tuo componenta all'interno di `<ul>`:
+3. **Ritorna** `listItems` dal tuo componente all'interno di `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
