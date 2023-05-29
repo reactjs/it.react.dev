@@ -982,7 +982,7 @@ Ogni `recipe` nell'array ha già un campo `id`, quindi è quello che il ciclo es
 
 #### Estrarre un componente elemento di lista {/*extracting-a-list-item-component*/}
 
-Questo componente `RecipeList` contiene due chiamate `map` annidate. Per semplificarlo, estrai un componente `Recipe` da esso che accetterà le props `id`, `name` e `ingredients`. Dove posizioneresti la `key` esterno e perché?
+Questo componente `RecipeList` contiene due chiamate `map` annidate. Per semplificarlo, estrai un componente `Recipe` da esso che accetterà le props `id`, `name` e `ingredients`. Dove posizioneresti la `key` esterna e perché?
 
 <Sandpack>
 
