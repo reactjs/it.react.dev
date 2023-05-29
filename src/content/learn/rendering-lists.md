@@ -252,7 +252,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-Tuttavia **devi** scrivere `return` esplicitamente se il tuo `=>` è seguito da una `{` parentesi graffa!
+Tuttavia **devi scrivere `return` esplicitamente se il tuo `=>` è seguito da una `{` parentesi graffa!**
 
 ```js
 const listItems = chemists.map(person => { // Curly brace
