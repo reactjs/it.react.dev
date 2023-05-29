@@ -32,7 +32,7 @@ Immagina di avere una lista di contenuti.
 
 L'unica differenza tra questi elementi della lista è il loro contenuto, i loro dati. Avrai spesso bisogno di mostrare diverse istanze dello stesso componente usando dati diversi quando costruisci interfacce: dalle liste di commenti alle gallerie di immagini del profilo. In queste situazioni, puoi memorizzare quei dati in oggetti e array JavaScript e usare metodi come [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) per renderizzare liste di componenti da essi.
 
-Qui un breve esempio di come fenerare una lista di elementi da un array:
+Qui un breve esempio di come generare una lista di elementi da un array:
 
 1. **Sposta** i dati in un array:
 
