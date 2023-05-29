@@ -124,7 +124,7 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-* **Durante la renderizzazione iniziale,** React [creerà i nodi del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) per `<section>`, `<h1>`, e tre `<img>` tags. 
+* **Durante la renderizzazione iniziale,** React [creerà i nodi del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) per `<section>`, `<h1>`, e tre tag `<img>`. 
 * **Durante una renderizzazione successiva,** React calcolerà quali delle sue proprietà, se presenti, sono cambiate rispetto la renderizzazione precedente. Tuttavia, non farà nulla con queste informazioni fino alla prossima fase, la fase di commit.
 
 <Pitfall>
