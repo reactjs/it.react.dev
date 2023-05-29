@@ -67,7 +67,7 @@ Prova a commentare la chiamata `root.render()` e vedrai il componente scomparire
 
 ### Renderizzare nuovamente quando lo state viene aggiornato{/*re-renders-when-state-updates*/}
 
-Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo state con la funzione [`set` function.](/reference/react/useState#setstate) Aggiornare lo state del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
+Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo state con la [funzione `set`.](/reference/react/useState#setstate) Aggiornare lo state del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
 
 <IllustrationBlock sequential>
   <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
