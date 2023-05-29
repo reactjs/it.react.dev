@@ -260,7 +260,7 @@ const listItems = chemists.map(person => { // Curly brace
 });
 ```
 
-Le arrow functions che contengono `=> {` sono dette avere un ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Ti permettono di scrivere più di una singola linea di codice, ma **devi** scrivere tu stesso una dichiarazione `return`. Se la dimentichi, non viene ritornato nulla!
+Le arrow function che contengono `=> {` sono dette avere un ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Ti permettono di scrivere più di una singola linea di codice, ma **devi** scrivere tu stesso una dichiarazione `return`. Se la dimentichi, non viene ritornato nulla!
 
 </Pitfall>
 
@@ -286,9 +286,9 @@ Gli elementi JSX direttamente all'interno di un `map()` hanno sempre bisogno di 
 
 </Note>
 
-Le keys dicono a React a quale elemento dell'array corrisponde ogni componente, così che possa associarli in seguito. Questo diventa importante se gli elementi dell'array possono muoversi (ad esempio a causa di un ordinamento), essere inseriti o eliminati. Una `key` ben scelta aiuta React a capire cosa è successo esattamente, e a fare gli aggiornamenti corretti al DOM tree.
+Le key dicono a React a quale elemento dell'array corrisponde ogni componente, così che possa associarli in seguito. Questo diventa importante se gli elementi dell'array possono muoversi (ad esempio a causa di un ordinamento), essere inseriti o eliminati. Una `key` ben scelta aiuta React a capire cosa è successo esattamente, e a fare gli aggiornamenti corretti all'albero del DOM.
 
-Piuttosto che generare le keys al volo, dovresti includerle nei tuoi dati:
+Piuttosto che generare le key al volo, dovresti includerle nei tuoi dati:
 
 <Sandpack>
 
@@ -375,10 +375,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 <DeepDive>
 
 #### Visualizzare vari nodi DOM per ogni elemento della lista {/*displaying-several-dom-nodes-for-each-list-item*/}
-
 Cosa farai se ogni elemento della lista deve renderizzare non uno, ma diversi nodi DOM?
 
-La breve sintassi [`<>...</>` Fragment](/reference/react/Fragment) non ti permette di passare una `key`, quindi devi o raggrupparli in un singolo `<div>`, o usare la sintassi leggermente più lunga e [più esplicita `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
+La breve sintassi [Fragment `<>...</>`](/reference/react/Fragment) non ti permette di passare una `key`, quindi devi o raggrupparli in un singolo `<div>`, o usare la sintassi leggermente più lunga e [più esplicita `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
 
 
 ```js
@@ -399,8 +398,7 @@ I Fragment scompaiono dal DOM, quindi questo produrrà una lista piatta di `<h1>
 </DeepDive>
 
 ### Da dove prendere la `key` {/*where-to-get-your-key*/}
-
-Diverse fonti di dati forniscono diverse fonti di keys:
+Diverse fonti di dati forniscono diverse fonti di key:
 
 
 * **Dati provenienti da un database:** Se i tuoi dati provengono da un database, puoi usare le chiavi / ID del database, che sono uniche per natura.
@@ -419,11 +417,11 @@ I nomi dei file in una cartella e le key JSX in un array servono a uno scopo sim
 
 <Pitfall>
 
-Potresti essere tentato di usare l'indice di un elemento nell'array come sua `key`. In realtà, è quello che React userà se non specifici una `key` affatto. Ma l'ordine in cui renderizzi gli elementi cambierà nel tempo se un elemento viene inserito, eliminato o se l'array viene riordinato. L'indice come chiave spesso porta a bug impercettibili e confusi.
+Potresti essere tentato di usare l'indice di un elemento nell'array come sua key. In realtà, è quello che React userà se non specifici una `key` affatto. Ma l'ordine in cui renderizzi gli elementi cambierà nel tempo se un elemento viene inserito, eliminato o se l'array viene riordinato. L'indice come chiave spesso porta a bug impercettibili e confusi.
 
 Similmente, non generare le key al volo, ad esempio con `key={Math.random()}`. Questo farà sì che le chiavi non corrispondano mai tra i render, portando a tutti i tuoi componenti e DOM che vengono ricreati ogni volta. Non solo questo è lento, ma perderà anche qualsiasi input dell'utente all'interno degli elementi della lista. Invece, usa un ID stabile basato sui dati.
 
-Nota che il tuo componente non ricevere `key` come prop. Viene utilizzato solo come suggerimento da React stesso. Se il tuo componente ha bisogno di un ID, devi passarlo come prop separato: `<Profile key={id} userId={id} />`.
+Nota che il tuo componente non riceverà `key` come prop. Viene utilizzato solo come suggerimento da React stesso. Se il tuo componente ha bisogno di un ID, devi passarlo come prop separata: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
@@ -432,7 +430,7 @@ Nota che il tuo componente non ricevere `key` come prop. Viene utilizzato solo c
 In questa pagina hai imparato:
 
 * Come muovere i dati fuori dai componenti e in strutture dati come array e oggetti.
-* Come generare una lista coomponenti simili con `map()` di JavaScript.
+* Come generare una lista componenti simili con `map()` di JavaScript.
 * Come creare array di elementi filtrati con `filter()` di JavaScript.
 * Il perchè e il come impostare `key` su ogni componente in una collezione in modo che React possa tener traccia di ognuno di essi anche se la loro posizione o i dati cambiano.
 
@@ -445,7 +443,6 @@ In questa pagina hai imparato:
 #### Dividere una lista in due {/*splitting-a-list-in-two*/}
 
 Questo esempio mostra una lista di tutte le persone.
-
 Cambialo in modo da mostrare due liste separate una dopo l'altra: **Chemists** e **Everyone Else.**. Come in precedenza, puoi determinare se una persona è un chimico controllando se `person.profession === 'chemist'`.
 
 
@@ -888,7 +885,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 #### Liste annidate in un componente {/*nested-lists-in-one-component*/}
 
-Crea una lista di ricette! Per ogni ricetta nell'array, visualizza il suo nome come `<h2>` e elenca i suoi ingredienti in un `<ul>`.
+Crea una lista di ricette da questo array! Per ogni ricetta nell'array, visualizza il suo nome come `<h2>` e elenca i suoi ingredienti in un `<ul>`.
 
 <Hint>
 
