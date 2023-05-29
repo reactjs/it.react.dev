@@ -1030,7 +1030,7 @@ export const recipes = [{
 
 <Solution>
 
-Puoi copia-incollare il JSX dal ciclo esterno `map` in un nuovo componente `Recipe` e restituire quel JSX. Quindi puoi cambiare `recipe.name` in `name`, `recipe.id` in `id`, e così via, e passarli come props al `Recipe`:
+Puoi copia-incollare il JSX dal `map` esterno in un nuovo componente `Recipe` e restituire quel JSX. Quindi puoi cambiare `recipe.name` in `name`, `recipe.id` in `id`, e così via, e passarli come props al `Recipe`:
 
 <Sandpack>
 
