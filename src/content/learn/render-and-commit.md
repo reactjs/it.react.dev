@@ -211,4 +211,3 @@ Dopo che la renderizzazione viene eseguita e React ha aggiornato il DOM, il brow
 
 </Recap>
 
-
