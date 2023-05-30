@@ -129,7 +129,7 @@ img { margin: 0 10px 10px 0; }
 
 <Pitfall>
 
-Rendering must always be a [pure calculation](/learn/keeping-components-pure):
+La renderizzazione deve sempre essere un [calcolo puro](/learn/keeping-components-pure):
 
 * **Stessi input, stessi output.** Dati gli stessi input, un componente dovrebbe sempre restituire lo stesso JSX. (Quando qualcuno ordina un'insalata con i pomodori, non dovrebbe ricevere un'insalata con le cipolle!)
 * **Si cura solo dei suoi affari** Non dovrebbe modificare oggetti o variabili che esistevano prima della renderizzazione. (Un ordine non dovrebbe cambiare l'ordine di nessun altro.)
