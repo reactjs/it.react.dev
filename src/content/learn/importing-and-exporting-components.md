@@ -179,7 +179,7 @@ export default function App() {
 }
 ```
 
-Ora `Gallery.js` contiene due esportazioni: una predefinita `Gallery` e una denominata `Profile`. `App.js` le importa entrambe. Provate a modificare `<Profile />` in `<Gallery />` e viceversa in questo esempio:
+Ora `Gallery.js` contiene due esportazioni: una predefinita `Gallery` e una denominata `Profile`. `App.js` le importa entrambe. Prova a modificare `<Profile />` in `<Gallery />` e viceversa in questo esempio:
 
 <Sandpack>
 
@@ -251,7 +251,7 @@ In questa pagina hai imparato:
 
 Attualmente, `Gallery.js` esporta sia `Profile` che `Gallery`, il che crea un po' di confusione.
 
-Sposta il componente `Profile` nel proprio `Profile.js`, quindi modifica il componente `App` per renderizzare sia `<Profile />` che `<Galleriy />` uno dopo l'altro.
+Sposta il componente `Profile` nel proprio `Profile.js`, quindi modifica il componente `App` per renderizzare sia `<Profile />` che `<Gallery />` uno dopo l'altro.
 
 Puoi usare un'esportazione predefinita o nominale per `Profile`, ma assicurati di usare la sintassi di importazione corrispondente sia in `App.js` che in `Gallery.js`! Puoi fare riferimento alla tabella di approfondimento di cui sopra:
 
