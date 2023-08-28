@@ -211,7 +211,11 @@ Quando un componente figlio ha bisogno di alcuni dati da un genitore, [passaglie
 
 #### Componenti fino in fondo {/*components-all-the-way-down*/}
 
+<<<<<<< HEAD
 La tua applicazione React inizia con un componente "radice" (_root_). Di solito, viene creato automaticamente quando si comincia un nuovo progetto. Ad esempio, se utilizzi [CodeSandbox](https://codesandbox.io/) o [Create React App](https://create-react-app.dev/), il componente radice è definito in `src/App.js`. Se usi il framework [Next.js](https://nextjs.org/), il componente radice è definito in `pages/index.js`. In questi esempi, abbiamo esportato il componente radice.
+=======
+Your React application begins at a "root" component. Usually, it is created automatically when you start a new project. For example, if you use [CodeSandbox](https://codesandbox.io/) or if you use the framework [Next.js](https://nextjs.org/), the root component is defined in `pages/index.js`. In these examples, you've been exporting root components.
+>>>>>>> 3189529259e89240a88c05680849ce4a8c454ed2
 
 La maggior parte delle applicazioni React utilizza i componenti fino in fondo. Ciò significa che non userai i componenti solo per piccole parti riutilizzabili come i pulsanti, ma anche per parti più grandi come barre laterali, elenchi e, infine, pagine complete! I componenti sono un modo pratico per organizzare il codice e il markup dell'interfaccia utente, anche se alcuni di essi dovessero essere utilizzati una sola volta.
 
