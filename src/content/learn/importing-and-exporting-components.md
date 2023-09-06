@@ -52,7 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Attualmente questi componenti si trovano nel **file del componente radice,** chiamato `App.js` in questo esempio. In [Create React App](https://create-react-app.dev/), l'applicazione si trova in `src/App.js`. Tuttavia, a seconda della configurazione, il componente radice potrebbe trovarsi in un altro file. Se si usa un framework con routing basato su file, come Next.js, il componente radice sarà diverso per ogni pagina.
+Attualmente questi componenti si trovano nel **file del componente radice,** chiamato `App.js` in questo esempio. A seconda del tuo setup, il tuo componente radice potrebbe trovarsi in un altro file. Se stau utilizzando un framework con routing basato su file, come Next.js, il componente radice sarà diverso per ogni pagina.
 
 ## Esportazione e importazione di un componente {/*exporting-and-importing-a-component*/}
 
@@ -118,7 +118,7 @@ Si noti come questo esempio sia ora suddiviso in due file componenti:
 
 Si possono incontrare file che omettono l'estensione `.js` come in questo caso:
 
-```js 
+```js
 import Gallery from './Gallery';
 ```
 

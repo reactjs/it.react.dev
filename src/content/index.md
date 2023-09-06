@@ -1,6 +1,6 @@
 ---
 id: home
-title: React – La libreria per le interfacce utente web e native
+title: React
 permalink: index.html
 ---
 
