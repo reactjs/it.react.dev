@@ -3,28 +3,28 @@
  */
 
 import {
+  Suspense,
   createContext,
   memo,
-  useState,
   useContext,
-  useId,
-  Suspense,
   useEffect,
+  useId,
   useRef,
+  useState,
   useTransition,
 } from 'react';
-import cn from 'classnames';
-import NextLink from 'next/link';
 
-import ButtonLink from '../ButtonLink';
-import {IconRestart} from '../Icon/IconRestart';
 import BlogCard from 'components/MDX/BlogCard';
-import {IconChevron} from 'components/Icon/IconChevron';
-import {IconSearch} from 'components/Icon/IconSearch';
-import {Logo} from 'components/Logo';
-import Link from 'components/MDX/Link';
+import ButtonLink from '../ButtonLink';
 import CodeBlock from 'components/MDX/CodeBlock';
 import {ExternalLink} from 'components/ExternalLink';
+import {IconChevron} from 'components/Icon/IconChevron';
+import {IconRestart} from '../Icon/IconRestart';
+import {IconSearch} from 'components/Icon/IconSearch';
+import Link from 'components/MDX/Link';
+import {Logo} from 'components/Logo';
+import NextLink from 'next/link';
+import cn from 'classnames';
 import sidebarBlog from '../../sidebarBlog.json';
 
 function Section({children, background = null}) {
@@ -379,19 +379,11 @@ export function HomeContent() {
                           </Link>{' '}
                           e{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-<<<<<<< HEAD
                           ti permettono di creare app in React per Android, iOS
                           e molto altro. Sono native perché le loro UI{' '}
                           <i>sono</i> veramente native. Non è una web view, i
                           tuoi componenti React vengono renderizzati come veri
                           componenti Android e iOS forniti dalla piattaforma.
-=======
-                          let you build apps in React for Android, iOS, and
-                          more. They look and feel native because their UIs{' '}
-                          <i>are</i> truly native. It’s not a web view—your
-                          React components render real Android and iOS views
-                          provided by the platform.
->>>>>>> 722b54640ea8ef146ef59558100819a6bb31c252
                         </p>
                       </div>
                     </div>
@@ -419,13 +411,8 @@ export function HomeContent() {
         <Section background="right-card">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-5">
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
-<<<<<<< HEAD
-              <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
-                <Header>Aggiorna quando il futuro è pronto</Header>
-=======
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
-                <Header>Upgrade when the future is ready</Header>
->>>>>>> 722b54640ea8ef146ef59558100819a6bb31c252
+                <Header>Aggiorna quando il futuro è pronto</Header>
                 <Para>
                   React approccia i cambiamenti con cautela. Ogni commit di
                   React viene testato su superfici critiche per il business con
@@ -512,13 +499,8 @@ export function HomeContent() {
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
-<<<<<<< HEAD
-              Benvenuto nella <br className="" />
+              Benvenuto nella <br className="hidden lg:inline" />
               comunità React
-=======
-              Welcome to the <br className="hidden lg:inline" />
-              React community
->>>>>>> 722b54640ea8ef146ef59558100819a6bb31c252
             </Header>
             <ButtonLink
               href={'/learn'}
