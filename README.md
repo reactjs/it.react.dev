@@ -2,17 +2,6 @@
 
 This repo contains the source code and documentation powering [it.reactjs.org](https://it.reactjs.org/).
 
-# ⚠ Beta Website ⚠
-We are currently transitioning our translation efforts to the new website that is currently in [Beta](https://github.com/reactjs/reactjs.org/issues/4135).
-
-We are early stages and still setting up everything, all the previous translation efforts are stopped.
-
-Nothing is lost, all the translated content will be archived.
-
-As usual you can follow the progress [here (#1)](https://github.com/reactjs/it.reactjs.org/issues/1) and specifically for the transition [here (#328)](https://github.com/reactjs/it.reactjs.org/issues/328)
-
----
-
 ## Before we start, some useful links:
 
 - [Glossary](GLOSSARY.md)
