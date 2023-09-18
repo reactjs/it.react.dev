@@ -2266,7 +2266,11 @@ to
 <li>Alexa: 5 tasks left</li>
 ```
 
+<<<<<<< HEAD
 Oltre ai conteggi aggiornati, una lettura umana direbbe probabilmente che hai scambiato l'ordinamento di Alexa e Ben e hai inserito Claudia tra Alexa e Ben. Tuttavia, React è un programma per computer e non può sapere cosa intendevi, quindi devi specificare una proprietà _key_ per ogni elemento dell'elenco per differenziare ogni elemento dell'elenco dai suoi fratelli. Se i tuoi dati provenivano da un database, gli ID del database di Alexa, Ben e Claudia potrebbero essere usati come keys.
+=======
+In addition to the updated counts, a human reading this would probably say that you swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what you intended, so you need to specify a _key_ property for each list item to differentiate each list item from its siblings. If your data was from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+>>>>>>> bdc60c26848820239db732b7218d41f4c2b204af
 
 ```js {1}
 <li key={user.id}>
