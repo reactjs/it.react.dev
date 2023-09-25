@@ -77,9 +77,15 @@ A differenza di una fotografia o di un fotogramma di un film, l'"istantanea" del
 
 Quando React re-renderizza un componente:
 
+<<<<<<< HEAD
 1. React chiama di nuovo la tua funzione.
 2. La tua funzione restituisce una nuova istantanea JSX.
 3. React aggiorna quindi la schermata in modo che corrisponda all'istantanea restituita.
+=======
+1. React calls your function again.
+2. Your function returns a new JSX snapshot.
+3. React then updates the screen to match the snapshot your function returned.
+>>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
 
 <IllustrationBlock sequential>
     <Illustration caption="React esegue la funzione" src="/images/docs/illustrations/i_render1.png" />
