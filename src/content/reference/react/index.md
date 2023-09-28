@@ -106,16 +106,13 @@ Per dare la priorità al rendering, utilizza uno di questi Hooks:
 
 ---
 
-<<<<<<< HEAD
-## Altri Hooks {/*other-hooks*/}
-=======
 ## Resource Hooks {/*resource-hooks*/}
 
-*Resources* can be accessed by a component without having them as part of their state. For example, a component can read a message from a Promise or read styling information from a context.
+Le *Resources* (_risorse_) possono essere accedute da un componente senza che facciano parte del loro state. Per esempio, un componente può leggere un messaggio da una Promise o informazioni di stile da un context.
 
-To read a value from a resource, use this Hook:
+Per leggere il valore da una risorsa, usa questo Hook:
 
-- [`use`](/reference/react/use) lets you read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+- [`use`](/reference/react/use) ti permette di leggere il valore della risorsa come una [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [context](/learn/passing-data-deeply-with-context).
 
 ```js
 function MessageComponent({ messagePromise }) {
@@ -127,8 +124,7 @@ function MessageComponent({ messagePromise }) {
 
 ---
 
-## Other Hooks {/*other-hooks*/}
->>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
+## Altri Hooks {/*other-hooks*/}
 
 Questi Hooks sono per lo più utili agli autori di librerie e non sono comunemente usati nel codice dell'applicazione.
 
