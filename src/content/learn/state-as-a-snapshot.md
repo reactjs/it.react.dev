@@ -252,7 +252,7 @@ setTimeout(() => {
 
 Il valore dello state memorizzato in React potrebbe essere cambiato al momento in cui si esegue l'alert, ma questo è stato pianificato utilizzando un'istantanea dello state nel momento in cui l'utente ha interagito con esso!
 
-**Il valore di una variabile di state non cambia mai all'interno di una renderizzazione,** anche se il codice del suo gestore di eventi è asincrono. Dentro l'`onClick` di *quella renderizzazione*, il valore di `number` continua a essere `0` anche dopo che `setNumber(number + 5)` è stato eseguito. Il suo valore è stato "fissato" quando React ha "scattato l'istantanea" della UI chiamando il tuo componente. 
+**Il valore di una variabile di state non cambia mai all'interno di una renderizzazione,** anche se il codice del suo gestore di eventi è asincrono. Dentro l'`onClick` di *quella renderizzazione*, il valore di `number` continua a essere `0` anche dopo che `setNumber(number + 5)` è stato eseguito. Il suo valore è stato "fissato" quando React ha "scattato l'istantanea" della UI chiamando il tuo componente.
 
 Ecco un esempio di come questo rende i gestori di eventi meno inclini a errori di sincronizzazione. Di seguito è riportato un formulario che invia un messaggio con un ritardo di cinque secondi. Immagina questo scenario:
 
@@ -316,7 +316,7 @@ Ma cosa succede se vuoi leggere lo state più recente prima di una nuova renderi
 * Quando chiami `useState`, React ti fornisce un'istantanea dello state per quella renderizzazione.
 * Le variabili e i gestori di eventi non "sopravvivono" alle ri-renderizzazioni. Ogni renderizzazione ha i propri gestori di eventi.
 * Ogni renderizzazione (e le funzioni al suo interno) "vedrà" sempre l'istantanea dello state che React ha dato in *quella* renderizzazione.
-* Puoi sostituire mentalmente lo state nei gestori di eventi, in modo simile a a come pensi nel JSX renderizzato. 
+* Puoi sostituire mentalmente lo state nei gestori di eventi, in modo simile a a come pensi nel JSX renderizzato.
 * I gestori di eventi creati in passato hanno il valore di state della renderizzazione in cui sono stati creati
 
 </Recap>
@@ -364,7 +364,7 @@ h1 { margin-top: 20px; }
 
 Aggiungi un `alert` al gestore di click. Quando la luce è verde e dice "Walk", cliccando il bottone dovrebbe dire "Stop is next". Quando la luce è rossa e dice "Stop", cliccando il bottone dovrebbe dire "Walk is next".
 
-C'è qualche differenza se l'`alert` viene impostato prima o dopo la chiamata a `setWalk`? 
+C'è qualche differenza se l'`alert` viene impostato prima o dopo la chiamata a `setWalk`?
 
 <Solution>
 
@@ -414,7 +414,7 @@ alert(walk ? 'Stop is next' : 'Walk is next');
 
 Però ha senso se la leggi come: "Se il semaforo mostra 'Walk now', il messaggio dovrebbe dire 'Stop is next.'" La variabile `walk` dentro il tuo gestore di eventi corrisponde al valore  di `walk` della renderizzazione e non cambia.
 
-Puoi verificare che ciò sia corretto applicando il metodo della sostituzione. Quando `walk` è `true`, otterrai: 
+Puoi verificare che ciò sia corretto applicando il metodo della sostituzione. Quando `walk` è `true`, otterrai:
 
 ```js
 <button onClick={() => {
@@ -428,7 +428,7 @@ Puoi verificare che ciò sia corretto applicando il metodo della sostituzione. Q
 </h1>
 ```
 
-Quindi, cliccando su "Change to Stop", si mette in coda una renderizzazione con `walk` impostato su `false` e viene visualizzato "Stop is next". 
+Quindi, cliccando su "Change to Stop", si mette in coda una renderizzazione con `walk` impostato su `false` e viene visualizzato "Stop is next".
 
 </Solution>
 

@@ -106,6 +106,24 @@ Per dare la priorità al rendering, utilizza uno di questi Hooks:
 
 ---
 
+## Resource Hooks {/*resource-hooks*/}
+
+Le *Resources* (_risorse_) possono essere accedute da un componente senza che facciano parte del loro state. Per esempio, un componente può leggere un messaggio da una Promise o informazioni di stile da un context.
+
+Per leggere il valore da una risorsa, usa questo Hook:
+
+- [`use`](/reference/react/use) ti permette di leggere il valore della risorsa come una [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) o [context](/learn/passing-data-deeply-with-context).
+
+```js
+function MessageComponent({ messagePromise }) {
+  const message = use(messagePromise);
+  const theme = use(ThemeContext);
+  // ...
+}
+```
+
+---
+
 ## Altri Hooks {/*other-hooks*/}
 
 Questi Hooks sono per lo più utili agli autori di librerie e non sono comunemente usati nel codice dell'applicazione.
