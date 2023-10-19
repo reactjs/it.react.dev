@@ -114,7 +114,7 @@ const people = [{
   profession: 'physicist',
 }, {
   name: 'Percy Lavon Julian',
-  profession: 'chemist',  
+  profession: 'chemist',
 }, {
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
@@ -230,9 +230,9 @@ export function getImageUrl(person) {
 
 ```css
 ul { list-style-type: none; padding: 0px 10px; }
-li { 
-  margin-bottom: 10px; 
-  display: grid; 
+li {
+  margin-bottom: 10px;
+  display: grid;
   grid-template-columns: auto 1fr;
   gap: 20px;
   align-items: center;
@@ -360,9 +360,9 @@ export function getImageUrl(person) {
 
 ```css
 ul { list-style-type: none; padding: 0px 10px; }
-li { 
-  margin-bottom: 10px; 
-  display: grid; 
+li {
+  margin-bottom: 10px;
+  display: grid;
   grid-template-columns: auto 1fr;
   gap: 20px;
   align-items: center;
@@ -411,7 +411,7 @@ Diverse fonti di dati forniscono diverse fonti di key:
 
 ### Perchè React ha bisogno delle key? {/*why-does-react-need-keys*/}
 
-Immagina se i file sul tuo desktop non avessero nomi. Al contrario, ti riferiresti a loro in base al loro ordine: il primo file, il secondo file e così via. Potresti abituarti, ma una volta eliminato un file, sarebbe confuso. Il secondo file diventerebbe il primo file, il terzo file sarebbe il secondo file e così via. 
+Immagina se i file sul tuo desktop non avessero nomi. Al contrario, ti riferiresti a loro in base al loro ordine: il primo file, il secondo file e così via. Potresti abituarti, ma una volta eliminato un file, sarebbe confuso. Il secondo file diventerebbe il primo file, il terzo file sarebbe il secondo file e così via.
 
 I nomi dei file in una cartella e le key JSX in un array servono a uno scopo simile. Ci consentono di identificare univocamente un elemento tra i suoi simili. Una key ben scelta fornisce più informazioni rispetto alla posizione all'interno dell'array. Anche se la _posizione_ cambia a causa del riordinamento, la `key` consente a React di identificare l'elemento per tutta la sua durata.
 
@@ -1087,11 +1087,7 @@ In questo caso, `<Recipe {...recipe} key={recipe.id} />` è una shortcut sintatt
 
 #### Lista con un separatore {/*list-with-a-separator*/}
 
-<<<<<<< HEAD
-Questo esempio renderizza un famoso haiku di Katsushika Hokusai, con ogni riga avvolta in un tag `<p>`. Il tuo compito è inserire un separatore `<hr />` tra ogni paragrafo. La tua struttura risultante dovrebbe assomigliare a questa:
-=======
-This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
->>>>>>> e85b71de88a20cda9588f51f01d4a70e5cbe1cb4
+Questo esempio renderizza un famoso haiku di Tachibana Hokushi, con ogni riga avvolta in un tag `<p>`. Il tuo compito è inserire un separatore `<hr />` tra ogni paragrafo. La tua struttura risultante dovrebbe assomigliare a questa:
 
 ```js
 <article>
