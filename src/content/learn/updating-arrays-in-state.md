@@ -1,52 +1,52 @@
 ---
-title: Updating Arrays in State
+title: Aggiornare gli Array nello State
 ---
 
 <Intro>
 
-Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.
+In Javascript gli array sono mutabili, ma li dovresti trattare come immutabili quando li memorizzi nello state. Come per gli oggetti, quando vuoi aggiornare un array memorizzato nello state, devi crearne uno nuovo (o fare una copia di quello esistente) e impostare lo state per usare il nuovo array.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to add, remove, or change items in an array in React state
-- How to update an object inside of an array
-- How to make array copying less repetitive with Immer
+- Come aggiungere, rimuovere o cambiare elementi in un array in React state
+- Come aggiornare un oggetto contenuto in un array
+- Come copiare gli array in maniera meno ripetitiva con Immer
 
 </YouWillLearn>
 
-## Updating arrays without mutation {/*updating-arrays-without-mutation*/}
+## Copiare gli array senza mutazione {/*updating-arrays-without-mutation*/}
 
-In JavaScript, arrays are just another kind of object. [Like with objects](/learn/updating-objects-in-state), **you should treat arrays in React state as read-only.** This means that you shouldn't reassign items inside an array like `arr[0] = 'bird'`, and you also shouldn't use methods that mutate the array, such as `push()` and `pop()`.
+In JavaScript, gli array sono solo un altro tipo di oggetto. [Come per gli oggetti](/learn/updating-objects-in-state), **in React state, dovresti trattare gli array come read-only.** Questo significa che non dovresti riassegnare un elemento dentro un array come `arr[0] = 'bird'` e inoltre non dovresti usare metodi che mutano gli array, come `push()` e `pop()`.
 
-Instead, every time you want to update an array, you'll want to pass a *new* array to your state setting function. To do that, you can create a new array from the original array in your state by calling its non-mutating methods like `filter()` and `map()`. Then you can set your state to the resulting new array.
+Invece, ogni volta che vuoi aggiornare un array, dovresti passare un *nuovo* array alla funzione setting dello state. Per fare ciò, puoi creare un nuovo array dall'array originale nello state richiamando i suoi metodi immutabili come `filter()` e `map()`. Infine puoi impostare il tuo state all'array che viene ritornato.
 
-Here is a reference table of common array operations. When dealing with arrays inside React state, you will need to avoid the methods in the left column, and instead prefer the methods in the right column:
+Qui c'è una tabella dove far riferimento per le più comuni operazioni sugli array. Quando hai a che fare con gli array contenuti in React state, dovrai evitare di utilizzare i metodi nella colonna di sinistra e, invece, preferire i metodi nella colonna di destra:
 
-|           | avoid (mutates the array)           | prefer (returns a new array)                                        |
-| --------- | ----------------------------------- | ------------------------------------------------------------------- |
-| adding    | `push`, `unshift`                   | `concat`, `[...arr]` spread syntax ([example](#adding-to-an-array)) |
-| removing  | `pop`, `shift`, `splice`            | `filter`, `slice` ([example](#removing-from-an-array))              |
-| replacing | `splice`, `arr[i] = ...` assignment | `map` ([example](#replacing-items-in-an-array))                     |
-| sorting   | `reverse`, `sort`                   | copy the array first ([example](#making-other-changes-to-an-array)) |
+|             | Evita (muta l'array)                 | Preferisci (ritorna un nuovo array)                                   |
+| ----------- | ------------------------------------ | --------------------------------------------------------------------- |
+| aggiunta    | `push`, `unshift`                    | `concat`, `[...arr]` sintassi spread ([esempio](#adding-to-an-array)) |
+| rimozione   | `pop`, `shift`, `splice`             | `filter`, `slice` ([esempio](#removing-from-an-array))                |
+| sostituzione| `splice`, `arr[i] = ...` assegnazione| `map` ([esempio](#replacing-items-in-an-array))                       |
+| ordinamento | `reverse`, `sort`                    | prima copia l'array ([esempio](#making-other-changes-to-an-array))    |
 
-Alternatively, you can [use Immer](#write-concise-update-logic-with-immer) which lets you use methods from both columns.
+In alternativa, puoi [usare Immer](#write-concise-update-logic-with-immer) che ti permette di utilizzare i metodi di entrambe le colonne.
 
 <Pitfall>
 
-Unfortunately, [`slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) and [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) are named similarly but are very different:
+Sfortunatamente, [`slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) e [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) sono chiamati in maniera simile ma sono molto differenti:
 
-* `slice` lets you copy an array or a part of it.
-* `splice` **mutates** the array (to insert or delete items).
+* `slice` ti permette di copiare un array o parte di esso.
+* `splice` **muta** l'array (per inserire o eliminare elementi).
 
-In React, you will be using `slice` (no `p`!) a lot more often because you don't want to mutate objects or arrays in state. [Updating Objects](/learn/updating-objects-in-state) explains what mutation is and why it's not recommended for state.
+In React, dovresti usare `slice` (non `p`!) molto più spesso perché non vuoi mutare oggetti o array nello state. [Aggiornare gli Oggetti](/learn/updating-objects-in-state) spiega cos'è una mutazione e il perché non è consigliata per lo state.
 
 </Pitfall>
 
-### Adding to an array {/*adding-to-an-array*/}
+### Aggiungere ad un array {/*adding-to-an-array*/}
 
-`push()` will mutate an array, which you don't want:
+`push()` muta l'array, cosa che non vuoi:
 
 <Sandpack>
 
@@ -88,18 +88,18 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-Instead, create a *new* array which contains the existing items *and* a new item at the end. There are multiple ways to do this, but the easiest one is to use the `...` [array spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) syntax:
+Invece, crea un *nuovo* array che contiene gli elementi presenti *e* un nuovo elemento alla fine. Ci sono molteplici modi per raggiungere questo risultato, ma il più semplice è l'uso della sintassi `...` [array spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals):
 
 ```js
-setArtists( // Replace the state
-  [ // with a new array
-    ...artists, // that contains all the old items
-    { id: nextId++, name: name } // and one new item at the end
+setArtists( // Sostituisce lo state 
+  [ // con un nuovo array
+    ...artists, // che contiene tutti i vecchi elementi
+    { id: nextId++, name: name } // e ne aggiunge uno nuovo alla fine
   ]
 );
 ```
 
-Now it works correctly:
+Ora funziona correttamente:
 
 <Sandpack>
 
@@ -141,20 +141,20 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-The array spread syntax also lets you prepend an item by placing it *before* the original `...artists`:
+La sintassi array spread ti consente inoltre di prepend (aggiungere) un elemento mettendolo *prima* dell'originale `...artists`:
 
 ```js
 setArtists([
   { id: nextId++, name: name },
-  ...artists // Put old items at the end
+  ...artists // Mette i vecchi elementi alla fine
 ]);
 ```
 
-In this way, spread can do the job of both `push()` by adding to the end of an array and `unshift()` by adding to the beginning of an array. Try it in the sandbox above!
+In questo modo, lo spread fa il lavoro sia di `push()` aggiungendo un elemento alla fine dell'array sia di `unshift()` aggiungendo un elemento all'inizio di un array. Provalo nella sandbox sopra!
 
-### Removing from an array {/*removing-from-an-array*/}
+### Rimozione da un array {/*removing-from-an-array*/}
 
-The easiest way to remove an item from an array is to *filter it out*. In other words, you will produce a new array that will not contain that item. To do this, use the `filter` method, for example:
+Il modo più semplice per rimuovere un elemento dall'array è di *filtrarlo via*. In altre parole, devi creare un nuovo array che non conterrà quell'elemento. Per fare ciò, usa il metodo `filter`, per esempio:
 
 <Sandpack>
 
@@ -198,7 +198,7 @@ export default function List() {
 
 </Sandpack>
 
-Click the "Delete" button a few times, and look at its click handler.
+Clicca il bottone "Delete" un paio di volte, e guarda il suo click handler.
 
 ```js
 setArtists(
@@ -206,13 +206,13 @@ setArtists(
 );
 ```
 
-Here, `artists.filter(a => a.id !== artist.id)` means "create an array that consists of those `artists` whose IDs are different from `artist.id`". In other words, each artist's "Delete" button will filter _that_ artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
+Qui, `artists.filter(a => a.id !== artist.id)` significa "crea un array che è composto da questi `artists` i cui ID sono differenti da `artist.id`". In altre parole, ogni bottone "Delete" dell'artista filtrerà via dall'array _quel_ artista e infine ri-renderizzerà l'array ritornato. Tieni presente che `filter` non modifica l'array originale.
 
-### Transforming an array {/*transforming-an-array*/}
+### Trasformazione di un array {/*transforming-an-array*/}
 
-If you want to change some or all items of the array, you can use `map()` to create a **new** array. The function you will pass to `map` can decide what to do with each item, based on its data or its index (or both).
+Se vuoi cambiare qualche o tutti gli elementi di un array, puoi usare `map()` per creare un **nuovo** array. La funzione che passerai a `map` può decidere cosa fare con ogni elemento, basandosi sui suoi dati o sul suo indice (o entrambi.)
 
-In this example, an array holds coordinates of two circles and a square. When you press the button, it moves only the circles down by 50 pixels. It does this by producing a new array of data using `map()`:
+In questo esempio, un array contiene delle coordinate di due cerchi e un quadrato. Quando premi il bottone, sposta in basso solotanto i cerchi di 50 pixel. Fa questo creando un nuovo array di dati usando `map()`:
 
 <Sandpack>
 
@@ -233,17 +233,17 @@ export default function ShapeEditor() {
   function handleClick() {
     const nextShapes = shapes.map(shape => {
       if (shape.type === 'square') {
-        // No change
+        // Nessun cambiamento
         return shape;
       } else {
-        // Return a new circle 50px below
+        // Ritorna un nuovo cerchio in basso di 50px
         return {
           ...shape,
           y: shape.y + 50,
         };
       }
     });
-    // Re-render with the new array
+    // Ri-renderizza con il nuovo array
     setShapes(nextShapes);
   }
 
@@ -278,11 +278,11 @@ body { height: 300px; }
 
 </Sandpack>
 
-### Replacing items in an array {/*replacing-items-in-an-array*/}
+### Sostituzione degli elementi in un array {/*replacing-items-in-an-array*/}
 
-It is particularly common to want to replace one or more items in an array. Assignments like `arr[0] = 'bird'` are mutating the original array, so instead you'll want to use `map` for this as well.
+È particolarmente comune il voler sostituire uno o più elementi in un array. Le assegnazioni come `arr[0] = 'bird'` mutano l'array originale,  invece dovresti utilizzare `map` anche in questo caso.
 
-To replace an item, create a new array with `map`. Inside your `map` call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else:
+Per sostituire un elemento, crea un nuovo array con `map`. Dentro la tua chiamata `map`, riceverai l'indice di un elemento come secondo argomento. Usalo per decidere se ritornare l'elemento originale (il primo argomento) o qualcos'altro:
 
 <Sandpack>
 
@@ -301,10 +301,10 @@ export default function CounterList() {
   function handleIncrementClick(index) {
     const nextCounters = counters.map((c, i) => {
       if (i === index) {
-        // Increment the clicked counter
+        // Incrementa il contatore cliccato
         return c + 1;
       } else {
-        // The rest haven't changed
+        // Il resto non è cambiato
         return c;
       }
     });
@@ -332,11 +332,11 @@ button { margin: 5px; }
 
 </Sandpack>
 
-### Inserting into an array {/*inserting-into-an-array*/}
+### Inserimento in un array {/*inserting-into-an-array*/}
 
-Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the `...` array spread syntax together with the `slice()` method. The `slice()` method lets you cut a "slice" of the array. To insert an item, you will create an array that spreads the slice _before_ the insertion point, then the new item, and then the rest of the original array.
+A volte, potresti voler inserire un elemento in una specifica posizione che non è nè all'inizio e nè alla fine. Per fare ciò, puoi usare la sintassi array spread `...` assieme al metodo `slice()`. Il metodo `slice()` ti permette di tagliare una fetta ("slice") dell'array. Per inserire un elemento, crea un array che metta (spreads) la fetta _prima_ del punto di inserzione, poi il nuovo elemento e infine il resto dell'array originale.
 
-In this example, the Insert button always inserts at the index `1`:
+In questo esempio, il bottone Insert inserisce sempre all'indice `1`:
 
 <Sandpack>
 
@@ -357,13 +357,13 @@ export default function List() {
   );
 
   function handleClick() {
-    const insertAt = 1; // Could be any index
+    const insertAt = 1; // Può essere qualsiasi indice
     const nextArtists = [
-      // Items before the insertion point:
+      // Elementi prima del punto di inserzione:
       ...artists.slice(0, insertAt),
-      // New item:
+      // Nuovo elemento:
       { id: nextId++, name: name },
-      // Items after the insertion point:
+      // Elementi dopo il punto di inserzione:
       ...artists.slice(insertAt)
     ];
     setArtists(nextArtists);
@@ -396,13 +396,13 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-### Making other changes to an array {/*making-other-changes-to-an-array*/}
+### Altri cambiamenti ad un array {/*making-other-changes-to-an-array*/}
 
-There are some things you can't do with the spread syntax and non-mutating methods like `map()` and `filter()` alone. For example, you may want to reverse or sort an array. The JavaScript `reverse()` and `sort()` methods are mutating the original array, so you can't use them directly.
+Ci sono determinate cose che non puoi fare utilizzando la sintassi spread e i metodi non mutanti come `map()` e `filter()` da soli. Per esempio, potresti voler invertire od ordinare un array. I metodi `reverse()` e `sort()` di Javascript mutano l'array originale, quindi non li puoi utilizzare direttamente.
 
-**However, you can copy the array first, and then make changes to it.**
+**Tuttavia, puoi prima copiare l'array e dopo applicare i cambiamenti.**
 
-For example:
+Per esempio:
 
 <Sandpack>
 
@@ -442,25 +442,25 @@ export default function List() {
 
 </Sandpack>
 
-Here, you use the `[...list]` spread syntax to create a copy of the original array first. Now that you have a copy, you can use mutating methods like `nextList.reverse()` or `nextList.sort()`, or even assign individual items with `nextList[0] = "something"`.
+Qua, puoi usare la sintassi spread `[...list]` per creare prima una copia dell'array originale. Ora che hai una copia, puoi usare i metodi mutanti come `nextList.reverse()` o `nextList.sort()`, oppure puoi anche assegnare elementi individuali con`nextList[0] = "something"`.
 
-However, **even if you copy an array, you can't mutate existing items _inside_ of it directly.** This is because copying is shallow--the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state. For example, code like this is a problem.
+Tuttavia, **anche se copi un array, non puoi mutare gli elementi presenti _dentro_ di esso direttamente.** Questo perchè è una shallow copy (copia poco profonda)--il nuovo array conterrà gli stessi elementi dell'originale. Dunque, se modifichi un oggetto dentro un array copiato, stai mutando lo state esistente. Per esempio, codice come questo è un problema.
 
 ```js
 const nextList = [...list];
-nextList[0].seen = true; // Problem: mutates list[0]
+nextList[0].seen = true; //Problema: muta list[0]
 setList(nextList);
 ```
 
-Although `nextList` and `list` are two different arrays, **`nextList[0]` and `list[0]` point to the same object.** So by changing `nextList[0].seen`, you are also changing `list[0].seen`. This is a state mutation, which you should avoid! You can solve this issue in a similar way to [updating nested JavaScript objects](/learn/updating-objects-in-state#updating-a-nested-object)--by copying individual items you want to change instead of mutating them. Here's how.
+Sebbene `nextList` e `list` siano due array differenti, **`nextList[0]` e `list[0]` puntano allo stesso oggetto.** Dunque, cambiando `nextList[0].seen`, stai anche cambiando `list[0].seen`. Questa è una mutazione dello state, che dovresti evitare! Puoi risolvere questo problema in maniera simile come [aggiornare oggetti Javascript annidati](/learn/updating-objects-in-state#updating-a-nested-object)-- copiando individualmente gli elementi che vuoi cambiare invece di mutarli. Ecco come.
 
-## Updating objects inside arrays {/*updating-objects-inside-arrays*/}
+## Aggiornare oggetti dentro agli array {/*updating-objects-inside-arrays*/}
 
-Objects are not _really_ located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points". This is why you need to be careful when changing nested fields like `list[0]`. Another person's artwork list may point to the same element of the array!
+Gli oggetti non sono _veramente_ collocati "dentro" agli array. Dal codice potrebbero sembrare "dentro", ma ogni oggetto in un array è un valore separato, al quale l'aray punta. Ecco perché devi fare attenzione quando cambi dei campi annidati come `list[0]`. Una lista di artwork di un'altra persona potrebbe puntare allo stesso elemento dell'array!
 
-**When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level.** Let's see how this works.
+**Quando aggiorni uno state annidato, hai bisogno di creare copie dal punto in cui vuoi aggiornarlo, fino al livello superiore.** Vediamo come funziona.
 
-In this example, two separate artwork lists have the same initial state. They are supposed to be isolated, but because of a mutation, their state is accidentally shared, and checking a box in one list affects the other list:
+In questo esempio, due liste di artwork separate hanno lo stesso state iniziale. Dovrebbero essere isolate, ma a causa della mutazione, il loro state è accidentalmente condiviso, e spuntando una casella in una lista, viene impattata anche l'altra lista:
 
 <Sandpack>
 
@@ -540,7 +540,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-The problem is in code like this:
+Il problema è nel codice:
 
 ```js
 const myNextList = [...myList];
@@ -548,26 +548,25 @@ const artwork = myNextList.find(a => a.id === artworkId);
 artwork.seen = nextSeen; // Problem: mutates an existing item
 setMyList(myNextList);
 ```
+Sebbene lo stesso array `myNextList` sia nuovo, gli *elementi stessi* sono quelli dell'array originale `myList`. Quindi cambiare `artwork.seen` cambia l'*originale* elemento artwork. Quell'elemento artwork è presente anche in`yourList`, il quale causa il bug. I bugs come questo posso essere difficili da notare, ma fortunatamente scompaiono se eviti di mutare lo state.
 
-Although the `myNextList` array itself is new, the *items themselves* are the same as in the original `myList` array. So changing `artwork.seen` changes the *original* artwork item. That artwork item is also in `yourList`, which causes the bug. Bugs like this can be difficult to think about, but thankfully they disappear if you avoid mutating state.
-
-**You can use `map` to substitute an old item with its updated version without mutation.**
+**Puoi usare `map` per sostituire un vecchio elemento con la sua versione aggiornata senza mutazioni**
 
 ```js
 setMyList(myList.map(artwork => {
   if (artwork.id === artworkId) {
-    // Create a *new* object with changes
+    // Crea un *nuovo* oggetto con gli aggiornamenti
     return { ...artwork, seen: nextSeen };
   } else {
-    // No changes
+    // Nessun aggiornamento
     return artwork;
   }
 }));
 ```
 
-Here, `...` is the object spread syntax used to [create a copy of an object.](/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
+Qua, `...` è la sintassi dello spread dell'oggetto usata per [creare una copia dell'oggetto.](/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
 
-With this approach, none of the existing state items are being mutated, and the bug is fixed:
+Con questo approccio, nessuno degli state esistenti viene mutat, e il bug è risolto:
 
 <Sandpack>
 
@@ -590,10 +589,10 @@ export default function BucketList() {
   function handleToggleMyList(artworkId, nextSeen) {
     setMyList(myList.map(artwork => {
       if (artwork.id === artworkId) {
-        // Create a *new* object with changes
+        // Crea un *nuovo* oggetto con i cambi
         return { ...artwork, seen: nextSeen };
       } else {
-        // No changes
+        // Nessun cambio
         return artwork;
       }
     }));
@@ -602,10 +601,10 @@ export default function BucketList() {
   function handleToggleYourList(artworkId, nextSeen) {
     setYourList(yourList.map(artwork => {
       if (artwork.id === artworkId) {
-        // Create a *new* object with changes
+        // Crea un *nuovo* oggetto con i cambi
         return { ...artwork, seen: nextSeen };
       } else {
-        // No changes
+        // Nessun cambio
         return artwork;
       }
     }));
@@ -653,16 +652,16 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-In general, **you should only mutate objects that you have just created.** If you were inserting a *new* artwork, you could mutate it, but if you're dealing with something that's already in state, you need to make a copy.
+In generale, **dovresti mutare solamente gli oggetti che hai appena creato.** Se stessi inserendo un *nuovo* artwork, avresti potuto mutarlo, ma se stai avendo a che fare con qualcosa che è già presente nello state, hai bisogno di farne una copia.
 
-### Write concise update logic with Immer {/*write-concise-update-logic-with-immer*/}
+### Scrivi logica di aggiornamento coincisa con Immer {/*write-concise-update-logic-with-immer*/}
 
-Updating nested arrays without mutation can get a little bit repetitive. [Just as with objects](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
+Aggiornare array annidati senza mutazione può essere un tantino ripetitivo. [Come per gli oggetti](/learn/updating-objects-in-state#write-concise-update-logic-with-immer):
 
-- Generally, you shouldn't need to update state more than a couple of levels deep. If your state objects are very deep, you might want to [restructure them differently](/learn/choosing-the-state-structure#avoid-deeply-nested-state) so that they are flat.
-- If you don't want to change your state structure, you might prefer to use [Immer](https://github.com/immerjs/use-immer), which lets you write using the convenient but mutating syntax and takes care of producing the copies for you.
+- Generalmente, non dovresti aver bisogno di aggiornare lo state per più di un paio di livelli di profondità. Se i tuoi oggetti dello state sono molto profondi, potresti volerli [strutturare in maniera differente](/learn/choosing-the-state-structure#avoid-deeply-nested-state) affinché siano piatti.
+- Se non vuoi che cambiare la struttura dello state, potresti preferire usare [Immer](https://github.com/immerjs/use-immer), che ti permette di scrivere in modo conveniente ma con sintassi mutevole e generando le copie per te.
 
-Here is the Art Bucket List example rewritten with Immer:
+Questo è l'esempio dell'Art Bucket List riscritto con Immer:
 
 <Sandpack>
 
@@ -763,7 +762,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-Note how with Immer, **mutation like `artwork.seen = nextSeen` is now okay:**
+Nota come con Immer, **le mutazioni come `artwork.seen = nextSeen` ora vadano bene:**
 
 ```js
 updateMyTodos(draft => {
@@ -771,18 +770,17 @@ updateMyTodos(draft => {
   artwork.seen = nextSeen;
 });
 ```
+Questo è perché non stai mutando lo state _originale_, ma stai mutando un oggetto speciale `draft` fornito da Immer. Analogamente, puoi applicare metodi di mutazione come `push()` e `pop()` al contenuto di `draft`.
 
-This is because you're not mutating the _original_ state, but you're mutating a special `draft` object provided by Immer. Similarly, you can apply mutating methods like `push()` and `pop()` to the content of the `draft`.
-
-Behind the scenes, Immer always constructs the next state from scratch according to the changes that you've done to the `draft`. This keeps your event handlers very concise without ever mutating state.
+Dietro le quinte, Immer costruisce sempre il prossimo state da zero in accordo con i cambiamenti che hai applicato a `draft`. Questo mantiene i tuoi event handler molto coincisi senza mai mutare lo state.
 
 <Recap>
 
-- You can put arrays into state, but you can't change them.
-- Instead of mutating an array, create a *new* version of it, and update the state to it.
-- You can use the `[...arr, newItem]` array spread syntax to create arrays with new items.
-- You can use `filter()` and `map()` to create new arrays with filtered or transformed items.
-- You can use Immer to keep your code concise.
+- Puoi mettere gli array nello state, ma non puoi cambiarli.
+- Invece di mutare un array, crea una *nuova* versione di esso e aggiorna lo state.
+- Puoi usare la sintassi array spread `[...arr, newItem]` per creare array con nuovi elementi.
+- Puoi usare `filter()` e `map()` per creare nuovi array con elementi filtrati o transformati.
+- Puoi usare Immer per mantenere il tuo codice coinciso.
 
 </Recap>
 
@@ -790,9 +788,9 @@ Behind the scenes, Immer always constructs the next state from scratch according
 
 <Challenges>
 
-#### Update an item in the shopping cart {/*update-an-item-in-the-shopping-cart*/}
+#### Aggiorna un elemento nello shopping cart {/*update-an-item-in-the-shopping-cart*/}
 
-Fill in the `handleIncreaseClick` logic so that pressing "+" increases the corresponding number:
+Compila `handleIncreaseClick` così che premendo "+" si increamenti il numero corrispondente:
 
 <Sandpack>
 
@@ -850,7 +848,7 @@ button { margin: 5px; }
 
 <Solution>
 
-You can use the `map` function to create a new array, and then use the `...` object spread syntax to create a copy of the changed object for the new array:
+Puoi usare la funzione `map` per creare un nuovo array e infine utilizzare la sintassi oggetto spread `...` per creare una copia dell'oggetto aggiornato per il nuovo array:
 
 <Sandpack>
 
@@ -917,9 +915,9 @@ button { margin: 5px; }
 
 </Solution>
 
-#### Remove an item from the shopping cart {/*remove-an-item-from-the-shopping-cart*/}
+#### Rimuovi un elemento dallo shopping cart {/*remove-an-item-from-the-shopping-cart*/}
 
-This shopping cart has a working "+" button, but the "–" button doesn't do anything. You need to add an event handler to it so that pressing it decreases the `count` of the corresponding product. If you press "–" when the count is 1, the product should automatically get removed from the cart. Make sure it never shows 0.
+Questo shopping cart ha un bottone "+" che funziona, ma il bottone "–" non fa niente. Hai bisogno di aggiungergli un event handler così che premendolo diminuisce il `count` del prodotto corrispondente. Se premi "–" quando il count è ad 1, il prodotto dovrebbe essere automaticamente rimosso dal cart. Assicurati che non mostri mai 0.
 
 <Sandpack>
 
@@ -989,7 +987,7 @@ button { margin: 5px; }
 
 <Solution>
 
-You can first use `map` to produce a new array, and then `filter` to remove products with a `count` set to `0`:
+Puoi per primo usare `map` per creare un nuovo array e dopo usare `filter` per rimuovere i prodotti con il `count` a `0`:
 
 <Sandpack>
 
@@ -1078,9 +1076,9 @@ button { margin: 5px; }
 
 </Solution>
 
-#### Fix the mutations using non-mutative methods {/*fix-the-mutations-using-non-mutative-methods*/}
+#### Correggi le mutazioni usando metodi non mutanti {/*fix-the-mutations-using-non-mutative-methods*/}
 
-In this example, all of the event handlers in `App.js` use mutation. As a result, editing and deleting todos doesn't work. Rewrite `handleAddTodo`, `handleChangeTodo`, and `handleDeleteTodo` to use the non-mutative methods:
+In questo esempio, tutti gli event handler contenuti in `App.js` usano mutazioni. Il risultato è che la modifica e l'eliminazione dei todos non funzionano. Riscrivi `handleAddTodo`, `handleChangeTodo` e `handleDeleteTodo` per usare dei metodi non mutanti:
 
 <Sandpack>
 
@@ -1243,7 +1241,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-In `handleAddTodo`, you can use the array spread syntax. In `handleChangeTodo`, you can create a new array with `map`. In `handleDeleteTodo`, you can create a new array with `filter`. Now the list works correctly:
+In `handleAddTodo`, puoi usare la sintassi array spread. In `handleChangeTodo`, puoi creare un nuovo array con `map`. In `handleDeleteTodo`, puoi creare un nuovo array con `filter`. Ora la lista funziona correttamente:
 
 <Sandpack>
 
@@ -1411,9 +1409,9 @@ ul, li { margin: 0; padding: 0; }
 </Solution>
 
 
-#### Fix the mutations using Immer {/*fix-the-mutations-using-immer*/}
+#### Correggi le mutazioni usando Immer {/*fix-the-mutations-using-immer*/}
 
-This is the same example as in the previous challenge. This time, fix the mutations by using Immer. For your convenience, `useImmer` is already imported, so you need to change the `todos` state variable to use it.
+Questo esempio è lo stesso della sfida precedente. Questa volta, correggi le mutazioni usando Immer. Per tua convenienza, `useImmer` è già importato, quindi hai bisogno di cambiare la variabile state `todos` per usarlo.
 
 <Sandpack>
 
@@ -1595,7 +1593,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-With Immer, you can write code in the mutative fashion, as long as you're only mutating parts of the `draft` that Immer gives you. Here, all mutations are performed on the `draft` so the code works:
+Con Immer, puoi scrivere codice in maniera mutevole, fintanto che vengano mutate solamente le parti di `draft` che Immer ti fornisce. Qui, tutte le mutazioni sono compiute su `draft` così che il codice funzioni:
 
 <Sandpack>
 
@@ -1781,9 +1779,9 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-You can also mix and match the mutative and non-mutative approaches with Immer.
+Puoi anche mischiare gli approcci mutanti e non mutanti con Immer.
 
-For example, in this version `handleAddTodo` is implemented by mutating the Immer `draft`, while `handleChangeTodo` and `handleDeleteTodo` use the non-mutative `map` and `filter` methods:
+Per esempio, in questa versione `handleAddTodo` è implementato mutando`draft` di Immer, mentre `handleChangeTodo` e `handleDeleteTodo` usano i metodi non mutanti `map` e`filter`:
 
 <Sandpack>
 
@@ -1966,7 +1964,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-With Immer, you can pick the style that feels the most natural for each separate case.
+Con Immer, puoi scegliere lo stile che ti sembra più naturale in ciascun caso distinto.
 
 </Solution>
 
