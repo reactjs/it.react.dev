@@ -37,11 +37,7 @@ function getDomain(languageCode: string): string {
 export const Seo = withRouter(
   ({
     title,
-<<<<<<< HEAD
-    description = 'La libreria per le interfacce utente web e native',
-=======
     titleForTitleTag,
->>>>>>> 4bdb87b172a7723d56d03a5630c8a9870f6f03ec
     image = '/images/og-default.png',
     router,
     children,

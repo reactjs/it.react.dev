@@ -10,7 +10,6 @@ React è una libreria JavaScript per il rendering delle interfacce utente(UI). L
 
 <YouWillLearn isChapter={true}>
 
-<<<<<<< HEAD
 * [Come scrivere il tuo primo componente React](/learn/your-first-component)
 * [Quando e come creare file multi-componente](/learn/importing-and-exporting-components)
 * [Come aggiungere markup a JavaScript con JSX](/learn/writing-markup-with-jsx)
@@ -19,17 +18,7 @@ React è una libreria JavaScript per il rendering delle interfacce utente(UI). L
 * [Come rappresentare condizionalmente i componenti](/learn/conditional-rendering)
 * [Come renderizzare più componenti contemporaneamente](/learn/rendering-lists)
 * [Come evitare bug confusionari mantenendo i componenti puri](/learn/keeping-components-pure)
-=======
-* [How to write your first React component](/learn/your-first-component)
-* [When and how to create multi-component files](/learn/importing-and-exporting-components)
-* [How to add markup to JavaScript with JSX](/learn/writing-markup-with-jsx)
-* [How to use curly braces with JSX to access JavaScript functionality from your components](/learn/javascript-in-jsx-with-curly-braces)
-* [How to configure components with props](/learn/passing-props-to-a-component)
-* [How to conditionally render components](/learn/conditional-rendering)
-* [How to render multiple components at a time](/learn/rendering-lists)
-* [How to avoid confusing bugs by keeping components pure](/learn/keeping-components-pure)
-* [Why understanding your UI as trees is useful](/learn/understanding-your-ui-as-a-tree)
->>>>>>> 4bdb87b172a7723d56d03a5630c8a9870f6f03ec
+* [Perché è utile capire che la UI è un albero](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
@@ -373,7 +362,7 @@ Leggi **[Rendering Condizionale](/learn/conditional-rendering)** per imparare i 
 
 </LearnMore>
 
-## Rendering di Liste  {/*rendering-lists*/}
+## Rendering di Liste {/*rendering-lists*/}
 
 Spesso si desidera visualizzare più componenti simili da una raccolta di dati. È possibile utilizzare i metodi  `filter()` e `map()` di JavaScript con React per filtrare e trasformare l'array di dati in un array di componenti.
 
@@ -534,42 +523,38 @@ Leggi **[Mantenere i Componenti Puri](/learn/keeping-components-pure)** per impa
 
 </LearnMore>
 
-<<<<<<< HEAD
-## Qual è il Prossimo Passo? {/*whats-next*/}
-=======
-## Your UI as a tree {/*your-ui-as-a-tree*/}
+## La tua UI é un albero {/*your-ui-as-a-tree*/}
 
-React uses trees to model the relationships between components and modules. 
+React usa gli alberi per modellare le relazioni tra componenti e moduli.
 
-A React render tree is a representation of the parent and child relationship between components. 
+Un albero di renderizzazione di React è una rappresentazione delle relazioni padre e figlio tra i componenti.
 
-<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
+<Diagram name="generic_render_tree" height={250} width={500} alt="Un grafico albero con cinque nodi, con ogni nodo rappresentante un componente. Il nodo radice è posizionato in alto ed è chiamato 'Componente Radice'. Ha due frecce che si estendono in basso a due nodi chiamati 'Componente A' e 'Componente C'. Ognuna di queste frecce è etichettata con 'renderizza'. 'Componente A' ha una singola freccia 'renderizza' verso il nodo 'Componente B'. 'Componente C' ha una singola freccia 'renderizza' verso il nodo chiamato 'Componente D'.">
 
-An example React render tree.
+Un esempio di albero di rendering React.
 
 </Diagram>
 
-Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.
+I componenti vicino alla parte alta dell'albero, vicini al nodo radice, sono considerati componenti di alto livello. I componenti senza componenti figli sono componenti foglia. Questa categorizzazione dei componenti è utile per capire il flusso dati e le prestazioni di rendering.
 
-Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree. 
+Modellare le rezazioni tra moduli JavaScript è un altro modo utile per capire la tua app. Ci riferiamo ad essa come un albero di dipendenze tra moduli.
 
-<Diagram name="generic_dependency_tree" height={250} width={500} alt="A tree graph with five nodes. Each node represents a JavaScript module. The top-most node is labelled 'RootModule.js'. It has three arrows extending to the nodes: 'ModuleA.js', 'ModuleB.js', and 'ModuleC.js'. Each arrow is labelled as 'imports'. 'ModuleC.js' node has a single 'imports' arrow that points to a node labelled 'ModuleD.js'.">
+<Diagram name="generic_dependency_tree" height={250} width={500} alt="Un grafico albero con cinque nodi. Ogni nodo rappresenta un modulo JavaScript. Il nodo più in alto è chiamato 'RootModule.js'. Ha tre frecce che si estendono ai nodi: 'ModuleA.js', 'ModuleB.js', e 'ModuleC.js'. Ogni freccia è etichettata con 'importa'. Il nodo 'ModuleC.js' ha una singola freccia 'importa' che punta al nodo chiamato 'ModuleD.js'.">
 
-An example module dependency tree.
+Un esempio di albero di dipendenze tra moduli.
 
 </Diagram>
 
-A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues. 
+Un albero di dipendenze è spesso usato da tools di compilazione per raggruppare tutto il codice JavaScript necessario al client da scaricare e renderizzare sotto forma di 'bundle'. Un 'bundle' di dimensioni elevate peggiora l'esperienza utente delle apps React. Capire l'albero di dipensenze tra moduli è utile per diagnosticare queste problematiche.
 
 <LearnMore path="/learn/understanding-your-ui-as-a-tree">
 
-Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn how to create a render and module dependency trees for a React app and how they're useful mental models for improving user experience and performance.
+Leggi **[La tua UI è un albero](/learn/understanding-your-ui-as-a-tree)** per imparare a creare albero di renderizzazione e di dipendenza tra moduli nelle applicazioni React e come sono utili modelli mentali per migliorare l'esperienza utente e le prestazioni.
 
 </LearnMore>
 
 
-## What's next? {/*whats-next*/}
->>>>>>> 4bdb87b172a7723d56d03a5630c8a9870f6f03ec
+## Qual è il Prossimo Passo? {/*whats-next*/}
 
 Vai a [Il Tuo Primo Componente](/learn/your-first-component) per iniziare a leggere questa pagina del capitolo pagina per pagina!
 
