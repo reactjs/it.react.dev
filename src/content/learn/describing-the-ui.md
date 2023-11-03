@@ -18,6 +18,7 @@ React è una libreria JavaScript per il rendering delle interfacce utente(UI). L
 * [Come rappresentare condizionalmente i componenti](/learn/conditional-rendering)
 * [Come renderizzare più componenti contemporaneamente](/learn/rendering-lists)
 * [Come evitare bug confusionari mantenendo i componenti puri](/learn/keeping-components-pure)
+* [Perché è utile capire che la UI è un albero](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
@@ -361,7 +362,7 @@ Leggi **[Rendering Condizionale](/learn/conditional-rendering)** per imparare i 
 
 </LearnMore>
 
-## Rendering di Liste  {/*rendering-lists*/}
+## Rendering di Liste {/*rendering-lists*/}
 
 Spesso si desidera visualizzare più componenti simili da una raccolta di dati. È possibile utilizzare i metodi  `filter()` e `map()` di JavaScript con React per filtrare e trasformare l'array di dati in un array di componenti.
 
@@ -521,6 +522,37 @@ export default function TeaSet() {
 Leggi **[Mantenere i Componenti Puri](/learn/keeping-components-pure)** per imparare a scrivere componenti come funzioni pure e prevedibili.
 
 </LearnMore>
+
+## La tua UI é un albero {/*your-ui-as-a-tree*/}
+
+React usa gli alberi per modellare le relazioni tra componenti e moduli.
+
+Un albero di renderizzazione di React è una rappresentazione delle relazioni padre e figlio tra i componenti.
+
+<Diagram name="generic_render_tree" height={250} width={500} alt="Un grafico albero con cinque nodi, con ogni nodo rappresentante un componente. Il nodo radice è posizionato in alto ed è chiamato 'Componente Radice'. Ha due frecce che si estendono in basso a due nodi chiamati 'Componente A' e 'Componente C'. Ognuna di queste frecce è etichettata con 'renderizza'. 'Componente A' ha una singola freccia 'renderizza' verso il nodo 'Componente B'. 'Componente C' ha una singola freccia 'renderizza' verso il nodo chiamato 'Componente D'.">
+
+Un esempio di albero di rendering React.
+
+</Diagram>
+
+I componenti vicino alla parte alta dell'albero, vicini al nodo radice, sono considerati componenti di alto livello. I componenti senza componenti figli sono componenti foglia. Questa categorizzazione dei componenti è utile per capire il flusso dati e le prestazioni di rendering.
+
+Modellare le rezazioni tra moduli JavaScript è un altro modo utile per capire la tua app. Ci riferiamo ad essa come un albero di dipendenze tra moduli.
+
+<Diagram name="generic_dependency_tree" height={250} width={500} alt="Un grafico albero con cinque nodi. Ogni nodo rappresenta un modulo JavaScript. Il nodo più in alto è chiamato 'RootModule.js'. Ha tre frecce che si estendono ai nodi: 'ModuleA.js', 'ModuleB.js', e 'ModuleC.js'. Ogni freccia è etichettata con 'importa'. Il nodo 'ModuleC.js' ha una singola freccia 'importa' che punta al nodo chiamato 'ModuleD.js'.">
+
+Un esempio di albero di dipendenze tra moduli.
+
+</Diagram>
+
+Un albero di dipendenze è spesso usato da tools di compilazione per raggruppare tutto il codice JavaScript necessario al client da scaricare e renderizzare sotto forma di 'bundle'. Un 'bundle' di dimensioni elevate peggiora l'esperienza utente delle apps React. Capire l'albero di dipensenze tra moduli è utile per diagnosticare queste problematiche.
+
+<LearnMore path="/learn/understanding-your-ui-as-a-tree">
+
+Leggi **[La tua UI è un albero](/learn/understanding-your-ui-as-a-tree)** per imparare a creare albero di renderizzazione e di dipendenza tra moduli nelle applicazioni React e come sono utili modelli mentali per migliorare l'esperienza utente e le prestazioni.
+
+</LearnMore>
+
 
 ## Qual è il Prossimo Passo? {/*whats-next*/}
 
