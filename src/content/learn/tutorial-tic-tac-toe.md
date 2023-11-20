@@ -362,11 +362,15 @@ Otterrai questo errore:
 
 <ConsoleBlock level="error">
 
-/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment `<>...</>`?
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX Fragment `<>...</>`?
 
 </ConsoleBlock>
 
+<<<<<<< HEAD
 I componenti React devono restituire un singolo elemento JSX e non multipli elementi JSX adiacenti come due pulsanti. Per risolvere questo problema puoi usare i *fragments* (`<>` e `</>`) per avvolgere più elementi JSX adiacenti in questo modo:
+=======
+React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 ```js {3-6}
 export default function Square() {
