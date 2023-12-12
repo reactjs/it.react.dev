@@ -1146,7 +1146,7 @@ hr {
 
 <Hint>
 
-Dovrai convertire `map` in un loop manuale o utilizzare un frammento.
+Dovrai convertire `map` in un loop manuale o utilizzare un Fragment.
 
 </Hint>
 
@@ -1209,7 +1209,7 @@ hr {
 
 Se usi l'indice originale come `key` non funziona più perché ogni separatore e paragrafo sono ora nello stesso array. Tuttavia, puoi dare a ciascuno di essi una key distinta usando un suffisso, ad esempio `key={i + '-text'}`.
 
-In alternativa, potresti renderizzare una collezione di fragments che contengono `<hr />` e `<p>...</p>`. Tuttavia, la sintassi abbreviata `<>...</>` non supporta il passaggio di key, quindi dovresti scrivere `<Fragment>` esplicitamente:
+In alternativa, potresti renderizzare una collezione di Fragments che contengono `<hr />` e `<p>...</p>`. Tuttavia, la sintassi abbreviata `<>...</>` non supporta il passaggio di key, quindi dovresti scrivere `<Fragment>` esplicitamente:
 
 <Sandpack>
 
@@ -1255,7 +1255,7 @@ hr {
 
 </Sandpack>
 
-Ricorda, i fragment (spesso scritti come `<>...</>`) ti consentono di raggruppare i nodi JSX senza aggiungere extra `<div>`!
+Ricorda, i Fragments (spesso scritti come `<>...</>`) ti consentono di raggruppare i nodi JSX senza aggiungere extra `<div>`!
 
 </Solution>
 
