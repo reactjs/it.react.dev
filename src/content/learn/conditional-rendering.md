@@ -32,17 +32,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -80,17 +80,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -132,17 +132,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -236,17 +236,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -291,17 +291,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -371,17 +371,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -417,17 +417,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -474,17 +474,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -512,17 +512,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
+        <Item
+          isPacked={true}
+          name="Space suit"
         />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
+        <Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
+        <Item
+          isPacked={false}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -560,17 +560,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Space suit" 
+        <Item
+          importance={9}
+          name="Space suit"
         />
-        <Item 
-          importance={0} 
-          name="Helmet with a golden leaf" 
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          importance={6} 
-          name="Photo of Tam" 
+        <Item
+          importance={6}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -604,17 +604,17 @@ export default function PackingList() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Space suit" 
+        <Item
+          importance={9}
+          name="Space suit"
         />
-        <Item 
-          importance={0} 
-          name="Helmet with a golden leaf" 
+        <Item
+          importance={0}
+          name="Helmet with a golden leaf"
         />
-        <Item 
-          importance={6} 
-          name="Photo of Tam" 
+        <Item
+          importance={6}
+          name="Photo of Tam"
         />
       </ul>
     </section>
@@ -626,11 +626,7 @@ export default function PackingList() {
 
 Tieni presente che dovrai scrivere `importance > 0 && ...` invece di `importance && ...` in modo che se `importance` è `0`, `0` non venga renderizzato come risultato!
 
-<<<<<<< HEAD
-In questa soluzione, vengono utilizzate due condizioni separate per inserire uno spazio tra il nome e l'etichetta di importanza. In alternativa, potresti utilizzare un frammento con uno spazio iniziale: `importance > 0 && <> <i>...</i></>` oppure aggiungere uno spazio immediatamente all'interno del tag `<i>`: `importance > 0 && <i> ...</i>`.
-=======
-In this solution, two separate conditions are used to insert a space between the name and the importance label. Alternatively, you could use a Fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
->>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
+In questa soluzione, vengono utilizzate due condizioni separate per inserire uno spazio tra il nome e l'etichetta di importanza. In alternativa, potresti utilizzare un Fragment con uno spazio iniziale: `importance > 0 && <> <i>...</i></>` oppure aggiungere uno spazio immediatamente all'interno del tag `<i>`: `importance > 0 && <i> ...</i>`.
 
 </Solution>
 
