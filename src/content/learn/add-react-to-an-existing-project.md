@@ -67,7 +67,7 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 // Pulisci il contenuto HTML esistente
@@ -131,7 +131,7 @@ Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementB
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {
