@@ -81,7 +81,7 @@ Puoi costruirli "dall' alto verso il basso" iniziando a costruire i componenti p
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -299,7 +299,7 @@ Puoi iniziare a vedere come si comporterà la tua applicazione. Modifica il valo
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -495,7 +495,7 @@ Adesso l'applicazione funziona completamente!
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
