@@ -214,7 +214,7 @@ function Form() {
 
 The action type names are local to your component. [Each action describes a single interaction, even if that leads to multiple changes in data.](/learn/extracting-state-logic-into-a-reducer#writing-reducers-well) The shape of the state is arbitrary, but usually it'll be an object or an array.
 
-Read [extracting state logic into a reducer](/learn/extracting-state-logic-into-a-reducer) to learn more.
+Read [estrarre la logica dello state in un reducer](/learn/extracting-state-logic-into-a-reducer) to learn more.
 
 <Pitfall>
 
