@@ -270,7 +270,7 @@ function handleDeleteTask(taskId) {
 
 Un oggetto action può avere qualsiasi forma.
 
-Per convenzione, è comune dare un `type` stringa che descriva cosa è accaduto e per passare altre informazioni aggiuntive agli altri campi. Il `type` è specifico ad un componente, dunque in questo esempioi sia `'added'` o `'added_task'` vanno bene. Scegli un nome che descriva cosa è accaduto!
+Per convenzione, è comune dare un `type` stringa che descriva cosa è accaduto e per passare altre informazioni aggiuntive agli altri campi. Il `type` è specifico ad un componente, dunque in questo esempio sia `'added'` o `'added_task'` vanno bene. Scegli un nome che descriva cosa è accaduto!
 
 ```js
 dispatch({
