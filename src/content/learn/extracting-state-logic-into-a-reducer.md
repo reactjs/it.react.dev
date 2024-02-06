@@ -180,7 +180,7 @@ li {
 
 Ciascuno dei suoi event handler chiama `setTasks` in ordine di aggiornare lo state. Al crescere del componente, cresce anche la quantità di logica dello state cosparse da esso. Per ridurre la complessità e mantenere la logica in un posto easy-to-access, puoi spostare quella logica di state dentro ad una singola funzione al di fuori del componente, **chiamata "reducer".**
 
-Le funzioni reducers sono un modo differente di gestire lo state. Puoi migrare da `useState` a `useReducer` in tre passaggi:
+Le funzioni reducer sono un modo differente di gestire lo state. Puoi migrare da `useState` a `useReducer` in tre passaggi:
 
 1. **Sposta** dal setting state alle azioni di dispatching.
 2. **Scrivi** una funzione di reducer.
