@@ -224,7 +224,7 @@ Rimuovi tutta la logica del setting state. Cosa devi lasciare con i tre event ha
 - `handleChangeTask(task)` viene chiamato quando l'utente aziona un task o preme "Save".
 - `handleDeleteTask(taskId)` viene chiamato quando l'utente preme "Delete".
 
-Gestire lo state con i reducers è leggermente diverso dall'utilizzare direttamente un setting state. Invece di dire a React "cosa fare" utilizzando setting state, specifichi "cosa lo user ha appena fatto" utilizzando delle azioni di dispatching che provengono dai tuoi event handler. ( Lo state che aggiorna la logica vive da un altra parte!) Quindi invece di "setting `tasks`" tramite un event handler, stai utiilizzando un'azione di dispatching come "aggiungere/modificare/cancellare un task". Questo descrive molto di più l'intenzione dell'utente.
+Gestire lo state con i reducer è leggermente diverso dall'utilizzare direttamente un setting state. Invece di dire a React "cosa fare" utilizzando setting state, specifichi "cosa lo user ha appena fatto" utilizzando delle azioni di dispatching che provengono dai tuoi event handler. (Lo state che aggiorna la logica vive da un altra parte!) Quindi invece di "setting `tasks`" tramite un event handler, stai utiilizzando un'azione di dispatching come "aggiungere/modificare/cancellare un task". Questo descrive molto di più l'intenzione dell'utente.
 
 ```js
 function handleAddTask(text) {
