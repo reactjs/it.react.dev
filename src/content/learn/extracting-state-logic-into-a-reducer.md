@@ -11,7 +11,7 @@ I componenti con molti aggiornamenti di state distruibiti su molti event handler
 
 - Cos'è una funzione di reducer
 - Come rifattorizzare `useState` in `useReducer`
-- Quando utilizzare una reducer
+- Quando utilizzare un reducer
 - Come scriverne una bene
 
 </YouWillLearn>
