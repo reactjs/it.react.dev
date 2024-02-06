@@ -328,7 +328,7 @@ function tasksReducer(tasks, action) {
 }
 ```
 
-Poiché la funzione reducer prende lo stato (`tasks`) come argomento, **puoi dichiararla all'esterno del tuo componente.** Ciò riduce il livello di indentazione e può rendere il tuo codice più leggibile.
+Poiché la funzione reducer prende lo state (`tasks`) come argomento, **puoi dichiararla all'esterno del tuo componente.** Ciò riduce il livello di indentazione e può rendere il tuo codice più leggibile.
 
 <Note>
 
