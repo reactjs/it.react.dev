@@ -337,11 +337,7 @@ import './styles.css';
 import App from './App';
 ```
 
-<<<<<<< HEAD
 Le righe 1-5 mettono insieme tutti i pezzi necessari:
-=======
-Lines 1-5 bring all the necessary pieces together: 
->>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 * React
 * La libreria di React per parlare con il browser web (React DOM)
