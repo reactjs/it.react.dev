@@ -332,7 +332,7 @@ Poiché la funzione reducer prende lo stato (`tasks`) come argomento, **puoi dic
 
 <Note>
 
-Il codice sopra utilizza le istruzioni if/else, ma è una convenzione utilizzare le istruzioni [switch](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) all'interno dei reducers. Il risultato è lo stesso, ma le istruzioni switch possono essere più facili da leggere a colpo d'occhio.
+Il codice sopra utilizza le istruzioni if/else, ma è una convenzione utilizzare le [istruzioni switch](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) all'interno dei reducers. Il risultato è lo stesso, ma le istruzioni switch possono essere più facili da leggere a colpo d'occhio.
 
 Le useremo in tutto il resto di questa documentazione così:
 
