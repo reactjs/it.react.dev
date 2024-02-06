@@ -264,7 +264,7 @@ function handleDeleteTask(taskId) {
 }
 ```
 
-È un normale oggetto Javascript. Decidi tu cosa metterci dentro, ma generalmente dovrebbe contenere la minima informazione riguardo _cosa è successo_.(Aggiungerai la funzione di `dispatch` in un altro passaggio.)
+È un normale oggetto JavaScript. Decidi tu cosa metterci dentro, ma generalmente dovrebbe contenere la minima informazione riguardo _cosa è successo_. (Aggiungerai la funzione di `dispatch` in un altro passaggio.)
 
 <Note>
 
