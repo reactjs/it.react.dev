@@ -8,7 +8,11 @@ Questa sezione fornisce una documentazione di riferimento dettagliata per lavora
 
 </Intro>
 
+<<<<<<< HEAD
 La nostra documentazione di riferimento su React è suddivisa in sottosezioni funzionali:
+=======
+The React reference documentation is broken down into functional subsections:
+>>>>>>> bb3a0f5c10aaeba6e6fb35f31f36b47812ece158
 
 ## React {/*react*/}
 
