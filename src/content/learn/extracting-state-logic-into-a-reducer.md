@@ -2354,7 +2354,7 @@ export function useReducer(reducer, initialState) {
 }
 ```
 
-```js ContactList.js hidden
+```js src/ContactList.js hidden
 export default function ContactList({contacts, selectedId, dispatch}) {
   return (
     <section className="contact-list">
