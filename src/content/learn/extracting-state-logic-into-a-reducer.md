@@ -2515,7 +2515,7 @@ export function messengerReducer(state, action) {
 }
 ```
 
-```js MyReact.js active
+```js src/MyReact.js active
 import { useState } from 'react';
 
 export function useReducer(reducer, initialState) {
