@@ -4,7 +4,7 @@ title: Estrarre la Logica dello State in un Reducer
 
 <Intro>
 
-I componenti con molti aggiornamenti di state distruibiti su molti event handler può diventare eccessivo. In questi casi, è possibile consolidare tutti gli aggiornamenti della logica dello state fuori dal componente in una singola funzione, chiamata _reducer._
+I componenti con molti aggiornamenti di state distribuiti su molti event handler può diventare eccessivo. In questi casi, è possibile consolidare tutti gli aggiornamenti della logica dello state fuori dal componente in una singola funzione, chiamata _reducer._
 
 </Intro>
 
@@ -188,6 +188,7 @@ Le funzioni reducer sono un modo differente di gestire lo state. Puoi migrare da
 3. **Usa** la reducer dal tuo componente.
 
 ### Passaggio 1: Sposta dal setting state alle azioni di dispatching {/*step-1-move-from-setting-state-to-dispatching-actions*/}
+
 I tuoi event handler attualmente specificano _cosa fare_ dal setting state:
 
 ```js
@@ -296,7 +297,7 @@ function yourReducer(state, action) {
 React metterà quello che viene ritornato dalla funzione reducer nello state.
 Per spostare la logica set dello state dai tuoi event handler in una funzione reducer in questo esempio, dovrai:
 
-1. Dichiarare il state corrente (`tasks`) come primo argomento.
+1. Dichiarare lo state corrente (`tasks`) come primo argomento.
 2. Dichiarare l'oggetto `action` come secondo argomento.
 3. Ritornare il _next_ state dal reducer (il quale verrà collocato nello state da React).
 
@@ -475,7 +476,7 @@ Con `useReducer` così:
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 ```
 
-Lo `useReducer` Hook è simile allo `useState`-devi passargli uno stato iniziale e lui ti restituisce un valore dello stato e un modo per impostare lo stato (in questo caso, la funzione dispatch). Ma è un po' diverso.
+L'Hook `useReducer` è simile allo `useState`-devi passargli uno stato iniziale e lui ti restituisce un valore dello stato e un modo per impostare lo stato (in questo caso, la funzione dispatch). Ma è un po' diverso.
 
 L'Hook `useReducer` prende due argomenti:
 
