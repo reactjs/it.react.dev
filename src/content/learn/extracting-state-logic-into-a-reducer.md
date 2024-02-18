@@ -3,6 +3,7 @@ title: Estrarre la logica dello State in un Reducer
 ---
 
 <Intro>
+
 I componenti con molti aggiornamenti di state distruibiti su molti event handler può diventare eccessivo. In questi casi, è possibile consolidare tutti gli aggiornamenti della logica dello state fuori dal componente in una singola funzione, chiamata _reducer._
 
 </Intro>
