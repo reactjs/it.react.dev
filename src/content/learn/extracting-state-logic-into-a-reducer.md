@@ -2438,7 +2438,7 @@ L'esecuzione di un dispatch di una action chiama un reducer con lo state attuale
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useReducer } from './MyReact.js';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
