@@ -295,6 +295,7 @@ function yourReducer(state, action) {
 ```
 
 React metterà quello che viene ritornato dalla funzione reducer nello state.
+
 Per spostare la logica set dello state dai tuoi event handler in una funzione reducer in questo esempio, dovrai:
 
 1. Dichiarare lo state corrente (`tasks`) come primo argomento.
@@ -482,10 +483,12 @@ L'Hook `useReducer` prende due argomenti:
 
 1. Una funzione reducer
 2. Uno state iniziale
+
 E restituisce:
 
 1. Un valore dello state
 2. Una funzione dispatch (per "inviare" azioni dell'utente al reducer)
+
 Ora è completamente collegato! Qui, il reducer è dichiarato nella parte in basso del file del componente:
 
 <Sandpack>
