@@ -8,7 +8,7 @@ Questa sezione fornisce una documentazione di riferimento dettagliata per lavora
 
 </Intro>
 
-La nostra documentazione di riferimento su React è suddivisa in sottosezioni funzionali:
+La documentazione di riferimento su React è suddivisa in sottosezioni funzionali:
 
 ## React {/*react*/}
 

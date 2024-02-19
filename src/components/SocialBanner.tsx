@@ -7,9 +7,9 @@ import {useRef, useEffect} from 'react';
 import cn from 'classnames';
 import {ExternalLink} from './ExternalLink';
 
-const bannerText = "Supporta l'Ucraina 🇺🇦";
-const bannerLink = 'https://opensource.fb.com/support-ukraine';
-const bannerLinkText = "Aiuta a fornire aiuto umanitario all'Ucraina";
+const bannerText = 'Unisciti a noi per il React Conf il 15-16 Maggio.';
+const bannerLink = 'https://conf.react.dev/';
+const bannerLinkText = 'Maggiori informazioni.';
 
 export default function SocialBanner() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -39,9 +39,7 @@ export default function SocialBanner() {
       <ExternalLink
         className="ms-0 sm:ms-1 text-link dark:text-link-dark hover:underline"
         href={bannerLink}>
-        <div className="inline sm:hidden">🇺🇦 </div>
         {bannerLinkText}
-        <span className="hidden sm:inline">.</span>
       </ExternalLink>
     </div>
   );
