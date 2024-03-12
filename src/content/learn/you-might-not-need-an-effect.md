@@ -302,19 +302,19 @@ Questo rimuove l'Effetto inutile e contemporaneamente risolve il bug.
 
 ### Inviare una richiesta POST {/*sending-a-post-request*/}
 
-Questo componente `Form` invia due tipi di richieste POST. It sends an analytics event when it mounts. When you fill in the form and click the Submit button, it will send a POST request to the `/api/register` endpoint:
+Questo componente `Form` invia due tipi di richieste POST. Invia un evento di analytics dopo il mounting. Quando riempi il form e clicchi sul pulsante di Submit, invia una richiesta POST sull'endpoint `/api/register`:
 
 ```js {5-8,10-16}
 function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Good: This logic should run because the component was displayed
+  // ✅ Buono: Questa logica funzionerà perché il componente è stato già mostrato  
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
 
-  // 🔴 Avoid: Event-specific logic inside an Effect
+  // 🔴 Evita: logica specifica di un evento in un Effetto.
   const [jsonToSubmit, setJsonToSubmit] = useState(null);
   useEffect(() => {
     if (jsonToSubmit !== null) {
@@ -330,36 +330,36 @@ function Form() {
 }
 ```
 
-Let's apply the same criteria as in the example before.
+Applichiamo lo stesso criterio dell'esempio precedente.
 
-The analytics POST request should remain in an Effect. This is because the _reason_ to send the analytics event is that the form was displayed. (It would fire twice in development, but [see here](/learn/synchronizing-with-effects#sending-analytics) for how to deal with that.)
+la richiesta POST di analytics dovrebbe rimanere in un Effetto. Questo perché il _motivo_ per inviare un evento di analytics è che il form viene mostrato. (Dovrebbe eseguire due volte in modalità di sviluppo, [leggi qui](/learn/synchronizing-with-effects#sending-analytics) per capire come gestirlo.)
 
-However, the `/api/register` POST request is not caused by the form being _displayed_. You only want to send the request at one specific moment in time: when the user presses the button. It should only ever happen _on that particular interaction_. Delete the second Effect and move that POST request into the event handler:
+Comunque, la richiesta POST `/api/register` non è causata dal fatto che il Form viene _mostrato_. Vuoi soltanto inviare la richiesta in un momento specifico nel tempo: quando l'utente preme il pulsante. Dovrebbe succedere _solo in quella interazione specifica_. Elimina il secondo Effetto e sposta la richiesta POST nell'event handler:
 
 ```js {12-13}
 function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Good: This logic runs because the component was displayed
+  // ✅ Buono: Questa logica funziona perché l'evento è stato mostrato
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    // ✅ Good: Event-specific logic is in the event handler
+    // ✅ Buona: La logica specifica dell'evento è nel suo event handler
     post('/api/register', { firstName, lastName });
   }
   // ...
 }
 ```
 
-When you choose whether to put some logic into an event handler or an Effect, the main question you need to answer is _what kind of logic_ it is from the user's perspective. If this logic is caused by a particular interaction, keep it in the event handler. If it's caused by the user _seeing_ the component on the screen, keep it in the Effect.
+Quando devi scegliere se inserire della logica in un event handler o in un Effetto, la domanda principale a cui devi rispondere è _che tipo di logica_ è dal punto di vista dell'utente. Se è logica causata da una interazione particolare, mantienila nel suo event handler. Se è causata dal fatto che l'utente sta _vedendo_ il componente sullo schermo, mantienila nell'Effetto.
 
-### Chains of computations {/*chains-of-computations*/}
+### Catena di computazione {/*chains-of-computations*/}
 
-Sometimes you might feel tempted to chain Effects that each adjust a piece of state based on other state:
+A volte puoi essere tentato di concatenare Effetti che modificano un pezzo di state basandosi su altro state:
 
 ```js {7-29}
 function Game() {
@@ -368,7 +368,7 @@ function Game() {
   const [round, setRound] = useState(1);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  // 🔴 Avoid: Chains of Effects that adjust the state solely to trigger each other
+  // 🔴 Evita: Catene di Effetti che modificano lo stato soltanto per scatenare altri Effetti  
   useEffect(() => {
     if (card !== null && card.gold) {
       setGoldCardCount(c => c + 1);
@@ -403,13 +403,13 @@ function Game() {
   // ...
 ```
 
-There are two problems with this code.
+Ci sono due problemi con questo codice:
 
-One problem is that it is very inefficient: the component (and its children) have to re-render between each `set` call in the chain. In the example above, in the worst case (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render) there are three unnecessary re-renders of the tree below.
+Un problema è che è molto inefficiente: il componente (e i suoi figli) devono re-renderizzare tra ogni chiamata `set` nella catena. Nell'esempio su, nel caso peggiore (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render) ci sono tre re-renders non necessari dell'albero sottostante.
 
-Even if it weren't slow, as your code evolves, you will run into cases where the "chain" you wrote doesn't fit the new requirements. Imagine you are adding a way to step through the history of the game moves. You'd do it by updating each state variable to a value from the past. However, setting the `card` state to a value from the past would trigger the Effect chain again and change the data you're showing. Such code is often rigid and fragile.
+Anche se non è lento, con l'evolversi del codice, andrai incontro a casi in cui la "catena" che hai scritto non soddisfa i requisiti. Immagina che stai aggiungendo un modo per muoverti attraverso lo storico dei movimenti di un gioco. Lo faresti aggiornando ogni variabile di state dal passato. Tuttavia, impostare lo state `card` da un valore passato azionerebbe la catena dell'Effetto nuovamente e cambierebbe i dati che stai mostrando. Il codice così è rigido e fragile.
 
-In this case, it's better to calculate what you can during rendering, and adjust the state in the event handler:
+In questo caso, è meglio calcolare ciò che puoi durante il rendering, e regolare lo state nell'event handler:
 
 ```js {6-7,14-26}
 function Game() {
@@ -417,7 +417,7 @@ function Game() {
   const [goldCardCount, setGoldCardCount] = useState(0);
   const [round, setRound] = useState(1);
 
-  // ✅ Calculate what you can during rendering
+  // ✅ Calcola ciò che puoi durante il rendering
   const isGameOver = round > 5;
 
   function handlePlaceCard(nextCard) {
@@ -425,7 +425,7 @@ function Game() {
       throw Error('Game already ended.');
     }
 
-    // ✅ Calculate all the next state in the event handler
+    // ✅ Calcola il prossimo state nell'event handler
     setCard(nextCard);
     if (nextCard.gold) {
       if (goldCardCount <= 3) {
@@ -443,21 +443,21 @@ function Game() {
   // ...
 ```
 
-This is a lot more efficient. Also, if you implement a way to view game history, now you will be able to set each state variable to a move from the past without triggering the Effect chain that adjusts every other value. If you need to reuse logic between several event handlers, you can [extract a function](#sharing-logic-between-event-handlers) and call it from those handlers.
+Questo è molto più efficiente. Inoltre, se implementi un modo per vedere lo storico della partita, ora sei capace di muovere ogni variabile di state nel passato senza azionare la catena dovuta all'Effetto che regola ogni altro valore. Se necessiti di riutilizzare logica tra diversi event handlers, puoi [estrarre una funzione](#sharing-logic-between-event-handlers) e chiamarla al loro interno.
 
-Remember that inside event handlers, [state behaves like a snapshot.](/learn/state-as-a-snapshot) For example, even after you call `setRound(round + 1)`, the `round` variable will reflect the value at the time the user clicked the button. If you need to use the next value for calculations, define it manually like `const nextRound = round + 1`.
+Ricorda che negli event handlers, [lo state si comporta come un'istantanea.](/learn/state-as-a-snapshot) Per esempio, anche dopo aver chiamato `setRound(round + 1)`, la variabile di state `round` corrisponderà al valore che aveva quando l' utente ha cliccato sul pulsante. Se hai bisogno del prossimo valore per effettuare calcoli, definiscilo manualmente in modo simile a questo: `const nextRound = round + 1`.
 
-In some cases, you *can't* calculate the next state directly in the event handler. For example, imagine a form with multiple dropdowns where the options of the next dropdown depend on the selected value of the previous dropdown. Then, a chain of Effects is appropriate because you are synchronizing with network.
+In alcuni casi, *non puoi* calcolare il prossimo stato direttamente nell'event handler. Per esempio, immagina un form con dropdowns multiple in cui la option della prossima dropdown dipende dal valore selezionato in quella precedente. In questo caso, una catena di Effetti è appropriata perché stai sincronizzando lo state con la rete.
 
-### Initializing the application {/*initializing-the-application*/}
+### Inizializzando l'applicazione {/*initializing-the-application*/}
 
-Some logic should only run once when the app loads.
+Alcune logiche dovrebbero partire solo una volta dopo che l'app viene caricata.
 
-You might be tempted to place it in an Effect in the top-level component:
+Potresti essere tentato di inserirla in un Effetto al componente di primo livello:
 
 ```js {2-6}
 function App() {
-  // 🔴 Avoid: Effects with logic that should only ever run once
+  // 🔴 Evita: Effetti con logica che dovrebbe eseguire una volta sola
   useEffect(() => {
     loadDataFromLocalStorage();
     checkAuthToken();
@@ -466,9 +466,9 @@ function App() {
 }
 ```
 
-However, you'll quickly discover that it [runs twice in development.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) This can cause issues--for example, maybe it invalidates the authentication token because the function wasn't designed to be called twice. In general, your components should be resilient to being remounted. This includes your top-level `App` component.
+Tuttavia, scoprirai presto che [gira due volte in modalità di sviluppo.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) Questo può causare problemi--per esempio, potrebbe invalidare il token di autenticazione perché la funzione non era stata progettata per essere chiamata due volte. In generale, i tuoi componenti dovrebbero essere resilienti quando vengono rimontati. Includendo il componente di primo livello `App`.
 
-Although it may not ever get remounted in practice in production, following the same constraints in all components makes it easier to move and reuse code. If some logic must run *once per app load* rather than *once per component mount*, add a top-level variable to track whether it has already executed:
+Anche se in produzione potrebbe non essere smontato mai, seguire gli stessi vincoli in tutti i componenti rende più facile muovere e riutilizzare codice. Se della logica deve eseguire *una volta per caricamento dell'app* invece che *una volta ogni volta che il componente viene montato*, aggiungi una variabile al primo livello per tracciarne l'esecuzione:
 
 ```js {1,5-6,10}
 let didInit = false;
@@ -477,7 +477,7 @@ function App() {
   useEffect(() => {
     if (!didInit) {
       didInit = true;
-      // ✅ Only runs once per app load
+      // ✅ Esegue una volta quando l'app carica 
       loadDataFromLocalStorage();
       checkAuthToken();
     }
@@ -486,11 +486,11 @@ function App() {
 }
 ```
 
-You can also run it during module initialization and before the app renders:
+Puoi anche eseguirlo durante l'inizializzazione del modulo e prima della renderizzazione dell'app:
 
 ```js {1,5}
 if (typeof window !== 'undefined') { // Check if we're running in the browser.
-   // ✅ Only runs once per app load
+   // ✅ Esegue una volta quando l'app carica
   checkAuthToken();
   loadDataFromLocalStorage();
 }
