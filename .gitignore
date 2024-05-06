@@ -37,5 +37,10 @@ yarn-error.log*
 # external fonts
 public/fonts/**/Optimistic_*.woff2
 
+<<<<<<< HEAD
 # typegen files
 *.typegen.ts
+=======
+# rss
+public/rss.xml
+>>>>>>> 556063bdce0ed00f29824bc628f79dac0a4be9f4
