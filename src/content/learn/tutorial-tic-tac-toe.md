@@ -2915,4 +2915,8 @@ Se hai tempo extra o vuoi mettere in pratica le tue nuove abilità di React, ecc
 1. Quando qualcuno vince, evidenzia i tre quadrati che hanno causato la vittoria (e quando nessuno vince, mostra un messaggio che indica che il risultato è un pareggio).
 1. Visualizza la posizione di ciascuna mossa nel formato (riga, colonna) nell'elenco della cronologia delle mosse.
 
+<<<<<<< HEAD
 Durante questo tutorial, hai toccato i concetti di React inclusi elementi, componenti, props e state. Ora che hai visto come funzionano questi concetti durante la creazione di un gioco, dai un'occhiata a [Pensare in React](/learn/thinking-in-react) per vedere come funzionano gli stessi concetti di React durante la creazione della UI di un'app.
+=======
+Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](/learn/thinking-in-react) to see how the same React concepts work when building an app's UI.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
