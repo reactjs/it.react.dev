@@ -17,7 +17,7 @@ Funzionalità React programmatiche:
 * [Hooks](/reference/react/hooks) - Utilizza diverse funzionalità di React dai tuoi componenti.
 * [Componenti](/reference/react/components) - Documenta i componenti integrati che puoi utilizzare nel tuo JSX.
 * [API](/reference/react/apis) - API utili per la definizione dei componenti.
-* [Direttive](/reference/react/directives) - Fornisce istruzioni ai bundler compatibili con React Server Components.
+* [Direttive](/reference/rsc/directives) - Fornisce istruzioni ai bundler compatibili con React Server Components.
 
 ## React DOM {/*react-dom*/}
 
