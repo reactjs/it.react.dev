@@ -1176,7 +1176,7 @@ input { margin-top: 10px; }
 
 Con questo cambiamento, `getVisibleTodos()` verrà chiamata solo se `todos` o `showActive` cambiano. Scrivere all'interno dell'input cambia solo la variabile di state `text`, quindi non scatena una chiamata a `getVisibleTodos()`.
 
-There is also another solution which does not need `useMemo`. Since the `text` state variable can't possibly affect the list of todos, you can extract the `NewTodo` form into a separate component, and move the `text` state variable inside of it:
+C'è anche un'altra soluzione che non necessita l'uso di `useMemo`. Siccome la variabile di stato `text` non può influenzare la lista di cose da fare, puoi estrarre il form `NewTodo` in un componente separato, e muovere la variabile di state `text` al suo interno:
 
 <Sandpack>
 
@@ -1263,15 +1263,15 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-This approach satisfies the requirements too. When you type into the input, only the `text` state variable updates. Since the `text` state variable is in the child `NewTodo` component, the parent `TodoList` component won't get re-rendered. This is why `getVisibleTodos()` doesn't get called when you type. (It would still be called if the `TodoList` re-renders for another reason.)
+Anche questo approccio soddsfa i requisiti. Quando scrivi all'interno dell'input, solo la variabile di state `text` si aggiorna. Siccome la variabile di state `text` è nel compoente figlio `NewTodo`, il componente padre `TodoList` non viene re-renderizzato. Ecco perché `getVisibleTodos()` non viene chiamata quando scrivi. (Viene chiamata di nuova se `TodoList` re-renderizza per un'altra ragione.)
 
 </Solution>
 
-#### Reset state without Effects {/*reset-state-without-effects*/}
+#### Reset dello state senza Effetti {/*reset-state-without-effects*/}
 
-This `EditContact` component receives a contact object shaped like `{ id, name, email }` as the `savedContact` prop. Try editing the name and email input fields. When you press Save, the contact's button above the form updates to the edited name. When you press Reset, any pending changes in the form are discarded. Play around with this UI to get a feel for it.
+Il componente `EditContact` riceve un oggetto di contatti di questo tipo `{ id, name, email }` e una prop `savedContact`. Prova a modificare il nome e la email. quando premi Save, il pulsante di contatto sul form si aggiorna con il nome modificato. quando premi Reset, ogni cambiamento pendente viene annullato.  Gioca con questa UI per comprenderla meglio.
 
-When you select a contact with the buttons at the top, the form resets to reflect that contact's details. This is done with an Effect inside `EditContact.js`. Remove this Effect. Find another way to reset the form when `savedContact.id` changes.
+Quando selezioni un contatto con i pulsanti in alto, il form si resetta per riflettere i dettagli del contatto. Questo viene fatto con un Effetto dentro `EditContact.js`. Rimuovi questo Effetto. Trova un altro modo per resettare il form quando `savedContact.id` cambia.
 
 <Sandpack>
 
@@ -1429,13 +1429,13 @@ button {
 
 <Hint>
 
-It would be nice if there was a way to tell React that when `savedContact.id` is different, the `EditContact` form is conceptually a _different contact's form_ and should not preserve state. Do you recall any such way?
+Sarebbe bello se ci fosse un modo per dire a React che quando `savedContact.id` cambia, il form  `EditContact` è concettualmente un _form di contatto diverso_ e non dovrebbe conservare lo state. Ricordi un modo per farlo?
 
 </Hint>
 
 <Solution>
 
-Split the `EditContact` component in two. Move all the form state into the inner `EditForm` component. Export the outer `EditContact` component, and make it pass `savedContact.id` as the `key` to the inner `EditForm` component. As a result, the inner `EditForm` component resets all of the form state and recreates the DOM whenever you select a different contact.
+Dividi il componente `EditContact` in due. Muovi tutto lo stato del form all'interno del componente `EditForm`. Esporta il componente `EditContact`, e fai in modo che passi `savedContact.id` come `key` per il componente `EditForm` interno. Come risultato, il componente `EditForm` interno resetta tutto lo stato del suo form e ricrea il DOM ogni volta che selezioni un contatto diverso.
 
 <Sandpack>
 
@@ -1597,17 +1597,17 @@ button {
 
 </Solution>
 
-#### Submit a form without Effects {/*submit-a-form-without-effects*/}
+#### Fai un Submit del From senza usare Effetti {/*submit-a-form-without-effects*/}
 
-This `Form` component lets you send a message to a friend. When you submit the form, the `showForm` state variable is set to `false`. This triggers an Effect calling `sendMessage(message)`, which sends the message (you can see it in the console). After the message is sent, you see a "Thank you" dialog with an "Open chat" button that lets you get back to the form.
+Questo componente `Form` ti permette di mandare un messaggio ad un amico. Quando esegui la submit del form, la variabile di stato `showForm` viene settata a `false`. Questo fa partire l'Effetto che chiama `sendMessage(message)`, che manda il messaggio (lo puoi vedere in console). Dopo che il messaggio viene inviato, vedi un dialog "Thank you" con un pulsante "Open chat" che ti permette di ritornare al form.
 
-Your app's users are sending way too many messages. To make chatting a little bit more difficult, you've decided to show the "Thank you" dialog *first* rather than the form. Change the `showForm` state variable to initialize to `false` instead of `true`. As soon as you make that change, the console will show that an empty message was sent. Something in this logic is wrong!
+Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del Form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato! 
 
-What's the root cause of this problem? And how can you fix it?
+Qual è la causa di questo problema? E come puoi risolverlo?
 
 <Hint>
 
-Should the message be sent _because_ the user saw the "Thank you" dialog? Or is it the other way around?
+Il messaggio dovrebbe essere inviato _perché_ l'utente ha visto il dialog "Thank you"? O è il contrario?
 
 </Hint>
 
@@ -1672,7 +1672,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <Solution>
 
-The `showForm` state variable determines whether to show the form or the "Thank you" dialog. However, you aren't sending the message because the "Thank you" dialog was _displayed_. You want to send the message because the user has _submitted the form._ Delete the misleading Effect and move the `sendMessage` call inside the `handleSubmit` event handler:
+La variabile di state `showForm` determina quando mostrare il form o il dialog "Thank you". Però, non stai inviando il messaggio perché la dialog "Thank you" è stata _mostrata_. Vuoi inviare il messaggio perché l'utente ha _eseguito la submit del form_. Elimina l'Effetto e muovi la chiamata `sendMessage` all'interno dell'event handler `handleSubmit`:
 
 <Sandpack>
 
@@ -1728,7 +1728,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Notice how in this version, only _submitting the form_ (which is an event) causes the message to be sent. It works equally well regardless of whether `showForm` is initially set to `true` or `false`. (Set it to `false` and notice no extra console messages.)
+Nota come in questa versione, solo _la submit del form_ (che è un evento) causa l'invio del messaggio. Funziona ugualmente bene a prescindere se `showForm` è settato a `true` o `false`. (Impostala a `false` e nota che non ci sono messaggi extra sulla console.)
 
 </Solution>
 
