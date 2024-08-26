@@ -326,7 +326,7 @@ In questo esempio, l'operatore `&&` di JavaScript viene utilizzato per renderizz
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
