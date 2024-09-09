@@ -265,7 +265,11 @@ setCount(count + 1); // Richiedi un re-render con 1
 console.log(count);  // Ancora 0!
 ```
 
+<<<<<<< HEAD
 Questo comportamento aiuta a evitare bug difficili da individuare. Ecco una piccola app di messaggistica. Prova a indovinare cosa succede se premi "Send" e *poi* selezioni il destinatario Bob. Quale nome apparirà nell'`alert` cinque secondi dopo?
+=======
+This behavior helps you avoid subtle bugs. Here is a little chat app. Try to guess what happens if you press "Send" first and *then* change the recipient to Bob. Whose name will appear in the `alert` five seconds later?
+>>>>>>> 9aa2e3668da290f92f8997a25f28bd3f58b2a26d
 
 <Sandpack>
 
