@@ -52,13 +52,13 @@ export default function PackingList() {
 
 </Sandpack>
 
-Nota che alcuni componenti `Item` hanno la loro prop `isPacked` settata a `true` invece che `false`. Vuoi aggiungere un segno di spunta (✔) agli elementi imballati se `isPacked={true}`.
+Nota che alcuni componenti `Item` hanno la loro prop `isPacked` settata a `true` invece che `false`. Vuoi aggiungere un segno di spunta (✅) agli elementi imballati se `isPacked={true}`.
 
 Puoi scrivere questo come un'[istruzione `if`/`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) in questo modo:
 
 ```js
 if (isPacked) {
-  return <li className="item">{name} ✔</li>;
+  return <li className="item">{name} ✅</li>;
 }
 return <li className="item">{name}</li>;
 ```
@@ -70,7 +70,7 @@ Se la prop `isPacked` è `true`, questo codice **ritorna un albero JSX different
 ```js
 function Item({ name, isPacked }) {
   if (isPacked) {
-    return <li className="item">{name} ✔</li>;
+    return <li className="item">{name} ✅</li>;
   }
   return <li className="item">{name}</li>;
 }
@@ -159,7 +159,7 @@ Nella pratica, ritornare `null` da un componente non è comune perché potrebbe 
 Nell'esempio precedente, hai controllato quale albero JSX sarebbe stato ritornato dal componente (se presente!). Potresti aver già notato qualche duplicazione nell'output renderizzato:
 
 ```js
-<li className="item">{name} ✔</li>
+<li className="item">{name} ✅</li>
 ```
 
 è molto simile a
@@ -172,7 +172,7 @@ Entrambi i rami condizionali ritornano `<li className="item">...</li>`:
 
 ```js
 if (isPacked) {
-  return <li className="item">{name} ✔</li>;
+  return <li className="item">{name} ✅</li>;
 }
 return <li className="item">{name}</li>;
 ```
@@ -187,7 +187,7 @@ Invece di questo:
 
 ```js
 if (isPacked) {
-  return <li className="item">{name} ✔</li>;
+  return <li className="item">{name} ✅</li>;
 }
 return <li className="item">{name}</li>;
 ```
@@ -197,12 +197,12 @@ Puoi scrivere questo:
 ```js
 return (
   <li className="item">
-    {isPacked ? name + ' ✔' : name}
+    {isPacked ? name + ' ✅' : name}
   </li>
 );
 ```
 
-Puoi leggerlo come *"se `isPacked` è true, allora (`?`) renderizza `name + ' ✔'`, altrimenti (`:`) renderizza `name`"*.
+Puoi leggerlo come *"se `isPacked` è true, allora (`?`) renderizza `name + ' ✅'`, altrimenti (`:`) renderizza `name`"*.
 
 <DeepDive>
 
@@ -222,7 +222,7 @@ function Item({ name, isPacked }) {
     <li className="item">
       {isPacked ? (
         <del>
-          {name + ' ✔'}
+          {name + ' ✅'}
         </del>
       ) : (
         name
@@ -266,7 +266,7 @@ Un'altra scorciatoia comune che incontrerai è l'[operatore logico AND (`&&`).](
 ```js
 return (
   <li className="item">
-    {name} {isPacked && '✔'}
+    {name} {isPacked && '✅'}
   </li>
 );
 ```
@@ -281,7 +281,7 @@ Eccolo in azione:
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
@@ -337,7 +337,7 @@ Utilizza un'istruzione `if` per riassegnare un'espressione JSX ad `itemContent` 
 
 ```js
 if (isPacked) {
-  itemContent = name + " ✔";
+  itemContent = name + " ✅";
 }
 ```
 
@@ -357,7 +357,7 @@ Questo stile è più verboso, ma è anche più flessibile. Ecco come funziona:
 function Item({ name, isPacked }) {
   let itemContent = name;
   if (isPacked) {
-    itemContent = name + " ✔";
+    itemContent = name + " ✅";
   }
   return (
     <li className="item">
@@ -401,7 +401,7 @@ function Item({ name, isPacked }) {
   if (isPacked) {
     itemContent = (
       <del>
-        {name + " ✔"}
+        {name + " ✅"}
       </del>
     );
   }
@@ -464,7 +464,7 @@ Usa l'operatore condizionale (`cond ? a : b`) per renderizzare una ❌ se `isPac
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
@@ -502,7 +502,7 @@ export default function PackingList() {
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked ? '✔' : '❌'}
+      {name} {isPacked ? '✅' : '❌'}
     </li>
   );
 }
