@@ -199,7 +199,7 @@ setPosition({
 
 Mutare è un problema solo quando modifichi oggetti *esistenti* che sono già nello state. Mutare un oggetto che hai appena creato va bene perché *nessun altro codice lo utilizza ancora.* Modificarlo non impatterà accidentalmente qualcosa che dipende da esso. Questa si definisce come "mutazione locale". Puoi persino mutare localmente [durante la renderizzazione.](/learn/keeping-components-pure#local-mutation-your-components-little-secret) Molto comodo e perfettamente valido!
 
-</DeepDive>  
+</DeepDive>
 
 ## Copiare gli oggetti con la sintassi di spread {/*copying-objects-with-the-spread-syntax*/}
 
@@ -379,11 +379,7 @@ Nota che la sintassi di spread `...` è "superficiale", cioè copia solo il prim
 
 #### Usare un singolo event handler per più campi {/*using-a-single-event-handler-for-multiple-fields*/}
 
-<<<<<<< HEAD
 Puoi anche usare le parentesi `[` e `]` dentro alla definizione dell'oggetto per specificare una proprietà con nome dinamico. Ecco lo stesso esempio, ma con un solo event handler invece di tre:
-=======
-You can also use the `[` and `]` braces inside your object definition to specify a property with a dynamic name. Here is the same example, but with a single event handler instead of three different ones:
->>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 <Sandpack>
 
@@ -583,8 +579,8 @@ export default function Form() {
         <br />
         (located in {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
@@ -654,7 +650,7 @@ let obj3 = {
 
 Se dovessi mutare `obj3.artwork.city`, questo impatterebbe sia `obj2.artwork.city` che `obj1.city`. Questo perché `obj3.artwork`, `obj2.artwork` e `obj1` sono lo stesso oggetto. Questo è difficile da capire quando pensi agli oggetti come "nidificati". Invece, sono oggetti separati che si "puntano" a vicenda tramite le proprietà.
 
-</DeepDive>  
+</DeepDive>
 
 ### Scrivi logica di aggiornamento concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
@@ -759,8 +755,8 @@ export default function Form() {
         <br />
         (located in {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
