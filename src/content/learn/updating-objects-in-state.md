@@ -57,6 +57,7 @@ Questo esempio conserva un oggetto nello state per rappresentare la posizione at
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -127,6 +128,7 @@ Nota come il punto rosso ora segue il tuo puntatore quando tocchi o muovi il mou
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -377,7 +379,11 @@ Nota che la sintassi di spread `...` è "superficiale", cioè copia solo il prim
 
 #### Usare un singolo event handler per più campi {/*using-a-single-event-handler-for-multiple-fields*/}
 
+<<<<<<< HEAD
 Puoi anche usare le parentesi `[` e `]` dentro alla definizione dell'oggetto per specificare una proprietà con nome dinamico. Ecco lo stesso esempio, ma con un solo event handler invece di tre:
+=======
+You can also use the `[` and `]` braces inside your object definition to specify a property with a dynamic name. Here is the same example, but with a single event handler instead of three different ones:
+>>>>>>> 1697ae89a3bbafd76998dd7496754e5358bc1e9a
 
 <Sandpack>
 
