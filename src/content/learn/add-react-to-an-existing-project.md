@@ -57,12 +57,17 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
+<<<<<<< HEAD
     <!-- Il contenuto esistente della tua pagina (in questo esempio viene sostituito) -->
+=======
+    <!-- Your existing page content (in this example, it gets replaced) -->
+    <div id="root"></div>
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
   </body>
 </html>
 ```
@@ -119,7 +124,7 @@ Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementB
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
