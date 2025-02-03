@@ -45,7 +45,11 @@ Un ambiente JavaScript modulare ti consente di scrivere i tuoi componenti React 
 
 * **Se la tua app è già suddivisa in file che utilizzano istruzioni di `import`,** prova ad utilizzare la configurazione di cui già disponi. Controlla se la scrittura di `<div />` nel tuo codice JS causa un errore di sintassi. Se questo causa un errore di sintassi, potresti aver bisogno di [trasformare il tuo codice JavaScript con Babel](https://babeljs.io/setup) ed abilitare il [preset Babel React](https://babeljs.io/docs/babel-preset-react) per poter utilizzare la sintassi JSX.
 
+<<<<<<< HEAD
 * **Se la tua app non dispone di una configurazione esistente per la compilazione di moduli JavaScript**, configurala con [Vite](https://vitejs.dev/). La community di Vite mantiene [molte integrazioni con i framework di backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), tra cui Rails, Django e Laravel. Se il tuo framework di backend non è elencato, [segui questa guida](https://vitejs.dev/guide/backend-integration.html) per integrare manualmente le build di Vite con il tuo backend.
+=======
+* **If your app doesn't have an existing setup for compiling JavaScript modules,** set it up with [Vite](https://vite.dev/). The Vite community maintains [many integrations with backend frameworks](https://github.com/vitejs/awesome-vite#integrations-with-backends), including Rails, Django, and Laravel. If your backend framework is not listed, [follow this guide](https://vite.dev/guide/backend-integration.html) to manually integrate Vite builds with your backend.
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
 
 Per controllare che la tua configurazione sia funzionante, lancia questo comando nella cartella del tuo progetto:
 
@@ -57,12 +61,17 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
+<<<<<<< HEAD
     <!-- Il contenuto esistente della tua pagina (in questo esempio viene sostituito) -->
+=======
+    <!-- Your existing page content (in this example, it gets replaced) -->
+    <div id="root"></div>
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
   </body>
 </html>
 ```
@@ -84,7 +93,11 @@ Se l'intero contenuto della tua pagina è stato sostituito da un "Hello, world!"
 
 <Note>
 
+<<<<<<< HEAD
 L'integrazione di un ambiente JavaScript modulare in un progetto esistente per la prima volta può sembrare intimidatorio, ma ne vale la pena! Se rimani bloccato, prova le nostre [risorse della community](/community) o la [Chat Vite](https://chat.vitejs.dev/).
+=======
+Integrating a modular JavaScript environment into an existing project for the first time can feel intimidating, but it's worth it! If you get stuck, try our [community resources](/community) or the [Vite Chat](https://chat.vite.dev/).
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
 
 </Note>
 
@@ -119,7 +132,7 @@ Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementB
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>

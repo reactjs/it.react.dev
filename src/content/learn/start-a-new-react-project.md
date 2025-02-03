@@ -27,7 +27,11 @@ Anche se all'inizio potresti non aver bisogno di routing o di recupero dati, è 
 
 **I framework React presenti in questa pagina risolvono questi problemi di default, senza alcun lavoro aggiuntivo da parte tua.** Ti permettono di iniziare con una configurazione leggera e poi scalare la tua app in base alle tue esigenze. Ogni framework React ha una comunità, quindi trovare risposte alle domande e aggiornare gli strumenti è più facile. Inoltre, i framework forniscono una struttura al tuo codice, aiutando te stesso e gli altri a mantenere il contesto e le competenze tra diversi progetti. Al contrario, con una configurazione personalizzata è più facile rimanere bloccati con versioni di dipendenze non supportate, e alla fine finirai per creare il tuo framework, anche se in modo meno strutturato e senza una comunità o un percorso di aggiornamento (e se è simile a quelli che abbiamo creato in passato, potrebbe essere progettato in modo più casuale).
 
+<<<<<<< HEAD
 Se la tua app ha vincoli insoliti che non sono soddisfatti da questi framework, oppure preferisci risolvere questi problemi da solo, puoi creare la tua configurazione personalizzata con React. Scarica `react` e `react-dom` da npm, configura il tuo processo di build personalizzato con un bundler come [Vite](https://vitejs.dev/) o [Parcel](https://parceljs.org/) e aggiungi altri strumenti di cui hai bisogno per il routing, la generazione statica o il rendering lato server e altro ancora.
+=======
+If your app has unusual constraints not served well by these frameworks, or you prefer to solve these problems yourself, you can roll your own custom setup with React. Grab `react` and `react-dom` from npm, set up your custom build process with a bundler like [Vite](https://vite.dev/) or [Parcel](https://parceljs.org/), and add other tools as you need them for routing, static generation or server-side rendering, and more.
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
 
 </DeepDive>
 
