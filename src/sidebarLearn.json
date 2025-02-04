@@ -136,7 +136,9 @@
     {
       "title": "Gestione dello State",
       "path": "/learn/managing-state",
-      "tags": ["intermediate"],
+      "tags": [
+        "intermediate"
+      ],
       "routes": [
         {
           "title": "Reacting to Input with State",
@@ -163,7 +165,7 @@
           "path": "/learn/passing-data-deeply-with-context"
         },
         {
-          "title": "Scaling Up with Reducer and Context",
+          "title": "Ampliare con Reducer e Context",
           "path": "/learn/scaling-up-with-reducer-and-context"
         }
       ]
@@ -171,7 +173,9 @@
     {
       "title": "Escape Hatches",
       "path": "/learn/escape-hatches",
-      "tags": ["advanced"],
+      "tags": [
+        "advanced"
+      ],
       "routes": [
         {
           "title": "Referencing Values with Refs",
