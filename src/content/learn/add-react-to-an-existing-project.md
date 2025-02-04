@@ -45,7 +45,7 @@ Un ambiente JavaScript modulare ti consente di scrivere i tuoi componenti React 
 
 * **Se la tua app è già suddivisa in file che utilizzano istruzioni di `import`,** prova ad utilizzare la configurazione di cui già disponi. Controlla se la scrittura di `<div />` nel tuo codice JS causa un errore di sintassi. Se questo causa un errore di sintassi, potresti aver bisogno di [trasformare il tuo codice JavaScript con Babel](https://babeljs.io/setup) ed abilitare il [preset Babel React](https://babeljs.io/docs/babel-preset-react) per poter utilizzare la sintassi JSX.
 
-* **Se la tua app non dispone di una configurazione esistente per la compilazione di moduli JavaScript**, configurala con [Vite](https://vitejs.dev/). La community di Vite mantiene [molte integrazioni con i framework di backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), tra cui Rails, Django e Laravel. Se il tuo framework di backend non è elencato, [segui questa guida](https://vitejs.dev/guide/backend-integration.html) per integrare manualmente le build di Vite con il tuo backend.
+* **Se la tua app non dispone di una configurazione esistente per la compilazione di moduli JavaScript**, configurala con [Vite](https://vite.dev/). La community di Vite mantiene [molte integrazioni con i framework di backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), tra cui Rails, Django e Laravel. Se il tuo framework di backend non è elencato, [segui questa guida](https://vite.dev/guide/backend-integration.html) per integrare manualmente le build di Vite con il tuo backend.
 
 Per controllare che la tua configurazione sia funzionante, lancia questo comando nella cartella del tuo progetto:
 
@@ -57,12 +57,13 @@ Poi aggiungi queste linee di codice in cima al tuo file JavaScript principale (p
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
     <!-- Il contenuto esistente della tua pagina (in questo esempio viene sostituito) -->
+    <div id="root"></div>
   </body>
 </html>
 ```
@@ -84,7 +85,7 @@ Se l'intero contenuto della tua pagina è stato sostituito da un "Hello, world!"
 
 <Note>
 
-L'integrazione di un ambiente JavaScript modulare in un progetto esistente per la prima volta può sembrare intimidatorio, ma ne vale la pena! Se rimani bloccato, prova le nostre [risorse della community](/community) o la [Chat Vite](https://chat.vitejs.dev/).
+L'integrazione di un ambiente JavaScript modulare in un progetto esistente per la prima volta può sembrare intimidatorio, ma ne vale la pena! Se rimani bloccato, prova le nostre [risorse della community](/community) o la [Chat Vite](https://chat.vite.dev/).
 
 </Note>
 
@@ -119,7 +120,7 @@ Questo ti permette di trovare quell'elemento HTML tramite [`document.getElementB
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
