@@ -70,7 +70,7 @@ Prova a commentare la chiamata `root.render()` e vedrai il componente scomparire
 Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo state con la [funzione `set`.](/reference/react/useState#setstate) Aggiornare lo state del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
 
 <IllustrationBlock sequential>
-  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. The patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
   <Illustration caption="...triggers..." alt="React returns to the Component Kitchen and tells the Card Chef they need a pink Card." src="/images/docs/illustrations/i_rerender2.png" />
   <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
@@ -84,7 +84,11 @@ Dopo aver avviato la renderizzazione, React richiama i tuoi componenti per capir
 
 Questo processo è ricorsivo: se il componente aggiornato restituisce un altro componente, React renderizzerà _quel_ componente successivamente, e se quel componente restituisce a sua volta qualcosa, renderizzerà _quel_ componente successivamente, e cosi via. Il processo continua finché non ci sono più componenti annidati e React sa esattamente cosa mostrare a schermo.
 
+<<<<<<< HEAD
 Nell'esempio seguente, React chiamerà `Gallery()` e  `Image()` diverse volte:
+=======
+In the following example, React will call `Gallery()` and `Image()` several times:
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 <Sandpack>
 
@@ -148,10 +152,17 @@ Il comportamento predefinito di renderizzare tutti i componenti annidati all'int
 
 ## Step 3: React aggiorna il DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
+<<<<<<< HEAD
 Dopo aver renderizzato (chiamato) i componenti, React aggiornerà il DOM.
 
 * **Per la renderizzazione iniziale,** React utilizzerà l'API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) per inserire tutti i nodi DOM creati sullo schermo.
 * **Per ri-renderizzare,** React applicherà solo le operazioni minime necessarie (calcolate durante il rendering!) per rendere il DOM uguale all'ultimo output di rendering.
+=======
+After rendering (calling) your components, React will modify the DOM.
+
+* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen.
+* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 **React cambia solo i nodi DOM se c'è una differenza tra le renderizzazioni.** Ad esempio, ecco un componente che si ri-renderizza con diverse props passate dal suo genitore ogni secondo. Notare come è possibile aggiungere del testo nell' `<input>` aggiornando il suo `value`, ma il testo non scompare quando il componente si ri-renderizza:
 

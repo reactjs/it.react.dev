@@ -468,15 +468,19 @@ import { LevelContext } from './LevelContext.js';
 export default function Section({ level, children }) {
   return (
     <section className="section">
-      <LevelContext.Provider value={level}>
+      <LevelContext value={level}>
         {children}
-      </LevelContext.Provider>
+      </LevelContext>
     </section>
   );
 }
 ```
 
+<<<<<<< HEAD
 Questo dice a React: "se un qualsiasi componente all'interno di questa `<Section>` richiede `LevelContext`, fornisci loro questo `level`." Il componente utilizzerà il valore del `<LevelContext.Provider>` più vicino nell'albero della UI sopra di esso.
+=======
+This tells React: "if any component inside this `<Section>` asks for `LevelContext`, give them this `level`." The component will use the value of the nearest `<LevelContext>` in the UI tree above it.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 <Sandpack>
 
@@ -514,9 +518,9 @@ import { LevelContext } from './LevelContext.js';
 export default function Section({ level, children }) {
   return (
     <section className="section">
-      <LevelContext.Provider value={level}>
+      <LevelContext value={level}>
         {children}
-      </LevelContext.Provider>
+      </LevelContext>
     </section>
   );
 }
@@ -566,9 +570,15 @@ export const LevelContext = createContext(1);
 
 È lo stesso risultato del codice originale, ma non hai dovuto passare la prop `level` a ciascun componente `Heading`! Invece, questo "capisce" il suo livello d'intestazione interrogando il `Section` più vicino sopra di esso:
 
+<<<<<<< HEAD
 1. Passi la prop `level` a `<Section>`.
 2. `Section` avvolge i suoi figli in `<LevelContext.Provider value={level}>`.
 3. `Heading` richiede il valore più vicino di `LevelContext` sopra di sé con `useContext(LevelContext)`.
+=======
+1. You pass a `level` prop to the `<Section>`.
+2. `Section` wraps its children into `<LevelContext value={level}>`.
+3. `Heading` asks the closest value of `LevelContext` above with `useContext(LevelContext)`.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 ## Usare e fornire un context dallo stesso componente {/*using-and-providing-context-from-the-same-component*/}
 
@@ -595,9 +605,9 @@ export default function Section({ children }) {
   const level = useContext(LevelContext);
   return (
     <section className="section">
-      <LevelContext.Provider value={level + 1}>
+      <LevelContext value={level + 1}>
         {children}
-      </LevelContext.Provider>
+      </LevelContext>
     </section>
   );
 }
@@ -643,9 +653,9 @@ export default function Section({ children }) {
   const level = useContext(LevelContext);
   return (
     <section className="section">
-      <LevelContext.Provider value={level + 1}>
+      <LevelContext value={level + 1}>
         {children}
-      </LevelContext.Provider>
+      </LevelContext>
     </section>
   );
 }
@@ -776,9 +786,9 @@ export default function Section({ children, isFancy }) {
       'section ' +
       (isFancy ? 'fancy' : '')
     }>
-      <LevelContext.Provider value={level + 1}>
+      <LevelContext value={level + 1}>
         {children}
-      </LevelContext.Provider>
+      </LevelContext>
     </section>
   );
 }
@@ -864,6 +874,7 @@ In generale, se alcune informazioni sono necessarie da componenti distanti in di
 
 <Recap>
 
+<<<<<<< HEAD
 * Il context consente a un componente di fornire alcune informazioni a tutto l'albero sottostante:
 * Per passare il context:
   1. Crealo ed esportalo con `export const MyContext = createContext(defaultValue)`.
@@ -872,6 +883,16 @@ In generale, se alcune informazioni sono necessarie da componenti distanti in di
 * Il context attraversa qualsiasi componente intermedio.
 * Il context ti consente di scrivere componenti che "si adattano all'ambiente circostante".
 * Prima di utilizzare il context, prova a passare le props o passare il JSX come `children`.
+=======
+* Context lets a component provide some information to the entire tree below it.
+* To pass context:
+  1. Create and export it with `export const MyContext = createContext(defaultValue)`.
+  2. Pass it to the `useContext(MyContext)` Hook to read it in any child component, no matter how deep.
+  3. Wrap children into `<MyContext value={...}>` to provide it from a parent.
+* Context passes through any components in the middle.
+* Context lets you write components that "adapt to their surroundings".
+* Before you use context, try passing props or passing JSX as `children`.
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 </Recap>
 
@@ -1022,7 +1043,11 @@ li {
 
 Rimuovi la prop `imageSize` da tutti i componenti.
 
+<<<<<<< HEAD
 Crea ed esporta `ImageSizeContext` da `Context.js`. Quindi avvolgi `List` in `<ImageSizeContext.Provider value={imageSize}>` per passare il valore in basso, e utilizza `useContext(ImageSizeContext)` per leggerlo in `PlaceImage`:
+=======
+Create and export `ImageSizeContext` from `Context.js`. Then wrap the List into `<ImageSizeContext value={imageSize}>` to pass the value down, and `useContext(ImageSizeContext)` to read it in the `PlaceImage`:
+>>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 <Sandpack>
 
@@ -1036,7 +1061,7 @@ export default function App() {
   const [isLarge, setIsLarge] = useState(false);
   const imageSize = isLarge ? 150 : 100;
   return (
-    <ImageSizeContext.Provider
+    <ImageSizeContext
       value={imageSize}
     >
       <label>
@@ -1051,7 +1076,7 @@ export default function App() {
       </label>
       <hr />
       <List />
-    </ImageSizeContext.Provider>
+    </ImageSizeContext>
   )
 }
 
