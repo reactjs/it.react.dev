@@ -65,7 +65,7 @@ export default function Image() {
 
 Prova a commentare la chiamata `root.render()` e vedrai il componente scomparire!
 
-### Renderizzare nuovamente quando lo state viene aggiornato{/*re-renders-when-state-updates*/}
+### Renderizzare nuovamente quando lo state viene aggiornato {/*re-renders-when-state-updates*/}
 
 Una volta che il componente è inizialmente renderizzato, è possibile avviare ulteriori renderizzazioni aggiornando il suo state con la [funzione `set`.](/reference/react/useState#setstate) Aggiornare lo state del componente mette automaticamente in coda una renderizzazione (puoi immaginarlo come un ospite del ristorante che ordina tè, dessert e ogni sorta di cosa dopo aver effettuato il primo ordine, a seconda della sua sete o fame)
 
@@ -84,11 +84,7 @@ Dopo aver avviato la renderizzazione, React richiama i tuoi componenti per capir
 
 Questo processo è ricorsivo: se il componente aggiornato restituisce un altro componente, React renderizzerà _quel_ componente successivamente, e se quel componente restituisce a sua volta qualcosa, renderizzerà _quel_ componente successivamente, e cosi via. Il processo continua finché non ci sono più componenti annidati e React sa esattamente cosa mostrare a schermo.
 
-<<<<<<< HEAD
-Nell'esempio seguente, React chiamerà `Gallery()` e  `Image()` diverse volte:
-=======
-In the following example, React will call `Gallery()` and `Image()` several times:
->>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
+Nell'esempio seguente, React chiamerà `Gallery()` e `Image()` diverse volte:
 
 <Sandpack>
 
@@ -128,7 +124,7 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-* **Durante la renderizzazione iniziale,** React [creerà i nodi del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) per `<section>`, `<h1>`, e tre tag `<img>`. 
+* **Durante la renderizzazione iniziale,** React [creerà i nodi del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) per `<section>`, `<h1>`, e tre tag `<img>`.
 * **Durante una renderizzazione successiva,** React calcolerà quali delle sue proprietà, se presenti, sono cambiate rispetto la renderizzazione precedente. Tuttavia, non farà nulla con queste informazioni fino alla prossima fase, la fase di commit.
 
 <Pitfall>
@@ -152,17 +148,10 @@ Il comportamento predefinito di renderizzare tutti i componenti annidati all'int
 
 ## Step 3: React aggiorna il DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
-<<<<<<< HEAD
 Dopo aver renderizzato (chiamato) i componenti, React aggiornerà il DOM.
 
 * **Per la renderizzazione iniziale,** React utilizzerà l'API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) per inserire tutti i nodi DOM creati sullo schermo.
 * **Per ri-renderizzare,** React applicherà solo le operazioni minime necessarie (calcolate durante il rendering!) per rendere il DOM uguale all'ultimo output di rendering.
-=======
-After rendering (calling) your components, React will modify the DOM.
-
-* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen.
-* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
->>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
 
 **React cambia solo i nodi DOM se c'è una differenza tra le renderizzazioni.** Ad esempio, ecco un componente che si ri-renderizza con diverse props passate dal suo genitore ogni secondo. Notare come è possibile aggiungere del testo nell' `<input>` aggiornando il suo `value`, ma il testo non scompare quando il componente si ri-renderizza:
 

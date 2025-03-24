@@ -40,14 +40,14 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
       <p>
@@ -64,7 +64,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -220,14 +220,14 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
       <p>
@@ -244,7 +244,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -341,7 +341,7 @@ Lo State è solo una di queste funzionalità, ma incontrerai gli altri Hook più
 
 <Pitfall>
 
-**Gli Hook (funzioni che iniziano per `use`) possono essere chiamati solo al livello superiore del tuo componente o [dei tuoi Hook.](/learn/reusing-logic-with-custom-hooks)** Non è possibile chiamare gli Hook all'interno di condizioni, cicli o altre funzioni nidificate. Gli Hook sono funzioni, ma è di aiuto considerarli come dichiarazioni incondizionate sulle necessità del tuo componente. "Usi" le funzionalità di React in cima al tuo componente in modo simile a come "importi" i moduli in cima al tuo file. 
+**Gli Hook (funzioni che iniziano per `use`) possono essere chiamati solo al livello superiore del tuo componente o [dei tuoi Hook.](/learn/reusing-logic-with-custom-hooks)** Non è possibile chiamare gli Hook all'interno di condizioni, cicli o altre funzioni nidificate. Gli Hook sono funzioni, ma è di aiuto considerarli come dichiarazioni incondizionate sulle necessità del tuo componente. "Usi" le funzionalità di React in cima al tuo componente in modo simile a come "importi" i moduli in cima al tuo file.
 
 </Pitfall>
 
@@ -408,18 +408,18 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
         {showMore ? 'Hide' : 'Show'} details
       </button>
       {showMore && <p>{sculpture.description}</p>}
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
     </>
@@ -433,7 +433,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -629,7 +629,7 @@ let sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -773,18 +773,18 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
         {showMore ? 'Hide' : 'Show'} details
       </button>
       {showMore && <p>{sculpture.description}</p>}
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
     </section>
@@ -798,7 +798,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -944,18 +944,18 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
         {showMore ? 'Hide' : 'Show'} details
       </button>
       {showMore && <p>{sculpture.description}</p>}
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
     </>
@@ -969,7 +969,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -1106,18 +1106,18 @@ export default function Gallery() {
         Next
       </button>
       <h2>
-        <i>{sculpture.name} </i> 
+        <i>{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>  
+      <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
         {showMore ? 'Hide' : 'Show'} details
       </button>
       {showMore && <p>{sculpture.description}</p>}
-      <img 
-        src={sculpture.url} 
+      <img
+        src={sculpture.url}
         alt={sculpture.alt}
       />
     </>
@@ -1131,7 +1131,7 @@ export const sculptureList = [{
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'  
+  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
@@ -1266,7 +1266,7 @@ export default function Form() {
 }
 ```
 
-```css 
+```css
 h1 { margin-top: 10px; }
 ```
 
@@ -1317,7 +1317,7 @@ export default function Form() {
 }
 ```
 
-```css 
+```css
 h1 { margin-top: 10px; }
 ```
 
@@ -1452,11 +1452,7 @@ Se il tuo linter è [configurato per React](/learn/editor-setup#linting), dovres
 
 #### Rimuovi lo state superfluo {/*remove-unnecessary-state*/}
 
-<<<<<<< HEAD
-Quando viene cliccato il pulsante, questo esempio dovrebbe chiedere il nome dell'utente e poi visualizzare un alert di saluto. Hai provato a utilizzare lo state per conservare il nome, ma per qualche ragione mostra sempre "Hello, !".
-=======
-When the button is clicked, this example should ask for the user's name and then display an alert greeting them. You tried to use state to keep the name, but for some reason the first time it shows "Hello, !", and then "Hello, [name]!" with the previous input every time after.
->>>>>>> f6d762cbbf958ca45bb8d1d011b31e5289e43a3d
+Quando viene cliccato il pulsante, questo esempio dovrebbe chiedere il nome dell'utente e poi visualizzare un alert di saluto. Hai provato a utilizzare lo state per conservare il nome, ma per qualche ragione la prima volta mostra "Hello, !", e poi "Hello, [nome]!" con l'input precedente ogni volta dopo.
 
 Per correggere questo codice, rimuovi la variabile state superflua. (Discuteremo del [perché questo non ha funzionato](/learn/state-as-a-snapshot) in seguito.)
 
