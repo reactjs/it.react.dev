@@ -2247,7 +2247,11 @@ body {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Mentre scorri l'array `history` all'interno della funzione che hai passato a `map`, l'argomento `squares` passa attraverso ogni elemento di `history` e l'argomento `move` passa attraverso ogni indice dell'array: `0`, `1`, `2`, …. (Nella maggior parte dei casi, avresti bisogno degli elementi effettivi dell'array, ma per visualizzare un elenco di mosse avrai bisogno solo degli indici.)
+=======
+As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
+>>>>>>> 5138e605225b24d25701a1a1f68daa90499122a4
 
 Per ogni mossa nella cronologia del gioco ti tic-tac-toe, crei un elemento di elenco `<li>` che contiene un pulsante `<button>`. Il pulsante ha un handler `onClick` che chiama una funzione chiamata `jumpTo` (che non hai ancora implementato).
 
