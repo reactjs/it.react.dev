@@ -769,13 +769,8 @@ In alternativa, potresti creare un _nuovo_ array (copiando quello esistente) pri
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
-<<<<<<< HEAD
   // Copia l'array!
-  let storiesToDisplay = stories.slice();
-=======
-  // Copy the array!
   const storiesToDisplay = stories.slice();
->>>>>>> 50d6991ca6652f4bc4c985cf0c0e593864f2cc91
 
   // Non influenza l'array originale:
   storiesToDisplay.push({
