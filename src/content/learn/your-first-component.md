@@ -215,7 +215,11 @@ La tua applicazione React inizia con un componente "radice" (_root_). Di solito,
 
 La maggior parte delle applicazioni React utilizza i componenti fino in fondo. Ciò significa che non userai i componenti solo per piccole parti riutilizzabili come i pulsanti, ma anche per parti più grandi come barre laterali, elenchi e, infine, pagine complete! I componenti sono un modo pratico per organizzare il codice e il markup dell'interfaccia utente, anche se alcuni di essi dovessero essere utilizzati una sola volta.
 
+<<<<<<< HEAD
 I [framework basati su React](/learn/start-a-new-react-project) compiono un ulteriore passo avanti. Invece di usare un file HTML vuoto e lasciare che React si occupi di gestire la pagina con JavaScript, generano automaticamente l'HTML dai componenti React. Questo permette all'applicazione di mostrare alcuni contenuti prima del caricamento del codice JavaScript.
+=======
+[React-based frameworks](/learn/creating-a-react-app) take this a step further. Instead of using an empty HTML file and letting React "take over" managing the page with JavaScript, they *also* generate the HTML automatically from your React components. This allows your app to show some content before the JavaScript code loads.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 Tuttavia, molti siti web usano React solo per [aggiungere interattività a pagine HTML esistenti.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) Hanno molti componenti radice invece di uno singolo per l'intera pagina. È possibile utilizzare tanto o poco React in base alle tue esigenze.
 
