@@ -29,6 +29,14 @@ React-dom contiene funzionalità supportate solo per le applicazioni web (che ve
 * [API del client](/reference/react-dom/client) - Le API `react-dom/client` ti consentono di renderizzare i componenti React sul client (nel browser).
 * [API del server](/reference/react-dom/server) - Le API `react-dom/server` ti consentono di renderizzare i componenti React in HTML sul server.
 
+## React Compiler {/*react-compiler*/}
+
+The React Compiler is a build-time optimization tool that automatically memoizes your React components and values:
+
+* [Configuration](/reference/react-compiler/configuration) - Configuration options for React Compiler.
+* [Directives](/reference/react-compiler/directives) - Function-level directives to control compilation.
+* [Compiling Libraries](/reference/react-compiler/compiling-libraries) - Guide for shipping pre-compiled library code.
+
 ## Rules of React {/*rules-of-react*/}
 
 React has idioms — or rules — for how to express patterns in a way that is easy to understand and yields high-quality applications:
