@@ -24,7 +24,11 @@ Ecco come ti consigliamo di impostarla:
 2. **Specifica `/some-app` come *percorso di base*** nella configurazione del tuo framework (ecco come: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configura il tuo server o un proxy** in modo che tutte le richieste in `/some-app/` siano gestite dalla tua app React.
 
+<<<<<<< HEAD
 Ciò garantisce che la parte React della tua app possa [trarre vantaggio dalle best practices](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) integrate in tali framework.
+=======
+This ensures the React part of your app can [benefit from the best practices](/learn/build-a-react-app-from-scratch#consider-using-a-framework) baked into those frameworks.
+>>>>>>> e9a7cb1b6ca1659b42d81555ecef0cd554b7a983
 
 Molti framework basati su React sono full-stack e consentono alla tua app React di trarre vantaggio dal server. Tuttavia, puoi utilizzare lo stesso approccio anche se non puoi o non vuoi eseguire JavaScript sul server. In tal caso, pubblica invece l'esportazione HTML/CSS/JS ([output di `next export`](https://nextjs.org/docs/advanced-features/static-html-export) per Next.js, output predefinito per Gatsby) in `/some-app/`.
 
