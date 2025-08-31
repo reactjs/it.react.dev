@@ -80,7 +80,7 @@ Ed ecco come costruire un componente:
 
 ### Step 1: Esportare il componente {/*step-1-export-the-component*/}
 
-Il prefisso `export default` è una [sintassi JavaScript standard](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (non specifica a React). Consente di contrassegnare la funzione principale di un file in modo da poterla importare successivamente in altri file. (Maggiori informazioni sull'importazione in [Importazione ed esportazione di componenti](/learning/importing-and-exporting-components))!
+Il prefisso `export default` è una [sintassi JavaScript standard](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (non specifica a React). Consente di contrassegnare la funzione principale di un file in modo da poterla importare successivamente in altri file. (Maggiori informazioni sull'importazione in [Importazione ed esportazione di componenti](/learn/importing-and-exporting-components))!
 
 ### Step 2: Definire la funzione {/*step-2-define-the-function*/}
 
@@ -172,7 +172,7 @@ E `Profile` contiene lui stesso altri tag HTML: `<img />`. Alla fine, questo è 
 
 ### Annidamento e organizzazione dei componenti {/*nesting-and-organizing-components*/}
 
-I componenti sono normali funzioni JavaScript, quindi è possibile avere più componenti nello stesso file. Questo è comodo quando i componenti sono relativamente piccoli o strettamente correlati tra loro. Se questo file dovesse diventare troppo affollato, puoi sempre spostare `Profile` in un file separato. Imparerai come fare a breve nella [pagina sulle importazioni.](/learning/importing-and-exporting-components).
+I componenti sono normali funzioni JavaScript, quindi è possibile avere più componenti nello stesso file. Questo è comodo quando i componenti sono relativamente piccoli o strettamente correlati tra loro. Se questo file dovesse diventare troppo affollato, puoi sempre spostare `Profile` in un file separato. Imparerai come fare a breve nella [pagina sulle importazioni.](/learn/importing-and-exporting-components).
 
 Poiché i componenti `Profile` sono renderizzati all'interno di `Gallery` - anche più volte! - possiamo dire che `Gallery` è un **componente genitore,** che renderizza ogni `Profile` come un "figlio". Questa è una parte della magia di React: si può definire un componente una sola volta e poi usarlo in tutti i posti e tutte le volte che si vuole.
 
@@ -286,7 +286,7 @@ img { height: 181px; }
 
 </Sandpack>
 
-Ci si potrebbe chiedere perché scrivere `export` da solo non sia sufficiente a risolvere questo esempio. Si può imparare la differenza tra `export` e `export default` in [Importazione ed esportazione di componenti.](/learning/importing-and-exporting-components)
+Ci si potrebbe chiedere perché scrivere `export` da solo non sia sufficiente a risolvere questo esempio. Si può imparare la differenza tra `export` e `export default` in [Importazione ed esportazione di componenti.](/learn/importing-and-exporting-components)
 
 </Solution>
 
