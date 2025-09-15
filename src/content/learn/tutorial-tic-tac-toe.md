@@ -283,15 +283,9 @@ In CodeSandbox vedrai tre sezioni principali:
 
 ![CodeSandbox con codice iniziale](../images/tutorial/react-starter-code-codesandbox.png)
 
-<<<<<<< HEAD
-1. La sezione _Files_ con una lista di file come `App.js`, `index.js`, `styles.css` e una cartella chiamata `public`
+1. La sezione _Files_ con una lista di file come `App.js`, `index.js`, `styles.css` in una cartella chiamata `src` e una cartella chiamata `public`
 1. L'_editor del codice_ dove vedrai il codice sorgente del tuo file selezionato
 1. La sezione _browser_ dove vedrai come il codice che hai scritto sarà visualizzato
-=======
-1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
-1. The _code editor_ where you'll see the source code of your selected file
-1. The _browser_ section where you'll see how the code you've written will be displayed
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 Il file `App.js` dovrebbe essere selezionato nella sezione _Files_. Il contenuto di quel file nell'_editor del codice_ dovrebbe essere:
 
