@@ -23,7 +23,7 @@ Ecco un componente che renderizza l'immagine di una scultura. Cliccare sul pulsa
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
@@ -1229,7 +1229,7 @@ Quando digiti all'interno degli input, non appare nulla. È come se i valori deg
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [6]}}
 export default function Form() {
   let firstName = '';
   let lastName = '';
@@ -1337,7 +1337,7 @@ Esistono limitazioni su _dove_ gli Hook possono essere chiamati? Questo componen
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [9]}}
 import { useState } from 'react';
 
 export default function FeedbackForm() {
