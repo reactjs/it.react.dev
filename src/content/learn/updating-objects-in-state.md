@@ -55,7 +55,7 @@ Questo esempio conserva un oggetto nello state per rappresentare la posizione at
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
 
 export default function MovingDot() {
@@ -209,7 +209,7 @@ Questi input non funzionano perché gli handler degli `onChange` mutano lo state
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11, 15, 19]}}
 import { useState } from 'react';
 
 export default function Form() {
@@ -832,7 +832,7 @@ Il tuo compito è correggere tutti questi bug. Mentre lo fai, cerca di spiegare 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
 
 export default function Scoreboard() {
@@ -988,7 +988,7 @@ Se accade qualcosa d'inaspettato, c'è una mutazione. Trova la mutazione in `App
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [17]}} src/App.js
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1293,7 +1293,7 @@ Questo è lo stesso esempio difettoso della sfida precedente. Questa volta, corr
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [18]}} src/App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import Background from './Background.js';
