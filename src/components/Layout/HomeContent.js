@@ -249,11 +249,19 @@ export function HomeContent() {
               con un framework
             </Header>
             <Para>
+<<<<<<< HEAD
               React è una libreria. Ti permette di mettere insieme componenti,
               ma non prescrive come fare routing e data fetching. Per costruire
               un&apos;applicazione intera con React, ti consigliamo un framework
               full-stack come <Link href="https://nextjs.org">Next.js</Link> o{' '}
               <Link href="https://remix.run">Remix</Link>.
+=======
+              React is a library. It lets you put components together, but it
+              doesn’t prescribe how to do routing and data fetching. To build an
+              entire app with React, we recommend a full-stack React framework
+              like <Link href="https://nextjs.org">Next.js</Link> or{' '}
+              <Link href="https://reactrouter.com">React Router</Link>.
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
             </Para>
           </Center>
           <FullBleed>

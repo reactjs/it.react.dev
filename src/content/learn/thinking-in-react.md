@@ -37,9 +37,15 @@ Inizia disegnando rettangoli intorno a ogni componente e sottocomponente nel moc
 
 A seconda del tuo background, puoi pensare di dividere un design in componenti in diversi modi:
 
+<<<<<<< HEAD
 * **Programming**--usa lo stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è il [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
 * **CSS**--considera cosa farebbe un selettore di classe. (Tuttavia, i componenti sono un po' meno granulari.)
 * **Design**--considera come organizzare i livelli del design.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 Se il tuo JSON è strutturato bene, noterai che spesso mappa naturalmente la struttura dei componenti della tua UI. Questo perché la UI e i modelli di dati spesso hanno la stessa architettura dell'informazione--ovvero la stessa forma. Separa la tua UI in componenti, in cui ogni componente corrisponde a una parte del tuo modello di dati.
 
