@@ -17,14 +17,14 @@ Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "
 
 </YouWillLearn>
 
-## Come rimuovere effetti inutili {/*how-to-remove-unnecessary-effects*/}
+## Come rimuovere Effetti inutili {/*how-to-remove-unnecessary-effects*/}
 
 Ci sono due casi comuni in cui non hai bisogno di usare un Effetto:
 
 * **Non hai bisogno di un Effetto per trasformare dati da renderizzare.** Per esempio, diciamo che vuoi filtrare una lista prima di mostrarla. Potresti essere tentato di scrivere un Effetto che aggiorna una variabile di state quando la lista cambia. Questo tuttavia è inefficiente. Quando aggiorni lo stato, React chiama prima la funzione del tuo componente per calcolare cosa mostrare su schermo. Poi React esegue il ["commit"](/learn/render-and-commit) dei cambiamenti sul DOM, aggiornando lo schermo. Poi React eseguirà gli effetti. Se *anche* il tuo Effetto aggiorna immediatamente lo stato, l'intero processo ricomincia da zero! Per evitare i passaggi di rendering inutili, trasforma tutti i tuoi dati all'inizio del tuo componente. Il codice che aggiungi li automaticamente esegue ogni volta che props o state cambiano.
 * **Non hai bisogno di un Effetto per gestire eventi provienienti dall'utente.** Per esempio, diciamo che vuoi inviare una richiesta POST sull'endpoint `/api/buy` e mostrare una notifica quando l'utente compra un prodotto. Nell'event handler 'on click' del pulsante di acquisto, sai con precisione cosa è successo. Quando viene eseguito un Effetto invece, non sai *cosa* ha fatto l'utente (per esempio, quale pulsante ha cliccato). Ecco perché generalmente vuoi gestire gli eventi provenienti dall'utente nei rispettivi event handlers.
 
-*Hai bisogno* di un Effetto per [sincronizzarti](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemi esterni. Per esempio, Puoi scrivere un Effetto che mantiene un widget scritto in jQuery sincronizzato con lo state di React. Puoi anche recuperare dati con un Effetto: per esempio, puoi sincronizzare i risultati di una ricerca con la query di ricerca corrente. Tieni a mente che i [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) moderni offrono meccanismi di recupero di dati più efficienti rispetto a scrivere effetti direttamente nei tuoi componenti.
+*Hai bisogno* di un Effetto per [sincronizzarti](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemi esterni. Per esempio, Puoi scrivere un Effetto che mantiene un widget scritto in jQuery sincronizzato con lo state di React. Puoi anche recuperare dati con un Effetto: per esempio, puoi sincronizzare i risultati di una ricerca con la query di ricerca corrente. Tieni a mente che i [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) moderni offrono meccanismi di recupero di dati più efficienti rispetto a scrivere effetti direttamente nei tuoi componenti.
 
 Per aiutarti ad ottenere la giusta intuizione, vediamo alcuni esempi concreti più comuni!
 
@@ -58,7 +58,7 @@ function Form() {
 }
 ```
 
-**Quando qualcosa può essere calcolato a partire da props e state, [non inserirla nello state.](/learn/choosing-the-state-structure#avoid-redundant-state) Invece, calcolala durante il rendering.** Questo rende il tuo codice più veloce (eviti l'extra update "a cascata"), più semplice (rimuovi codice), e meno soggetto ad errore (eviti bugs dovuti a variabili di state diverse che si desincronizzano tra loro). Se questo approccio ti sembra nuovo, [Pensare in React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) spiega che cosa dovrebbe andare nello state.
+**Quando qualcosa può essere calcolato a partire da props e state, [non inserirla nello state.](/learn/choosing-the-state-structure#avoid-redundant-state) Invece, calcolala durante il rendering.** Questo rende il tuo codice più veloce (eviti l'extra update "a cascata"), più semplice (rimuovi codice), e meno soggetto ad errore (eviti bug dovuti a variabili di state diverse che si desincronizzano tra loro). Se questo approccio ti sembra nuovo, [Pensare in React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) spiega che cosa dovrebbe andare nello state.
 
 ### Memorizzare calcoli dispendiosi {/*caching-expensive-calculations*/}
 
@@ -91,7 +91,7 @@ function TodoList({ todos, filter }) {
 
 Generalmente, questo codice va bene! Ma forse `getFilteredTodos()` è lenta o hai tanti `todos`. In questo caso non vuoi calcolare di nuovo `getFilteredTodos()` quando cambiano variabili di state non legate a questo aggiornamento come `newTodo`.
 
-Puoi inserire in cache (o ["memoizzare"](https://en.wikipedia.org/wiki/Memoization)) un calcolo dispendioso con un hook [`useMemo`](/reference/react/useMemo):
+Puoi inserire in cache (o ["memoizzare"](https://en.wikipedia.org/wiki/Memoization)) un calcolo dispendioso con un Hook [`useMemo`](/reference/react/useMemo):
 
 ```js {5-8}
 import { useMemo, useState } from 'react';
@@ -113,13 +113,13 @@ import { useMemo, useState } from 'react';
 
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
-    // ✅ Non viene eseguita finché todos o filter non cambiano
+  // ✅ Non viene eseguita finché todos o filter non cambiano
   const visibleTodos = useMemo(() => getFilteredTodos(todos, filter), [todos, filter]);
   // ...
 }
 ```
 
-**Questo dice a React che non vuoi ri-eseguire la funzione interna finché `todos` o `filter` non sono cambiati.** React ricorderà il valore ritornato da `getFilteredTodos()` durante il primo render. Nei prossimi renders, controllerà se `todos` o `filter` sono diversi. Se sono gli stessi del render precedente, `useMemo` ritornerà l'ultimo risultato memorizzato. Ma se sono diversi, React chiamerà la funzione interna di nuovo (e salverà il risultato).
+**Questo dice a React che non vuoi ri-eseguire la funzione interna finché `todos` o `filter` non sono cambiati.** React ricorderà il valore ritornato da `getFilteredTodos()` durante il primo render. Nei prossimi render, controllerà se `todos` o `filter` sono diversi. Se sono gli stessi del render precedente, `useMemo` ritornerà l'ultimo risultato memorizzato. Ma se sono diversi, React chiamerà la funzione interna di nuovo (e salverà il risultato).
 
 La funzione che inserisci in [`useMemo`](/reference/react/useMemo) esegue durante il rendering, quindi può funzionare solo per [calcoli puri.](/learn/keeping-components-pure)
 
@@ -127,7 +127,7 @@ La funzione che inserisci in [`useMemo`](/reference/react/useMemo) esegue durant
 
 #### Come puoi sapere se un calcolo è dispendioso? {/*how-to-tell-if-a-calculation-is-expensive*/}
 
-In generale, a menoché tu non stia creando o iterando migliaia di oggetti, probabilmente non è dispendioso. Se vuoi esserne più sicuro, puoi aggiungere un log in console per misurare il tempo trascorso ad eseguire un pezzo di codice:
+In generale, a meno che tu non stia creando o iterando migliaia di oggetti, probabilmente non è dispendioso. Se vuoi esserne più sicuro, puoi aggiungere un log in console per misurare il tempo trascorso ad eseguire un pezzo di codice:
 
 ```js {1,3}
 console.time('filter array');
@@ -135,13 +135,13 @@ const visibleTodos = getFilteredTodos(todos, filter);
 console.timeEnd('filter array');
 ```
 
-Esegui l'interazione per cui stai misurando il tempo (per esempio, scrivere in un input). Vedrai logs come `filter array: 0.15ms` in console. Se il tempo totale raggiunge una quantità significante (per esempio, `1ms` o più), potrebbe avere senso memoizzare quel calcolo. Come esperimento, puoi usare `useMemo` per verificare se il tempo totale misurato si è ridotto per quell'interazione o no:
+Esegui l'interazione per cui stai misurando il tempo (per esempio, scrivere in un input). Vedrai log come `filter array: 0.15ms` in console. Se il tempo totale raggiunge una quantità significante (per esempio, `1ms` o più), potrebbe avere senso memoizzare quel calcolo. Come esperimento, puoi usare `useMemo` per verificare se il tempo totale misurato si è ridotto per quell'interazione o no:
 
 ```js
 console.time('filter array');
 const visibleTodos = useMemo(() => {
   return getFilteredTodos(todos, filter); // Non esegue se todos e filter non sono cambiati
-  }, [todos, filter]);
+}, [todos, filter]);
 console.timeEnd('filter array');
 ```
 
@@ -153,9 +153,9 @@ Nota bene che misurare le prestazioni in sviluppo non ti darà i risultati più 
 
 </DeepDive>
 
-### Ripristinare lo stato quando una prop cambia {/*resetting-all-state-when-a-prop-changes*/}
+### Ripristinare lo state quando una prop cambia {/*resetting-all-state-when-a-prop-changes*/}
 
-Questo componente `ProfilePage` riceve una prop chiamata `userId`. La pagina contiene un input per i commenti, e usi una variabile di state `comment` per memorizzare il suo valore. Un giorno, ti accorgi di un problema: nella navigazione tra un profilo e l'altro, lo state `comment` non viene ripristinato. Il risultato, è che è facile commentare accidentalmente sul profilo sbagliato. Per risolvere il problema, vuoi ripulire la variabile di stato `comment` ogni volta che `userId` cambia:
+Questo componente `ProfilePage` riceve una prop chiamata `userId`. La pagina contiene un input per i commenti, e usi una variabile di state `comment` per memorizzare il suo valore. Un giorno, ti accorgi di un problema: nella navigazione tra un profilo e l'altro, lo state `comment` non viene ripristinato. Il risultato, è che è facile commentare accidentalmente sul profilo sbagliato. Per risolvere il problema, vuoi ripulire la variabile di state `comment` ogni volta che `userId` cambia:
 
 ```js {4-7}
 export default function ProfilePage({ userId }) {
@@ -1601,7 +1601,7 @@ button {
 
 Questo componente `Form` ti permette di mandare un messaggio ad un amico. Quando esegui la submit del form, la variabile di stato `showForm` viene settata a `false`. Questo fa partire l'Effetto che chiama `sendMessage(message)`, che manda il messaggio (lo puoi vedere in console). Dopo che il messaggio viene inviato, vedi un dialog "Thank you" con un pulsante "Open chat" che ti permette di ritornare al form.
 
-Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del Form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato! 
+Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato! 
 
 Qual è la causa di questo problema? E come puoi risolverlo?
 
@@ -1672,7 +1672,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <Solution>
 
-La variabile di state `showForm` determina quando mostrare il form o il dialog "Thank you". Però, non stai inviando il messaggio perché la dialog "Thank you" è stata _mostrata_. Vuoi inviare il messaggio perché l'utente ha _eseguito la submit del form_. Elimina l'Effetto e muovi la chiamata `sendMessage` all'interno dell'event handler `handleSubmit`:
+La variabile di state `showForm` determina quando mostrare il form o il dialog "Thank you". Però, non stai inviando il messaggio perché la dialog "Thank you" è stata _mostrata_. Vuoi inviare il messaggio perché l'utente ha _eseguito l'invio del form_. Elimina l'Effetto e muovi la chiamata `sendMessage` all'interno dell'event handler `handleSubmit`:
 
 <Sandpack>
 
@@ -1728,7 +1728,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Nota come in questa versione, solo _la submit del form_ (che è un evento) causa l'invio del messaggio. Funziona ugualmente bene a prescindere se `showForm` è settato a `true` o `false`. (Impostala a `false` e nota che non ci sono messaggi extra sulla console.)
+Nota come in questa versione, solo _l'invio del form_ (che è un evento) causa l'invio del messaggio. Funziona ugualmente bene a prescindere se `showForm` è settato a `true` o `false`. (Impostala a `false` e nota che non ci sono messaggi extra sulla console.)
 
 </Solution>
 
