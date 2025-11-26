@@ -3,11 +3,13 @@ title: 'Potresti non avere bisogno di un Effetto'
 ---
 
 <Intro>
+
 Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "uscire fuori" da React sincronizzando i componenti con sistemi esterni come widget non-React, la rete, o il DOM del browser. Se non ci sono sistemi esterni coinvolti (per esempio, se vuoi aggiornare lo state di un componente a seguito di un cambiamento nelle props o nello state), non dovresti avere bisogno di un Effetto. Rimuovere effetti inutili ti permette di scrivere codice più semplice da capire, più veloce ad eseguire, e meno soggetto ad errori. 
 
 </Intro>
 
 <YouWillLearn>
+
 * Come rimuovere effetti inutili dai tuoi componenti e perché
 * Come memorizzare computazioni costose nella cache senza usare effetti
 * Come ripristinare e modificare lo state dei componenti senza usare effetti
