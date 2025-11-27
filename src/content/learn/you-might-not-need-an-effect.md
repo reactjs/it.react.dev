@@ -95,6 +95,12 @@ Generalmente, questo codice va bene! Ma forse `getFilteredTodos()` è lenta o ha
 
 Puoi inserire in cache (o ["memoizzare"](https://en.wikipedia.org/wiki/Memoization)) un calcolo dispendioso con un Hook [`useMemo`](/reference/react/useMemo):
 
+<Note>
+
+[React Compiler](/learn/react-compiler) può memorizzare i calcoli dispendiosi automaticamente, rendendo `useMemo` non più necessario nella maggior parte dei casi.
+
+</Note>
+
 ```js {5-8}
 import { useMemo, useState } from 'react';
 
@@ -430,7 +436,7 @@ function Game() {
     // ✅ Calcola il prossimo state nell'event handler
     setCard(nextCard);
     if (nextCard.gold) {
-      if (goldCardCount <= 3) {
+      if (goldCardCount < 3) {
         setGoldCardCount(goldCardCount + 1);
       } else {
         setGoldCardCount(0);
