@@ -21,13 +21,14 @@ Funzionalità React programmatiche:
 
 ## React DOM {/*react-dom*/}
 
-React-dom contiene funzionalità supportate solo per le applicazioni web (che vengono eseguite nell'ambiente DOM del browser). Questa sezione è suddivisa come segue:
+React DOM contiene funzionalità supportate solo per le applicazioni web (che vengono eseguite nell'ambiente DOM del browser). Questa sezione è suddivisa come segue:
 
 * [Hooks](/reference/react-dom/hooks) - Hooks per le applicazioni web che vengono eseguite nell'ambiente DOM del browser.
 * [Componenti](/reference/react-dom/components) - React supporta tutti i componenti HTML e SVG integrati nel browser.
 * [API](/reference/react-dom) - Il pacchetto `react-dom` contiene metodi supportati solo nelle applicazioni web.
 * [API del client](/reference/react-dom/client) - Le API `react-dom/client` ti consentono di renderizzare i componenti React sul client (nel browser).
 * [API del server](/reference/react-dom/server) - Le API `react-dom/server` ti consentono di renderizzare i componenti React in HTML sul server.
+* [API statici](/reference/react-dom/static) - Le API `react-dom/static` ti consentono di generare HTML statico per i componenti React.
 
 ## React Compiler {/*react-compiler*/}
 

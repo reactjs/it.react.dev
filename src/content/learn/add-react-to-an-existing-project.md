@@ -20,7 +20,7 @@ Supponiamo tu abbia una web app esistente a `example.com` costruita con un'altra
 
 Ecco come ti consigliamo di impostarla:
 
-1. **Crea la parte React della tua app** utilizzando uno dei [framework basati su React](/learn/start-a-new-react-project).
+1. **Crea la parte React della tua app** utilizzando uno dei [framework basati su React](/learn/creating-a-react-app).
 2. **Specifica `/some-app` come *percorso di base*** nella configurazione del tuo framework (ecco come: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configura il tuo server o un proxy** in modo che tutte le richieste in `/some-app/` siano gestite dalla tua app React.
 
@@ -149,7 +149,7 @@ root.render(<NavigationBar />);
 
 Nota come il contenuto HTML originale di `index.html` sia stato preservato, ma il tuo componente React `NavigationBar` ora appare all'interno del `<nav id="navigation">` del tuo HTML. Leggi la documentazione sull'[uso di `createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) per saperne di più sul rendering di componenti React all'interno di una pagina HTML esistente.
 
-Quando adotti React in un progetto esistente, è comune iniziare con piccoli componenti interattivi (come i pulsanti), e poi gradualmente continuare a "salire" fino a quando alla fine l'intera pagina è costruita con React. Se raggiungi mai quel punto, ti consigliamo di migrare verso [un framework React](/learn/start-a-new-react-project) subito dopo per ottenere il massimo da React.
+Quando adotti React in un progetto esistente, è comune iniziare con piccoli componenti interattivi (come i pulsanti), e poi gradualmente continuare a "salire" fino a quando alla fine l'intera pagina è costruita con React. Se raggiungi mai quel punto, ti consigliamo di migrare verso [un framework React](/learn/creating-a-react-app) subito dopo per ottenere il massimo da React.
 
 ## Utilizzare React Native in un'app mobile nativa esistente {/*using-react-native-in-an-existing-native-mobile-app*/}
 

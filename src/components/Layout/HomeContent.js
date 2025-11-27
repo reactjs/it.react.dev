@@ -253,7 +253,7 @@ export function HomeContent() {
               ma non prescrive come fare routing e data fetching. Per costruire
               un&apos;applicazione intera con React, ti consigliamo un framework
               full-stack come <Link href="https://nextjs.org">Next.js</Link> o{' '}
-              <Link href="https://remix.run">Remix</Link>.
+              <Link href="https://reactrouter.com">React Router</Link>.
             </Para>
           </Center>
           <FullBleed>
@@ -271,7 +271,7 @@ export function HomeContent() {
               <CTA
                 color="gray"
                 icon="framework"
-                href="/learn/start-a-new-react-project">
+                href="/learn/creating-a-react-app">
                 Inizia con un framework
               </CTA>
             </div>
