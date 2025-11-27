@@ -55,8 +55,9 @@ Questo esempio conserva un oggetto nello state per rappresentare la posizione at
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -127,6 +128,7 @@ Nota come il punto rosso ora segue il tuo puntatore quando tocchi o muovi il mou
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -197,7 +199,7 @@ setPosition({
 
 Mutare è un problema solo quando modifichi oggetti *esistenti* che sono già nello state. Mutare un oggetto che hai appena creato va bene perché *nessun altro codice lo utilizza ancora.* Modificarlo non impatterà accidentalmente qualcosa che dipende da esso. Questa si definisce come "mutazione locale". Puoi persino mutare localmente [durante la renderizzazione.](/learn/keeping-components-pure#local-mutation-your-components-little-secret) Molto comodo e perfettamente valido!
 
-</DeepDive>  
+</DeepDive>
 
 ## Copiare gli oggetti con la sintassi di spread {/*copying-objects-with-the-spread-syntax*/}
 
@@ -207,7 +209,7 @@ Questi input non funzionano perché gli handler degli `onChange` mutano lo state
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11, 15, 19]}}
 import { useState } from 'react';
 
 export default function Form() {
@@ -577,8 +579,8 @@ export default function Form() {
         <br />
         (located in {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
@@ -648,7 +650,7 @@ let obj3 = {
 
 Se dovessi mutare `obj3.artwork.city`, questo impatterebbe sia `obj2.artwork.city` che `obj1.city`. Questo perché `obj3.artwork`, `obj2.artwork` e `obj1` sono lo stesso oggetto. Questo è difficile da capire quando pensi agli oggetti come "nidificati". Invece, sono oggetti separati che si "puntano" a vicenda tramite le proprietà.
 
-</DeepDive>  
+</DeepDive>
 
 ### Scrivi logica di aggiornamento concisa con Immer {/*write-concise-update-logic-with-immer*/}
 
@@ -753,8 +755,8 @@ export default function Form() {
         <br />
         (located in {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
@@ -830,7 +832,7 @@ Il tuo compito è correggere tutti questi bug. Mentre lo fai, cerca di spiegare 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
 
 export default function Scoreboard() {
@@ -986,7 +988,7 @@ Se accade qualcosa d'inaspettato, c'è una mutazione. Trova la mutazione in `App
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [17]}} src/App.js
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1291,7 +1293,7 @@ Questo è lo stesso esempio difettoso della sfida precedente. Questa volta, corr
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [18]}} src/App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import Background from './Background.js';

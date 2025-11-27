@@ -26,7 +26,7 @@ Ci sono due casi comuni in cui non hai bisogno di usare un Effetto:
 * **Non hai bisogno di un Effetto per trasformare dati da renderizzare.** Per esempio, diciamo che vuoi filtrare una lista prima di mostrarla. Potresti essere tentato di scrivere un Effetto che aggiorna una variabile di state quando la lista cambia. Questo tuttavia è inefficiente. Quando aggiorni lo stato, React chiama prima la funzione del tuo componente per calcolare cosa mostrare su schermo. Poi React esegue il ["commit"](/learn/render-and-commit) dei cambiamenti sul DOM, aggiornando lo schermo. Poi React eseguirà gli effetti. Se *anche* il tuo Effetto aggiorna immediatamente lo stato, l'intero processo ricomincia da zero! Per evitare i passaggi di rendering inutili, trasforma tutti i tuoi dati all'inizio del tuo componente. Il codice che aggiungi li automaticamente esegue ogni volta che props o state cambiano.
 * **Non hai bisogno di un Effetto per gestire eventi provienienti dall'utente.** Per esempio, diciamo che vuoi inviare una richiesta POST sull'endpoint `/api/buy` e mostrare una notifica quando l'utente compra un prodotto. Nell'event handler 'on click' del pulsante di acquisto, sai con precisione cosa è successo. Quando viene eseguito un Effetto invece, non sai *cosa* ha fatto l'utente (per esempio, quale pulsante ha cliccato). Ecco perché generalmente vuoi gestire gli eventi provenienti dall'utente nei rispettivi event handlers.
 
-*Hai bisogno* di un Effetto per [sincronizzarti](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemi esterni. Per esempio, Puoi scrivere un Effetto che mantiene un widget scritto in jQuery sincronizzato con lo state di React. Puoi anche recuperare dati con un Effetto: per esempio, puoi sincronizzare i risultati di una ricerca con la query di ricerca corrente. Tieni a mente che i [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) moderni offrono meccanismi di recupero di dati più efficienti rispetto a scrivere effetti direttamente nei tuoi componenti.
+*Hai bisogno* di un Effetto per [sincronizzarti](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemi esterni. Per esempio, Puoi scrivere un Effetto che mantiene un widget scritto in jQuery sincronizzato con lo state di React. Puoi anche recuperare dati con un Effetto: per esempio, puoi sincronizzare i risultati di una ricerca con la query di ricerca corrente. Tieni a mente che i [framework](/learn/start-a-new-react-project#full-stack-frameworks) moderni offrono meccanismi di recupero di dati più efficienti rispetto a scrivere effetti direttamente nei tuoi componenti.
 
 Per aiutarti ad ottenere la giusta intuizione, vediamo alcuni esempi concreti più comuni!
 
@@ -34,7 +34,7 @@ Per aiutarti ad ottenere la giusta intuizione, vediamo alcuni esempi concreti pi
 
 Supponiamo tu abbia un componente con due variabili di state: `firstName` e `lastName`. Vuoi calcolare `fullName` concatenandoli. Più che altro, vorresti che `fullName` si aggiornasse ogni volta che `firstName` o `lastName` cambiano. Il tuo primo istinto potrebbe essere quello di aggiungere `fullName` come variabile di state e modificarla in un Effetto:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -66,7 +66,7 @@ function Form() {
 
 Questo componente computa `visibleTodos` prendendo i `todos` ricevuto dalle props e filtrandoli a seconda del valore della prop `filter`. Potresti essere tentato di salvare il risultato nello state ed aggiornarlo con un Effetto:
 
-```js {4-8}
+```js {expectedErrors: {'react-compiler': [7]}} {4-8}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
@@ -98,6 +98,12 @@ Puoi inserire in cache (o ["memoizzare"](https://en.wikipedia.org/wiki/Memoizati
 <Note>
 
 [React Compiler](/learn/react-compiler) può memorizzare i calcoli dispendiosi automaticamente, rendendo `useMemo` non più necessario nella maggior parte dei casi.
+
+</Note>
+
+<Note>
+
+[React Compiler](/learn/react-compiler) can automatically memoize expensive calculations for you, eliminating the need for manual `useMemo` in many cases.
 
 </Note>
 
@@ -165,7 +171,7 @@ Nota bene che misurare le prestazioni in sviluppo non ti darà i risultati più 
 
 Questo componente `ProfilePage` riceve una prop chiamata `userId`. La pagina contiene un input per i commenti, e usi una variabile di state `comment` per memorizzare il suo valore. Un giorno, ti accorgi di un problema: nella navigazione tra un profilo e l'altro, lo state `comment` non viene ripristinato. Il risultato, è che è facile commentare accidentalmente sul profilo sbagliato. Per risolvere il problema, vuoi ripulire la variabile di state `comment` ogni volta che `userId` cambia:
 
-```js {4-7}
+```js {expectedErrors: {'react-compiler': [6]}} {4-7}
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
@@ -207,7 +213,7 @@ A volte, potresti volere ripristinare o regolare una parte dello state al cambio
 
 Questo componente `List` riceve una lista `items` come prop, e mantiene l'elemento selezionato nella variabile di state `selection`. Potresti volere ripristinare `selection` a `null` ogni volta che la prop `items` riceve un array differente:
 
-```js {5-8}
+```js {expectedErrors: {'react-compiler': [7]}} {5-8}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
@@ -756,7 +762,7 @@ Questo assicura che quando il tuo Effetto recupera i dati, vengono ignorate tutt
 
 Gestire race conditions non è l'unica difficoltà quando si implementa il recupero dei dati. Potresti anche voler pensare di implementare il caching per le risposte (così che l'utente possa cliccare Indietro e vedere lo schermo precedente istantaneamente), come recuperare i dati nel server (così che il primo HTML renderizzato dal server contenga il contenuto già recuperato invece che uno spinner), e come evitare il waterfall della rete (così che un componente figlio possa recuperare i dati senza dover aspettare ogni componente padre).
 
-**Questi problemi si riscontrano in tutte le librerie UI, non solo React. Risolverli non è semplice, per questo i [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) moderni offrono metodi più efficienti per recuperare i dati invece di usare gli Effetti.**
+**Questi problemi si riscontrano in tutte le librerie UI, non solo React. Risolverli non è semplice, per questo i [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) moderni offrono metodi più efficienti per recuperare i dati invece di usare gli Effetti.**
 
 Se non usi un framework (e non ne vuoi creare uno) ma vorresti rendere il recupero di dati dagli Effetti più ergonomico, considera di estrarre la logica di recupero all'interno di un Hook personalizzato come in questo esempio:
 
@@ -818,7 +824,7 @@ Semplifica questo componente rimuovendo tutti gli state e gli Effetti non necess
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [12, 16, 20]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo } from './todos.js';
 
@@ -1021,7 +1027,7 @@ Una soluzione è aggiungere una chiamata `useMemo` per memorizzare le cose da fa
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo, getVisibleTodos } from './todos.js';
 
@@ -1362,7 +1368,7 @@ export default function ContactList({
 }
 ```
 
-```js src/EditContact.js active
+```js {expectedErrors: {'react-compiler': [8, 9]}} src/EditContact.js active
 import { useState, useEffect } from 'react';
 
 export default function EditContact({ savedContact, onSave }) {

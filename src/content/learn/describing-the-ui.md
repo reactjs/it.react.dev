@@ -326,7 +326,7 @@ In questo esempio, l'operatore `&&` di JavaScript viene utilizzato per renderizz
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
@@ -473,7 +473,7 @@ Scrivendo strettamente i tuoi componenti solo come funzioni pure, puoi evitare u
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {

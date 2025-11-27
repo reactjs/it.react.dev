@@ -268,8 +268,8 @@ Adesso eseguiamo la nostra strategia per essi:
 1. **Identifica i componenti che usano lo state:**
     * `ProductTable` ha bisogno di filtrare la lista dei prodotti in base a quei valori di state (testo di ricerca e valore della checkbox).
     * `SearchBar` ha bisogno di mostrare lo state (testo di ricerca e valore della checkbox).
-1. **Trova il loro genitore comune:** Il primo componente genitore che entrambi i componenti condividono è `FilterableProductTable`.
-2. **Decidi dove vive lo state**: Terremo i valori dello state del testo del filtro e della checkbox in `FilterableProductTable`.
+2. **Trova il loro genitore comune:** Il primo componente genitore che entrambi i componenti condividono è `FilterableProductTable`.
+3. **Decidi dove vive lo state**: Terremo i valori dello state del testo del filtro e della checkbox in `FilterableProductTable`.
 
 Quindi i valori di state vivranno in `FilterableProductTable`.
 
@@ -278,17 +278,17 @@ Aggiungi lo state al componente con l'[Hook `useState()`.](/reference/react/useS
 ```js
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);  
+  const [inStockOnly, setInStockOnly] = useState(false);
 ```
 
 Poi, passa `filterText` e `inStockOnly` a `ProductTable` e `SearchBar` come props:
 
 ```js
 <div>
-  <SearchBar 
-    filterText={filterText} 
+  <SearchBar
+    filterText={filterText}
     inStockOnly={inStockOnly} />
-  <ProductTable 
+  <ProductTable
     products={products}
     filterText={filterText}
     inStockOnly={inStockOnly} />
@@ -308,10 +308,10 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly} />
-      <ProductTable 
+      <ProductTable
         products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
@@ -389,13 +389,13 @@ function ProductTable({ products, filterText, inStockOnly }) {
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
       <label>
-        <input 
-          type="checkbox" 
+        <input
+          type="checkbox"
           checked={inStockOnly} />
         {' '}
         Only show products in stock
@@ -451,9 +451,9 @@ Nel sandbox sopra, `ProductTable` e `SearchBar` leggono le props `filterText` e 
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
 ```
 
@@ -474,8 +474,8 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
@@ -518,13 +518,13 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
+      <SearchBar
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <ProductTable
+        products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
@@ -606,14 +606,14 @@ function SearchBar({
 }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} placeholder="Search..." 
+      <input
+        type="text"
+        value={filterText} placeholder="Search..."
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
+        <input
+          type="checkbox"
+          checked={inStockOnly}
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
         Only show products in stock

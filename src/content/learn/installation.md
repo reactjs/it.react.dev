@@ -8,15 +8,6 @@ React è stato progettato sin dal principio per essere adottato gradualmente. A 
 
 </Intro>
 
-<YouWillLearn isChapter={true}>
-
-* [Come avviare un nuovo progetto React](/learn/start-a-new-react-project)
-* [Come aggiungere React ad un progetto esistente](/learn/add-react-to-an-existing-project)
-* [Come configurare il tuo editor](/learn/editor-setup)
-* [Come installare i React Developer Tools](/learn/react-developer-tools)
-
-</YouWillLearn>
-
 ## Prova React {/*try-react*/}
 
 Non devi installare nulla se vuoi divertirti con React. Prova a modificare questa sandbox!
@@ -37,16 +28,30 @@ export default function App() {
 
 Puoi modificarla direttamente o aprirla in un nuovo tab premendo il bottone "Fork" nell'angolo in alto a destra.
 
-La maggioranza delle pagine della documentazione di React contengono sandboxes come questa. Al di fuori della documentazione, esistono alcune sandboxes online che supportano React: ad esempio, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), o [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
+La maggioranza delle pagine della documentazione di React contengono sandboxes come questa. Al di fuori della documentazione, esistono alcune sandboxes online che supportano React: ad esempio, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), o [CodePen.](https://codepen.io/pen?template=QWYVwWN)
 
-### Prova React localmente {/*try-react-locally*/}
+Per provare React localmente sul tuo computer, [scarica questa pagina HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Aprila nel tuo editor e nel tuo browser!
 
-Per provare React localmente sul suo computer, [scarica questa pagina HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Aprila nel tuo editor e nel tuo browser!
+## Creare un'App React {/*creating-a-react-app*/}
 
-## Inizia un nuovo progetto React {/*start-a-new-react-project*/}
+Se vuoi iniziare una nuova app React, puoi [creare un'app React](/learn/creating-a-react-app) utilizzando un framework consigliato.
 
-Se desideri creare un'app o un sito web completamente con React, [inizia un nuovo progetto React.](/learn/start-a-new-react-project)
+## Costruire un'App React da zero {/*build-a-react-app-from-scratch*/}
+
+Se un framework non è adatto al tuo progetto, preferisci costruire il tuo framework, o vuoi semplicemente imparare le basi di un'app React puoi [costruire un'app React da zero](/learn/build-a-react-app-from-scratch).
 
 ## Aggiungi React ad un progetto esistente {/*add-react-to-an-existing-project*/}
 
-Se desideri provare ad utilizzare React nella tua app o in un sito web esistente, [aggiungi React ad un progetto esistente.](/learn/add-react-to-an-existing-project)
+Se vuoi provare ad utilizzare React nella tua app esistente o in un sito web, puoi [aggiungere React a un progetto esistente.](/learn/add-react-to-an-existing-project)
+
+<Note>
+
+#### Dovrei usare Create React App? {/*should-i-use-create-react-app*/}
+
+No. Create React App è stato deprecato. Per maggiori informazioni, consulta [Il sunsetting di Create React App](/blog/2025/02/14/sunsetting-create-react-app).
+
+</Note>
+
+## Prossimi passi {/*next-steps*/}
+
+Vai alla guida [Quick Start](/learn) per un tour dei più importanti concetti di React che incontrerai ogni giorno.
