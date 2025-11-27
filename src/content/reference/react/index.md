@@ -21,24 +21,14 @@ Funzionalità React programmatiche:
 
 ## React DOM {/*react-dom*/}
 
-<<<<<<< HEAD
-React-dom contiene funzionalità supportate solo per le applicazioni web (che vengono eseguite nell'ambiente DOM del browser). Questa sezione è suddivisa come segue:
+React DOM contiene funzionalità supportate solo per le applicazioni web (che vengono eseguite nell'ambiente DOM del browser). Questa sezione è suddivisa come segue:
 
 * [Hooks](/reference/react-dom/hooks) - Hooks per le applicazioni web che vengono eseguite nell'ambiente DOM del browser.
 * [Componenti](/reference/react-dom/components) - React supporta tutti i componenti HTML e SVG integrati nel browser.
 * [API](/reference/react-dom) - Il pacchetto `react-dom` contiene metodi supportati solo nelle applicazioni web.
 * [API del client](/reference/react-dom/client) - Le API `react-dom/client` ti consentono di renderizzare i componenti React sul client (nel browser).
 * [API del server](/reference/react-dom/server) - Le API `react-dom/server` ti consentono di renderizzare i componenti React in HTML sul server.
-=======
-React DOM contains features that are only supported for web applications (which run in the browser DOM environment). This section is broken into the following:
-
-* [Hooks](/reference/react-dom/hooks) - Hooks for web applications which run in the browser DOM environment.
-* [Components](/reference/react-dom/components) - React supports all of the browser built-in HTML and SVG components.
-* [APIs](/reference/react-dom) - The `react-dom` package contains methods supported only in web applications.
-* [Client APIs](/reference/react-dom/client) - The `react-dom/client` APIs let you render React components on the client (in the browser).
-* [Server APIs](/reference/react-dom/server) - The `react-dom/server` APIs let you render React components to HTML on the server.
-* [Static APIs](/reference/react-dom/static) - The `react-dom/static` APIs let you generate static HTML for React components.
->>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
+* [API statici](/reference/react-dom/static) - Le API `react-dom/static` ti consentono di generare HTML statico per i componenti React.
 
 ## React Compiler {/*react-compiler*/}
 
