@@ -1,45 +1,45 @@
 ---
-title: 'You Might Not Need an Effect'
+title: 'Potresti non avere bisogno di un Effetto'
 ---
 
 <Intro>
 
-Effects are an escape hatch from the React paradigm. They let you "step outside" of React and synchronize your components with some external system like a non-React widget, network, or the browser DOM. If there is no external system involved (for example, if you want to update a component's state when some props or state change), you shouldn't need an Effect. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.
+Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "uscire fuori" da React sincronizzando i componenti con sistemi esterni come widget non-React, la rete, o il DOM del browser. Se non ci sono sistemi esterni coinvolti (per esempio, se vuoi aggiornare lo state di un componente a seguito di un cambiamento nelle props o nello state), non dovresti avere bisogno di un Effetto. Rimuovere effetti inutili ti permette di scrivere codice più semplice da capire, più veloce ad eseguire, e meno soggetto ad errori. 
 
 </Intro>
 
 <YouWillLearn>
 
-* Why and how to remove unnecessary Effects from your components
-* How to cache expensive computations without Effects
-* How to reset and adjust component state without Effects
-* How to share logic between event handlers
-* Which logic should be moved to event handlers
-* How to notify parent components about changes
+* Come rimuovere effetti inutili dai tuoi componenti e perché
+* Come memorizzare computazioni costose nella cache senza usare effetti
+* Come ripristinare e modificare lo state dei componenti senza usare effetti
+* Come condividere logica tra event handlers
+* Quale logica dovrebbe essere spostata negli event handlers
+* Come notificare i componenti padre di un avvenuto cambiamento.
 
 </YouWillLearn>
 
-## How to remove unnecessary Effects {/*how-to-remove-unnecessary-effects*/}
+## Come rimuovere Effetti inutili {/*how-to-remove-unnecessary-effects*/}
 
-There are two common cases in which you don't need Effects:
+Ci sono due casi comuni in cui non hai bisogno di usare un Effetto:
 
-* **You don't need Effects to transform data for rendering.** For example, let's say you want to filter a list before displaying it. You might feel tempted to write an Effect that updates a state variable when the list changes. However, this is inefficient. When you update the state, React will first call your component functions to calculate what should be on the screen. Then React will ["commit"](/learn/render-and-commit) these changes to the DOM, updating the screen. Then React will run your Effects. If your Effect *also* immediately updates the state, this restarts the whole process from scratch! To avoid the unnecessary render passes, transform all the data at the top level of your components. That code will automatically re-run whenever your props or state change.
-* **You don't need Effects to handle user events.** For example, let's say you want to send an `/api/buy` POST request and show a notification when the user buys a product. In the Buy button click event handler, you know exactly what happened. By the time an Effect runs, you don't know *what* the user did (for example, which button was clicked). This is why you'll usually handle user events in the corresponding event handlers.
+* **Non hai bisogno di un Effetto per trasformare dati da renderizzare.** Per esempio, diciamo che vuoi filtrare una lista prima di mostrarla. Potresti essere tentato di scrivere un Effetto che aggiorna una variabile di state quando la lista cambia. Questo tuttavia è inefficiente. Quando aggiorni lo stato, React chiama prima la funzione del tuo componente per calcolare cosa mostrare su schermo. Poi React esegue il ["commit"](/learn/render-and-commit) dei cambiamenti sul DOM, aggiornando lo schermo. Poi React eseguirà gli effetti. Se *anche* il tuo Effetto aggiorna immediatamente lo stato, l'intero processo ricomincia da zero! Per evitare i passaggi di rendering inutili, trasforma tutti i tuoi dati all'inizio del tuo componente. Il codice che aggiungi li automaticamente esegue ogni volta che props o state cambiano.
+* **Non hai bisogno di un Effetto per gestire eventi provienienti dall'utente.** Per esempio, diciamo che vuoi inviare una richiesta POST sull'endpoint `/api/buy` e mostrare una notifica quando l'utente compra un prodotto. Nell'event handler 'on click' del pulsante di acquisto, sai con precisione cosa è successo. Quando viene eseguito un Effetto invece, non sai *cosa* ha fatto l'utente (per esempio, quale pulsante ha cliccato). Ecco perché generalmente vuoi gestire gli eventi provenienti dall'utente nei rispettivi event handlers.
 
-You *do* need Effects to [synchronize](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) with external systems. For example, you can write an Effect that keeps a jQuery widget synchronized with the React state. You can also fetch data with Effects: for example, you can synchronize the search results with the current search query. Keep in mind that modern [frameworks](/learn/creating-a-react-app#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than writing Effects directly in your components.
+*Hai bisogno* di un Effetto per [sincronizzarti](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) con sistemi esterni. Per esempio, Puoi scrivere un Effetto che mantiene un widget scritto in jQuery sincronizzato con lo state di React. Puoi anche recuperare dati con un Effetto: per esempio, puoi sincronizzare i risultati di una ricerca con la query di ricerca corrente. Tieni a mente che i [framework](/learn/start-a-new-react-project#full-stack-frameworks) moderni offrono meccanismi di recupero di dati più efficienti rispetto a scrivere effetti direttamente nei tuoi componenti.
 
-To help you gain the right intuition, let's look at some common concrete examples!
+Per aiutarti ad ottenere la giusta intuizione, vediamo alcuni esempi concreti più comuni!
 
-### Updating state based on props or state {/*updating-state-based-on-props-or-state*/}
+### Aggiornamento di state basato su props e state {/*updating-state-based-on-props-or-state*/}
 
-Suppose you have a component with two state variables: `firstName` and `lastName`. You want to calculate a `fullName` from them by concatenating them. Moreover, you'd like `fullName` to update whenever `firstName` or `lastName` change. Your first instinct might be to add a `fullName` state variable and update it in an Effect:
+Supponiamo tu abbia un componente con due variabili di state: `firstName` e `lastName`. Vuoi calcolare `fullName` concatenandoli. Più che altro, vorresti che `fullName` si aggiornasse ogni volta che `firstName` o `lastName` cambiano. Il tuo primo istinto potrebbe essere quello di aggiungere `fullName` come variabile di state e modificarla in un Effetto:
 
 ```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
 
-  // 🔴 Avoid: redundant state and unnecessary Effect
+  // 🔴 Da evitare: lo state è ridondante e l'Effetto non è necessario
   const [fullName, setFullName] = useState('');
   useEffect(() => {
     setFullName(firstName + ' ' + lastName);
@@ -48,29 +48,29 @@ function Form() {
 }
 ```
 
-This is more complicated than necessary. It is inefficient too: it does an entire render pass with a stale value for `fullName`, then immediately re-renders with the updated value. Remove the state variable and the Effect:
+È più complicato del necessario. È anche inefficiente: fa un intero passaggio di rendering con un valore di `fullName` non aggiornato, poi immediatamente ri-renderizza con il valore corrente. Rimuovi la variabile di state e l'Effetto:
 
 ```js {4-5}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
-  // ✅ Good: calculated during rendering
+  // ✅ Buono: calcolato durante il rendering
   const fullName = firstName + ' ' + lastName;
   // ...
 }
 ```
 
-**When something can be calculated from the existing props or state, [don't put it in state.](/learn/choosing-the-state-structure#avoid-redundant-state) Instead, calculate it during rendering.** This makes your code faster (you avoid the extra "cascading" updates), simpler (you remove some code), and less error-prone (you avoid bugs caused by different state variables getting out of sync with each other). If this approach feels new to you, [Pensare in React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explains what should go into state.
+**Quando qualcosa può essere calcolato a partire da props e state, [non inserirla nello state.](/learn/choosing-the-state-structure#avoid-redundant-state) Invece, calcolala durante il rendering.** Questo rende il tuo codice più veloce (eviti l'extra update "a cascata"), più semplice (rimuovi codice), e meno soggetto ad errore (eviti bug dovuti a variabili di state diverse che si desincronizzano tra loro). Se questo approccio ti sembra nuovo, [Pensare in React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) spiega che cosa dovrebbe andare nello state.
 
-### Caching expensive calculations {/*caching-expensive-calculations*/}
+### Memorizzare calcoli dispendiosi {/*caching-expensive-calculations*/}
 
-This component computes `visibleTodos` by taking the `todos` it receives by props and filtering them according to the `filter` prop. You might feel tempted to store the result in state and update it from an Effect:
+Questo componente computa `visibleTodos` prendendo i `todos` ricevuto dalle props e filtrandoli a seconda del valore della prop `filter`. Potresti essere tentato di salvare il risultato nello state ed aggiornarlo con un Effetto:
 
 ```js {expectedErrors: {'react-compiler': [7]}} {4-8}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
-  // 🔴 Avoid: redundant state and unnecessary Effect
+  // 🔴 Da evitare: lo state è ridondante e l'Effetto non è necessario
   const [visibleTodos, setVisibleTodos] = useState([]);
   useEffect(() => {
     setVisibleTodos(getFilteredTodos(todos, filter));
@@ -80,20 +80,26 @@ function TodoList({ todos, filter }) {
 }
 ```
 
-Like in the earlier example, this is both unnecessary and inefficient. First, remove the state and the Effect:
+Come nell'esempio precedente, questo è sia inutile che inefficiente. Prima, rimuovi lo state e l'Effetto:
 
 ```js {3-4}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
-  // ✅ This is fine if getFilteredTodos() is not slow.
+  // ✅ Questo va bene se getFilteredTodos() non è lenta.
   const visibleTodos = getFilteredTodos(todos, filter);
   // ...
 }
 ```
 
-Usually, this code is fine! But maybe `getFilteredTodos()` is slow or you have a lot of `todos`. In that case you don't want to recalculate `getFilteredTodos()` if some unrelated state variable like `newTodo` has changed.
+Generalmente, questo codice va bene! Ma forse `getFilteredTodos()` è lenta o hai tanti `todos`. In questo caso non vuoi calcolare di nuovo `getFilteredTodos()` quando cambiano variabili di state non legate a questo aggiornamento come `newTodo`.
 
-You can cache (or ["memoize"](https://en.wikipedia.org/wiki/Memoization)) an expensive calculation by wrapping it in a [`useMemo`](/reference/react/useMemo) Hook:
+Puoi inserire in cache (o ["memoizzare"](https://en.wikipedia.org/wiki/Memoization)) un calcolo dispendioso con un Hook [`useMemo`](/reference/react/useMemo):
+
+<Note>
+
+[React Compiler](/learn/react-compiler) può memorizzare i calcoli dispendiosi automaticamente, rendendo `useMemo` non più necessario nella maggior parte dei casi.
+
+</Note>
 
 <Note>
 
@@ -107,35 +113,35 @@ import { useMemo, useState } from 'react';
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
   const visibleTodos = useMemo(() => {
-    // ✅ Does not re-run unless todos or filter change
+    // ✅ Non viene eseguita finché todos o filter non cambiano
     return getFilteredTodos(todos, filter);
   }, [todos, filter]);
   // ...
 }
 ```
 
-Or, written as a single line:
+O, scritto in una linea sola:
 
 ```js {5-6}
 import { useMemo, useState } from 'react';
 
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
-  // ✅ Does not re-run getFilteredTodos() unless todos or filter change
+  // ✅ Non viene eseguita finché todos o filter non cambiano
   const visibleTodos = useMemo(() => getFilteredTodos(todos, filter), [todos, filter]);
   // ...
 }
 ```
 
-**This tells React that you don't want the inner function to re-run unless either `todos` or `filter` have changed.** React will remember the return value of `getFilteredTodos()` during the initial render. During the next renders, it will check if `todos` or `filter` are different. If they're the same as last time, `useMemo` will return the last result it has stored. But if they are different, React will call the inner function again (and store its result).
+**Questo dice a React che non vuoi ri-eseguire la funzione interna finché `todos` o `filter` non sono cambiati.** React ricorderà il valore ritornato da `getFilteredTodos()` durante il primo render. Nei prossimi render, controllerà se `todos` o `filter` sono diversi. Se sono gli stessi del render precedente, `useMemo` ritornerà l'ultimo risultato memorizzato. Ma se sono diversi, React chiamerà la funzione interna di nuovo (e salverà il risultato).
 
-The function you wrap in [`useMemo`](/reference/react/useMemo) runs during rendering, so this only works for [pure calculations.](/learn/keeping-components-pure)
+La funzione che inserisci in [`useMemo`](/reference/react/useMemo) esegue durante il rendering, quindi può funzionare solo per [calcoli puri.](/learn/keeping-components-pure)
 
 <DeepDive>
 
-#### How to tell if a calculation is expensive? {/*how-to-tell-if-a-calculation-is-expensive*/}
+#### Come puoi sapere se un calcolo è dispendioso? {/*how-to-tell-if-a-calculation-is-expensive*/}
 
-In general, unless you're creating or looping over thousands of objects, it's probably not expensive. If you want to get more confidence, you can add a console log to measure the time spent in a piece of code:
+In generale, a meno che tu non stia creando o iterando migliaia di oggetti, probabilmente non è dispendioso. Se vuoi esserne più sicuro, puoi aggiungere un log in console per misurare il tempo trascorso ad eseguire un pezzo di codice:
 
 ```js {1,3}
 console.time('filter array');
@@ -143,33 +149,33 @@ const visibleTodos = getFilteredTodos(todos, filter);
 console.timeEnd('filter array');
 ```
 
-Perform the interaction you're measuring (for example, typing into the input). You will then see logs like `filter array: 0.15ms` in your console. If the overall logged time adds up to a significant amount (say, `1ms` or more), it might make sense to memoize that calculation. As an experiment, you can then wrap the calculation in `useMemo` to verify whether the total logged time has decreased for that interaction or not:
+Esegui l'interazione per cui stai misurando il tempo (per esempio, scrivere in un input). Vedrai log come `filter array: 0.15ms` in console. Se il tempo totale raggiunge una quantità significante (per esempio, `1ms` o più), potrebbe avere senso memoizzare quel calcolo. Come esperimento, puoi usare `useMemo` per verificare se il tempo totale misurato si è ridotto per quell'interazione o no:
 
 ```js
 console.time('filter array');
 const visibleTodos = useMemo(() => {
-  return getFilteredTodos(todos, filter); // Skipped if todos and filter haven't changed
+  return getFilteredTodos(todos, filter); // Non esegue se todos e filter non sono cambiati
 }, [todos, filter]);
 console.timeEnd('filter array');
 ```
 
-`useMemo` won't make the *first* render faster. It only helps you skip unnecessary work on updates.
+`useMemo` non renderà il *primo* render più veloce. Ti aiuta soltanto a evitare lavoro e aggiornamenti inutili.
 
-Keep in mind that your machine is probably faster than your users' so it's a good idea to test the performance with an artificial slowdown. For example, Chrome offers a [CPU Throttling](https://developer.chrome.com/blog/new-in-devtools-61/#throttling) option for this.
+Tieni a mente che la tua macchina probabilmente è più veloce di quella dei tuoi utenti, quindi è una buona idea testare le prestazioni con un rallentamento artificiale. Per esempio, Chrome offre una opzione di [CPU Throttling](https://developer.chrome.com/blog/new-in-devtools-61/#throttling) per farlo.
 
-Also note that measuring performance in development will not give you the most accurate results. (For example, when [Strict Mode](/reference/react/StrictMode) is on, you will see each component render twice rather than once.) To get the most accurate timings, build your app for production and test it on a device like your users have.
+Nota bene che misurare le prestazioni in sviluppo non ti darà i risultati più accurati. (Per esempio, quando [Strict Mode](/reference/react/StrictMode) è attiva, vedrai ogni componente renderizzare due volte invece che una.) Per avere le migliori misure in termini di tempo, esegui il build della tua app in produzione e testala su un dispositivo simile a quello che hanno i tuoi utenti.
 
 </DeepDive>
 
-### Resetting all state when a prop changes {/*resetting-all-state-when-a-prop-changes*/}
+### Ripristinare lo state quando una prop cambia {/*resetting-all-state-when-a-prop-changes*/}
 
-This `ProfilePage` component receives a `userId` prop. The page contains a comment input, and you use a `comment` state variable to hold its value. One day, you notice a problem: when you navigate from one profile to another, the `comment` state does not get reset. As a result, it's easy to accidentally post a comment on a wrong user's profile. To fix the issue, you want to clear out the `comment` state variable whenever the `userId` changes:
+Questo componente `ProfilePage` riceve una prop chiamata `userId`. La pagina contiene un input per i commenti, e usi una variabile di state `comment` per memorizzare il suo valore. Un giorno, ti accorgi di un problema: nella navigazione tra un profilo e l'altro, lo state `comment` non viene ripristinato. Il risultato, è che è facile commentare accidentalmente sul profilo sbagliato. Per risolvere il problema, vuoi ripulire la variabile di state `comment` ogni volta che `userId` cambia:
 
 ```js {expectedErrors: {'react-compiler': [6]}} {4-7}
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
-  // 🔴 Avoid: Resetting state on prop change in an Effect
+  // 🔴 Da evitare: Ripristino dello state quando una prop cambia in un Effetto
   useEffect(() => {
     setComment('');
   }, [userId]);
@@ -177,9 +183,9 @@ export default function ProfilePage({ userId }) {
 }
 ```
 
-This is inefficient because `ProfilePage` and its children will first render with the stale value, and then render again. It is also complicated because you'd need to do this in *every* component that has some state inside `ProfilePage`. For example, if the comment UI is nested, you'd want to clear out nested comment state too.
+Questo è inefficiente perché `ProfilePage` e i suoi figli inizialmente renderizzeranno con lo stato vecchio, per poi renderizzare di nuovo. È anche complicato perché dovrai farlo in *ogni* componente che ha dello state all'interno di `ProfilePage`. Per esempio, se la UI per i commenti è innestata, hai bisogno di resettare anche lo state innestato dei commenti.
 
-Instead, you can tell React that each user's profile is conceptually a _different_ profile by giving it an explicit key. Split your component in two and pass a `key` attribute from the outer component to the inner one:
+Invece, puoi dire a React che ogni profilo utente è concettualmente un profilo _diverso_ assegnandogli una chiave specifica. Dividi il tuo componente in due e passa un attributo `key` dal componente esterno:
 
 ```js {5,11-12}
 export default function ProfilePage({ userId }) {
@@ -192,28 +198,27 @@ export default function ProfilePage({ userId }) {
 }
 
 function Profile({ userId }) {
-  // ✅ This and any other state below will reset on key change automatically
-  const [comment, setComment] = useState('');
+  // ✅ Questo e qualsiasi altro state più in fondo si ripristineranno automaticamente quando la key cambia  const [comment, setComment] = useState('');
   // ...
 }
 ```
 
-Normally, React preserves the state when the same component is rendered in the same spot. **By passing `userId` as a `key` to the `Profile` component, you're asking React to treat two `Profile` components with different `userId` as two different components that should not share any state.** Whenever the key (which you've set to `userId`) changes, React will recreate the DOM and [reset the state](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) of the `Profile` component and all of its children. Now the `comment` field will clear out automatically when navigating between profiles.
+Normalmente, React preserva lo state quando lo stesso componente è renderizzato nella stessa posizione. **Passando `userId` come `key` al componente `Profile`, stai chiedendo a React di trattare i due componenti `Profile` con diverso `userId` come se fossero due componenti diversi che non devono condividere alcuno state.** Ogni volta che key (ora valorizzata come `userId`) cambia, React creerà di nuovo il DOM e [ripristinerà lo state](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) del componente `Profile` e di tutti i suoi figli. Adesso il campo `comment` verrà pulito automaticamente navigando tra profili differenti.
 
-Note that in this example, only the outer `ProfilePage` component is exported and visible to other files in the project. Components rendering `ProfilePage` don't need to pass the key to it: they pass `userId` as a regular prop. The fact `ProfilePage` passes it as a `key` to the inner `Profile` component is an implementation detail.
+Nota che in questo esempio, solo il componente più esterno `ProfilePage` è esportato e visibile da altri files nello stesso progetto. I componenti che renderizzano `ProfilePage` non devono passargli a loro volta una key: loro passano `userId` come una normale prop. Il fatto che `ProfilePage` lo passa come `key` al componente interno `Profile` è un dettaglio implementativo.
 
-### Adjusting some state when a prop changes {/*adjusting-some-state-when-a-prop-changes*/}
+### Modificare uno state quando una prop cambia {/*adjusting-some-state-when-a-prop-changes*/}
 
-Sometimes, you might want to reset or adjust a part of the state on a prop change, but not all of it.
+A volte, potresti volere ripristinare o regolare una parte dello state al cambio di una prop, ma non tutto quanto.
 
-This `List` component receives a list of `items` as a prop, and maintains the selected item in the `selection` state variable. You want to reset the `selection` to `null` whenever the `items` prop receives a different array:
+Questo componente `List` riceve una lista `items` come prop, e mantiene l'elemento selezionato nella variabile di state `selection`. Potresti volere ripristinare `selection` a `null` ogni volta che la prop `items` riceve un array differente:
 
 ```js {expectedErrors: {'react-compiler': [7]}} {5-8}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
-  // 🔴 Avoid: Adjusting state on prop change in an Effect
+  // 🔴 Evita: Regolare lo state quando una prop cambia in un Effetto
   useEffect(() => {
     setSelection(null);
   }, [items]);
@@ -221,16 +226,16 @@ function List({ items }) {
 }
 ```
 
-This, too, is not ideal. Every time the `items` change, the `List` and its child components will render with a stale `selection` value at first. Then React will update the DOM and run the Effects. Finally, the `setSelection(null)` call will cause another re-render of the `List` and its child components, restarting this whole process again.
+Anche questo non è ideale. Ogni volta che `items` cambia, l'elemento `List` e i suoi componenti figli, all'inizio renderizzeranno con il vecchio valore `selection`. Dopodiché React aggiornerà il DOM ed eseguirà gli Effetti. Infine, la funzione `setSelection(null)` causerà un altro render di `List` e dei suoi componenti figli, facendo partire di nuovo l'intero processo.
 
-Start by deleting the Effect. Instead, adjust the state directly during rendering:
+Inizia eliminando l'Effetto. Al suo posto, regola lo state direttamente durante il rendering:
 
 ```js {5-11}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
-  // Better: Adjust the state while rendering
+  // Meglio: Regola lo state durante il rendering
   const [prevItems, setPrevItems] = useState(items);
   if (items !== prevItems) {
     setPrevItems(items);
@@ -240,34 +245,34 @@ function List({ items }) {
 }
 ```
 
-[Storing information from previous renders](/reference/react/useState#storing-information-from-previous-renders) like this can be hard to understand, but it’s better than updating the same state in an Effect. In the above example, `setSelection` is called directly during a render. React will re-render the `List` *immediately* after it exits with a `return` statement. React has not rendered the `List` children or updated the DOM yet, so this lets the `List` children skip rendering the stale `selection` value.
+[Memorizzare informazioni dal render precedente](/reference/react/useState#storing-information-from-previous-renders) in quest modo può essere difficile da capire, ma è meglio rispetto ad aggiornare lo stesso state in un Effetto. Nell'esempio precedente, `setSelection` è chiamato direttamente durante il render. React renderizzerà di nuovo `List` *immediatamente* dopo esce con una dichiarazione di `return`. React non ha ancora né renderizzato i figli di `List` né aggiornato il DOM, questo fa si che i figli di `List` evitino di renderizzarsi mentre il valore di `selection` non è aggiornato.
 
-When you update a component during rendering, React throws away the returned JSX and immediately retries rendering. To avoid very slow cascading retries, React only lets you update the *same* component's state during a render. If you update another component's state during a render, you'll see an error. A condition like `items !== prevItems` is necessary to avoid loops. You may adjust state like this, but any other side effects (like changing the DOM or setting timeouts) should stay in event handlers or Effects to [keep components pure.](/learn/keeping-components-pure)
+Quando aggiorni un componente durante il rendering, React butta il JSX ritornato e tenta immediatamente un nuovo render. Per evitare lenti tentativi a cascata, React ti permette di aggiornare soltanto lo state dello *stesso* componente durante il render. Se aggiorni lo state di un altro componente durante il rendering, vedrai un errore. Una condizione come `items !== prevItems` è necessario per evitare cicli. Potresti regolare questo genere di state, ma qualsiasi altro side effect (come cambiare il DOM o impostare un timeout) dovrebbe stare negli event handlers o Effetti per [mantenere puri i componenti](/learn/keeping-components-pure)
 
-**Although this pattern is more efficient than an Effect, most components shouldn't need it either.** No matter how you do it, adjusting state based on props or other state makes your data flow more difficult to understand and debug. Always check whether you can [reset all state with a key](#resetting-all-state-when-a-prop-changes) or [calculate everything during rendering](#updating-state-based-on-props-or-state) instead. For example, instead of storing (and resetting) the selected *item*, you can store the selected *item ID:*
+**Anche se questo pattern è più efficiente rispetto all'Effetto, la maggior parte dei componenti non lo necessitano nemmeno.** Non importa in che modo lo fai, regolare lo state basandosi sulle props o altro state rende il flusso i dati più difficile da capire e debuggare. Invece di fare questo, controlla sempre se puoi [ripristinare tutto lo stato usando la key](#resetting-all-state-when-a-prop-changes) o [calcolare tutto durante il rendering](#updating-state-based-on-props-or-state). For example, instead of storing (and resetting) the selected *item*, you can store the selected *item ID:*
 
 ```js {3-5}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
-  // ✅ Best: Calculate everything during rendering
+  // ✅ Meglio: Calcola tutto durante il rendering
   const selection = items.find(item => item.id === selectedId) ?? null;
   // ...
 }
 ```
 
-Now there is no need to "adjust" the state at all. If the item with the selected ID is in the list, it remains selected. If it's not, the `selection` calculated during rendering will be `null` because no matching item was found. This behavior is different, but arguably better because most changes to `items` preserve the selection.
+Così facendo non c'è affatto bisogno di "regolare" lo stato. Se l'elemento con l'ID selezionato è in lista, rimane selezionato. Altrimenti, la `selection` calcolata durante il rendering sarà `null` perché non è stato trovato un elemento corrispondente. Questo comportamento è differente, ma probabilmente migliore perché la maggior parte dei cambiamenti su `items` preservano la selezione.
 
-### Sharing logic between event handlers {/*sharing-logic-between-event-handlers*/}
+### Condividere logica tra event handlers {/*sharing-logic-between-event-handlers*/}
 
-Let's say you have a product page with two buttons (Buy and Checkout) that both let you buy that product. You want to show a notification whenever the user puts the product in the cart. Calling `showNotification()` in both buttons' click handlers feels repetitive so you might be tempted to place this logic in an Effect:
+Diciamo di avere una pagina di prodotti con due pulsanti (Compra e Carrello) ed entrambi ti permettono di acquistare un prodotto. Vuoi mostrare una notifica ogni volta che l'utente inserisce un prodotto nel carrello. Chiamare `showNotification()` in entrambi i click handlers dei pulsanti sembra ripetitivo quindi potresti essere tentato di inserire la logica in un Effetto:
 
 ```js {2-7}
 function ProductPage({ product, addToCart }) {
-  // 🔴 Avoid: Event-specific logic inside an Effect
+  // 🔴 Evita: logica specifica di un Evento all'interno di un Effetto 
   useEffect(() => {
     if (product.isInCart) {
-      showNotification(`Added ${product.name} to the shopping cart!`);
+      showNotification(`${product.name} è stato aggiunto al carrello!`);
     }
   }, [product]);
 
@@ -283,13 +288,13 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-This Effect is unnecessary. It will also most likely cause bugs. For example, let's say that your app "remembers" the shopping cart between the page reloads. If you add a product to the cart once and refresh the page, the notification will appear again. It will keep appearing every time you refresh that product's page. This is because `product.isInCart` will already be `true` on the page load, so the Effect above will call `showNotification()`.
+Questo Effetto è inutile e causerà bugs. Per esempio, diciamo che la tua app abbia la funzionalità di "ricordare" lo stato del carrello dopo aver ricaricato la pagina. Se aggiungi un prodotto nel carrello dopo avera ricaricato la pagina, la notifica apparirà nuovamente. Continuerà ad apparire ogni volta che ricarichi la pagina dei prodotti. Questo perché `product.isInCart` è `true` quando la pagina termina il caricamento, quindi l'Effetto chiamerà `showNotification()` subito dopo il render.
 
-**When you're not sure whether some code should be in an Effect or in an event handler, ask yourself *why* this code needs to run. Use Effects only for code that should run *because* the component was displayed to the user.** In this example, the notification should appear because the user *pressed the button*, not because the page was displayed! Delete the Effect and put the shared logic into a function called from both event handlers:
+**Quando non sei sicuro se il codice dovrebbe stare in un Effetto o in un event handler, chiediti *perché* il tuo codice dovrebbe eseguire. Usa un Effetto solo per il codice che deve eseguire *perché* il componente è stato mostrato all'utente** In questo esempio, la notifica dovrebbe apparire a causa del fatto che l'utente ha *premuto il bottone*, non perché la pagina è stata mostrata! Elimina l'Effetto e inserisci la logica condivisa all'interno di una funzione chiamata da entrambi gli event handlers:
 
 ```js {2-6,9,13}
 function ProductPage({ product, addToCart }) {
-  // ✅ Good: Event-specific logic is called from event handlers
+  // ✅ Buono: La logica specifica per un evento è chiamata all'interno del suo event handler
   function buyProduct() {
     addToCart(product);
     showNotification(`Added ${product.name} to the shopping cart!`);
@@ -307,23 +312,23 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-This both removes the unnecessary Effect and fixes the bug.
+Questo rimuove l'Effetto inutile e contemporaneamente risolve il bug.
 
-### Sending a POST request {/*sending-a-post-request*/}
+### Inviare una richiesta POST {/*sending-a-post-request*/}
 
-This `Form` component sends two kinds of POST requests. It sends an analytics event when it mounts. When you fill in the form and click the Submit button, it will send a POST request to the `/api/register` endpoint:
+Questo componente `Form` invia due tipi di richieste POST. Invia un evento di analytics dopo il mounting. Quando riempi il form e clicchi sul pulsante di Submit, invia una richiesta POST sull'endpoint `/api/register`:
 
 ```js {5-8,10-16}
 function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Good: This logic should run because the component was displayed
+  // ✅ Buono: Questa logica funzionerà perché il componente è stato già mostrato  
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
 
-  // 🔴 Avoid: Event-specific logic inside an Effect
+  // 🔴 Evita: logica specifica di un evento in un Effetto.
   const [jsonToSubmit, setJsonToSubmit] = useState(null);
   useEffect(() => {
     if (jsonToSubmit !== null) {
@@ -339,36 +344,36 @@ function Form() {
 }
 ```
 
-Let's apply the same criteria as in the example before.
+Applichiamo lo stesso criterio dell'esempio precedente.
 
-The analytics POST request should remain in an Effect. This is because the _reason_ to send the analytics event is that the form was displayed. (It would fire twice in development, but [see here](/learn/synchronizing-with-effects#sending-analytics) for how to deal with that.)
+la richiesta POST di analytics dovrebbe rimanere in un Effetto. Questo perché il _motivo_ per inviare un evento di analytics è che il form viene mostrato. (Dovrebbe eseguire due volte in modalità di sviluppo, [leggi qui](/learn/synchronizing-with-effects#sending-analytics) per capire come gestirlo.)
 
-However, the `/api/register` POST request is not caused by the form being _displayed_. You only want to send the request at one specific moment in time: when the user presses the button. It should only ever happen _on that particular interaction_. Delete the second Effect and move that POST request into the event handler:
+Comunque, la richiesta POST `/api/register` non è causata dal fatto che il Form viene _mostrato_. Vuoi soltanto inviare la richiesta in un momento specifico nel tempo: quando l'utente preme il pulsante. Dovrebbe succedere _solo in quella interazione specifica_. Elimina il secondo Effetto e sposta la richiesta POST nell'event handler:
 
 ```js {12-13}
 function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Good: This logic runs because the component was displayed
+  // ✅ Buono: Questa logica funziona perché l'evento è stato mostrato
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    // ✅ Good: Event-specific logic is in the event handler
+    // ✅ Buona: La logica specifica dell'evento è nel suo event handler
     post('/api/register', { firstName, lastName });
   }
   // ...
 }
 ```
 
-When you choose whether to put some logic into an event handler or an Effect, the main question you need to answer is _what kind of logic_ it is from the user's perspective. If this logic is caused by a particular interaction, keep it in the event handler. If it's caused by the user _seeing_ the component on the screen, keep it in the Effect.
+Quando devi scegliere se inserire della logica in un event handler o in un Effetto, la domanda principale a cui devi rispondere è _che tipo di logica_ è dal punto di vista dell'utente. Se è logica causata da una interazione particolare, mantienila nel suo event handler. Se è causata dal fatto che l'utente sta _vedendo_ il componente sullo schermo, mantienila nell'Effetto.
 
-### Chains of computations {/*chains-of-computations*/}
+### Catena di computazione {/*chains-of-computations*/}
 
-Sometimes you might feel tempted to chain Effects that each adjust a piece of state based on other state:
+A volte puoi essere tentato di concatenare Effetti che modificano un pezzo di state basandosi su altro state:
 
 ```js {7-29}
 function Game() {
@@ -377,7 +382,7 @@ function Game() {
   const [round, setRound] = useState(1);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  // 🔴 Avoid: Chains of Effects that adjust the state solely to trigger each other
+  // 🔴 Evita: Catene di Effetti che modificano lo stato soltanto per scatenare altri Effetti  
   useEffect(() => {
     if (card !== null && card.gold) {
       setGoldCardCount(c => c + 1);
@@ -412,13 +417,13 @@ function Game() {
   // ...
 ```
 
-There are two problems with this code.
+Ci sono due problemi con questo codice:
 
-The first problem is that it is very inefficient: the component (and its children) have to re-render between each `set` call in the chain. In the example above, in the worst case (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render) there are three unnecessary re-renders of the tree below.
+Un problema è che è molto inefficiente: il componente (e i suoi figli) devono re-renderizzare tra ogni chiamata `set` nella catena. Nell'esempio su, nel caso peggiore (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render) ci sono tre re-renders non necessari dell'albero sottostante.
 
-The second problem is that even if it weren't slow, as your code evolves, you will run into cases where the "chain" you wrote doesn't fit the new requirements. Imagine you are adding a way to step through the history of the game moves. You'd do it by updating each state variable to a value from the past. However, setting the `card` state to a value from the past would trigger the Effect chain again and change the data you're showing. Such code is often rigid and fragile.
+Anche se non è lento, con l'evolversi del codice, andrai incontro a casi in cui la "catena" che hai scritto non soddisfa i requisiti. Immagina che stai aggiungendo un modo per muoverti attraverso lo storico dei movimenti di un gioco. Lo faresti aggiornando ogni variabile di state dal passato. Tuttavia, impostare lo state `card` da un valore passato azionerebbe la catena dell'Effetto nuovamente e cambierebbe i dati che stai mostrando. Il codice così è rigido e fragile.
 
-In this case, it's better to calculate what you can during rendering, and adjust the state in the event handler:
+In questo caso, è meglio calcolare ciò che puoi durante il rendering, e regolare lo state nell'event handler:
 
 ```js {6-7,14-26}
 function Game() {
@@ -426,7 +431,7 @@ function Game() {
   const [goldCardCount, setGoldCardCount] = useState(0);
   const [round, setRound] = useState(1);
 
-  // ✅ Calculate what you can during rendering
+  // ✅ Calcola ciò che puoi durante il rendering
   const isGameOver = round > 5;
 
   function handlePlaceCard(nextCard) {
@@ -434,7 +439,7 @@ function Game() {
       throw Error('Game already ended.');
     }
 
-    // ✅ Calculate all the next state in the event handler
+    // ✅ Calcola il prossimo state nell'event handler
     setCard(nextCard);
     if (nextCard.gold) {
       if (goldCardCount < 3) {
@@ -452,21 +457,21 @@ function Game() {
   // ...
 ```
 
-This is a lot more efficient. Also, if you implement a way to view game history, now you will be able to set each state variable to a move from the past without triggering the Effect chain that adjusts every other value. If you need to reuse logic between several event handlers, you can [extract a function](#sharing-logic-between-event-handlers) and call it from those handlers.
+Questo è molto più efficiente. Inoltre, se implementi un modo per vedere lo storico della partita, ora sei capace di muovere ogni variabile di state nel passato senza azionare la catena dovuta all'Effetto che regola ogni altro valore. Se necessiti di riutilizzare logica tra diversi event handlers, puoi [estrarre una funzione](#sharing-logic-between-event-handlers) e chiamarla al loro interno.
 
-Remember that inside event handlers, [state behaves like a snapshot.](/learn/state-as-a-snapshot) For example, even after you call `setRound(round + 1)`, the `round` variable will reflect the value at the time the user clicked the button. If you need to use the next value for calculations, define it manually like `const nextRound = round + 1`.
+Ricorda che negli event handlers, [lo state si comporta come un'istantanea.](/learn/state-as-a-snapshot) Per esempio, anche dopo aver chiamato `setRound(round + 1)`, la variabile di state `round` corrisponderà al valore che aveva quando l' utente ha cliccato sul pulsante. Se hai bisogno del prossimo valore per effettuare calcoli, definiscilo manualmente in modo simile a questo: `const nextRound = round + 1`.
 
-In some cases, you *can't* calculate the next state directly in the event handler. For example, imagine a form with multiple dropdowns where the options of the next dropdown depend on the selected value of the previous dropdown. Then, a chain of Effects is appropriate because you are synchronizing with network.
+In alcuni casi, *non puoi* calcolare il prossimo stato direttamente nell'event handler. Per esempio, immagina un form con dropdowns multiple in cui la option della prossima dropdown dipende dal valore selezionato in quella precedente. In questo caso, una catena di Effetti è appropriata perché stai sincronizzando lo state con la rete.
 
-### Initializing the application {/*initializing-the-application*/}
+### Inizializzando l'applicazione {/*initializing-the-application*/}
 
-Some logic should only run once when the app loads.
+Alcune logiche dovrebbero partire solo una volta dopo che l'app viene caricata.
 
-You might be tempted to place it in an Effect in the top-level component:
+Potresti essere tentato di inserirla in un Effetto al componente di primo livello:
 
 ```js {2-6}
 function App() {
-  // 🔴 Avoid: Effects with logic that should only ever run once
+  // 🔴 Evita: Effetti con logica che dovrebbe eseguire una volta sola
   useEffect(() => {
     loadDataFromLocalStorage();
     checkAuthToken();
@@ -475,9 +480,9 @@ function App() {
 }
 ```
 
-However, you'll quickly discover that it [runs twice in development.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) This can cause issues--for example, maybe it invalidates the authentication token because the function wasn't designed to be called twice. In general, your components should be resilient to being remounted. This includes your top-level `App` component.
+Tuttavia, scoprirai presto che [gira due volte in modalità di sviluppo.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) Questo può causare problemi--per esempio, potrebbe invalidare il token di autenticazione perché la funzione non era stata progettata per essere chiamata due volte. In generale, i tuoi componenti dovrebbero essere resilienti quando vengono rimontati. Includendo il componente di primo livello `App`.
 
-Although it may not ever get remounted in practice in production, following the same constraints in all components makes it easier to move and reuse code. If some logic must run *once per app load* rather than *once per component mount*, add a top-level variable to track whether it has already executed:
+Anche se in produzione potrebbe non essere smontato mai, seguire gli stessi vincoli in tutti i componenti rende più facile muovere e riutilizzare codice. Se della logica deve eseguire *una volta per caricamento dell'app* invece che *una volta ogni volta che il componente viene montato*, aggiungi una variabile al primo livello per tracciarne l'esecuzione:
 
 ```js {1,5-6,10}
 let didInit = false;
@@ -486,7 +491,7 @@ function App() {
   useEffect(() => {
     if (!didInit) {
       didInit = true;
-      // ✅ Only runs once per app load
+      // ✅ Esegue una volta quando l'app carica 
       loadDataFromLocalStorage();
       checkAuthToken();
     }
@@ -495,11 +500,11 @@ function App() {
 }
 ```
 
-You can also run it during module initialization and before the app renders:
+Puoi anche eseguirlo durante l'inizializzazione del modulo e prima della renderizzazione dell'app:
 
 ```js {1,5}
 if (typeof window !== 'undefined') { // Check if we're running in the browser.
-   // ✅ Only runs once per app load
+   // ✅ Esegue una volta quando l'app carica
   checkAuthToken();
   loadDataFromLocalStorage();
 }
@@ -509,17 +514,17 @@ function App() {
 }
 ```
 
-Code at the top level runs once when your component is imported--even if it doesn't end up being rendered. To avoid slowdown or surprising behavior when importing arbitrary components, don't overuse this pattern. Keep app-wide initialization logic to root component modules like `App.js` or in your application's entry point.
+Il codice al primo livello esegue una sola volta quando il componente viene importato--anche quando non viene mai renderizzato. Per evitare rallentamenti o comportamenti insoliti quando importi componenti, non usare troppo questo pattern. Mantieni la logica di inizializzazione dell'app nel modulo dei componenti radice come `App.js` o nel punto di ingresso della tua applicazione.
 
-### Notifying parent components about state changes {/*notifying-parent-components-about-state-changes*/}
+### Notificare i componenti padre dei cambiamenti di state {/*notifying-parent-components-about-state-changes*/}
 
-Let's say you're writing a `Toggle` component with an internal `isOn` state which can be either `true` or `false`. There are a few different ways to toggle it (by clicking or dragging). You want to notify the parent component whenever the `Toggle` internal state changes, so you expose an `onChange` event and call it from an Effect:
+Diciamo che stai scrivendo un componente `Toggle` con uno state interno `isOn` che può essere `true` o `false`. Ci sono diversi modi per cambiarlo (cliccando o trascinando). Vuoi notificare il componente padre ogni volta che lo state interno del componente `Toggle` cambia, quindi esponi l'evento `onChange` e lo chiami da un Effetto:
 
 ```js {4-7}
 function Toggle({ onChange }) {
   const [isOn, setIsOn] = useState(false);
 
-  // 🔴 Avoid: The onChange handler runs too late
+  // 🔴 Evita: l'handler di onChange esegue troppo tardi
   useEffect(() => {
     onChange(isOn);
   }, [isOn, onChange])
@@ -540,16 +545,16 @@ function Toggle({ onChange }) {
 }
 ```
 
-Like earlier, this is not ideal. The `Toggle` updates its state first, and React updates the screen. Then React runs the Effect, which calls the `onChange` function passed from a parent component. Now the parent component will update its own state, starting another render pass. It would be better to do everything in a single pass.
+Come prima, questo non è ideale. Il componente `Toggle` aggiorna il suo state per primo, poi React aggiorna lo schermo. poi React esegue l'Effetto, che chiama la funzione `onChange` passata dal componente padre. Adesso il componente padre aggiorna il suo state, dando inizio ad un nuovo passaggio di render. Sarebbe meglio fare tutto questo in un unico passaggio.
 
-Delete the Effect and instead update the state of *both* components within the same event handler:
+Elimina l'Effetto e aggiorna lo state di *entrambi* i componenti nello stesso event handler:
 
 ```js {5-7,11,16,18}
 function Toggle({ onChange }) {
   const [isOn, setIsOn] = useState(false);
 
   function updateToggle(nextIsOn) {
-    // ✅ Good: Perform all updates during the event that caused them
+    // ✅ Buono: Aggiorna tutto durante l'evento che ha causato gli aggiornamenti
     setIsOn(nextIsOn);
     onChange(nextIsOn);
   }
@@ -570,12 +575,12 @@ function Toggle({ onChange }) {
 }
 ```
 
-With this approach, both the `Toggle` component and its parent component update their state during the event. React [batches updates](/learn/queueing-a-series-of-state-updates) from different components together, so there will only be one render pass.
+Con questo approccio, entrambi i componenti `Toggle` e il suo componente padre aggiornano il proprio state durante l'evento. React [raggruppa gli aggiornamenti](/learn/queueing-a-series-of-state-updates) di componenti diversi insieme, così che ci sarà solo un passaggio di render.
 
-You might also be able to remove the state altogether, and instead receive `isOn` from the parent component:
+Potresti anche voler rimuovere tutto lo stato insieme, e invece ricevere dal `isOn` componente padre:
 
 ```js {1,2}
-// ✅ Also good: the component is fully controlled by its parent
+// ✅ Va anche bene così: il componente è completamente controllato dal padre
 function Toggle({ isOn, onChange }) {
   function handleClick() {
     onChange(!isOn);
@@ -593,11 +598,11 @@ function Toggle({ isOn, onChange }) {
 }
 ```
 
-["Lifting state up"](/learn/sharing-state-between-components) lets the parent component fully control the `Toggle` by toggling the parent's own state. This means the parent component will have to contain more logic, but there will be less state overall to worry about. Whenever you try to keep two different state variables synchronized, try lifting state up instead!
+["Spostare lo state su"](/learn/sharing-state-between-components) permette al componente padre di controllare completamente il componente `Toggle` cambiando il suo stesso state. Significa che il componente padre dovrà contenere più logica, ma ci sarà meno state da gestire. Ogni volta che provi a mantenere sincronizzati due state diversi, prova invece a spostare lo state su!
 
-### Passing data to the parent {/*passing-data-to-the-parent*/}
+### Passare dati al padre {/*passing-data-to-the-parent*/}
 
-This `Child` component fetches some data and then passes it to the `Parent` component in an Effect:
+Questo componente `Child` prende dei dati e li passa al componente `Parent` in un Effetto:
 
 ```js {9-14}
 function Parent() {
@@ -608,7 +613,7 @@ function Parent() {
 
 function Child({ onFetched }) {
   const data = useSomeAPI();
-  // 🔴 Avoid: Passing data to the parent in an Effect
+  // 🔴 Evita: Passaggio di dati al padre in un Effetto
   useEffect(() => {
     if (data) {
       onFetched(data);
@@ -618,13 +623,13 @@ function Child({ onFetched }) {
 }
 ```
 
-In React, data flows from the parent components to their children. When you see something wrong on the screen, you can trace where the information comes from by going up the component chain until you find which component passes the wrong prop or has the wrong state. When child components update the state of their parent components in Effects, the data flow becomes very difficult to trace. Since both the child and the parent need the same data, let the parent component fetch that data, and *pass it down* to the child instead:
+In React, i dati vengono trasferiti dal componente padre al figlio. Quando vedi qualcosa di sbagliato su schemo, puoi tracciare da dove proviene l'informazione percorrendo la catena dei componenti fino a trovare quale componente passa la prop sbagliata o ha lo state sbagliato. Quando i componenti figlio aggiornano lo state del proprio componente padre in un Effetto, il trasferimento di dati diventa molto difficile da tracciare. Siccome sia il componente figlio che il padre necessitano di avere lo stesso dato, lascia che il componente padre prenda quel dato e lo *passi giù* al componente figlio.
 
 ```js {4-5}
 function Parent() {
   const data = useSomeAPI();
   // ...
-  // ✅ Good: Passing data down to the child
+  // ✅ Buono: Passare i dati giù nel componente figlio
   return <Child data={data} />;
 }
 
@@ -633,15 +638,15 @@ function Child({ data }) {
 }
 ```
 
-This is simpler and keeps the data flow predictable: the data flows down from the parent to the child.
+Questo è più semplice e rende prevedibile il trasferimento dei dati: i dati vengono trasferiti giù dal componente padre al figlio.
 
-### Subscribing to an external store {/*subscribing-to-an-external-store*/}
+### Iscriversi ad uno store esterno {/*subscribing-to-an-external-store*/}
 
-Sometimes, your components may need to subscribe to some data outside of the React state. This data could be from a third-party library or a built-in browser API. Since this data can change without React's knowledge, you need to manually subscribe your components to it. This is often done with an Effect, for example:
+A volte, i tuoi componenti necessitano di iscriversi a dati che esistono al di fuori dello state di React. Questi dati potrebbero provenire da una libreria di terze parti o da una API propria del browser. Siccome questi dati possono cambiare senza che React se ne accorga, hai bisogno di iscrivere manualmente i tuoi componenti. Questa cosa viene fatta all'interno di un Effetto, per esempio:
 
 ```js {2-17}
 function useOnlineStatus() {
-  // Not ideal: Manual store subscription in an Effect
+  // Non ideale: Iscrizione manuale in un Effetto
   const [isOnline, setIsOnline] = useState(true);
   useEffect(() => {
     function updateState() {
@@ -666,9 +671,9 @@ function ChatIndicator() {
 }
 ```
 
-Here, the component subscribes to an external data store (in this case, the browser `navigator.onLine` API). Since this API does not exist on the server (so it can't be used for the initial HTML), initially the state is set to `true`. Whenever the value of that data store changes in the browser, the component updates its state.
+Qui, il componente si iscrive a uno store di dati esterno (in questo caso, l'API del browser `navigator.onLine`). Siccome questa API non esiste sul server (quindi non può essere usata dall'HTML iniziale), lo state viene inizializzato a `true`. Quando il valore dei cambiamenti dello store cambiano nel browser, il componente aggiorna il proprio state.
 
-Although it's common to use Effects for this, React has a purpose-built Hook for subscribing to an external store that is preferred instead. Delete the Effect and replace it with a call to [`useSyncExternalStore`](/reference/react/useSyncExternalStore):
+Nonostante sia comune usare Effetti per casi simili, è preferibile l'hook built-in di React per iscriversi a store esterni. rimuovi l'Effetto e sostituiscilo con una chiamata a [`useSyncExternalStore`](/reference/react/useSyncExternalStore):
 
 ```js {11-16}
 function subscribe(callback) {
@@ -681,7 +686,7 @@ function subscribe(callback) {
 }
 
 function useOnlineStatus() {
-  // ✅ Good: Subscribing to an external store with a built-in Hook
+  // ✅ Buono: Iscriviti ad uno store esterno con un Hook built-in
   return useSyncExternalStore(
     subscribe, // React won't resubscribe for as long as you pass the same function
     () => navigator.onLine, // How to get the value on the client
@@ -695,11 +700,11 @@ function ChatIndicator() {
 }
 ```
 
-This approach is less error-prone than manually syncing mutable data to React state with an Effect. Typically, you'll write a custom Hook like `useOnlineStatus()` above so that you don't need to repeat this code in the individual components. [Read more about subscribing to external stores from React components.](/reference/react/useSyncExternalStore)
+Questo approccio è meno soggetto ad errori rispetto a sincronizzare manualmente dati mutabili allo state React con un Effetto. In genere, scriveresti un hook personalizzato `useOnlineStatus()` così da non dover riscrivere lo stesso codice per altri componenti. [Leggi di più su come iscriversi a store esterni da componenti React.](/reference/react/useSyncExternalStore)
 
-### Fetching data {/*fetching-data*/}
+### Recuperare i dati {/*fetching-data*/}
 
-Many apps use Effects to kick off data fetching. It is quite common to write a data fetching Effect like this:
+Molte applicazioni usano Effetti per recuperare dati. È abbastanza comune scrivere il recupero dei dati tramite Effetticosì:
 
 ```js {5-10}
 function SearchResults({ query }) {
@@ -707,7 +712,7 @@ function SearchResults({ query }) {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    // 🔴 Avoid: Fetching without cleanup logic
+    // 🔴 Evita: Recupero senza logica di cleanup
     fetchResults(query, page).then(json => {
       setResults(json);
     });
@@ -720,15 +725,15 @@ function SearchResults({ query }) {
 }
 ```
 
-You *don't* need to move this fetch to an event handler.
+*Non* hai bisogno di muovere questo recupero dati in un event handler.
 
-This might seem like a contradiction with the earlier examples where you needed to put the logic into the event handlers! However, consider that it's not *the typing event* that's the main reason to fetch. Search inputs are often prepopulated from the URL, and the user might navigate Back and Forward without touching the input.
+Questa potrebbe sembrare una contraddizione con gli esempi precedenti dove avevi necessità di inserire la logica all'interno dell'event handler! Però, considera che non è *l'evento di scrittura* la ragione principale che deve scatenare il recupero dei dati. Gli input di ricerca sono in genere popolati dall'URL, e l'utente potrebbe navigare avanti e indietro senza toccare l'input.
 
-It doesn't matter where `page` and `query` come from. While this component is visible, you want to keep `results` [synchronized](/learn/synchronizing-with-effects) with data from the network for the current `page` and `query`. This is why it's an Effect.
+Non importa da dove provengono i valori di `page` e `query`. Finché questo componente è visibile, vuoi mantenere `results` [sincronizzato](/learn/synchronizing-with-effects) a dati provenienti dalla rete per i valori correnti di `page` e `query`. Ecco perché è un Effetto.
 
-However, the code above has a bug. Imagine you type `"hello"` fast. Then the `query` will change from `"h"`, to `"he"`, `"hel"`, `"hell"`, and `"hello"`. This will kick off separate fetches, but there is no guarantee about which order the responses will arrive in. For example, the `"hell"` response may arrive *after* the `"hello"` response. Since it will call `setResults()` last, you will be displaying the wrong search results. This is called a ["race condition"](https://en.wikipedia.org/wiki/Race_condition): two different requests "raced" against each other and came in a different order than you expected.
+Però, il codice qui sopra ha un bug. Immagina di scrivere `"hello"` velocemente. Quindi `query` cambia da `"h"`, a `"he"`, `"hel"`, `"hell"`, e `"hello"`. Questo causerà una serie di richieste separate, ma non c'è alcuna garanzia sull'ordine in cui arriveranno le risposte. Per esempio, la risposta di `"hell"` potrebbe arrivare *dopo* quella di `"hello"`. Siccome chiamerà `setResults()` per ultima, mostrerai i risultati sbagliati. Questa viene chiamata ["race condition"](https://en.wikipedia.org/wiki/Race_condition): due richieste diverse hanno "gareggiato" l'una contro l'altra e sono arrivate in un ordine diverso da quello previsto.
 
-**To fix the race condition, you need to [add a cleanup function](/learn/synchronizing-with-effects#fetching-data) to ignore stale responses:**
+**Per aggiustare questa race condition, hai bisogno di [aggiungere una funzione di cleanup](/learn/synchronizing-with-effects#fetching-data) per ignorare le risposte appese:**
 
 ```js {5,7,9,11-13}
 function SearchResults({ query }) {
@@ -753,13 +758,13 @@ function SearchResults({ query }) {
 }
 ```
 
-This ensures that when your Effect fetches data, all responses except the last requested one will be ignored.
+Questo assicura che quando il tuo Effetto recupera i dati, vengono ignorate tutte le richieste tranne l'ultima.
 
-Handling race conditions is not the only difficulty with implementing data fetching. You might also want to think about caching responses (so that the user can click Back and see the previous screen instantly), how to fetch data on the server (so that the initial server-rendered HTML contains the fetched content instead of a spinner), and how to avoid network waterfalls (so that a child can fetch data without waiting for every parent).
+Gestire race conditions non è l'unica difficoltà quando si implementa il recupero dei dati. Potresti anche voler pensare di implementare il caching per le risposte (così che l'utente possa cliccare Indietro e vedere lo schermo precedente istantaneamente), come recuperare i dati nel server (così che il primo HTML renderizzato dal server contenga il contenuto già recuperato invece che uno spinner), e come evitare il waterfall della rete (così che un componente figlio possa recuperare i dati senza dover aspettare ogni componente padre).
 
-**These issues apply to any UI library, not just React. Solving them is not trivial, which is why modern [frameworks](/learn/creating-a-react-app#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than fetching data in Effects.**
+**Questi problemi si riscontrano in tutte le librerie UI, non solo React. Risolverli non è semplice, per questo i [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) moderni offrono metodi più efficienti per recuperare i dati invece di usare gli Effetti.**
 
-If you don't use a framework (and don't want to build your own) but would like to make data fetching from Effects more ergonomic, consider extracting your fetching logic into a custom Hook like in this example:
+Se non usi un framework (e non ne vuoi creare uno) ma vorresti rendere il recupero di dati dagli Effetti più ergonomico, considera di estrarre la logica di recupero all'interno di un Hook personalizzato come in questo esempio:
 
 ```js {4}
 function SearchResults({ query }) {
@@ -792,30 +797,30 @@ function useData(url) {
 }
 ```
 
-You'll likely also want to add some logic for error handling and to track whether the content is loading. You can build a Hook like this yourself or use one of the many solutions already available in the React ecosystem. **Although this alone won't be as efficient as using a framework's built-in data fetching mechanism, moving the data fetching logic into a custom Hook will make it easier to adopt an efficient data fetching strategy later.**
+Probabilmente aggiungerai altra logica per la gestione degli errori e tracciare ogni volta che il contenuto sta caricando. Puoi creare hook da te o usare una delle soluzioni già disponibili nell'ecosistema React. **Anche se non sarà efficiente come usare un meccanismo di recupero dati di un framework, muovere i dati in un hook personalizzato renderà più semplice adottare strategie di recupero più efficienti in seguito.**
 
-In general, whenever you have to resort to writing Effects, keep an eye out for when you can extract a piece of functionality into a custom Hook with a more declarative and purpose-built API like `useData` above. The fewer raw `useEffect` calls you have in your components, the easier you will find to maintain your application.
+In generale, quando devi scrivere Effetti, fai caso a tutti i pezzi di funzionalità che puoi estrarre in un hook personalizzato con un API più dichiarativa come questo `useData`. Meno chiamate "crude" a `useEffect` vengono fatte nei componenti, più semplce sarà manutenere l'applicazione.
 
 <Recap>
 
-- If you can calculate something during render, you don't need an Effect.
-- To cache expensive calculations, add `useMemo` instead of `useEffect`.
-- To reset the state of an entire component tree, pass a different `key` to it.
-- To reset a particular bit of state in response to a prop change, set it during rendering.
-- Code that runs because a component was *displayed* should be in Effects, the rest should be in events.
-- If you need to update the state of several components, it's better to do it during a single event.
-- Whenever you try to synchronize state variables in different components, consider lifting state up.
-- You can fetch data with Effects, but you need to implement cleanup to avoid race conditions.
+- Se puoi calcolare qualcosa durante il render, non ti serve un Effetto.
+- Per memorizzare calcoli dispendiosi, aggiungi `useMemo` invece di `useEffect`.
+- Per resettare lo state dell'intero albero di componenti, passa una prop `key` differente.
+- Per resettare un particolare pezzo di state come conseguenza di un cambiamento di prop, fallo durante il rendering.
+- Il codice che esegue perchè un componente è stato *mostrato* dovrebbe stare in un Effetto, il resto dovrebbe stare negli eventi.
+- Se hai bisogno di aggiornare lo state di diversi componenti, è meglio farlo in un evento singolo.
+- Quando provi a sincronizzare variabili di state in componenti diversi, considera di passare lo state su.
+- Puoi recuperare dati tramite gli Effetti, ma devi implementare funzioni di cleanup per evitare race conditions.
 
 </Recap>
 
 <Challenges>
 
-#### Transform data without Effects {/*transform-data-without-effects*/}
+#### Trasforma i dati senza Effetti {/*transform-data-without-effects*/}
 
-The `TodoList` below displays a list of todos. When the "Show only active todos" checkbox is ticked, completed todos are not displayed in the list. Regardless of which todos are visible, the footer displays the count of todos that are not yet completed.
+Il componente `TodoList` mostra una lista di cose da fare. Quando la casella di controllo "Show only active todos" è spuntata, i todos completati non vengono mostrati nella lista. A prescindere da quali cose da fare sono visibili, il piè di pagina mostrerà il conteggio delle cose da fare ancora non completate.
 
-Simplify this component by removing all the unnecessary state and Effects.
+Semplifica questo componente rimuovendo tutti gli state e gli Effetti non necessari.
 
 <Sandpack>
 
@@ -915,15 +920,15 @@ input { margin-top: 10px; }
 
 <Hint>
 
-If you can calculate something during rendering, you don't need state or an Effect that updates it.
+Se puoi calcolare qualcosa durante il rendering, non hai bisogno né di state né di Effetti che lo aggiornano.
 
 </Hint>
 
 <Solution>
 
-There are only two essential pieces of state in this example: the list of `todos` and the `showActive` state variable which represents whether the checkbox is ticked. All of the other state variables are [redundant](/learn/choosing-the-state-structure#avoid-redundant-state) and can be calculated during rendering instead. This includes the `footer` which you can move directly into the surrounding JSX.
+Ci sono due state essenziali in questo esempio: la lista di `todos` e la variabile di stato `showActive` che rappresenta quando una casella di controllo è spuntata. Tutte le altre variabili di state sono [ridondanti](/learn/choosing-the-state-structure#avoid-redundant-state) e possono essere calcolati durante il rendering. Questo include il piè di pagina che puoi muovere direttamente nel JSX circostante.
 
-Your result should end up looking like this:
+Il tuo risultato dovrebbe essere questo:
 
 <Sandpack>
 
@@ -1008,15 +1013,15 @@ input { margin-top: 10px; }
 
 </Solution>
 
-#### Cache a calculation without Effects {/*cache-a-calculation-without-effects*/}
+#### Memorizza un calcolo senza Effetti {/*cache-a-calculation-without-effects*/}
 
-In this example, filtering the todos was extracted into a separate function called `getVisibleTodos()`. This function contains a `console.log()` call inside of it which helps you notice when it's being called. Toggle "Show only active todos" and notice that it causes `getVisibleTodos()` to re-run. This is expected because visible todos change when you toggle which ones to display.
+In questo esempio, il filtraggio delle cose da fare è stato estratto in una funzione separata chiamata `getVisibleTodos()`. Questa funzione contiene un `console.log()` all interno che ti aiuta a capire quando viene chiamata. Attiva/Disattiva "Show only active todos" e nota che `getVisibleTodos()` viene eseguita di nuovo. Questo era prevedibile perché le cose da fare visibili cambiano quando ne attivi/disattivi uno.
 
-Your task is to remove the Effect that recomputes the `visibleTodos` list in the `TodoList` component. However, you need to make sure that `getVisibleTodos()` does *not* re-run (and so does not print any logs) when you type into the input.
+Il tuo compito è di rimuovere l'Effetto che ricalcola la lista `visibleTodos` nel componente `TodoList`. In ogni caso, hai bisogno di assicurarti che `getVisibleTodos()` non venga rieseguita (e quindi non stampa a schermo nessun log) quando scrivi all'interno dell'input.
 
 <Hint>
 
-One solution is to add a `useMemo` call to cache the visible todos. There is also another, less obvious solution.
+Una soluzione è aggiungere una chiamata `useMemo` per memorizzare le cose da fare visibili a schermo. C'è anche un altra soluzione meno ovvia.
 
 </Hint>
 
@@ -1102,7 +1107,7 @@ input { margin-top: 10px; }
 
 <Solution>
 
-Remove the state variable and the Effect, and instead add a `useMemo` call to cache the result of calling `getVisibleTodos()`:
+Rimuovi la variabile di state e l'Effetto, al loro posto aggiungi una chiamata a `useMemo` per memorizzare il risultato di `getVisibleTodos()`:
 
 <Sandpack>
 
@@ -1183,9 +1188,9 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-With this change, `getVisibleTodos()` will be called only if `todos` or `showActive` change. Typing into the input only changes the `text` state variable, so it does not trigger a call to `getVisibleTodos()`.
+Con questo cambiamento, `getVisibleTodos()` verrà chiamata solo se `todos` o `showActive` cambiano. Scrivere all'interno dell'input cambia solo la variabile di state `text`, quindi non scatena una chiamata a `getVisibleTodos()`.
 
-There is also another solution which does not need `useMemo`. Since the `text` state variable can't possibly affect the list of todos, you can extract the `NewTodo` form into a separate component, and move the `text` state variable inside of it:
+C'è anche un'altra soluzione che non necessita l'uso di `useMemo`. Siccome la variabile di stato `text` non può influenzare la lista di cose da fare, puoi estrarre il form `NewTodo` in un componente separato, e muovere la variabile di state `text` al suo interno:
 
 <Sandpack>
 
@@ -1272,15 +1277,15 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-This approach satisfies the requirements too. When you type into the input, only the `text` state variable updates. Since the `text` state variable is in the child `NewTodo` component, the parent `TodoList` component won't get re-rendered. This is why `getVisibleTodos()` doesn't get called when you type. (It would still be called if the `TodoList` re-renders for another reason.)
+Anche questo approccio soddsfa i requisiti. Quando scrivi all'interno dell'input, solo la variabile di state `text` si aggiorna. Siccome la variabile di state `text` è nel compoente figlio `NewTodo`, il componente padre `TodoList` non viene re-renderizzato. Ecco perché `getVisibleTodos()` non viene chiamata quando scrivi. (Viene chiamata di nuova se `TodoList` re-renderizza per un'altra ragione.)
 
 </Solution>
 
-#### Reset state without Effects {/*reset-state-without-effects*/}
+#### Reset dello state senza Effetti {/*reset-state-without-effects*/}
 
-This `EditContact` component receives a contact object shaped like `{ id, name, email }` as the `savedContact` prop. Try editing the name and email input fields. When you press Save, the contact's button above the form updates to the edited name. When you press Reset, any pending changes in the form are discarded. Play around with this UI to get a feel for it.
+Il componente `EditContact` riceve un oggetto di contatti di questo tipo `{ id, name, email }` e una prop `savedContact`. Prova a modificare il nome e la email. quando premi Save, il pulsante di contatto sul form si aggiorna con il nome modificato. quando premi Reset, ogni cambiamento pendente viene annullato.  Gioca con questa UI per comprenderla meglio.
 
-When you select a contact with the buttons at the top, the form resets to reflect that contact's details. This is done with an Effect inside `EditContact.js`. Remove this Effect. Find another way to reset the form when `savedContact.id` changes.
+Quando selezioni un contatto con i pulsanti in alto, il form si resetta per riflettere i dettagli del contatto. Questo viene fatto con un Effetto dentro `EditContact.js`. Rimuovi questo Effetto. Trova un altro modo per resettare il form quando `savedContact.id` cambia.
 
 <Sandpack>
 
@@ -1438,13 +1443,13 @@ button {
 
 <Hint>
 
-It would be nice if there was a way to tell React that when `savedContact.id` is different, the `EditContact` form is conceptually a _different contact's form_ and should not preserve state. Do you recall any such way?
+Sarebbe bello se ci fosse un modo per dire a React che quando `savedContact.id` cambia, il form  `EditContact` è concettualmente un _form di contatto diverso_ e non dovrebbe conservare lo state. Ricordi un modo per farlo?
 
 </Hint>
 
 <Solution>
 
-Split the `EditContact` component in two. Move all the form state into the inner `EditForm` component. Export the outer `EditContact` component, and make it pass `savedContact.id` as the `key` to the inner `EditForm` component. As a result, the inner `EditForm` component resets all of the form state and recreates the DOM whenever you select a different contact.
+Dividi il componente `EditContact` in due. Muovi tutto lo stato del form all'interno del componente `EditForm`. Esporta il componente `EditContact`, e fai in modo che passi `savedContact.id` come `key` per il componente `EditForm` interno. Come risultato, il componente `EditForm` interno resetta tutto lo stato del suo form e ricrea il DOM ogni volta che selezioni un contatto diverso.
 
 <Sandpack>
 
@@ -1606,17 +1611,17 @@ button {
 
 </Solution>
 
-#### Submit a form without Effects {/*submit-a-form-without-effects*/}
+#### Fai un Submit del From senza usare Effetti {/*submit-a-form-without-effects*/}
 
-This `Form` component lets you send a message to a friend. When you submit the form, the `showForm` state variable is set to `false`. This triggers an Effect calling `sendMessage(message)`, which sends the message (you can see it in the console). After the message is sent, you see a "Thank you" dialog with an "Open chat" button that lets you get back to the form.
+Questo componente `Form` ti permette di mandare un messaggio ad un amico. Quando esegui la submit del form, la variabile di stato `showForm` viene settata a `false`. Questo fa partire l'Effetto che chiama `sendMessage(message)`, che manda il messaggio (lo puoi vedere in console). Dopo che il messaggio viene inviato, vedi un dialog "Thank you" con un pulsante "Open chat" che ti permette di ritornare al form.
 
-Your app's users are sending way too many messages. To make chatting a little bit more difficult, you've decided to show the "Thank you" dialog *first* rather than the form. Change the `showForm` state variable to initialize to `false` instead of `true`. As soon as you make that change, the console will show that an empty message was sent. Something in this logic is wrong!
+Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato! 
 
-What's the root cause of this problem? And how can you fix it?
+Qual è la causa di questo problema? E come puoi risolverlo?
 
 <Hint>
 
-Should the message be sent _because_ the user saw the "Thank you" dialog? Or is it the other way around?
+Il messaggio dovrebbe essere inviato _perché_ l'utente ha visto il dialog "Thank you"? O è il contrario?
 
 </Hint>
 
@@ -1681,7 +1686,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <Solution>
 
-The `showForm` state variable determines whether to show the form or the "Thank you" dialog. However, you aren't sending the message because the "Thank you" dialog was _displayed_. You want to send the message because the user has _submitted the form._ Delete the misleading Effect and move the `sendMessage` call inside the `handleSubmit` event handler:
+La variabile di state `showForm` determina quando mostrare il form o il dialog "Thank you". Però, non stai inviando il messaggio perché la dialog "Thank you" è stata _mostrata_. Vuoi inviare il messaggio perché l'utente ha _eseguito l'invio del form_. Elimina l'Effetto e muovi la chiamata `sendMessage` all'interno dell'event handler `handleSubmit`:
 
 <Sandpack>
 
@@ -1737,7 +1742,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Notice how in this version, only _submitting the form_ (which is an event) causes the message to be sent. It works equally well regardless of whether `showForm` is initially set to `true` or `false`. (Set it to `false` and notice no extra console messages.)
+Nota come in questa versione, solo _l'invio del form_ (che è un evento) causa l'invio del messaggio. Funziona ugualmente bene a prescindere se `showForm` è settato a `true` o `false`. (Impostala a `false` e nota che non ci sono messaggi extra sulla console.)
 
 </Solution>
 
