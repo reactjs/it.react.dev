@@ -1,8 +1,9 @@
-# Glossary 
+# Glossary
 
 Glossary of the translations of technical and React-specific terms.
 
 ## Untranslatable terms
+
 - props (**core concept**)
 - state (**core concept**)
 - hooks (**core concept**)
@@ -30,21 +31,22 @@ Glossary of the translations of technical and React-specific terms.
 - wrapper
 - provider
 - consumer
+- context
 - reducer
 
 # Common Translations
 
 Suggestion on words and terms:
 
-| Original word/term | Suggestion | 
-| ------------------ | ---------- |
-| refactor | rifattorizzare | 
-| refactoring | rifattorizzazione |
-| render | renderizzare (verbo), renderizzato (nome) |
-| React component class | classe componente React |
-| React component type | tipo componente React |
-| function component | componente funzione |
-| error boundary | contenitore di errori |
+| Original word/term    | Suggestion                                |
+| --------------------- | ----------------------------------------- |
+| refactor              | rifattorizzare                            |
+| refactoring           | rifattorizzazione                         |
+| render                | renderizzare (verbo), renderizzato (nome) |
+| React component class | classe componente React                   |
+| React component type  | tipo componente React                     |
+| function component    | componente funzione                       |
+| error boundary        | contenitore di errori                     |
 
 ## Problematic terms
 
