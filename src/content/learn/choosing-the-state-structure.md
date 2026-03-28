@@ -23,24 +23,25 @@ Quando scrivi un componente che contiene uno state, dovrai fare delle scelte rig
 1. **Accorpare state in relazione.** Se aggiorni frequentemente due o più variabili di state allo stesso tempo, considera di accorparle all'interno di una singola variabile di state.
 2. **Evita contraddizioni nello state.** Quando lo state è strutturato in modo tale che diversi pezzi dello state si possano contraddire e "essere in disaccordo" l'uno con l'altro, lasci spazio a errori. Cerca di evitarlo.
 3. **Evita state ridondante.** Se puoi calcolare alcune informazioni dalle props del componente o dalle sue variabili di state esistenti durante il rendering, non dovresti mettere quelle informazioni nello state del componente.
-4. **Evita duplicazioni nello state.** Reduce duplication when you can. Quando lo stesso dato è duplicato tra diverse variabili di state, o all'interno di oggetti nidificati, è difficile tenerli sincronizzati. Riduci la duplicazione quando puoi.
+4. **Evita duplicazioni nello state.** Quando lo stesso dato è duplicato tra diverse variabili di state, o all'interno di oggetti nidificati, è difficile tenerli sincronizzati. Riduci la duplicazione quando puoi.
 5. **Evita state profondamente nidificati** Uno state troppo nidificato non è conveniente da aggiornare.
 
 L'obbiettivo di questi principi è di *rendere lo state facile da aggiornare senza introdurre errori*. Rimuovere la ridondanza e la duplicazione del dato dallo state aiuta ad essere certi che tutti i suoi pezzi rimangano sincronizzati. Questo è simile a come un database engineer vorrebbe ["normalizzare" la struttura del database](https://docs.microsoft.com/it-it/office/troubleshoot/access/database-normalization-description) per ridurre la probabilità di introdurre bugs. Parafrasando Albert Einstein, **"Rendi il tuo state tanto semplice quanto può esserlo--ma non più semplice"**
-Ora vediami questi principi all'azione.
+
+Ora vediamo questi principi all'azione.
 
 ## Accorpare state in relazione {/*group-related-state*/}
 
 A volte potresti essere incerto tra usaro una singola o molteplici variabili di state.
 
-Dovresti fare cosi?
+Dovresti fare così?
 
 ```js
 const [x, setX] = useState(0);
 const [y, setY] = useState(0);
 ```
 
-O cosi?
+O così?
 
 ```js
 const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -96,15 +97,13 @@ Un altro caso in qui accorperai dati in un oggetti o in un array è quando non s
 
 <Pitfall>
 
-Se la tua variabile di state è un oggetto, ricorda che [non puoi aggiornarne solo un campo](/learn/updating-objects-in-state) senza esplicitamente copiare gli altri campi. Per esempio, non puoi fare `setPosition({ x: 100 })` nell'esempio sopra perché non avrebbe la proprietà `y`! Invece, se vuoi impostare solamente `x`, dovresti fare `setPosition({ ...position, x: 100 })`, or dividendoli in due variabili di state e fare `setX(100)`.
+Se la tua variabile di state è un oggetto, ricorda che [non puoi aggiornarne solo un campo](/learn/updating-objects-in-state) senza esplicitamente copiare gli altri campi. Per esempio, non puoi fare `setPosition({ x: 100 })` nell'esempio sopra perché non avrebbe la proprietà `y`! Invece, se vuoi impostare solamente `x`, dovresti fare `setPosition({ ...position, x: 100 })`, oppure dividendo in due variabili di state e fare `setX(100)`.
 
 </Pitfall>
 
 ## Evita contraddizioni nello state {/*avoid-contradictions-in-state*/}
 
-Here is a hotel feedback form with `isSending` and `isSent` state variables:
-
-Questo è il feedback form di un hotel con le variabili di state `isSending` e `isSent`
+Questo è il feedback form di un hotel con le variabili di state `isSending` e `isSent`:
 
 <Sandpack>
 
@@ -160,7 +159,6 @@ function sendMessage(text) {
 
 Anche se questo codice funziona, lascia spazio a state "impossibili". Per esempio, se dimentichi di chiamare `setIsSent` e `setIsSending` insieme, potresti incappare in una situazione dove entrambi `isSending` e `isSent` sono `true` allo stesso tempo. Più complesso è il tuo componente, più difficile è capire cos'è successo,
 
-**Since `isSending` and `isSent` should never be `true` at the same time, it is better to replace them with one `status` state variable that may take one of *three* valid states:** `'typing'` (initial), `'sending'`, and `'sent'`:
 **Poiché `isSending` e `isSent` non dovrebbero mai essere `true` allo stesso tempo, è meglio rimpiazzarli con una singola variabile di state `status` che possa prendere uno dei *tre* state validi: `'typing'` (iniziale), `'sending'`, e `'sent'`:**
 
 <Sandpack>
@@ -336,7 +334,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Qui, `fullName` *non* è una variabile dello state, è calcolata durante il render
+Qui, `fullName` *non* è una variabile dello state, è calcolata durante il render:
 
 ```js
 const fullName = firstName + ' ' + lastName;
@@ -352,7 +350,7 @@ Un esempio comune di state ridondante è:
 
 ```js
 function Message({ messageColor }) {
-  const [color, setColor] = useState(messageColor)
+  const [color, setColor] = useState(messageColor);
 ```
 
 Qui la variabile di state `color` è inizializzata con la prop `messageColor`. Il problema è che **se il componente genitore passasse, in un secondo momento, un valore diverso di `messageColor`(per esempio, `'red'` invece di `'blue'`), la *variabile di state* `color` non verrebbe aggiornata!* Lo state è inzializzato solo durante il primo render.
@@ -423,7 +421,7 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Attualmente, memorizza l'item selezionato come un oggetto nell variabile di state `selectedItem`. Non è ideale: **`items` contiene un oggetto tra quelli contenuti nella lista di `selectedItem`.** Questo significa che l'informazione riguardante l'item stesso è duplicata in due posti.
+Attualmente, memorizza l'item selezionato come un oggetto nella variabile di state `selectedItem`. Tuttavia, non è ideale: **`items` contiene un oggetto tra quelli contenuti nella lista di `selectedItem`.** Questo significa che l'informazione riguardante l'item stesso è duplicata in due posti.
 
 Perché è un problema? Rendiamo ogni item editabile:
 
@@ -488,7 +486,7 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Hai notato che se clicchi "Choose" su un item a *poi* lo modifichi, **l'input si aggiorna ma la label in fondo non riflette le modifiche.** Questo perché hai lo state duplicato, e hai dimenticato di aggiornare `selectedItem`.
+Hai notato che se clicchi "Choose" su un item e *poi* lo modifichi, **l'input si aggiorna ma la label in fondo non riflette le modifiche.** Questo perché hai lo state duplicato, e hai dimenticato di aggiornare `selectedItem`.
 
 Sebbene tu possa aggiornare anche `selectedItem`, rimuovere la duplicazione è un fix più semplice. In questo esempio, invece di un oggetto `selectedItem` (che crea una duplicazione con gli oggetti dentro `items`), tieni il `selectedId` nello state, e *poi*  prendi il `selectedItem` cercando nell'array `items` l'item con quell'ID:
 
@@ -1123,7 +1121,7 @@ export const initialTravelPlan = {
 Adesso per rimuovere un place devi solo aggiornare due livelli dello state:
 
 - La versione aggiornata del place *genitore* dovrebbe escludere l'ID rimosso dal suo array `childIds`.
-- La versione aggiornata dell'oggetto root dovrebbe includere la versione aggiornata del place genitore.
+- La versione aggiornata dell'oggetto root "table" dovrebbe includere la versione aggiornata del posto genitore.
 
 Qui un esempio di come potresti farlo:
 
@@ -1464,7 +1462,7 @@ Non c'è limite a quanto profondamente puoi annidare lo state, ma farlo "flat" p
 
 #### Migliora l'utilizzo della memoria {/*improving-memory-usage*/}
 
-Idealmente, potresti rimuovere gli items eliminati (e il loro figli!) dall'oggetto "table" per migliorare l'utilizzo della memoria. Questa versione lo fa. Inoltre [usa Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) per rendere la logica di aggiornamento dello state più concisa.
+Idealmente, potresti rimuovere gli item eliminati (e i loro figli!) dall'oggetto "table" per migliorare l'utilizzo della memoria. Questa versione lo fa. Inoltre [usa Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) per rendere la logica di aggiornamento dello state più concisa.
 
 <Sandpack>
 
@@ -2276,7 +2274,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Si noti come gli handler degli eventi si occupino solo di chiamare `setItems` dopo questa modifica. Il conteggio degli elementi viene ora calcolato durante il rendering successivo da `items`, quindi è sempre aggiornato.
+Nota come gli handler degli eventi si occupino solo di chiamare `setItems` dopo questa modifica. Il conteggio degli elementi viene ora calcolato durante il rendering successivo da `items`, quindi è sempre aggiornato.
 
 </Solution>
 
@@ -2609,7 +2607,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 <Solution>
 
-Invece di un singolo `selectedId`, mantieni uno `array` `selectedIds` nello state. Ad esempio, se selezioni la prima e l'ultima lettera, conterrà `[0, 2]`. Quando non è selezionato nulla, sarà un array vuoto `[]`:
+Invece di un singolo `selectedId`, mantieni un *array* `selectedIds` nello state. Ad esempio, se selezioni la prima e l'ultima lettera, conterrà `[0, 2]`. Quando non è selezionato nulla, sarà un array vuoto `[]`:
 
 <Sandpack>
 
@@ -2717,7 +2715,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 Uno svantaggio minore dell'utilizzo di un array è che per ogni elemento è necessario chiamare `selectedIds.includes(letter.id)` per verificare se è selezionato. Se l'array è molto grande, questo può diventare un problema di prestazioni perché la ricerca nell'array con [`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) richiede un tempo lineare e questa ricerca viene eseguita per ogni singolo elemento.
 
-Per risolvere questo problema, puoi invece mantenere un [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) nello stato, che fornisce una veloce operazione [`has()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has):
+Per risolvere questo problema, puoi invece mantenere un [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) nello state, che fornisce una veloce operazione [`has()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has):
 
 <Sandpack>
 
@@ -2822,7 +2820,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 Ora ogni elemento esegue un controllo `selectedIds.has(letter.id)`, che è molto veloce.
 
-Tieni presente che [non dovresti modificare gli oggetti nello stato](/learn/updating-objects-in-state), e questo include anche i Set. Questo è il motivo per cui la funzione `handleToggle` crea prima una *copia* del Set e poi aggiorna quella copia.
+Tieni presente che [non dovresti modificare gli oggetti nello state](/learn/updating-objects-in-state), e questo include anche i Set. Questo è il motivo per cui la funzione `handleToggle` crea prima una *copia* del Set e poi aggiorna quella copia.
 
 </Solution>
 
