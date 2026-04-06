@@ -10,7 +10,7 @@ Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "
 
 <YouWillLearn>
 
-* Come rimuovere effetti inutili dai tuoi componenti e perché
+* Come rimuovere Effetti inutili dai tuoi componenti e perché
 * Come memorizzare computazioni costose nella cache senza usare effetti
 * Come ripristinare e modificare lo state dei componenti senza usare effetti
 * Come condividere logica tra event handlers
