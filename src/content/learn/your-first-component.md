@@ -63,7 +63,7 @@ Solitamente, quando si creavano le pagine web, gli sviluppatori web definivano l
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3Am.jpg"
       alt="Katherine Johnson"
     />
   )
@@ -99,7 +99,7 @@ Il componente ritorna un tag `<img />` con gli attributi `src` e `alt`. `<img />
 Le istruzioni di ritorno possono essere scritte tutte su una riga, come in questo componente:
 
 ```js
-return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
+return <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />;
 ```
 
 Ma se il tuo markup non si trova tutto sulla stessa riga della parola chiave `return`, è necessario racchiuderlo (_wrap_) in una coppia di parentesi tonde:
@@ -107,7 +107,7 @@ Ma se il tuo markup non si trova tutto sulla stessa riga della parola chiave `re
 ```js
 return (
   <div>
-    <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
+    <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
   </div>
 );
 ```
@@ -128,7 +128,7 @@ Ora che è stato definito il componente `Profile`, è possibile annidarlo all'in
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
       alt="Katherine Johnson"
     />
   );
@@ -163,10 +163,17 @@ E `Profile` contiene lui stesso altri tag HTML: `<img />`. Alla fine, questo è 
 
 ```html
 <section>
+<<<<<<< HEAD
   <h1>Scienziati incredibili</h1>
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
+=======
+  <h1>Amazing scientists</h1>
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 </section>
 ```
 
@@ -248,7 +255,7 @@ Questa sandbox non funziona perché il componente principale non viene esportato
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -273,7 +280,7 @@ Aggiungi `export default` prima della definizione della funzione, in questo modo
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -306,7 +313,7 @@ Potresti ricevere un errore "Unexpected token" mentre cerchi di risolvere questo
 ```js
 export default function Profile() {
   return
-    <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+    <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -324,7 +331,7 @@ img { height: 180px; }
 
 ```js
 export default function Profile() {
-  return <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+  return <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -342,7 +349,11 @@ Oppure racchiudendo il markup JSX restituito in una coppia di parentesi che si a
 export default function Profile() {
   return (
     <img
+<<<<<<< HEAD
       src="https://i.imgur.com/jA8hHMpm.jpg"
+=======
+      src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
       alt="Katsuko Saruhashi"
     />
   );
@@ -367,7 +378,7 @@ C'è qualcosa di sbagliato nel modo in cui il componente `Profile` è definito e
 function profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );
@@ -403,7 +414,7 @@ Cambia `function profile()` in `function Profile()`, e poi cambia ogni `<profile
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );
