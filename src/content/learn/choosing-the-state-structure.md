@@ -1819,7 +1819,6 @@ Talvolta potrai anche ridurre la nidificazione dello state spostando parte dello
 
 <Recap>
 
-<<<<<<< HEAD
 * Se due variabili di state vengono sempre aggiornate insieme, valuta la possibilità di unirle in una sola.
 * Scegli con attenzione le variabili di state per evitare di creare stati “impossibili”.
 * Struttura lo state in modo da ridurre le possibilità di commettere errori durante l'aggiornamento.
@@ -1827,15 +1826,6 @@ Talvolta potrai anche ridurre la nidificazione dello state spostando parte dello
 * Non inserire props *nello* state a meno che non si voglia specificatamente impedire gli aggiornamenti.
 * Nei pattern di interfaccia utente come la selezione, mantieni l'ID o l'indice nello state invece dell'oggetto stesso.
 * Se l'aggiornamento di uno state profondamente annidato è complicato, prova ad appiattirlo.
-=======
-* If two state variables always update together, consider merging them into one.
-* Choose your state variables carefully to avoid creating "impossible" states.
-* Structure your state in a way that reduces the chances that you'll make a mistake updating it.
-* Avoid redundant and duplicate state so that you don't need to keep it in sync.
-* Don't put props *into* state unless you specifically want to prevent updates.
-* For UI patterns like selection, keep ID or index in state instead of the object itself.
-* If updating deeply nested state is complicated, try flattening it.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 </Recap>
 

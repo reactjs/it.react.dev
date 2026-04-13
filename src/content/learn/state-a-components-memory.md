@@ -63,11 +63,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -247,11 +243,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -369,11 +361,7 @@ La convenzione prevede di chiamare questa coppia come `const [something, setSome
 
 </Note>
 
-<<<<<<< HEAD
 L'unico argomento di `useState` è il **valore iniziale** della tua variabile state. In questo esempio, il valore iniziale di `index` è impostato a `0` con `useState(0)`.
-=======
-The only argument to `useState` is the **initial value** of your state variable. In this example, the `index`'s initial value is set to `0` with `useState(0)`.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Ogni volta che il tuo componente renderizza, `useState` ti da un array contenente due valori:
 
@@ -444,11 +432,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -644,11 +628,7 @@ let sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -817,11 +797,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -992,11 +968,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -1158,11 +1130,7 @@ export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
   description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
-<<<<<<< HEAD
-  url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-=======
   url: 'https://react.dev/images/docs/scientists/Mx7dA2Y.jpg',
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
 }, {
   name: 'Floralis Genérica',
@@ -1478,11 +1446,7 @@ export default function FeedbackForm() {
 
 Prova a spostare la seconda chiamata di `useState` dopo la condizione `if` e nota come questo rompe nuovamente il codice.
 
-<<<<<<< HEAD
-Se il tuo linter è [configurato per React](/learn/editor-setup#linting), dovresti vedere un errore lint quando commetti uno sbaglio del genere.  Se non vedi un errore quando provi il codice difettoso localmente, devi impostare un linter per il tuo progetto.
-=======
-If your linter is [configured for React](/learn/editor-setup#linting), you should see a lint error when you make a mistake like this. If you don't see an error when you try the faulty code locally, you need to set up linting for your project.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+Se il tuo linter è [configurato per React](/learn/editor-setup#linting), dovresti vedere un errore di lint quando commetti uno sbaglio del genere. Se non vedi un errore quando provi il codice difettoso in locale, devi impostare il linting per il tuo progetto.
 
 </Solution>
 

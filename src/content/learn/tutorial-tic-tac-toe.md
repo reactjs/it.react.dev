@@ -337,11 +337,7 @@ import './styles.css';
 import App from './App';
 ```
 
-<<<<<<< HEAD
 Le righe 1-5 mettono insieme tutti i pezzi necessari:
-=======
-Lines 1-5 bring all the necessary pieces together:
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 * React
 * La libreria di React per parlare con il browser web (React DOM)
@@ -555,11 +551,7 @@ export default function Board() {
 }
 ```
 
-<<<<<<< HEAD
 Nota come, a differenza dei `div` del browser, i tuoi componenti `Board` e `Square` devono iniziare con una lettera maiuscola.
-=======
-Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Diamo un'occhiata:
 
@@ -1102,11 +1094,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-<<<<<<< HEAD
 Ora collegherai la prop `onSquareClick` a una funzione nel componente `Board` che chiamerai `handleClick`. Per collegare `onSquareClick` a `handleClick` passerai una funzione alla prop `onSquareClick` del primo componente `Square`:
-=======
-Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 ```js {7}
 export default function Board() {
@@ -2085,21 +2073,13 @@ export default function Game() {
 }
 ```
 
-<<<<<<< HEAD
 Puoi vedere come dovrebbe apparire il tuo codice qui sotto. Nota che dovresti vedere un errore nella console degli strumenti di sviluppo che dice:
-=======
-You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
 
-<<<<<<< HEAD
 Risolverai questo errore nella prossima sezione.
-=======
-You'll fix this error in the next section.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <Sandpack>
 

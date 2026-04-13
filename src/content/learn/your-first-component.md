@@ -163,17 +163,10 @@ E `Profile` contiene lui stesso altri tag HTML: `<img />`. Alla fine, questo è 
 
 ```html
 <section>
-<<<<<<< HEAD
   <h1>Scienziati incredibili</h1>
-  <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
-  <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
-  <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
-=======
-  <h1>Amazing scientists</h1>
   <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 </section>
 ```
 
@@ -349,11 +342,7 @@ Oppure racchiudendo il markup JSX restituito in una coppia di parentesi che si a
 export default function Profile() {
   return (
     <img
-<<<<<<< HEAD
-      src="https://i.imgur.com/jA8hHMpm.jpg"
-=======
       src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg"
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
       alt="Katsuko Saruhashi"
     />
   );

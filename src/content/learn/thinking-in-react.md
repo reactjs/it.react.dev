@@ -37,15 +37,9 @@ Inizia disegnando rettangoli intorno a ogni componente e sottocomponente nel moc
 
 A seconda del tuo background, puoi pensare di dividere un design in componenti in diversi modi:
 
-<<<<<<< HEAD
-* **Programming**--usa lo stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è il [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
-* **CSS**--considera cosa farebbe un selettore di classe. (Tuttavia, i componenti sono un po' meno granulari.)
-* **Design**--considera come organizzare i livelli del design.
-=======
-* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
-* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
-* **Design**--consider how you would organize the design's layers.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+* **Programming**--usa le stesse tecniche che useresti per decidere se creare una nuova funzione o un nuovo oggetto. Una di queste è il [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), cioè un componente dovrebbe idealmente occuparsi di una sola cosa. Se cresce, va scomposto in sottocomponenti più piccoli.
+* **CSS**--considera per cosa definiresti dei selettori di classe. (Tuttavia, i componenti sono un po' meno granulari.)
+* **Design**--considera come organizzeresti i livelli del design.
 
 Se il tuo JSON è strutturato bene, noterai che spesso mappa naturalmente la struttura dei componenti della tua UI. Questo perché la UI e i modelli di dati spesso hanno la stessa architettura dell'informazione--ovvero la stessa forma. Separa la tua UI in componenti, in cui ogni componente corrisponde a una parte del tuo modello di dati.
 
@@ -234,17 +228,10 @@ Quello che è rimasto probabilmente può considerarsi state.
 
 Analizziamo di nuovo questi dati uno alla volta:
 
-<<<<<<< HEAD
 1. La lista originale di prodotti è **passata tramite props, quindi non è state.**
 2. Il testo di ricerca sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
 3. Il valore della checkbox sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
-4. La lista filtrata dei prodotti **non è state perchè può essere calcolata** prendendo la lista originale dei prodotti e filtrandola in base al testo di ricerca e al valore della checkbox.
-=======
-1. The original list of products is **passed in as props, so it's not state.**
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+4. La lista filtrata dei prodotti **non è state perché può essere calcolata** prendendo la lista originale dei prodotti e filtrandola in base al testo di ricerca e al valore della checkbox.
 
 Questo significa che solo il testo di ricerca e il valore della checkbox sono state! Ben fatto!
 
@@ -278,7 +265,6 @@ Nello step precedente, hai identificato due pezzi di state in questa applicazion
 
 Adesso eseguiamo la nostra strategia per essi:
 
-<<<<<<< HEAD
 1. **Identifica i componenti che usano lo state:**
     * `ProductTable` ha bisogno di filtrare la lista dei prodotti in base a quei valori di state (testo di ricerca e valore della checkbox).
     * `SearchBar` ha bisogno di mostrare lo state (testo di ricerca e valore della checkbox).
@@ -286,15 +272,6 @@ Adesso eseguiamo la nostra strategia per essi:
 3. **Decidi dove vive lo state**: Terremo i valori dello state del testo del filtro e della checkbox in `FilterableProductTable`.
 
 Quindi i valori di state vivranno in `FilterableProductTable`.
-=======
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value).
-    * `SearchBar` needs to display that state (search text and checkbox value).
-2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
-
-So the state values will live in `FilterableProductTable`.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Aggiungi lo state al componente con l'[Hook `useState()`.](/reference/react/useState) Gli Hooks sono funzioni speciali che ti permettono di "collegarti" a React. Aggiungi due variabili state all'inizio di `FilterableProductTable` e specifica il loro stato iniziale:
 
@@ -486,11 +463,7 @@ Tuttavia, non hai aggiunto alcun codice per rispondere alle azioni dell'utente c
 
 Attualmente la tua applicazione viene visualizzata correttamente con le props e lo state che fluiscono verso il basso nella gerarchia. Ma per modificare lo state in base all'input dell'utente, è necessario supportare il flusso di dati anche in senso inverso: i componenti del form che si trovano più in basso nell'albero devono aggiornare lo state in `FilterableProductTable`.
 
-<<<<<<< HEAD
 React rende questo flusso di dati in modo esplicito, ma richiede un po' più di scrittura rispetto al two-way data binding. Se provi a digitare o a spuntare la checkbox nell'esempio qui sopra, vedrai che React ignora il tuo input. Questo è voluto. Scrivendo `<input value={filterText} />`, hai impostato la prop `value` dell'`input` per essere sempre uguale allo stato `filterText` passato da `FilterableProductTable`. Poiché lo stato `filterText` non viene mai impostato, l'input non cambia mai.
-=======
-Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 L'obiettivo è che ogni volta che l'utente modifica gli input del form lo state si aggiorni per riflettere tali modifiche. Lo state è di proprietà di `FilterableProductTable`, quindi solo esso può chiamare `setFilterText` e `setInStockOnly`. Per consentire a `SearchBar` di aggiornare lo state di `FilterableProductTable`, è necessario passare queste funzioni a `SearchBar`:
 

@@ -91,7 +91,7 @@ button { margin-left: 5px; }
 Invece, crea un *nuovo* array che contiene gli elementi presenti *e* un nuovo elemento alla fine. Ci sono molteplici modi per raggiungere questo risultato, ma il più semplice è l'uso della sintassi `...` [array spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals):
 
 ```js
-setArtists( // Sostituisce lo state 
+setArtists( // Sostituisce lo state
   [ // con un nuovo array
     ...artists, // che contiene tutti i vecchi elementi
     { id: nextId++, name: name } // e ne aggiunge uno nuovo alla fine

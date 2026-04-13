@@ -853,19 +853,10 @@ Se nessuno di questi approcci fa al caso tuo, considera il context.
 
 ## Casi d'uso del context {/*use-cases-for-context*/}
 
-<<<<<<< HEAD
 * **Temi:** Se la tua app consente all'utente di cambiare l'aspetto (ad esempio la modalità scura), puoi inserire un context provider alla radice della tua app e utilizzare quel context nei componenti che devono adattare il loro aspetto visivo.
 * **Account corrente:** Molti componenti potrebbero avere bisogno di conoscere l'utente attualmente loggato. Metterlo nel context lo rende comodo da leggere ovunque nell'albero. Alcune app consentono anche di operare con più account contemporaneamente (ad esempio, per lasciare un commento come un utente diverso). In questi casi, può essere comodo avvolgere una parte dell'interfaccia utente in un provider nidificato con un valore di account diverso.
 * **Routing:** La maggior parte delle soluzioni di routing utilizza internamente il context per memorizzare la rotta corrente. È così che ogni collegamento "sa" se è attivo o no. Se crei il tuo router, potresti voler fare lo stesso.
 * **Gestione dello state:** Man mano che la tua app cresce, potresti finire con molto state vicino alla radice dell'app. Molti componenti distanti al di sotto potrebbero volerlo modificare. È comune [usare un reducer insieme al context](/learn/scaling-up-with-reducer-and-context) per gestire uno state complesso e passarlo in basso a componenti distanti senza troppi sforzi.
-=======
-* **Theming:** If your app lets the user change its appearance (e.g. dark mode), you can put a context provider at the top of your app, and use that context in components that need to adjust their visual look.
-* **Current account:** Many components might need to know the currently logged in user. Putting it in context makes it convenient to read it anywhere in the tree. Some apps also let you operate multiple accounts at the same time (e.g. to leave a comment as a different user). In those cases, it can be convenient to wrap a part of the UI into a nested provider with a different current account value.
-* **Routing:** Most routing solutions use context internally to hold the current route. This is how every link "knows" whether it's active or not. If you build your own router, you might want to do it too.
-* **Managing state:** As your app grows, you might end up with a lot of state closer to the top of your app. Many distant components below may want to change it. It is common to [use a reducer together with context](/learn/scaling-up-with-reducer-and-context) to manage complex state and pass it down to distant components without too much hassle.
-
-Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Il context non è limitato a valori statici. Se passi un valore diverso nella renderizzazione successiva, React aggiornerà tutti i componenti sottostanti che lo leggono! Ecco perché il context spesso è utilizzato in combinazione con lo state.
 

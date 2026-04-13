@@ -4,7 +4,7 @@ title: 'Potresti non avere bisogno di un Effetto'
 
 <Intro>
 
-Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "uscire fuori" da React sincronizzando i componenti con sistemi esterni come widget non-React, la rete, o il DOM del browser. Se non ci sono sistemi esterni coinvolti (per esempio, se vuoi aggiornare lo state di un componente a seguito di un cambiamento nelle props o nello state), non dovresti avere bisogno di un Effetto. Rimuovere effetti inutili ti permette di scrivere codice più semplice da capire, più veloce ad eseguire, e meno soggetto ad errori. 
+Gli effetti sono un modo per sfuggire dal paradigma di React. Ti permettono di "uscire fuori" da React sincronizzando i componenti con sistemi esterni come widget non-React, la rete, o il DOM del browser. Se non ci sono sistemi esterni coinvolti (per esempio, se vuoi aggiornare lo state di un componente a seguito di un cambiamento nelle props o nello state), non dovresti avere bisogno di un Effetto. Rimuovere effetti inutili ti permette di scrivere codice più semplice da capire, più veloce ad eseguire, e meno soggetto ad errori.
 
 </Intro>
 
@@ -269,7 +269,7 @@ Diciamo di avere una pagina di prodotti con due pulsanti (Compra e Carrello) ed 
 
 ```js {2-7}
 function ProductPage({ product, addToCart }) {
-  // 🔴 Evita: logica specifica di un Evento all'interno di un Effetto 
+  // 🔴 Evita: logica specifica di un Evento all'interno di un Effetto
   useEffect(() => {
     if (product.isInCart) {
       showNotification(`${product.name} è stato aggiunto al carrello!`);
@@ -323,7 +323,7 @@ function Form() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  // ✅ Buono: Questa logica funzionerà perché il componente è stato già mostrato  
+  // ✅ Buono: Questa logica funzionerà perché il componente è stato già mostrato
   useEffect(() => {
     post('/analytics/event', { eventName: 'visit_form' });
   }, []);
@@ -382,7 +382,7 @@ function Game() {
   const [round, setRound] = useState(1);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  // 🔴 Evita: Catene di Effetti che modificano lo stato soltanto per scatenare altri Effetti  
+  // 🔴 Evita: Catene di Effetti che modificano lo stato soltanto per scatenare altri Effetti
   useEffect(() => {
     if (card !== null && card.gold) {
       setGoldCardCount(c => c + 1);
@@ -491,7 +491,7 @@ function App() {
   useEffect(() => {
     if (!didInit) {
       didInit = true;
-      // ✅ Esegue una volta quando l'app carica 
+      // ✅ Esegue una volta quando l'app carica
       loadDataFromLocalStorage();
       checkAuthToken();
     }
@@ -1615,7 +1615,7 @@ button {
 
 Questo componente `Form` ti permette di mandare un messaggio ad un amico. Quando esegui la submit del form, la variabile di stato `showForm` viene settata a `false`. Questo fa partire l'Effetto che chiama `sendMessage(message)`, che manda il messaggio (lo puoi vedere in console). Dopo che il messaggio viene inviato, vedi un dialog "Thank you" con un pulsante "Open chat" che ti permette di ritornare al form.
 
-Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato! 
+Gli utenti della tua app stanno inviando troppi messaggi. per far si che chattare diventi un po più difficoltoso, hai deciso di mostrare il dialog "Thank you" *prima* del form. Cambia la variabile `showForm` per inizializzarla a `false` invece che `true`. Appena fai questo cambiamento, la console mostrerà che è stato inviato un messaggio vuoto. Qualcosa in questa logica è sbagliato!
 
 Qual è la causa di questo problema? E come puoi risolverlo?
 

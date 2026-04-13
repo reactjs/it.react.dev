@@ -54,13 +54,8 @@ root.render(<Image />);
 export default function Image() {
   return (
     <img
-<<<<<<< HEAD
-      src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' di Eduardo Catalano: una gigantesca scultura floreale metallica con petali riflettenti."
-=======
       src="https://react.dev/images/docs/scientists/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+      alt="'Floralis Genérica' di Eduardo Catalano: una gigantesca scultura floreale metallica con petali riflettenti."
     />
   );
 }
@@ -108,13 +103,8 @@ export default function Gallery() {
 function Image() {
   return (
     <img
-<<<<<<< HEAD
-      src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' di Eduardo Catalano: una gigantesca scultura di fiori metallici con petali riflettenti"
-=======
       src="https://react.dev/images/docs/scientists/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+      alt="'Floralis Genérica' di Eduardo Catalano: una gigantesca scultura di fiori metallici con petali riflettenti"
     />
   );
 }
@@ -134,13 +124,8 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-<<<<<<< HEAD
 * **Durante la renderizzazione iniziale,** React [creerà i nodi del DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) per `<section>`, `<h1>`, e tre tag `<img>`.
-* **Durante una renderizzazione successiva,** React calcolerà quali delle sue proprietà, se presenti, sono cambiate rispetto la renderizzazione precedente. Tuttavia, non farà nulla con queste informazioni fino alla prossima fase, la fase di commit.
-=======
-* **During the initial render,** React will [create the DOM nodes](https://developer.mozilla.org/docs/Web/API/Document/createElement) for `<section>`, `<h1>`, and three `<img>` tags.
-* **During a re-render,** React will calculate which of their properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.
->>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
+* **Durante una renderizzazione successiva,** React calcolerà quali delle sue proprietà, se presenti, sono cambiate rispetto alla renderizzazione precedente. Tuttavia, non farà nulla con queste informazioni fino alla fase successiva, la fase di commit.
 
 <Pitfall>
 
