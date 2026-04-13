@@ -801,7 +801,7 @@ export default function AddTask() {
           type: 'added',
           id: nextId++,
           text: text,
-        }); 
+        });
       }}>Aggiungi</button>
     </>
   );
@@ -1025,7 +1025,7 @@ export default function AddTask() {
           type: 'added',
           id: nextId++,
           text: text,
-        }); 
+        });
       }}>Aggiungi</button>
     </>
   );
@@ -1244,7 +1244,7 @@ export default function AddTask() {
           type: 'added',
           id: nextId++,
           text: text,
-        }); 
+        });
       }}>Aggiungi</button>
     </>
   );

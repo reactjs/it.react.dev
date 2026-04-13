@@ -413,7 +413,7 @@ Quando clicchi su un bottone:
 
 1. React chiama il gestore `onClick` passato al `<button>`.
 2. Quel gestore, definito in `Button`, fa quanto segue:
-   * Chiama `e.stopPropagation()`, prevenendo l'ulteriore propagazione dell'evento.
+   * Chiama `e.stopPropagation()`, impedendo all'evento di propagarsi oltre (“bubbling”).
    * Chiama la funzione `onClick`, che è una prop passata dal componente `Toolbar`.
 3. Quella funzione, definita nel componente `Toolbar`, mostra l'alert del bottone stesso.
 4. Visto che la propagazione è stata fermata, il gestore `onClick` del genitore `<div>` **non** viene eseguito.

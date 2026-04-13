@@ -27,13 +27,13 @@ Potresti avere già familiarità con un esempio di funzioni pure: le formule in 
 
 Considera questa formula matematica:  <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-Se <Math><MathI>x</MathI> = 2</Math> allora <Math><MathI>y</MathI> = 4</Math>. Sempre. 
+Se <Math><MathI>x</MathI> = 2</Math> allora <Math><MathI>y</MathI> = 4</Math>. Sempre.
 
-Se <Math><MathI>x</MathI> = 3</Math> allora <Math><MathI>y</MathI> = 6</Math>. Sempre. 
+Se <Math><MathI>x</MathI> = 3</Math> allora <Math><MathI>y</MathI> = 6</Math>. Sempre.
 
 Se <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> non sarà a volte <Math>9</Math> o <Math>–1</Math> o <Math>2.5</Math> a seconda dell'ora del giorno o dello stato del mercato azionario.
 
-Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> sarà _sempre_ <Math>6</Math>. 
+Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> sarà _sempre_ <Math>6</Math>.
 
 Se trasformassimo questa formula in una funzione JavaScript, apparirebbe così:
 
@@ -52,7 +52,7 @@ React è progettato attorno a questo concetto. **React presume che ogni componen
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
-    <ol>    
+    <ol>
       <li>Fai bollire {drinkers} tazze di acqua.</li>
       <li>Aggiungi {drinkers} cucchiaini di tè e {0.5 * drinkers} cucchiaini di spezie.</li>
       <li>Aggiungi {0.5 * drinkers} tazze di latte da far bollire e zucchero a piacere.</li>
@@ -75,7 +75,7 @@ export default function App() {
 
 </Sandpack>
 
-Quando passi `drinkers={2}` a `Ricetta`, questo restituirà JSX contenente `2 tazze di acqua`. Sempre. 
+Quando passi `drinkers={2}` a `Recipe`, questo restituirà JSX contenente `2 tazze di acqua`. Sempre.
 
 Se si passa `drinkers={4}`, questo restituirà JSX contenente `4 tazze di acqua`. Sempre.
 
@@ -215,18 +215,18 @@ Ogni nuova funzione React che stiamo costruendo sfrutta la purezza. Dal recupero
 
 <Recap>
 
-* Un componente deve essere puro, cioè: 
+* Un componente deve essere puro, cioè:
   * **Si cura solo dei suoi affari.** Non deve cambiare alcun oggetto o variabile esistente prima del rendering.
-  * **Same inputs, same output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso JSX. 
+  * **Stessi input, stessi output.** Dati gli stessi input, una funzione pura dovrebbe sempre restituire lo stesso JSX.
 * Il rendering può accadere in qualsiasi momento, quindi i componenti non dovrebbero dipendere dalla sequenza di rendering l'uno dell'altro.
-* Non devi mutare alcuno degli input che i tuoi componenti utilizzano per il rendering. Questo include props, stato e contesto. Per aggiornare lo schermo,  [imposta ("set") lo state](/learn/state-a-components-memory)  invece di modificare oggetti pre-esistenti.
+* Non devi mutare alcuno degli input che i tuoi componenti utilizzano per il rendering. Questo include props, stato e contesto. Per aggiornare lo schermo, [imposta ("set") lo state](/learn/state-a-components-memory) invece di modificare oggetti pre-esistenti.
 * Cerca di esprimere la logica del tuo componente all'interno del JSX che restituisci. Quando hai bisogno di "cambiare le cose", di solito vorrai farlo in un gestore di eventi. Come ultima risorsa, puoi utilizzare `useEffect`.
 * Scrivere funzioni pure richiede un po' di pratica, ma sblocca il potere del paradigma di React.
 
 </Recap>
 
 
-  
+
 <Challenges>
 
 #### Riparare un orologio rotto {/*fix-a-broken-clock*/}
@@ -451,7 +451,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -549,7 +549,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'

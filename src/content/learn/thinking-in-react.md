@@ -37,9 +37,9 @@ Inizia disegnando rettangoli intorno a ogni componente e sottocomponente nel moc
 
 A seconda del tuo background, puoi pensare di dividere un design in componenti in diversi modi:
 
-* **Programming**--usa lo stesso metodo per decidere se creare una nuova funzione o un nuovo oggetto. Uno di questi metodi è il [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), ovvero un componente dovrebbe fare solo una cosa. Se cresce, dovrebbe essere decomposto in sottocomponenti più piccoli.
-* **CSS**--considera cosa farebbe un selettore di classe. (Tuttavia, i componenti sono un po' meno granulari.)
-* **Design**--considera come organizzare i livelli del design.
+* **Programming**--usa le stesse tecniche che useresti per decidere se creare una nuova funzione o un nuovo oggetto. Una di queste è il [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), cioè un componente dovrebbe idealmente occuparsi di una sola cosa. Se cresce, va scomposto in sottocomponenti più piccoli.
+* **CSS**--considera per cosa definiresti dei selettori di classe. (Tuttavia, i componenti sono un po' meno granulari.)
+* **Design**--considera come organizzeresti i livelli del design.
 
 Se il tuo JSON è strutturato bene, noterai che spesso mappa naturalmente la struttura dei componenti della tua UI. Questo perché la UI e i modelli di dati spesso hanno la stessa architettura dell'informazione--ovvero la stessa forma. Separa la tua UI in componenti, in cui ogni componente corrisponde a una parte del tuo modello di dati.
 
@@ -231,7 +231,7 @@ Analizziamo di nuovo questi dati uno alla volta:
 1. La lista originale di prodotti è **passata tramite props, quindi non è state.**
 2. Il testo di ricerca sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
 3. Il valore della checkbox sembra essere state visto che cambia nel tempo e non può essere ricavato dal nulla.
-4. La lista filtrata dei prodotti **non è state perchè può essere calcolata** prendendo la lista originale dei prodotti e filtrandola in base al testo di ricerca e al valore della checkbox.
+4. La lista filtrata dei prodotti **non è state perché può essere calcolata** prendendo la lista originale dei prodotti e filtrandola in base al testo di ricerca e al valore della checkbox.
 
 Questo significa che solo il testo di ricerca e il valore della checkbox sono state! Ben fatto!
 

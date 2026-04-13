@@ -457,7 +457,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>What's your travel snack?</h2> 
+      <h2>What's your travel snack?</h2>
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -802,7 +802,7 @@ export const initialTravelPlan = {
     }, {
       id: 48,
       title: 'Green Hill',
-      childPlaces: []      
+      childPlaces: []
     }]
   }]
 };
@@ -880,7 +880,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -900,7 +900,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Morocco',
@@ -919,7 +919,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -935,7 +935,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -964,7 +964,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -999,7 +999,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europe',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1039,7 +1039,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1216,7 +1216,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -1236,7 +1236,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Morocco',
@@ -1255,7 +1255,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1271,7 +1271,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -1300,7 +1300,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1335,7 +1335,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europe',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1375,7 +1375,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1555,7 +1555,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'Africa',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botswana',
@@ -1575,7 +1575,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Morocco',
@@ -1594,7 +1594,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Americas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1610,7 +1610,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canada',
@@ -1639,7 +1639,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25,],   
+    childIds: [20, 21, 22, 23, 24, 25,],
   },
   20: {
     id: 20,
@@ -1674,7 +1674,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europe',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1714,7 +1714,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -2058,7 +2058,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2193,7 +2193,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2346,7 +2346,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter);        
+        onHover(letter);
       }}
       onPointerMove={() => {
         onHover(letter);
@@ -2455,7 +2455,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter.id);        
+        onHover(letter.id);
       }}
       onPointerMove={() => {
         onHover(letter.id);

@@ -70,9 +70,9 @@ Supponiamo di avere qualche HTML (perfettamente valido):
 
 ```html
 <h1>Hedy Lamarr's Todos</h1>
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   class="photo"
 >
 <ul>
@@ -102,9 +102,9 @@ export default function TodoList() {
   return (
     // This doesn't quite work!
     <h1>Hedy Lamarr's Todos</h1>
-    <img 
-      src="https://i.imgur.com/yXOvdOSs.jpg" 
-      alt="Hedy Lamarr" 
+    <img
+      src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
       class="photo"
     >
     <ul>
@@ -141,9 +141,9 @@ Per esempio, puoi usare un `<div>`:
 ```js {1,11}
 <div>
   <h1>Hedy Lamarr's Todos</h1>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
   >
   <ul>
@@ -158,9 +158,9 @@ Se non vuoi aggiungere un ulteriore `<div>` al tuo markup, puoi scrivere invece 
 ```js {1,11}
 <>
   <h1>Hedy Lamarr's Todos</h1>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
   >
   <ul>
@@ -187,9 +187,9 @@ Ecco come appaiono chiusi l'immagine di Hedy Lamarr e gli elementi della lista:
 
 ```js {2-6,8-10}
 <>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
    />
   <ul>
@@ -207,9 +207,9 @@ JSX diventa JavaScript e gli attributi scritti in JSX diventano chiavi degli ogg
 Ecco perché in React molti attributi HTML e SVG sono scritti in camelCase. Ad esempio, invece di `stroke-width` si usa `strokeWidth`. Poiché `class` è una parola riservata, in React si scrive `className` invece, nominata in base alla [corrispondente proprietà DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
 ```js {4}
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   className="photo"
 />
 ```
@@ -235,10 +235,10 @@ export default function TodoList() {
   return (
     <>
       <h1>Hedy Lamarr's Todos</h1>
-      <img 
-        src="https://i.imgur.com/yXOvdOSs.jpg" 
-        alt="Hedy Lamarr" 
-        className="photo" 
+      <img
+        src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
       />
       <ul>
         <li>Invent new traffic lights</li>
