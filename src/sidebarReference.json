@@ -93,7 +93,7 @@
       "path": "/reference/react/components",
       "routes": [
         {
-          "title": "<Fragment> (<>)",
+          "title": "<Fragment> (<>...</>)",
           "path": "/reference/react/Fragment"
         },
         {
@@ -193,7 +193,7 @@
       "path": "/reference/react-dom/components",
       "routes": [
         {
-          "title": "Common (e.g. <div>)",
+          "title": "Componenti comuni (es. <div>)",
           "path": "/reference/react-dom/components/common"
         },
         {
