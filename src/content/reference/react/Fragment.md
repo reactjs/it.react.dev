@@ -294,7 +294,7 @@ fragmentRef.current.scrollIntoView();
 
 ## Usage {/*usage*/}
 
-### Returning multiple elements {/*returning-multiple-elements*/}
+### Restituire più elementi {/*returning-multiple-elements*/}
 
 Usa `Fragment`, o l'equivalente sintassi `<>...</>`, per raggruppare più elementi insieme. Puoi usarlo per mettere più elementi in qualsiasi punto in cui può andare un singolo elemento. Ad esempio, un componente può restituire solo un elemento, ma usando un Fragment puoi raggruppare più elementi e restituirli come gruppo:
 
@@ -372,7 +372,7 @@ Di solito non ne avrai bisogno a meno che tu non debba [passare una `key` al tuo
 
 ---
 
-### Assigning multiple elements to a variable {/*assigning-multiple-elements-to-a-variable*/}
+### Assegnare più elementi a una variabile {/*assigning-multiple-elements-to-a-variable*/}
 
 Come qualsiasi altro elemento, puoi assegnare elementi Fragment a variabili, passarli come props e così via:
 
@@ -394,7 +394,7 @@ function CloseDialog() {
 
 ---
 
-### Grouping elements with text {/*grouping-elements-with-text*/}
+### Raggruppare elementi con del testo {/*grouping-elements-with-text*/}
 
 Puoi usare `Fragment` per raggruppare testo insieme a componenti:
 
@@ -413,7 +413,7 @@ function DateRangePicker({ start, end }) {
 
 ---
 
-### Rendering a list of Fragments {/*rendering-a-list-of-fragments*/}
+### Renderizzare un elenco di Fragment {/*rendering-a-list-of-fragments*/}
 
 Ecco una situazione in cui devi scrivere `Fragment` esplicitamente invece di usare la sintassi `<></>`. Quando [renderizzi più elementi in un loop](/learn/rendering-lists), devi assegnare una `key` a ogni elemento. Se gli elementi all'interno del loop sono Fragment, devi usare la normale sintassi degli elementi JSX per fornire l'attributo `key`:
 
@@ -466,7 +466,7 @@ function PostBody({ body }) {
 
 ---
 
-### Adding event listeners without a wrapper element {/*adding-event-listeners-without-wrapper*/}
+### Aggiungere listener di eventi senza un elemento wrapper {/*adding-event-listeners-without-wrapper*/}
 
 I ref dei Fragment ti permettono di aggiungere listener di eventi a un gruppo di elementi senza aggiungere un nodo DOM wrapper. Usa una [ref callback](/reference/react-dom/components/common#ref-callback) per collegare e ripulire i listener:
 
@@ -555,7 +555,7 @@ Metodi come `addEventListener`, `observeUsing` e `getClientRects` operano su que
 
 ---
 
-### Managing focus across a group of elements {/*managing-focus-across-elements*/}
+### Gestire il focus su un gruppo di elementi {/*managing-focus-across-elements*/}
 
 I ref dei Fragment forniscono i metodi `focus`, `focusLast` e `blur` che operano su tutti i nodi DOM all'interno del Fragment:
 
@@ -640,7 +640,7 @@ Chiamare `focus()` imposta il focus sull'input `street` — anche se è annidato
 
 ---
 
-### Scrolling a group of elements into view {/*scrolling-group-into-view*/}
+### Scorrere un gruppo di elementi nella vista {/*scrolling-group-into-view*/}
 
 Usa `scrollIntoView` per scorrere i figli di un Fragment nella vista senza un elemento wrapper. Passa `true` (o ometti l'argomento) per scorrere il primo figlio in alto. Passa `false` per scorrere l'ultimo figlio in basso:
 
@@ -734,7 +734,7 @@ p {
 
 ---
 
-### Observing visibility without a wrapper element {/*observing-visibility-without-wrapper*/}
+### Osservare la visibilità senza un elemento wrapper {/*observing-visibility-without-wrapper*/}
 
 Usa `observeUsing` per collegare un `IntersectionObserver` a tutti i figli DOM di primo livello di un Fragment. Questo ti permette di tracciare la visibilità senza richiedere ai componenti figli di esporre ref o aggiungere un elemento wrapper:
 
@@ -846,7 +846,7 @@ export default function Card({ title }) {
 
 ---
 
-### Caching a global IntersectionObserver {/*caching-global-intersection-observer*/}
+### Memorizzare nella cache un IntersectionObserver globale {/*caching-global-intersection-observer*/}
 
 Un'ottimizzazione delle performance comune per siti con molti observer è condividere un singolo `IntersectionObserver` per configurazione e instradare le sue entry ai callback corretti in base a quale elemento ha intersecato. I ref dei Fragment supportano lo stesso pattern tramite la proprietà `reactFragments`.
 
