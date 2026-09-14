@@ -1050,7 +1050,7 @@ Scrivere il data fetching direttamente negli Effetti diventa ripetitivo e rende 
 Scrivere chiamate `fetch` all'interno degli Effetti è un [modo popolare per recuperare dati](https://www.robinwieruch.de/react-hooks-fetch-data/), specialmente nelle app completamente client-side. Tuttavia, è un approccio molto manuale e ha svantaggi significativi:
 
 - **Gli Effetti non vengono eseguiti sul server.** Questo significa che l'HTML iniziale renderizzato lato server includerà solo uno state di caricamento senza dati. Il computer client dovrà scaricare tutto il JavaScript e renderizzare l'app solo per scoprire che ora deve caricare i dati. Non è molto efficiente.
-- **Recuperare dati direttamente negli Effetti rende facile creare "network waterfall".** Renderizzi il componente padre, recupera dei dati, renderizza i componenti figli, e poi iniziano a recuperare i loro dati. Se la rete non è molto veloce, è significativamente più lento che recuperare tutti i dati in parallelo.
+- **Recuperare dati direttamente negli Effetti rende facile creare "network waterfall".** Renderizzi il componente padre, recuperi dei dati, renderizza i componenti figli, e poi iniziano a recuperare i loro dati. Se la rete non è molto veloce, è significativamente più lento rispetto a recuperare tutti i dati in parallelo.
 - **Recuperare dati direttamente negli Effetti di solito significa che non precarichi o memorizzi nella cache i dati.** Per esempio, se il componente smonta e poi rimonta, dovrebbe recuperare i dati di nuovo.
 - **Non è molto ergonomico.** C'è parecchio codice boilerplate quando scrivi chiamate `fetch` in modo che non soffra di bug come le [race condition.](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect)
 
