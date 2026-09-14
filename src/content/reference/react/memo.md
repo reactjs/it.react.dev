@@ -1,10 +1,17 @@
 ---
 title: memo
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/memo.md).
+
+</Note>
 
 <Intro>
 
-`memo` lets you skip re-rendering a component when its props are unchanged.
+`memo` ti permette di saltare la ri-renderizzazione di un componente quando le sue props non sono cambiate.
 
 ```
 const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
@@ -14,7 +21,7 @@ const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 
 <Note>
 
-[React Compiler](/learn/react-compiler) automatically applies the equivalent of `memo` to all components, reducing the need for manual memoization. You can use the compiler to handle component memoization automatically.
+[React Compiler](/learn/react-compiler) applica automaticamente l'equivalente di `memo` a tutti i componenti, riducendo la necessità di memorizzazione manuale. Puoi usare il compiler per gestire automaticamente la memorizzazione dei componenti.
 
 </Note>
 
@@ -26,7 +33,7 @@ const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 
 ### `memo(Component, arePropsEqual?)` {/*memo*/}
 
-Wrap a component in `memo` to get a *memoized* version of that component. This memoized version of your component will usually not be re-rendered when its parent component is re-rendered as long as its props have not changed. But React may still re-render it: memoization is a performance optimization, not a guarantee.
+Avvolgi un componente in `memo` per ottenere una versione *memorizzata* di quel componente. Questa versione memorizzata del tuo componente di solito non verrà ri-renderizzata quando il componente genitore viene ri-renderizzato, finché le sue props non sono cambiate. Ma React potrebbe comunque ri-renderizzarlo: la memorizzazione è un'ottimizzazione delle prestazioni, non una garanzia.
 
 ```js
 import { memo } from 'react';
@@ -36,27 +43,27 @@ const SomeComponent = memo(function SomeComponent(props) {
 });
 ```
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 #### Parameters {/*parameters*/}
 
-* `Component`: The component that you want to memoize. The `memo` does not modify this component, but returns a new, memoized component instead. Any valid React component, including functions and [`forwardRef`](/reference/react/forwardRef) components, is accepted.
+* `Component`: Il componente che vuoi memorizzare. `memo` non modifica questo componente, ma restituisce al suo posto un nuovo componente memorizzato. È accettato qualsiasi componente React valido, incluse funzioni e componenti [`forwardRef`](/reference/react/forwardRef).
 
-* **optional** `arePropsEqual`: A function that accepts two arguments: the component's previous props, and its new props. It should return `true` if the old and new props are equal: that is, if the component will render the same output and behave in the same way with the new props as with the old. Otherwise it should return `false`. Usually, you will not specify this function. By default, React will compare each prop with [`Object.is`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+* **optional** `arePropsEqual`: Una funzione che accetta due argomenti: le props precedenti del componente e le sue nuove props. Dovrebbe restituire `true` se le props vecchie e nuove sono uguali: cioè, se il componente renderizzerà lo stesso output e si comporterà allo stesso modo con le nuove props come con le vecchie. Altrimenti dovrebbe restituire `false`. Di solito non specificherai questa funzione. Per impostazione predefinita, React confronterà ogni prop con [`Object.is`.](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
 
 #### Returns {/*returns*/}
 
-`memo` returns a new React component. It behaves the same as the component provided to `memo` except that React will not always re-render it when its parent is being re-rendered unless its props have changed.
+`memo` restituisce un nuovo componente React. Si comporta come il componente passato a `memo`, tranne che React non lo ri-renderizzerà sempre quando il genitore viene ri-renderizzato, a meno che le sue props non siano cambiate.
 
 ---
 
 ## Usage {/*usage*/}
 
-### Skipping re-rendering when props are unchanged {/*skipping-re-rendering-when-props-are-unchanged*/}
+### Saltare la ri-renderizzazione quando le props non cambiano {/*skipping-re-rendering-when-props-are-unchanged*/}
 
-React normally re-renders a component whenever its parent re-renders. With `memo`, you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props. Such a component is said to be *memoized*.
+Di norma React ri-renderizza un componente ogni volta che il genitore viene ri-renderizzato. Con `memo`, puoi creare un componente che React non ri-renderizzerà quando il genitore viene ri-renderizzato, purché le nuove props siano le stesse delle vecchie. Un componente del genere si dice *memorizzato*.
 
-To memoize a component, wrap it in `memo` and use the value that it returns in place of your original component:
+Per memorizzare un componente, avvolgilo in `memo` e usa il valore che restituisce al posto del componente originale:
 
 ```js
 const Greeting = memo(function Greeting({ name }) {
@@ -66,9 +73,9 @@ const Greeting = memo(function Greeting({ name }) {
 export default Greeting;
 ```
 
-A React component should always have [pure rendering logic.](/learn/keeping-components-pure) This means that it must return the same output if its props, state, and context haven't changed. By using `memo`, you are telling React that your component complies with this requirement, so React doesn't need to re-render as long as its props haven't changed. Even with `memo`, your component will re-render if its own state changes or if a context that it's using changes.
+Un componente React dovrebbe sempre avere [logica di renderizzazione pura.](/learn/keeping-components-pure) Ciò significa che deve restituire lo stesso output se props, state e context non sono cambiati. Usando `memo`, stai dicendo a React che il tuo componente rispetta questo requisito, quindi React non ha bisogno di ri-renderizzarlo finché le sue props non sono cambiate. Anche con `memo`, il tuo componente verrà ri-renderizzato se cambia il suo state o se cambia un context che sta usando.
 
-In this example, notice that the `Greeting` component re-renders whenever `name` is changed (because that's one of its props), but not when `address` is changed (because it's not passed to `Greeting` as a prop):
+In questo esempio, nota che il componente `Greeting` viene ri-renderizzato ogni volta che `name` cambia (perché è una delle sue props), ma non quando cambia `address` (perché non viene passato a `Greeting` come prop):
 
 <Sandpack>
 
@@ -81,11 +88,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nome{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Indirizzo{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -110,37 +117,37 @@ label {
 
 <Note>
 
-**You should only rely on `memo` as a performance optimization.** If your code doesn't work without it, find the underlying problem and fix it first. Then you may add `memo` to improve performance.
+**Dovresti usare `memo` solo come ottimizzazione delle prestazioni.** Se il tuo codice non funziona senza di esso, trova prima il problema sottostante e risolvilo. Poi potrai aggiungere `memo` per migliorare le prestazioni.
 
 </Note>
 
 <DeepDive>
 
-#### Should you add memo everywhere? {/*should-you-add-memo-everywhere*/}
+#### Dovresti aggiungere memo ovunque? {/*should-you-add-memo-everywhere*/}
 
-If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+Se la tua app è come questo sito, e la maggior parte delle interazioni è grossolana (come sostituire una pagina o un'intera sezione), la memorizzazione di solito non è necessaria. D'altra parte, se la tua app è più simile a un editor di disegno, e la maggior parte delle interazioni è granulare (come spostare forme), potresti trovare la memorizzazione molto utile.
 
-Optimizing with `memo`  is only valuable when your component re-renders often with the same exact props, and its re-rendering logic is expensive. If there is no perceptible lag when your component re-renders, `memo` is unnecessary. Keep in mind that `memo` is completely useless if the props passed to your component are *always different,* such as if you pass an object or a plain function defined during rendering. This is why you will often need [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) and [`useCallback`](/reference/react/useCallback#skipping-re-rendering-of-components) together with `memo`.
+Ottimizzare con `memo` ha valore solo quando il tuo componente viene ri-renderizzato spesso con le stesse identiche props, e la sua logica di ri-renderizzazione è costosa. Se non c'è lag percettibile quando il tuo componente viene ri-renderizzato, `memo` non è necessario. Tieni presente che `memo` è completamente inutile se le props passate al tuo componente sono *sempre diverse,* ad esempio se passi un oggetto o una funzione semplice definita durante la renderizzazione. Per questo motivo spesso avrai bisogno di [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) e [`useCallback`](/reference/react/useCallback#skipping-re-rendering-of-components) insieme a `memo`.
 
-There is no benefit to wrapping a component in `memo` in other cases. There is no significant harm to doing that either, so some teams choose to not think about individual cases, and memoize as much as possible. The downside of this approach is that code becomes less readable. Also, not all memoization is effective: a single value that's "always new" is enough to break memoization for an entire component.
+Non c'è alcun beneficio nell'avvolgere un componente in `memo` in altri casi. Non c'è nemmeno un danno significativo nel farlo, quindi alcuni team scelgono di non pensare ai casi individuali e di memorizzare il più possibile. Lo svantaggio di questo approccio è che il codice diventa meno leggibile. Inoltre, non tutta la memorizzazione è efficace: un singolo valore che è "sempre nuovo" basta a rompere la memorizzazione per un intero componente.
 
-**In practice, you can make a lot of memoization unnecessary by following a few principles:**
+**In pratica, puoi evitare molta memorizzazione seguendo alcuni principi:**
 
-1. When a component visually wraps other components, let it [accept JSX as children.](/learn/passing-props-to-a-component#passing-jsx-as-children) This way, when the wrapper component updates its own state, React knows that its children don't need to re-render.
-1. Prefer local state and don't [lift state up](/learn/sharing-state-between-components) any further than necessary. For example, don't keep transient state like forms and whether an item is hovered at the top of your tree or in a global state library.
-1. Keep your [rendering logic pure.](/learn/keeping-components-pure) If re-rendering a component causes a problem or produces some noticeable visual artifact, it's a bug in your component! Fix the bug instead of adding memoization.
-1. Avoid [unnecessary Effects that update state.](/learn/you-might-not-need-an-effect) Most performance problems in React apps are caused by chains of updates originating from Effects that cause your components to render over and over.
-1. Try to [remove unnecessary dependencies from your Effects.](/learn/removing-effect-dependencies) For example, instead of memoization, it's often simpler to move some object or a function inside an Effect or outside the component.
+1. Quando un componente avvolge visivamente altri componenti, [accetta JSX come children.](/learn/passing-props-to-a-component#passing-jsx-as-children) In questo modo, quando il componente wrapper aggiorna il proprio state, React sa che i suoi figli non hanno bisogno di ri-renderizzarsi.
+1. Preferisci lo state locale e non [sollevare lo state](/learn/sharing-state-between-components) più in alto del necessario. Per esempio, non tenere lo state transitorio come form e se un elemento è in hover in cima all'albero o in una libreria di state globale.
+1. Mantieni la tua [logica di renderizzazione pura.](/learn/keeping-components-pure) Se ri-renderizzare un componente causa un problema o produce un artefatto visivo evidente, è un bug nel tuo componente! Correggi il bug invece di aggiungere memorizzazione.
+1. Evita [Effetti non necessari che aggiornano lo state.](/learn/you-might-not-need-an-effect) La maggior parte dei problemi di prestazioni nelle app React è causata da catene di aggiornamenti originati da Effetti che fanno renderizzare di nuovo i componenti più e più volte.
+1. Prova a [rimuovere dipendenze non necessarie dai tuoi Effetti.](/learn/removing-effect-dependencies) Per esempio, invece della memorizzazione, spesso è più semplice spostare un oggetto o una funzione dentro un Effetto o fuori dal componente.
 
-If a specific interaction still feels laggy, [use the React Developer Tools profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) to see which components would benefit the most from memoization, and add memoization where needed. These principles make your components easier to debug and understand, so it's good to follow them in any case. In the long term, we're researching [doing granular memoization automatically](https://www.youtube.com/watch?v=lGEMwh32soc) to solve this once and for all.
+Se un'interazione specifica sembra ancora lenta, [usa il profiler di React Developer Tools](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) per vedere quali componenti trarrebbero maggior beneficio dalla memorizzazione, e aggiungi memorizzazione dove serve. Questi principi rendono i tuoi componenti più facili da debuggare e capire, quindi è comunque utile seguirli. A lungo termine, stiamo ricercando [come fare memorizzazione granulare automaticamente](https://www.youtube.com/watch?v=lGEMwh32soc) per risolvere il problema una volta per tutte.
 
 </DeepDive>
 
 ---
 
-### Updating a memoized component using state {/*updating-a-memoized-component-using-state*/}
+### Aggiornare un componente memorizzato usando lo state {/*updating-a-memoized-component-using-state*/}
 
-Even when a component is memoized, it will still re-render when its own state changes. Memoization only has to do with props that are passed to the component from its parent.
+Anche quando un componente è memorizzato, verrà comunque ri-renderizzato quando cambia il suo state. La memorizzazione riguarda solo le props passate al componente dal genitore.
 
 <Sandpack>
 
@@ -153,11 +160,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nome{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Indirizzo{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -185,7 +192,7 @@ function GreetingSelector({ value, onChange }) {
           checked={value === 'Hello'}
           onChange={e => onChange('Hello')}
         />
-        Regular greeting
+        Saluto normale
       </label>
       <label>
         <input
@@ -193,7 +200,7 @@ function GreetingSelector({ value, onChange }) {
           checked={value === 'Hello and welcome'}
           onChange={e => onChange('Hello and welcome')}
         />
-        Enthusiastic greeting
+        Saluto entusiasta
       </label>
     </>
   );
@@ -209,13 +216,13 @@ label {
 
 </Sandpack>
 
-If you set a state variable to its current value, React will skip re-rendering your component even without `memo`. You may still see your component function being called an extra time, but the result will be discarded.
+Se imposti una variabile di state al suo valore attuale, React salterà la ri-renderizzazione del tuo componente anche senza `memo`. Potresti comunque vedere la funzione del tuo componente chiamata un'ulteriore volta, ma il risultato verrà scartato.
 
 ---
 
-### Updating a memoized component using a context {/*updating-a-memoized-component-using-a-context*/}
+### Aggiornare un componente memorizzato usando un context {/*updating-a-memoized-component-using-a-context*/}
 
-Even when a component is memoized, it will still re-render when a context that it's using changes. Memoization only has to do with props that are passed to the component from its parent.
+Anche quando un componente è memorizzato, verrà comunque ri-renderizzato quando cambia un context che sta usando. La memorizzazione riguarda solo le props passate al componente dal genitore.
 
 <Sandpack>
 
@@ -234,7 +241,7 @@ export default function MyApp() {
   return (
     <ThemeContext value={theme}>
       <button onClick={handleClick}>
-        Switch theme
+        Cambia tema
       </button>
       <Greeting name="Taylor" />
     </ThemeContext>
@@ -269,16 +276,16 @@ label {
 
 </Sandpack>
 
-To make your component re-render only when a _part_ of some context changes, split your component in two. Read what you need from the context in the outer component, and pass it down to a memoized child as a prop.
+Per far ri-renderizzare il tuo componente solo quando cambia _una parte_ di un context, dividi il componente in due. Leggi ciò che ti serve dal context nel componente esterno, e passalo a un figlio memorizzato come prop.
 
 ---
 
-### Minimizing props changes {/*minimizing-props-changes*/}
+### Minimizzare i cambiamenti delle props {/*minimizing-props-changes*/}
 
-When you use `memo`, your component re-renders whenever any prop is not *shallowly equal* to what it was previously. This means that React compares every prop in your component with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. Note that `Object.is(3, 3)` is `true`, but `Object.is({}, {})` is `false`.
+Quando usi `memo`, il tuo componente viene ri-renderizzato ogni volta che una prop non è *superficialmente uguale* a quella precedente. Ciò significa che React confronta ogni prop del tuo componente con il suo valore precedente usando il confronto [`Object.is`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Nota che `Object.is(3, 3)` è `true`, ma `Object.is({}, {})` è `false`.
 
 
-To get the most out of `memo`, minimize the times that the props change. For example, if the prop is an object, prevent the parent component from re-creating that object every time by using [`useMemo`:](/reference/react/useMemo)
+Per ottenere il massimo da `memo`, minimizza le volte in cui le props cambiano. Per esempio, se la prop è un oggetto, evita che il componente genitore ricrei quell'oggetto ogni volta usando [`useMemo`:](/reference/react/useMemo)
 
 ```js {5-8}
 function Page() {
@@ -298,7 +305,7 @@ const Profile = memo(function Profile({ person }) {
 });
 ```
 
-A better way to minimize props changes is to make sure the component accepts the minimum necessary information in its props. For example, it could accept individual values instead of a whole object:
+Un modo migliore per minimizzare i cambiamenti delle props è assicurarsi che il componente accetti nelle props solo le informazioni minime necessarie. Per esempio, potrebbe accettare valori individuali invece di un intero oggetto:
 
 ```js {4,7}
 function Page() {
@@ -312,7 +319,7 @@ const Profile = memo(function Profile({ name, age }) {
 });
 ```
 
-Even individual values can sometimes be projected to ones that change less frequently. For example, here a component accepts a boolean indicating the presence of a value rather than the value itself:
+Anche i valori individuali a volte possono essere proiettati su altri che cambiano meno frequentemente. Per esempio, qui un componente accetta un booleano che indica la presenza di un valore piuttosto che il valore stesso:
 
 ```js {3}
 function GroupsLanding({ person }) {
@@ -325,13 +332,13 @@ const CallToAction = memo(function CallToAction({ hasGroups }) {
 });
 ```
 
-When you need to pass a function to memoized component, either declare it outside your component so that it never changes, or [`useCallback`](/reference/react/useCallback#skipping-re-rendering-of-components) to cache its definition between re-renders.
+Quando devi passare una funzione a un componente memorizzato, dichiara la funzione fuori dal tuo componente in modo che non cambi mai, oppure usa [`useCallback`](/reference/react/useCallback#skipping-re-rendering-of-components) per memorizzare la sua definizione tra le ri-renderizzazioni.
 
 ---
 
-### Specifying a custom comparison function {/*specifying-a-custom-comparison-function*/}
+### Specificare una funzione di confronto personalizzata {/*specifying-a-custom-comparison-function*/}
 
-In rare cases it may be infeasible to minimize the props changes of a memoized component. In that case, you can provide a custom comparison function, which React will use to compare the old and new props instead of using shallow equality. This function is passed as a second argument to `memo`. It should return `true` only if the new props would result in the same output as the old props; otherwise it should return `false`.
+In casi rari può essere impraticabile minimizzare i cambiamenti delle props di un componente memorizzato. In quel caso, puoi fornire una funzione di confronto personalizzata, che React userà per confrontare le props vecchie e nuove invece di usare l'uguaglianza superficiale. Questa funzione viene passata come secondo argomento a `memo`. Dovrebbe restituire `true` solo se le nuove props produrrebbero lo stesso output delle vecchie props; altrimenti dovrebbe restituire `false`.
 
 ```js {3}
 const Chart = memo(function Chart({ dataPoints }) {
@@ -349,30 +356,30 @@ function arePropsEqual(oldProps, newProps) {
 }
 ```
 
-If you do this, use the Performance panel in your browser developer tools to make sure that your comparison function is actually faster than re-rendering the component. You might be surprised.
+Se lo fai, usa il pannello Performance negli strumenti per sviluppatori del browser per assicurarti che la tua funzione di confronto sia effettivamente più veloce della ri-renderizzazione del componente. Potresti rimanere sorpreso.
 
-When you do performance measurements, make sure that React is running in the production mode.
+Quando fai misurazioni delle prestazioni, assicurati che React sia in esecuzione in modalità produzione.
 
 <Pitfall>
 
-If you provide a custom `arePropsEqual` implementation, **you must compare every prop, including functions.** Functions often [close over](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) the props and state of parent components. If you return `true` when `oldProps.onClick !== newProps.onClick`, your component will keep "seeing" the props and state from a previous render inside its `onClick` handler, leading to very confusing bugs.
+Se fornisci un'implementazione personalizzata di `arePropsEqual`, **devi confrontare ogni prop, incluse le funzioni.** Le funzioni spesso [catturano](https://developer.mozilla.org/it/docs/Web/JavaScript/Closures) le props e lo state dei componenti genitori. Se restituisci `true` quando `oldProps.onClick !== newProps.onClick`, il tuo componente continuerà a "vedere" le props e lo state di una renderizzazione precedente dentro il suo gestore `onClick`, portando a bug molto confusi.
 
-Avoid doing deep equality checks inside `arePropsEqual` unless you are 100% sure that the data structure you're working with has a known limited depth. **Deep equality checks can become incredibly slow** and can freeze your app for many seconds if someone changes the data structure later.
+Evita di fare controlli di uguaglianza profonda dentro `arePropsEqual` a meno che non sia sicuro al 100% che la struttura dati su cui lavori abbia una profondità nota e limitata. **I controlli di uguaglianza profonda possono diventare incredibilmente lenti** e possono bloccare la tua app per molti secondi se qualcuno cambia la struttura dati in seguito.
 
 </Pitfall>
 
 ---
 
-### Do I still need React.memo if I use React Compiler? {/*react-compiler-memo*/}
+### Ho ancora bisogno di React.memo se uso React Compiler? {/*react-compiler-memo*/}
 
-When you enable [React Compiler](/learn/react-compiler), you typically don't need `React.memo` anymore. The compiler automatically optimizes component re-rendering for you.
+Quando abiliti [React Compiler](/learn/react-compiler), di solito non hai più bisogno di `React.memo`. Il compiler ottimizza automaticamente la ri-renderizzazione dei componenti per te.
 
-Here's how it works:
+Ecco come funziona:
 
-**Without React Compiler**, you need `React.memo` to prevent unnecessary re-renders:
+**Senza React Compiler**, hai bisogno di `React.memo` per evitare ri-renderizzazioni non necessarie:
 
 ```js
-// Parent re-renders every second
+// Il genitore si ri-renderizza ogni secondo
 function Parent() {
   const [seconds, setSeconds] = useState(0);
 
@@ -391,30 +398,30 @@ function Parent() {
   );
 }
 
-// Without memo, this re-renders every second even though props don't change
+// Senza memo, questo si ri-renderizza ogni secondo anche se le props non cambiano
 const ExpensiveChild = memo(function ExpensiveChild({ name }) {
   console.log('ExpensiveChild rendered');
   return <div>Hello, {name}!</div>;
 });
 ```
 
-**With React Compiler enabled**, the same optimization happens automatically:
+**Con React Compiler abilitato**, la stessa ottimizzazione avviene automaticamente:
 
 ```js
-// No memo needed - compiler prevents re-renders automatically
+// Nessun memo necessario: il compiler previene le ri-renderizzazioni automaticamente
 function ExpensiveChild({ name }) {
   console.log('ExpensiveChild rendered');
   return <div>Hello, {name}!</div>;
 }
 ```
 
-Here's the key part of what the React Compiler generates:
+Ecco la parte chiave di ciò che genera React Compiler:
 
 ```js {6-12}
 function Parent() {
   const $ = _c(7);
   const [seconds, setSeconds] = useState(0);
-  // ... other code ...
+  // ... altro codice ...
 
   let t3;
   if ($[4] === Symbol.for("react.memo_cache_sentinel")) {
@@ -423,28 +430,28 @@ function Parent() {
   } else {
     t3 = $[4];
   }
-  // ... return statement ...
+  // ... istruzione return ...
 }
 ```
 
-Notice the highlighted lines: The compiler wraps `<ExpensiveChild name="John" />` in a cache check. Since the `name` prop is always `"John"`, this JSX is created once and reused on every parent re-render. This is exactly what `React.memo` does - it prevents the child from re-rendering when its props haven't changed.
+Nota le righe evidenziate: il compiler avvolge `<ExpensiveChild name="John" />` in un controllo della cache. Poiché la prop `name` è sempre `"John"`, questo JSX viene creato una volta e riusato a ogni ri-renderizzazione del genitore. Questo è esattamente ciò che fa `React.memo`: impedisce al figlio di ri-renderizzarsi quando le sue props non sono cambiate.
 
-The React Compiler automatically:
-1. Tracks that the `name` prop passed to `ExpensiveChild` hasn't changed
-2. Reuses the previously created JSX for `<ExpensiveChild name="John" />`
-3. Skips re-rendering `ExpensiveChild` entirely
+React Compiler automaticamente:
+1. Traccia che la prop `name` passata a `ExpensiveChild` non è cambiata
+2. Riutilizza il JSX creato in precedenza per `<ExpensiveChild name="John" />`
+3. Salta completamente la ri-renderizzazione di `ExpensiveChild`
 
-This means **you can safely remove `React.memo` from your components when using React Compiler**. The compiler provides the same optimization automatically, making your code cleaner and easier to maintain.
+Ciò significa che **puoi rimuovere `React.memo` dai tuoi componenti in sicurezza quando usi React Compiler**. Il compiler fornisce la stessa ottimizzazione automaticamente, rendendo il tuo codice più pulito e più facile da mantenere.
 
 <Note>
 
-The compiler's optimization is actually more comprehensive than `React.memo`. It also memoizes intermediate values and expensive computations within your components, similar to combining `React.memo` with `useMemo` throughout your component tree.
+L'ottimizzazione del compiler è in realtà più completa di `React.memo`. Memorizza anche valori intermedi e computazioni costose all'interno dei tuoi componenti, in modo simile a combinare `React.memo` con `useMemo` in tutto l'albero dei componenti.
 
 </Note>
 
 ---
 
 ## Troubleshooting {/*troubleshooting*/}
-### My component re-renders when a prop is an object, array, or function {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
+### Il mio componente si ri-renderizza quando una prop è un oggetto, un array o una funzione {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
 
-React compares old and new props by shallow equality: that is, it considers whether each new prop is reference-equal to the old prop. If you create a new object or array each time the parent is re-rendered, even if the individual elements are each the same, React will still consider it to be changed. Similarly, if you create a new function when rendering the parent component, React will consider it to have changed even if the function has the same definition. To avoid this, [simplify props or memoize props in the parent component](#minimizing-props-changes).
+React confronta le props vecchie e nuove per uguaglianza superficiale: cioè, considera se ogni nuova prop è reference-equal alla prop vecchia. Se crei un nuovo oggetto o array ogni volta che il genitore viene ri-renderizzato, anche se i singoli elementi sono gli stessi, React lo considererà comunque cambiato. Allo stesso modo, se crei una nuova funzione quando renderizzi il componente genitore, React la considererà cambiata anche se la funzione ha la stessa definizione. Per evitare questo, [semplifica le props o memorizza le props nel componente genitore](#minimizing-props-changes).
