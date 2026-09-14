@@ -317,7 +317,7 @@ Ecco come funziona:
 
 Ogni volta che il tuo componente si ri-renderizza, React esaminerà l'array di dipendenze che hai passato. Se uno qualsiasi dei valori nell'array è diverso dal valore nella stessa posizione che hai passato durante la renderizzazione precedente, React re-sincronizzerà il tuo Effetto.
 
-Per esempio, se hai passato `["general"]` durante la renderizzazione iniziale e in seguito hai passato `["travel"]` durante la renderizzazione successiva, React confronterà `"general"` e `"travel"`. Questi sono valori diversi (confrontati con [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), quindi React re-sincronizzerà il tuo Effetto. D'altra parte, se il tuo componente si ri-renderizza ma `roomId` non è cambiato, il tuo Effetto resterà connesso alla stessa stanza.
+Per esempio, se hai passato `["general"]` durante la renderizzazione iniziale e in seguito hai passato `["travel"]` durante la renderizzazione successiva, React confronterà `"general"` e `"travel"`. Questi sono valori diversi (confrontati con [`Object.is`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), quindi React re-sincronizzerà il tuo Effetto. D'altra parte, se il tuo componente si ri-renderizza ma `roomId` non è cambiato, il tuo Effetto resterà connesso alla stessa stanza.
 
 ### Ogni Effetto rappresenta un processo di sincronizzazione separato {/*each-effect-represents-a-separate-synchronization-process*/}
 
@@ -590,7 +590,7 @@ In altre parole, gli Effetti "reagiscono" a tutti i valori del corpo del compone
 
 I valori mutabili (incluse le variabili globali) non sono reattivi.
 
-**Un valore mutabile come [`location.pathname`](https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname) non può essere una dipendenza.** È mutabile, quindi può cambiare in qualsiasi momento completamente al di fuori del flusso di dati di renderizzazione di React. Cambiarlo non avvierebbe una ri-renderizzazione del tuo componente. Pertanto, anche se lo specificassi nelle dipendenze, React *non saprebbe* di re-sincronizzare l'Effetto quando cambia. Questo viola anche le regole di React perché leggere dati mutabili durante la renderizzazione (quando calcoli le dipendenze) rompe la [purezza della renderizzazione.](/learn/keeping-components-pure) Invece, dovresti leggere e sottoscriverti a un valore mutabile esterno con [`useSyncExternalStore`.](/learn/you-might-not-need-an-effect#subscribing-to-an-external-store)
+**Un valore mutabile come [`location.pathname`](https://developer.mozilla.org/it/docs/Web/API/Location/pathname) non può essere una dipendenza.** È mutabile, quindi può cambiare in qualsiasi momento completamente al di fuori del flusso di dati di renderizzazione di React. Cambiarlo non avvierebbe una ri-renderizzazione del tuo componente. Pertanto, anche se lo specificassi nelle dipendenze, React *non saprebbe* di re-sincronizzare l'Effetto quando cambia. Questo viola anche le regole di React perché leggere dati mutabili durante la renderizzazione (quando calcoli le dipendenze) rompe la [purezza della renderizzazione.](/learn/keeping-components-pure) Invece, dovresti leggere e sottoscriverti a un valore mutabile esterno con [`useSyncExternalStore`.](/learn/you-might-not-need-an-effect#subscribing-to-an-external-store)
 
 **Un valore mutabile come [`ref.current`](/reference/react/useRef#reference) o ciò che leggi da esso non può essere una dipendenza.** L'oggetto ref restituito da `useRef` stesso può essere una dipendenza, ma la sua proprietà `current` è intenzionalmente mutabile. Ti permette di [tenere traccia di qualcosa senza avviare una ri-renderizzazione.](/learn/referencing-values-with-refs) Ma poiché cambiarlo non avvia una ri-renderizzazione, non è un valore reattivo e React non saprà di rieseguire il tuo Effetto quando cambia.
 
@@ -944,7 +944,7 @@ button { margin-left: 10px; }
 
 #### Attivare e disattivare la sincronizzazione {/*switch-synchronization-on-and-off*/}
 
-In questo esempio, un Effetto si sottoscrive all'evento [`pointermove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event) della finestra per spostare un punto rosa sullo schermo. Prova a passare il mouse sull'area di anteprima (o a toccare lo schermo se sei su un dispositivo mobile) e vedi come il punto rosa segue il tuo movimento.
+In questo esempio, un Effetto si sottoscrive all'evento [`pointermove`](https://developer.mozilla.org/it/docs/Web/API/Element/pointermove_event) della finestra per spostare un punto rosa sullo schermo. Prova a passare il mouse sull'area di anteprima (o a toccare lo schermo se sei su un dispositivo mobile) e vedi come il punto rosa segue il tuo movimento.
 
 C'è anche una casella di controllo. Selezionare la casella attiva/disattiva la variabile di state `canMove`, ma questa variabile di state non è usata da nessuna parte nel codice. Il tuo compito è modificare il codice in modo che quando `canMove` è `false` (la casella è deselezionata), il punto smetta di muoversi. Dopo aver riattivato la casella (e impostato `canMove` su `true`), il punto dovrebbe seguire di nuovo il movimento. In altre parole, se il punto può muoversi o no dovrebbe restare sincronizzato con la selezione della casella di controllo.
 
