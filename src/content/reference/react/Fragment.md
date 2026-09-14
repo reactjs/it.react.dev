@@ -124,7 +124,7 @@ fragmentRef.current.dispatchEvent(new Event('custom', { bubbles: true }));
 
 #### `focus(options?)` {/*focus*/}
 
-Imposta il focus sul primo nodo DOM che può ricevere il focus nel Fragment. A differenza di chiamare `element.focus()` su un elemento DOM, questo metodo cerca *tutti* i figli annidati in profondità (depth-first) finché non trova un elemento che può ricevere il focus — non solo l'elemento stesso o i suoi figli diretti.
+Imposta il focus sul primo nodo DOM focusabile nel Fragment. A differenza di chiamare `element.focus()` su un elemento DOM, questo metodo cerca *tutti* i figli annidati in profondità (depth-first) finché non trova un elemento focusabile — non solo l'elemento stesso o i suoi figli diretti.
 
 ```js
 fragmentRef.current.focus();
@@ -142,7 +142,7 @@ fragmentRef.current.focus();
 
 #### `focusLast(options?)` {/*focuslast*/}
 
-Imposta il focus sull'ultimo nodo DOM che può ricevere il focus nel Fragment. Cerca i figli annidati in profondità (depth-first), poi itera in ordine inverso.
+Imposta il focus sull'ultimo nodo DOM focusabile nel Fragment. Cerca i figli annidati in profondità (depth-first), poi itera in ordine inverso.
 
 ```js
 fragmentRef.current.focusLast();
@@ -211,7 +211,7 @@ fragmentRef.current.unobserveUsing(observer);
 
 #### `getClientRects()` {/*getclientrects*/}
 
-Restituisce un array piatto di oggetti [`DOMRect`](https://developer.mozilla.org/it/docs/Web/API/DOMRect) che rappresentano i rettangoli di delimitazione di tutti i figli DOM di primo livello.
+Restituisce un array flat di oggetti [`DOMRect`](https://developer.mozilla.org/it/docs/Web/API/DOMRect) che rappresentano i rettangoli di delimitazione di tutti i figli DOM di primo livello.
 
 ```js
 const rects = fragmentRef.current.getClientRects();
@@ -269,7 +269,7 @@ fragmentRef.current.scrollIntoView();
 
 ##### Parameters {/*scrollintoview-parameters*/}
 
-* **optional** `alignToTop`: Un booleano. Se `true` *(il valore predefinito)*, scorre il primo figlio in alto nell'area scrollabile. Se `false`, scorre l'ultimo figlio in basso. A differenza di [`Element.scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView), questo metodo non accetta un oggetto `ScrollIntoViewOptions`.
+* **optional** `alignToTop`: Un booleano. Se `true` (il default), scorre il primo figlio in alto nell'area scrollabile. Se `false`, scorre l'ultimo figlio in basso. A differenza di [`Element.scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView), questo metodo non accetta un oggetto `ScrollIntoViewOptions`.
 
 ##### Returns {/*scrollintoview-returns*/}
 
@@ -284,17 +284,17 @@ fragmentRef.current.scrollIntoView();
 
 #### `FragmentInstance` Caveats {/*fragmentinstance-caveats*/}
 
-* I metodi che operano sui figli (come `addEventListener`, `observeUsing` e `getClientRects`) operano sui *figli host (DOM) di primo livello* del Fragment. Non agiscono direttamente sui figli annidati all'interno di un altro elemento DOM.
-* `focus` e `focusLast` cercano i figli annidati in profondità (depth-first) per trovare elementi che possono ricevere il focus, a differenza dei metodi per eventi e observer che operano solo sui figli host di primo livello.
-* `observeUsing` non funziona sui nodi di testo. React registra un warning in sviluppo se il Fragment contiene solo figli di testo.
-* React non applica i listener di eventi aggiunti tramite `addEventListener` agli alberi [`<Activity>`](/reference/react/Activity) nascosti. Quando un boundary `Activity` passa da nascosto a visibile, i listener vengono applicati automaticamente.
+* I metodi che targettano i figli (come `addEventListener`, `observeUsing` e `getClientRects`) operano sui *figli host (DOM) di primo livello* del Fragment. Non targettano direttamente i figli annidati all'interno di un altro elemento DOM.
+* `focus` e `focusLast` cercano i figli annidati in profondità (depth-first) per trovare elementi focusabili, a differenza dei metodi per eventi e observer che targettano solo i figli host di primo livello.
+* `observeUsing` non funziona sui nodi di testo. React registra un warning in development se il Fragment contiene solo figli di testo.
+* React non applica i listener di eventi aggiunti tramite `addEventListener` agli alberi [`<Activity>`](/reference/react/Activity) nascosti. Quando un confine `Activity` passa da nascosto a visibile, i listener vengono applicati automaticamente.
 * Ogni figlio DOM di primo livello di un Fragment con un `ref` ottiene una proprietà `reactFragments` — un `Set<FragmentInstance>` contenente tutte le istanze Fragment che possiedono l'elemento. Questo consente di [memorizzare nella cache un observer condiviso](#caching-global-intersection-observer) tra più Fragment.
 
 ---
 
 ## Usage {/*usage*/}
 
-### Restituire più elementi {/*returning-multiple-elements*/}
+### Returning multiple elements {/*returning-multiple-elements*/}
 
 Usa `Fragment`, o l'equivalente sintassi `<>...</>`, per raggruppare più elementi insieme. Puoi usarlo per mettere più elementi in qualsiasi punto in cui può andare un singolo elemento. Ad esempio, un componente può restituire solo un elemento, ma usando un Fragment puoi raggruppare più elementi e restituirli come gruppo:
 
@@ -349,7 +349,7 @@ function PostBody({ body }) {
 
 <DeepDive>
 
-#### Come scrivere un Fragment senza la sintassi speciale? {/*how-to-write-a-fragment-without-the-special-syntax*/}
+#### How to write a Fragment without the special syntax? {/*how-to-write-a-fragment-without-the-special-syntax*/}
 
 L'esempio sopra è equivalente a importare `Fragment` da React:
 
@@ -372,7 +372,7 @@ Di solito non ne avrai bisogno a meno che tu non debba [passare una `key` al tuo
 
 ---
 
-### Assegnare più elementi a una variabile {/*assigning-multiple-elements-to-a-variable*/}
+### Assigning multiple elements to a variable {/*assigning-multiple-elements-to-a-variable*/}
 
 Come qualsiasi altro elemento, puoi assegnare elementi Fragment a variabili, passarli come props e così via:
 
@@ -394,7 +394,7 @@ function CloseDialog() {
 
 ---
 
-### Raggruppare elementi con del testo {/*grouping-elements-with-text*/}
+### Grouping elements with text {/*grouping-elements-with-text*/}
 
 Puoi usare `Fragment` per raggruppare testo insieme a componenti:
 
@@ -413,7 +413,7 @@ function DateRangePicker({ start, end }) {
 
 ---
 
-### Renderizzare un elenco di Fragment {/*rendering-a-list-of-fragments*/}
+### Rendering a list of Fragments {/*rendering-a-list-of-fragments*/}
 
 Ecco una situazione in cui devi scrivere `Fragment` esplicitamente invece di usare la sintassi `<></>`. Quando [renderizzi più elementi in un loop](/learn/rendering-lists), devi assegnare una `key` a ogni elemento. Se gli elementi all'interno del loop sono Fragment, devi usare la normale sintassi degli elementi JSX per fornire l'attributo `key`:
 
@@ -466,7 +466,7 @@ function PostBody({ body }) {
 
 ---
 
-### Aggiungere listener di eventi senza un elemento wrapper {/*adding-event-listeners-without-wrapper*/}
+### Adding event listeners without a wrapper element {/*adding-event-listeners-without-wrapper*/}
 
 I ref dei Fragment ti permettono di aggiungere listener di eventi a un gruppo di elementi senza aggiungere un nodo DOM wrapper. Usa una [ref callback](/reference/react-dom/components/common#ref-callback) per collegare e ripulire i listener:
 
@@ -531,9 +531,9 @@ La chiamata `addEventListener` applica il listener a ogni figlio DOM di primo li
 
 <DeepDive>
 
-#### Su quali figli agisce un ref di Fragment? {/*which-children-does-a-fragment-ref-target*/}
+#### Which children does a Fragment ref target? {/*which-children-does-a-fragment-ref-target*/}
 
-Un `FragmentInstance` opera sui **figli host (DOM) di primo livello** del Fragment. Considera questo albero:
+Un `FragmentInstance` targetta i **figli host (DOM) di primo livello** del Fragment. Considera questo albero:
 
 ```js
 <Fragment ref={ref}>
@@ -547,7 +547,7 @@ Un `FragmentInstance` opera sui **figli host (DOM) di primo livello** del Fragme
 </Fragment>
 ```
 
-`Wrapper` è un componente React, quindi il `FragmentInstance` lo attraversa per trovare i nodi DOM. I figli interessati sono `A`, `B` e `D`. `C` non è interessato perché è annidato all'interno dell'elemento DOM `B`.
+`Wrapper` è un componente React, quindi il `FragmentInstance` lo attraversa per trovare i nodi DOM. I figli targettati sono `A`, `B` e `D`. `C` non è targettato perché è annidato all'interno dell'elemento DOM `B`.
 
 Metodi come `addEventListener`, `observeUsing` e `getClientRects` operano su questi figli DOM di primo livello. `focus` e `focusLast` sono diversi — cercano *tutti* i figli annidati in profondità (depth-first) per trovare elementi focusabili.
 
@@ -555,7 +555,7 @@ Metodi come `addEventListener`, `observeUsing` e `getClientRects` operano su que
 
 ---
 
-### Gestire il focus su un gruppo di elementi {/*managing-focus-across-elements*/}
+### Managing focus across a group of elements {/*managing-focus-across-elements*/}
 
 I ref dei Fragment forniscono i metodi `focus`, `focusLast` e `blur` che operano su tutti i nodi DOM all'interno del Fragment:
 
@@ -640,7 +640,7 @@ Chiamare `focus()` imposta il focus sull'input `street` — anche se è annidato
 
 ---
 
-### Scorrere un gruppo di elementi nella vista {/*scrolling-group-into-view*/}
+### Scrolling a group of elements into view {/*scrolling-group-into-view*/}
 
 Usa `scrollIntoView` per scorrere i figli di un Fragment nella vista senza un elemento wrapper. Passa `true` (o ometti l'argomento) per scorrere il primo figlio in alto. Passa `false` per scorrere l'ultimo figlio in basso:
 
@@ -734,7 +734,7 @@ p {
 
 ---
 
-### Osservare la visibilità senza un elemento wrapper {/*observing-visibility-without-wrapper*/}
+### Observing visibility without a wrapper element {/*observing-visibility-without-wrapper*/}
 
 Usa `observeUsing` per collegare un `IntersectionObserver` a tutti i figli DOM di primo livello di un Fragment. Questo ti permette di tracciare la visibilità senza richiedere ai componenti figli di esporre ref o aggiungere un elemento wrapper:
 
@@ -846,7 +846,7 @@ export default function Card({ title }) {
 
 ---
 
-### Memorizzare nella cache un IntersectionObserver globale {/*caching-global-intersection-observer*/}
+### Caching a global IntersectionObserver {/*caching-global-intersection-observer*/}
 
 Un'ottimizzazione delle performance comune per siti con molti observer è condividere un singolo `IntersectionObserver` per configurazione e instradare le sue entry ai callback corretti in base a quale elemento ha intersecato. I ref dei Fragment supportano lo stesso pattern tramite la proprietà `reactFragments`.
 
