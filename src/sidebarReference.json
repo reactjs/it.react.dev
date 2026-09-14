@@ -93,7 +93,7 @@
       "path": "/reference/react/components",
       "routes": [
         {
-          "title": "<Fragment> (<>)",
+          "title": "<Fragment> (<>...</>)",
           "path": "/reference/react/Fragment"
         },
         {

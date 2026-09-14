@@ -1,12 +1,19 @@
 ---
 title: <Fragment> (<>...</>)
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/Fragment.md).
+
+</Note>
 
 <Intro>
 
-`<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
+`<Fragment>`, spesso usato tramite la sintassi `<>...</>`, ti permette di raggruppare elementi senza un nodo wrapper.
 
-Fragments can also accept refs, which enable interacting with underlying DOM nodes without adding wrapper elements.
+I Fragment possono anche accettare ref, che consentono di interagire con i nodi DOM sottostanti senza aggiungere elementi wrapper.
 
 ```js
 <>
@@ -25,41 +32,41 @@ Fragments can also accept refs, which enable interacting with underlying DOM nod
 
 ### `<Fragment>` {/*fragment*/}
 
-Wrap elements in `<Fragment>` to group them together in situations where you need a single element. Grouping elements in `Fragment` has no effect on the resulting DOM; it is the same as if the elements were not grouped. The empty JSX tag `<></>` is shorthand for `<Fragment></Fragment>` in most cases.
+Avvolgi elementi in `<Fragment>` per raggrupparli insieme in situazioni in cui ti serve un singolo elemento. Raggruppare elementi in un `Fragment` non ha effetto sul DOM risultante; è come se gli elementi non fossero raggruppati. Il tag JSX vuoto `<></>` è una scorciatoia per `<Fragment></Fragment>` nella maggior parte dei casi.
 
 #### Props {/*props*/}
 
-- **optional** `key`: Fragments declared with the explicit `<Fragment>` syntax may have [keys.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
-- **optional** `ref`: A ref object (e.g. from [`useRef`](/reference/react/useRef)) or [callback function](/reference/react-dom/components/common#ref-callback). React provides a `FragmentInstance` as the ref value that implements methods for interacting with the DOM nodes wrapped by the Fragment.
+- **optional** `key`: I Fragment dichiarati con la sintassi esplicita `<Fragment>` possono avere delle [key.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- **optional** `ref`: Un oggetto ref (ad esempio da [`useRef`](/reference/react/useRef)) o una [funzione callback](/reference/react-dom/components/common#ref-callback). React fornisce un `FragmentInstance` come valore del ref che implementa metodi per interagire con i nodi DOM avvolti dal Fragment.
 
 #### Caveats {/*caveats*/}
 
-* If you want to pass `key` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment key={yourKey}>...</Fragment>`.
+* Se vuoi passare `key` a un Fragment, non puoi usare la sintassi `<>...</>`. Devi importare esplicitamente `Fragment` da `'react'` e renderizzare `<Fragment key={yourKey}>...</Fragment>`.
 
-* React does not [reset state](/learn/preserving-and-resetting-state) when you go from rendering `<><Child /></>` to `[<Child />]` or back, or when you go from rendering `<><Child /></>` to `<Child />` and back. This only works a single level deep: for example, going from `<><><Child /></></>` to `<Child />` resets the state. See the precise semantics [here.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
+* React non [reimposta lo state](/learn/preserving-and-resetting-state) quando passi dal renderizzare `<><Child /></>` a `[<Child />]` o viceversa, o quando passi dal renderizzare `<><Child /></>` a `<Child />` e viceversa. Questo funziona solo a un singolo livello di profondità: ad esempio, passare da `<><><Child /></></>` a `<Child />` reimposta lo state. Vedi la semantica precisa [qui.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
-* If you want to pass `ref` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment ref={yourRef}>...</Fragment>`.
+* Se vuoi passare `ref` a un Fragment, non puoi usare la sintassi `<>...</>`. Devi importare esplicitamente `Fragment` da `'react'` e renderizzare `<Fragment ref={yourRef}>...</Fragment>`.
 
 ---
 
 ### `FragmentInstance` {/*fragmentinstance*/}
 
-When you pass a `ref` to a Fragment, React provides a `FragmentInstance` object. It implements methods for interacting with the first-level DOM children wrapped by the Fragment.
+Quando passi un `ref` a un Fragment, React fornisce un oggetto `FragmentInstance`. Implementa metodi per interagire con i figli DOM di primo livello avvolti dal Fragment.
 
-* [`addEventListener`](#addeventlistener) and [`removeEventListener`](#removeeventlistener) manage event listeners across all first-level DOM children.
-* [`dispatchEvent`](#dispatchevent) dispatches an event on the Fragment, which can bubble to the DOM parent.
-* [`focus`](#focus), [`focusLast`](#focuslast), and [`blur`](#blur) manage focus across all nested children depth-first.
-* [`observeUsing`](#observeusing) and [`unobserveUsing`](#unobserveusing) attach and detach `IntersectionObserver` or `ResizeObserver` instances.
-* [`getClientRects`](#getclientrects) returns bounding rectangles of all first-level DOM children.
-* [`getRootNode`](#getrootnode) returns the root node of the Fragment's parent.
-* [`compareDocumentPosition`](#comparedocumentposition) compares the Fragment's position with another node.
-* [`scrollIntoView`](#scrollintoview) scrolls the Fragment's children into view.
+* [`addEventListener`](#addeventlistener) e [`removeEventListener`](#removeeventlistener) gestiscono i listener di eventi su tutti i figli DOM di primo livello.
+* [`dispatchEvent`](#dispatchevent) esegue il dispatch di un evento sul Fragment, che può propagarsi al genitore DOM.
+* [`focus`](#focus), [`focusLast`](#focuslast) e [`blur`](#blur) gestiscono il focus su tutti i figli annidati in profondità (depth-first).
+* [`observeUsing`](#observeusing) e [`unobserveUsing`](#unobserveusing) collegano e scollegano istanze di `IntersectionObserver` o `ResizeObserver`.
+* [`getClientRects`](#getclientrects) restituisce i rettangoli di delimitazione di tutti i figli DOM di primo livello.
+* [`getRootNode`](#getrootnode) restituisce il nodo root del genitore del Fragment.
+* [`compareDocumentPosition`](#comparedocumentposition) confronta la posizione del Fragment con un altro nodo.
+* [`scrollIntoView`](#scrollintoview) scorre i figli del Fragment nella vista.
 
 ---
 
 #### `addEventListener(type, listener, options?)` {/*addeventlistener*/}
 
-Adds an event listener to all first-level DOM children of the Fragment.
+Aggiunge un listener di eventi a tutti i figli DOM di primo livello del Fragment.
 
 ```js
 fragmentRef.current.addEventListener('click', handleClick);
@@ -67,19 +74,19 @@ fragmentRef.current.addEventListener('click', handleClick);
 
 ##### Parameters {/*addeventlistener-parameters*/}
 
-* `type`: A string representing the event type to listen for (e.g. `'click'`, `'focus'`).
-* `listener`: The event handler function.
-* **optional** `options`: An options object or boolean for capture, matching the [DOM `addEventListener` API.](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+* `type`: Una stringa che rappresenta il tipo di evento da ascoltare (ad esempio `'click'`, `'focus'`).
+* `listener`: La funzione gestore di eventi.
+* **optional** `options`: Un oggetto options o un booleano per capture, corrispondente all'[API DOM `addEventListener`.](https://developer.mozilla.org/it/docs/Web/API/EventTarget/addEventListener)
 
 ##### Returns {/*addeventlistener-returns*/}
 
-`addEventListener` does not return anything (`undefined`).
+`addEventListener` non restituisce nulla (`undefined`).
 
 ---
 
 #### `removeEventListener(type, listener, options?)` {/*removeeventlistener*/}
 
-Removes an event listener from all first-level DOM children of the Fragment.
+Rimuove un listener di eventi da tutti i figli DOM di primo livello del Fragment.
 
 ```js
 fragmentRef.current.removeEventListener('click', handleClick);
@@ -87,19 +94,19 @@ fragmentRef.current.removeEventListener('click', handleClick);
 
 ##### Parameters {/*removeeventlistener-parameters*/}
 
-* `type`: The event type string.
-* `listener`: The event handler function to remove.
-* **optional** `options`: An options object or boolean, matching the [DOM `removeEventListener` API.](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
+* `type`: La stringa del tipo di evento.
+* `listener`: La funzione gestore di eventi da rimuovere.
+* **optional** `options`: Un oggetto options o un booleano, corrispondente all'[API DOM `removeEventListener`.](https://developer.mozilla.org/it/docs/Web/API/EventTarget/removeEventListener)
 
 ##### Returns {/*removeeventlistener-returns*/}
 
-`removeEventListener` does not return anything (`undefined`).
+`removeEventListener` non restituisce nulla (`undefined`).
 
 ---
 
 #### `dispatchEvent(event)` {/*dispatchevent*/}
 
-Dispatches an event on the Fragment. Added event listeners are called, and the event can bubble to the Fragment's DOM parent.
+Esegue il dispatch di un evento sul Fragment. I listener di eventi aggiunti vengono chiamati e l'evento può propagarsi al genitore DOM del Fragment.
 
 ```js
 fragmentRef.current.dispatchEvent(new Event('custom', { bubbles: true }));
@@ -107,17 +114,17 @@ fragmentRef.current.dispatchEvent(new Event('custom', { bubbles: true }));
 
 ##### Parameters {/*dispatchevent-parameters*/}
 
-* `event`: An [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) object to dispatch. If `bubbles` is `true`, the event bubbles to the Fragment's parent DOM node.
+* `event`: Un oggetto [`Event`](https://developer.mozilla.org/it/docs/Web/API/Event) da inviare. Se `bubbles` è `true`, l'evento si propaga al nodo DOM genitore del Fragment.
 
 ##### Returns {/*dispatchevent-returns*/}
 
-`true` if the event was not cancelled, `false` if `preventDefault()` was called.
+`true` se l'evento non è stato annullato, `false` se è stato chiamato `preventDefault()`.
 
 ---
 
 #### `focus(options?)` {/*focus*/}
 
-Focuses the first focusable DOM node in the Fragment. Unlike calling `element.focus()` on a DOM element, this method searches *all* nested children depth-first until it finds a focusable element—not just the element itself or its direct children.
+Imposta il focus sul primo nodo DOM focusabile nel Fragment. A differenza di chiamare `element.focus()` su un elemento DOM, questo metodo cerca *tutti* i figli annidati in profondità (depth-first) finché non trova un elemento focusabile — non solo l'elemento stesso o i suoi figli diretti.
 
 ```js
 fragmentRef.current.focus();
@@ -125,17 +132,17 @@ fragmentRef.current.focus();
 
 ##### Parameters {/*focus-parameters*/}
 
-* **optional** `options`: A [`FocusOptions`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus#options) object (e.g. `{ preventScroll: true }`).
+* **optional** `options`: Un oggetto [`FocusOptions`](https://developer.mozilla.org/it/docs/Web/API/HTMLElement/focus#options) (ad esempio `{ preventScroll: true }`).
 
 ##### Returns {/*focus-returns*/}
 
-`focus` does not return anything (`undefined`).
+`focus` non restituisce nulla (`undefined`).
 
 ---
 
 #### `focusLast(options?)` {/*focuslast*/}
 
-Focuses the last focusable DOM node in the Fragment. Searches nested children depth-first, then iterates in reverse.
+Imposta il focus sull'ultimo nodo DOM focusabile nel Fragment. Cerca i figli annidati in profondità (depth-first), poi itera in ordine inverso.
 
 ```js
 fragmentRef.current.focusLast();
@@ -143,17 +150,17 @@ fragmentRef.current.focusLast();
 
 ##### Parameters {/*focuslast-parameters*/}
 
-* **optional** `options`: A [`FocusOptions`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus#options) object.
+* **optional** `options`: Un oggetto [`FocusOptions`](https://developer.mozilla.org/it/docs/Web/API/HTMLElement/focus#options).
 
 ##### Returns {/*focuslast-returns*/}
 
-`focusLast` does not return anything (`undefined`).
+`focusLast` non restituisce nulla (`undefined`).
 
 ---
 
 #### `blur()` {/*blur*/}
 
-Removes focus from the active element if it is within the Fragment. If `document.activeElement` is not within the Fragment, `blur` does nothing.
+Rimuove il focus dall'elemento attivo se si trova all'interno del Fragment. Se `document.activeElement` non è all'interno del Fragment, `blur` non fa nulla.
 
 ```js
 fragmentRef.current.blur();
@@ -161,13 +168,13 @@ fragmentRef.current.blur();
 
 ##### Returns {/*blur-returns*/}
 
-`blur` does not return anything (`undefined`).
+`blur` non restituisce nulla (`undefined`).
 
 ---
 
 #### `observeUsing(observer)` {/*observeusing*/}
 
-Starts observing all first-level DOM children of the Fragment with the provided observer.
+Inizia a osservare tutti i figli DOM di primo livello del Fragment con l'observer fornito.
 
 ```js
 const observer = new IntersectionObserver(callback, options);
@@ -176,17 +183,17 @@ fragmentRef.current.observeUsing(observer);
 
 ##### Parameters {/*observeusing-parameters*/}
 
-* `observer`: An [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) or [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) instance.
+* `observer`: Un'istanza di [`IntersectionObserver`](https://developer.mozilla.org/it/docs/Web/API/IntersectionObserver) o [`ResizeObserver`](https://developer.mozilla.org/it/docs/Web/API/ResizeObserver).
 
 ##### Returns {/*observeusing-returns*/}
 
-`observeUsing` does not return anything (`undefined`).
+`observeUsing` non restituisce nulla (`undefined`).
 
 ---
 
 #### `unobserveUsing(observer)` {/*unobserveusing*/}
 
-Stops observing the Fragment's DOM children with the specified observer.
+Interrompe l'osservazione dei figli DOM del Fragment con l'observer specificato.
 
 ```js
 fragmentRef.current.unobserveUsing(observer);
@@ -194,17 +201,17 @@ fragmentRef.current.unobserveUsing(observer);
 
 ##### Parameters {/*unobserveusing-parameters*/}
 
-* `observer`: The same `IntersectionObserver` or `ResizeObserver` instance previously passed to [`observeUsing`](#observeusing).
+* `observer`: La stessa istanza di `IntersectionObserver` o `ResizeObserver` precedentemente passata a [`observeUsing`](#observeusing).
 
 ##### Returns {/*unobserveusing-returns*/}
 
-`unobserveUsing` does not return anything (`undefined`).
+`unobserveUsing` non restituisce nulla (`undefined`).
 
 ---
 
 #### `getClientRects()` {/*getclientrects*/}
 
-Returns a flat array of [`DOMRect`](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect) objects representing the bounding rectangles of all first-level DOM children.
+Restituisce un array flat di oggetti [`DOMRect`](https://developer.mozilla.org/it/docs/Web/API/DOMRect) che rappresentano i rettangoli di delimitazione di tutti i figli DOM di primo livello.
 
 ```js
 const rects = fragmentRef.current.getClientRects();
@@ -212,13 +219,13 @@ const rects = fragmentRef.current.getClientRects();
 
 ##### Returns {/*getclientrects-returns*/}
 
-An `Array<DOMRect>` containing the bounding rectangles of all children.
+Un `Array<DOMRect>` contenente i rettangoli di delimitazione di tutti i figli.
 
 ---
 
 #### `getRootNode(options?)` {/*getrootnode*/}
 
-Returns the root node containing the Fragment's parent DOM node, matching the behavior of [`Node.getRootNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/getRootNode).
+Restituisce il nodo root che contiene il nodo DOM genitore del Fragment, corrispondendo al comportamento di [`Node.getRootNode()`](https://developer.mozilla.org/it/docs/Web/API/Node/getRootNode).
 
 ```js
 const root = fragmentRef.current.getRootNode();
@@ -226,17 +233,17 @@ const root = fragmentRef.current.getRootNode();
 
 ##### Parameters {/*getrootnode-parameters*/}
 
-* **optional** `options`: An object with a `composed` boolean property, matching the [DOM `getRootNode` API.](https://developer.mozilla.org/en-US/docs/Web/API/Node/getRootNode#options)
+* **optional** `options`: Un oggetto con una proprietà booleana `composed`, corrispondente all'[API DOM `getRootNode`.](https://developer.mozilla.org/it/docs/Web/API/Node/getRootNode#options)
 
 ##### Returns {/*getrootnode-returns*/}
 
-A `Document`, `ShadowRoot`, or the `FragmentInstance` itself if there is no parent DOM node.
+Un `Document`, `ShadowRoot`, o il `FragmentInstance` stesso se non c'è un nodo DOM genitore.
 
 ---
 
 #### `compareDocumentPosition(otherNode)` {/*comparedocumentposition*/}
 
-Compares the document position of the Fragment with another node, returning a bitmask matching the behavior of [`Node.compareDocumentPosition()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition).
+Confronta la posizione nel documento del Fragment con un altro nodo, restituendo una bitmask corrispondente al comportamento di [`Node.compareDocumentPosition()`](https://developer.mozilla.org/it/docs/Web/API/Node/compareDocumentPosition).
 
 ```js
 const position = fragmentRef.current.compareDocumentPosition(otherElement);
@@ -244,17 +251,17 @@ const position = fragmentRef.current.compareDocumentPosition(otherElement);
 
 ##### Parameters {/*comparedocumentposition-parameters*/}
 
-* `otherNode`: The DOM node to compare against.
+* `otherNode`: Il nodo DOM con cui confrontare.
 
 ##### Returns {/*comparedocumentposition-returns*/}
 
-A bitmask of [position flags](https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition#return_value). Empty Fragments and Fragments with children rendered through a [portal](/reference/react-dom/createPortal) include `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC` in the result.
+Una bitmask di [flag di posizione](https://developer.mozilla.org/it/docs/Web/API/Node/compareDocumentPosition#return_value). I Fragment vuoti e i Fragment con figli renderizzati tramite un [portal](/reference/react-dom/createPortal) includono `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC` nel risultato.
 
 ---
 
 #### `scrollIntoView(alignToTop?)` {/*scrollintoview*/}
 
-Scrolls the Fragment's children into view. When `alignToTop` is `true` or omitted, scrolls to align the first child with the top of the scrollable ancestor. When `alignToTop` is `false`, scrolls to align the last child with the bottom.
+Scorre i figli del Fragment nella vista. Quando `alignToTop` è `true` o omesso, scorre per allineare il primo figlio in alto rispetto all'antenato scrollabile. Quando `alignToTop` è `false`, scorre per allineare l'ultimo figlio in basso.
 
 ```js
 fragmentRef.current.scrollIntoView();
@@ -262,26 +269,26 @@ fragmentRef.current.scrollIntoView();
 
 ##### Parameters {/*scrollintoview-parameters*/}
 
-* **optional** `alignToTop`: A boolean. If `true` (the default), scrolls the first child to the top of the scrollable area. If `false`, scrolls the last child to the bottom. Unlike [`Element.scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView), this method does not accept a `ScrollIntoViewOptions` object.
+* **optional** `alignToTop`: Un booleano. Se `true` (il default), scorre il primo figlio in alto nell'area scrollabile. Se `false`, scorre l'ultimo figlio in basso. A differenza di [`Element.scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView), questo metodo non accetta un oggetto `ScrollIntoViewOptions`.
 
 ##### Returns {/*scrollintoview-returns*/}
 
-`scrollIntoView` does not return anything (`undefined`).
+`scrollIntoView` non restituisce nulla (`undefined`).
 
 ##### Caveats {/*scrollintoview-caveats*/}
 
-* `scrollIntoView` does not accept an options object. Passing one throws an error. Use the `alignToTop` boolean instead.
-* When the Fragment has no children, `scrollIntoView` scrolls the nearest sibling or parent into view as a fallback.
+* `scrollIntoView` non accetta un oggetto options. Passarne uno genera un errore. Usa il booleano `alignToTop` al suo posto.
+* Quando il Fragment non ha figli, `scrollIntoView` scorre il fratello o genitore più vicino nella vista come fallback.
 
 ---
 
 #### `FragmentInstance` Caveats {/*fragmentinstance-caveats*/}
 
-* Methods that target children (such as `addEventListener`, `observeUsing`, and `getClientRects`) operate on *first-level host (DOM) children* of the Fragment. They do not directly target children nested inside another DOM element.
-* `focus` and `focusLast` search nested children depth-first for focusable elements, unlike event and observer methods which only target first-level host children.
-* `observeUsing` does not work on text nodes. React logs a warning in development if the Fragment contains only text children.
-* React does not apply event listeners added via `addEventListener` to hidden [`<Activity>`](/reference/react/Activity) trees. When an `Activity` boundary switches from hidden to visible, listeners are applied automatically.
-* Each first-level DOM child of a Fragment with a `ref` gets a `reactFragments` property—a `Set<FragmentInstance>` containing all Fragment instances that own the element. This enables [caching a shared observer](#caching-global-intersection-observer) across multiple Fragments.
+* I metodi che targettano i figli (come `addEventListener`, `observeUsing` e `getClientRects`) operano sui *figli host (DOM) di primo livello* del Fragment. Non targettano direttamente i figli annidati all'interno di un altro elemento DOM.
+* `focus` e `focusLast` cercano i figli annidati in profondità (depth-first) per trovare elementi focusabili, a differenza dei metodi per eventi e observer che targettano solo i figli host di primo livello.
+* `observeUsing` non funziona sui nodi di testo. React registra un warning in development se il Fragment contiene solo figli di testo.
+* React non applica i listener di eventi aggiunti tramite `addEventListener` agli alberi [`<Activity>`](/reference/react/Activity) nascosti. Quando un confine `Activity` passa da nascosto a visibile, i listener vengono applicati automaticamente.
+* Ogni figlio DOM di primo livello di un Fragment con un `ref` ottiene una proprietà `reactFragments` — un `Set<FragmentInstance>` contenente tutte le istanze Fragment che possiedono l'elemento. Questo consente di [memorizzare nella cache un observer condiviso](#caching-global-intersection-observer) tra più Fragment.
 
 ---
 
@@ -289,7 +296,7 @@ fragmentRef.current.scrollIntoView();
 
 ### Returning multiple elements {/*returning-multiple-elements*/}
 
-Use `Fragment`, or the equivalent `<>...</>` syntax, to group multiple elements together. You can use it to put multiple elements in any place where a single element can go. For example, a component can only return one element, but by using a Fragment you can group multiple elements together and then return them as a group:
+Usa `Fragment`, o l'equivalente sintassi `<>...</>`, per raggruppare più elementi insieme. Puoi usarlo per mettere più elementi in qualsiasi punto in cui può andare un singolo elemento. Ad esempio, un componente può restituire solo un elemento, ma usando un Fragment puoi raggruppare più elementi e restituirli come gruppo:
 
 ```js {3,6}
 function Post() {
@@ -302,7 +309,7 @@ function Post() {
 }
 ```
 
-Fragments are useful because grouping elements with a Fragment has no effect on layout or styles, unlike if you wrapped the elements in another container like a DOM element. If you inspect this example with the browser tools, you'll see that all `<h1>` and `<article>` DOM nodes appear as siblings without wrappers around them:
+I Fragment sono utili perché raggruppare elementi con un Fragment non ha effetto su layout o stili, a differenza di quando avvolgi gli elementi in un altro contenitore come un elemento DOM. Se ispezioni questo esempio con gli strumenti del browser, vedrai che tutti i nodi DOM `<h1>` e `<article>` appaiono come fratelli senza wrapper attorno a loro:
 
 <Sandpack>
 
@@ -344,7 +351,7 @@ function PostBody({ body }) {
 
 #### How to write a Fragment without the special syntax? {/*how-to-write-a-fragment-without-the-special-syntax*/}
 
-The example above is equivalent to importing `Fragment` from React:
+L'esempio sopra è equivalente a importare `Fragment` da React:
 
 ```js {1,5,8}
 import { Fragment } from 'react';
@@ -359,7 +366,7 @@ function Post() {
 }
 ```
 
-Usually you won't need this unless you need to [pass a `key` to your `Fragment`.](#rendering-a-list-of-fragments)
+Di solito non ne avrai bisogno a meno che tu non debba [passare una `key` al tuo `Fragment`.](#rendering-a-list-of-fragments)
 
 </DeepDive>
 
@@ -367,7 +374,7 @@ Usually you won't need this unless you need to [pass a `key` to your `Fragment`.
 
 ### Assigning multiple elements to a variable {/*assigning-multiple-elements-to-a-variable*/}
 
-Like any other element, you can assign Fragment elements to variables, pass them as props, and so on:
+Come qualsiasi altro elemento, puoi assegnare elementi Fragment a variabili, passarli come props e così via:
 
 ```js
 function CloseDialog() {
@@ -389,7 +396,7 @@ function CloseDialog() {
 
 ### Grouping elements with text {/*grouping-elements-with-text*/}
 
-You can use `Fragment` to group text together with components:
+Puoi usare `Fragment` per raggruppare testo insieme a componenti:
 
 ```js
 function DateRangePicker({ start, end }) {
@@ -408,7 +415,7 @@ function DateRangePicker({ start, end }) {
 
 ### Rendering a list of Fragments {/*rendering-a-list-of-fragments*/}
 
-Here's a situation where you need to write `Fragment` explicitly instead of using the `<></>` syntax. When you [render multiple elements in a loop](/learn/rendering-lists), you need to assign a `key` to each element. If the elements within the loop are Fragments, you need to use the normal JSX element syntax in order to provide the `key` attribute:
+Ecco una situazione in cui devi scrivere `Fragment` esplicitamente invece di usare la sintassi `<></>`. Quando [renderizzi più elementi in un loop](/learn/rendering-lists), devi assegnare una `key` a ogni elemento. Se gli elementi all'interno del loop sono Fragment, devi usare la normale sintassi degli elementi JSX per fornire l'attributo `key`:
 
 ```js {3,6}
 function Blog() {
@@ -421,7 +428,7 @@ function Blog() {
 }
 ```
 
-You can inspect the DOM to verify that there are no wrapper elements around the Fragment children:
+Puoi ispezionare il DOM per verificare che non ci siano elementi wrapper attorno ai figli del Fragment:
 
 <Sandpack>
 
@@ -461,7 +468,7 @@ function PostBody({ body }) {
 
 ### Adding event listeners without a wrapper element {/*adding-event-listeners-without-wrapper*/}
 
-Fragment `ref`s let you add event listeners to a group of elements without adding a wrapper DOM node. Use a [ref callback](/reference/react-dom/components/common#ref-callback) to attach and clean up listeners:
+I ref dei Fragment ti permettono di aggiungere listener di eventi a un gruppo di elementi senza aggiungere un nodo DOM wrapper. Usa una [ref callback](/reference/react-dom/components/common#ref-callback) per collegare e ripulire i listener:
 
 <Sandpack>
 
@@ -520,13 +527,13 @@ export default function App() {
 
 </Sandpack>
 
-The `addEventListener` call applies the listener to every first-level DOM child of the Fragment. When children are dynamically added or removed, the `FragmentInstance` automatically adds or removes the listener.
+La chiamata `addEventListener` applica il listener a ogni figlio DOM di primo livello del Fragment. Quando i figli vengono aggiunti o rimossi dinamicamente, il `FragmentInstance` aggiunge o rimuove automaticamente il listener.
 
 <DeepDive>
 
 #### Which children does a Fragment ref target? {/*which-children-does-a-fragment-ref-target*/}
 
-A `FragmentInstance` targets the **first-level host (DOM) children** of the Fragment. Consider this tree:
+Un `FragmentInstance` targetta i **figli host (DOM) di primo livello** del Fragment. Considera questo albero:
 
 ```js
 <Fragment ref={ref}>
@@ -540,9 +547,9 @@ A `FragmentInstance` targets the **first-level host (DOM) children** of the Frag
 </Fragment>
 ```
 
-`Wrapper` is a React component, so the `FragmentInstance` looks through it to find DOM nodes. The targeted children are `A`, `B`, and `D`. `C` is not targeted because it is nested inside the DOM element `B`.
+`Wrapper` è un componente React, quindi il `FragmentInstance` lo attraversa per trovare i nodi DOM. I figli targettati sono `A`, `B` e `D`. `C` non è targettato perché è annidato all'interno dell'elemento DOM `B`.
 
-Methods like `addEventListener`, `observeUsing`, and `getClientRects` operate on these first-level DOM children. `focus` and `focusLast` are different—they search *all* nested children depth-first to find focusable elements.
+Metodi come `addEventListener`, `observeUsing` e `getClientRects` operano su questi figli DOM di primo livello. `focus` e `focusLast` sono diversi — cercano *tutti* i figli annidati in profondità (depth-first) per trovare elementi focusabili.
 
 </DeepDive>
 
@@ -550,7 +557,7 @@ Methods like `addEventListener`, `observeUsing`, and `getClientRects` operate on
 
 ### Managing focus across a group of elements {/*managing-focus-across-elements*/}
 
-Fragment `ref`s provide `focus`, `focusLast`, and `blur` methods that operate across all DOM nodes within the Fragment:
+I ref dei Fragment forniscono i metodi `focus`, `focusLast` e `blur` che operano su tutti i nodi DOM all'interno del Fragment:
 
 <Sandpack>
 
@@ -586,8 +593,8 @@ function FormFields({ children }) {
   );
 }
 
-// Even though the inputs are deeply nested,
-// focus() searches depth-first to find them.
+// Anche se gli input sono profondamente annidati,
+// focus() li cerca in profondità (depth-first) per trovarli.
 export default function App() {
   return (
     <FormFields>
@@ -629,13 +636,13 @@ label {
 
 </Sandpack>
 
-Calling `focus()` focuses the `street` input—even though it is nested inside a `<fieldset>` and `<label>`. `focus()` searches depth-first through all nested children, not just direct children of the Fragment. `focusLast()` does the same in reverse, and `blur()` removes focus if the currently focused element is within the Fragment.
+Chiamare `focus()` imposta il focus sull'input `street` — anche se è annidato all'interno di un `<fieldset>` e un `<label>`. `focus()` cerca in profondità (depth-first) attraverso tutti i figli annidati, non solo i figli diretti del Fragment. `focusLast()` fa lo stesso in ordine inverso, e `blur()` rimuove il focus se l'elemento attualmente focalizzato si trova all'interno del Fragment.
 
 ---
 
 ### Scrolling a group of elements into view {/*scrolling-group-into-view*/}
 
-Use `scrollIntoView` to scroll a Fragment's children into view without a wrapper element. Pass `true` (or omit the argument) to scroll the first child to the top. Pass `false` to scroll the last child to the bottom:
+Usa `scrollIntoView` per scorrere i figli di un Fragment nella vista senza un elemento wrapper. Passa `true` (o ometti l'argomento) per scorrere il primo figlio in alto. Passa `false` per scorrere l'ultimo figlio in basso:
 
 <Sandpack>
 
@@ -703,7 +710,7 @@ export default function App() {
 
 h3 {
   margin: 4px 0;
-  /* Padding to handle offset of global sticky nav when scrolling for example */
+  /* Padding per gestire l'offset della nav sticky globale durante lo scroll, ad esempio */
   padding-top: 4em;
   color: #1a73e8;
 }
@@ -729,7 +736,7 @@ p {
 
 ### Observing visibility without a wrapper element {/*observing-visibility-without-wrapper*/}
 
-Use `observeUsing` to attach an `IntersectionObserver` to all first-level DOM children of a Fragment. This lets you track visibility without requiring child components to expose `ref`s or adding a wrapper element:
+Usa `observeUsing` per collegare un `IntersectionObserver` a tutti i figli DOM di primo livello di un Fragment. Questo ti permette di tracciare la visibilità senza richiedere ai componenti figli di esporre ref o aggiungere un elemento wrapper:
 
 <Sandpack>
 
@@ -841,9 +848,9 @@ export default function Card({ title }) {
 
 ### Caching a global IntersectionObserver {/*caching-global-intersection-observer*/}
 
-A common performance optimization for sites with many observers is to share a single IntersectionObserver per config and route its entries to the correct callbacks based on which element intersected. Fragment `ref`s support this same pattern through the `reactFragments` property.
+Un'ottimizzazione delle performance comune per siti con molti observer è condividere un singolo `IntersectionObserver` per configurazione e instradare le sue entry ai callback corretti in base a quale elemento ha intersecato. I ref dei Fragment supportano lo stesso pattern tramite la proprietà `reactFragments`.
 
-Each first-level DOM child of a Fragment with a `ref` has a `reactFragments` property: a `Set` of `FragmentInstance` objects that contain that element. When the shared observer fires, you can use this property to look up which `FragmentInstance` owns the intersecting element and run the right callbacks.
+Ogni figlio DOM di primo livello di un Fragment con un `ref` ha una proprietà `reactFragments`: un `Set` di oggetti `FragmentInstance` che contengono quell'elemento. Quando l'observer condiviso scatta, puoi usare questa proprietà per cercare quale `FragmentInstance` possiede l'elemento che interseca ed eseguire i callback corretti.
 
 <Sandpack>
 
@@ -907,8 +914,8 @@ function getSharedObserver(
   onIntersection,
   options,
 ) {
-  // Register this callback for the
-  // fragment instance.
+  // Registra questo callback per
+  // l'istanza fragment.
   const existing =
     callbackMap.get(fragmentInstance);
   callbackMap.set(
@@ -926,8 +933,8 @@ function getSharedObserver(
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        // Look up which FragmentInstances own
-        // this element.
+        // Cerca quali FragmentInstance possiedono
+        // questo elemento.
         const fragmentInstances =
           entry.target.reactFragments;
         if (fragmentInstances) {
@@ -1027,4 +1034,4 @@ export default function Card({ title, className }) {
 
 </Sandpack>
 
-Multiple `ObservedGroup` components with the same options reuse a single `IntersectionObserver`. When either section scrolls into view, the shared observer fires and uses `reactFragments` to route the entry to the correct callback.
+Più componenti `ObservedGroup` con le stesse options riutilizzano un singolo `IntersectionObserver`. Quando una delle sezioni scorre nella vista, l'observer condiviso scatta e usa `reactFragments` per instradare l'entry al callback corretto.
