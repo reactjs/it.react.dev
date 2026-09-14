@@ -1,10 +1,17 @@
 ---
 title: <Suspense>
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/Suspense.md).
+
+</Note>
 
 <Intro>
 
-`<Suspense>` lets you display a fallback until its children have finished loading.
+`<Suspense>` ti permette di mostrare un fallback finché i suoi figli non hanno finito di caricarsi.
 
 
 ```js
@@ -24,40 +31,40 @@ title: <Suspense>
 ### `<Suspense>` {/*suspense*/}
 
 #### Props {/*props*/}
-* `children`: The actual UI you intend to render. If `children` suspends while rendering, the Suspense boundary will switch to rendering `fallback`.
-* `fallback`: An alternate UI to render in place of the actual UI if it has not finished loading. Any valid React node is accepted, though in practice, a fallback is a lightweight placeholder view, such as a loading spinner or skeleton. Suspense will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate the closest parent Suspense boundary.
-* <ExperimentalBadge /> **optional** `defer`: A boolean. When `true`, React may show the `fallback` first and render or stream `children` later, even when nothing in them suspends. Use it for content that is expensive to render. Defaults to `false`.
+* `children`: L'UI effettiva che intendi renderizzare. Se `children` va in sospensione durante la renderizzazione, il boundary Suspense passerà al rendering di `fallback`.
+* `fallback`: Un'UI alternativa da renderizzare al posto dell'UI effettiva se questa non ha finito di caricarsi. Qualsiasi nodo React valido è accettato, anche se in pratica un fallback è una vista segnaposto leggera, come uno spinner di caricamento o uno skeleton. Suspense passerà automaticamente a `fallback` quando `children` va in sospensione, e tornerà a `children` quando i dati sono pronti. Se `fallback` va in sospensione durante la renderizzazione, attiverà il boundary Suspense padre più vicino.
+* <ExperimentalBadge /> **optional** `defer`: Un booleano. Quando è `true`, React può mostrare prima il `fallback` e renderizzare o fare streaming di `children` in seguito, anche quando nulla al loro interno va in sospensione. Usalo per contenuto costoso da renderizzare. Il valore predefinito è `false`.
 
 #### Caveats {/*caveats*/}
 
-- Suspense does not detect when data is fetched inside an Effect or event handler. It only activates in the [cases listed below.](#what-activates-a-suspense-boundary)
-- React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.
-- If Suspense was displaying content for the tree, but then it suspended again, the `fallback` will be shown again unless the update causing it was caused by [`startTransition`](/reference/react/startTransition) or [`useDeferredValue`](/reference/react/useDeferredValue).
-- React reveals suspended content at most once every 300ms, measured from the last reveal. Boundaries that become ready within that window are [revealed together](/blog/2025/10/01/react-19-2#batching-suspense-boundaries-for-ssr) rather than one at a time.
-- If React needs to hide the already visible content because it suspended again, it will clean up [layout Effects](/reference/react/useLayoutEffect) in the content tree. When the content is ready to be shown again, React will fire the layout Effects again. This ensures that Effects measuring the DOM layout don't try to do this while the content is hidden.
-- React includes under-the-hood optimizations like *Streaming Server Rendering* and *Selective Hydration* that are integrated with Suspense. Read [an architectural overview](https://github.com/reactwg/react-18/discussions/37) and watch [a technical talk](https://www.youtube.com/watch?v=pj5N-Khihgc) to learn more.
+- Suspense non rileva quando i dati vengono recuperati dentro un Effetto o un gestore di eventi. Si attiva solo nei [casi elencati sotto.](#what-activates-a-suspense-boundary)
+- React non preserva alcuno state per le renderizzazioni andate in sospensione prima di potersi montare per la prima volta. Quando il componente è stato caricato, React ritenterà di renderizzare l'albero sospeso da capo.
+- Se Suspense stava mostrando contenuto per l'albero, ma poi va di nuovo in sospensione, verrà mostrato di nuovo il `fallback` a meno che l'aggiornamento che lo ha causato non sia stato provocato da [`startTransition`](/reference/react/startTransition) o [`useDeferredValue`](/reference/react/useDeferredValue).
+- React rivela il contenuto sospeso al massimo una volta ogni 300 ms, misurati dall'ultima rivelazione. I boundary che diventano pronti entro quella finestra vengono [rivelati insieme](/blog/2025/10/01/react-19-2#batching-suspense-boundaries-for-ssr) anziché uno alla volta.
+- Se React deve nascondere il contenuto già visibile perché è andato di nuovo in sospensione, ripulirà gli [Effetti layout](/reference/react/useLayoutEffect) nell'albero del contenuto. Quando il contenuto è pronto per essere mostrato di nuovo, React rieseguirà gli Effetti layout. Questo garantisce che gli Effetti che misurano il layout del DOM non tentino di farlo mentre il contenuto è nascosto.
+- React include ottimizzazioni interne come *Streaming Server Rendering* e *Selective Hydration* integrate con Suspense. Leggi [una panoramica architetturale](https://github.com/reactwg/react-18/discussions/37) e guarda [un talk tecnico](https://www.youtube.com/watch?v=pj5N-Khihgc) per saperne di più.
 
 ---
 
-### What activates a Suspense boundary {/*what-activates-a-suspense-boundary*/}
+### Cosa attiva un boundary Suspense {/*what-activates-a-suspense-boundary*/}
 
-A Suspense boundary waits for its content to be ready before revealing it. Any of the following keeps a boundary from revealing its content:
+Un boundary Suspense attende che il suo contenuto sia pronto prima di rivelarlo. Qualsiasi elemento tra i seguenti impedisce a un boundary di rivelare il suo contenuto:
 
-- Lazy-loading component code with [`lazy`](/reference/react/lazy).
-- Reading a Promise with [`use`](/reference/react/use), including data streamed from [Server Components](/reference/rsc/server-components) or loaded through a [Suspense-enabled framework](#suspense-enabled-frameworks).
-- Loading a stylesheet rendered with [`<link rel="stylesheet">` and a `precedence` prop.](/reference/react-dom/components/link#special-rendering-behavior) React blocks the boundary until the stylesheet loads, up to a timeout. [See an example below.](#waiting-for-a-stylesheet-to-load)
-- Waiting for a large boundary's HTML to arrive during streaming server rendering. Sending HTML takes time, so a boundary with enough content activates even when nothing in it suspends. React reveals the content as the HTML arrives.
-- Loading fonts. Suspense doesn't wait for fonts by default, but a [`<ViewTransition>`](/reference/react/ViewTransition) update waits for new fonts to load, up to a timeout, so text doesn't flash with a fallback font. [See an example below.](#waiting-for-a-font-to-load)
-- Loading images. Suspense doesn't wait for images by default, but during a [`<ViewTransition>`](/reference/react/ViewTransition) update, React blocks the boundary until the image loads, up to a timeout. Adding an `onLoad` handler opts a specific image out. [See an example below.](#waiting-for-an-image-to-load)
-- <ExperimentalBadge /> Performing CPU-bound render work inside a [`<Suspense defer>`](#props) boundary.
+- Lazy-loading del codice del componente con [`lazy`](/reference/react/lazy).
+- Lettura di una Promise con [`use`](/reference/react/use), inclusi dati in streaming da [componenti Server](/reference/rsc/server-components) o caricati tramite un [framework abilitato a Suspense](#suspense-enabled-frameworks).
+- Caricamento di un foglio di stile renderizzato con [`<link rel="stylesheet">` e una prop `precedence`.](/reference/react-dom/components/link#special-rendering-behavior) React blocca il boundary finché il foglio di stile non è caricato, fino a un timeout. [Vedi un esempio sotto.](#waiting-for-a-stylesheet-to-load)
+- Attesa dell'arrivo dell'HTML di un boundary di grandi dimensioni durante la renderizzazione server in streaming. L'invio dell'HTML richiede tempo, quindi un boundary con contenuto sufficiente si attiva anche quando nulla al suo interno va in sospensione. React rivela il contenuto man mano che l'HTML arriva.
+- Caricamento dei font. Suspense non attende i font per impostazione predefinita, ma un aggiornamento con [`<ViewTransition>`](/reference/react/ViewTransition) attende il caricamento dei nuovi font, fino a un timeout, così il testo non lampeggia con un font di fallback. [Vedi un esempio sotto.](#waiting-for-a-font-to-load)
+- Caricamento delle immagini. Suspense non attende le immagini per impostazione predefinita, ma durante un aggiornamento con [`<ViewTransition>`](/reference/react/ViewTransition), React blocca il boundary finché l'immagine non è caricata, fino a un timeout. Aggiungere un gestore `onLoad` esclude una specifica immagine da questo comportamento. [Vedi un esempio sotto.](#waiting-for-an-image-to-load)
+- <ExperimentalBadge /> Esecuzione di lavoro di renderizzazione CPU-bound dentro un boundary [`<Suspense defer>`](#props).
 
 <Note>
 
-#### Suspense-enabled frameworks {/*suspense-enabled-frameworks*/}
+#### Framework abilitati a Suspense {/*suspense-enabled-frameworks*/}
 
-A *Suspense-enabled framework* gives you a way to read data in your component in a way that activates the closest Suspense boundary. The exact way you load your data depends on your framework, and you'll find the details in its documentation. Under the hood, a Suspense-enabled framework maintains a cache of Promises and calls [`use`](/reference/react/use) to suspend on a Promise.
+Un *framework abilitato a Suspense* ti offre un modo per leggere dati nel tuo componente in modo da attivare il boundary Suspense più vicino. Il modo esatto in cui carichi i dati dipende dal tuo framework e troverai i dettagli nella sua documentazione. Internamente, un framework abilitato a Suspense mantiene una cache di Promise e chiama [`use`](/reference/react/use) per andare in sospensione su una Promise.
 
-Without a framework, you can read a Promise with `use` directly, as long as the Promise is [cached so the same instance is reused across renders.](/reference/react/use#caching-promises-for-client-components)
+Senza un framework, puoi leggere una Promise con `use` direttamente, purché la Promise sia [memorizzata in cache in modo che la stessa istanza venga riutilizzata tra le renderizzazioni.](/reference/react/use#caching-promises-for-client-components)
 
 </Note>
 
@@ -65,9 +72,9 @@ Without a framework, you can read a Promise with `use` directly, as long as the 
 
 ## Usage {/*usage*/}
 
-### Displaying a fallback while content is loading {/*displaying-a-fallback-while-content-is-loading*/}
+### Mostrare un fallback mentre il contenuto è in caricamento {/*displaying-a-fallback-while-content-is-loading*/}
 
-You can wrap any part of your application with a Suspense boundary:
+Puoi avvolgere qualsiasi parte della tua applicazione con un boundary Suspense:
 
 ```js [[1, 1, "<Loading />"], [2, 2, "<Albums />"]]
 <Suspense fallback={<Loading />}>
@@ -75,9 +82,9 @@ You can wrap any part of your application with a Suspense boundary:
 </Suspense>
 ```
 
-React will display your <CodeStep step={1}>loading fallback</CodeStep> until all the code and data needed by <CodeStep step={2}>the children</CodeStep> has been loaded.
+React mostrerà il tuo <CodeStep step={1}>fallback di caricamento</CodeStep> finché tutto il codice e i dati necessari ai <CodeStep step={2}>figli</CodeStep> non sono stati caricati.
 
-In the example below, the `Albums` component *suspends* while fetching the list of albums. Until it's ready to render, React switches the closest Suspense boundary above to show the fallback--your `Loading` component. Then, when the data loads, React hides the `Loading` fallback and renders the `Albums` component with data.
+Nell'esempio sotto, il componente `Albums` *va in sospensione* mentre recupera l'elenco degli album. Finché non è pronto per la renderizzazione, React passa al boundary Suspense più vicino sopra di esso per mostrare il fallback — il tuo componente `Loading`. Poi, quando i dati sono caricati, React nasconde il fallback `Loading` e renderizza il componente `Albums` con i dati.
 
 <Sandpack>
 
@@ -145,9 +152,9 @@ export default function Albums({ artistId }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -167,7 +174,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -230,7 +237,7 @@ async function getAlbums() {
 
 </Sandpack>
 
-By contrast, code that fetches data outside of `use`, such as inside an Effect, does not activate the boundary:
+Al contrario, il codice che recupera dati al di fuori di `use`, ad esempio dentro un Effetto, non attiva il boundary:
 
 <Sandpack>
 
@@ -298,8 +305,8 @@ export default function EffectAlbums({ artistId }) {
     };
   }, [artistId]);
 
-  // Suspense can't see this fetch, so its fallback never
-  // shows. The list stays empty until the data arrives.
+  // Suspense non può vedere questo fetch, quindi il suo fallback non
+  // viene mai mostrato. L'elenco resta vuoto finché i dati non arrivano.
   return (
     <ul>
       {albums.map(album => (
@@ -313,9 +320,9 @@ export default function EffectAlbums({ artistId }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -335,7 +342,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -398,7 +405,7 @@ async function getAlbums() {
 
 </Sandpack>
 
-During streaming server rendering, a boundary also activates while its HTML is still streaming in. With any streaming server rendering API, React sends [the shell](/reference/react-dom/server/renderToPipeableStream#specifying-what-goes-into-the-shell) with the `fallback` first, then streams in each boundary's HTML and swaps out its `fallback` as that content arrives. Press "Render the page" to watch the page stream in:
+Durante la renderizzazione server in streaming, un boundary si attiva anche mentre il suo HTML è ancora in streaming. Con qualsiasi API di renderizzazione server in streaming, React invia [la shell](/reference/react-dom/server/renderToPipeableStream#specifying-what-goes-into-the-shell) con il `fallback` per prima, poi fa streaming dell'HTML di ogni boundary e sostituisce il suo `fallback` man mano che il contenuto arriva. Premi "Render the page" per vedere la pagina arrivare in streaming:
 
 <Sandpack>
 
@@ -450,8 +457,8 @@ async function main(frame) {
   posts = Promise.withResolvers();
   const stream = await renderToReadableStream(<ProfilePage />);
 
-  // The posts resolve after the shell has streamed, so React
-  // streams their HTML in and swaps out the fallback.
+  // I post vengono risolti dopo che la shell è stata trasmessa in streaming, quindi React
+  // fa streaming del loro HTML e sostituisce il fallback.
   setTimeout(() => {
     posts.resolve(
       'Just got back from two weeks along the coast. The drive ' +
@@ -491,9 +498,9 @@ export async function flushReadableStreamToFrame(readable, frame) {
 
 ---
 
-### Revealing content together at once {/*revealing-content-together-at-once*/}
+### Rivelare il contenuto tutto insieme {/*revealing-content-together-at-once*/}
 
-By default, the whole tree inside Suspense is treated as a single unit. For example, even if *only one* of these components suspends waiting for some data, *all* of them together will be replaced by the loading indicator:
+Per impostazione predefinita, l'intero albero dentro Suspense viene trattato come un'unica unità. Per esempio, anche se *solo uno* di questi componenti va in sospensione in attesa di alcuni dati, *tutti* insieme verranno sostituiti dall'indicatore di caricamento:
 
 ```js {2-5}
 <Suspense fallback={<Loading />}>
@@ -504,9 +511,9 @@ By default, the whole tree inside Suspense is treated as a single unit. For exam
 </Suspense>
 ```
 
-Then, after all of them are ready to be displayed, they will all appear together at once.
+Poi, quando tutti sono pronti per essere mostrati, appariranno tutti insieme in una volta.
 
-In the example below, both `Biography` and `Albums` fetch some data. However, because they are grouped under a single Suspense boundary, these components always "pop in" together at the same time.
+Nell'esempio sotto, sia `Biography` che `Albums` recuperano alcuni dati. Tuttavia, poiché sono raggruppati sotto un unico boundary Suspense, questi componenti "compaiono" sempre insieme nello stesso momento.
 
 <Sandpack>
 
@@ -603,9 +610,9 @@ export default function Albums({ artistId }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -627,7 +634,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 1500);
   });
@@ -639,7 +646,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -713,7 +720,7 @@ async function getAlbums() {
 
 </Sandpack>
 
-Components that load data don't have to be direct children of the Suspense boundary. For example, you can move `Biography` and `Albums` into a new `Details` component. This doesn't change the behavior. `Biography` and `Albums` share the same closest parent Suspense boundary, so their reveal is coordinated together.
+I componenti che caricano dati non devono essere figli diretti del boundary Suspense. Per esempio, puoi spostare `Biography` e `Albums` in un nuovo componente `Details`. Questo non cambia il comportamento. `Biography` e `Albums` condividono lo stesso boundary Suspense padre più vicino, quindi la loro rivelazione è coordinata insieme.
 
 ```js {2,8-11}
 <Suspense fallback={<Loading />}>
@@ -734,9 +741,9 @@ function Details({ artistId }) {
 
 ---
 
-### Revealing nested content as it loads {/*revealing-nested-content-as-it-loads*/}
+### Rivelare contenuto annidato man mano che si carica {/*revealing-nested-content-as-it-loads*/}
 
-When a component suspends, the closest parent Suspense component shows the fallback. This lets you nest multiple Suspense components to create a loading sequence. Each Suspense boundary's fallback will be filled in as the next level of content becomes available. For example, you can give the album list its own fallback:
+Quando un componente va in sospensione, il componente Suspense padre più vicino mostra il fallback. Questo ti permette di annidare più componenti Suspense per creare una sequenza di caricamento. Il fallback di ogni boundary Suspense verrà sostituito man mano che il livello successivo di contenuto diventa disponibile. Per esempio, puoi dare all'elenco degli album un fallback dedicato:
 
 ```js {3,7}
 <Suspense fallback={<BigSpinner />}>
@@ -749,14 +756,14 @@ When a component suspends, the closest parent Suspense component shows the fallb
 </Suspense>
 ```
 
-With this change, displaying the `Biography` doesn't need to "wait" for the `Albums` to load.
+Con questa modifica, mostrare `Biography` non deve "attendere" il caricamento di `Albums`.
 
-The sequence will be:
+La sequenza sarà:
 
-1. If `Biography` hasn't loaded yet, `BigSpinner` is shown in place of the entire content area.
-2. Once `Biography` finishes loading, `BigSpinner` is replaced by the content.
-3. If `Albums` hasn't loaded yet, `AlbumsGlimmer` is shown in place of `Albums` and its parent `Panel`.
-4. Finally, once `Albums` finishes loading, it replaces `AlbumsGlimmer`.
+1. Se `Biography` non è ancora caricato, `BigSpinner` viene mostrato al posto dell'intera area di contenuto.
+2. Una volta che `Biography` ha finito di caricarsi, `BigSpinner` viene sostituito dal contenuto.
+3. Se `Albums` non è ancora caricato, `AlbumsGlimmer` viene mostrato al posto di `Albums` e del suo `Panel` padre.
+4. Infine, una volta che `Albums` ha finito di caricarsi, sostituisce `AlbumsGlimmer`.
 
 <Sandpack>
 
@@ -865,9 +872,9 @@ export default function Albums({ artistId }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -889,7 +896,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -901,7 +908,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -992,15 +999,15 @@ async function getAlbums() {
 
 </Sandpack>
 
-Suspense boundaries let you coordinate which parts of your UI should always "pop in" together at the same time, and which parts should progressively reveal more content in a sequence of loading states. You can add, move, or delete Suspense boundaries in any place in the tree without affecting the rest of your app's behavior.
+I boundary Suspense ti permettono di coordinare quali parti della tua UI devono sempre "comparire" insieme nello stesso momento e quali devono rivelare progressivamente più contenuto in una sequenza di stati di caricamento. Puoi aggiungere, spostare o eliminare boundary Suspense in qualsiasi punto dell'albero senza influire sul resto del comportamento della tua app.
 
-Don't put a Suspense boundary around every component. Suspense boundaries should not be more granular than the loading sequence that you want the user to experience. If you work with a designer, ask them where the loading states should be placed--it's likely that they've already included them in their design wireframes.
+Non mettere un boundary Suspense attorno a ogni componente. I boundary Suspense non devono essere più granulari della sequenza di caricamento che vuoi far vivere all'utente. Se lavori con un designer, chiedigli dove posizionare gli stati di caricamento — è probabile che li abbia già inclusi nei wireframe di design.
 
 ---
 
-### Showing stale content while fresh content is loading {/*showing-stale-content-while-fresh-content-is-loading*/}
+### Mostrare contenuto obsoleto mentre il contenuto aggiornato è in caricamento {/*showing-stale-content-while-fresh-content-is-loading*/}
 
-In this example, the `SearchResults` component suspends while fetching the search results. Type `"a"`, wait for the results, and then edit it to `"ab"`. The results for `"a"` will get replaced by the loading fallback.
+In questo esempio, il componente `SearchResults` va in sospensione mentre recupera i risultati di ricerca. Digita `"a"`, attendi i risultati, poi modifica in `"ab"`. I risultati per `"a"` verranno sostituiti dal fallback di caricamento.
 
 <Sandpack>
 
@@ -1049,9 +1056,9 @@ export default function SearchResults({ query }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -1071,7 +1078,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1147,7 +1154,7 @@ input { margin: 10px; }
 
 </Sandpack>
 
-A common alternative UI pattern is to *defer* updating the list and to keep showing the previous results until the new results are ready. The [`useDeferredValue`](/reference/react/useDeferredValue) Hook lets you pass a deferred version of the query down:
+Un pattern UI alternativo comune consiste nel *posticipare* l'aggiornamento dell'elenco e continuare a mostrare i risultati precedenti finché quelli nuovi non sono pronti. L'Hook [`useDeferredValue`](/reference/react/useDeferredValue) ti permette di passare una versione posticipata della query:
 
 ```js {3,11}
 export default function App() {
@@ -1167,9 +1174,9 @@ export default function App() {
 }
 ```
 
-The `query` will update immediately, so the input will display the new value. However, the `deferredQuery` will keep its previous value until the data has loaded, so `SearchResults` will show the stale results for a bit.
+`query` si aggiornerà immediatamente, quindi l'input mostrerà il nuovo valore. Tuttavia, `deferredQuery` manterrà il valore precedente finché i dati non sono caricati, quindi `SearchResults` mostrerà per un po' i risultati obsoleti.
 
-To make it more obvious to the user, you can add a visual indication when the stale result list is displayed:
+Per renderlo più evidente all'utente, puoi aggiungere un'indicazione visiva quando viene mostrato l'elenco di risultati obsoleti:
 
 ```js {2}
 <div style={{
@@ -1179,7 +1186,7 @@ To make it more obvious to the user, you can add a visual indication when the st
 </div>
 ```
 
-Enter `"a"` in the example below, wait for the results to load, and then edit the input to `"ab"`. Notice how instead of the Suspense fallback, you now see the dimmed stale result list until the new results have loaded:
+Digita `"a"` nell'esempio sotto, attendi il caricamento dei risultati, poi modifica l'input in `"ab"`. Nota come, invece del fallback Suspense, ora vedi l'elenco di risultati obsoleti attenuato finché i nuovi risultati non sono caricati:
 
 
 <Sandpack>
@@ -1233,9 +1240,9 @@ export default function SearchResults({ query }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -1255,7 +1262,7 @@ async function getData(url) {
 }
 
 async function getSearchResults(query) {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1333,15 +1340,15 @@ input { margin: 10px; }
 
 <Note>
 
-Both deferred values and [Transitions](#preventing-already-revealed-content-from-hiding) let you avoid showing Suspense fallback in favor of inline indicators. Transitions mark the whole update as non-urgent so they are typically used by frameworks and router libraries for navigation. Deferred values, on the other hand, are mostly useful in application code where you want to mark a part of UI as non-urgent and let it "lag behind" the rest of the UI.
+Sia i valori posticipati che le [Transizioni](#preventing-already-revealed-content-from-hiding) ti permettono di evitare di mostrare il fallback Suspense a favore di indicatori inline. Le Transizioni segnano l'intero aggiornamento come non urgente, quindi vengono tipicamente usate da framework e librerie router per la navigazione. I valori posticipati, d'altra parte, sono soprattutto utili nel codice applicativo quando vuoi segnare una parte della UI come non urgente e lasciarla "indietro" rispetto al resto della UI.
 
 </Note>
 
 ---
 
-### Preventing already revealed content from hiding {/*preventing-already-revealed-content-from-hiding*/}
+### Impedire che il contenuto già rivelato venga nascosto {/*preventing-already-revealed-content-from-hiding*/}
 
-When a component suspends, the closest parent Suspense boundary switches to showing the fallback. This can lead to a jarring user experience if it was already displaying some content. Try pressing this button:
+Quando un componente va in sospensione, il boundary Suspense padre più vicino passa a mostrare il fallback. Questo può portare a un'esperienza utente brusca se stava già mostrando del contenuto. Prova a premere questo pulsante:
 
 <Sandpack>
 
@@ -1492,9 +1499,9 @@ export default function Panel({ children }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -1516,7 +1523,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1528,7 +1535,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1635,9 +1642,9 @@ main {
 
 </Sandpack>
 
-When you pressed the button, the `Router` component rendered `ArtistPage` instead of `IndexPage`. A component inside `ArtistPage` suspended, so the closest Suspense boundary started showing the fallback. The closest Suspense boundary was near the root, so the whole site layout got replaced by `BigSpinner`.
+Quando hai premuto il pulsante, il componente `Router` ha renderizzato `ArtistPage` invece di `IndexPage`. Un componente dentro `ArtistPage` è andato in sospensione, quindi il boundary Suspense più vicino ha iniziato a mostrare il fallback. Il boundary Suspense più vicino era vicino alla root, quindi l'intero layout del sito è stato sostituito da `BigSpinner`.
 
-To prevent this, you can mark the navigation state update as a *Transition* with [`startTransition`:](/reference/react/startTransition)
+Per evitare questo, puoi segnare l'aggiornamento dello state di navigazione come una *Transizione* con [`startTransition`:](/reference/react/startTransition)
 
 ```js {5,7}
 function Router() {
@@ -1651,7 +1658,7 @@ function Router() {
   // ...
 ```
 
-This tells React that the state transition is not urgent, and it's better to keep showing the previous page instead of hiding any already revealed content. Now clicking the button "waits" for the `Biography` to load:
+Questo dice a React che la transizione di state non è urgente ed è meglio continuare a mostrare la pagina precedente invece di nascondere qualsiasi contenuto già rivelato. Ora cliccare il pulsante "attende" il caricamento di `Biography`:
 
 <Sandpack>
 
@@ -1804,9 +1811,9 @@ export default function Panel({ children }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -1828,7 +1835,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -1840,7 +1847,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1947,19 +1954,19 @@ main {
 
 </Sandpack>
 
-A Transition doesn't wait for *all* content to load. It only waits long enough to avoid hiding already revealed content. For example, the website `Layout` was already revealed, so it would be bad to hide it behind a loading spinner. However, the nested `Suspense` boundary around `Albums` is new, so the Transition doesn't wait for it.
+Una Transizione non attende il caricamento di *tutto* il contenuto. Attende solo abbastanza a lungo per evitare di nascondere contenuto già rivelato. Per esempio, il `Layout` del sito era già rivelato, quindi sarebbe negativo nasconderlo dietro uno spinner di caricamento. Tuttavia, il boundary `Suspense` annidato attorno a `Albums` è nuovo, quindi la Transizione non attende per esso.
 
 <Note>
 
-Suspense-enabled routers are expected to wrap the navigation updates into Transitions by default.
+I router abilitati a Suspense dovrebbero avvolgere gli aggiornamenti di navigazione in Transizioni per impostazione predefinita.
 
 </Note>
 
 ---
 
-### Indicating that a Transition is happening {/*indicating-that-a-transition-is-happening*/}
+### Indicare che una Transizione è in corso {/*indicating-that-a-transition-is-happening*/}
 
-In the above example, once you click the button, there is no visual indication that a navigation is in progress. To add an indicator, you can replace [`startTransition`](/reference/react/startTransition) with [`useTransition`](/reference/react/useTransition) which gives you a boolean `isPending` value. In the example below, it's used to change the website header styling while a Transition is happening:
+Nell'esempio sopra, una volta cliccato il pulsante, non c'è alcuna indicazione visiva che una navigazione è in corso. Per aggiungere un indicatore, puoi sostituire [`startTransition`](/reference/react/startTransition) con [`useTransition`](/reference/react/useTransition), che ti fornisce un valore booleano `isPending`. Nell'esempio sotto, viene usato per modificare lo stile dell'header del sito mentre una Transizione è in corso:
 
 <Sandpack>
 
@@ -2115,9 +2122,9 @@ export default function Panel({ children }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = new Map();
 
@@ -2139,7 +2146,7 @@ async function getData(url) {
 }
 
 async function getBio() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 500);
   });
@@ -2151,7 +2158,7 @@ async function getBio() {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -2260,17 +2267,17 @@ main {
 
 ---
 
-### Resetting Suspense boundaries on navigation {/*resetting-suspense-boundaries-on-navigation*/}
+### Reimpostare i boundary Suspense durante la navigazione {/*resetting-suspense-boundaries-on-navigation*/}
 
-During a Transition, React avoids hiding already revealed content. However, when you navigate to *different* content, such as another user's profile, you'll want the boundary to show the fallback instead of the previous content. You can express this with a `key`:
+Durante una Transizione, React evita di nascondere contenuto già rivelato. Tuttavia, quando navighi verso contenuto *diverso*, come il profilo di un altro utente, vorrai che il boundary mostri il fallback invece del contenuto precedente. Puoi esprimerlo con una `key`:
 
 ```js
 <ProfilePage key={queryParams.id} />
 ```
 
-With a different `key`, React treats the profiles as different content and resets the Suspense boundary during navigation. The `key` can go on the boundary itself or on a component above it. Suspense-integrated routers should do this automatically.
+Con una `key` diversa, React tratta i profili come contenuto diverso e reimposta il boundary Suspense durante la navigazione. La `key` può essere sul boundary stesso o su un componente sopra di esso. I router integrati con Suspense dovrebbero farlo automaticamente.
 
-In the example below, opening the profile page loads the first profile. Pressing "Bob" navigates to a different profile, and the `key` resets the boundary, so the fallback shows instead of the previous user's bio. Try removing the `key`: the previous bio stays visible while the next one loads:
+Nell'esempio sotto, aprire la pagina del profilo carica il primo profilo. Premendo "Bob" si naviga verso un profilo diverso e la `key` reimposta il boundary, quindi viene mostrato il fallback invece della bio dell'utente precedente. Prova a rimuovere la `key`: la bio precedente resta visibile mentre quella successiva si carica:
 
 <Sandpack>
 
@@ -2336,7 +2343,7 @@ export default function Bio({ bioPromise }) {
 // the framework that you use together with Suspense.
 
 export async function fetchBio(userId) {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise(resolve => {
     setTimeout(resolve, 1500);
   });
@@ -2357,13 +2364,13 @@ button {
 
 ---
 
-### Providing a fallback for server errors and client-only content {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
+### Fornire un fallback per errori server e contenuto solo client {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
 
-If you use one of the [streaming server rendering APIs](/reference/react-dom/server) (or a framework that relies on them), React will also use your `<Suspense>` boundaries to handle errors on the server. If a component throws an error on the server, React will not abort the server render. Instead, it will find the closest `<Suspense>` component above it and include its fallback (such as a spinner) into the generated server HTML. The user will see a spinner at first.
+Se usi una delle [API di renderizzazione server in streaming](/reference/react-dom/server) (o un framework che si basa su di esse), React userà anche i tuoi boundary `<Suspense>` per gestire errori sul server. Se un componente lancia un errore sul server, React non interromperà la renderizzazione server. Invece, troverà il componente `<Suspense>` più vicino sopra di esso e includerà il suo fallback (come uno spinner) nell'HTML server generato. L'utente vedrà inizialmente uno spinner.
 
-On the client, React will attempt to render the same component again. If it errors on the client too, React will throw the error and display the closest [Error Boundary.](/reference/react/Component#static-getderivedstatefromerror) However, if it does not error on the client, React will not display the error to the user since the content was eventually displayed successfully.
+Sul client, React tenterà di renderizzare di nuovo lo stesso componente. Se va in errore anche sul client, React lancerà l'errore e mostrerà il [contenitore di errori](/reference/react/Component#static-getderivedstatefromerror) più vicino. Tuttavia, se non va in errore sul client, React non mostrerà l'errore all'utente poiché il contenuto è stato infine mostrato con successo.
 
-You can use this to opt out some components from rendering on the server. To do this, throw an error in the server environment and then wrap them in a `<Suspense>` boundary to replace their HTML with fallbacks:
+Puoi usarlo per escludere alcuni componenti dalla renderizzazione sul server. Per farlo, lancia un errore nell'ambiente server e poi avvolgili in un boundary `<Suspense>` per sostituire il loro HTML con fallback:
 
 ```js
 <Suspense fallback={<Loading />}>
@@ -2378,15 +2385,15 @@ function Chat() {
 }
 ```
 
-The server HTML will include the loading indicator. It will be replaced by the `Chat` component on the client.
+L'HTML server includerà l'indicatore di caricamento. Verrà sostituito dal componente `Chat` sul client.
 
 ---
 
-### Providing a fallback for browser-only content {/*providing-a-fallback-for-browser-only-content*/}
+### Fornire un fallback per contenuto solo browser {/*providing-a-fallback-for-browser-only-content*/}
 
-A Suspense boundary can provide a fallback for a browser-only component. Wrap the component in `<Suspense>` and call [`use(browser())`](/reference/react/use#use-browser) inside it.
+Un boundary Suspense può fornire un fallback per un componente solo browser. Avvolgi il componente in `<Suspense>` e chiama [`use(browser())`](/reference/react/use#use-browser) al suo interno.
 
-Click **Reload** to see the loading fallback in the initial HTML. After hydration, React displays the draft loaded from `localStorage`.
+Clicca **Reload** per vedere il fallback di caricamento nell'HTML iniziale. Dopo l'hydration, React mostra la bozza caricata da `localStorage`.
 
 <Sandpack>
 
@@ -2464,7 +2471,7 @@ async function main(frame) {
   const stream = await renderToReadableStream(<Document />);
   await flushReadableStreamToFrame(stream, frame);
 
-  // Wait so both the fallback and hydrated content are visible.
+  // Attendi così sia il fallback che il contenuto idratato sono visibili.
   await new Promise(resolve => setTimeout(resolve, 1200));
   hydrateRoot(frame.contentDocument, <Document />);
 }
@@ -2530,17 +2537,17 @@ iframe {
 
 </Sandpack>
 
-During server rendering, React includes the Suspense boundary's fallback in the HTML. In the browser, React replaces the fallback with the saved draft.
+Durante la renderizzazione server, React include il fallback del boundary Suspense nell'HTML. Nel browser, React sostituisce il fallback con la bozza salvata.
 
 ---
 
-### Waiting for a stylesheet to load {/*waiting-for-a-stylesheet-to-load*/}
+### Attendere il caricamento di un foglio di stile {/*waiting-for-a-stylesheet-to-load*/}
 
-A stylesheet rendered with [`<link rel="stylesheet">` and a `precedence` prop](/reference/react-dom/components/link#special-rendering-behavior) blocks the Suspense boundary until the stylesheet loads, up to a timeout, so the content doesn't appear unstyled.
+Un foglio di stile renderizzato con [`<link rel="stylesheet">` e una prop `precedence`](/reference/react-dom/components/link#special-rendering-behavior) blocca il boundary Suspense finché il foglio di stile non è caricato, fino a un timeout, così il contenuto non appare senza stile.
 
-In the example below, the `Card` component renders a stylesheet with `precedence`. Press "Show card": React shows the fallback until the stylesheet has loaded, and then reveals the card with its styles applied.
+Nell'esempio sotto, il componente `Card` renderizza un foglio di stile con `precedence`. Premi "Show card": React mostra il fallback finché il foglio di stile non è caricato, poi rivela la card con gli stili applicati.
 
-For comparison, the second button performs the same update without React, in a separate document. Nothing waits for the stylesheet, so the card's text appears in a fallback font first and then switches:
+A titolo di confronto, il secondo pulsante esegue lo stesso aggiornamento senza React, in un documento separato. Nulla attende il foglio di stile, quindi il testo della card appare prima in un font di fallback e poi cambia:
 
 <Sandpack>
 
@@ -2618,8 +2625,8 @@ export default function VanillaCard() {
 ```
 
 ```js src/styles.js hidden
-// Add a unique parameter so the stylesheet isn't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così il foglio di stile non è in cache
+// e ogni esecuzione mostra la fase di caricamento.
 export function freshStylesheetUrl() {
   return (
     'https://fonts.googleapis.com/css2?family=Caveat&display=swap' +
@@ -2661,9 +2668,9 @@ hr {
 
 ---
 
-### Animating from Suspense content {/*animating-from-suspense-content*/}
+### Animare a partire dal contenuto Suspense {/*animating-from-suspense-content*/}
 
-Suspense composes with [`<ViewTransition>`](/reference/react/ViewTransition) to animate the swap from the fallback to the content. Wrap the boundary in a `<ViewTransition>`, and React treats the swap as an update, cross-fading between the fallback and the content by default:
+Suspense si compone con [`<ViewTransition>`](/reference/react/ViewTransition) per animare il passaggio dal fallback al contenuto. Avvolgi il boundary in un `<ViewTransition>` e React tratta lo scambio come un aggiornamento, facendo un cross-fade tra fallback e contenuto per impostazione predefinita:
 
 <Sandpack>
 
@@ -2891,21 +2898,21 @@ button:hover {
 
 <Note>
 
-Where you place the `<ViewTransition>` relative to the boundary determines whether the fallback and content cross-fade as one update or animate as separate exit and enter animations. You can also [customize the animation](/reference/react/ViewTransition#customizing-animations) with View Transition classes.
+Dove posizioni il `<ViewTransition>` rispetto al boundary determina se fallback e contenuto fanno cross-fade come un unico aggiornamento o si animano come animazioni di uscita e ingresso separate. Puoi anche [personalizzare l'animazione](/reference/react/ViewTransition#customizing-animations) con le classi View Transition.
 
-[Learn more about animating from Suspense content.](/reference/react/ViewTransition#animating-from-suspense-content)
+[Scopri di più sull'animazione a partire dal contenuto Suspense.](/reference/react/ViewTransition#animating-from-suspense-content)
 
 </Note>
 
 ---
 
-### Waiting for a font to load {/*waiting-for-a-font-to-load*/}
+### Attendere il caricamento di un font {/*waiting-for-a-font-to-load*/}
 
-When a [`<ViewTransition>`](/reference/react/ViewTransition) animates a Suspense boundary's reveal, React waits for new fonts the content introduces, up to a timeout, so the text doesn't flash with a fallback font. This only happens during a `<ViewTransition>` update.
+Quando un [`<ViewTransition>`](/reference/react/ViewTransition) anima la rivelazione di un boundary Suspense, React attende i nuovi font introdotti dal contenuto, fino a un timeout, così il testo non lampeggia con un font di fallback. Questo avviene solo durante un aggiornamento con `<ViewTransition>`.
 
-In the example below, the Suspense boundary is wrapped in a `<ViewTransition>`, and the `Quote` component suspends while its data loads. Rendering the quote starts its font download. React keeps the fallback visible until the font has loaded, so the quote appears already in its font.
+Nell'esempio sotto, il boundary Suspense è avvolto in un `<ViewTransition>` e il componente `Quote` va in sospensione mentre i suoi dati si caricano. Renderizzare la citazione avvia il download del font. React mantiene visibile il fallback finché il font non è caricato, così la citazione appare già nel suo font.
 
-For comparison, the second button performs the same update without React. Nothing waits for the font, so the text appears in a fallback font first and then switches:
+A titolo di confronto, il secondo pulsante esegue lo stesso aggiornamento senza React. Nulla attende il font, quindi il testo appare prima in un font di fallback e poi cambia:
 
 <Sandpack>
 
@@ -2983,8 +2990,8 @@ export default function VanillaQuote() {
 ```
 
 ```js src/font.js hidden
-// Add a unique parameter so the font isn't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così il font non è in cache
+// e ogni esecuzione mostra la fase di caricamento.
 export function freshFontUrl() {
   return (
     'https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/Caveat%5Bwght%5D.ttf' +
@@ -2995,16 +3002,16 @@ export function freshFontUrl() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
+// Di norma, la logica di caching starebbe dentro un framework.
 
 let cache = null;
 
 export function fetchQuote() {
   if (!cache) {
     cache = new Promise((resolve) => {
-      // Add a fake delay to make waiting noticeable.
+      // Aggiungi un ritardo fittizio per far percepire l'attesa.
       setTimeout(() => {
         resolve(
           'The best way to predict the future is to invent it.'
@@ -3049,13 +3056,13 @@ hr {
 
 ---
 
-### Waiting for an image to load {/*waiting-for-an-image-to-load*/}
+### Attendere il caricamento di un'immagine {/*waiting-for-an-image-to-load*/}
 
-When a [`<ViewTransition>`](/reference/react/ViewTransition) animates a Suspense boundary's reveal, React waits for visible images to load, up to a timeout, so the animation doesn't start with a half-loaded image. This only happens during a `<ViewTransition>` update. Adding an `onLoad` handler opts a specific image out, even inside a `<ViewTransition>`.
+Quando un [`<ViewTransition>`](/reference/react/ViewTransition) anima la rivelazione di un boundary Suspense, React attende il caricamento delle immagini visibili, fino a un timeout, così l'animazione non inizia con un'immagine a metà caricamento. Questo avviene solo durante un aggiornamento con `<ViewTransition>`. Aggiungere un gestore `onLoad` esclude una specifica immagine da questo comportamento, anche dentro un `<ViewTransition>`.
 
-In the example below, the Suspense boundary is wrapped in a `<ViewTransition>` and shows a profile skeleton until the portrait has loaded.
+Nell'esempio sotto, il boundary Suspense è avvolto in un `<ViewTransition>` e mostra uno skeleton del profilo finché il ritratto non è caricato.
 
-For comparison, the second button performs the same update without React. Nothing waits for the image, so the card appears immediately and the image pops in when it loads:
+A titolo di confronto, il secondo pulsante esegue lo stesso aggiornamento senza React. Nulla attende l'immagine, quindi la card appare immediatamente e l'immagine compare quando si carica:
 
 <Sandpack>
 
@@ -3130,8 +3137,8 @@ export default function VanillaProfile() {
 ```
 
 ```js src/image.js hidden
-// Add a unique parameter so the image isn't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così l'immagine non è in cache
+// e ogni esecuzione mostra la fase di caricamento.
 export function freshImageUrl() {
   return 'https://react.dev/images/team/jack-pope.jpg?t=' + Date.now();
 }
@@ -3182,11 +3189,11 @@ hr {
 
 ---
 
-### Coordinating fonts, images, and stylesheets {/*coordinating-fonts-images-and-stylesheets*/}
+### Coordinare font, immagini e fogli di stile {/*coordinating-fonts-images-and-stylesheets*/}
 
-A Suspense boundary can wait for data, stylesheets, fonts, and images at once. Waiting for fonts and images only happens during a [`<ViewTransition>`](/reference/react/ViewTransition) update. In the example below, the `ProfileCard` component suspends while its data loads, and renders a stylesheet with `precedence`, text in a new font, and a portrait. React keeps the skeleton visible while the data and the stylesheet load. The `<ViewTransition>` reveal then waits for the font and the image, so the card appears complete.
+Un boundary Suspense può attendere dati, fogli di stile, font e immagini contemporaneamente. L'attesa di font e immagini avviene solo durante un aggiornamento con [`<ViewTransition>`](/reference/react/ViewTransition). Nell'esempio sotto, il componente `ProfileCard` va in sospensione mentre i suoi dati si caricano e renderizza un foglio di stile con `precedence`, testo in un nuovo font e un ritratto. React mantiene visibile lo skeleton mentre si caricano i dati e il foglio di stile. La rivelazione con `<ViewTransition>` attende poi il font e l'immagine, così la card appare completa.
 
-For comparison, the version without React loads the same data and shows every resource arriving on its own schedule:
+A titolo di confronto, la versione senza React carica gli stessi dati e mostra ogni risorsa arrivare secondo il proprio timing:
 
 <Sandpack>
 
@@ -3294,8 +3301,8 @@ export default function VanillaProfileCard() {
 ```
 
 ```js src/resources.js hidden
-// Add a unique parameter so the resources aren't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così le risorse non sono in cache
+// e ogni esecuzione mostra la fase di caricamento.
 export function freshStylesheetUrl() {
   return (
     'https://fonts.googleapis.com/css2?family=Caveat&display=swap' +
@@ -3314,7 +3321,7 @@ export function freshImageUrl() {
 // the framework that you use together with Suspense.
 
 export async function fetchQuote() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo fittizio per far percepire l'attesa.
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
   });
@@ -3401,23 +3408,23 @@ hr {
 
 ## Troubleshooting {/*troubleshooting*/}
 
-### How do I prevent the UI from being replaced by a fallback during an update? {/*preventing-unwanted-fallbacks*/}
+### Come impedisco che la UI venga sostituita da un fallback durante un aggiornamento? {/*preventing-unwanted-fallbacks*/}
 
-Replacing visible UI with a fallback creates a jarring user experience. This can happen when an update causes a component to suspend, and the nearest Suspense boundary is already showing content to the user.
+Sostituire una UI visibile con un fallback crea un'esperienza utente brusca. Questo può accadere quando un aggiornamento fa andare in sospensione un componente e il boundary Suspense più vicino sta già mostrando contenuto all'utente.
 
-To prevent this from happening, [mark the update as non-urgent using `startTransition`](#preventing-already-revealed-content-from-hiding). During a Transition, React will wait until enough data has loaded to prevent an unwanted fallback from appearing:
+Per evitare che accada, [segna l'aggiornamento come non urgente usando `startTransition`](#preventing-already-revealed-content-from-hiding). Durante una Transizione, React attenderà finché abbastanza dati sono caricati per evitare che appaia un fallback indesiderato:
 
 ```js {2-3,5}
 function handleNextPageClick() {
-  // If this update suspends, don't hide the already displayed content
+  // Se questo aggiornamento va in sospensione, non nascondere il contenuto già mostrato
   startTransition(() => {
     setCurrentPage(currentPage + 1);
   });
 }
 ```
 
-This will avoid hiding existing content. However, any newly rendered `Suspense` boundaries will still immediately display fallbacks to avoid blocking the UI and let the user see the content as it becomes available.
+Questo eviterà di nascondere il contenuto esistente. Tuttavia, qualsiasi boundary `Suspense` appena renderizzato mostrerà comunque immediatamente i fallback per evitare di bloccare la UI e lasciare che l'utente veda il contenuto man mano che diventa disponibile.
 
-**React will only prevent unwanted fallbacks during non-urgent updates**. It will not delay a render if it's the result of an urgent update. You must opt in with an API like [`startTransition`](/reference/react/startTransition) or [`useDeferredValue`](/reference/react/useDeferredValue).
+**React impedirà i fallback indesiderati solo durante aggiornamenti non urgenti**. Non ritarderà una renderizzazione se è il risultato di un aggiornamento urgente. Devi attivare esplicitamente con un'API come [`startTransition`](/reference/react/startTransition) o [`useDeferredValue`](/reference/react/useDeferredValue).
 
-If your router is integrated with Suspense, it should wrap its updates into [`startTransition`](/reference/react/startTransition) automatically.
+Se il tuo router è integrato con Suspense, dovrebbe avvolgere i suoi aggiornamenti in [`startTransition`](/reference/react/startTransition) automaticamente.
