@@ -1,59 +1,97 @@
-# Guida di Stile Universale
+# Guida di Stile
 
-> This Style Guide is based on the [Universal Style Guide](https://github.com/reactjs/reactjs.org-translation/blob/master/style-guide.md)
->
-> Questa Guida di Stile è basata sulla [Universal Style Guide](https://github.com/reactjs/reactjs.org-translation/blob/master/style-guide.md)
+> Basata sulla [Universal Style Guide](https://github.com/reactjs/reactjs.org-translation/blob/master/style-guide.md) del progetto di traduzione React.
 
-Questa Guida di Stile descrive le regole che dovrebbero essere applicate a **tutte** le lingue.
+Regole per tradurre la documentazione di [it.react.dev](https://it.react.dev). Per la terminologia, consulta sempre il [Glossario](./GLOSSARY.md).
 
-NOTA PER I MANUTENTORI: Potreste voler tradurre questa guida in modo che sia più accessibile ai traduttori.
+---
 
 ## Glossario
 
-Vedi [qui](https://github.com/reactjs/it.reactjs.org/blob/master/GLOSSARY.md)
+Vedi [GLOSSARY.md](./GLOSSARY.md) in questo repository.
+
+Prima di tradurre o revisionare una pagina, leggi le voci pertinenti. **Non introdurre varianti** se il glossario ha già una voce confermata. Le [pagine legacy](./GLOSSARY.md#pagine-legacy-con-deviazioni-note) non annullano le regole per le nuove traduzioni.
+
+---
+
+## Registro e tono
+
+### Registro
+
+Usa il **tu** informale, coerente con le pagine già tradotte:
+
+✅ *Quando aggiorni lo state, React renderizza di nuovo il componente.*
+
+❌ *Quando l'utente aggiorna lo state...* (evita la terza persona distante salvo casi eccezionali)
+
+### Tono per tipo di pagina
+
+| Tipo | Tono | Esempio |
+| ---- | ---- | ------- |
+| Learn | Conversazionale, pedagogico | *Ecco cosa succede...*, *Potresti chiederti...* |
+| Reference | Tecnico, esaustivo | *Chiama `useState` al top level...* |
+| Blog | Fattuale, preciso | Evita linguaggio promozionale |
+
+---
+
+## Terminologia e coerenza
+
+### Policy anglicismi
+
+Segui la policy del [Glossario](./GLOSSARY.md#policy-sugli-anglicismi):
+
+1. API, identificatori e concetti core React → **inglese** (`props`, `state`, `hooks`)
+2. Concetti spiegati in prosa con equivalente stabile → **italiano** (*renderizzare*, *gestore di eventi*, *Effetto*)
+3. Loanword tecnici senza equivalente univoco → **inglese** (*commit*, *dispatch*, *Suspense*)
+
+### Maiuscole
+
+| Contesto | Regola | Esempio |
+| -------- | ------ | ------- |
+| Concetti core React in prosa | minuscolo | *le props*, *lo state*, *gli hooks* |
+| Nomi propri React | maiuscola | *Effetto*, *Strict Mode*, *Suspense*, *Hook* |
+| API e codice | come in inglese | `useState`, `createRoot` |
+
+### Coerenza obbligatoria
+
+- **Non alternare** *state* e *stato* per lo stesso concetto React → sempre *state*
+- **Non alternare** *gestore di eventi* e *event handler* → preferire *gestore di eventi*
+- **Non alternare** *renderizzare* e *rendere* → preferire *renderizzare*
+- Usa *Effetto* (maiuscola) per il concetto React; *effetto collaterale* per side effect generici; *effetto* minuscolo solo fuori dal contesto React
+
+---
 
 ## ID delle intestazioni
 
-Tutte le intestazioni hanno degli ID espliciti, ad esempio:
+Tutte le intestazioni hanno ID espliciti:
 
 ```md
 ## Try React {#try-react}
 ```
 
-**Non** tradurre questi ID! Sono utilizzati per la navigazione e non funzioneranno più se il documento è referenziato dall'esterno.
+**Non tradurre gli ID.** Servono per la navigazione e i link interni.
 
-Ad esempio, dato questo link:
-
-```md
-See the [beginning section](/getting-started#try-react) for more information.
-```
-
-✅ COSÌ VA BENE:
+✅ Corretto:
 
 ```md
 ## Prova React {#try-react}
 ```
 
-❌ COSÌ NO:
+❌ Errato:
 
 ```md
 ## Prova React {#prova-react}
 ```
 
-Nel secondo modo il link in alto non funzionerà più.
+I commenti `{/*english-slug*/}` dopo le intestazioni restano in inglese.
+
+---
 
 ## Testo nei blocchi di codice
 
-Non tradurre il testo nei blocchi di codice, a parte i commenti. Potresti voler tradurre anche il testo delle stringhe, ma fai attenzione a non tradurre le stringhe che costituiscono riferimenti al codice!
+Non tradurre il codice, **eccetto i commenti**. Attenzione alle stringhe: traduci solo se non sono riferimenti al codice (ID DOM, nomi di variabili, API).
 
-Ad esempio:
-```js
-// Example
-const element = <h1>Hello, world</h1>;
-ReactDOM.render(element, document.getElementById('root'));
-```
-
-✅ COSÌ VA BENE:
+✅ Corretto:
 
 ```js
 // Esempio
@@ -61,49 +99,119 @@ const element = <h1>Hello, world</h1>;
 ReactDOM.render(element, document.getElementById('root'));
 ```
 
-✅ ANCHE COSÌ:
+✅ Anche accettabile (stringhe UI):
 
 ```js
-// Esempio
 const element = <h1>Ciao mondo</h1>;
-ReactDOM.render(element, document.getElementById('root'));
 ```
 
-❌ COSÌ NO:
+❌ Errato:
 
 ```js
-// Esempio
-const element = <h1>Ciao mondo</h1>;
-// "root" fa riferimento all'ID di un elemento.
-// NON TRADURLO
 ReactDOM.render(element, document.getElementById('radice'));
 ```
 
-❌ COSÌ DECISAMENTE NO:
+❌ Decisamente errato:
 
 ```js
-// Esempio
 const elemento = <h1>Ciao mondo</h1>;
 ReactDOM.renderizza(elemento, documento.ottieniElementoDallId('radice'));
 ```
 
-## Link esterni
+---
 
-Se un link esterno punta ad un articolo di un riferimento come [MDN] o [Wikipedia], ed esiste una versione di quell'articolo nella tua lingua che sia di qualità soddisfacente, puoi valutare di linkare la versione tradotta dell'articolo invece di quella originale.
+## Componenti MDX
 
-[MDN]: https://developer.mozilla.org/en-US/
-[Wikipedia]: https://en.wikipedia.org/wiki/Main_Page
+**Non tradurre** i nomi dei componenti MDX: `Intro`, `YouWillLearn`, `Sandpack`, `Pitfall`, `Note`, `DeepDive`, `Challenges`, ecc.
 
-Esempio:
+Traduci solo il **contenuto** al loro interno.
 
-```md
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object).
+---
+
+## Link
+
+### Link interni
+
+- **Path:** invariati (`/learn/state-a-components-memory`)
+- **Testo del link:** tradotto
+
+✅ `[Passare le props](/learn/passing-props-to-a-component)`
+
+### Link esterni
+
+Se esiste una versione italiana di qualità su [MDN](https://developer.mozilla.org/it/) o [Wikipedia](https://it.wikipedia.org/), preferiscila.
+
+[MDN]: https://developer.mozilla.org/it/
+[Wikipedia]: https://it.wikipedia.org/wiki/Pagina_principale
+
+✅ `[immutabili](https://it.wikipedia.org/wiki/Struttura_dati_persistente)`
+
+Per link senza versione tradotta (Stack Overflow, YouTube, blog), usa l'URL originale.
+
+---
+
+## Frontmatter
+
+Traduci almeno il campo `title`:
+
+```yaml
+---
+title: Renderizzare e Aggiornare
+---
 ```
 
-✅ COSÌ VA BENE:
+Altri campi (`description`, ecc.) vanno tradotti se presenti.
 
-```md
-Gli elementi di React sono [immutabili](https://it.wikipedia.org/wiki/Struttura_dati_persistente).
+---
+
+## Traduzioni assistite (AI)
+
+Pagine tradotte automaticamente in attesa di revisione umana devono includere:
+
+```yaml
+translationStatus: ai-draft
 ```
 
-Per i link dei quali non esiste una versione tradotta (Stack Overflow, video di YouTube, ecc.), utilizza semplicemente il link in Inglese.
+E subito dopo il frontmatter:
+
+```mdx
+<Note>
+
+Questa pagina è stata tradotta automaticamente e potrebbe beneficiare di una revisione umana. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/...).
+
+</Note>
+```
+
+Rimuovi `translationStatus` e il blocco `<Note>` quando la pagina viene revisionata e approvata.
+
+---
+
+## Checklist pre-merge
+
+Prima di aprire o approvare una PR di traduzione:
+
+- [ ] Terminologia conforme al [Glossario](./GLOSSARY.md)
+- [ ] ID intestazioni `{#...}` invariati
+- [ ] Codice invariato (salvo commenti)
+- [ ] Nomi componenti MDX invariati
+- [ ] Titolo sidebar aggiornato in `sidebarLearn.json` o `sidebarReference.json`
+- [ ] Nessun paragrafo rimasto in inglese
+- [ ] Link interni con path corretti
+- [ ] `yarn check-all` passa
+
+### Verifica rapida termini
+
+Cerca varianti deprecate nel file tradotto:
+
+```bash
+# Varianti da evitare nelle nuove traduzioni (vedi glossario)
+rg -i 'event handler|\\blo stato\\b|\\brendere\\b' src/content/learn/TUO-FILE.md
+```
+
+---
+
+## Riferimenti
+
+- [Issue #418 — avanzamento traduzione](https://github.com/reactjs/it.react.dev/issues/418)
+- [Glossario](./GLOSSARY.md)
+- [Contributing (react.dev)](https://github.com/reactjs/react.dev/blob/main/CONTRIBUTING.md)
