@@ -1,16 +1,23 @@
 ---
 title: useLayoutEffect
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/useLayoutEffect.md).
+
+</Note>
 
 <Pitfall>
 
-`useLayoutEffect` can hurt performance. Prefer [`useEffect`](/reference/react/useEffect) when possible.
+`useLayoutEffect` può penalizzare le prestazioni. Preferisci [`useEffect`](/reference/react/useEffect) quando possibile.
 
 </Pitfall>
 
 <Intro>
 
-`useLayoutEffect` is a version of [`useEffect`](/reference/react/useEffect) that fires before the browser repaints the screen.
+`useLayoutEffect` è una versione di [`useEffect`](/reference/react/useEffect) che viene eseguita prima che il browser ridipinge lo schermo.
 
 ```js
 useLayoutEffect(setup, dependencies?)
@@ -26,7 +33,7 @@ useLayoutEffect(setup, dependencies?)
 
 ### `useLayoutEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-Call `useLayoutEffect` to perform the layout measurements before the browser repaints the screen:
+Chiama `useLayoutEffect` per eseguire le misurazioni di layout prima che il browser ridipinge lo schermo:
 
 ```js
 import { useState, useRef, useLayoutEffect } from 'react';
@@ -43,73 +50,73 @@ function Tooltip() {
 ```
 
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 #### Parameters {/*parameters*/}
 
-* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. After your [component commits](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) to the DOM and before the browser repaints the screen, React will run your setup function. After every commit with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. Before your component is removed from the DOM, React will run your cleanup function.
+* `setup`: La funzione con la logica del tuo Effetto. La funzione di setup può anche restituire opzionalmente una funzione di *cleanup*. Dopo che il tuo [componente esegue la fase di commit](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) nel DOM e prima che il browser ridipinge lo schermo, React eseguirà la tua funzione di setup. Dopo ogni fase di commit con dipendenze cambiate, React eseguirà prima la funzione di cleanup (se l'hai fornita) con i valori precedenti, e poi eseguirà la funzione di setup con i nuovi valori. Prima che il tuo componente venga rimosso dal DOM, React eseguirà la funzione di cleanup.
 
-* **optional** `dependencies`: The list of all reactive values referenced inside of the `setup` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. If you omit this argument, your Effect will re-run after every commit of the component.
+* **optional** `dependencies`: L'elenco di tutti i valori reattivi referenziati all'interno del codice di `setup`. I valori reattivi includono props, state e tutte le variabili e funzioni dichiarate direttamente nel corpo del componente. Se il tuo linter è [configurato per React](/learn/editor-setup#linting), verificherà che ogni valore reattivo sia specificato correttamente come dipendenza. L'elenco delle dipendenze deve avere un numero costante di elementi ed essere scritto inline come `[dep1, dep2, dep3]`. React confronterà ogni dipendenza con il suo valore precedente usando il confronto [`Object.is`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se ometti questo argomento, il tuo Effetto verrà rieseguito dopo ogni fase di commit del componente.
 
 #### Returns {/*returns*/}
 
-`useLayoutEffect` returns `undefined`.
+`useLayoutEffect` restituisce `undefined`.
 
 #### Caveats {/*caveats*/}
 
-* `useLayoutEffect` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a component and move the Effect there.
+* `useLayoutEffect` è un Hook, quindi puoi chiamarlo **solo al top level del tuo componente** o dei tuoi Hook. Non puoi chiamarlo all'interno di loop o condizioni. Se ne hai bisogno, estrai un componente e sposta l'Effetto lì.
 
-* When Strict Mode is on, React will **run one extra development-only setup+cleanup cycle** before the first real setup. This is a stress-test that ensures that your cleanup logic "mirrors" your setup logic and that it stops or undoes whatever the setup is doing. If this causes a problem, [implement the cleanup function.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* Quando Strict Mode è attivo, React **eseguirà un ciclo setup+cleanup extra solo in development** prima del primo setup reale. È un test di stress che verifica che la logica di cleanup "specchi" la logica di setup e che fermi o annulli ciò che fa il setup. Se questo causa un problema, [implementa la funzione di cleanup.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-* If some of your dependencies are objects or functions defined inside the component, there is a risk that they will **cause the Effect to re-run more often than needed.** To fix this, remove unnecessary [object](/reference/react/useEffect#removing-unnecessary-object-dependencies) and [function](/reference/react/useEffect#removing-unnecessary-function-dependencies) dependencies. You can also [extract state updates](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) and [non-reactive logic](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) outside of your Effect.
+* Se alcune delle tue dipendenze sono oggetti o funzioni definite all'interno del componente, c'è il rischio che **facciano rieseguire l'Effetto più spesso del necessario.** Per risolvere, rimuovi le dipendenze [oggetto](/reference/react/useEffect#removing-unnecessary-object-dependencies) e [funzione](/reference/react/useEffect#removing-unnecessary-function-dependencies) non necessarie. Puoi anche [estrarre gli aggiornamenti di state](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) e la [logica non reattiva](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) fuori dall'Effetto.
 
-* Effects **only run on the client.** They don't run during server rendering.
+* Gli Effetti **vengono eseguiti solo sul client.** Non vengono eseguiti durante la renderizzazione lato server.
 
-* The code inside `useLayoutEffect` and all state updates scheduled from it **block the browser from repainting the screen.** When used excessively, this makes your app slow. When possible, prefer [`useEffect`.](/reference/react/useEffect)
+* Il codice all'interno di `useLayoutEffect` e tutti gli aggiornamenti di state programmati da esso **impediscono al browser di ridipingere lo schermo.** Se usato eccessivamente, rende l'app lenta. Quando possibile, preferisci [`useEffect`.](/reference/react/useEffect)
 
-* If you trigger a state update inside `useLayoutEffect`, React will execute all remaining Effects immediately including `useEffect`.
+* Se attivi un aggiornamento di state all'interno di `useLayoutEffect`, React eseguirà immediatamente tutti gli Effetti rimanenti, incluso `useEffect`.
 
 ---
 
 ## Usage {/*usage*/}
 
-### Measuring layout before the browser repaints the screen {/*measuring-layout-before-the-browser-repaints-the-screen*/}
+### Misurare il layout prima che il browser ridipinge lo schermo {/*measuring-layout-before-the-browser-repaints-the-screen*/}
 
-Most components don't need to know their position and size on the screen to decide what to render. They only return some JSX. Then the browser calculates their *layout* (position and size) and repaints the screen.
+La maggior parte dei componenti non ha bisogno di conoscere la propria posizione e dimensione sullo schermo per decidere cosa renderizzare. Restituiscono solo del JSX. Poi il browser calcola il loro *layout* (posizione e dimensione) e ridipinge lo schermo.
 
-Sometimes, that's not enough. Imagine a tooltip that appears next to some element on hover. If there's enough space, the tooltip should appear above the element, but if it doesn't fit, it should appear below. In order to render the tooltip at the right final position, you need to know its height (i.e. whether it fits at the top).
+A volte non basta. Immagina un tooltip che appare accanto a un elemento al passaggio del mouse. Se c'è abbastanza spazio, il tooltip dovrebbe apparire sopra l'elemento, ma se non entra, dovrebbe apparire sotto. Per renderizzare il tooltip nella posizione finale corretta, devi conoscere la sua altezza (cioè se entra in alto).
 
-To do this, you need to render in two passes:
+Per farlo, devi renderizzare in due passaggi:
 
-1. Render the tooltip anywhere (even with a wrong position).
-2. Measure its height and decide where to place the tooltip.
-3. Render the tooltip *again* in the correct place.
+1. Renderizza il tooltip ovunque (anche con una posizione sbagliata).
+2. Misura la sua altezza e decidi dove posizionare il tooltip.
+3. Renderizza il tooltip *di nuovo* nel posto giusto.
 
-**All of this needs to happen before the browser repaints the screen.** You don't want the user to see the tooltip moving. Call `useLayoutEffect` to perform the layout measurements before the browser repaints the screen:
+**Tutto questo deve avvenire prima che il browser ridipinge lo schermo.** Non vuoi che l'utente veda il tooltip spostarsi. Chiama `useLayoutEffect` per eseguire le misurazioni di layout prima che il browser ridipinge lo schermo:
 
 ```js {5-8}
 function Tooltip() {
   const ref = useRef(null);
-  const [tooltipHeight, setTooltipHeight] = useState(0); // You don't know real height yet
+  const [tooltipHeight, setTooltipHeight] = useState(0); // Non conosci ancora l'altezza reale
 
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
-    setTooltipHeight(height); // Re-render now that you know the real height
+    setTooltipHeight(height); // Ri-renderizza ora che conosci l'altezza reale
   }, []);
 
-  // ...use tooltipHeight in the rendering logic below...
+  // ...usa tooltipHeight nella logica di renderizzazione qui sotto...
 }
 ```
 
-Here's how this works step by step:
+Ecco come funziona passo per passo:
 
-1. `Tooltip` renders with the initial `tooltipHeight = 0`  (so the tooltip may be wrongly positioned).
-2. React places it in the DOM and runs the code in `useLayoutEffect`.
-3. Your `useLayoutEffect` [measures the height](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) of the tooltip content and triggers an immediate re-render.
-4. `Tooltip` renders again with the real `tooltipHeight` (so the tooltip is correctly positioned).
-5. React updates it in the DOM, and the browser finally displays the tooltip.
+1. `Tooltip` renderizza con `tooltipHeight = 0` iniziale (quindi il tooltip potrebbe essere posizionato in modo errato).
+2. React lo posiziona nel DOM ed esegue il codice in `useLayoutEffect`.
+3. Il tuo `useLayoutEffect` [misura l'altezza](https://developer.mozilla.org/it/docs/Web/API/Element/getBoundingClientRect) del contenuto del tooltip e attiva una ri-renderizzazione immediata.
+4. `Tooltip` renderizza di nuovo con la `tooltipHeight` reale (quindi il tooltip è posizionato correttamente).
+5. React lo aggiorna nel DOM e il browser infine visualizza il tooltip.
 
-Hover over the buttons below and see how the tooltip adjusts its position depending on whether it fits:
+Passa il mouse sui pulsanti qui sotto e osserva come il tooltip regola la sua posizione a seconda che entri o meno:
 
 <Sandpack>
 
@@ -122,29 +129,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Questo tooltip non entra sopra il pulsante.
             <br />
-            This is why it's displayed below instead!
+            Ecco perché viene visualizzato sotto!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passa il mouse su di me (tooltip sopra)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
     </div>
   );
@@ -199,7 +206,7 @@ export default function Tooltip({ children, targetRect }) {
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
     setTooltipHeight(height);
-    console.log('Measured tooltip height: ' + height);
+    console.log('Altezza tooltip misurata: ' + height);
   }, []);
 
   let tooltipX = 0;
@@ -208,7 +215,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Non entra sopra, quindi posizionalo sotto.
       tooltipY = targetRect.bottom;
     }
   }
@@ -253,13 +260,13 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Notice that even though the `Tooltip` component has to render in two passes (first, with `tooltipHeight` initialized to `0` and then with the real measured height), you only see the final result. This is why you need `useLayoutEffect` instead of [`useEffect`](/reference/react/useEffect) for this example. Let's look at the difference in detail below.
+Nota che anche se il componente `Tooltip` deve renderizzare in due passaggi (prima con `tooltipHeight` inizializzato a `0` e poi con l'altezza misurata reale), vedi solo il risultato finale. Ecco perché in questo esempio ti serve `useLayoutEffect` invece di [`useEffect`](/reference/react/useEffect). Vediamo la differenza nel dettaglio qui sotto.
 
 <Recipes titleText="useLayoutEffect vs useEffect" titleId="examples">
 
-#### `useLayoutEffect` blocks the browser from repainting {/*uselayouteffect-blocks-the-browser-from-repainting*/}
+#### `useLayoutEffect` impedisce al browser di ridipingere {/*uselayouteffect-blocks-the-browser-from-repainting*/}
 
-React guarantees that the code inside `useLayoutEffect` and any state updates scheduled inside it will be processed **before the browser repaints the screen.** This lets you render the tooltip, measure it, and re-render the tooltip again without the user noticing the first extra render. In other words, `useLayoutEffect` blocks the browser from painting.
+React garantisce che il codice all'interno di `useLayoutEffect` e tutti gli aggiornamenti di state programmati al suo interno verranno elaborati **prima che il browser ridipinge lo schermo.** Questo ti permette di renderizzare il tooltip, misurarlo e renderizzarlo di nuovo senza che l'utente noti la prima renderizzazione extra. In altre parole, `useLayoutEffect` impedisce al browser di dipingere.
 
 <Sandpack>
 
@@ -272,29 +279,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Questo tooltip non entra sopra il pulsante.
             <br />
-            This is why it's displayed below instead!
+            Ecco perché viene visualizzato sotto!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passa il mouse su di me (tooltip sopra)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
     </div>
   );
@@ -357,7 +364,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Non entra sopra, quindi posizionalo sotto.
       tooltipY = targetRect.bottom;
     }
   }
@@ -404,9 +411,9 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 <Solution />
 
-#### `useEffect` does not block the browser {/*useeffect-does-not-block-the-browser*/}
+#### `useEffect` non impedisce al browser di ridipingere {/*useeffect-does-not-block-the-browser*/}
 
-Here is the same example, but with [`useEffect`](/reference/react/useEffect) instead of `useLayoutEffect`. If you're on a slower device, you might notice that sometimes the tooltip "flickers" and you briefly see its initial position before the corrected position.
+Ecco lo stesso esempio, ma con [`useEffect`](/reference/react/useEffect) invece di `useLayoutEffect`. Se usi un dispositivo lento, potresti notare che a volte il tooltip "sfarfalla" e vedi brevemente la sua posizione iniziale prima di quella corretta.
 
 <Sandpack>
 
@@ -419,29 +426,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Questo tooltip non entra sopra il pulsante.
             <br />
-            This is why it's displayed below instead!
+            Ecco perché viene visualizzato sotto!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passa il mouse su di me (tooltip sopra)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
     </div>
   );
@@ -504,7 +511,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Non entra sopra, quindi posizionalo sotto.
       tooltipY = targetRect.bottom;
     }
   }
@@ -549,7 +556,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-To make the bug easier to reproduce, this version adds an artificial delay during rendering. React will let the browser paint the screen before it processes the state update inside `useEffect`. As a result, the tooltip flickers:
+Per facilitare la riproduzione del bug, questa versione aggiunge un ritardo artificiale durante la renderizzazione. React permetterà al browser di dipingere lo schermo prima di elaborare l'aggiornamento di state all'interno di `useEffect`. Di conseguenza, il tooltip sfarfalla:
 
 <Sandpack>
 
@@ -562,29 +569,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Questo tooltip non entra sopra il pulsante.
             <br />
-            This is why it's displayed below instead!
+            Ecco perché viene visualizzato sotto!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passa il mouse su di me (tooltip sopra)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Questo tooltip entra sopra il pulsante</div>
         }
       >
-        Hover over me (tooltip below)
+        Passa il mouse su di me (tooltip sotto)
       </ButtonWithTooltip>
     </div>
   );
@@ -636,10 +643,10 @@ export default function Tooltip({ children, targetRect }) {
   const ref = useRef(null);
   const [tooltipHeight, setTooltipHeight] = useState(0);
 
-  // This artificially slows down rendering
+  // Questo rallenta artificialmente la renderizzazione
   let now = performance.now();
   while (performance.now() - now < 100) {
-    // Do nothing for a bit...
+    // Non fare nulla per un po'...
   }
 
   useEffect(() => {
@@ -653,7 +660,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Non entra sopra, quindi posizionalo sotto.
       tooltipY = targetRect.bottom;
     }
   }
@@ -698,7 +705,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Edit this example to `useLayoutEffect` and observe that it blocks the paint even if rendering is slowed down.
+Modifica questo esempio per usare `useLayoutEffect` e osserva che impedisce il paint anche se la renderizzazione è rallentata.
 
 <Solution />
 
@@ -706,7 +713,7 @@ Edit this example to `useLayoutEffect` and observe that it blocks the paint even
 
 <Note>
 
-Rendering in two passes and blocking the browser hurts performance. Try to avoid this when you can.
+Renderizzare in due passaggi e impedire al browser di ridipingere penalizza le prestazioni. Cerca di evitarlo quando puoi.
 
 </Note>
 
@@ -714,30 +721,30 @@ Rendering in two passes and blocking the browser hurts performance. Try to avoid
 
 ## Troubleshooting {/*troubleshooting*/}
 
-### I'm getting an error: "`useLayoutEffect` does nothing on the server" {/*im-getting-an-error-uselayouteffect-does-nothing-on-the-server*/}
+### Sto ricevendo un errore: "`useLayoutEffect` does nothing on the server" {/*im-getting-an-error-uselayouteffect-does-nothing-on-the-server*/}
 
-The purpose of `useLayoutEffect` is to let your component [use layout information for rendering:](#measuring-layout-before-the-browser-repaints-the-screen)
+Lo scopo di `useLayoutEffect` è permettere al tuo componente di [usare le informazioni di layout per la renderizzazione:](#measuring-layout-before-the-browser-repaints-the-screen)
 
-1. Render the initial content.
-2. Measure the layout *before the browser repaints the screen.*
-3. Render the final content using the layout information you've read.
+1. Renderizza il contenuto iniziale.
+2. Misura il layout *prima che il browser ridipinge lo schermo.*
+3. Renderizza il contenuto finale usando le informazioni di layout lette.
 
-When you or your framework uses [server rendering](/reference/react-dom/server), your React app renders to HTML on the server for the initial render. This lets you show the initial HTML before the JavaScript code loads.
+Quando tu o il tuo framework usate la [renderizzazione lato server](/reference/react-dom/server), la tua app React renderizza in HTML sul server per la renderizzazione iniziale. Questo ti permette di mostrare l'HTML iniziale prima che il codice JavaScript venga caricato.
 
-The problem is that on the server, there is no layout information.
+Il problema è che sul server non ci sono informazioni di layout.
 
-In the [earlier example](#measuring-layout-before-the-browser-repaints-the-screen), the `useLayoutEffect` call in the `Tooltip` component lets it position itself correctly (either above or below content) depending on the content height. If you tried to render `Tooltip` as a part of the initial server HTML, this would be impossible to determine. On the server, there is no layout yet! So, even if you rendered it on the server, its position would "jump" on the client after the JavaScript loads and runs.
+Nell'[esempio precedente](#measuring-layout-before-the-browser-repaints-the-screen), la chiamata a `useLayoutEffect` nel componente `Tooltip` gli permette di posizionarsi correttamente (sopra o sotto il contenuto) a seconda dell'altezza del contenuto. Se provassi a renderizzare `Tooltip` come parte dell'HTML iniziale del server, sarebbe impossibile determinarlo. Sul server non c'è ancora layout! Quindi, anche se lo renderizzassi sul server, la sua posizione "saltarebbe" sul client dopo che il JavaScript viene caricato ed eseguito.
 
-Usually, components that rely on layout information don't need to render on the server anyway. For example, it probably doesn't make sense to show a `Tooltip` during the initial render. It is triggered by a client interaction.
+Di solito, i componenti che dipendono dalle informazioni di layout non hanno bisogno di renderizzare sul server comunque. Ad esempio, probabilmente non ha senso mostrare un `Tooltip` durante la renderizzazione iniziale. Viene attivato da un'interazione sul client.
 
-However, if you're running into this problem, you have a few different options:
+Tuttavia, se ti trovi di fronte a questo problema, hai diverse opzioni:
 
-- Replace `useLayoutEffect` with [`useEffect`.](/reference/react/useEffect) This tells React that it's okay to display the initial render result without blocking the paint (because the original HTML will become visible before your Effect runs).
+- Sostituisci `useLayoutEffect` con [`useEffect`.](/reference/react/useEffect) Questo dice a React che va bene visualizzare il risultato della renderizzazione iniziale senza impedire il paint (perché l'HTML originale diventerà visibile prima che il tuo Effetto venga eseguito).
 
-- Alternatively, call [`use(browser())`](/reference/react/use#use-browser) to mark the component as browser-only. React will replace its content up to the closest [`<Suspense>`](/reference/react/Suspense) boundary with a loading fallback (for example, a spinner or a glimmer) during server rendering.
+- In alternativa, chiama [`use(browser())`](/reference/react/use#use-browser) per contrassegnare il componente come solo-browser. React sostituirà il suo contenuto fino al [`<Suspense>`](/reference/react/Suspense) più vicino con un fallback di caricamento (ad esempio, uno spinner o un glimmer) durante la renderizzazione lato server.
 
-- Alternatively, [mark your component as client-only.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) This tells React to replace its content up to the closest `<Suspense>` boundary with a loading fallback during server rendering.
+- In alternativa, [contrassegna il tuo componente come solo-client.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) Questo dice a React di sostituire il suo contenuto fino al `<Suspense>` più vicino con un fallback di caricamento durante la renderizzazione lato server.
 
-- Alternatively, you can render a component with `useLayoutEffect` only after hydration. Keep a boolean `isMounted` state that's initialized to `false`, and set it to `true` inside a `useEffect` call. Your rendering logic can then be like `return isMounted ? <RealContent /> : <FallbackContent />`. On the server and during the hydration, the user will see `FallbackContent` which should not call `useLayoutEffect`. Then React will replace it with `RealContent` which runs on the client only and can include `useLayoutEffect` calls.
+- In alternativa, puoi renderizzare un componente con `useLayoutEffect` solo dopo l'hydration. Mantieni uno state booleano `isMounted` inizializzato a `false`, e impostalo a `true` all'interno di una chiamata a `useEffect`. La tua logica di renderizzazione può quindi essere del tipo `return isMounted ? <RealContent /> : <FallbackContent />`. Sul server e durante l'hydration, l'utente vedrà `FallbackContent` che non dovrebbe chiamare `useLayoutEffect`. Poi React lo sostituirà con `RealContent` che viene eseguito solo sul client e può includere chiamate a `useLayoutEffect`.
 
-- If you synchronize your component with an external data store and rely on `useLayoutEffect` for different reasons than measuring layout, consider [`useSyncExternalStore`](/reference/react/useSyncExternalStore) instead which [supports server rendering.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
+- Se sincronizzi il tuo componente con uno store di dati esterno e ti affidi a `useLayoutEffect` per motivi diversi dalla misurazione del layout, considera [`useSyncExternalStore`](/reference/react/useSyncExternalStore) che [supporta la renderizzazione lato server.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
