@@ -2,7 +2,9 @@
 
 Glossario dei termini tecnici e specifici di React per la traduzione italiana di [it.react.dev](https://it.react.dev).
 
-Le traduzioni in **Traduzioni confermate** derivano dalle pagine già tradotte e revisionate elencate in [#418](https://github.com/reactjs/it.react.dev/issues/418). In caso di dubbio, consulta quelle pagine prima di introdurre varianti.
+Le traduzioni in **Traduzioni confermate** derivano dalle pagine già tradotte e revisionate elencate in [#418](https://github.com/reactjs/it.react.dev/issues/418). In caso di dubbio, consulta quelle pagine di riferimento — non introdurre varianti se esiste già una voce confermata.
+
+Le scelte riflettono il corpus umano così com'è: non riformuliamo decisioni già presenti nelle pagine revisionate. Se un termine diventa problematico in futuro, si aggiorna il glossario allora.
 
 ## Policy sugli anglicismi
 
@@ -81,7 +83,6 @@ Scelte adottate nelle pagine revisionate. La colonna **Fonte** indica la pagina 
 | ------- | -------- | ----- |
 | event handler | gestore di eventi | responding-to-events |
 | event handlers | gestori di eventi | responding-to-events |
-| event listener | listener di eventi | you-might-not-need-an-effect (API DOM) |
 
 ### State e dati
 
@@ -95,8 +96,6 @@ Scelte adottate nelle pagine revisionate. La colonna **Fonte** indica la pagina 
 | memoization / to memoize | memorizzazione / memorizzare | you-might-not-need-an-effect |
 | dispatch (action) | dispatch / eseguire il dispatch | extracting-state-logic-into-a-reducer |
 | action (reducer) | azione | extracting-state-logic-into-a-reducer |
-| controlled component | componente controllato | you-might-not-need-an-effect |
-| uncontrolled component | componente non controllato | you-might-not-need-an-effect |
 | one-way data flow | flusso di dati unidirezionale | thinking-in-react |
 
 ### Mount e lifecycle (prosa)
@@ -135,7 +134,7 @@ Usa la **maiuscola** quando ti riferisci al concetto React come nome proprio.
 | Server Component | componente Server | proposta |
 | Client Component | componente Client | proposta |
 
-Al plurale: *Effetti*, *Hooks*, *Transizioni* quando il concetto React resta nome proprio nel contesto.
+Al plurale: *Effetti*, *Hooks*, *Transizioni* quando il concetto React resta nome proprio nel contesto. La pagina canonica `you-might-not-need-an-effect` usa anche *effetti* minuscolo in prosa introduttiva — vedi [Pagine legacy](#pagine-legacy-con-deviazioni-note).
 
 ---
 
@@ -159,6 +158,9 @@ Termini ricorrenti nel sorgente inglese per cui manca ancora un precedente nel c
 
 | Inglese | Proposta | Note |
 | ------- | -------- | ---- |
+| event listener | listener di eventi | In prosa; in codice resta `addEventListener` |
+| controlled component | componente controllato | |
+| uncontrolled component | componente non controllato | |
 | dependency array | array di dipendenze | Effects |
 | reconciliation | riconciliazione | Internals |
 | hydration | hydration / idratazione | Preferire loanword *hydration* in contesto RSC |
@@ -168,6 +170,20 @@ Termini ricorrenti nel sorgente inglese per cui manca ancora un precedente nel c
 | dependency | dipendenza | Effects |
 | subscription | sottoscrizione | Esterni |
 | store (external) | store | Loanword |
+
+---
+
+## Pagine legacy con deviazioni note
+
+Pagine revisionate da umani che **non seguono** tutte le regole attuali del glossario. Per **nuove traduzioni e revisioni**, segui il glossario — non replicare le deviazioni legacy.
+
+| Pagina | Deviazioni note |
+| ------ | --------------- |
+| you-might-not-need-an-effect | *stato* al posto di *state* (~22 occorrenze); *event handler* in inglese in alcuni passaggi; *effetti* minuscolo oltre a *Effetto*/*Effetti* |
+| extracting-state-logic-into-a-reducer | *stato* al posto di *state* (~13 occorrenze) |
+| scaling-up-with-reducer-and-context | *stato* al posto di *state* (~18 occorrenze) |
+
+La normalizzazione di queste pagine è opzionale e a cura della community, se mai.
 
 ---
 
