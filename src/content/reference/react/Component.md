@@ -37,7 +37,7 @@ class Greeting extends Component {
 
 ### `Component` {/*component*/}
 
-Per definire un componente React come classe, estendi la classe integrata `Component` e definisci un [`metodo render`:](#render)
+Per definire un componente React come classe, estendi la classe integrata `Component` e definisci un [metodo `render`:](#render)
 
 ```js
 import { Component } from 'react';
@@ -676,7 +676,7 @@ Non devi farlo, ma è utile se vuoi aggiornare lo state più volte durante lo st
 
 <Note>
 
-Chiamare `setState` nei componenti classe è simile a chiamare una [`funzione set`](/reference/react/useState#setstate) nei componenti funzione.
+Chiamare `setState` nei componenti classe è simile a chiamare una [funzione `set`](/reference/react/useState#setstate) nei componenti funzione.
 
 [Vedi come migrare.](#migrating-a-component-with-state-from-a-class-to-a-function)
 
@@ -1032,7 +1032,7 @@ Implementare `static getDerivedStateFromProps` in un componente classe equivale 
 
 ### Definire un componente classe {/*defining-a-class-component*/}
 
-Per definire un componente React come classe, estendi la classe integrata `Component` e definisci un [`metodo render`:](#render)
+Per definire un componente React come classe, estendi la classe integrata `Component` e definisci un [metodo `render`:](#render)
 
 ```js
 import { Component } from 'react';
@@ -1146,7 +1146,7 @@ Ci sono alcuni metodi speciali che puoi definire sulla tua classe.
 
 Se definisci il metodo [`componentDidMount`](#componentdidmount), React lo chiamerà quando il tuo componente viene aggiunto *(montato)* allo schermo. React chiamerà [`componentDidUpdate`](#componentdidupdate) dopo che il tuo componente è stato ri-renderizzato a causa di props o state cambiati. React chiamerà [`componentWillUnmount`](#componentwillunmount) dopo che il tuo componente è stato rimosso *(smontato)* dallo schermo.
 
-Se implementi `componentDidMount`, di solito devi implementare tutti e tre i lifecycle per evitare bug. Ad esempio, se `componentDidMount` legge dello state o delle props, devi anche implementare `componentDidUpdate` per gestirne i cambiamenti e `componentWillUnmount` per ripulire ciò che `componentDidMount` stava facendo.
+Se implementi `componentDidMount`, di solito devi implementare tutti e tre i metodi del lifecycle per evitare bug. Ad esempio, se `componentDidMount` legge dello state o delle props, devi anche implementare `componentDidUpdate` per gestirne i cambiamenti e `componentWillUnmount` per ripulire ciò che `componentDidMount` stava facendo.
 
 Ad esempio, questo componente `ChatRoom` mantiene una connessione chat sincronizzata con props e state:
 
@@ -1351,7 +1351,7 @@ Al momento non c'è modo di scrivere un contenitore di errori come componente fu
 
 ---
 
-## Alternative {/*alternatives*/}
+## Alternatives {/*alternatives*/}
 
 ### Migrare un componente semplice da classe a funzione {/*migrating-a-simple-component-from-a-class-to-a-function*/}
 
