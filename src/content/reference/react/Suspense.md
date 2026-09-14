@@ -31,7 +31,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 ### `<Suspense>` {/*suspense*/}
 
 #### Props {/*props*/}
-* `children`: L'UI effettiva che intendi renderizzare. Se `children` va in sospensione durante la renderizzazione, il boundary Suspense passerà al rendering di `fallback`.
+* `children`: L'UI effettiva che intendi renderizzare. Se `children` va in sospensione durante la renderizzazione, il boundary Suspense passerà alla renderizzazione di `fallback`.
 * `fallback`: Un'UI alternativa da renderizzare al posto dell'UI effettiva se questa non ha finito di caricarsi. Qualsiasi nodo React valido è accettato, anche se in pratica un fallback è una vista segnaposto leggera, come uno spinner di caricamento o uno skeleton. Suspense passerà automaticamente a `fallback` quando `children` va in sospensione, e tornerà a `children` quando i dati sono pronti. Se `fallback` va in sospensione durante la renderizzazione, attiverà il boundary Suspense padre più vicino.
 * <ExperimentalBadge /> **optional** `defer`: Un booleano. Quando è `true`, React può mostrare prima il `fallback` e renderizzare o fare streaming di `children` in seguito, anche quando nulla al loro interno va in sospensione. Usalo per contenuto costoso da renderizzare. Il valore predefinito è `false`.
 
@@ -2339,8 +2339,8 @@ export default function Bio({ bioPromise }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
 
 export async function fetchBio(userId) {
   // Aggiungi un ritardo fittizio per far percepire l'attesa.
@@ -3317,8 +3317,8 @@ export function freshImageUrl() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
 
 export async function fetchQuote() {
   // Aggiungi un ritardo fittizio per far percepire l'attesa.
