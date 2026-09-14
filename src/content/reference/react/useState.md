@@ -1098,7 +1098,7 @@ export default function CountLabel({ count }) {
 }
 ```
 
-Supponiamo che tu voglia mostrare se il contatore è *aumentato o diminuito* dall'ultimo cambiamento. La prop `count` non te lo dice — devi tenere traccia del suo valore precedente. Aggiungi la variabile di state `prevCount` per tracciarlo. Aggiungi un'altra variabile di state chiamata `trend` per contenere se il contatore è aumentato o diminuito. Confronta `prevCount` con `count` e, se non sono uguali, aggiorna sia `prevCount` che `trend`. Ora puoi mostrare sia la prop count corrente sia *come è cambiata dall'ultima renderizzazione*.
+Supponiamo che tu voglia mostrare se il contatore è *aumentato o diminuito* dall'ultimo cambiamento. La prop `count` non te lo dice — devi tenere traccia del suo valore precedente. Aggiungi la variabile di state `prevCount` per tracciarlo. Aggiungi un'altra variabile di state chiamata `trend` per contenere se il contatore è aumentato o diminuito. Confronta `prevCount` con `count` e, se non sono uguali, aggiorna sia `prevCount` che `trend`. Ora puoi mostrare sia la prop `count` corrente sia *come è cambiata dall'ultima renderizzazione*.
 
 <Sandpack>
 
