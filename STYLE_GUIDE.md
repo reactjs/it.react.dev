@@ -175,23 +175,47 @@ Aggiorna `sidebarLearn.json` o `sidebarReference.json` insieme alla pagina. Il t
 
 ## Traduzioni assistite (AI)
 
-Pagine tradotte automaticamente in attesa di revisione umana devono includere:
+`ai-draft` indica una pagina **tradotta con AI e supervisionata da un maintainer** (un solo passaggio umano sul processo). Non è una traduzione umana da zero né un’approvazione definitiva della community.
+
+| Campo | Ruolo |
+| ----- | ----- |
+| `translationStatus: ai-draft` | Metadato workflow (il sito oggi **non** lo legge) |
+| `<Note>` | Disclaimer visibile per i lettori |
+
+Usa **sempre entrambi** sulle pagine AI. Il valore `ai-draft` **non cambia** tra PR aperta, merge e pagina live: merge ≠ revisione community.
 
 ```yaml
+---
+title: Titolo della pagina
 translationStatus: ai-draft
+---
 ```
-
-E subito dopo il frontmatter:
 
 ```mdx
 <Note>
 
-Questa pagina è stata tradotta automaticamente e potrebbe beneficiare di una revisione umana. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/...).
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/PERCORSO/ESATTO.md).
 
 </Note>
 ```
 
-Rimuovi `translationStatus` e il blocco `<Note>` quando la pagina viene revisionata e approvata.
+- **Non** rimuovere `translationStatus` né `<Note>` quando mergi lo stack AI dopo la tua revisione.
+- **Non** segnare `[x] (@maintainer)` su [#418](https://github.com/reactjs/it.react.dev/issues/418): non sei il traduttore umano, hai supervisionato l’output AI.
+- Su [#418](https://github.com/reactjs/it.react.dev/issues/418) la voce resta `[~] (AI draft) #NNN` anche dopo il merge.
+
+Rimuovi `translationStatus` e `<Note>` **solo** se un contributor fa un passaggio editoriale completo (terminologia, tono, fraseggio) — allora `[~]` → `[x] (@reviewer) #NNN` con l’username di chi ha revisionato.
+
+### Traduzione umana da zero
+
+Nessun `translationStatus`, nessun `<Note>` AI. Su merge: `[x] (@translator) #NNN`.
+
+### Issue #418 — checklist
+
+| Evento | Voce checklist |
+| ------ | -------------- |
+| Apri PR AI | `[~] (AI draft) #NNN` |
+| Merge PR AI (supervisione maintainer) | **resta** `[~] (AI draft) #NNN` |
+| Revisione editoriale community | `[x] (@reviewer) #NNN` — rimuovi marker dal MDX |
 
 ---
 
