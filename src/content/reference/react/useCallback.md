@@ -790,9 +790,9 @@ Ora il codice è più semplice e non ha bisogno di `useCallback`. [Scopri di pi�
 
 ---
 
-### Ottimizzare un custom hook {/*optimizing-a-custom-hook*/}
+### Ottimizzare un custom Hook {/*optimizing-a-custom-hook*/}
 
-Se stai scrivendo un [custom hook,](/learn/reusing-logic-with-custom-hooks) è consigliato avvolgere in `useCallback` tutte le funzioni che restituisce:
+Se stai scrivendo un [custom Hook,](/learn/reusing-logic-with-custom-hooks) è consigliato avvolgere in `useCallback` tutte le funzioni che restituisce:
 
 ```js {4-6,8-10}
 function useRouter() {
