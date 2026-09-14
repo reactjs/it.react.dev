@@ -108,7 +108,7 @@ Queste props di `<input>` sono rilevanti sia per input non controllati che contr
 
 ## Usage {/*usage*/}
 
-### Displaying inputs of different types {/*displaying-inputs-of-different-types*/}
+### Visualizzare input di tipi diversi {/*displaying-inputs-of-different-types*/}
 
 Per visualizzare un input, renderizza un componente `<input>`. Per impostazione predefinita, sarà un input di testo. Puoi passare `type="checkbox"` per una checkbox, `type="radio"` per un radio button, [o uno degli altri tipi di input.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types)
 
@@ -155,7 +155,7 @@ input { margin: 5px; }
 
 ---
 
-### Providing a label for an input {/*providing-a-label-for-an-input*/}
+### Fornire un'etichetta per un input {/*providing-a-label-for-an-input*/}
 
 Di solito, posizionerai ogni `<input>` all'interno di un tag [`<label>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/label). Questo indica al browser che questa etichetta è associata a quell'input. Quando l'utente clicca sull'etichetta, il browser metterà automaticamente a fuoco l'input. È anche essenziale per l'accessibilità: uno screen reader annuncerà la didascalia dell'etichetta quando l'utente mette a fuoco l'input associato.
 
@@ -190,7 +190,7 @@ input { margin: 5px; }
 
 ---
 
-### Providing an initial value for an input {/*providing-an-initial-value-for-an-input*/}
+### Fornire un valore iniziale per un input {/*providing-an-initial-value-for-an-input*/}
 
 Puoi specificare facoltativamente il valore iniziale per qualsiasi input. Passalo come stringa `defaultValue` per gli input di testo. Checkbox e radio button dovrebbero specificare il valore iniziale con il booleano `defaultChecked`.
 
@@ -242,7 +242,7 @@ input { margin: 5px; }
 
 ---
 
-### Reading the input values when submitting a form {/*reading-the-input-values-when-submitting-a-form*/}
+### Leggere i valori degli input all'invio di un form {/*reading-the-input-values-when-submitting-a-form*/}
 
 Aggiungi un [`<form>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/form) attorno ai tuoi input con un [`<button type="submit">`](https://developer.mozilla.org/it/docs/Web/HTML/Element/button) all'interno. Chiamerà il tuo gestore di eventi `<form onSubmit>`. Per impostazione predefinita, il browser invierà i dati del form all'URL corrente e aggiornerà la pagina. Puoi sovrascrivere questo comportamento chiamando `e.preventDefault()`. Leggi i dati del form con [`new FormData(e.target)`](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
 <Sandpack>
@@ -310,7 +310,7 @@ Per impostazione predefinita, un `<button>` all'interno di un `<form>` senza att
 
 ---
 
-### Controlling an input with a state variable {/*controlling-an-input-with-a-state-variable*/}
+### Controllare un input con una variabile di state {/*controlling-an-input-with-a-state-variable*/}
 
 Un input come `<input />` è *non controllato.* Anche se [passi un valore iniziale](#providing-an-initial-value-for-an-input) come `<input defaultValue="Initial text" />`, il tuo JSX specifica solo il valore iniziale. Non controlla quale dovrebbe essere il valore in questo momento.
 
@@ -423,7 +423,7 @@ p { font-weight: bold; }
 
 ---
 
-### Optimizing re-rendering on every keystroke {/*optimizing-re-rendering-on-every-keystroke*/}
+### Ottimizzare la ri-renderizzazione a ogni battitura {/*optimizing-re-rendering-on-every-keystroke*/}
 
 Quando usi un input controllato, imposti lo state a ogni battitura. Se il componente che contiene il tuo state ri-renderizza un albero grande, questo può diventare lento. Ci sono alcuni modi per ottimizzare le prestazioni di ri-renderizzazione.
 
@@ -473,7 +473,7 @@ Se non c'è modo di evitare la ri-renderizzazione (ad esempio, se `PageContent` 
 
 ## Troubleshooting {/*troubleshooting*/}
 
-### My text input doesn't update when I type into it {/*my-text-input-doesnt-update-when-i-type-into-it*/}
+### Il mio input di testo non si aggiorna quando digito {/*my-text-input-doesnt-update-when-i-type-into-it*/}
 
 Se renderizzi un input con `value` ma senza `onChange`, vedrai un errore nella console:
 
@@ -511,7 +511,7 @@ Se il valore è intenzionalmente in sola lettura, aggiungi una prop `readOnly` p
 
 ---
 
-### My checkbox doesn't update when I click on it {/*my-checkbox-doesnt-update-when-i-click-on-it*/}
+### La mia checkbox non si aggiorna quando la clicco {/*my-checkbox-doesnt-update-when-i-click-on-it*/}
 
 Se renderizzi una checkbox con `checked` ma senza `onChange`, vedrai un errore nella console:
 
@@ -555,7 +555,7 @@ Se la checkbox è intenzionalmente in sola lettura, aggiungi una prop `readOnly`
 
 ---
 
-### My input caret jumps to the beginning on every keystroke {/*my-input-caret-jumps-to-the-beginning-on-every-keystroke*/}
+### Il caret dell'input salta all'inizio a ogni battitura {/*my-input-caret-jumps-to-the-beginning-on-every-keystroke*/}
 
 Se [controlli un input,](#controlling-an-input-with-a-state-variable) devi aggiornare la sua variabile di state al valore dell'input dal DOM durante `onChange`.
 
@@ -592,7 +592,7 @@ Se questo non risolve il problema, è possibile che l'input venga rimosso e ri-a
 
 ---
 
-### I'm getting an error: "A component is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
+### Ricevo un errore: "A component is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
 
 
 Se fornisci un `value` al componente, deve rimanere una stringa per tutta la sua vita.
