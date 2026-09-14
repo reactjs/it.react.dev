@@ -49,8 +49,11 @@ Segui la policy del [Glossario](./GLOSSARY.md#policy-sugli-anglicismi):
 | Contesto | Regola | Esempio |
 | -------- | ------ | ------- |
 | Concetti core React in prosa | minuscolo | *le props*, *lo state*, *gli hooks* |
+| Titoli (`title` nel frontmatter e sidebar) | **State** maiuscolo quando è il concetto React | `Aggiornare gli Oggetti nello State`, `Lo State come un'Istantanea` |
 | Nomi propri React | maiuscola | *Effetto*, *Strict Mode*, *Suspense*, *Hook* |
 | API e codice | come in inglese | `useState`, `createRoot` |
+
+Nei **titoli di pagina e voci sidebar**, tratta *State* come nome proprio del concetto React e scrivilo con la maiuscola, anche in espressioni come *dello State* / *nello State*. Nel corpo del testo resta minuscolo: *lo state*, *dello state*.
 
 ### Coerenza obbligatoria
 
@@ -160,7 +163,13 @@ title: Renderizzare e Aggiornare
 ---
 ```
 
+Se il titolo menziona il concetto React state, usa la maiuscola come in sidebar: `Lo State come un'Istantanea`, non `... dello state`.
+
 Altri campi (`description`, ecc.) vanno tradotti se presenti.
+
+### Titoli sidebar
+
+Aggiorna `sidebarLearn.json` o `sidebarReference.json` insieme alla pagina. Il titolo sidebar deve coincidere con il `title` del frontmatter (stessa capitalizzazione). Segui le voci già tradotte nella stessa sezione: *State* maiuscolo nei titoli, minuscolo nel corpo.
 
 ---
 

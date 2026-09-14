@@ -1,5 +1,5 @@
 ---
-title: Accodare più aggiornamenti dello state
+title: Accodare più aggiornamenti dello State
 translationStatus: ai-draft
 ---
 
@@ -106,7 +106,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Qui, `n => n + 1` è chiamata una **funzione di aggiornamento.** Quando la passi a un setter dello state:
+Qui, `n => n + 1` è chiamata una **funzione di aggiornamento dello state.** Quando la passi a un setter dello state:
 
 1. React mette in coda questa funzione per essere elaborata dopo che tutto il resto del codice nel gestore di eventi è stato eseguito.
 2. Durante la prossima renderizzazione, React attraversa la coda e ti restituisce lo state aggiornato finale.
@@ -253,7 +253,7 @@ Per riassumere, ecco come puoi pensare a ciò che passi al setter dello state `s
 * **Una funzione di aggiornamento** (es. `n => n + 1`) viene aggiunta alla coda.
 * **Qualsiasi altro valore** (es. il numero `5`) aggiunge "sostituisci con `5`" alla coda, ignorando ciò che è già in coda.
 
-Dopo che il gestore di eventi termina, React innesca una ri-renderizzazione. Durante la ri-renderizzazione, React elabora la coda. Le funzioni di aggiornamento vengono eseguite durante la renderizzazione, quindi **le funzioni di aggiornamento devono essere [pure](/learn/keeping-components-pure)** e solo *restituire* il risultato. Non provare a impostare lo state al loro interno o eseguire altri effetti collaterali. In Strict Mode, React eseguirà ogni funzione di aggiornamento due volte (ma scarterà il secondo risultato) per aiutarti a trovare errori.
+Dopo che il gestore di eventi termina, React innesca una ri-renderizzazione. Durante la ri-renderizzazione, React elabora la coda. Le funzioni di aggiornamento vengono eseguite durante la renderizzazione, quindi **le funzioni di aggiornamento devono essere [puri](/learn/keeping-components-pure)** e solo *restituire* il risultato. Non provare a impostare lo state al loro interno o eseguire altri effetti collaterali. In Strict Mode, React eseguirà ogni funzione di aggiornamento due volte (ma scarterà il secondo risultato) per aiutarti a trovare errori.
 
 ### Convenzioni di denominazione {/*naming-conventions*/}
 
@@ -271,7 +271,7 @@ Se preferisci codice più verboso, un'altra convenzione comune è ripetere il no
 
 * Impostare lo state non cambia la variabile nella renderizzazione esistente, ma richiede una nuova renderizzazione.
 * React elabora gli aggiornamenti dello state dopo che i gestori di eventi hanno finito di essere eseguiti. Questo si chiama raggruppamento.
-* Per aggiornare uno state più volte in un evento, puoi usare la funzione di aggiornamento `setNumber(n => n + 1)`.
+* Per aggiornare lo state più volte in un evento, puoi usare la funzione di aggiornamento dello state `setNumber(n => n + 1)`.
 
 </Recap>
 
