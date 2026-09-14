@@ -395,7 +395,7 @@ function getSnapshot() {
 
 React ri-renderizzerà il componente se il valore restituito da `getSnapshot` è diverso dall'ultima volta. Per questo motivo, se restituisci sempre un valore diverso, entrerai in un loop infinito e riceverai questo errore.
 
-Il tuo oggetto `getSnapshot` dovrebbe restituire un oggetto diverso solo se qualcosa è effettivamente cambiato. Se il tuo store contiene dati immutabili, puoi restituire quei dati direttamente:
+La tua funzione `getSnapshot` dovrebbe restituire un oggetto diverso solo se qualcosa è effettivamente cambiato. Se il tuo store contiene dati immutabili, puoi restituire quei dati direttamente:
 
 ```js {2-3}
 function getSnapshot() {
