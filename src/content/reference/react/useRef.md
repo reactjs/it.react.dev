@@ -111,7 +111,7 @@ Modificare un ref non avvia una ri-renderizzazione, quindi i ref non sono approp
 
 #### Contatore di click {/*click-counter*/}
 
-Questo componente usa un ref per tenere traccia di quante volte è stato cliccato il bottone. Nota che va bene usare un ref invece dello state qui perché il conteggio dei click viene letto e scritto solo in un gestore di eventi.
+Questo componente usa un ref per tenere traccia di quante volte è stato cliccato il pulsante. Nota che va bene usare un ref invece dello state qui perché il conteggio dei click viene letto e scritto solo in un gestore di eventi.
 
 <Sandpack>
 
@@ -142,7 +142,7 @@ Se mostri `{ref.current}` nel JSX, il numero non si aggiornerà al click. Questo
 
 #### Un cronometro {/*a-stopwatch*/}
 
-Questo esempio usa una combinazione di state e ref. Sia `startTime` che `now` sono variabili di state perché vengono usate per la renderizzazione. Ma dobbiamo anche conservare un [ID di intervallo](https://developer.mozilla.org/it/docs/Web/API/setInterval) per poter fermare l'intervallo alla pressione del bottone. Poiché l'ID di intervallo non viene usato per la renderizzazione, è appropriato tenerlo in un ref e aggiornarlo manualmente.
+Questo esempio usa una combinazione di state e ref. Sia `startTime` che `now` sono variabili di state perché vengono usate per la renderizzazione. Ma dobbiamo anche conservare un [ID di intervallo](https://developer.mozilla.org/it/docs/Web/API/setInterval) per poter fermare l'intervallo alla pressione del pulsante. Poiché l'ID di intervallo non viene usato per la renderizzazione, è appropriato tenerlo in un ref e aggiornarlo manualmente.
 
 <Sandpack>
 
@@ -278,7 +278,7 @@ Leggi di più su [manipolare il DOM con i ref.](/learn/manipulating-the-dom-with
 
 #### Mettere a fuoco un input di testo {/*focusing-a-text-input*/}
 
-In questo esempio, cliccare il bottone metterà a fuoco l'input:
+In questo esempio, cliccare il pulsante metterà a fuoco l'input:
 
 <Sandpack>
 
@@ -309,7 +309,7 @@ export default function Form() {
 
 #### Scorrere un'immagine in vista {/*scrolling-an-image-into-view*/}
 
-In questo esempio, cliccare il bottone farà scorrere un'immagine in vista. Usa un ref al nodo DOM della lista, e poi chiama l'API DOM [`querySelectorAll`](https://developer.mozilla.org/it/docs/Web/API/Document/querySelectorAll) per trovare l'immagine verso cui scorrere.
+In questo esempio, cliccare il pulsante farà scorrere un'immagine in vista. Usa un ref al nodo DOM della lista, e poi chiama l'API DOM [`querySelectorAll`](https://developer.mozilla.org/it/docs/Web/API/Document/querySelectorAll) per trovare l'immagine verso cui scorrere.
 
 <Sandpack>
 
