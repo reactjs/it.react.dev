@@ -168,7 +168,7 @@ function ProductPage({ productId, referrer, theme }) {
 }
 ```
 
-**Avvolgendo `handleSubmit` in `useCallback`, ti assicuri che sia la *stessa* funzione tra le ri-renderizzazioni** (finché le dipendenze non cambiano). Non *devi* avvolgere una funzione in `useCallback` a meno che non lo faccia per una ragione specifica. In questo esempio, la ragione è che la passi a un componente avvolto in [`memo`,](/reference/react/memo) e questo gli permette di saltare la ri-renderizzazione. Ci sono altre ragioni per cui potresti aver bisogno di `useCallback`, descritte più avanti in questa pagina.
+**Avvolgendo `handleSubmit` in `useCallback`, ti assicuri che sia la *stessa* funzione tra le ri-renderizzazioni** (finché le dipendenze non cambiano). Non *devi* avvolgere una funzione in `useCallback` a meno di farlo per una ragione specifica. In questo esempio, la ragione è che la passi a un componente avvolto in [`memo`,](/reference/react/memo) e questo gli permette di saltare la ri-renderizzazione. Ci sono altre ragioni per cui potresti aver bisogno di `useCallback`, descritte più avanti in questa pagina.
 
 <Note>
 
@@ -323,7 +323,7 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('[ARTIFICIALMENTE LENTO] Rendering di <ShippingForm />');
+  console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
     // Non fa nulla per 500 ms per emulare codice estremamente lento
@@ -462,7 +462,7 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('[ARTIFICIALMENTE LENTO] Rendering di <ShippingForm />');
+  console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
     // Non fa nulla per 500 ms per emulare codice estremamente lento
@@ -596,7 +596,7 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('Rendering di <ShippingForm />');
+  console.log('Rendering <ShippingForm />');
 
   function handleSubmit(e) {
     e.preventDefault();
