@@ -107,7 +107,7 @@ Un'app interamente costruita con React di solito non avrà chiamate a `root.unmo
 
 È soprattutto utile se il nodo DOM della tua root React (o uno dei suoi antenati) può essere rimosso dal DOM da altro codice. Ad esempio, immagina un pannello a schede jQuery che rimuove le schede inattive dal DOM. Se una scheda viene rimossa, tutto al suo interno (incluse le root React al suo interno) verrebbe rimosso dal DOM. In quel caso, devi dire a React di "smettere" di gestire il contenuto della root rimossa chiamando `root.unmount`. Altrimenti, i componenti all'interno della root rimossa non saprebbero di dover fare pulizia e liberare risorse globali come le sottoscrizioni.
 
-Chiamare `root.unmount` smonterà tutti i componenti nella root e "scollegherà" React dal nodo DOM root, inclusa la rimozione di qualsiasi gestore di eventi o state nell'albero.
+Chiamare `root.unmount` smonterà tutti i componenti nella root e "scollegherà" React dal nodo DOM root, inclusa la rimozione dei gestori di eventi e dello state nell'albero.
 
 
 #### Parameters {/*root-unmount-parameters*/}
@@ -335,7 +335,7 @@ Se un componente deve renderizzare solo nel browser, chiama [`use(browser())`](/
 
 <Pitfall>
 
-Questo approccio rende l'idratazione più lenta perché i tuoi componenti devono renderizzare due volte. Tieni presente l'esperienza utente su connessioni lente. Il codice JavaScript può caricarsi molto più tardi rispetto alla renderizzazione HTML iniziale, quindi renderizzare un'UI diversa subito dopo l'idratazione può anche risultare brusco per l'utente.
+Questo approccio rallenta l'idratazione perché i tuoi componenti devono renderizzare due volte. Tieni presente l'esperienza utente su connessioni lente. Il codice JavaScript può caricarsi molto più tardi rispetto alla renderizzazione HTML iniziale, quindi renderizzare un'UI diversa subito dopo l'idratazione può anche risultare brusco per l'utente.
 
 </Pitfall>
 
