@@ -84,14 +84,14 @@ Per implementarlo:
 
 1. Dichiara `inputRef` con l'Hook `useRef`.
 2. Passalo come `<input ref={inputRef}>`. Questo dice a React di **inserire il nodo DOM di questo `<input>` in `inputRef.current`.**
-3. Nella funzione `handleClick`, leggi il nodo DOM dell'input da `inputRef.current` e chiama [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) su di esso con `inputRef.current.focus()`.
+3. Nella funzione `handleClick`, leggi il nodo DOM dell'input da `inputRef.current` e chiama [`focus()`](https://developer.mozilla.org/it/docs/Web/API/HTMLElement/focus) su di esso con `inputRef.current.focus()`.
 4. Passa il gestore di eventi `handleClick` a `<button>` con `onClick`.
 
 Sebbene la manipolazione del DOM sia il caso d'uso più comune per i ref, l'Hook `useRef` può essere usato per conservare altre cose fuori da React, come gli ID dei timer. Analogamente allo state, i ref restano tra le renderizzazioni. I ref sono come variabili di state che non avviano ri-renderizzazioni quando li imposti. Leggi sui ref in [Referenziare valori con i ref.](/learn/referencing-values-with-refs)
 
 ### Esempio: scorrere fino a un elemento {/*example-scrolling-to-an-element*/}
 
-Puoi avere più di un ref in un componente. In questo esempio, c'è un carosello di tre immagini. Ogni bottone centra un'immagine chiamando il metodo del browser [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) sul nodo DOM corrispondente:
+Puoi avere più di un ref in un componente. In questo esempio, c'è un carosello di tre immagini. Ogni bottone centra un'immagine chiamando il metodo del browser [`scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView) sul nodo DOM corrispondente:
 
 <Sandpack>
 
@@ -216,9 +216,9 @@ Negli esempi sopra, c'è un numero predefinito di ref. Tuttavia, a volte potrest
 
 Questo perché **gli Hooks devono essere chiamati solo al top level del tuo componente.** Non puoi chiamare `useRef` in un ciclo, in una condizione o dentro una chiamata a `map()`.
 
-Una possibile soluzione è ottenere un singolo ref al loro elemento genitore, e poi usare metodi di manipolazione del DOM come [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) per "trovare" i singoli nodi figli. Tuttavia, questo è fragile e può rompersi se la struttura del DOM cambia.
+Una possibile soluzione è ottenere un singolo ref al loro elemento genitore, e poi usare metodi di manipolazione del DOM come [`querySelectorAll`](https://developer.mozilla.org/it/docs/Web/API/Document/querySelectorAll) per "trovare" i singoli nodi figli. Tuttavia, questo è fragile e può rompersi se la struttura del DOM cambia.
 
-Un'altra soluzione è **passare una funzione all'attributo `ref`.** Questo si chiama [`ref` callback.](/reference/react-dom/components/common#ref-callback) React chiamerà il tuo ref callback con il nodo DOM quando è il momento di impostare il ref, e chiamerà la funzione di pulizia restituita dal callback quando è il momento di cancellarlo. Questo ti permette di mantenere il tuo array o una [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), e accedere a qualsiasi ref per indice o per qualche tipo di ID.
+Un'altra soluzione è **passare una funzione all'attributo `ref`.** Questo si chiama [`ref` callback.](/reference/react-dom/components/common#ref-callback) React chiamerà il tuo ref callback con il nodo DOM quando è il momento di impostare il ref, e chiamerà la funzione di pulizia restituita dal callback quando è il momento di cancellarlo. Questo ti permette di mantenere il tuo array o una [Map](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Map), e accedere a qualsiasi ref per indice o per qualche tipo di ID.
 
 Questo esempio mostra come puoi usare questo approccio per scorrere fino a un nodo arbitrario in una lista lunga:
 
@@ -611,7 +611,7 @@ I ref sono un escape hatch. Dovresti usarli solo quando devi "uscire da React". 
 
 Se ti attieni ad azioni non distruttive come mettere a fuoco e scorrere, non dovresti incontrare problemi. Tuttavia, se provi a **modificare** manualmente il DOM, puoi rischiare di entrare in conflitto con le modifiche che React sta facendo.
 
-Per illustrare questo problema, questo esempio include un messaggio di benvenuto e due bottoni. Il primo bottone ne alterna la presenza usando [renderizzazione condizionale](/learn/conditional-rendering) e [state](/learn/state-a-components-memory), come faresti di solito in React. Il secondo bottone usa l'[API DOM `remove()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) per rimuoverlo forzatamente dal DOM fuori dal controllo di React.
+Per illustrare questo problema, questo esempio include un messaggio di benvenuto e due bottoni. Il primo bottone ne alterna la presenza usando [renderizzazione condizionale](/learn/conditional-rendering) e [state](/learn/state-a-components-memory), come faresti di solito in React. Il secondo bottone usa l'[API DOM `remove()`](https://developer.mozilla.org/it/docs/Web/API/Element/remove) per rimuoverlo forzatamente dal DOM fuori dal controllo di React.
 
 Prova a premere "Toggle with setState" alcune volte. Il messaggio dovrebbe scomparire e riapparire. Poi premi "Remove from the DOM". Questo lo rimuoverà forzatamente. Infine, premi "Toggle with setState":
 
@@ -677,7 +677,7 @@ Tuttavia, questo non significa che non puoi farlo affatto. Richiede cautela. **P
 
 #### Riproduci e metti in pausa il video {/*play-and-pause-the-video*/}
 
-In questo esempio, il bottone alterna una variabile di state per passare tra uno stato di riproduzione e uno di pausa. Tuttavia, per riprodurre o mettere in pausa effettivamente il video, alternare lo state non basta. Devi anche chiamare [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) e [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) sull'elemento DOM per `<video>`. Aggiungi un ref ad esso e fai funzionare il bottone.
+In questo esempio, il bottone alterna una variabile di state per passare tra uno stato di riproduzione e uno di pausa. Tuttavia, per riprodurre o mettere in pausa effettivamente il video, alternare lo state non basta. Devi anche chiamare [`play()`](https://developer.mozilla.org/it/docs/Web/API/HTMLMediaElement/play) e [`pause()`](https://developer.mozilla.org/it/docs/Web/API/HTMLMediaElement/pause) sull'elemento DOM per `<video>`. Aggiungi un ref ad esso e fai funzionare il bottone.
 
 <Sandpack>
 
@@ -837,7 +837,7 @@ button { display: block; margin-bottom: 10px; }
 
 #### Scorrere un carosello di immagini {/*scrolling-an-image-carousel*/}
 
-Questo carosello di immagini ha un bottone "Next" che cambia l'immagine attiva. Fai scorrere la galleria orizzontalmente fino all'immagine attiva al click. Vorrai chiamare [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) sul nodo DOM dell'immagine attiva:
+Questo carosello di immagini ha un bottone "Next" che cambia l'immagine attiva. Fai scorrere la galleria orizzontalmente fino all'immagine attiva al click. Vorrai chiamare [`scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView) sul nodo DOM dell'immagine attiva:
 
 ```js
 node.scrollIntoView({
