@@ -35,7 +35,7 @@ import { useImperativeHandle } from 'react';
 function MyInput({ ref }) {
   useImperativeHandle(ref, () => {
     return {
-      // ... your methods ...
+      // ... i tuoi metodi ...
     };
   }, []);
   // ...
@@ -65,9 +65,9 @@ A partire da React 19, [`ref` è disponibile come prop.](/blog/2024/12/05/react-
 
 ## Usage {/*usage*/}
 
-### Exposing a custom ref handle to the parent component {/*exposing-a-custom-ref-handle-to-the-parent-component*/}
+### Esporre un handle ref personalizzato al componente genitore {/*exposing-a-custom-ref-handle-to-the-parent-component*/}
 
-Per esporre un nodo DOM all'elemento genitore, passa la prop `ref` al nodo.
+Per esporre un nodo DOM al componente genitore, passa la prop `ref` al nodo.
 
 ```js {2}
 function MyInput({ ref }) {
@@ -83,7 +83,7 @@ import { useImperativeHandle } from 'react';
 function MyInput({ ref }) {
   useImperativeHandle(ref, () => {
     return {
-      // ... your methods ...
+      // ... i tuoi metodi ...
     };
   }, []);
 
@@ -177,9 +177,9 @@ input {
 
 ---
 
-### Exposing your own imperative methods {/*exposing-your-own-imperative-methods*/}
+### Esporre i tuoi metodi imperativi {/*exposing-your-own-imperative-methods*/}
 
-I metodi che esponi tramite un handle imperativo non devono corrispondere esattamente ai metodi del DOM. Ad esempio, questo componente `Post` espone un metodo `scrollAndFocusAddComment` tramite un handle imperativo. Questo permette al componente genitore `Page` di scorrere l'elenco dei commenti *e* mettere il focus sul campo di input quando clicchi il pulsante:
+I metodi che esponi tramite un handle imperativo non devono corrispondere esattamente ai metodi del DOM. Ad esempio, questo componente `Post` espone un metodo `scrollAndFocusAddComment` tramite un handle imperativo. Questo permette al componente genitore `Page` di scorrere l'elenco dei commenti *e* mettere il focus sul campo di input quando clicchi su un pulsante:
 
 <Sandpack>
 
