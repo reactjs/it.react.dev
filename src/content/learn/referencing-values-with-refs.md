@@ -584,11 +584,11 @@ button { display: block; margin: 10px; }
 
 </Solution>
 
-#### Leggere l'ultimo state {/*read-the-latest-state*/}
+#### Leggere lo state più recente {/*read-the-latest-state*/}
 
 In questo esempio, dopo aver premuto "Send", c'è un piccolo ritardo prima che il messaggio venga mostrato. Digita "hello", premi Send, e poi modifica rapidamente l'input di nuovo. Nonostante le tue modifiche, l'alert mostrerebbe comunque "hello" (che era il valore dello state [al momento](/learn/state-as-a-snapshot#state-over-time) in cui è stato cliccato il bottone).
 
-Di solito, questo comportamento è quello che vuoi in un'app. Tuttavia, ci possono essere casi occasionali in cui vuoi che del codice asincrono legga l'*ultima* versione di uno state. Riesci a pensare a un modo per far sì che l'alert mostri il testo *corrente* dell'input piuttosto che quello che era al momento del click?
+Di solito, questo comportamento è quello che vuoi in un'app. Tuttavia, ci possono essere casi occasionali in cui vuoi che del codice asincrono legga l'*ultima* versione dello state. Riesci a pensare a un modo per far sì che l'alert mostri il testo *corrente* dell'input piuttosto che quello che era al momento del click?
 
 <Sandpack>
 
@@ -623,7 +623,7 @@ export default function Chat() {
 
 <Solution>
 
-Lo state funziona [come un'istantanea](/learn/state-as-a-snapshot), quindi non puoi leggere l'ultimo state da un'operazione asincrona come un timeout. Tuttavia, puoi conservare l'ultimo testo dell'input in un ref. Un ref è mutabile, quindi puoi leggere la proprietà `current` in qualsiasi momento. Poiché il testo corrente viene anche usato per la renderizzazione, in questo esempio avrai bisogno *sia* di una variabile di state (per la renderizzazione), *sia* di un ref (per leggerlo nel timeout). Dovrai aggiornare manualmente il valore corrente del ref.
+Lo state funziona [come un'istantanea](/learn/state-as-a-snapshot), quindi non puoi leggere lo state più recente da un'operazione asincrona come un timeout. Tuttavia, puoi conservare l'ultimo testo dell'input in un ref. Un ref è mutabile, quindi puoi leggere la proprietà `current` in qualsiasi momento. Poiché il testo corrente viene anche usato per la renderizzazione, in questo esempio avrai bisogno *sia* di una variabile di state (per la renderizzazione), *sia* di un ref (per leggerlo nel timeout). Dovrai aggiornare manualmente il valore corrente del ref.
 
 <Sandpack>
 

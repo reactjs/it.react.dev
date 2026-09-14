@@ -207,6 +207,7 @@ Prima di aprire o approvare una PR di traduzione:
 - [ ] Nessun paragrafo rimasto in inglese
 - [ ] Link interni con path corretti
 - [ ] `yarn check-all` passa
+- [ ] Anteprima locale: pagina coerente con layout, sidebar, Note AI e Sandpack del resto del sito (vedi sotto)
 
 ### Verifica rapida termini
 
@@ -216,6 +217,18 @@ Cerca varianti deprecate nel file tradotto:
 # Varianti da evitare nelle nuove traduzioni (vedi glossario)
 rg -i 'event handler|\\blo stato\\b|\\brendere\\b' src/content/learn/TUO-FILE.md
 ```
+
+### Anteprima nel browser
+
+Dopo `yarn dev`, controlla la pagina tradotta e confrontala con una pagina italiana già revisionata nella stessa sezione (es. `state-as-a-snapshot`, `responding-to-events`):
+
+1. **Sidebar** — titolo aggiornato, sezione corretta, capitalizzazione *State* coerente con le voci vicine
+2. **Layout** — Intro, YouWillLearn, Recap, Challenges, Pitfall/Note/DeepDive renderizzati come le altre pagine Learn
+3. **Nota AI** — blocco `<Note>` visibile in cima, link "Migliora questa traduzione" funzionante
+4. **Sandpack** — esempi interattivi caricano ed eseguono; titoli UI possono restare in inglese
+5. **Link interni** — navigazione verso pagine correlate (capitolo precedente/successivo) senza 404
+
+Segnala incoerenze visive o di tono rispetto al corpus umano prima di marcare la PR ready.
 
 ---
 
