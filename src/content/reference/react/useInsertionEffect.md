@@ -11,7 +11,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 <Pitfall>
 
-`useInsertionEffect` è pensato per gli autori di librerie CSS-in-JS. A meno che tu non stia lavorando a una libreria CSS-in-JS e ti serva un punto dove iniettare gli stili, probabilmente vuoi [`useEffect`](/reference/react/useEffect) o [`useLayoutEffect`](/reference/react/useLayoutEffect).
+`useInsertionEffect` è pensato per gli autori di librerie CSS-in-JS. A meno che tu non stia lavorando a una libreria CSS-in-JS e ti serva un punto dove iniettare gli stili, probabilmente vuoi [`useEffect`](/reference/react/useEffect) o [`useLayoutEffect`](/reference/react/useLayoutEffect) invece.
 
 </Pitfall>
 
@@ -65,7 +65,7 @@ function useCSS(rule) {
 * Non puoi aggiornare lo state dall'interno di `useInsertionEffect`.
 * Quando `useInsertionEffect` viene eseguito, i ref non sono ancora collegati.
 * `useInsertionEffect` può essere eseguito prima o dopo che il DOM sia stato aggiornato. Non dovresti fare affidamento sul fatto che il DOM sia aggiornato in un momento preciso.
-* A differenza di altri tipi di Effetti, che eseguono il cleanup per ogni Effetto e poi il setup per ogni Effetto, `useInsertionEffect` eseguirà sia cleanup che setup un componente alla volta. Questo produce un intrecciamento tra le funzioni di cleanup e setup.
+* A differenza di altri tipi di Effetti, che eseguono il cleanup per ogni Effetto e poi il setup per ogni Effetto, `useInsertionEffect` eseguirà sia cleanup che setup un componente alla volta. Questo produce un "interleaving" tra le funzioni di cleanup e setup.
 ---
 
 ## Usage {/*usage*/}
@@ -91,7 +91,7 @@ Alcuni team preferiscono scrivere gli stili direttamente nel codice JavaScript i
 Se usi CSS-in-JS, consigliamo una combinazione dei primi due approcci (file CSS per stili statici, stili inline per stili dinamici). **Non consigliamo l'iniezione a runtime di tag `<style>` per due motivi:**
 
 1. L'iniezione a runtime costringe il browser a ricalcolare gli stili molto più spesso.
-2. L'iniezione a runtime può essere molto lenta se avviene nel momento sbagliato del lifecycle di React.
+2. L'iniezione a runtime può essere molto lenta se avviene nel momento sbagliato del ciclo di vita di React.
 
 Il primo problema non è risolvibile, ma `useInsertionEffect` ti aiuta a risolvere il secondo.
 
@@ -134,7 +134,7 @@ function useCSS(rule) {
 }
 ```
 
-[Leggi di più sull'aggiornamento delle librerie CSS-in-JS con iniezione a runtime a `useInsertionEffect`.](https://github.com/reactwg/react-18/discussions/110)
+[Leggi di più sull'aggiornamento delle librerie CSS-in-JS con iniezione a runtime passando a `useInsertionEffect`.](https://github.com/reactwg/react-18/discussions/110)
 
 <DeepDive>
 
