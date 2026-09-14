@@ -59,7 +59,7 @@ Inoltre, `<option>` supporta queste props:
 
 ## Usage {/*usage*/}
 
-### Displaying a select box with options {/*displaying-a-select-box-with-options*/}
+### Visualizzare una casella di selezione con opzioni {/*displaying-a-select-box-with-options*/}
 
 Renderizza un `<select>` con un elenco di componenti `<option>` al suo interno per visualizzare una casella select. Assegna a ogni `<option>` un `value` che rappresenta i dati da inviare con il form.
 
