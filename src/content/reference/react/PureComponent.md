@@ -1,16 +1,23 @@
 ---
 title: PureComponent
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/PureComponent.md).
+
+</Note>
 
 <Pitfall>
 
-We recommend defining components as functions instead of classes. [See how to migrate.](#alternatives)
+Consigliamo di definire i componenti come funzioni invece che come classi. [Vedi come migrare.](#alternatives)
 
 </Pitfall>
 
 <Intro>
 
-`PureComponent` is similar to [`Component`](/reference/react/Component) but it skips re-renders for same props and state. Class components are still supported by React, but we don't recommend using them in new code.
+`PureComponent` è simile a [`Component`](/reference/react/Component) ma salta le ri-renderizzazioni quando props e state sono gli stessi. I componenti classe sono ancora supportati da React, ma non consigliamo di usarli nel codice nuovo.
 
 ```js
 class Greeting extends PureComponent {
@@ -30,7 +37,7 @@ class Greeting extends PureComponent {
 
 ### `PureComponent` {/*purecomponent*/}
 
-To skip re-rendering a class component for same props and state, extend `PureComponent` instead of [`Component`:](/reference/react/Component)
+Per saltare la ri-renderizzazione di un componente classe quando props e state sono gli stessi, estendi `PureComponent` invece di [`Component`:](/reference/react/Component)
 
 ```js
 import { PureComponent } from 'react';
@@ -42,18 +49,18 @@ class Greeting extends PureComponent {
 }
 ```
 
-`PureComponent` is a subclass of `Component` and supports [all the `Component` APIs.](/reference/react/Component#reference) Extending `PureComponent` is equivalent to defining a custom [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) method that shallowly compares props and state.
+`PureComponent` è una sottoclasse di `Component` e supporta [tutte le API di `Component`.](/reference/react/Component#reference) Estendere `PureComponent` equivale a definire un metodo [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) personalizzato che confronta superficialmente props e state.
 
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 ---
 
 ## Usage {/*usage*/}
 
-### Skipping unnecessary re-renders for class components {/*skipping-unnecessary-re-renders-for-class-components*/}
+### Saltare ri-renderizzazioni non necessarie per i componenti classe {/*skipping-unnecessary-re-renders-for-class-components*/}
 
-React normally re-renders a component whenever its parent re-renders. As an optimization, you can create a component that React will not re-render when its parent re-renders so long as its new props and state are the same as the old props and state. [Class components](/reference/react/Component) can opt into this behavior by extending `PureComponent`:
+Di norma React ri-renderizza un componente ogni volta che il genitore viene ri-renderizzato. Come ottimizzazione, puoi creare un componente che React non ri-renderizzerà quando il genitore viene ri-renderizzato, purché le nuove props e lo state siano uguali alle vecchie props e allo state precedente. I [componenti classe](/reference/react/Component) possono adottare questo comportamento estendendo `PureComponent`:
 
 ```js {1}
 class Greeting extends PureComponent {
@@ -63,9 +70,9 @@ class Greeting extends PureComponent {
 }
 ```
 
-A React component should always have [pure rendering logic.](/learn/keeping-components-pure) This means that it must return the same output if its props, state, and context haven't changed. By using `PureComponent`, you are telling React that your component complies with this requirement, so React doesn't need to re-render as long as its props and state haven't changed. However, your component will still re-render if a context that it's using changes.
+Un componente React dovrebbe sempre avere [logica di renderizzazione pura.](/learn/keeping-components-pure) Ciò significa che deve restituire lo stesso output se props, state e context non sono cambiati. Usando `PureComponent`, stai dicendo a React che il tuo componente rispetta questo requisito, quindi React non ha bisogno di ri-renderizzarlo finché props e state non sono cambiati. Tuttavia, il tuo componente verrà comunque ri-renderizzato se cambia un context che sta usando.
 
-In this example, notice that the `Greeting` component re-renders whenever `name` is changed (because that's one of its props), but not when `address` is changed (because it's not passed to `Greeting` as a prop):
+In questo esempio, nota che il componente `Greeting` viene ri-renderizzato ogni volta che cambia `name` (perché è una delle sue props), ma non quando cambia `address` (perché non viene passato a `Greeting` come prop):
 
 <Sandpack>
 
@@ -85,11 +92,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nome{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Indirizzo{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -109,7 +116,7 @@ label {
 
 <Pitfall>
 
-We recommend defining components as functions instead of classes. [See how to migrate.](#alternatives)
+Consigliamo di definire i componenti come funzioni invece che come classi. [Vedi come migrare.](#alternatives)
 
 </Pitfall>
 
@@ -117,9 +124,9 @@ We recommend defining components as functions instead of classes. [See how to mi
 
 ## Alternatives {/*alternatives*/}
 
-### Migrating from a `PureComponent` class component to a function {/*migrating-from-a-purecomponent-class-component-to-a-function*/}
+### Migrare da un componente classe `PureComponent` a una funzione {/*migrating-from-a-purecomponent-class-component-to-a-function*/}
 
-We recommend using function components instead of [class components](/reference/react/Component) in new code. If you have some existing class components using `PureComponent`, here is how you can convert them. This is the original code:
+Nel codice nuovo consigliamo di usare componenti funzione al posto dei [componenti classe](/reference/react/Component). Se hai componenti classe esistenti che usano `PureComponent`, ecco come convertirli. Questo è il codice originale:
 
 <Sandpack>
 
@@ -139,11 +146,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nome{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Indirizzo{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -161,7 +168,7 @@ label {
 
 </Sandpack>
 
-When you [convert this component from a class to a function,](/reference/react/Component#alternatives) wrap it in [`memo`:](/reference/react/memo)
+Quando [converti questo componente da classe a funzione,](/reference/react/Component#alternatives) avvolgilo in [`memo`:](/reference/react/memo)
 
 <Sandpack>
 
@@ -179,11 +186,11 @@ export default function MyApp() {
   return (
     <>
       <label>
-        Name{': '}
+        Nome{': '}
         <input value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Address{': '}
+        Indirizzo{': '}
         <input value={address} onChange={e => setAddress(e.target.value)} />
       </label>
       <Greeting name={name} />
@@ -203,6 +210,6 @@ label {
 
 <Note>
 
-Unlike `PureComponent`, [`memo`](/reference/react/memo) does not compare the new and the old state. In function components, calling the [`set` function](/reference/react/useState#setstate) with the same state [already prevents re-renders by default,](/reference/react/memo#updating-a-memoized-component-using-state) even without `memo`.
+A differenza di `PureComponent`, [`memo`](/reference/react/memo) non confronta il nuovo e il vecchio state. Nei componenti funzione, chiamare una [funzione `set`](/reference/react/useState#setstate) con lo stesso state [previene già di default la ri-renderizzazione,](/reference/react/memo#updating-a-memoized-component-using-state) anche senza `memo`.
 
 </Note>
