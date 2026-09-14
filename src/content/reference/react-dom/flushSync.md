@@ -59,7 +59,7 @@ Nella maggior parte dei casi, `flushSync` può essere evitato. Usa `flushSync` c
 #### Caveats {/*caveats*/}
 
 * `flushSync` può compromettere significativamente le prestazioni. Usalo con parsimonia.
-* `flushSync` può forzare i confini Suspense in sospeso a mostrare il loro stato `fallback`.
+* `flushSync` può forzare i confini Suspense in sospeso a mostrare il `fallback`.
 * `flushSync` può eseguire Effetti in sospeso e applicare in modo sincrono tutti gli aggiornamenti che contengono prima di restituire il controllo.
 * `flushSync` può svuotare aggiornamenti al di fuori della callback quando necessario per svuotare gli aggiornamenti all'interno della callback. Ad esempio, se ci sono aggiornamenti in sospeso da un click, React potrebbe svuotarli prima di svuotare gli aggiornamenti all'interno della callback.
 
@@ -133,7 +133,7 @@ Senza `flushSync`, la finestra di dialogo di stampa mostrerà `isPrinting` come 
 
 <Pitfall>
 
-`flushSync` può compromettere significativamente le prestazioni e può forzare in modo imprevisto i confini Suspense in sospeso a mostrare il loro stato fallback.
+`flushSync` può compromettere significativamente le prestazioni e può forzare in modo imprevisto i confini Suspense in sospeso a mostrare il `fallback`.
 
 Nella maggior parte dei casi, `flushSync` può essere evitato, quindi usalo come ultima risorsa.
 
