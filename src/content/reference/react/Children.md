@@ -164,11 +164,11 @@ function Box({ children }) {
 
 Se `children` [è un elemento valido,](/reference/react/isValidElement) restituisce quell'elemento.
 
-Altrimenti, genera un errore.
+Altrimenti, lancia un errore.
 
 #### Caveats {/*children-only-caveats*/}
 
-- Questo metodo **genera sempre un errore se passi un array (come il valore restituito da `Children.map`) come `children`.** In altre parole, impone che `children` sia un singolo elemento React, non che sia un array con un singolo elemento.
+- Questo metodo **lancia sempre un errore se passi un array (come il valore restituito da `Children.map`) come `children`.** In altre parole, impone che `children` sia un singolo elemento React, non che sia un array con un singolo elemento.
 
 ---
 
@@ -300,11 +300,11 @@ export default function RowList({ children }) {
 
 <DeepDive>
 
-#### Perché la `children` prop non è sempre un array? {/*why-is-the-children-prop-not-always-an-array*/}
+#### Perché la prop `children` non è sempre un array? {/*why-is-the-children-prop-not-always-an-array*/}
 
-In React, la `children` prop è considerata una struttura dati *opaca*. Ciò significa che non dovresti fare affidamento su come è strutturata. Per trasformare, filtrare o contare i children, dovresti usare i metodi `Children`.
+In React, la prop `children` è considerata una struttura dati *opaca*. Ciò significa che non dovresti fare affidamento su come è strutturata. Per trasformare, filtrare o contare i children, dovresti usare i metodi `Children`.
 
-In pratica, la struttura dati `children` è spesso rappresentata internamente come un array. Tuttavia, se c'è un solo child, React non creerà un array aggiuntivo perché ciò porterebbe a un overhead di memoria non necessario. Finché usi i metodi `Children` invece di ispezionare direttamente la `children` prop, il tuo codice non si romperà anche se React cambia il modo in cui la struttura dati è effettivamente implementata.
+In pratica, la struttura dati `children` è spesso rappresentata internamente come un array. Tuttavia, se c'è un solo child, React non creerà un array aggiuntivo perché ciò porterebbe a un overhead di memoria non necessario. Finché usi i metodi `Children` invece di ispezionare direttamente la prop `children`, il tuo codice non si romperà anche se React cambia il modo in cui la struttura dati è effettivamente implementata.
 
 Anche quando `children` è un array, `Children.map` ha un comportamento speciale utile. Ad esempio, `Children.map` combina le [key](/learn/rendering-lists#keeping-list-items-in-order-with-key) sugli elementi restituiti con le key sui `children` che gli hai passato. Questo garantisce che i children JSX originali non "perdano" le key anche se vengono avvolti come nell'esempio sopra.
 
@@ -547,7 +547,7 @@ Questa sezione descrive alternative all'API `Children` (con la `C` maiuscola) ch
 import { Children } from 'react';
 ```
 
-Non confonderla con [l'uso della `children` prop](/learn/passing-props-to-a-component#passing-jsx-as-children) (con la `c` minuscola), che è buona pratica ed è incoraggiato.
+Non confonderla con [l'uso della prop `children`](/learn/passing-props-to-a-component#passing-jsx-as-children) (con la `c` minuscola), che è buona pratica ed è incoraggiato.
 
 </Note>
 
