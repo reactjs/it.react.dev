@@ -31,7 +31,7 @@ Prima di arrivare agli Effetti, devi conoscere due tipi di logica all'interno de
 
 - **Il codice di renderizzazione** (introdotto in [Descrivere l'UI](/learn/describing-the-ui)) vive al top level del tuo componente. Qui prendi le props e lo state, li trasformi e restituisci il JSX che vuoi vedere sullo schermo. [Il codice di renderizzazione deve essere puro.](/learn/keeping-components-pure) Come una formula matematica, dovrebbe solo _calcolare_ il risultato, senza fare altro.
 
-- I **gestori di eventi** (introdotti in [Aggiungere interattività](/learn/adding-interactivity)) sono funzioni annidate all'interno dei tuoi componenti che _fanno_ cose invece di limitarsi a calcolarle. Un gestore di eventi potrebbe aggiornare un campo di input, inviare una richiesta HTTP POST per acquistare un prodotto o navigare l'utente verso un'altra schermata. I gestori di eventi contengono ["effetti collaterali"](https://en.wikipedia.org/wiki/Side_effect_(computer_science)) (cambiano lo state del programma) causati da un'azione specifica dell'utente (per esempio, un click su un pulsante o la digitazione).
+- I **gestori di eventi** (introdotti in [Aggiungere le Interazioni](/learn/adding-interactivity)) sono funzioni annidate all'interno dei tuoi componenti che _fanno_ cose invece di limitarsi a calcolarle. Un gestore di eventi potrebbe aggiornare un campo di input, inviare una richiesta HTTP POST per acquistare un prodotto o navigare l'utente verso un'altra schermata. I gestori di eventi contengono ["effetti collaterali"](https://it.wikipedia.org/wiki/Effetto_collaterale_(informatica)) (cambiano lo state del programma) causati da un'azione specifica dell'utente (per esempio, un click su un pulsante o la digitazione).
 
 A volte questo non basta. Considera un componente `ChatRoom` che deve connettersi al server di chat ogni volta che è visibile sullo schermo. Connettersi a un server non è un calcolo puro (è un effetto collaterale), quindi non può avvenire durante la renderizzazione. Tuttavia, non c'è un singolo evento particolare come un click che fa apparire `ChatRoom`.
 
@@ -85,7 +85,7 @@ Vediamo come puoi usare un Effetto per sincronizzarti con un sistema esterno. Co
 <VideoPlayer isPlaying={isPlaying} />;
 ```
 
-Il tuo componente personalizzato `VideoPlayer` renderizza il tag [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) integrato del browser:
+Il tuo componente personalizzato `VideoPlayer` renderizza il tag [`<video>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/video) integrato del browser:
 
 ```js
 function VideoPlayer({ src, isPlaying }) {
@@ -94,7 +94,7 @@ function VideoPlayer({ src, isPlaying }) {
 }
 ```
 
-Tuttavia, il tag `<video>` del browser non ha una prop `isPlaying`. L'unico modo per controllarlo è chiamare manualmente i metodi [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) e [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) sul nodo DOM. **Devi sincronizzare il valore della prop `isPlaying`, che indica se il video _dovrebbe_ essere attualmente in riproduzione, con chiamate come `play()` e `pause()`.**
+Tuttavia, il tag `<video>` del browser non ha una prop `isPlaying`. L'unico modo per controllarlo è chiamare manualmente i metodi [`play()`](https://developer.mozilla.org/it/docs/Web/API/HTMLMediaElement/play) e [`pause()`](https://developer.mozilla.org/it/docs/Web/API/HTMLMediaElement/pause) sul nodo DOM. **Devi sincronizzare il valore della prop `isPlaying`, che indica se il video _dovrebbe_ essere attualmente in riproduzione, con chiamate come `play()` e `pause()`.**
 
 Prima avremo bisogno di [ottenere un ref](/learn/manipulating-the-dom-with-refs) al nodo DOM `<video>`.
 
@@ -404,7 +404,7 @@ video { width: 250px; }
 
 </Sandpack>
 
-L'array di dipendenze può contenere più dipendenze. React salterà la riesecuzione dell'Effetto solo se _tutte_ le dipendenze che specifichi hanno esattamente gli stessi valori della renderizzazione precedente. React confronta i valori delle dipendenze usando il confronto [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Vedi la [reference di `useEffect`](/reference/react/useEffect#reference) per i dettagli.
+L'array di dipendenze può contenere più dipendenze. React salterà la riesecuzione dell'Effetto solo se _tutte_ le dipendenze che specifichi hanno esattamente gli stessi valori della renderizzazione precedente. React confronta i valori delle dipendenze usando il confronto [`Object.is`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Vedi la [reference di `useEffect`](/reference/react/useEffect#reference) per i dettagli.
 
 **Nota che non puoi "scegliere" le tue dipendenze.** Otterrai un errore del linter se le dipendenze che hai specificato non corrispondono a quelle che React si aspetta in base al codice all'interno del tuo Effetto. Questo aiuta a individuare molti bug nel tuo codice. Se non vuoi che del codice venga rieseguito, [*modifica il codice dell'Effetto stesso* per non "aver bisogno" di quella dipendenza.](/learn/lifecycle-of-reactive-effects#what-to-do-when-you-dont-want-to-re-synchronize)
 
@@ -645,7 +645,7 @@ useEffect(() => {
 
 Nota che in questo caso non serve cleanup. In modalità di sviluppo, React chiamerà l'Effetto due volte, ma non è un problema perché chiamare `setZoomLevel` due volte con lo stesso valore non fa nulla. Potrebbe essere leggermente più lento, ma non importa perché in produzione non rimonterà inutilmente.
 
-Alcune API potrebbero non permetterti di chiamarle due volte di seguito. Per esempio, il metodo [`showModal`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) dell'elemento [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) integrato lancia un'eccezione se lo chiami due volte. Implementa la funzione di cleanup e falla chiudere il dialog:
+Alcune API potrebbero non permetterti di chiamarle due volte di seguito. Per esempio, il metodo [`showModal`](https://developer.mozilla.org/it/docs/Web/API/HTMLDialogElement/showModal) dell'elemento [`<dialog>`](https://developer.mozilla.org/it/docs/Web/API/HTMLDialogElement) integrato lancia un'eccezione se lo chiami due volte. Implementa la funzione di cleanup e falla chiudere il dialog:
 
 ```js {4}
 useEffect(() => {
@@ -691,7 +691,7 @@ In modalità di sviluppo, l'opacità sarà impostata a `1`, poi a `0`, e poi di 
 
 ### Recuperare dati {/*fetching-data*/}
 
-Se il tuo Effetto recupera qualcosa, la funzione di cleanup dovrebbe [abortire il fetch](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) o ignorarne il risultato:
+Se il tuo Effetto recupera qualcosa, la funzione di cleanup dovrebbe [abortire il fetch](https://developer.mozilla.org/it/docs/Web/API/AbortController) o ignorarne il risultato:
 
 ```js {2,6,13-15}
 useEffect(() => {
@@ -732,7 +732,7 @@ Questo non solo migliorerà l'esperienza di sviluppo, ma renderà anche la tua a
 
 Scrivere chiamate `fetch` all'interno degli Effetti è un [modo popolare per recuperare dati](https://www.robinwieruch.de/react-hooks-fetch-data/), specialmente nelle app completamente client-side. Tuttavia, è un approccio molto manuale e ha svantaggi significativi:
 
-- **Gli Effetti non girano sul server.** Questo significa che l'HTML renderizzato inizialmente dal server conterrà solo uno state di caricamento senza dati. Il computer client dovrà scaricare tutto il JavaScript e renderizzare la tua app solo per scoprire che ora deve caricare i dati. Non è molto efficiente.
+- **Gli Effetti non girano sul server.** Questo significa che l'HTML renderizzato inizialmente dal server conterrà solo uno stato di caricamento senza dati. Il computer client dovrà scaricare tutto il JavaScript e renderizzare la tua app solo per scoprire che ora deve caricare i dati. Non è molto efficiente.
 - **Recuperare direttamente negli Effetti rende facile creare "network waterfall".** Renderizzi il componente padre, recupera dei dati, renderizza i componenti figli, e poi iniziano a recuperare i loro dati. Se la rete non è molto veloce, questo è significativamente più lento rispetto a recuperare tutti i dati in parallelo.
 - **Recuperare direttamente negli Effetti di solito significa che non precarichi o metti in cache i dati.** Per esempio, se il componente smonta e poi monta di nuovo, dovrebbe recuperare i dati di nuovo.
 - **Non è molto ergonomico.** C'è parecchio codice boilerplate quando scrivi chiamate `fetch` in modo che non soffra di bug come le [race condition.](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect)
@@ -760,7 +760,7 @@ In modalità di sviluppo, `logVisit` verrà chiamato due volte per ogni URL, qui
 
 **In produzione, non ci saranno log di visita duplicati.**
 
-Per fare debug degli eventi analytics che invii, puoi distribuire la tua app in un ambiente di staging (che gira in modalità produzione) o disattivare temporaneamente [Strict Mode](/reference/react/StrictMode) e i suoi controlli di rimontaggio solo per lo sviluppo. Puoi anche inviare analytics dai gestori di eventi di cambio route invece che dagli Effetti. Per analytics più precise, gli [intersection observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) possono aiutare a tracciare quali componenti sono nel viewport e per quanto tempo restano visibili.
+Per fare debug degli eventi analytics che invii, puoi distribuire la tua app in un ambiente di staging (che gira in modalità produzione) o disattivare temporaneamente [Strict Mode](/reference/react/StrictMode) e i suoi controlli di rimontaggio solo per lo sviluppo. Puoi anche inviare analytics dai gestori di eventi di cambio route invece che dagli Effetti. Per analytics più precise, gli [intersection observer](https://developer.mozilla.org/it/docs/Web/API/Intersection_Observer_API) possono aiutare a tracciare quali componenti sono nel viewport e per quanto tempo restano visibili.
 
 ### Non è un Effetto: Inizializzare l'applicazione {/*not-an-effect-initializing-the-application*/}
 
@@ -807,7 +807,7 @@ L'acquisto non è causato dalla renderizzazione; è causato da un'interazione sp
 
 Questo playground può aiutarti a "farti un'idea" di come funzionano gli Effetti in pratica.
 
-Questo esempio usa [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) per pianificare un log in console con il testo dell'input che appare tre secondi dopo l'esecuzione dell'Effetto. La funzione di cleanup annulla il timeout in sospeso. Inizia premendo "Mount the component":
+Questo esempio usa [`setTimeout`](https://developer.mozilla.org/it/docs/Web/API/setTimeout) per pianificare un log in console con il testo dell'input che appare tre secondi dopo l'esecuzione dell'Effetto. La funzione di cleanup annulla il timeout in sospeso. Inizia premendo "Mount the component":
 
 <Sandpack>
 
@@ -869,7 +869,7 @@ Digita qualcosa nell'input e poi premi immediatamente "Unmount the component". N
 
 Infine, modifica il componente sopra e commenta la funzione di cleanup così che i timeout non vengano cancellati. Prova a digitare `abcde` velocemente. Cosa ti aspetti che succeda tra tre secondi? `console.log(text)` all'interno del timeout stamperà l'ultimo `text` e produrrà cinque log `abcde`? Provalo per verificare la tua intuizione!
 
-Tre secondi dopo, dovresti vedere una sequenza di log (`a`, `ab`, `abc`, `abcd` e `abcde`) invece di cinque log `abcde`. **Ogni Effetto "cattura" il valore di `text` dalla sua renderizzazione corrispondente.** Non importa che lo state `text` sia cambiato: un Effetto dalla renderizzazione con `text = 'ab'` vedrà sempre `'ab'`. In altre parole, gli Effetti di ogni renderizzazione sono isolati l'uno dall'altro. Se ti chiedi come funziona, puoi leggere delle [closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+Tre secondi dopo, dovresti vedere una sequenza di log (`a`, `ab`, `abc`, `abcd` e `abcde`) invece di cinque log `abcde`. **Ogni Effetto "cattura" il valore di `text` dalla sua renderizzazione corrispondente.** Non importa che lo state `text` sia cambiato: un Effetto dalla renderizzazione con `text = 'ab'` vedrà sempre `'ab'`. In altre parole, gli Effetti di ogni renderizzazione sono isolati l'uno dall'altro. Se ti chiedi come funziona, puoi leggere delle [closure](https://developer.mozilla.org/it/docs/Web/JavaScript/Closures).
 
 <DeepDive>
 
@@ -1001,7 +1001,7 @@ Quando [Strict Mode](/reference/react/StrictMode) è attivo, React rimonta ogni 
 
 In questo esempio, il form renderizza un componente `<MyInput />`.
 
-Usa il metodo [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) dell'input per far sì che `MyInput` metta automaticamente a fuoco il campo quando appare sullo schermo. C'è già un'implementazione commentata, ma non funziona del tutto. Scopri perché non funziona e correggila. (Se conosci l'attributo `autoFocus`, fingi che non esista: stiamo reimplementando la stessa funzionalità da zero.)
+Usa il metodo [`focus()`](https://developer.mozilla.org/it/docs/Web/API/HTMLElement/focus) dell'input per far sì che `MyInput` metta automaticamente a fuoco il campo quando appare sullo schermo. C'è già un'implementazione commentata, ma non funziona del tutto. Scopri perché non funziona e correggila. (Se conosci l'attributo `autoFocus`, fingi che non esista: stiamo reimplementando la stessa funzionalità da zero.)
 
 <Sandpack>
 
@@ -1344,13 +1344,13 @@ body {
 
 #### Correggere un intervallo che scatta due volte {/*fix-an-interval-that-fires-twice*/}
 
-Questo componente `Counter` mostra un contatore che dovrebbe incrementarsi ogni secondo. Al mount, chiama [`setInterval`.](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) Questo fa girare `onTick` ogni secondo. La funzione `onTick` incrementa il contatore.
+Questo componente `Counter` mostra un contatore che dovrebbe incrementarsi ogni secondo. Al mount, chiama [`setInterval`.](https://developer.mozilla.org/it/docs/Web/API/setInterval) Questo fa girare `onTick` ogni secondo. La funzione `onTick` incrementa il contatore.
 
 Tuttavia, invece di incrementarsi una volta al secondo, incrementa due volte. Perché? Trova la causa del bug e correggilo.
 
 <Hint>
 
-Tieni presente che `setInterval` restituisce un ID di intervallo, che puoi passare a [`clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval) per fermare l'intervallo.
+Tieni presente che `setInterval` restituisce un ID di intervallo, che puoi passare a [`clearInterval`](https://developer.mozilla.org/it/docs/Web/API/clearInterval) per fermare l'intervallo.
 
 </Hint>
 
@@ -1411,7 +1411,7 @@ Quando [Strict Mode](/reference/react/StrictMode) è attivo (come nelle sandbox 
 
 Tuttavia, il comportamento di React non è la _causa_ del bug: il bug esiste già nel codice. Il comportamento di React rende il bug più evidente. La vera causa è che questo Effetto avvia un processo ma non fornisce un modo per ripulirlo.
 
-Per correggere questo codice, salva l'ID dell'intervallo restituito da `setInterval` e implementa una funzione di cleanup con [`clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval):
+Per correggere questo codice, salva l'ID dell'intervallo restituito da `setInterval` e implementa una funzione di cleanup con [`clearInterval`](https://developer.mozilla.org/it/docs/Web/API/clearInterval):
 
 <Sandpack>
 
@@ -1471,7 +1471,7 @@ In modalità di sviluppo, React rimonterà comunque il tuo componente una volta 
 
 #### Correggere il fetch all'interno di un Effetto {/*fix-fetching-inside-an-effect*/}
 
-Questo componente mostra la biografia della persona selezionata. Carica la biografia chiamando una funzione asincrona `fetchBio(person)` al mount e ogni volta che `person` cambia. Quella funzione asincrona restituisce una [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) che alla fine si risolve in una stringa. Quando il fetch è completato, chiama `setBio` per mostrare quella stringa sotto la select box.
+Questo componente mostra la biografia della persona selezionata. Carica la biografia chiamando una funzione asincrona `fetchBio(person)` al mount e ogni volta che `person` cambia. Quella funzione asincrona restituisce una [Promise](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Promise) che alla fine si risolve in una stringa. Quando il fetch è completato, chiama `setBio` per mostrare quella stringa sotto la select box.
 
 <Sandpack>
 
@@ -1543,7 +1543,7 @@ Per attivare il bug, le cose devono accadere in questo ordine:
 - Il fetch di `'Bob'` si completa
 - L'Effetto della renderizzazione `'Bob'` chiama `setBio('This is Bob's bio')`
 
-Ecco perché vedi la bio di Bob anche se Taylor è selezionato. Bug come questo si chiamano [race condition](https://en.wikipedia.org/wiki/Race_condition) perché due operazioni asincrone "gareggiano" tra loro e potrebbero arrivare in un ordine inaspettato.
+Ecco perché vedi la bio di Bob anche se Taylor è selezionato. Bug come questo si chiamano [race condition](https://it.wikipedia.org/wiki/Race_condition) perché due operazioni asincrone "gareggiano" tra loro e potrebbero arrivare in un ordine inaspettato.
 
 Per correggere questa race condition, aggiungi una funzione di cleanup:
 
@@ -1609,7 +1609,7 @@ Ogni Effetto di renderizzazione ha la sua variabile `ignore`. Inizialmente, la v
 - Il fetch di `'Bob'` si completa
 - L'Effetto della renderizzazione `'Bob'` **non fa nulla perché il suo flag `ignore` è stato impostato a `true`**
 
-Oltre a ignorare il risultato di una chiamata API obsoleta, puoi anche usare [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) per cancellare le richieste che non servono più. Tuttavia, da solo non basta a proteggere dalle race condition. Altri passaggi asincroni potrebbero essere concatenati dopo il fetch, quindi usare un flag esplicito come `ignore` è il modo più affidabile per correggere questo tipo di problema.
+Oltre a ignorare il risultato di una chiamata API obsoleta, puoi anche usare [`AbortController`](https://developer.mozilla.org/it/docs/Web/API/AbortController) per cancellare le richieste che non servono più. Tuttavia, da solo non basta a proteggere dalle race condition. Altri passaggi asincroni potrebbero essere concatenati dopo il fetch, quindi usare un flag esplicito come `ignore` è il modo più affidabile per correggere questo tipo di problema.
 
 </Solution>
 
