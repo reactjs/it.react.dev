@@ -44,7 +44,7 @@ function useOnlineStatus() {
 #### Parameters {/*parameters*/}
 
 * `value`: Il valore che vuoi visualizzare in React DevTools. Può essere di qualsiasi tipo.
-* **optional** `format`: Una funzione di formattazione. Quando il componente viene ispezionato, React DevTools chiamerà la funzione di formattazione con `value` come argomento, e poi visualizzerà il valore formattato restituito (che può essere di qualsiasi tipo). Se non specifichi la funzione di formattazione, verrà visualizzato il `value` originale.
+* **optional** `format`: Una funzione di formattazione. Quando il componente viene ispezionato, React DevTools chiamerà la funzione di formattazione con il `value` come argomento, e poi visualizzerà il valore formattato restituito (che può essere di qualsiasi tipo). Se non specifichi la funzione di formattazione, verrà visualizzato il `value` originale.
 
 #### Returns {/*returns*/}
 
@@ -110,7 +110,7 @@ function subscribe(callback) {
 
 <Note>
 
-Non aggiungere valori di debug a ogni custom Hook. È più utile per i custom Hook che fanno parte di librerie condivise e che hanno una struttura dati interna complessa difficile da ispezionare.
+Non aggiungere valori di debug a ogni custom Hook. È soprattutto utile per i custom Hook che fanno parte di librerie condivise e che hanno una struttura dati interna complessa, difficile da ispezionare.
 
 </Note>
 
