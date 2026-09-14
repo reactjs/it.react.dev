@@ -5,7 +5,7 @@ translationStatus: ai-draft
 
 <Note>
 
-Questa pagina è stata tradotta automaticamente e potrebbe beneficiare di una revisione umana. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/learn/queueing-a-series-of-state-updates.md).
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/learn/queueing-a-series-of-state-updates.md).
 
 </Note>
 
