@@ -29,7 +29,7 @@ React include diversi Hook integrati come `useState`, `useContext` e `useEffect`
 Immagina di sviluppare un'app che dipende molto dalla rete (come la maggior parte delle app). Vuoi avvisare l'utente se la connessione di rete si è interrotta accidentalmente mentre usava la tua app. Come procederesti? Sembra che ti serviranno due cose nel tuo componente:
 
 1. Una variabile di state che tiene traccia se la rete è online.
-2. Un Effetto che si sottoscrive agli eventi globali [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event), e aggiorna quello state.
+2. Un Effetto che si sottoscrive agli eventi globali [`online`](https://developer.mozilla.org/it/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/it/docs/Web/API/Window/offline_event), e aggiorna lo state.
 
 Questo manterrà il tuo componente [sincronizzato](/learn/synchronizing-with-effects) con la connessione di rete. Potresti iniziare con qualcosa del genere:
 
@@ -1332,7 +1332,7 @@ export function useOnlineStatus() {
 
 </Sandpack>
 
-Nell'esempio sopra, `useOnlineStatus` è implementato con una coppia di [`useState`](/reference/react/useState) e [`useEffect`.](/reference/react/useEffect) Tuttavia, questa non è la soluzione migliore possibile. Ci sono diversi casi limite che non considera. Ad esempio, assume che quando il componente monta, `isOnline` sia già `true`, ma questo potrebbe essere sbagliato se la rete era già offline. Puoi usare l'API del browser [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) per verificarlo, ma usarla direttamente non funzionerebbe sul server per generare l'HTML iniziale. In breve, questo codice potrebbe essere migliorato.
+Nell'esempio sopra, `useOnlineStatus` è implementato con una coppia di [`useState`](/reference/react/useState) e [`useEffect`.](/reference/react/useEffect) Tuttavia, questa non è la soluzione migliore possibile. Ci sono diversi casi limite che non considera. Ad esempio, assume che quando il componente monta, `isOnline` sia già `true`, ma questo potrebbe essere sbagliato se la rete era già offline. Puoi usare l'API del browser [`navigator.onLine`](https://developer.mozilla.org/it/docs/Web/API/Navigator/onLine) per verificarlo, ma usarla direttamente non funzionerebbe sul server per generare l'HTML iniziale. In breve, questo codice potrebbe essere migliorato.
 
 React include un'API dedicata chiamata [`useSyncExternalStore`](/reference/react/useSyncExternalStore) che si occupa di tutti questi problemi per te. Ecco il tuo Hook `useOnlineStatus`, riscritto per sfruttare questa nuova API:
 
@@ -1420,7 +1420,7 @@ Simile a un [design system,](https://uxdesign.cc/everything-you-need-to-know-abo
 
 #### React fornirà una soluzione integrata per il data fetching? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
-Oggi, con l'API [`use`](/reference/react/use#streaming-data-from-server-to-client), i dati possono essere letti in render passando una [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) a `use`:
+Oggi, con l'API [`use`](/reference/react/use#streaming-data-from-server-to-client), i dati possono essere letti in render passando una [Promise](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Promise) a `use`:
 
 ```js {1,4,11}
 import { use, Suspense } from "react";
@@ -1457,7 +1457,7 @@ Se usi custom Hook come `useData` sopra nella tua app, richiederà meno cambiame
 
 ### C'è più di un modo per farlo {/*there-is-more-than-one-way-to-do-it*/}
 
-Supponiamo che tu voglia implementare un'animazione fade-in *da zero* usando l'API del browser [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). Potresti iniziare con un Effetto che configura un loop di animazione. Durante ogni frame dell'animazione, potresti cambiare l'opacità del nodo DOM che [tieni in un ref](/learn/manipulating-the-dom-with-refs) finché non raggiunge `1`. Il tuo codice potrebbe iniziare così:
+Supponiamo che tu voglia implementare un'animazione fade-in *da zero* usando l'API del browser [`requestAnimationFrame`](https://developer.mozilla.org/it/docs/Web/API/window/requestAnimationFrame). Potresti iniziare con un Effetto che configura un loop di animazione. Durante ogni frame dell'animazione, potresti cambiare l'opacità del nodo DOM che [tieni in un ref](/learn/manipulating-the-dom-with-refs) finché non raggiunge `1`. Il tuo codice potrebbe iniziare così:
 
 <Sandpack>
 
@@ -1719,7 +1719,7 @@ html, body { min-height: 300px; }
 
 </Sandpack>
 
-Tuttavia, non *dovevi* farlo. Come con le funzioni regolari, alla fine decidi tu dove tracciare i confini tra le diverse parti del tuo codice. Potresti anche adottare un approccio molto diverso. Invece di mantenere la logica nell'Effetto, potresti spostare la maggior parte della logica imperativa dentro una [classe](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) JavaScript:
+Tuttavia, non *dovevi* farlo. Come con le funzioni regolari, alla fine decidi tu dove tracciare i confini tra le diverse parti del tuo codice. Potresti anche adottare un approccio molto diverso. Invece di mantenere la logica nell'Effetto, potresti spostare la maggior parte della logica imperativa dentro una [classe](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Classes) JavaScript:
 
 <Sandpack>
 
@@ -1819,7 +1819,7 @@ html, body { min-height: 300px; }
 
 Gli Effetti ti permettono di connettere React a sistemi esterni. Più coordinazione tra Effetti è necessaria (ad esempio, per concatenare più animazioni), più ha senso estrarre quella logica dagli Effetti e dagli Hook *completamente* come nel sandbox sopra. Allora, il codice che hai estratto *diventa* il "sistema esterno". Questo permette ai tuoi Effetti di restare semplici perché devono solo inviare messaggi al sistema che hai spostato fuori da React.
 
-Gli esempi sopra assumono che la logica fade-in debba essere scritta in JavaScript. Tuttavia, questa particolare animazione fade-in è sia più semplice che molto più efficiente da implementare con una semplice [animazione CSS:](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
+Gli esempi sopra assumono che la logica fade-in debba essere scritta in JavaScript. Tuttavia, questa particolare animazione fade-in è sia più semplice che molto più efficiente da implementare con una semplice [animazione CSS:](https://developer.mozilla.org/it/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
 
 <Sandpack>
 
