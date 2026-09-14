@@ -86,7 +86,7 @@ Queste props di `<textarea>` sono rilevanti sia per aree di testo non controllat
 
 ## Usage {/*usage*/}
 
-### Displaying a text area {/*displaying-a-text-area*/}
+### Visualizzare un'area di testo {/*displaying-a-text-area*/}
 
 Renderizza `<textarea>` per visualizzare un'area di testo. Puoi specificare la dimensione predefinita con gli attributi [`rows`](https://developer.mozilla.org/it/docs/Web/HTML/Element/textarea#rows) e [`cols`](https://developer.mozilla.org/it/docs/Web/HTML/Element/textarea#cols), ma per impostazione predefinita l'utente potrà ridimensionarla. Per disabilitare il ridimensionamento, puoi specificare `resize: none` nel CSS.
 
@@ -114,7 +114,7 @@ label, textarea { display: block; }
 
 ---
 
-### Providing a label for a text area {/*providing-a-label-for-a-text-area*/}
+### Fornire un'etichetta per un'area di testo {/*providing-a-label-for-a-text-area*/}
 
 Di solito, posizionerai ogni `<textarea>` dentro un tag [`<label>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/label). Questo indica al browser che questa etichetta è associata a quell'area di testo. Quando l'utente clicca sull'etichetta, il browser metterà a fuoco l'area di testo. È anche essenziale per l'accessibilità: uno screen reader annuncerà la didascalia dell'etichetta quando l'utente mette a fuoco l'area di testo.
 
@@ -151,7 +151,7 @@ input { margin: 5px; }
 
 ---
 
-### Providing an initial value for a text area {/*providing-an-initial-value-for-a-text-area*/}
+### Fornire un valore iniziale per un'area di testo {/*providing-an-initial-value-for-a-text-area*/}
 
 Puoi specificare facoltativamente il valore iniziale per l'area di testo. Passalo come stringa `defaultValue`.
 
@@ -190,7 +190,7 @@ A differenza dell'HTML, passare testo iniziale come `<textarea>Some content</tex
 
 ---
 
-### Reading the text area value when submitting a form {/*reading-the-textarea-value-when-submitting-a-form*/}
+### Leggere il valore dell'area di testo all'invio di un form {/*reading-the-textarea-value-when-submitting-a-form*/}
 
 Aggiungi un [`<form>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/form) intorno al tuo textarea con un [`<button type="submit">`](https://developer.mozilla.org/it/docs/Web/HTML/Element/button) al suo interno. Invocherà il tuo gestore di eventi `<form onSubmit>`. Per impostazione predefinita, il browser invierà i dati del form all'URL corrente e ricaricherà la pagina. Puoi sovrascrivere questo comportamento chiamando `e.preventDefault()`. Leggi i dati del form con [`new FormData(e.target)`](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
 <Sandpack>
@@ -256,7 +256,7 @@ Per impostazione predefinita, *qualsiasi* `<button>` dentro un `<form>` lo invie
 
 ---
 
-### Controlling a text area with a state variable {/*controlling-a-text-area-with-a-state-variable*/}
+### Controllare un'area di testo con una variabile di state {/*controlling-a-text-area-with-a-state-variable*/}
 
 Un'area di testo come `<textarea />` è *non controllata.* Anche se [passi un valore iniziale](#providing-an-initial-value-for-a-text-area) come `<textarea defaultValue="Initial text" />`, il tuo JSX specifica solo il valore iniziale, non il valore attuale.
 
@@ -345,7 +345,7 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 
 ## Troubleshooting {/*troubleshooting*/}
 
-### My text area doesn't update when I type into it {/*my-text-area-doesnt-update-when-i-type-into-it*/}
+### La mia area di testo non si aggiorna quando digito {/*my-text-area-doesnt-update-when-i-type-into-it*/}
 
 Se renderizzi un'area di testo con `value` ma senza `onChange`, vedrai un errore nella console:
 
@@ -383,7 +383,7 @@ Se il valore è intenzionalmente in sola lettura, aggiungi una prop `readOnly` p
 
 ---
 
-### My text area caret jumps to the beginning on every keystroke {/*my-text-area-caret-jumps-to-the-beginning-on-every-keystroke*/}
+### Il caret dell'area di testo salta all'inizio a ogni battitura {/*my-text-area-caret-jumps-to-the-beginning-on-every-keystroke*/}
 
 Se [controlli un'area di testo,](#controlling-a-text-area-with-a-state-variable) devi aggiornare la sua variabile di state al valore dell'area di testo dal DOM durante `onChange`.
 
@@ -420,7 +420,7 @@ Se questo non risolve il problema, è possibile che l'area di testo venga rimoss
 
 ---
 
-### I'm getting an error: "A component is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
+### Ricevo un errore: "A component is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
 
 
 Se fornisci un `value` al componente, deve rimanere una stringa per tutta la sua vita.
