@@ -1044,7 +1044,7 @@ class Greeting extends Component {
 }
 ```
 
-React chiamerà il tuo metodo [`render`](#render) ogni volta che deve capire cosa mostrare sullo schermo. Di solito, restituirai del [JSX](/learn/writing-markup-with-jsx) da esso. Il tuo metodo `render` dovrebbe essere una [funzione pura:](https://it.wikipedia.org/wiki/Funzione_pura) dovrebbe calcolare solo il JSX.
+React chiamerà il tuo metodo [`render`](#render) ogni volta che deve capire cosa mostrare sullo schermo. Di solito, restituirai del [JSX](/learn/writing-markup-with-jsx) da esso. Il tuo metodo `render` dovrebbe essere una [funzione pura:](https://wikipedia.org/wiki/Pure_function) dovrebbe calcolare solo il JSX.
 
 Analogamente ai [componenti funzione,](/learn/your-first-component#defining-a-component) un componente classe può [ricevere informazioni tramite props](/learn/your-first-component#defining-a-component) dal suo componente genitore. Tuttavia, la sintassi per leggere le props è diversa. Ad esempio, se il componente genitore renderizza `<Greeting name="Taylor" />`, puoi leggere la prop `name` da [`this.props`](#props), come `this.props.name`:
 
@@ -1341,7 +1341,7 @@ Poi puoi avvolgere una parte del tuo albero di componenti con esso:
 
 Se `Profile` o un suo componente figlio lancia un errore, `ErrorBoundary` "catturerà" quell'errore, mostrerà una UI di fallback con il messaggio di errore che hai fornito e invierà un report di errore in produzione al tuo servizio di segnalazione errori.
 
-Non devi avvolgere ogni componente in un contenitore di errori separato. Quando pensi alla [granularità dei contenitori di errori,](https://www.brandondail.com/posts/fault-tolerance-react) considera dove ha senso mostrare un messaggio di errore. Ad esempio, in un'app di messaggistica ha senso posizionare un contenitore di errori attorno all'elenco delle conversazioni. Ha senso anche posizionarne uno attorno a ogni singolo messaggio. Tuttavia, non avrebbe senso posizionare un boundary attorno a ogni avatar.
+Non devi avvolgere ogni componente in un contenitore di errori separato. Quando pensi alla [granularità dei contenitori di errori,](https://www.brandondail.com/posts/fault-tolerance-react) considera dove ha senso mostrare un messaggio di errore. Ad esempio, in un'app di messaggistica ha senso posizionare un contenitore di errori attorno all'elenco delle conversazioni. Ha senso anche posizionarne uno attorno a ogni singolo messaggio. Tuttavia, non avrebbe senso posizionare un contenitore di errori attorno a ogni avatar.
 
 <Note>
 
