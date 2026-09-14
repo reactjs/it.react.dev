@@ -1155,7 +1155,7 @@ function ChatRoom({ getOptions }) {
   // ...
 ```
 
-Questo funziona solo per funzioni [pure](/learn/keeping-components-pure) perché sono sicure da chiamare durante la renderizzazione. Se la tua funzione è un gestore di eventi, ma non vuoi che i suoi cambiamenti re-sincronizzino il tuo Effetto, [avvolgila in un Effect Event invece.](#do-you-want-to-read-a-value-without-reacting-to-its-changes)
+Questo funziona solo per funzioni [puri](/learn/keeping-components-pure) perché sono sicure da chiamare durante la renderizzazione. Se la tua funzione è un gestore di eventi, ma non vuoi che i suoi cambiamenti re-sincronizzino il tuo Effetto, [avvolgila in un Effect Event invece.](#do-you-want-to-read-a-value-without-reacting-to-its-changes)
 
 <Recap>
 
@@ -1248,7 +1248,7 @@ Invece di leggere `count` dentro l'Effetto, passi a React un'istruzione `c => c 
 
 #### Correggere un'animazione che si riattiva {/*fix-a-retriggering-animation*/}
 
-In questo esempio, quando premi "Show", un messaggio di benvenuto appare con un fade-in. L'animazione dura un secondo. Quando premi "Remove", il messaggio di benvenuto scompare immediatamente. La logica per l'animazione fade-in è implementata nel file `animation.js` come semplice [animation loop](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) JavaScript. Non devi cambiare quella logica. Puoi trattarla come una libreria di terze parti. Il tuo Effetto crea un'istanza di `FadeInAnimation` per il nodo DOM, e poi chiama `start(duration)` o `stop()` per controllare l'animazione. La `duration` è controllata da uno slider. Regola lo slider e osserva come cambia l'animazione.
+In questo esempio, quando premi "Show", un messaggio di benvenuto appare con un fade-in. L'animazione dura un secondo. Quando premi "Remove", il messaggio di benvenuto scompare immediatamente. La logica per l'animazione fade-in è implementata nel file `animation.js` come semplice [animation loop](https://developer.mozilla.org/it/docs/Web/API/window/requestAnimationFrame) JavaScript. Non devi cambiare quella logica. Puoi trattarla come una libreria di terze parti. Il tuo Effetto crea un'istanza di `FadeInAnimation` per il nodo DOM, e poi chiama `start(duration)` o `stop()` per controllare l'animazione. La `duration` è controllata da uno slider. Regola lo slider e osserva come cambia l'animazione.
 
 Questo codice funziona già, ma c'è qualcosa che vuoi cambiare. Attualmente, quando muovi lo slider che controlla la variabile di state `duration`, l'animazione si riattiva. Cambia il comportamento in modo che l'Effetto non "reagisca" alla variabile `duration`. Quando premi "Show", l'Effetto dovrebbe usare la `duration` corrente sullo slider. Tuttavia, muovere lo slider di per sé non dovrebbe riattivare l'animazione.
 
