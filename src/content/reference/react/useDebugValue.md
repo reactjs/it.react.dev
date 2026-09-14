@@ -1,10 +1,17 @@
 ---
 title: useDebugValue
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react/useDebugValue.md).
+
+</Note>
 
 <Intro>
 
-`useDebugValue` is a React Hook that lets you add a label to a custom Hook in [React DevTools.](/learn/react-developer-tools)
+`useDebugValue` è un Hook React che ti permette di aggiungere un'etichetta a un custom Hook in [React DevTools.](/learn/react-developer-tools)
 
 ```js
 useDebugValue(value, format?)
@@ -20,7 +27,7 @@ useDebugValue(value, format?)
 
 ### `useDebugValue(value, format?)` {/*usedebugvalue*/}
 
-Call `useDebugValue` at the top level of your [custom Hook](/learn/reusing-logic-with-custom-hooks) to display a readable debug value:
+Chiama `useDebugValue` al top level del tuo [custom Hook](/learn/reusing-logic-with-custom-hooks) per visualizzare un valore di debug leggibile:
 
 ```js
 import { useDebugValue } from 'react';
@@ -32,22 +39,22 @@ function useOnlineStatus() {
 }
 ```
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 #### Parameters {/*parameters*/}
 
-* `value`: The value you want to display in React DevTools. It can have any type.
-* **optional** `format`: A formatting function. When the component is inspected, React DevTools will call the formatting function with the `value` as the argument, and then display the returned formatted value (which may have any type). If you don't specify the formatting function, the original `value` itself will be displayed.
+* `value`: Il valore che vuoi visualizzare in React DevTools. Può essere di qualsiasi tipo.
+* **optional** `format`: Una funzione di formattazione. Quando il componente viene ispezionato, React DevTools chiamerà la funzione di formattazione con `value` come argomento, e poi visualizzerà il valore formattato restituito (che può essere di qualsiasi tipo). Se non specifichi la funzione di formattazione, verrà visualizzato il `value` originale.
 
 #### Returns {/*returns*/}
 
-`useDebugValue` does not return anything.
+`useDebugValue` non restituisce nulla.
 
 ## Usage {/*usage*/}
 
-### Adding a label to a custom Hook {/*adding-a-label-to-a-custom-hook*/}
+### Aggiungere un'etichetta a un custom Hook {/*adding-a-label-to-a-custom-hook*/}
 
-Call `useDebugValue` at the top level of your [custom Hook](/learn/reusing-logic-with-custom-hooks) to display a readable <CodeStep step={1}>debug value</CodeStep> for [React DevTools.](/learn/react-developer-tools)
+Chiama `useDebugValue` al top level del tuo [custom Hook](/learn/reusing-logic-with-custom-hooks) per visualizzare un <CodeStep step={1}>valore di debug</CodeStep> leggibile per [React DevTools.](/learn/react-developer-tools)
 
 ```js [[1, 5, "isOnline ? 'Online' : 'Offline'"]]
 import { useDebugValue } from 'react';
@@ -59,11 +66,11 @@ function useOnlineStatus() {
 }
 ```
 
-This gives components calling `useOnlineStatus` a label like `OnlineStatus: "Online"` when you inspect them:
+Questo fornisce ai componenti che chiamano `useOnlineStatus` un'etichetta come `OnlineStatus: "Online"` quando li ispezioni:
 
-![A screenshot of React DevTools showing the debug value](/images/docs/react-devtools-usedebugvalue.png)
+![Uno screenshot di React DevTools che mostra il valore di debug](/images/docs/react-devtools-usedebugvalue.png)
 
-Without the `useDebugValue` call, only the underlying data (in this example, `true`) would be displayed.
+Senza la chiamata a `useDebugValue`, verrebbero visualizzati solo i dati sottostanti (in questo esempio, `true`).
 
 <Sandpack>
 
@@ -103,20 +110,20 @@ function subscribe(callback) {
 
 <Note>
 
-Don't add debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries and that have a complex internal data structure that's difficult to inspect.
+Non aggiungere valori di debug a ogni custom Hook. È più utile per i custom Hook che fanno parte di librerie condivise e che hanno una struttura dati interna complessa difficile da ispezionare.
 
 </Note>
 
 ---
 
-### Deferring formatting of a debug value {/*deferring-formatting-of-a-debug-value*/}
+### Posticipare la formattazione di un valore di debug {/*deferring-formatting-of-a-debug-value*/}
 
-You can also pass a formatting function as the second argument to `useDebugValue`:
+Puoi anche passare una funzione di formattazione come secondo argomento a `useDebugValue`:
 
 ```js [[1, 1, "date", 18], [2, 1, "date.toDateString()"]]
 useDebugValue(date, date => date.toDateString());
 ```
 
-Your formatting function will receive the <CodeStep step={1}>debug value</CodeStep> as a parameter and should return a <CodeStep step={2}>formatted display value</CodeStep>. When your component is inspected, React DevTools will call this function and display its result.
+La tua funzione di formattazione riceverà il <CodeStep step={1}>valore di debug</CodeStep> come parametro e dovrebbe restituire un <CodeStep step={2}>valore di visualizzazione formattato</CodeStep>. Quando il tuo componente viene ispezionato, React DevTools chiamerà questa funzione e visualizzerà il suo risultato.
 
-This lets you avoid running potentially expensive formatting logic unless the component is actually inspected. For example, if `date` is a Date value, this avoids calling `toDateString()` on it for every render.
+Questo ti permette di evitare di eseguire una logica di formattazione potenzialmente costosa a meno che il componente non venga effettivamente ispezionato. Ad esempio, se `date` è un valore Date, questo evita di chiamare `toDateString()` su di esso per ogni renderizzazione.
