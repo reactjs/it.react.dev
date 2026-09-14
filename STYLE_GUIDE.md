@@ -200,10 +200,10 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 ```
 
 - **Non** rimuovere `translationStatus` né `<Note>` quando mergi lo stack AI dopo la tua revisione.
-- **Non** segnare `[x] (@maintainer)` su [#418](https://github.com/reactjs/it.react.dev/issues/418): non sei il traduttore umano, hai supervisionato l’output AI.
-- Su [#418](https://github.com/reactjs/it.react.dev/issues/418) la voce resta `[~] (AI draft) #NNN` anche dopo il merge.
+- **Non** segnare `[x] (@maintainer)` su [#418](https://github.com/reactjs/it.react.dev/issues/418): usa `[x] Titolo 🤖 (AI draft) #NNN` — non sei il traduttore umano, hai supervisionato l’output AI.
+- Su [#418](https://github.com/reactjs/it.react.dev/issues/418) la voce resta `[x] Titolo 🤖 (AI draft) #NNN` anche dopo il merge (la casella `[x]` indica pagina live; 🤖 distingue da revisione umana).
 
-Rimuovi `translationStatus` e `<Note>` **solo** se un contributor fa un passaggio editoriale completo (terminologia, tono, fraseggio) — allora `[~]` → `[x] (@reviewer) #NNN` con l’username di chi ha revisionato.
+Rimuovi `translationStatus` e `<Note>` **solo** se un contributor fa un passaggio editoriale completo (terminologia, tono, fraseggio) — allora `[x] Titolo 🤖 (AI draft) #NNN` → `[x] Titolo (@reviewer) #NNN` (senza 🤖) con l’username di chi ha revisionato.
 
 ### Traduzione umana da zero
 
@@ -213,9 +213,11 @@ Nessun `translationStatus`, nessun `<Note>` AI. Su merge: `[x] (@translator) #NN
 
 | Evento | Voce checklist |
 | ------ | -------------- |
-| Apri PR AI | `[~] (AI draft) #NNN` |
-| Merge PR AI (supervisione maintainer) | **resta** `[~] (AI draft) #NNN` |
-| Revisione editoriale community | `[x] (@reviewer) #NNN` — rimuovi marker dal MDX |
+| Apri PR AI | `[x] Titolo 🤖 (AI draft) #NNN` |
+| Merge PR AI (supervisione maintainer) | **resta** `[x] Titolo 🤖 (AI draft) #NNN` |
+| Revisione editoriale community | `[x] Titolo (@reviewer) #NNN` — rimuovi 🤖 e marker dal MDX |
+
+Usa sempre `[x]` per le voci completate (merge o live). Il `🤖` accanto a `(AI draft)` segnala traduzione AI supervisionata, non revisione community definitiva — evita `[~]`, che rompe parser sulla checklist.
 
 ---
 
