@@ -899,19 +899,20 @@ body {
 
 ### React Developer Tools {/*react-developer-tools*/}
 
-React DevTools ti consente di controllare le props e lo state dei tuoi componenti React. Puoi trovare la scheda React DevTools nella parte inferiore della sezione _browser_ in CodeSandbox:
+React Developer Tools ti consentono di controllare le props e lo state dei tuoi componenti React. È disponibile come estensione del browser per [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) ed [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil).
 
-![React DevTools in CodeSandbox](../images/tutorial/codesandbox-devtools.png)
+Dopo averla installata, apparirà una nuova scheda *Components* negli Strumenti per Sviluppatori del browser per i siti che utilizzano React. Se stai seguendo il tutorial in CodeSandbox, dovrai prima aprire l'anteprima della sandbox in una nuova scheda:
 
-Per ispezionare un componente in particolare sullo schermo, usa il pulsante nell'angolo in alto a sinistra di React DevTools:
+![Aprire in una nuova scheda](../images/tutorial/sandbox-new-tab.png)
 
-![Selezionare componenti sulla pagina con React DevTools](../images/tutorial/devtools-select.gif)
+Poi, nella pagina di anteprima, apri gli Strumenti per Sviluppatori del browser e trova la scheda *Components*:
 
-<Note>
+![components tab](../images/tutorial/components-tab.png)
 
-Per lo sviluppo locale, React DevTools è disponibile come estensione del browser [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons .mozilla.org/en-US/firefox/addon/react-devtools/) ed [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil). Installalo e la scheda *Components* apparirà negli Strumenti per Sviluppatori del tuo browser per i siti che utilizzano React.
+Per ispezionare un componente in particolare sullo schermo, usa il pulsante nell'angolo in alto a sinistra della scheda Components:
 
-</Note>
+![Ispezionare con DevTools](../images/tutorial/devtools-inspect.gif)
+
 
 ## Completare il gioco {/*completing-the-game*/}
 

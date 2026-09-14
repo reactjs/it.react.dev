@@ -8,4 +8,4 @@ Il warning invalid-aria-prop appare quando provi a renderizzare un elemento del 
 
 2. Se hai scritto `aria-role`, probabilmente intendevi `role`.
 
-3. Altrimenti, se stai utilizzando l'ultima versione di React DOM e verificato che stai usando un nome di proprietà valido presente nella lista della specifica ARIA, cortesemente [riporta un bug](https://github.com/facebook/react/issues/new/choose).
+3. Altrimenti, se stai utilizzando l'ultima versione di React DOM e verificato che stai usando un nome di proprietà valido presente nella lista della specifica ARIA, cortesemente [riporta un bug](https://github.com/react/react/issues/new/choose).
