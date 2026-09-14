@@ -102,7 +102,7 @@ function SubmitButton({ submitAction }) {
 
 #### Parameters {/*starttransition-parameters*/}
 
-* `action`: Una funzione che aggiorna dello state chiamando una o più [`set` functions](/reference/react/useState#setstate). React chiama `action` immediatamente senza parametri e contrassegna come Transizioni tutti gli aggiornamenti di state pianificati in modo sincrono durante la chiamata alla funzione `action`. Qualsiasi chiamata async attesa con `await` in `action` sarà inclusa nella Transizione, ma attualmente richiede di avvolgere qualsiasi `set` function dopo `await` in un ulteriore `startTransition` (vedi [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)). Gli aggiornamenti di state contrassegnati come Transizioni saranno [non bloccanti](#perform-non-blocking-updates-with-actions) e [non mostreranno indicatori di caricamento indesiderati](#preventing-unwanted-loading-indicators).
+* `action`: Una funzione che aggiorna lo state chiamando una o più [funzioni `set`](/reference/react/useState#setstate). React chiama `action` immediatamente senza parametri e contrassegna come Transizioni tutti gli aggiornamenti di state pianificati in modo sincrono durante la chiamata alla funzione `action`. Qualsiasi chiamata async attesa con `await` in `action` sarà inclusa nella Transizione, ma attualmente richiede di avvolgere qualsiasi funzione `set` dopo `await` in un ulteriore `startTransition` (vedi [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)). Gli aggiornamenti di state contrassegnati come Transizioni saranno [non bloccanti](#perform-non-blocking-updates-with-actions) e [non mostreranno indicatori di caricamento indesiderati](#preventing-unwanted-loading-indicators).
 
 #### Returns {/*starttransition-returns*/}
 
@@ -112,7 +112,7 @@ function SubmitButton({ submitAction }) {
 
 * `useTransition` è un Hook, quindi può essere chiamato solo all'interno di componenti o custom Hook. Se devi avviare una Transizione altrove (per esempio, da una libreria di dati), chiama invece la funzione standalone [`startTransition`](/reference/react/startTransition).
 
-* Puoi avvolgere un aggiornamento in una Transizione solo se hai accesso alla `set` function di quello state. Se vuoi avviare una Transizione in risposta a una prop o a un valore di un custom Hook, prova [`useDeferredValue`](/reference/react/useDeferredValue).
+* Puoi avvolgere un aggiornamento in una Transizione solo se hai accesso alla funzione `set` di quello state. Se vuoi avviare una Transizione in risposta a una prop o a un valore di un custom Hook, prova [`useDeferredValue`](/reference/react/useDeferredValue).
 
 * La funzione che passi a `startTransition` viene chiamata immediatamente, contrassegnando come Transizioni tutti gli aggiornamenti di state che avvengono mentre viene eseguita. Se provi a eseguire aggiornamenti di state in un `setTimeout`, per esempio, non saranno contrassegnati come Transizioni.
 
@@ -208,7 +208,7 @@ export default function App({}) {
   const [isPending, startTransition] = useTransition();
 
   const updateQuantityAction = async newQuantity => {
-    // Per accedere allo state pending di una transizione,
+    // Per accedere allo state pending di una Transizione,
     // chiama di nuovo startTransition.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
@@ -319,7 +319,7 @@ Per casi d'uso comuni, React fornisce astrazioni integrate come:
 - [action di `<form>`](/reference/react-dom/components/form)
 - [Server Functions](/reference/rsc/server-functions)
 
-Queste soluzioni gestiscono l'ordinamento delle richieste per te. Quando usi le Transizioni per costruire i tuoi custom hook o librerie che gestiscono transizioni di state async, hai un controllo maggiore sull'ordinamento delle richieste, ma devi gestirlo tu stesso.
+Queste soluzioni gestiscono l'ordinamento delle richieste per te. Quando usi le Transizioni per costruire i tuoi custom Hook o librerie che gestiscono transizioni async di state, hai un controllo maggiore sull'ordinamento delle richieste, ma devi gestirlo tu stesso.
 
 <Solution />
 
@@ -753,7 +753,7 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-Quando esponi una prop `action` da un componente, dovresti fare `await` al suo interno nella transizione.
+Quando esponi una prop `action` da un componente, dovresti fare `await` al suo interno nella Transizione.
 
 Questo permette alla callback `action` di essere sincrona o asincrona senza richiedere un ulteriore `startTransition` per avvolgere `await` nell'action.
 
@@ -1263,7 +1263,7 @@ Questo è consigliato per tre motivi:
 
 - [Le Transizioni sono interrompibili,](#perform-non-blocking-updates-with-actions) il che permette all'utente di cliccare altrove senza attendere il completamento della ri-renderizzazione.
 - [Le Transizioni prevengono indicatori di caricamento indesiderati,](#preventing-unwanted-loading-indicators) il che permette all'utente di evitare salti bruschi durante la navigazione.
-- [Le Transizioni attendono che tutte le action pending si completino](#perform-non-blocking-updates-with-actions), il che permette all'utente di attendere il completamento degli effetti collaterali prima che la nuova pagina venga mostrata.
+- [Le Transizioni attendono che tutte le Action in sospeso si completino](#perform-non-blocking-updates-with-actions), il che permette all'utente di attendere il completamento degli effetti collaterali prima che la nuova pagina venga mostrata.
 
 Ecco un esempio semplificato di router che usa le Transizioni per le navigazioni.
 
@@ -1824,7 +1824,7 @@ export default function App({}) {
   const updateQuantityAction = newQuantity => {
     setClientQuantity(newQuantity);
 
-    // Accedi allo state pending della transizione
+    // Accedi allo state pending della Transizione
     // avvolgendo di nuovo in startTransition.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
