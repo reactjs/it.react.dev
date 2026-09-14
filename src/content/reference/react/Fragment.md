@@ -124,7 +124,7 @@ fragmentRef.current.dispatchEvent(new Event('custom', { bubbles: true }));
 
 #### `focus(options?)` {/*focus*/}
 
-Imposta il focus sul primo nodo DOM focusabile nel Fragment. A differenza di chiamare `element.focus()` su un elemento DOM, questo metodo cerca *tutti* i figli annidati in profondità (depth-first) finché non trova un elemento focusabile — non solo l'elemento stesso o i suoi figli diretti.
+Imposta il focus sul primo nodo DOM che può ricevere il focus nel Fragment. A differenza di chiamare `element.focus()` su un elemento DOM, questo metodo cerca *tutti* i figli annidati in profondità (depth-first) finché non trova un elemento che può ricevere il focus — non solo l'elemento stesso o i suoi figli diretti.
 
 ```js
 fragmentRef.current.focus();
@@ -142,7 +142,7 @@ fragmentRef.current.focus();
 
 #### `focusLast(options?)` {/*focuslast*/}
 
-Imposta il focus sull'ultimo nodo DOM focusabile nel Fragment. Cerca i figli annidati in profondità (depth-first), poi itera in ordine inverso.
+Imposta il focus sull'ultimo nodo DOM che può ricevere il focus nel Fragment. Cerca i figli annidati in profondità (depth-first), poi itera in ordine inverso.
 
 ```js
 fragmentRef.current.focusLast();
@@ -211,7 +211,7 @@ fragmentRef.current.unobserveUsing(observer);
 
 #### `getClientRects()` {/*getclientrects*/}
 
-Restituisce un array flat di oggetti [`DOMRect`](https://developer.mozilla.org/it/docs/Web/API/DOMRect) che rappresentano i rettangoli di delimitazione di tutti i figli DOM di primo livello.
+Restituisce un array piatto di oggetti [`DOMRect`](https://developer.mozilla.org/it/docs/Web/API/DOMRect) che rappresentano i rettangoli di delimitazione di tutti i figli DOM di primo livello.
 
 ```js
 const rects = fragmentRef.current.getClientRects();
@@ -269,7 +269,7 @@ fragmentRef.current.scrollIntoView();
 
 ##### Parameters {/*scrollintoview-parameters*/}
 
-* **optional** `alignToTop`: Un booleano. Se `true` (il default), scorre il primo figlio in alto nell'area scrollabile. Se `false`, scorre l'ultimo figlio in basso. A differenza di [`Element.scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView), questo metodo non accetta un oggetto `ScrollIntoViewOptions`.
+* **optional** `alignToTop`: Un booleano. Se `true` *(il valore predefinito)*, scorre il primo figlio in alto nell'area scrollabile. Se `false`, scorre l'ultimo figlio in basso. A differenza di [`Element.scrollIntoView()`](https://developer.mozilla.org/it/docs/Web/API/Element/scrollIntoView), questo metodo non accetta un oggetto `ScrollIntoViewOptions`.
 
 ##### Returns {/*scrollintoview-returns*/}
 
@@ -284,10 +284,10 @@ fragmentRef.current.scrollIntoView();
 
 #### `FragmentInstance` Caveats {/*fragmentinstance-caveats*/}
 
-* I metodi che targettano i figli (come `addEventListener`, `observeUsing` e `getClientRects`) operano sui *figli host (DOM) di primo livello* del Fragment. Non targettano direttamente i figli annidati all'interno di un altro elemento DOM.
-* `focus` e `focusLast` cercano i figli annidati in profondità (depth-first) per trovare elementi focusabili, a differenza dei metodi per eventi e observer che targettano solo i figli host di primo livello.
-* `observeUsing` non funziona sui nodi di testo. React registra un warning in development se il Fragment contiene solo figli di testo.
-* React non applica i listener di eventi aggiunti tramite `addEventListener` agli alberi [`<Activity>`](/reference/react/Activity) nascosti. Quando un confine `Activity` passa da nascosto a visibile, i listener vengono applicati automaticamente.
+* I metodi che operano sui figli (come `addEventListener`, `observeUsing` e `getClientRects`) operano sui *figli host (DOM) di primo livello* del Fragment. Non agiscono direttamente sui figli annidati all'interno di un altro elemento DOM.
+* `focus` e `focusLast` cercano i figli annidati in profondità (depth-first) per trovare elementi che possono ricevere il focus, a differenza dei metodi per eventi e observer che operano solo sui figli host di primo livello.
+* `observeUsing` non funziona sui nodi di testo. React registra un warning in sviluppo se il Fragment contiene solo figli di testo.
+* React non applica i listener di eventi aggiunti tramite `addEventListener` agli alberi [`<Activity>`](/reference/react/Activity) nascosti. Quando un boundary `Activity` passa da nascosto a visibile, i listener vengono applicati automaticamente.
 * Ogni figlio DOM di primo livello di un Fragment con un `ref` ottiene una proprietà `reactFragments` — un `Set<FragmentInstance>` contenente tutte le istanze Fragment che possiedono l'elemento. Questo consente di [memorizzare nella cache un observer condiviso](#caching-global-intersection-observer) tra più Fragment.
 
 ---
@@ -349,7 +349,7 @@ function PostBody({ body }) {
 
 <DeepDive>
 
-#### How to write a Fragment without the special syntax? {/*how-to-write-a-fragment-without-the-special-syntax*/}
+#### Come scrivere un Fragment senza la sintassi speciale? {/*how-to-write-a-fragment-without-the-special-syntax*/}
 
 L'esempio sopra è equivalente a importare `Fragment` da React:
 
@@ -531,9 +531,9 @@ La chiamata `addEventListener` applica il listener a ogni figlio DOM di primo li
 
 <DeepDive>
 
-#### Which children does a Fragment ref target? {/*which-children-does-a-fragment-ref-target*/}
+#### Su quali figli agisce un ref di Fragment? {/*which-children-does-a-fragment-ref-target*/}
 
-Un `FragmentInstance` targetta i **figli host (DOM) di primo livello** del Fragment. Considera questo albero:
+Un `FragmentInstance` opera sui **figli host (DOM) di primo livello** del Fragment. Considera questo albero:
 
 ```js
 <Fragment ref={ref}>
@@ -547,7 +547,7 @@ Un `FragmentInstance` targetta i **figli host (DOM) di primo livello** del Fragm
 </Fragment>
 ```
 
-`Wrapper` è un componente React, quindi il `FragmentInstance` lo attraversa per trovare i nodi DOM. I figli targettati sono `A`, `B` e `D`. `C` non è targettato perché è annidato all'interno dell'elemento DOM `B`.
+`Wrapper` è un componente React, quindi il `FragmentInstance` lo attraversa per trovare i nodi DOM. I figli interessati sono `A`, `B` e `D`. `C` non è interessato perché è annidato all'interno dell'elemento DOM `B`.
 
 Metodi come `addEventListener`, `observeUsing` e `getClientRects` operano su questi figli DOM di primo livello. `focus` e `focusLast` sono diversi — cercano *tutti* i figli annidati in profondità (depth-first) per trovare elementi focusabili.
 
