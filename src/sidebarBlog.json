@@ -4,7 +4,7 @@
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "STAY INFORMED"
+      "sectionHeader": "RESTA AGGIORNATO"
     },
     {
       "title": "Blog",
@@ -187,7 +187,7 @@
           "path": "/blog/2020/12/21/data-fetching-with-react-server-components"
         },
         {
-          "title": "Older posts",
+          "title": "Post più vecchi",
           "path": "https://reactjs.org/blog/all.html"
         }
       ]

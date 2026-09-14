@@ -1,10 +1,10 @@
 {
-  "title": "React Docs",
+  "title": "Documentazione React",
   "path": "/",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET STARTED"
+      "sectionHeader": "INIZIA QUI"
     },
     {
       "title": "Avvio Rapido",
@@ -24,7 +24,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "IMPARA REACT"
     },
     {
       "title": "Descrivere la UI",
@@ -39,79 +39,79 @@
       "path": "/learn/managing-state"
     },
     {
-      "title": "Escape Hatches",
+      "title": "Soluzioni alternative",
       "path": "/learn/escape-hatches"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT API"
+      "sectionHeader": "API REACT"
     },
     {
       "title": "Hooks",
       "path": "/reference/react"
     },
     {
-      "title": "Components",
+      "title": "Componenti",
       "path": "/reference/react/components"
     },
     {
-      "title": "APIs",
+      "title": "API",
       "path": "/reference/react/apis"
     },
     {
-      "title": "Legacy APIs",
+      "title": "API Legacy",
       "path": "/reference/react/legacy"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT DOM API"
+      "sectionHeader": "API REACT DOM"
     },
     {
-      "title": "Components",
+      "title": "Componenti",
       "path": "/reference/react-dom/components"
     },
     {
-      "title": "APIs",
+      "title": "API",
       "path": "/reference/react-dom"
     },
     {
-      "title": "Client APIs",
+      "title": "API Client",
       "path": "/reference/react-dom/client"
     },
     {
-      "title": "Server APIs",
+      "title": "API Server",
       "path": "/reference/react-dom/server"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT COMPILER API"
+      "sectionHeader": "API REACT COMPILER"
     },
     {
-      "title": "Configuration",
+      "title": "Configurazione",
       "path": "/reference/react-compiler/configuration"
     },
     {
-      "title": "Directives",
+      "title": "Direttive",
       "path": "/reference/react-compiler/directives"
     },
     {
-      "title": "Compiling Libraries",
+      "title": "Compilare Librerie",
       "path": "/reference/react-compiler/compiling-libraries"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET INVOLVED"
+      "sectionHeader": "PARTECIPA"
     },
     {
-      "title": "React Community",
+      "title": "Community React",
       "path": "/community"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "STAY INFORMED"
+      "sectionHeader": "RESTA AGGIORNATO"
     },
     {
-      "title": "React Blog",
+      "title": "Blog React",
       "path": "/blog"
     }
   ]
