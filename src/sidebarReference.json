@@ -193,7 +193,7 @@
       "path": "/reference/react-dom/components",
       "routes": [
         {
-          "title": "Common (e.g. <div>)",
+          "title": "Componenti comuni (es. <div>)",
           "path": "/reference/react-dom/components/common"
         },
         {
