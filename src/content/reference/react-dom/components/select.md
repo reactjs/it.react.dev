@@ -85,7 +85,7 @@ Queste props di `<select>` sono rilevanti sia per caselle select non controllate
 
 ## Usage {/*usage*/}
 
-### Displaying a select box with options {/*displaying-a-select-box-with-options*/}
+### Visualizzare una casella di selezione con opzioni {/*displaying-a-select-box-with-options*/}
 
 Renderizza un `<select>` con un elenco di componenti `<option>` al suo interno per visualizzare una casella select. Assegna a ogni `<option>` un `value` che rappresenta i dati da inviare con il form.
 
@@ -114,7 +114,7 @@ select { margin: 5px; }
 
 ---
 
-### Providing a label for a select box {/*providing-a-label-for-a-select-box*/}
+### Fornire un'etichetta per una casella di selezione {/*providing-a-label-for-a-select-box*/}
 
 Di solito, posizionerai ogni `<select>` dentro un tag [`<label>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/label). Questo indica al browser che questa etichetta è associata a quella casella select. Quando l'utente clicca sull'etichetta, il browser metterà automaticamente a fuoco la casella select. È anche essenziale per l'accessibilità: uno screen reader annuncerà la didascalia dell'etichetta quando l'utente mette a fuoco la casella select.
 
@@ -160,7 +160,7 @@ select { margin: 5px; }
 
 ---
 
-### Providing an initially selected option {/*providing-an-initially-selected-option*/}
+### Fornire un'opzione inizialmente selezionata {/*providing-an-initially-selected-option*/}
 
 Per impostazione predefinita, il browser selezionerà il primo `<option>` nell'elenco. Per selezionare un'opzione diversa di default, passa il `value` di quell'`<option>` come `defaultValue` all'elemento `<select>`.
 
@@ -195,7 +195,7 @@ A differenza dell'HTML, passare un attributo `selected` a un singolo `<option>` 
 
 ---
 
-### Enabling multiple selection {/*enabling-multiple-selection*/}
+### Abilitare la selezione multipla {/*enabling-multiple-selection*/}
 
 Passa `multiple={true}` al `<select>` per consentire all'utente di selezionare più opzioni. In quel caso, se specifichi anche `defaultValue` per scegliere le opzioni inizialmente selezionate, deve essere un array.
 
@@ -228,7 +228,7 @@ select { display: block; margin-top: 10px; width: 200px; }
 
 ---
 
-### Reading the select box value when submitting a form {/*reading-the-select-box-value-when-submitting-a-form*/}
+### Leggere il valore della casella di selezione all'invio di un form {/*reading-the-select-box-value-when-submitting-a-form*/}
 
 Aggiungi un [`<form>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/form) intorno alla tua casella select con un [`<button type="submit">`](https://developer.mozilla.org/it/docs/Web/HTML/Element/button) al suo interno. Invocherà il tuo gestore di eventi `<form onSubmit>`. Per impostazione predefinita, il browser invierà i dati del form all'URL corrente e ricaricherà la pagina. Puoi sovrascrivere questo comportamento chiamando `e.preventDefault()`. Leggi i dati del form con [`new FormData(e.target)`](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
 <Sandpack>
@@ -305,7 +305,7 @@ Per impostazione predefinita, *qualsiasi* `<button>` dentro un `<form>` lo invie
 
 ---
 
-### Controlling a select box with a state variable {/*controlling-a-select-box-with-a-state-variable*/}
+### Controllare una casella di selezione con una variabile di state {/*controlling-a-select-box-with-a-state-variable*/}
 
 Una casella select come `<select />` è *non controllata.* Anche se [passi un valore inizialmente selezionato](#providing-an-initially-selected-option) come `<select defaultValue="orange" />`, il tuo JSX specifica solo il valore iniziale, non il valore attuale.
 
