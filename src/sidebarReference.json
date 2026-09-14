@@ -299,7 +299,7 @@
       ]
     },
     {
-      "title": "Server React DOM APIs",
+      "title": "API React DOM del server",
       "path": "/reference/react-dom/server",
       "routes": [
         {

@@ -1,44 +1,51 @@
 ---
-title: Server React DOM APIs
+title: API React DOM del server
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react-dom/server/index.md).
+
+</Note>
 
 <Intro>
 
-The `react-dom/server` APIs let you server-side render React components to HTML. These APIs are only used on the server at the top level of your app to generate the initial HTML. A [framework](/learn/creating-a-react-app#full-stack-frameworks) may call them for you. Most of your components don't need to import or use them.
+Le API `react-dom/server` ti permettono di renderizzare sul server i componenti React in HTML. Queste API vengono usate solo sul server, al livello superiore della tua app, per generare l'HTML iniziale. Un [framework](/learn/creating-a-react-app#full-stack-frameworks) può chiamarle per te. La maggior parte dei tuoi componenti non deve importarle o usarle.
 
 </Intro>
 
 ---
 
-## Server APIs for Web Streams {/*server-apis-for-web-streams*/}
+## API del server per Web Stream {/*server-apis-for-web-streams*/}
 
-These methods are only available in the environments with [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), which includes browsers, Deno, and some modern edge runtimes:
+Questi metodi sono disponibili solo negli ambienti con [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), che includono browser, Deno e alcuni runtime edge moderni:
 
-* [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) renders a React tree to a [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
-* [`resume`](/reference/react-dom/server/resume) resumes [`prerender`](/reference/react-dom/static/prerender) to a [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+* [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) renderizza un albero React in un [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+* [`resume`](/reference/react-dom/server/resume) riprende [`prerender`](/reference/react-dom/static/prerender) in un [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 
 
 <Note>
 
-Node.js also includes these methods for compatibility, but they are not recommended due to worse performance. Use the [dedicated Node.js APIs](#server-apis-for-nodejs-streams) instead.
+Node.js include anche questi metodi per compatibilità, ma non sono consigliati a causa delle prestazioni inferiori. Usa invece le [API Node.js dedicate](#server-apis-for-nodejs-streams).
 
 </Note>
 ---
 
-## Server APIs for Node.js Streams {/*server-apis-for-nodejs-streams*/}
+## API del server per Node.js Stream {/*server-apis-for-nodejs-streams*/}
 
-These methods are only available in the environments with [Node.js Streams:](https://nodejs.org/api/stream.html)
+Questi metodi sono disponibili solo negli ambienti con [Node.js Stream:](https://nodejs.org/api/stream.html)
 
-* [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renders a React tree to a pipeable [Node.js Stream.](https://nodejs.org/api/stream.html)
-* [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) resumes [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) to a pipeable [Node.js Stream.](https://nodejs.org/api/stream.html)
+* [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renderizza un albero React in un [Node.js Stream](https://nodejs.org/api/stream.html) pipeable
+* [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) riprende [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) in un [Node.js Stream](https://nodejs.org/api/stream.html) pipeable
 
 ---
 
-## Legacy Server APIs for non-streaming environments {/*legacy-server-apis-for-non-streaming-environments*/}
+## API legacy del server per ambienti senza streaming {/*legacy-server-apis-for-non-streaming-environments*/}
 
-These methods can be used in the environments that don't support streams:
+Questi metodi possono essere usati negli ambienti che non supportano gli stream:
 
-* [`renderToString`](/reference/react-dom/server/renderToString) renders a React tree to a string.
-* [`renderToStaticMarkup`](/reference/react-dom/server/renderToStaticMarkup) renders a non-interactive React tree to a string.
+* [`renderToString`](/reference/react-dom/server/renderToString) renderizza un albero React in una stringa.
+* [`renderToStaticMarkup`](/reference/react-dom/server/renderToStaticMarkup) renderizza un albero React non interattivo in una stringa.
 
-They have limited functionality compared to the streaming APIs.
+Hanno funzionalità limitate rispetto alle API di streaming.
