@@ -97,7 +97,7 @@ React visualizzerà `<App />` nella `root` e prenderà in carico la gestione del
 
 * Se chiami `render` sulla stessa root più di una volta, React aggiornerà il DOM secondo necessità per riflettere l'ultimo JSX che hai passato. React deciderà quali parti del DOM possono essere riutilizzate e quali devono essere ricreate ["confrontandole"](/learn/preserving-and-resetting-state) con l'albero renderizzato in precedenza. Chiamare `render` sulla stessa root di nuovo è simile a chiamare la [funzione `set`](/reference/react/useState#setstate) sul componente root: React evita aggiornamenti DOM non necessari.
 
-* Sebbene la renderizzazione sia sincrona una volta avviata, `root.render(...)` non lo è. Ciò significa che il codice dopo `root.render()` può essere eseguito prima che vengano attivati gli Effetti (`useLayoutEffect`, `useEffect`) di quella specifica renderizzazione. Di solito va bene e raramente richiede aggiustamenti. Nei rari casi in cui il timing degli Effetti è importante, puoi avvolgere `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/flushSync) per assicurarti che la renderizzazione iniziale avvenga completamente in modo sincrono.
+* Sebbene la renderizzazione sia sincrona una volta avviata, `root.render(...)` non lo è. Ciò significa che il codice dopo `root.render()` può essere eseguito prima che vengano attivati gli Effetti (`useLayoutEffect`, `useEffect`) di quella specifica renderizzazione. Di solito va bene e raramente richiede aggiustamenti. Nei rari casi in cui il timing degli Effetti è importante, puoi avvolgere `root.render(...)` in [`flushSync`](/reference/react-dom/flushSync) per assicurarti che la renderizzazione iniziale avvenga completamente in modo sincrono.
 
   ```js
   const root = createRoot(document.getElementById('root'));
@@ -550,7 +550,7 @@ Questo errore significa che ciò che passi a `root.render` non è un componente 
 Può succedere se chiami `root.render` con `Component` invece di `<Component />`:
 
 ```js {2,5}
-// 🚩 Sbagliato: App è una funzione, non un Component.
+// 🚩 Sbagliato: App è una funzione, non un componente.
 root.render(App);
 
 // ✅ Corretto: <App /> è un componente.
