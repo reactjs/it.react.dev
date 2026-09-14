@@ -6,7 +6,7 @@ Le traduzioni in **Traduzioni confermate** derivano dalle pagine già tradotte e
 
 ## Policy sugli anglicismi
 
-- **Non tradurre** identificatori API, nomi di codice e concetti core di React quando il loro uso in inglese è stabile nella community italiana (`props`, `state`, `hooks`, `ref`).
+- **Non tradurre** identificatori API, nomi di codice e concetti core di React quando il loro uso in inglese è stabile nella community italiana (`props`, `state`, `hooks`, `ref`, `Effect`).
 - **Traduci in prosa** quando esiste un equivalente italiano stabile e già adottato nel corpus (`renderizzare`, `gestore di eventi`, `istantanea`).
 - **Mantieni in inglese** loanword tecnici senza equivalente univoco (`commit`, `dispatch`, `Suspense`, `prop drilling`).
 
@@ -23,6 +23,7 @@ Termini che restano in inglese in prosa e in codice.
 | props | Concetto core; articolo: *le props* |
 | state | Concetto core; articolo: *lo state*. **Non** usare *stato* per il concetto React |
 | hooks | Concetto core; es. *gli hooks*, *un Hook* |
+| Effect | Concetto core; es. *un Effect*, *gli Effect*. **Non** usare *Effetto* |
 | ref | Concetto core |
 | context | Concetto core; es. *il context*, *un context* |
 | reducer | Concetto core; es. *un reducer* |
@@ -127,7 +128,6 @@ Usa la **maiuscola** quando ti riferisci al concetto React come nome proprio.
 
 | Inglese | Italiano | Fonte |
 | ------- | -------- | ----- |
-| Effect | Effetto | you-might-not-need-an-effect |
 | Strict Mode | Strict Mode | — |
 | Suspense | Suspense | — |
 | Hook | Hook | state-a-components-memory |
@@ -135,7 +135,7 @@ Usa la **maiuscola** quando ti riferisci al concetto React come nome proprio.
 | Server Component | componente Server | proposta |
 | Client Component | componente Client | proposta |
 
-Al plurale: *Effetti*, *Hooks*, *Transizioni* quando il concetto React resta nome proprio nel contesto.
+Al plurale: *Hooks*, *Transizioni* quando il concetto React resta nome proprio nel contesto.
 
 ---
 
@@ -143,7 +143,7 @@ Al plurale: *Effetti*, *Hooks*, *Transizioni* quando il concetto React resta nom
 
 | Termine | Quando | Traduzione |
 | ------- | ------ | ---------- |
-| Effect | Concetto React (`useEffect`, regole degli Effetti) | **Effetto** |
+| Effect | Concetto React (`useEffect`, regole degli Effect) | **Effect** (loanword, come *state*) |
 | side effect | Effetto collaterale generico in programmazione | **effetto collaterale** |
 | effect (generico) | Non legato a `useEffect` | **effetto** (minuscolo) |
 | state | Concetto React (variabili di state, aggiornare lo state) | **state** (mai *stato*) |
@@ -193,6 +193,6 @@ Discussioni del vecchio [it.reactjs.org](https://github.com/reactjs/it.reactjs.o
 | State (struttura) | choosing-the-state-structure | #557 |
 | Context | passing-data-deeply-with-context | #470 |
 | Reducer | extracting-state-logic-into-a-reducer | — |
-| Effetti | you-might-not-need-an-effect | — |
+| Effect | you-might-not-need-an-effect | — (pagina legacy: usa *Effetto*) |
 | Props | passing-props-to-a-component | #428 |
 | Liste | rendering-lists | #442 |
