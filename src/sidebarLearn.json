@@ -169,7 +169,7 @@
       ],
       "routes": [
         {
-          "title": "Reagire all'input con lo state",
+          "title": "Reagire all'input con lo State",
           "path": "/learn/reacting-to-input-with-state"
         },
         {

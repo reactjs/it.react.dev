@@ -1,5 +1,5 @@
 ---
-title: Reagire all'input con lo state
+title: Reagire all'input con lo State
 translationStatus: ai-draft
 ---
 
@@ -11,7 +11,7 @@ Questa pagina è stata tradotta automaticamente e potrebbe beneficiare di una re
 
 <Intro>
 
-React offre un modo dichiarativo di manipolare la UI. Invece di manipolare direttamente i singoli pezzi della UI, descrivi i diversi stati in cui il tuo componente può trovarsi e passi da uno all'altro in risposta all'input dell'utente. È simile a come i designer pensano la UI.
+React offre un modo dichiarativo di manipolare la UI. Invece di manipolare direttamente i singoli pezzi della UI, descrivi i diversi stati visuali in cui il tuo componente può trovarsi e passi da uno all'altro in risposta all'input dell'utente. È simile a come i designer pensano la UI.
 
 </Intro>
 
@@ -38,7 +38,7 @@ Nella **programmazione imperativa,** quanto sopra corrisponde direttamente a com
 
 Non sanno dove vuoi andare, seguono solo i tuoi comandi. (E se sbagli le indicazioni, finisci nel posto sbagliato!) Si chiama *imperativa* perché devi "comandare" ogni elemento, dallo spinner al pulsante, dicendo al computer *come* aggiornare la UI.
 
-In questo esempio di programmazione UI imperativa, il form è costruito *senza* React. Usa solo il [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) del browser:
+In questo esempio di programmazione UI imperativa, il form è costruito *senza* React. Usa solo il [DOM](https://developer.mozilla.org/it/docs/Web/API/Document_Object_Model) del browser:
 
 <Sandpack>
 
@@ -343,7 +343,7 @@ Nota che gli input umani spesso richiedono [gestori di eventi](/learn/responding
 
 </Note>
 
-Per aiutarti a visualizzare questo flusso, prova a disegnare ogni state su un foglio come un cerchio etichettato, e ogni cambiamento tra due stati come una freccia. Puoi abbozzare molti flussi in questo modo e individuare bug molto prima dell'implementazione.
+Per aiutarti a visualizzare questo flusso, prova a disegnare ogni stato visivo su un foglio come un cerchio etichettato, e ogni cambiamento tra due stati come una freccia. Puoi abbozzare molti flussi in questo modo e individuare bug molto prima dell'implementazione.
 
 <DiagramGroup>
 
@@ -492,11 +492,11 @@ function submitForm(answer) {
 
 </Sandpack>
 
-Anche se questo codice è più lungo dell'esempio imperativo originale, è molto meno fragile. Esprimere tutte le interazioni come cambiamenti di state ti permette di introdurre in seguito nuovi stati visuali senza rompere quelli esistenti. Ti permette anche di cambiare cosa deve essere mostrato in ogni state senza modificare la logica dell'interazione stessa.
+Anche se questo codice è più lungo dell'esempio imperativo originale, è molto meno fragile. Esprimere tutte le interazioni come cambiamenti di state ti permette di introdurre in seguito nuovi stati visuali senza rompere quelli esistenti. Ti permette anche di cambiare cosa deve essere mostrato in ogni stato visivo senza modificare la logica dell'interazione stessa.
 
 <Recap>
 
-* La programmazione dichiarativa significa descrivere la UI per ogni state visivo piuttosto che microgestire la UI (imperativo).
+* La programmazione dichiarativa significa descrivere la UI per ogni stato visivo piuttosto che microgestire la UI (imperativo).
 * Quando sviluppi un componente:
   1. Identifica tutti i suoi stati visuali.
   2. Determina gli input umani e del computer che innescano i cambiamenti di state.
