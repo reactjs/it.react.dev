@@ -100,7 +100,7 @@ function Button() {
 }
 ```
 
-Anche se questo modo più vecchio funziona ancora, **il codice scritto di recente dovrebbe leggere il context con [`useContext()`](/reference/react/useContext):**
+Anche se questo modo più vecchio funziona ancora, **il codice scritto di recente dovrebbe leggere il context con [`useContext()`](/reference/react/useContext) invece:**
 
 ```js
 function Button() {
@@ -112,7 +112,7 @@ function Button() {
 
 #### Props {/*consumer-props*/}
 
-* `children`: Una funzione. React chiamerà la funzione che passi con il valore attuale del context determinato dallo stesso algoritmo di [`useContext()`](/reference/react/useContext), e renderizzerà il risultato che restituisci da questa funzione. React rieseguirà anche questa funzione e aggiornerà la UI ogni volta che il context dei componenti genitore cambia.
+* `children`: Una funzione. React chiamerà la funzione che passi con il valore attuale del context determinato dallo stesso algoritmo usato da [`useContext()`](/reference/react/useContext), e renderizzerà il risultato che restituisci da questa funzione. React rieseguirà anche questa funzione e aggiornerà l'UI ogni volta che il context dei componenti genitori cambia.
 
 ---
 
