@@ -1,5 +1,5 @@
 {
-  "title": "Riferimento API",
+  "title": "API Reference",
   "path": "/reference/react",
   "routes": [
     {
@@ -7,11 +7,11 @@
       "sectionHeader": "react@{{version}}"
     },
     {
-      "title": "Panoramica della documentazione di React",
+      "title": "Overview",
       "path": "/reference/react"
     },
     {
-      "title": "Built-in React Hooks",
+      "title": "Hooks",
       "path": "/reference/react/hooks",
       "routes": [
         {
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "title": "Built-in React Components",
+      "title": "Components",
       "path": "/reference/react/components",
       "routes": [
         {
@@ -119,7 +119,7 @@
       ]
     },
     {
-      "title": "Built-in React APIs",
+      "title": "APIs",
       "path": "/reference/react/apis",
       "routes": [
         {
@@ -179,7 +179,7 @@
       "sectionHeader": "react-dom@{{version}}"
     },
     {
-      "title": "Built-in React DOM Hooks",
+      "title": "Hooks",
       "path": "/reference/react-dom/hooks",
       "routes": [
         {
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "title": "React DOM Components",
+      "title": "Components",
       "path": "/reference/react-dom/components",
       "routes": [
         {
@@ -243,7 +243,7 @@
       ]
     },
     {
-      "title": "React DOM APIs",
+      "title": "API React DOM",
       "path": "/reference/react-dom",
       "routes": [
         {
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "title": "Client React DOM APIs",
+      "title": "Client APIs",
       "path": "/reference/react-dom/client",
       "routes": [
         {
@@ -299,7 +299,7 @@
       ]
     },
     {
-      "title": "Server React DOM APIs",
+      "title": "Server APIs",
       "path": "/reference/react-dom/server",
       "routes": [
         {
@@ -329,7 +329,7 @@
       ]
     },
     {
-      "title": "Static React DOM APIs",
+      "title": "Static APIs",
       "path": "/reference/react-dom/static",
       "routes": [
         {
@@ -385,11 +385,11 @@
       "path": "/reference/react-compiler/directives",
       "routes": [
         {
-          "title": "use memo",
+          "title": "\"use memo\"",
           "path": "/reference/react-compiler/directives/use-memo"
         },
         {
-          "title": "use no memo",
+          "title": "\"use no memo\"",
           "path": "/reference/react-compiler/directives/use-no-memo"
         }
       ]
@@ -411,7 +411,7 @@
       "sectionHeader": "eslint-plugin-react-hooks"
     },
     {
-      "title": "eslint-plugin-react-hooks",
+      "title": "Lints",
       "path": "/reference/eslint-plugin-react-hooks",
       "routes": [
         {
@@ -486,10 +486,10 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "Regole di React"
+      "sectionHeader": "Rules of React"
     },
     {
-      "title": "Rules of React",
+      "title": "Overview",
       "path": "/reference/rules",
       "routes": [
         {
@@ -534,7 +534,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "API Legacy"
+      "sectionHeader": "Legacy APIs"
     },
     {
       "title": "Legacy React APIs",
