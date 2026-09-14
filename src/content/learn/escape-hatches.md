@@ -11,7 +11,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 <Intro>
 
-Alcuni dei tuoi componenti potrebbero dover controllare e sincronizzarsi con sistemi esterni a React. Per esempio, potresti dover mettere a fuoco un input usando le API del browser, avviare e mettere in pausa un lettore video implementato senza React, o connetterti e ascoltare messaggi da un server remoto. In questo capitolo imparerai gli escape hatch che ti permettono di "uscire" da React e connetterti a sistemi esterni. La maggior parte della logica della tua applicazione e del flusso di dati non dovrebbe basarsi su queste funzionalità.
+Alcuni dei tuoi componenti potrebbero dover controllare e sincronizzarsi con sistemi esterni a React. Per esempio, potresti dover mettere a fuoco un input usando le API del browser, avviare e mettere in pausa un lettore video implementato senza React, o connetterti e ascoltare messaggi da un server remoto. In questo capitolo imparerai le soluzioni alternative (*escape hatch*) che ti permettono di "uscire" da React e connetterti a sistemi esterni. La maggior parte della logica della tua applicazione e del flusso di dati non dovrebbe basarsi su queste funzionalità.
 
 </Intro>
 
