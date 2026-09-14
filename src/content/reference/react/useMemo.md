@@ -169,10 +169,10 @@ Non c'è alcun beneficio nell'avvolgere un calcolo in `useMemo` in altri casi. N
 **In pratica, puoi evitare molta memorizzazione seguendo alcuni principi:**
 
 1. Quando un componente avvolge visivamente altri componenti, lascia che [accetti JSX come children.](/learn/passing-props-to-a-component#passing-jsx-as-children) Poi, se il componente wrapper aggiorna il proprio state, React sa che i suoi figli non hanno bisogno di ri-renderizzarsi.
-1. Preferisci lo state locale e non [sollevare lo state](/learn/sharing-state-between-components) più in alto del necessario. Non tenere state transitorio come form e se un elemento è in hover in cima all'albero o in una libreria di state globale.
-1. Mantieni la tua [logica di rendering pura.](/learn/keeping-components-pure) Se ri-renderizzare un componente causa un problema o produce qualche artefatto visivo evidente, è un bug nel componente! Correggi il bug invece di aggiungere memorizzazione.
-1. Evita [Effetti non necessari che aggiornano lo state.](/learn/you-might-not-need-an-effect) La maggior parte dei problemi di prestazioni nelle app React è causata da catene di aggiornamenti originati da Effetti che fanno renderizzare i componenti più e più volte.
-1. Prova a [rimuovere dipendenze non necessarie dai tuoi Effetti.](/learn/removing-effect-dependencies) Per esempio, invece della memorizzazione, spesso è più semplice spostare un oggetto o una funzione all'interno di un Effetto o fuori dal componente.
+2. Preferisci lo state locale e non [sollevare lo state](/learn/sharing-state-between-components) più in alto del necessario. Non tenere state transitorio come form e se un elemento è in hover in cima all'albero o in una libreria di state globale.
+3. Mantieni la tua [logica di rendering pura.](/learn/keeping-components-pure) Se ri-renderizzare un componente causa un problema o produce qualche artefatto visivo evidente, è un bug nel componente! Correggi il bug invece di aggiungere memorizzazione.
+4. Evita [Effetti non necessari che aggiornano lo state.](/learn/you-might-not-need-an-effect) La maggior parte dei problemi di prestazioni nelle app React è causata da catene di aggiornamenti originati da Effetti che fanno renderizzare i componenti più e più volte.
+5. Prova a [rimuovere dipendenze non necessarie dai tuoi Effetti.](/learn/removing-effect-dependencies) Per esempio, invece della memorizzazione, spesso è più semplice spostare un oggetto o una funzione all'interno di un Effetto o fuori dal componente.
 
 Se un'interazione specifica sembra ancora lenta, [usa il profiler di React Developer Tools](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) per vedere quali componenti beneficiano di più dalla memorizzazione, e aggiungi memorizzazione dove serve. Questi principi facilitano il debug e la comprensione dei componenti, quindi conviene seguirli comunque. A lungo termine, stiamo ricercando [come fare memorizzazione granulare automaticamente](https://www.youtube.com/watch?v=lGEMwh32soc) per risolvere il problema una volta per tutte.
 
@@ -622,7 +622,7 @@ export default function TodoList({ todos, tab, theme }) {
 ```
 
 
-**Avvolgendo il calcolo di `visibleTodos` in `useMemo`, ti assicuri che abbia lo *stesso* valore tra le ri-renderizzazioni** (finché le dipendenze non cambiano). Non *devi* avvolgere un calcolo in `useMemo` a meno che non lo faccia per una ragione specifica. In questo esempio, la ragione è che lo passi a un componente avvolto in [`memo`,](/reference/react/memo) e questo gli permette di saltare la ri-renderizzazione. Ci sono altre ragioni per aggiungere `useMemo`, descritte più avanti in questa pagina.
+**Avvolgendo il calcolo di `visibleTodos` in `useMemo`, ti assicuri che abbia lo *stesso* valore tra le ri-renderizzazioni** (finché le dipendenze non cambiano). Non *devi* avvolgere un calcolo in `useMemo` a meno di farlo per una ragione specifica. In questo esempio, la ragione è che lo passi a un componente avvolto in [`memo`,](/reference/react/memo) e questo gli permette di saltare la ri-renderizzazione. Ci sono altre ragioni per aggiungere `useMemo`, descritte più avanti in questa pagina.
 
 <DeepDive>
 
@@ -1088,7 +1088,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-Questo crea un problema. [Ogni valore reattivo deve essere dichiarato come dipendenza del tuo Effetto.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Tuttavia, se dichiari `options` come dipendenza, causerà al tuo Effetto di riconnettersi costantemente alla chat room:
+Questo crea un problema. [Ogni valore reattivo deve essere dichiarato come dipendenza del tuo Effetto.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Tuttavia, se dichiari `options` come dipendenza, causerà la riconnessione costante del tuo Effetto alla chat room:
 
 
 ```js {5}
