@@ -1,10 +1,17 @@
 ---
 title: "<progress>"
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react-dom/components/progress.md).
+
+</Note>
 
 <Intro>
 
-The [built-in browser `<progress>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) lets you render a progress indicator.
+Il [componente browser integrato `<progress>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/progress) ti permette di renderizzare un indicatore di progresso.
 
 ```js
 <progress value={0.5} />
@@ -20,32 +27,32 @@ The [built-in browser `<progress>` component](https://developer.mozilla.org/en-U
 
 ### `<progress>` {/*progress*/}
 
-To display a progress indicator, render the [built-in browser `<progress>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) component.
+Per visualizzare un indicatore di progresso, renderizza il [componente browser integrato `<progress>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/progress).
 
 ```js
 <progress value={0.5} />
 ```
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 #### Props {/*props*/}
 
-`<progress>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+`<progress>` supporta tutte le [props comuni degli elementi.](/reference/react-dom/components/common#common-props)
 
-Additionally, `<progress>` supports these props:
+Inoltre, `<progress>` supporta queste props:
 
-* [`max`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#max): A number. Specifies the maximum `value`. Defaults to `1`.
-* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#value): A number between `0` and `max`, or `null` for indeterminate progress. Specifies how much was done.
+* [`max`](https://developer.mozilla.org/it/docs/Web/HTML/Element/progress#max): Un numero. Specifica il `value` massimo. Predefinito: `1`.
+* [`value`](https://developer.mozilla.org/it/docs/Web/HTML/Element/progress#value): Un numero compreso tra `0` e `max`, oppure `null` per un progresso indeterminato. Specifica quanto è stato completato.
 
 ---
 
 ## Usage {/*usage*/}
 
-### Controlling a progress indicator {/*controlling-a-progress-indicator*/}
+### Controllare un indicatore di progresso {/*controlling-a-progress-indicator*/}
 
-To display a progress indicator, render a `<progress>` component. You can pass a number `value` between `0` and the `max` value you specify. If you don't pass a `max` value, it will assumed to be `1` by default.
+Per visualizzare un indicatore di progresso, renderizza un componente `<progress>`. Puoi passare un numero `value` compreso tra `0` e il valore di `max` che specifichi. Se non passi un valore `max`, viene assunto `1` per impostazione predefinita.
 
-If the operation is not ongoing, pass `value={null}` to put the progress indicator into an indeterminate state.
+Se l'operazione non è in corso, passa `value={null}` per mettere l'indicatore di progresso in uno stato indeterminato.
 
 <Sandpack>
 
