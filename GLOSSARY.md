@@ -30,6 +30,7 @@ Glossary of the translations of technical and React-specific terms.
 - wrapper
 - provider
 - consumer
+- context
 - reducer
 
 # Common Translations
