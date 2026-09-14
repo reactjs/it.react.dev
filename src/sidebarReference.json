@@ -537,7 +537,7 @@
       "sectionHeader": "API Legacy"
     },
     {
-      "title": "Legacy React APIs",
+      "title": "API legacy di React",
       "path": "/reference/react/legacy",
       "routes": [
         {
