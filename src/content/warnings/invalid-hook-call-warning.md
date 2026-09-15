@@ -32,7 +32,7 @@ Le funzioni il cui nome inizia con `use` sono chiamate [*Hook*](/reference/react
 **Non chiamare gli Hook dentro loop, condizioni o funzioni annidate.** Usa invece sempre gli Hook al livello superiore della tua funzione React, prima di qualsiasi return anticipato. Puoi chiamare gli Hook solo mentre React sta renderizzando un componente funzione:
 
 * ✅ Chiamali al livello superiore nel corpo di un [componente funzione](/learn/your-first-component).
-* ✅ Chiamali al livello superiore nel corpo di un [custom Hook](/learn/reusing-logic-with-custom-hooks).
+* ✅ Chiamali al livello superiore nel corpo di un [custom hook](/learn/reusing-logic-with-custom-hooks).
 
 ```js{2-3,8-9}
 function Counter() {
@@ -42,7 +42,7 @@ function Counter() {
 }
 
 function useWindowWidth() {
-  // ✅ Corretto: livello superiore in un custom Hook
+  // ✅ Corretto: livello superiore in un custom hook
   const [width, setWidth] = useState(window.innerWidth);
   // ...
 }
@@ -103,7 +103,7 @@ function Bad() {
 
 class Bad extends React.Component {
   render() {
-    // 🔴 Sbagliato: dentro un componente classe (per correggere, scrivi un componente funzione al posto di una classe!)
+    // 🔴 Sbagliato: dentro componenti classe (per correggere, scrivi un componente funzione al posto di una classe!)
     useEffect(() => {})
     // ...
   }
@@ -114,7 +114,7 @@ Puoi usare il plugin [`eslint-plugin-react-hooks`](https://www.npmjs.com/package
 
 <Note>
 
-I [custom Hook](/learn/reusing-logic-with-custom-hooks) *possono* chiamare altri Hook (è proprio il loro scopo). Funziona perché anche i custom Hook dovrebbero essere chiamati solo mentre un componente funzione viene renderizzato.
+I [custom hook](/learn/reusing-logic-with-custom-hooks) *possono* chiamare altri Hook (è proprio il loro scopo). Funziona perché anche i custom hook dovrebbero essere chiamati solo mentre un componente funzione viene renderizzato.
 
 </Note>
 
