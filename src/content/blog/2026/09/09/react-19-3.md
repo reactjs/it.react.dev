@@ -2,35 +2,42 @@
 title: "React 19.3"
 author: The React Team
 date: 2026/09/09
-description: React 19.3 adds new features like View Transitions, Fragment Refs, browser(), Trusted Types, and more.
+description: React 19.3 aggiunge nuove funzionalità come View Transitions, Fragment Refs, browser(), Trusted Types e altro.
+translationStatus: ai-draft
 ---
 
-September 9, 2026 by [The React Team](/community/team)
+9 settembre 2026 by [The React Team](/community/team)
 
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2026/09/09/react-19-3.md).
+
+</Note>
 
 <Intro>
 
-React 19.3 is now available on npm!
+React 19.3 è ora disponibile su npm!
 
 </Intro>
 
 
-[Last year](/blog/2025/04/23/react-labs-view-transitions-activity-and-more), we shared View Transitions and Fragment Refs as new experimental APIs coming to React. We're excited to announce that both of these are now stable in React 19.3!
+[Lo scorso anno](/blog/2025/04/23/react-labs-view-transitions-activity-and-more) abbiamo presentato View Transitions e Fragment Refs come nuove API sperimentali in arrivo in React. Siamo entusiasti di annunciare che entrambe sono ora stabili in React 19.3!
 
-In this post, we'll go over how they work, and also cover some other notable changes in this release.
+In questo post vedremo come funzionano e tratteremo anche altre novità rilevanti di questa release.
 
 <InlineToc />
 
 ---
 
-## New React Features {/*new-react-features*/}
+## Nuove funzionalità di React {/*new-react-features*/}
 
 ### View Transitions {/*view-transition*/}
 
-The new `<ViewTransition>` component lets you animate elements as they enter, exit, move, or resize using the browser's [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API). We shared it as an experimental API [last year](/blog/2025/04/23/react-labs-view-transitions-activity-and-more#view-transitions), and in 19.3 it's stable and ready to use.
+Il nuovo componente `<ViewTransition>` ti permette di animare elementi quando entrano, escono, si spostano o cambiano dimensione usando la [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) del browser. L'abbiamo condivisa come API sperimentale [lo scorso anno](/blog/2025/04/23/react-labs-view-transitions-activity-and-more#view-transitions), e in 19.3 è stabile e pronta all'uso.
 
-To animate part of your UI, wrap it in `<ViewTransition>`:
+Per animare una parte della tua UI, avvolgila in `<ViewTransition>`:
 
 ```js
 import { ViewTransition } from 'react';
@@ -42,22 +49,22 @@ import { ViewTransition } from 'react';
 )}
 ```
 
-Now, whenever an update marked as a [Transition](/reference/react/useTransition) changes the child component's style, or causes the `ViewTransition` to be mounted or unmounted, React will animate that update.
+Ora, ogni volta che un aggiornamento contrassegnato come [Transition](/reference/react/useTransition) cambia lo stile del componente figlio, o causa il mount o l'unmount di `ViewTransition`, React animerà quell'aggiornamento.
 
 {/*
 Updates outside of a Transition don't trigger animations, as those are meant to be urgent and reflected immediately in the UI. State updates inside of [startTransition](/reference/react/startTransition), a [`<Suspense>`](/reference/react/Suspense) reveal, or an update from [`useDeferredValue`](/reference/react/useDeferredValue) all cause a View Transition to animate.
 */}
 
-React chooses which animation to run based on how the tree changed:
+React sceglie quale animazione eseguire in base a come è cambiato l'albero:
 
-- **enter**: the `<ViewTransition>` is added.
-- **exit**: the `<ViewTransition>` is removed.
-- **update**: the children of a `<ViewTransition>` change style or content.
-- **share**: a named `<ViewTransition>` is removed in one place and added in another.
+- **enter**: viene aggiunto `<ViewTransition>`.
+- **exit**: viene rimosso `<ViewTransition>`.
+- **update**: i figli di un `<ViewTransition>` cambiano stile o contenuto.
+- **share**: un `<ViewTransition>` con nome viene rimosso in un punto e aggiunto in un altro.
 
-Note that updates not marked as Transitions don't trigger animations, as those are meant to be urgent and reflected immediately in the UI. State updates inside of [startTransition](/reference/react/startTransition), a [`<Suspense>`](/reference/react/Suspense) reveal, or an update from [`useDeferredValue`](/reference/react/useDeferredValue) all cause a View Transition to animate.
+Nota che gli aggiornamenti non contrassegnati come Transition non attivano animazioni, perché sono pensati per essere urgenti e riflessi immediatamente nella UI. Gli aggiornamenti di state dentro [startTransition](/reference/react/startTransition), la rivelazione di un [`<Suspense>`](/reference/react/Suspense) o un aggiornamento da [`useDeferredValue`](/reference/react/useDeferredValue) attivano tutti l'animazione di una View Transition.
 
-Here's a simple example of an enter/exit animation:
+Ecco un semplice esempio di animazione enter/exit:
 
 <Sandpack>
 
@@ -220,23 +227,23 @@ button:hover {
 
 </Sandpack>
 
-By default, `<ViewTransition>` animates with a smooth cross-fade. You can customize each kind of animation by passing a [View Transition Class](/reference/react/ViewTransition#view-transition-class) and defining the animation in CSS, or you can use the [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) to trigger animations imperatively with the [event props](/reference/react/ViewTransition#view-transition-event) (`onEnter`, `onExit`, `onShare`, `onUpdate`).
+Per impostazione predefinita, `<ViewTransition>` anima con un cross-fade fluido. Puoi personalizzare ogni tipo di animazione passando una [View Transition Class](/reference/react/ViewTransition#view-transition-class) e definendo l'animazione in CSS, oppure puoi usare la [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) per attivare animazioni in modo imperativo con le [event props](/reference/react/ViewTransition#view-transition-event) (`onEnter`, `onExit`, `onShare`, `onUpdate`).
 
 {/*
 There are a couple of rules to keep in mind. A `<ViewTransition>` only animates on enter and exit if it's the first thing rendered in its subtree, before any DOM node, and each shared `name` must be unique across your app at any given time. See [Troubleshooting](/reference/react/ViewTransition#troubleshooting) for the details.
  */}
 
-Currently, `<ViewTransition>` only works in the DOM. We're working on support for React Native and other platforms.
+Attualmente, `<ViewTransition>` funziona solo nel DOM. Stiamo lavorando al supporto per React Native e altre piattaforme.
 
-For more, see the [`<ViewTransition>` docs](/reference/react/ViewTransition).
+Per saperne di più, consulta la [documentazione di `<ViewTransition>`](/reference/react/ViewTransition).
 
 ---
 
 #### `addTransitionType` {/*add-transition-type*/}
 
-Sometimes, you'll want to customize which animation is used for the same state update. For example, navigating a carousel _forward_ to the third slide should animate the slides right-to-left, while navigating it _backward_ should animate them left-to-right, even though both actions set the currentSlide to 3.
+A volte vorrai personalizzare quale animazione usare per lo stesso aggiornamento di state. Ad esempio, navigare un carosello _in avanti_ fino alla terza slide dovrebbe animare le slide da destra a sinistra, mentre navigarlo _indietro_ dovrebbe animarle da sinistra a destra, anche se entrambe le azioni impostano currentSlide a 3.
 
-You can customize the animation for a given View Transition by calling `addTransitionType` alongside the state update. This lets you add more information about the _cause_ of a particular transition:
+Puoi personalizzare l'animazione per una data View Transition chiamando `addTransitionType` insieme all'aggiornamento di state. Questo ti permette di aggiungere più informazioni sulla _causa_ di una particolare transition:
 
 ```js {3,10}
 function nextSlide() {
@@ -254,7 +261,7 @@ function previousSlide() {
 }
 ```
 
-Then, you can specify different animations based on that transition type:
+Poi puoi specificare animazioni diverse in base a quel transition type:
 
 ```js
 <ViewTransition
@@ -271,7 +278,7 @@ Then, you can specify different animations based on that transition type:
 </ViewTransition>
 ```
 
-Here's an example:
+Ecco un esempio:
 
 <Sandpack>
 
@@ -555,17 +562,17 @@ button:hover {
 
 </Sandpack>
 
-React also adds every Transition Type to the element as a browser [view transition type](https://www.w3.org/TR/css-view-transitions-2/#active-view-transition-pseudo-examples), so you can scope animations in CSS with `:active-view-transition-type(...)`.
+React aggiunge anche ogni Transition Type all'elemento come [view transition type](https://www.w3.org/TR/css-view-transitions-2/#active-view-transition-pseudo-examples) del browser, così puoi delimitare le animazioni in CSS con `:active-view-transition-type(...)`.
 
-To learn more, see the [`addTransitionType` docs](/reference/react/addTransitionType).
+Per saperne di più, consulta la [documentazione di `addTransitionType`](/reference/react/addTransitionType).
 
 ---
 
-#### Animating fallbacks, images, and fonts with Suspense {/*animating-fallbacks-images-and-fonts-with-suspense*/}
+#### Animare fallback, immagini e font con Suspense {/*animating-fallbacks-images-and-fonts-with-suspense*/}
 
-One of the most exciting things about View Transitions in React is how they integrate with Suspense.
+Una delle cose più interessanti delle View Transitions in React è come si integrano con Suspense.
 
-You can animate a Suspense boundary as it reveals its children by wrapping it in `<ViewTransition>`:
+Puoi animare un boundary Suspense mentre rivela i suoi figli avvolgendolo in `<ViewTransition>`:
 
 ```js
 <ViewTransition>
@@ -575,9 +582,9 @@ You can animate a Suspense boundary as it reveals its children by wrapping it in
 </ViewTransition>
 ```
 
-When the children finish loading, React will trigger an **update** animation from the fallback to the final content.
+Quando i figli finiscono di caricarsi, React attiverà un'animazione di **update** dal fallback al contenuto finale.
 
-Here's an example. Try pressing ➕ to render a LazyVideo that suspends the first time it's rendered:
+Ecco un esempio. Prova a premere ➕ per renderizzare un LazyVideo che sospende la prima volta che viene renderizzato:
 
 <Sandpack>
 
@@ -806,19 +813,19 @@ button:hover {
 
 </Sandpack>
 
-While this works, you'll notice that the video also animates in and out on subsequent reveals, even though it's already been loaded. (You might also notice that the fallback fades in the first time it's shown.)
+Anche se funziona, noterai che il video continua ad animarsi entrando e uscendo nelle rivelazioni successive, anche se è già stato caricato. (Potresti anche notare che il fallback sfuma la prima volta che viene mostrato.)
 
-In general, animations with Suspense work best when they're used sparingly, and avoided for cached UI that would otherwise appear instantly.
+In generale, le animazioni con Suspense funzionano meglio se usate con parsimonia ed evitate per UI già in cache che altrimenti apparirebbe istantaneamente.
 
-Here are some principles for achieving good UX when animating with Suspense:
+Ecco alcuni principi per ottenere una buona UX quando animi con Suspense:
 
-- Fallbacks should appear immediately _without animation_
-- A fallback should update to its final content _with animation_
-- Children that don't suspend should appear immediately _without animation_
+- I fallback dovrebbero apparire immediatamente _senza animazione_
+- Un fallback dovrebbe aggiornarsi al contenuto finale _con animazione_
+- I figli che non sospendono dovrebbero apparire immediatamente _senza animazione_
 
-This keeps your app feeling snappy when things are already loaded, and only uses animation to make the update from fallback to final content more seamless.
+Questo mantiene l'app reattiva quando i contenuti sono già caricati, e usa l'animazione solo per rendere più fluido il passaggio dal fallback al contenuto finale.
 
-To fix our example above, we can disable all animations other than updates:
+Per correggere l'esempio sopra, possiamo disabilitare tutte le animazioni tranne quelle di update:
 
 ```js {1}
 <ViewTransition update="auto" default="none">
@@ -828,7 +835,7 @@ To fix our example above, we can disable all animations other than updates:
 </ViewTransition>
 ```
 
-Let's see how it behaves now:
+Vediamo come si comporta ora:
 
 <Sandpack>
 
@@ -1057,17 +1064,17 @@ button:hover {
 
 </Sandpack>
 
-Notice how the fallback appears immediately when tapping the button, which keeps our UI feeling responsive to user actions. Additionally, once the video has been loaded, toggling it is instant.
+Nota come il fallback appare immediatamente quando tocchi il bottone, mantenendo la UI reattiva alle azioni dell'utente. Inoltre, una volta caricato il video, attivarlo o disattivarlo è istantaneo.
 
-There are other patterns you can use depending on what effect you want to achieve. To learn more, check out the docs on [animating with Suspense](/reference/react/ViewTransition#animating-from-suspense-content).
+Ci sono altri pattern che puoi usare a seconda dell'effetto che vuoi ottenere. Per saperne di più, consulta la documentazione su [animare con Suspense](/reference/react/ViewTransition#animating-from-suspense-content).
 
 ---
 
-In addition to animating fallbacks, View Transitions act as a way to opt images or fonts into triggering Suspense while they load.
+Oltre ad animare i fallback, le View Transitions permettono di far sì che immagini o font attivino Suspense durante il caricamento.
 
-This lets you avoid the browser's default behavior where images or fonts may flicker in whenever they happen to finish loading, and instead build coordinated loading sequences that consider all of a component's resources.
+Questo ti permette di evitare il comportamento predefinito del browser in cui immagini o font possono comparire con un flicker non appena finiscono di caricarsi, e invece costruire sequenze di caricamento coordinate che considerano tutte le risorse di un componente.
 
-Wrap images or fonts inside of `<ViewTransition>` to trigger Suspense while they load:
+Avvolgi immagini o font dentro `<ViewTransition>` per attivare Suspense mentre si caricano:
 
 ```js
 <ViewTransition>
@@ -1085,7 +1092,7 @@ Wrap images or fonts inside of `<ViewTransition>` to trigger Suspense while they
 </ViewTransition>
 ```
 
-Here's an example of a component that suspends until its data, image, and font have all loaded:
+Ecco un esempio di componente che sospende finché dati, immagine e font non sono tutti caricati:
 
 
 <Sandpack>
@@ -1310,16 +1317,16 @@ img {
 
 </Sandpack>
 
-To learn more about waiting for images, fonts, or stylesheets to load, see the [Suspense docs](/reference/react/Suspense#waiting-for-a-font-to-load).
+Per saperne di più sull'attesa del caricamento di immagini, font o stylesheet, consulta la [documentazione di Suspense](/reference/react/Suspense#waiting-for-a-font-to-load).
 
 ---
 
 ### Fragment Refs {/*fragment-refs*/}
 
-When you need lower-level control over a component's DOM nodes—for example to attach an event listener, observe visibility, or move focus—you can usually use a ref. But there are some situations where this is difficult:
+Quando hai bisogno di un controllo più a basso livello sui nodi DOM di un componente — ad esempio per collegare un event listener, osservare la visibilità o spostare il focus — di solito puoi usare un ref. Ma ci sono situazioni in cui questo è difficile:
 
-- Components that render a group of siblings with no single parent
-- Components that don't pass along their `ref` prop to another element
+- Componenti che renderizzano un gruppo di sibling senza un singolo genitore
+- Componenti che non passano la prop `ref` a un altro elemento
 
 ```js
 function Component() {
@@ -1334,11 +1341,11 @@ function Component() {
 }
 ```
 
-Adding a wrapper `<div>` just to hold a ref sometimes works, but it can also interfere with your component's styling or layout. Moreover, if a component doesn't expose a `ref` prop, you would need to modify that component to do so, which might be impossible if it comes from a library you don't control.
+Aggiungere un wrapper `<div>` solo per tenere un ref a volte funziona, ma può anche interferire con lo styling o il layout del componente. Inoltre, se un componente non espone una prop `ref`, dovresti modificarlo per farlo, il che potrebbe essere impossibile se proviene da una libreria che non controlli.
 
-Fragment Refs solve these problems by providing a limited set of commonly used DOM methods that work with any React component, regardless of what it renders.
+I Fragment Refs risolvono questi problemi fornendo un insieme limitato di metodi DOM comunemente usati che funzionano con qualsiasi componente React, indipendentemente da cosa renderizza.
 
-In 19.3, you can use them by passing a ref directly to a [`<Fragment>`](/reference/react/Fragment). This ref gives you a `FragmentInstance`, which you can use to work with the Fragment's DOM children:
+In 19.3, puoi usarli passando un ref direttamente a un [`<Fragment>`](/reference/react/Fragment). Questo ref ti dà un `FragmentInstance`, che puoi usare per lavorare con i figli DOM del Fragment:
 
 ```js {2,5-6,10}
 function Component() {
@@ -1361,16 +1368,16 @@ function Component() {
 }
 ```
 
-The `FragmentInstance` operates on the children's DOM _as a group_, without changing its structure:
+Il `FragmentInstance` opera sul DOM dei figli _come gruppo_, senza cambiarne la struttura:
 
-- `addEventListener`, `removeEventListener`, and `dispatchEvent` manage events for first-level children.
-- `focus`, `focusLast`, and `blur` move focus across nested children, depth-first.
-- `observeUsing` and `unobserveUsing` connect an `IntersectionObserver` or `ResizeObserver`.
-- `getClientRects`, `getRootNode`, `compareDocumentPosition`, and `scrollIntoView` let you measure and scroll to the fragment's first-level children.
+- `addEventListener`, `removeEventListener` e `dispatchEvent` gestiscono gli eventi per i figli di primo livello.
+- `focus`, `focusLast` e `blur` spostano il focus tra i figli annidati, in profondità prima.
+- `observeUsing` e `unobserveUsing` collegano un `IntersectionObserver` o un `ResizeObserver`.
+- `getClientRects`, `getRootNode`, `compareDocumentPosition` e `scrollIntoView` ti permettono di misurare e scorrere fino ai figli di primo livello del fragment.
 
-Thus, Fragment Refs let you attach behavior to other components without requiring you to modify those component's internals, or without changing the DOM structure that they already produce.
+Quindi, i Fragment Refs ti permettono di collegare comportamenti ad altri componenti senza doverne modificare l'interno, o senza cambiare la struttura DOM che già producono.
 
-This example shows an `InView` component with an `onChange` prop that fires whenever its children enter or exit the viewport:
+Questo esempio mostra un componente `InView` con una prop `onChange` che scatta ogni volta che i suoi figli entrano o escono dal viewport:
 
 <Sandpack>
 
@@ -1485,26 +1492,26 @@ export default function InView({ onChange, children }) {
 
 </Sandpack>
 
-Notice how `InView` is able to add behavior to its children, even though there's no single parent DOM element, and in spite of `Card` not exposing a `ref` prop.
+Nota come `InView` riesce ad aggiungere comportamento ai suoi figli, anche se non c'è un singolo elemento DOM genitore, e nonostante `Card` non esponga una prop `ref`.
 
-To learn more about working with Fragment Refs, see the [`<Fragment>` docs](/reference/react/Fragment).
+Per saperne di più sull'uso dei Fragment Refs, consulta la [documentazione di `<Fragment>`](/reference/react/Fragment).
 
 ---
 
-## New React DOM Features {/*new-react-dom-features*/}
+## Nuove funzionalità di React DOM {/*new-react-dom-features*/}
 
 ### `browser` {/*browser*/}
 
-If your app uses server rendering, your components will render in two different environments:
+Se la tua app usa il server rendering, i componenti renderizzeranno in due ambienti diversi:
 
-- On the server, components render to produce the initial HTML
-- On the client, components render to enrich that HTML with event handlers
+- Sul server, i componenti renderizzano per produrre l'HTML iniziale
+- Sul client, i componenti renderizzano per arricchire quell'HTML con gestori di eventi
 
-Most of time, your components should be able to produce HTML that matches their initial client-rendered output, ensuring they hydrate correctly while still letting users see as much content as possible on the initial load.
+Nella maggior parte dei casi, i componenti dovrebbero produrre HTML che corrisponde al loro output iniziale renderizzato sul client, garantendo un'idratazione corretta e permettendo agli utenti di vedere quanto più contenuto possibile al caricamento iniziale.
 
-But in rare cases, a component may not be able to produce meaningful UI on the server. For example, it might depend on a browser-only API like `localStorage`, or it might read from the browser's local timezone. In these cases, you may want to opt that component out of server rendering altogether.
+Ma in rari casi, un componente potrebbe non riuscire a produrre UI significativa sul server. Ad esempio, potrebbe dipendere da un'API disponibile solo nel browser come `localStorage`, o leggere il fuso orario locale del browser. In questi casi, potresti voler escludere del tutto quel componente dal server rendering.
 
-Previously, you might do this using some state that you'd update in an effect, or by checking for the presence of browser APIs like `window`:
+In precedenza, potevi farlo usando dello state che aggiornavi in un Effetto, o controllando la presenza di API del browser come `window`:
 
 ```js
 function Component() {
@@ -1524,9 +1531,9 @@ function Component() {
 }
 ```
 
-In 19.3, React now includes a first-class API for this technique.
+In 19.3, React include ora un'API di prima classe per questa tecnica.
 
-A component can call `use(browser())` to opt out of server-side rendering:
+Un componente può chiamare `use(browser())` per escludersi dal server-side rendering:
 
 ```js {5}
 import { use } from 'react';
@@ -1539,9 +1546,9 @@ function Component() {
 }
 ```
 
-This will trigger Suspense on the server, but _not_ in the client. During server-side rendering, the nearest Suspense boundary's fallback will show in the HTML. Once the component is hydrated on the client, `use(browser())` does not suspend, allowing the component to continue rendering as normal.
+Questo attiverà Suspense sul server, ma _non_ sul client. Durante il server-side rendering, il fallback del boundary Suspense più vicino apparirà nell'HTML. Una volta idratato il componente sul client, `use(browser())` non sospende, permettendo al componente di continuare a renderizzare normalmente.
 
-Here's an example of a component that renders the local time zone from your device. Press **Reload** to see the initial HTML followed by React's first render on the client:
+Ecco un esempio di componente che renderizza il fuso orario locale del tuo dispositivo. Premi **Reload** per vedere l'HTML iniziale seguito dalla prima renderizzazione di React sul client:
 
 <Sandpack>
 
@@ -1660,15 +1667,15 @@ iframe {
 
 </Sandpack>
 
-Because TimeZone suspends on the server, the initial HTML includes the Suspense fallback. After a small artificial delay, React hydrates the page, allowing the component to render as normal in the browser.
+Poiché TimeZone sospende sul server, l'HTML iniziale include il fallback Suspense. Dopo un breve ritardo artificiale, React idrata la pagina, permettendo al componente di renderizzare normalmente nel browser.
 
-Thus, for components that cannot produce meaningful UI during server rendering, `browser` lets you use Suspense for their loading states, allowing them to participate with other components that suspend until they're ready to render.
+Quindi, per i componenti che non possono produrre UI significativa durante il server rendering, `browser` ti permette di usare Suspense per i loro stati di caricamento, permettendo loro di partecipare insieme ad altri componenti che sospendono finché non sono pronti a renderizzare.
 
 ---
 
-Like other calls to `use`, `use(browser())` can be called inside a conditional statement or after an early return. This lets you write components or custom Hooks that can opt out of server rendering based on a condition, such as the value of a prop.
+Come altre chiamate a `use`, `use(browser())` può essere chiamato dentro un'istruzione condizionale o dopo un early return. Questo ti permette di scrivere componenti o Hook personalizzati che possono escludersi dal server rendering in base a una condizione, come il valore di una prop.
 
-Here's the same example from above, except now our TimeZone component accepts an optional default value it can render as part of the initial HTML:
+Ecco lo stesso esempio di sopra, tranne che ora il nostro componente TimeZone accetta un valore predefinito opzionale che può renderizzare come parte dell'HTML iniziale:
 
 <Sandpack>
 
@@ -1800,9 +1807,9 @@ iframe {
 
 </Sandpack>
 
-Notice how TimeZone only suspends in the second case, when no default is provided.
+Nota come TimeZone sospende solo nel secondo caso, quando non viene fornito un valore predefinito.
 
-Another useful example of this pattern is opting a data-fetching Hook like `useQuery` out of server rendering, unless that query's initial data was passed in (for example from a Server Component or framework's loader function):
+Un altro esempio utile di questo pattern è escludere dal server rendering un Hook per il data fetching come `useQuery`, a meno che i dati iniziali della query non siano stati passati (ad esempio da un Server Component o dalla funzione loader del framework):
 
 ```js {3}
 function useBrowserQuery(query, options) {
@@ -1822,27 +1829,27 @@ function ProductDetails({ productId, initialData }) {
 }
 ```
 
-Now, the ProductDetails component can be included in the HTML, provided it receives `initialData` during server rendering. If not, it suspends until it gets rendered in the browser, at which point `useQuery` can fetch the data or read from its cache as normal.
+Ora, il componente ProductDetails può essere incluso nell'HTML, a patto che riceva `initialData` durante il server rendering. Altrimenti, sospende finché non viene renderizzato nel browser, momento in cui `useQuery` può recuperare i dati o leggerli dalla cache normalmente.
 
-To learn more about `browser`, [check out the docs](/reference/react-dom/browser).
-
----
-
-### Trusted Types support {/*trusted-types-support*/}
-
-React 19.3 integrates with the browser [Trusted Types API](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API), a security feature that helps prevent DOM-based XSS attacks. When a site enforces Trusted Types with `Content-Security-Policy: require-trusted-types-for 'script'`, the browser requires that values passed to injection sinks like `innerHTML` are typed objects (`TrustedHTML`, `TrustedScript`, `TrustedScriptURL`) created through your sanitization policies, rather than raw strings.
-
-Previously, React always coerced values to strings (via `'' + value`) before passing them to DOM APIs, which turned Trusted Types objects back into plain strings the browser would reject. React now passes these values through without coercion, so the browser can validate them and your Trusted Types policies work as intended.
+Per saperne di più su `browser`, [consulta la documentazione](/reference/react-dom/browser).
 
 ---
 
-## New React Server Components Features {/*new-react-server-components-features*/}
+### Supporto Trusted Types {/*trusted-types-support*/}
 
-### `<Context>` can be rendered directly in Server Components {/*context-can-be-rendered-directly-in-server-components*/}
+React 19.3 si integra con la [Trusted Types API](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API) del browser, una funzionalità di sicurezza che aiuta a prevenire attacchi XSS basati sul DOM. Quando un sito applica Trusted Types con `Content-Security-Policy: require-trusted-types-for 'script'`, il browser richiede che i valori passati a injection sink come `innerHTML` siano oggetti tipizzati (`TrustedHTML`, `TrustedScript`, `TrustedScriptURL`) creati tramite le tue policy di sanitizzazione, piuttosto che stringhe grezze.
 
-While Server Components can't _create_ Context, they can _render_ Context by importing it from a `'use client'` module.
+In precedenza, React convertiva sempre i valori in stringhe (via `'' + value`) prima di passarli alle API DOM, trasformando gli oggetti Trusted Types di nuovo in stringhe semplici che il browser rifiutava. React ora passa questi valori senza coercizione, così il browser può validarli e le tue policy Trusted Types funzionano come previsto.
 
-Previously, this required the client module to export a separate wrapper component, often called a Provider:
+---
+
+## Nuove funzionalità di React Server Components {/*new-react-server-components-features*/}
+
+### `<Context>` può essere renderizzato direttamente nei Server Components {/*context-can-be-rendered-directly-in-server-components*/}
+
+Anche se i Server Components non possono _creare_ Context, possono _renderizzare_ Context importandolo da un modulo `'use client'`.
+
+In precedenza, questo richiedeva che il modulo client esportasse un componente wrapper separato, spesso chiamato Provider:
 
 ```js {7-9}
 // user-context.js
@@ -1871,9 +1878,9 @@ export async function Layout({ children }) {
 }
 ```
 
-Notice that in this example, the provider does nothing other than pass the prop from the Server Component directly to the Context.
+Nota che in questo esempio, il provider non fa altro che passare la prop dal Server Component direttamente al Context.
 
-In React 19.3, Server Components can import and render Context directly from a `'use client'` module, without an additional wrapping component:
+In React 19.3, i Server Components possono importare e renderizzare Context direttamente da un modulo `'use client'`, senza un componente wrapper aggiuntivo:
 
 ```js {5}
 // user-context.js
@@ -1898,54 +1905,54 @@ export async function Layout({ children }) {
 }
 ```
 
-This is especially useful for Contexts that solely exist to allow Server Components to share some data with the rest of the client tree.
+Questo è particolarmente utile per i Context che esistono solo per permettere ai Server Components di condividere dati con il resto dell'albero client.
 
 
 ---
 
 ## Changelog {/*changelog*/}
 
-Other notable changes
-- `react`: Render Transitions independently instead of entangling them into a single render, so a slow Transition no longer holds up unrelated ones [#37290](https://github.com/react/react/pull/37290)
-- `react-dom`: Double invoke Effects in Strict Mode during hydration, matching client-rendered roots [#35961](https://github.com/react/react/pull/35961)
-- `react`: Add a warning when `use` is used incorrectly in a conditional [#37104](https://github.com/react/react/pull/37104)
-- `react`: Rename "form state" to "action state" in `useActionState` error messages [#35790](https://github.com/react/react/pull/35790)
-- `react-dom`: Add support for `onFullscreenChange` and `onFullscreenError` events [#34621](https://github.com/react/react/pull/34621)
-- `react-dom`: Add support for the `maskType` SVG property [#35921](https://github.com/react/react/pull/35921)
-- `react-dom`: Support `fetchPriority` for module resources [#36835](https://github.com/react/react/pull/36835)
-- `react-dom`: Fire `onReset` when React automatically resets a form after a Server Action [#35176](https://github.com/react/react/pull/35176)
-- `react-dom`: Include the `submitter` in `submit` events [#35590](https://github.com/react/react/pull/35590)
-- `react-dom`: Recognize `credentialless` as a boolean attribute on iframes [#36148](https://github.com/react/react/pull/36148)
-- `react-dom`: Batch updates from `resize` events until the next frame [#35117](https://github.com/react/react/pull/35117)
-- `react-server`: Transport `Error.cause` [#35810](https://github.com/react/react/pull/35810) and `AggregateError.errors` [#36156](https://github.com/react/react/pull/36156) to the client
-- `react-server`: Add support for `<Activity>` in Flight [#34697](https://github.com/react/react/pull/34697)
+Altre novità rilevanti
+- `react`: Renderizza le Transition in modo indipendente invece di intrecciarle in una singola renderizzazione, così una Transition lenta non blocca più quelle non correlate [#37290](https://github.com/react/react/pull/37290)
+- `react-dom`: Invoca due volte gli Effetti in Strict Mode durante l'idratazione, allineandosi alle root renderizzate sul client [#35961](https://github.com/react/react/pull/35961)
+- `react`: Aggiunge un warning quando `use` viene usato in modo errato in una condizionale [#37104](https://github.com/react/react/pull/37104)
+- `react`: Rinomina "form state" in "action state" nei messaggi di errore di `useActionState` [#35790](https://github.com/react/react/pull/35790)
+- `react-dom`: Aggiunge supporto per gli eventi `onFullscreenChange` e `onFullscreenError` [#34621](https://github.com/react/react/pull/34621)
+- `react-dom`: Aggiunge supporto per la proprietà SVG `maskType` [#35921](https://github.com/react/react/pull/35921)
+- `react-dom`: Supporta `fetchPriority` per le risorse module [#36835](https://github.com/react/react/pull/36835)
+- `react-dom`: Attiva `onReset` quando React resetta automaticamente un form dopo una Server Action [#35176](https://github.com/react/react/pull/35176)
+- `react-dom`: Include il `submitter` negli eventi `submit` [#35590](https://github.com/react/react/pull/35590)
+- `react-dom`: Riconosce `credentialless` come attributo booleano sugli iframe [#36148](https://github.com/react/react/pull/36148)
+- `react-dom`: Raggruppa gli aggiornamenti dagli eventi `resize` fino al frame successivo [#35117](https://github.com/react/react/pull/35117)
+- `react-server`: Trasporta `Error.cause` [#35810](https://github.com/react/react/pull/35810) e `AggregateError.errors` [#36156](https://github.com/react/react/pull/36156) al client
+- `react-server`: Aggiunge supporto per `<Activity>` in Flight [#34697](https://github.com/react/react/pull/34697)
 
-Notable bug fixes
+Bug fix rilevanti
 
-- `react`: Fix `useDeferredValue` getting stuck on an old value [#36134](https://github.com/react/react/pull/36134)
-- `react`: Fix context propagation into Suspense fallbacks [#36160](https://github.com/react/react/pull/36160) and through suspended Suspense boundaries [#35839](https://github.com/react/react/pull/35839)
-- `react`: Fix a hang when updating a dehydrated Suspense boundary inside a hidden tree [#37135](https://github.com/react/react/pull/37135)
-- `react`: Fix `useSyncExternalStore` missing store mutations that happened while an `<Activity>` tree was hidden [#36947](https://github.com/react/react/pull/36947)
-- `react`: Fix `useEffectEvent` to read the latest values in `forwardRef` and `memo` components [#34831](https://github.com/react/react/pull/34831)
-- `react`: Fix form status resetting when component state is updated [#34075](https://github.com/react/react/pull/34075)
-- `react`: Fix several Fast Refresh bugs with `lazy`, `memo`, and edits that change a component's kind [#36965](https://github.com/react/react/pull/36965), [#36964](https://github.com/react/react/pull/36964), [#36963](https://github.com/react/react/pull/36963), [#36950](https://github.com/react/react/pull/36950)
-- `react`: Fix a bug where `<title>` was still hoisted to `<head>` after the `<Activity>` containing the `<title>` changed mode from `visible` to `hidden` [#34983](https://github.com/react/react/pull/34983)
-- `react`: Don't let errors escape a hidden `<Activity>` [#35074](https://github.com/react/react/pull/35074)
-- `react`: Hide portal contents rendered inside a hidden `<Activity>` [#35091](https://github.com/react/react/pull/35091)
-- `react`: Don't reference the internal `<Offscreen>` type in error messages [#35763](https://github.com/react/react/pull/35763)
-- `react-dom`: Fix focus for delegated and already-focused elements [#36010](https://github.com/react/react/pull/36010)
-- `react-dom`: Fix a `FragmentInstance` listener leak by normalizing capture options per the DOM spec [#36047](https://github.com/react/react/pull/36047)
-- `react-dom`: Fix a `<ViewTransition>` crash in Mobile Safari [#35337](https://github.com/react/react/pull/35337)
-- `react-dom`: Fix a `<ViewTransition>` crash with `SuspenseList` [#35520](https://github.com/react/react/pull/35520)
-- `react-dom`: Update `defaultValue` for `type="number"` inputs to match other input types [#36980](https://github.com/react/react/pull/36980)
-- `react-dom`: Avoid setting `innerHTML` when it hasn't changed [#36949](https://github.com/react/react/pull/36949)
-- `react-dom`: Fix a false-positive hydration mismatch on `nonce` attributes [#37030](https://github.com/react/react/pull/37030)
-- `react-dom`: Fix `react-dom/server` hanging on Deno [#35235](https://github.com/react/react/pull/35235)
-- `react-server`: Fix dropped `FormData` entries in `decodeReplyFromBusboy` [#36468](https://github.com/react/react/pull/36468)
-- `react-server`: Fix a stack overflow with deep async chains [#35612](https://github.com/react/react/pull/35612) and a `RangeError` from exponential debug info growth [#37481](https://github.com/react/react/pull/37481)
+- `react`: Corregge `useDeferredValue` bloccato su un valore obsoleto [#36134](https://github.com/react/react/pull/36134)
+- `react`: Corregge la propagazione del context nei fallback Suspense [#36160](https://github.com/react/react/pull/36160) e attraverso boundary Suspense sospesi [#35839](https://github.com/react/react/pull/35839)
+- `react`: Corregge un blocco quando si aggiorna un boundary Suspense disidratato dentro un albero nascosto [#37135](https://github.com/react/react/pull/37135)
+- `react`: Corregge `useSyncExternalStore` che perdeva mutazioni dello store avvenute mentre un albero `<Activity>` era nascosto [#36947](https://github.com/react/react/pull/36947)
+- `react`: Corregge `useEffectEvent` per leggere gli ultimi valori nei componenti `forwardRef` e `memo` [#34831](https://github.com/react/react/pull/34831)
+- `react`: Corregge il reset dello status del form quando lo state del componente viene aggiornato [#34075](https://github.com/react/react/pull/34075)
+- `react`: Corregge diversi bug di Fast Refresh con `lazy`, `memo` e modifiche che cambiano il tipo di un componente [#36965](https://github.com/react/react/pull/36965), [#36964](https://github.com/react/react/pull/36964), [#36963](https://github.com/react/react/pull/36963), [#36950](https://github.com/react/react/pull/36950)
+- `react`: Corregge un bug per cui `<title>` veniva ancora spostato in `<head>` dopo che l'`<Activity>` contenente `<title>` cambiava modalità da `visible` a `hidden` [#34983](https://github.com/react/react/pull/34983)
+- `react`: Non lascia sfuggire errori da un `<Activity>` nascosto [#35074](https://github.com/react/react/pull/35074)
+- `react`: Nasconde i contenuti del portal renderizzati dentro un `<Activity>` nascosto [#35091](https://github.com/react/react/pull/35091)
+- `react`: Non fa riferimento al tipo interno `<Offscreen>` nei messaggi di errore [#35763](https://github.com/react/react/pull/35763)
+- `react-dom`: Corregge il focus per elementi delegati e già focalizzati [#36010](https://github.com/react/react/pull/36010)
+- `react-dom`: Corregge una perdita di listener di `FragmentInstance` normalizzando le opzioni capture secondo la spec DOM [#36047](https://github.com/react/react/pull/36047)
+- `react-dom`: Corregge un crash di `<ViewTransition>` in Mobile Safari [#35337](https://github.com/react/react/pull/35337)
+- `react-dom`: Corregge un crash di `<ViewTransition>` con `SuspenseList` [#35520](https://github.com/react/react/pull/35520)
+- `react-dom`: Aggiorna `defaultValue` per input `type="number"` per allinearli ad altri tipi di input [#36980](https://github.com/react/react/pull/36980)
+- `react-dom`: Evita di impostare `innerHTML` quando non è cambiato [#36949](https://github.com/react/react/pull/36949)
+- `react-dom`: Corregge un falso positivo di mismatch di idratazione sugli attributi `nonce` [#37030](https://github.com/react/react/pull/37030)
+- `react-dom`: Corregge il blocco di `react-dom/server` su Deno [#35235](https://github.com/react/react/pull/35235)
+- `react-server`: Corregge voci `FormData` perse in `decodeReplyFromBusboy` [#36468](https://github.com/react/react/pull/36468)
+- `react-server`: Corregge uno stack overflow con catene async profonde [#35612](https://github.com/react/react/pull/35612) e un `RangeError` da crescita esponenziale delle info di debug [#37481](https://github.com/react/react/pull/37481)
 
-For a full list of changes, please see the [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md).
+Per l'elenco completo delle modifiche, consulta il [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md).
 
 ---
 
-_Thanks to [Sam Selikoff](https://x.com/samselikoff) for writing this post, and to [Matt Carroll](https://mattcarrollcode.com/), [Dan Abramov](https://bsky.app/profile/danabra.mov), and [Andrew Clark](https://x.com/acdlite) for reviewing this post._
+_Grazie a [Sam Selikoff](https://x.com/samselikoff) per aver scritto questo post, e a [Matt Carroll](https://mattcarrollcode.com/), [Dan Abramov](https://bsky.app/profile/danabra.mov) e [Andrew Clark](https://x.com/acdlite) per aver revisionato questo post._

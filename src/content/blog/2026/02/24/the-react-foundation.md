@@ -1,13 +1,20 @@
 ---
-title: "The React Foundation: A New Home for React Hosted by the Linux Foundation"
+title: "The React Foundation: una nuova casa per React ospitata dalla Linux Foundation"
 author: Matt Carroll
 date: 2026/02/24
-description: The React Foundation has officially launched, hosted by the Linux Foundation.
+description: La React Foundation è ufficialmente attiva, ospitata dalla Linux Foundation.
+translationStatus: ai-draft
 ---
 
-February 24, 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
+24 febbraio 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
 
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2026/02/24/the-react-foundation.md).
+
+</Note>
 
 <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem', marginLeft: '7rem', marginRight: '7rem' }}>
   <picture >
@@ -22,19 +29,19 @@ February 24, 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
 
 <Intro>
 
-The React Foundation has officially launched, hosted by the Linux Foundation.
+La React Foundation è ufficialmente attiva, ospitata dalla Linux Foundation.
 
 </Intro>
 
 ---
 
-[In October](/blog/2025/10/07/introducing-the-react-foundation), we announced our intent to form the React Foundation. Today, we're excited to share that the React Foundation has officially launched.
+[In ottobre](/blog/2025/10/07/introducing-the-react-foundation) abbiamo annunciato l'intenzione di costituire la React Foundation. Oggi siamo entusiasti di condividere che la React Foundation è ufficialmente attiva.
 
-React, React Native, and supporting projects like JSX are no longer owned by Meta — they are now owned by the React Foundation, an independent foundation hosted by the Linux Foundation. You can read more in the [Linux Foundation's press release](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-react-foundation).
+React, React Native e progetti di supporto come JSX non sono più di proprietà di Meta — ora appartengono alla React Foundation, una fondazione indipendente ospitata dalla Linux Foundation. Puoi leggere di più nel [comunicato stampa della Linux Foundation](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-react-foundation).
 
-### Founding Members {/*founding-members*/}
+### Membri fondatori {/*founding-members*/}
 
-The React Foundation has eight Platinum founding members: **Amazon**, **Callstack**, **Expo**, **Huawei**, **Meta**, **Microsoft**, **Software Mansion**, and **Vercel**. **Huawei** has joined since [our announcement in October](/blog/2025/10/07/introducing-the-react-foundation). The React Foundation will be governed by a board of directors composed of representatives from each member, with [Seth Webster](https://sethwebster.com/) serving as executive director.
+La React Foundation ha otto membri fondatori Platinum: **Amazon**, **Callstack**, **Expo**, **Huawei**, **Meta**, **Microsoft**, **Software Mansion** e **Vercel**. **Huawei** si è unita dopo [il nostro annuncio di ottobre](/blog/2025/10/07/introducing-the-react-foundation). La React Foundation sarà governata da un consiglio di amministrazione composto da rappresentanti di ciascun membro, con [Seth Webster](https://sethwebster.com/) come direttore esecutivo.
 
 <div style={{display: 'flex', justifyContent: 'center', margin: '2rem'}}>
   <picture >
@@ -47,21 +54,21 @@ The React Foundation has eight Platinum founding members: **Amazon**, **Callstac
   </picture>
 </div>
 
-### New Provisional Leadership Council {/*new-provisional-leadership-council*/}
+### Nuovo consiglio di leadership provvisorio {/*new-provisional-leadership-council*/}
 
-React's technical governance will always be independent from the React Foundation board — React's technical direction will continue to be set by the people who contribute to and maintain React. We have formed a provisional leadership council to determine this structure. We will share an update in the coming months.
+La governance tecnica di React sarà sempre indipendente dal consiglio di amministrazione della React Foundation — la direzione tecnica di React continuerà a essere definita dalle persone che contribuiscono a React e ne curano la manutenzione. Abbiamo formato un consiglio di leadership provvisorio per definire questa struttura. Condivideremo un aggiornamento nei prossimi mesi.
 
-### Next Steps {/*next-steps*/}
+### Prossimi passi {/*next-steps*/}
 
-There is still work to do to complete the transition. In the coming months we will be:
+C'è ancora del lavoro da fare per completare la transizione. Nei prossimi mesi:
 
-* Finalizing the technical governance structure for React
-* Transferring repositories, websites, and other infrastructure to the React Foundation
-* Exploring programs to support the React ecosystem
-* Kicking off planning for the next React Conf
+* Finalizzeremo la struttura di governance tecnica di React
+* Trasferiremo repository, siti web e altra infrastruttura alla React Foundation
+* Esploreremo programmi di supporto all'ecosistema React
+* Avvieremo la pianificazione della prossima React Conf
 
-We will share updates as this work progresses.
+Condivideremo aggiornamenti man mano che questo lavoro procede.
 
-### Thank You {/*thank-you*/}
+### Grazie {/*thank-you*/}
 
-None of this would be possible without the thousands of contributors who have shaped React over the past decade. Thank you to our founding members, to every contributor who has opened a pull request, filed an issue, or helped someone learn React, and to the millions of developers who build with React every day. The React Foundation exists because of this community, and we're looking forward to building its future together.
+Niente di tutto questo sarebbe possibile senza le migliaia di contributor che hanno plasmato React nell'ultimo decennio. Grazie ai nostri membri fondatori, a ogni contributor che ha aperto una pull request, segnalato un issue o aiutato qualcuno a imparare React, e ai milioni di developer che costruiscono con React ogni giorno. La React Foundation esiste grazie a questa community, e non vediamo l'ora di costruirne il futuro insieme.
