@@ -11,7 +11,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 <Intro>
 
-Le API `react-dom/server` ti permettono di renderizzare sul server i componenti React in HTML. Queste API vengono usate solo sul server, al livello superiore della tua app, per generare l'HTML iniziale. Un [framework](/learn/creating-a-react-app#full-stack-frameworks) può chiamarle per te. La maggior parte dei tuoi componenti non deve importarle o usarle.
+Le API `react-dom/server` ti permettono di renderizzare componenti React in HTML sul server. Queste API vengono usate solo sul server, al livello superiore della tua app, per generare l'HTML iniziale. Un [framework](/learn/creating-a-react-app#full-stack-frameworks) può chiamarle per te. La maggior parte dei tuoi componenti non deve importarle o usarle.
 
 </Intro>
 
@@ -19,10 +19,10 @@ Le API `react-dom/server` ti permettono di renderizzare sul server i componenti 
 
 ## API del server per Web Stream {/*server-apis-for-web-streams*/}
 
-Questi metodi sono disponibili solo negli ambienti con [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), che includono browser, Deno e alcuni runtime edge moderni:
+Questi metodi sono disponibili solo negli ambienti con [Web Streams](https://developer.mozilla.org/it/docs/Web/API/Streams_API), che includono browser, Deno e i moderni edge runtime:
 
-* [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) renderizza un albero React in un [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
-* [`resume`](/reference/react-dom/server/resume) riprende [`prerender`](/reference/react-dom/static/prerender) in un [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+* [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) renderizza un albero React in uno [Stream Web Readable.](https://developer.mozilla.org/it/docs/Web/API/ReadableStream)
+* [`resume`](/reference/react-dom/server/resume) riprende [`prerender`](/reference/react-dom/static/prerender) in uno [Stream Web Readable](https://developer.mozilla.org/it/docs/Web/API/ReadableStream).
 
 
 <Note>
@@ -36,8 +36,8 @@ Node.js include anche questi metodi per compatibilità, ma non sono consigliati 
 
 Questi metodi sono disponibili solo negli ambienti con [Node.js Stream:](https://nodejs.org/api/stream.html)
 
-* [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renderizza un albero React in un [Node.js Stream](https://nodejs.org/api/stream.html) pipeable
-* [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) riprende [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) in un [Node.js Stream](https://nodejs.org/api/stream.html) pipeable
+* [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renderizza un albero React in uno [Stream Node.js pipeable.](https://nodejs.org/api/stream.html)
+* [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) riprende [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) in uno [Stream Node.js pipeable.](https://nodejs.org/api/stream.html)
 
 ---
 
