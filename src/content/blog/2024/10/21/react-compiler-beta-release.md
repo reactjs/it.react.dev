@@ -2,7 +2,7 @@
 title: "React Compiler: rilascio Beta"
 author: Lauren Tan
 date: 2024/10/21
-description: A React Conf 2024 abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memoization automatica. In questo post condividiamo i prossimi passi per l'open source e i progressi sul compiler.
+description: A React Conf 2024 abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memorizzazione automatica. In questo post condividiamo i prossimi passi per l'open source e i progressi sul compiler.
 translationStatus: ai-draft
 ---
 
@@ -36,7 +36,7 @@ Il team React è entusiasta di condividere nuovi aggiornamenti:
 
 ---
 
-A [React Conf 2024](/blog/2024/05/22/react-conf-2024-recap), abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memoization automatica. [Puoi trovare un'introduzione a React Compiler qui](/learn/react-compiler).
+A [React Conf 2024](/blog/2024/05/22/react-conf-2024-recap), abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memorizzazione automatica. [Puoi trovare un'introduzione a React Compiler qui](/learn/react-compiler).
 
 Dal primo rilascio, abbiamo corretto numerosi bug segnalati dalla community React, ricevuto diversi fix e contributi di alta qualità[^1] al compiler, reso il compiler più resiliente alla vasta diversità di pattern JavaScript e continuato a distribuirlo più ampiamente in Meta.
 
@@ -90,7 +90,7 @@ Il nostro rilascio iniziale era focalizzato sull'identificare problemi principal
 
 React Compiler può anche essere usato per compilare librerie. Poiché React Compiler deve girare sul codice sorgente originale prima di qualsiasi trasformazione, non è possibile che la pipeline di build di un'applicazione compili le librerie che usa. Quindi, la nostra raccomandazione è che i maintainer di librerie compilino e testino indipendentemente le proprie librerie con il compiler e distribuiscano codice compilato su npm.
 
-Poiché il tuo codice è pre-compilato, gli utenti della tua libreria non dovranno avere il compiler abilitato per beneficiare della memoization automatica applicata alla libreria. Se la tua libreria punta ad app non ancora su React 19, specifica un `target` minimo e aggiungi `react-compiler-runtime` come dipendenza diretta. Il pacchetto runtime userà l'implementazione corretta delle API a seconda della versione dell'applicazione e polyfill le API mancanti se necessario.
+Poiché il tuo codice è pre-compilato, gli utenti della tua libreria non dovranno avere il compiler abilitato per beneficiare della memorizzazione automatica applicata alla libreria. Se la tua libreria punta ad app non ancora su React 19, specifica un `target` minimo e aggiungi `react-compiler-runtime` come dipendenza diretta. Il pacchetto runtime userà l'implementazione corretta delle API a seconda della versione dell'applicazione e polyfill le API mancanti se necessario.
 
 [Puoi trovare maggiori documenti qui.](/reference/react-compiler/compiling-libraries)
 
@@ -108,7 +108,7 @@ A [React Conf](/blog/2024/05/22/react-conf-2024-recap), abbiamo condiviso che il
 
 Abbiamo visto miglioramenti significativi delle performance su tutte queste app. Man mano che distribuiamo, continuiamo a vedere risultati dell'ordine di [i guadagni che abbiamo condiviso in precedenza a ReactConf](https://youtu.be/lyEKhv8-3n0?t=3223). Queste app erano già state pesantemente ottimizzate a mano da ingegneri Meta ed esperti React nel corso degli anni, quindi anche miglioramenti dell'ordine di qualche percento sono una grande vittoria per noi.
 
-Ci aspettavamo anche guadagni di produttività degli sviluppatori da React Compiler. Per misurarlo, abbiamo collaborato con i nostri partner data science in Meta[^2] per condurre un'analisi statistica approfondita dell'impatto della memoization manuale sulla produttività. Prima del rollout del compiler in Meta, abbiamo scoperto che solo circa l'8% delle pull request React usava memoization manuale e che queste pull request richiedevano il 31-46% in più di tempo per essere scritte[^3]. Questo ha confermato la nostra intuizione che la memoization manuale introduce overhead cognitivo, e prevediamo che React Compiler porterà a scrittura e revisione del codice più efficienti. In particolare, React Compiler assicura anche che *tutto* il codice sia memoizzato per impostazione predefinita, non solo l'8% (nel nostro caso) in cui gli sviluppatori applicano esplicitamente la memoization.
+Ci aspettavamo anche guadagni di produttività degli sviluppatori da React Compiler. Per misurarlo, abbiamo collaborato con i nostri partner data science in Meta[^2] per condurre un'analisi statistica approfondita dell'impatto della memorizzazione manuale sulla produttività. Prima del rollout del compiler in Meta, abbiamo scoperto che solo circa l'8% delle pull request React usava memorizzazione manuale e che queste pull request richiedevano il 31-46% in più di tempo per essere scritte[^3]. Questo ha confermato la nostra intuizione che la memorizzazione manuale introduce overhead cognitivo, e prevediamo che React Compiler porterà a scrittura e revisione del codice più efficienti. In particolare, React Compiler assicura anche che *tutto* il codice sia memorizzato per impostazione predefinita, non solo l'8% (nel nostro caso) in cui gli sviluppatori applicano esplicitamente la memorizzazione.
 
 ## Roadmap verso Stable {/*roadmap-to-stable*/}
 
@@ -123,7 +123,7 @@ Intendiamo distribuire un Release Candidate del compiler nel prossimo futuro dop
 
 Questi rilasci includono anche il plugin ESLint del compiler, che espone diagnostiche analizzate staticamente dal compiler. Prevediamo di combinare l'esistente plugin eslint-plugin-react-hooks con il plugin ESLint del compiler, così serve installare un solo plugin.
 
-Dopo Stable, prevediamo di aggiungere altre ottimizzazioni e miglioramenti al compiler. Questo include sia miglioramenti continui alla memoization automatica sia nuove ottimizzazioni, con modifiche minime o nulle al codice di prodotto. L'upgrade a ogni nuovo rilascio del compiler è pensato per essere semplice, e ogni upgrade continuerà a migliorare le performance e ad aggiungere una gestione migliore di pattern JavaScript e React diversi.
+Dopo Stable, prevediamo di aggiungere altre ottimizzazioni e miglioramenti al compiler. Questo include sia miglioramenti continui alla memorizzazione automatica sia nuove ottimizzazioni, con modifiche minime o nulle al codice di prodotto. L'upgrade a ogni nuovo rilascio del compiler è pensato per essere semplice, e ogni upgrade continuerà a migliorare le performance e ad aggiungere una gestione migliore di pattern JavaScript e React diversi.
 
 Durante questo processo, prevediamo anche di prototipare un'estensione IDE per React. È ancora molto presto nella ricerca, quindi prevediamo di poter condividere più risultati in un futuro post React Labs.
 

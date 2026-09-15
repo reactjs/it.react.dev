@@ -737,25 +737,25 @@ const reducer = (state: State, action: Action) => state;
 
 ### Altre breaking change {/*other-breaking-changes*/}
 
-- **react-dom**: Error for javascript URLs in `src` and `href` [#26507](https://github.com/react/react/pull/26507)
-- **react-dom**: Remove `errorInfo.digest` from `onRecoverableError` [#28222](https://github.com/react/react/pull/28222)
-- **react-dom**: Remove `unstable_flushControlled` [#26397](https://github.com/react/react/pull/26397)
-- **react-dom**: Remove `unstable_createEventHandle` [#28271](https://github.com/react/react/pull/28271)
-- **react-dom**: Remove `unstable_renderSubtreeIntoContainer` [#28271](https://github.com/react/react/pull/28271)
-- **react-dom**: Remove `unstable_runWithPriority` [#28271](https://github.com/react/react/pull/28271)
-- **react-is**: Remove deprecated methods from `react-is` [28224](https://github.com/react/react/pull/28224)
+- **react-dom**: Errore per URL javascript in `src` e `href` [#26507](https://github.com/react/react/pull/26507)
+- **react-dom**: Rimozione di `errorInfo.digest` da `onRecoverableError` [#28222](https://github.com/react/react/pull/28222)
+- **react-dom**: Rimozione di `unstable_flushControlled` [#26397](https://github.com/react/react/pull/26397)
+- **react-dom**: Rimozione di `unstable_createEventHandle` [#28271](https://github.com/react/react/pull/28271)
+- **react-dom**: Rimozione di `unstable_renderSubtreeIntoContainer` [#28271](https://github.com/react/react/pull/28271)
+- **react-dom**: Rimozione di `unstable_runWithPriority` [#28271](https://github.com/react/react/pull/28271)
+- **react-is**: Rimozione di metodi deprecati da `react-is` [28224](https://github.com/react/react/pull/28224)
 
 ### Altre modifiche rilevanti {/*other-notable-changes*/}
 
-- **react**: Batch sync, default and continuous lanes [#25700](https://github.com/react/react/pull/25700)
-- **react**: Don't prerender siblings of suspended component [#26380](https://github.com/react/react/pull/26380)
-- **react**: Detect infinite update loops caused by render phase updates [#26625](https://github.com/react/react/pull/26625)
-- **react-dom**: Transitions in popstate are now synchronous [#26025](https://github.com/react/react/pull/26025)
-- **react-dom**: Remove layout effect warning during SSR [#26395](https://github.com/react/react/pull/26395)
-- **react-dom**: Warn and don’t set empty string for src/href (except anchor tags) [#28124](https://github.com/react/react/pull/28124)
+- **react**: Raggruppamento di sync, default e continuous lanes [#25700](https://github.com/react/react/pull/25700)
+- **react**: Nessun prerender dei sibling di un componente sospeso [#26380](https://github.com/react/react/pull/26380)
+- **react**: Rilevamento di loop di aggiornamento infiniti causati da aggiornamenti in fase di render [#26625](https://github.com/react/react/pull/26625)
+- **react-dom**: Le Transitions in popstate sono ora sincrone [#26025](https://github.com/react/react/pull/26025)
+- **react-dom**: Rimozione del warning sugli Effect di layout durante SSR [#26395](https://github.com/react/react/pull/26395)
+- **react-dom**: Warning e nessuna impostazione di stringa vuota per src/href (eccetto tag anchor) [#28124](https://github.com/react/react/pull/28124)
 
 Per l'elenco completo delle modifiche, consulta il [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md#1900-december-5-2024).
 
 ---
 
-Grazie a [Andrew Clark](https://twitter.com/acdlite), [Eli White](https://twitter.com/Eli_White), [Jack Pope](https://github.com/jackpope), [Jan Kassens](https://github.com/kassens), [Josh Story](https://twitter.com/joshcstory), [Matt Carroll](https://twitter.com/mattcarrollcode), [Noah Lemen](https://twitter.com/noahlemen), [Sophie Alpert](https://twitter.com/sophiebits), and [Sebastian Silbermann](https://twitter.com/sebsilbermann) per la revisione e l'editing di questo post.
+Grazie a [Andrew Clark](https://twitter.com/acdlite), [Eli White](https://twitter.com/Eli_White), [Jack Pope](https://github.com/jackpope), [Jan Kassens](https://github.com/kassens), [Josh Story](https://twitter.com/joshcstory), [Matt Carroll](https://twitter.com/mattcarrollcode), [Noah Lemen](https://twitter.com/noahlemen), [Sophie Alpert](https://twitter.com/sophiebits) e [Sebastian Silbermann](https://twitter.com/sebsilbermann) per la revisione e l'editing di questo post.

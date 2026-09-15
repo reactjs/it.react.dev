@@ -566,7 +566,7 @@ function Search({deferredValue}) {
 }
 ````
 
-Quando <CodeStep step={2}>initialValue</CodeStep> è fornito, `useDeferredValue` lo restituirà come `value` per il render iniziale del componente e pianificherà un re-render in background con il <CodeStep step={1}>deferredValue</CodeStep> restituito.
+Quando <CodeStep step={2}>initialValue</CodeStep> è fornito, `useDeferredValue` lo restituirà come `value` per il render iniziale del componente e pianificherà una ri-renderizzazione in background con il <CodeStep step={1}>deferredValue</CodeStep> restituito.
 
 Per approfondire, consulta [`useDeferredValue`](/reference/react/useDeferredValue).
 
@@ -728,7 +728,7 @@ Per maggiori dettagli consulta le [Resource Preloading APIs](/reference/react-do
 
 Abbiamo migliorato l'hydration per tenere conto di script di terze parti ed estensioni del browser.
 
-Durante l'hydration, se un elemento renderizzato sul client non corrisponde all'elemento trovato nell'HTML dal server, React forzerà un re-render client per correggere il contenuto. In precedenza, se un elemento veniva inserito da script di terze parti o estensioni del browser, scatenava un errore di mismatch e un render client.
+Durante l'hydration, se un elemento renderizzato sul client non corrisponde all'elemento trovato nell'HTML dal server, React forzerà una ri-renderizzazione lato client per correggere il contenuto. In precedenza, se un elemento veniva inserito da script di terze parti o estensioni del browser, scatenava un errore di mismatch e una renderizzazione lato client.
 
 In React 19, i tag inaspettati in `<head>` e `<body>` verranno saltati, evitando errori di mismatch. Se React deve re-renderizzare l'intero documento a causa di un hydration mismatch non correlato, lascerà in place gli stylesheet inseriti da script di terze parti ed estensioni del browser.
 
