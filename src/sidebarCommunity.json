@@ -12,7 +12,7 @@
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "React Conferences",
+          "title": "Conferenze React",
           "path": "/community/conferences"
         },
         {
