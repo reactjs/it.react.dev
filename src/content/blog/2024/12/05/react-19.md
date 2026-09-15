@@ -2,48 +2,56 @@
 title: "React v19"
 author: The React Team
 date: 2024/12/05
-description: React 19 is now available on npm! In this post, we'll give an overview of the new features in React 19, and how you can adopt them.
+description: React 19 è ora disponibile su npm! In questo post presentiamo una panoramica delle nuove funzionalità di React 19 e di come adottarle.
+translationStatus: ai-draft
 ---
 
-December 05, 2024 by [The React Team](/community/team)
+5 dicembre 2024 del [React Team](/community/team)
 
 ---
+
 <Note>
 
-### React 19 is now stable! {/*react-19-is-now-stable*/}
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2024/12/05/react-19.md).
 
-Additions since this post was originally shared with the React 19 RC in April:
+</Note>
 
-- **Pre-warming for suspended trees**: see [Improvements to Suspense](/blog/2024/04/25/react-19-upgrade-guide#improvements-to-suspense).
-- **React DOM static APIs**: see [New React DOM Static APIs](#new-react-dom-static-apis).
+<Note>
 
-_The date for this post has been updated to reflect the stable release date._
+### React 19 è ora stabile! {/*react-19-is-now-stable*/}
+
+Aggiunte da quando questo post è stato condiviso originariamente con la React 19 RC ad aprile:
+
+- **Pre-warming per alberi sospesi**: vedi [Miglioramenti a Suspense](/blog/2024/04/25/react-19-upgrade-guide#improvements-to-suspense).
+- **API statiche React DOM**: vedi [Nuove API statiche React DOM](#new-react-dom-static-apis).
+
+_La data di questo post è stata aggiornata per riflettere la data del rilascio stabile._
 
 </Note>
 
 <Intro>
 
-React v19 is now available on npm!
+React v19 è ora disponibile su npm!
 
 </Intro>
 
-In our [React 19 Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide), we shared step-by-step instructions for upgrading your app to React 19. In this post, we'll give an overview of the new features in React 19, and how you can adopt them.
+Nella nostra [Guida all'upgrade a React 19](/blog/2024/04/25/react-19-upgrade-guide), abbiamo condiviso istruzioni passo passo per aggiornare la tua app a React 19. In questo post presentiamo una panoramica delle nuove funzionalità di React 19 e di come adottarle.
 
-- [What's new in React 19](#whats-new-in-react-19)
-- [Improvements in React 19](#improvements-in-react-19)
-- [How to upgrade](#how-to-upgrade)
+- [Novità in React 19](#whats-new-in-react-19)
+- [Miglioramenti in React 19](#improvements-in-react-19)
+- [Come effettuare l'upgrade](#how-to-upgrade)
 
-For a list of breaking changes, see the [Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide).
+Per l'elenco delle breaking change, consulta la [Guida all'upgrade](/blog/2024/04/25/react-19-upgrade-guide).
 
 ---
 
-## What's new in React 19 {/*whats-new-in-react-19*/}
+## Novità in React 19 {/*whats-new-in-react-19*/}
 
 ### Actions {/*actions*/}
 
-A common use case in React apps is to perform a data mutation and then update state in response. For example, when a user submits a form to change their name, you will make an API request, and then handle the response. In the past, you would need to handle pending states, errors, optimistic updates, and sequential requests manually.
+Un caso d'uso comune nelle app React è eseguire una mutazione dati e poi aggiornare lo state in risposta. Ad esempio, quando un utente invia un form per cambiare il nome, farai una richiesta API e poi gestirai la risposta. In passato, avresti dovuto gestire manualmente state pending, errori, aggiornamenti ottimistici e richieste sequenziali.
 
-For example, you could handle the pending and error state in `useState`:
+Ad esempio, potevi gestire lo state pending e di errore in `useState`:
 
 ```js
 // Before Actions
@@ -75,9 +83,9 @@ function UpdateName({}) {
 }
 ```
 
-In React 19, we're adding support for using async functions in transitions to handle pending states, errors, forms, and optimistic updates automatically.
+In React 19 aggiungiamo supporto per usare funzioni async nelle transition per gestire automaticamente state pending, errori, form e aggiornamenti ottimistici.
 
-For example, you can use `useTransition` to handle the pending state for you:
+Ad esempio, puoi usare `useTransition` per gestire lo state pending per te:
 
 ```js
 // Using pending state from Actions
@@ -109,24 +117,24 @@ function UpdateName({}) {
 }
 ```
 
-The async transition will immediately set the `isPending` state to true, make the async request(s), and switch `isPending` to false after any transitions. This allows you to keep the current UI responsive and interactive while the data is changing.
+La transition async imposterà immediatamente lo state `isPending` a true, eseguirà le richieste async e imposterà `isPending` a false dopo le transition. Questo ti permette di mantenere l'UI corrente reattiva e interattiva mentre i dati cambiano.
 
 <Note>
 
-#### By convention, functions that use async transitions are called "Actions". {/*by-convention-functions-that-use-async-transitions-are-called-actions*/}
+#### Per convenzione, le funzioni che usano async transition si chiamano "Actions". {/*by-convention-functions-that-use-async-transitions-are-called-actions*/}
 
-Actions automatically manage submitting data for you:
+Le Actions gestiscono automaticamente l'invio dei dati per te:
 
-- **Pending state**: Actions provide a pending state that starts at the beginning of a request and automatically resets when the final state update is committed.
-- **Optimistic updates**: Actions support the new [`useOptimistic`](#new-hook-optimistic-updates) hook so you can show users instant feedback while the requests are submitting.
-- **Error handling**: Actions provide error handling so you can display Error Boundaries when a request fails, and revert optimistic updates to their original value automatically.
-- **Forms**: `<form>` elements now support passing functions to the `action` and `formAction` props. Passing functions to the `action` props use Actions by default and reset the form automatically after submission.
+- **State pending**: le Actions forniscono uno state pending che inizia all'inizio di una richiesta e si resetta automaticamente quando l'aggiornamento dello state finale viene committato.
+- **Aggiornamenti ottimistici**: le Actions supportano il nuovo hook [`useOptimistic`](#new-hook-optimistic-updates) così puoi mostrare feedback istantaneo agli utenti mentre le richieste vengono inviate.
+- **Gestione errori**: le Actions forniscono gestione errori così puoi visualizzare un contenitore di errori quando una richiesta fallisce e ripristinare automaticamente gli aggiornamenti ottimistici al valore originale.
+- **Form**: gli elementi `<form>` ora supportano il passaggio di funzioni alle props `action` e `formAction`. Passare funzioni alle props `action` usa le Actions per impostazione predefinita e resetta il form automaticamente dopo l'invio.
 
 </Note>
 
-Building on top of Actions, React 19 introduces [`useOptimistic`](#new-hook-optimistic-updates) to manage optimistic updates, and a new hook [`React.useActionState`](#new-hook-useactionstate) to handle common cases for Actions. In `react-dom` we're adding [`<form>` Actions](#form-actions) to manage forms automatically and [`useFormStatus`](#new-hook-useformstatus) to support the common cases for Actions in forms.
+Basandosi sulle Actions, React 19 introduce [`useOptimistic`](#new-hook-optimistic-updates) per gestire aggiornamenti ottimistici e un nuovo hook [`React.useActionState`](#new-hook-useactionstate) per gestire i casi comuni delle Actions. In `react-dom` aggiungiamo [`<form>` Actions](#form-actions) per gestire i form automaticamente e [`useFormStatus`](#new-hook-useformstatus) per supportare i casi comuni delle Actions nei form.
 
-In React 19, the above example can be simplified to:
+In React 19, l'esempio sopra può essere semplificato in:
 
 ```js
 // Using <form> Actions and useActionState
@@ -153,11 +161,11 @@ function ChangeName({ name, setName }) {
 }
 ```
 
-In the next section, we'll break down each of the new Action features in React 19.
+Nella sezione successiva, analizziamo ciascuna delle nuove funzionalità Action in React 19.
 
-### New hook: `useActionState` {/*new-hook-useactionstate*/}
+### Nuovo hook: `useActionState` {/*new-hook-useactionstate*/}
 
-To make the common cases easier for Actions, we've added a new hook called `useActionState`:
+Per rendere più semplici i casi comuni per le Actions, abbiamo aggiunto un nuovo hook chiamato `useActionState`:
 
 ```js
 const [error, submitAction, isPending] = useActionState(
@@ -176,33 +184,33 @@ const [error, submitAction, isPending] = useActionState(
 );
 ```
 
-`useActionState` accepts a function (the "Action"), and returns a wrapped Action to call. This works because Actions compose. When the wrapped Action is called, `useActionState` will return the last result of the Action as `data`, and the pending state of the Action as `pending`.
+`useActionState` accetta una funzione (l'"Action") e restituisce un'Action wrappata da chiamare. Funziona perché le Actions compongono. Quando l'Action wrappata viene chiamata, `useActionState` restituirà l'ultimo risultato dell'Action come `data` e lo state pending dell'Action come `pending`.
 
 <Note>
 
-`React.useActionState` was previously called `ReactDOM.useFormState` in the Canary releases, but we've renamed it and deprecated `useFormState`.
+`React.useActionState` si chiamava precedentemente `ReactDOM.useFormState` nei rilasci Canary, ma l'abbiamo rinominato e deprecato `useFormState`.
 
-See [#28491](https://github.com/react/react/pull/28491) for more info.
+Vedi [#28491](https://github.com/react/react/pull/28491) per maggiori informazioni.
 
 </Note>
 
-For more information, see the docs for [`useActionState`](/reference/react/useActionState).
+Per maggiori informazioni, consulta la documentazione di [`useActionState`](/reference/react/useActionState).
 
-### React DOM: `<form>` Actions {/*form-actions*/}
+### React DOM: Actions `<form>` {/*form-actions*/}
 
-Actions are also integrated with React 19's new `<form>` features for `react-dom`. We've added support for passing functions as the `action` and `formAction` props of `<form>`, `<input>`, and `<button>` elements to automatically submit forms with Actions:
+Le Actions sono anche integrate con le nuove funzionalità `<form>` di React 19 per `react-dom`. Abbiamo aggiunto supporto per passare funzioni come props `action` e `formAction` di elementi `<form>`, `<input>` e `<button>` per inviare automaticamente form con le Actions:
 
 ```js [[1,1,"actionFunction"]]
 <form action={actionFunction}>
 ```
 
-When a `<form>` Action succeeds, React will automatically reset the form for uncontrolled components. If you need to reset the `<form>` manually, you can call the new `requestFormReset` React DOM API.
+Quando un'Action `<form>` ha successo, React resetterà automaticamente il form per componenti uncontrolled. Se devi resettare il `<form>` manualmente, puoi chiamare la nuova API React DOM `requestFormReset`.
 
-For more information, see the `react-dom` docs for [`<form>`](/reference/react-dom/components/form), [`<input>`](/reference/react-dom/components/input), and `<button>`.
+Per maggiori informazioni, consulta la documentazione `react-dom` per [`<form>`](/reference/react-dom/components/form), [`<input>`](/reference/react-dom/components/input) e `<button>`.
 
-### React DOM: New hook: `useFormStatus` {/*new-hook-useformstatus*/}
+### React DOM: nuovo hook `useFormStatus` {/*new-hook-useformstatus*/}
 
-In design systems, it's common to write design components that need access to information about the `<form>` they're in, without drilling props down to the component. This can be done via Context, but to make the common case easier, we've added a new hook `useFormStatus`:
+Nei design system, è comune scrivere componenti di design che necessitano accesso a informazioni sul `<form>` in cui si trovano, senza fare prop drilling fino al componente. Questo può essere fatto via Context, ma per rendere più semplice il caso comune, abbiamo aggiunto un nuovo hook `useFormStatus`:
 
 ```js [[1, 4, "pending"], [1, 5, "pending"]]
 import {useFormStatus} from 'react-dom';
@@ -213,13 +221,13 @@ function DesignButton() {
 }
 ```
 
-`useFormStatus` reads the status of the parent `<form>` as if the form was a Context provider.
+`useFormStatus` legge lo status del `<form>` genitore come se il form fosse un Context provider.
 
-For more information, see the `react-dom` docs for [`useFormStatus`](/reference/react-dom/hooks/useFormStatus).
+Per maggiori informazioni, consulta la documentazione `react-dom` per [`useFormStatus`](/reference/react-dom/hooks/useFormStatus).
 
-### New hook: `useOptimistic` {/*new-hook-optimistic-updates*/}
+### Nuovo hook: `useOptimistic` {/*new-hook-optimistic-updates*/}
 
-Another common UI pattern when performing a data mutation is to show the final state optimistically while the async request is underway. In React 19, we're adding a new hook called `useOptimistic` to make this easier:
+Un altro pattern UI comune quando si esegue una mutazione dati è mostrare lo state finale in modo ottimistico mentre la richiesta async è in corso. In React 19 aggiungiamo un nuovo hook chiamato `useOptimistic` per renderlo più semplice:
 
 ```js {2,6,13,19}
 function ChangeName({currentName, onUpdateName}) {
@@ -248,15 +256,15 @@ function ChangeName({currentName, onUpdateName}) {
 }
 ```
 
-The `useOptimistic` hook will immediately render the `optimisticName` while the `updateName` request is in progress. When the update finishes or errors, React will automatically switch back to the `currentName` value.
+L'hook `useOptimistic` renderizzerà immediatamente `optimisticName` mentre la richiesta `updateName` è in corso. Quando l'aggiornamento termina o va in errore, React tornerà automaticamente al valore `currentName`.
 
-For more information, see the docs for [`useOptimistic`](/reference/react/useOptimistic).
+Per maggiori informazioni, consulta la documentazione di [`useOptimistic`](/reference/react/useOptimistic).
 
-### New API: `use` {/*new-feature-use*/}
+### Nuova API: `use` {/*new-feature-use*/}
 
-In React 19 we're introducing a new API to read resources in render: `use`.
+In React 19 introduciamo una nuova API per leggere risorse in render: `use`.
 
-For example, you can read a promise with `use`, and React will Suspend until the promise resolves:
+Ad esempio, puoi leggere una promise con `use`, e React sospenderà finché la promise non si risolve:
 
 ```js {1,5}
 import {use} from 'react';
@@ -280,9 +288,9 @@ function Page({commentsPromise}) {
 
 <Note>
 
-#### `use` does not support promises created in render. {/*use-does-not-support-promises-created-in-render*/}
+#### `use` non supporta promise create in render. {/*use-does-not-support-promises-created-in-render*/}
 
-If you try to pass a promise created in render to `use`, React will warn:
+Se provi a passare una promise creata in render a `use`, React avviserà:
 
 <ConsoleBlockMulti>
 
@@ -294,11 +302,11 @@ A component was suspended by an uncached promise. Creating promises inside a Cli
 
 </ConsoleBlockMulti>
 
-To fix, you need to pass a promise from a Suspense powered library or framework that supports caching for promises. In the future we plan to ship features to make it easier to cache promises in render.
+Per correggere, devi passare una promise da una libreria o framework powered by Suspense che supporta il caching per le promise. In futuro prevediamo di rilasciare funzionalità per rendere più semplice il caching delle promise in render.
 
 </Note>
 
-You can also read context with `use`, allowing you to read Context conditionally such as after early returns:
+Puoi anche leggere context con `use`, permettendoti di leggere Context condizionalmente, ad esempio dopo early return:
 
 ```js {1,11}
 import {use} from 'react';
@@ -320,17 +328,17 @@ function Heading({children}) {
 }
 ```
 
-The `use` API can only be called in render, similar to hooks. Unlike hooks, `use` can be called conditionally. In the future we plan to support more ways to consume resources in render with `use`.
+L'API `use` può essere chiamata solo in render, simile agli hooks. A differenza degli hooks, `use` può essere chiamato condizionalmente. In futuro prevediamo di supportare più modi per consumare risorse in render con `use`.
 
-For more information, see the docs for [`use`](/reference/react/use).
+Per maggiori informazioni, consulta la documentazione di [`use`](/reference/react/use).
 
-## New React DOM Static APIs {/*new-react-dom-static-apis*/}
+## Nuove API statiche React DOM {/*new-react-dom-static-apis*/}
 
-We've added two new APIs to `react-dom/static` for static site generation:
+Abbiamo aggiunto due nuove API a `react-dom/static` per la generazione di siti statici:
 - [`prerender`](/reference/react-dom/static/prerender)
 - [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream)
 
-These new APIs improve on `renderToString` by waiting for data to load for static HTML generation. They are designed to work with streaming environments like Node.js Streams and Web Streams. For example, in a Web Stream environment, you can prerender a React tree to static HTML with `prerender`:
+Queste nuove API migliorano `renderToString` aspettando il caricamento dei dati per la generazione di HTML statico. Sono progettate per funzionare con ambienti streaming come Node.js Streams e Web Streams. Ad esempio, in un ambiente Web Stream, puoi pre-renderizzare un albero React in HTML statico con `prerender`:
 
 ```js
 import { prerender } from 'react-dom/static';
@@ -345,57 +353,57 @@ async function handler(request) {
 }
 ```
 
-Prerender APIs will wait for all data to load before returning the static HTML stream. Streams can be converted to strings, or sent with a streaming response. They do not support streaming content as it loads, which is supported by the existing [React DOM server rendering APIs](/reference/react-dom/server).
+Le API Prerender aspetteranno che tutti i dati siano caricati prima di restituire lo stream HTML statico. Gli stream possono essere convertiti in stringhe o inviati con una risposta streaming. Non supportano lo streaming del contenuto mentre si carica, supportato dalle esistenti [API di server rendering React DOM](/reference/react-dom/server).
 
-For more information, see [React DOM Static APIs](/reference/react-dom/static).
+Per maggiori informazioni, consulta [API statiche React DOM](/reference/react-dom/static).
 
 ## React Server Components {/*react-server-components*/}
 
 ### Server Components {/*server-components*/}
 
-Server Components are a new option that allows rendering components ahead of time, before bundling, in an environment separate from your client application or SSR server. This separate environment is the "server" in React Server Components. Server Components can run once at build time on your CI server, or they can be run for each request using a web server.
+I Server Components sono una nuova opzione che permette di renderizzare componenti in anticipo, prima del bundling, in un ambiente separato dall'applicazione client o dal server SSR. Questo ambiente separato è il "server" nei React Server Components. I Server Components possono girare una volta al build time sul server CI, o possono essere eseguiti per ogni richiesta usando un web server.
 
-React 19 includes all of the React Server Components features included from the Canary channel. This means libraries that ship with Server Components can now target React 19 as a peer dependency with a `react-server` [export condition](https://github.com/reactjs/rfcs/blob/main/text/0227-server-module-conventions.md#react-server-conditional-exports) for use in frameworks that support the [Full-stack React Architecture](/learn/creating-a-react-app#which-features-make-up-the-react-teams-full-stack-architecture-vision).
+React 19 include tutte le funzionalità React Server Components incluse dal canale Canary. Questo significa che le librerie che distribuiscono Server Components possono ora puntare a React 19 come peer dependency con una [export condition](https://github.com/reactjs/rfcs/blob/main/text/0227-server-module-conventions.md#react-server-conditional-exports) `react-server` per l'uso in framework che supportano la [Full-stack React Architecture](/learn/creating-a-react-app#which-features-make-up-the-react-teams-full-stack-architecture-vision).
 
 
 <Note>
 
-#### How do I build support for Server Components? {/*how-do-i-build-support-for-server-components*/}
+#### Come costruisco supporto per Server Components? {/*how-do-i-build-support-for-server-components*/}
 
-While React Server Components in React 19 are stable and will not break between minor versions, the underlying APIs used to implement a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x.
+Sebbene i React Server Components in React 19 siano stabili e non si romperanno tra versioni minor, le API sottostanti usate per implementare un bundler o framework React Server Components non seguono semver e possono rompersi tra minor in React 19.x.
 
-To support React Server Components as a bundler or framework, we recommend pinning to a specific React version, or using the Canary release. We will continue working with bundlers and frameworks to stabilize the APIs used to implement React Server Components in the future.
+Per supportare React Server Components come bundler o framework, consigliamo di fissare una versione specifica di React o usare il rilascio Canary. Continueremo a lavorare con bundler e framework per stabilizzare le API usate per implementare React Server Components in futuro.
 
 </Note>
 
 
-For more, see the docs for [React Server Components](/reference/rsc/server-components).
+Per approfondire, consulta la documentazione dei [React Server Components](/reference/rsc/server-components).
 
 ### Server Actions {/*server-actions*/}
 
-Server Actions allow Client Components to call async functions executed on the server.
+Le Server Actions permettono ai Client Components di chiamare funzioni async eseguite sul server.
 
-When a Server Action is defined with the `"use server"` directive, your framework will automatically create a reference to the server function, and pass that reference to the Client Component. When that function is called on the client, React will send a request to the server to execute the function, and return the result.
+Quando una Server Action è definita con la direttiva `"use server"`, il tuo framework creerà automaticamente un riferimento alla funzione server e passerà quel riferimento al Client Component. Quando quella funzione viene chiamata sul client, React invierà una richiesta al server per eseguire la funzione e restituirà il risultato.
 
 <Note>
 
-#### There is no directive for Server Components. {/*there-is-no-directive-for-server-components*/}
+#### Non esiste una direttiva per i Server Components. {/*there-is-no-directive-for-server-components*/}
 
-A common misunderstanding is that Server Components are denoted by `"use server"`, but there is no directive for Server Components. The `"use server"` directive is used for Server Actions.
+Un malinteso comune è che i Server Components siano indicati da `"use server"`, ma non esiste una direttiva per i Server Components. La direttiva `"use server"` è usata per le Server Actions.
 
-For more info, see the docs for [Directives](/reference/rsc/directives).
+Per maggiori informazioni, consulta la documentazione delle [Directives](/reference/rsc/directives).
 
 </Note>
 
-Server Actions can be created in Server Components and passed as props to Client Components, or they can be imported and used in Client Components.
+Le Server Actions possono essere create in Server Components e passate come props a Client Components, oppure possono essere importate e usate in Client Components.
 
-For more, see the docs for [React Server Actions](/reference/rsc/server-actions).
+Per approfondire, consulta la documentazione delle [React Server Actions](/reference/rsc/server-actions).
 
-## Improvements in React 19 {/*improvements-in-react-19*/}
+## Miglioramenti in React 19 {/*improvements-in-react-19*/}
 
-### `ref` as a prop {/*ref-as-a-prop*/}
+### `ref` come prop {/*ref-as-a-prop*/}
 
-Starting in React 19, you can now access `ref` as a prop for function components:
+A partire da React 19, puoi accedere a `ref` come prop per componenti funzione:
 
 ```js [[1, 1, "ref"], [1, 2, "ref", 45], [1, 6, "ref", 14]]
 function MyInput({placeholder, ref}) {
@@ -406,17 +414,17 @@ function MyInput({placeholder, ref}) {
 <MyInput ref={ref} />
 ```
 
-New function components will no longer need `forwardRef`, and we will be publishing a codemod to automatically update your components to use the new `ref` prop. In future versions we will deprecate and remove `forwardRef`.
+I nuovi componenti funzione non avranno più bisogno di `forwardRef`, e pubblicheremo un codemod per aggiornare automaticamente i componenti per usare la nuova prop `ref`. Nelle versioni future deprecheremo e rimuoveremo `forwardRef`.
 
 <Note>
 
-`ref`s passed to classes are not passed as props since they reference the component instance.
+Le `ref` passate alle classi non vengono passate come props poiché fanno riferimento all'istanza del componente.
 
 </Note>
 
-### Diffs for hydration errors {/*diffs-for-hydration-errors*/}
+### Diff per errori di hydration {/*diffs-for-hydration-errors*/}
 
-We also improved error reporting for hydration errors in `react-dom`. For example, instead of logging multiple errors in DEV without any information about the mismatch:
+Abbiamo anche migliorato la segnalazione errori per errori di hydration in `react-dom`. Ad esempio, invece di registrare più errori in DEV senza informazioni sul mismatch:
 
 <ConsoleBlockMulti>
 
@@ -458,7 +466,7 @@ Uncaught Error: Text content does not match server-rendered HTML.
 
 </ConsoleBlockMulti>
 
-We now log a single message with a diff of the mismatch:
+Ora registriamo un singolo messaggio con un diff del mismatch:
 
 
 <ConsoleBlockMulti>
@@ -484,9 +492,9 @@ https://react.dev/link/hydration-mismatch {'\n'}
 
 </ConsoleBlockMulti>
 
-### `<Context>` as a provider {/*context-as-a-provider*/}
+### `<Context>` come provider {/*context-as-a-provider*/}
 
-In React 19, you can render `<Context>` as a provider instead of `<Context.Provider>`:
+In React 19, puoi renderizzare `<Context>` come provider invece di `<Context.Provider>`:
 
 
 ```js {5,7}
@@ -501,11 +509,11 @@ function App({children}) {
 }
 ```
 
-New Context providers can use `<Context>` and we will be publishing a codemod to convert existing providers. In future versions we will deprecate `<Context.Provider>`.
+I nuovi Context provider possono usare `<Context>` e pubblicheremo un codemod per convertire i provider esistenti. Nelle versioni future depreceremo `<Context.Provider>`.
 
-### Cleanup functions for refs {/*cleanup-functions-for-refs*/}
+### Cleanup function per le ref {/*cleanup-functions-for-refs*/}
 
-We now support returning a cleanup function from `ref` callbacks:
+Ora supportiamo il ritorno di una cleanup function dalle ref callback:
 
 ```js {7-9}
 <input
@@ -521,30 +529,30 @@ We now support returning a cleanup function from `ref` callbacks:
 />
 ```
 
-When the component unmounts, React will call the cleanup function returned from the `ref` callback. This works for DOM refs, refs to class components, and `useImperativeHandle`.
+Quando il componente viene smontato, React chiamerà la cleanup function restituita dalla ref callback. Funziona per DOM ref, ref a componenti classe e `useImperativeHandle`.
 
 <Note>
 
-Previously, React would call `ref` functions with `null` when unmounting the component. If your `ref` returns a cleanup function, React will now skip this step.
+In precedenza, React chiamava le funzioni `ref` con `null` quando smontava il componente. Se la tua `ref` restituisce una cleanup function, React salterà ora questo passo.
 
-In future versions, we will deprecate calling refs with `null` when unmounting components.
+Nelle versioni future depreceremo la chiamata delle ref con `null` quando si smontano i componenti.
 
 </Note>
 
-Due to the introduction of ref cleanup functions, returning anything else from a `ref` callback will now be rejected by TypeScript. The fix is usually to stop using implicit returns, for example:
+A causa dell'introduzione delle ref cleanup function, restituire qualsiasi altra cosa da una ref callback verrà ora rifiutato da TypeScript. La correzione di solito consiste nel smettere di usare return impliciti, ad esempio:
 
 ```diff [[1, 1, "("], [1, 1, ")"], [2, 2, "{", 15], [2, 2, "}", 1]]
 - <div ref={current => (instance = current)} />
 + <div ref={current => {instance = current}} />
 ```
 
-The original code returned the instance of the `HTMLDivElement` and TypeScript wouldn't know if this was _supposed_ to be a cleanup function or if you didn't want to return a cleanup function.
+Il codice originale restituiva l'istanza dell'`HTMLDivElement` e TypeScript non sapeva se _doveva_ essere una cleanup function o se non volevi restituire una cleanup function.
 
-You can codemod this pattern with [`no-implicit-ref-callback-return`](https://github.com/eps1lon/types-react-codemod/#no-implicit-ref-callback-return).
+Puoi fare codemod di questo pattern con [`no-implicit-ref-callback-return`](https://github.com/eps1lon/types-react-codemod/#no-implicit-ref-callback-return).
 
-### `useDeferredValue` initial value {/*use-deferred-value-initial-value*/}
+### Valore iniziale di `useDeferredValue` {/*use-deferred-value-initial-value*/}
 
-We've added an `initialValue` option to `useDeferredValue`:
+Abbiamo aggiunto un'opzione `initialValue` a `useDeferredValue`:
 
 ```js [[1, 1, "deferredValue"], [1, 4, "deferredValue"], [2, 4, "''"]]
 function Search({deferredValue}) {
@@ -558,15 +566,15 @@ function Search({deferredValue}) {
 }
 ````
 
-When <CodeStep step={2}>initialValue</CodeStep> is provided, `useDeferredValue` will return it as `value` for the initial render of the component, and schedules a re-render in the background with the <CodeStep step={1}>deferredValue</CodeStep> returned.
+Quando <CodeStep step={2}>initialValue</CodeStep> è fornito, `useDeferredValue` lo restituirà come `value` per il render iniziale del componente e pianificherà una ri-renderizzazione in background con il <CodeStep step={1}>deferredValue</CodeStep> restituito.
 
-For more, see [`useDeferredValue`](/reference/react/useDeferredValue).
+Per approfondire, consulta [`useDeferredValue`](/reference/react/useDeferredValue).
 
-### Support for Document Metadata {/*support-for-metadata-tags*/}
+### Supporto per Document Metadata {/*support-for-metadata-tags*/}
 
-In HTML, document metadata tags like `<title>`, `<link>`, and `<meta>` are reserved for placement in the `<head>` section of the document. In React, the component that decides what metadata is appropriate for the app may be very far from the place where you render the `<head>` or React does not render the `<head>` at all. In the past, these elements would need to be inserted manually in an effect, or by libraries like [`react-helmet`](https://github.com/nfl/react-helmet), and required careful handling when server rendering a React application.
+In HTML, i tag di metadata del documento come `<title>`, `<link>` e `<meta>` sono riservati al posizionamento nella sezione `<head>` del documento. In React, il componente che decide quale metadata è appropriato per l'app può essere molto lontano dal punto in cui renderizzi il `<head>` o React non renderizza affatto il `<head>`. In passato, questi elementi dovevano essere inseriti manualmente in un effetto o da librerie come [`react-helmet`](https://github.com/nfl/react-helmet), e richiedevano gestione attenta durante il server rendering di un'applicazione React.
 
-In React 19, we're adding support for rendering document metadata tags in components natively:
+In React 19 aggiungiamo supporto per renderizzare tag di metadata del documento nei componenti nativamente:
 
 ```js {5-8}
 function BlogPost({post}) {
@@ -585,23 +593,23 @@ function BlogPost({post}) {
 }
 ```
 
-When React renders this component, it will see the `<title>` `<link>` and `<meta>` tags, and automatically hoist them to the `<head>` section of document. By supporting these metadata tags natively, we're able to ensure they work with client-only apps, streaming SSR, and Server Components.
+Quando React renderizza questo componente, vedrà i tag `<title>`, `<link>` e `<meta>` e li solleverà automaticamente nella sezione `<head>` del documento. Supportando nativamente questi tag di metadata, possiamo assicurarci che funzionino con app solo client, streaming SSR e Server Components.
 
 <Note>
 
-#### You may still want a Metadata library {/*you-may-still-want-a-metadata-library*/}
+#### Potresti comunque volere una libreria Metadata {/*you-may-still-want-a-metadata-library*/}
 
-For simple use cases, rendering Document Metadata as tags may be suitable, but libraries can offer more powerful features like overriding generic metadata with specific metadata based on the current route. These features make it easier for frameworks and libraries like [`react-helmet`](https://github.com/nfl/react-helmet) to support metadata tags, rather than replace them.
+Per casi d'uso semplici, renderizzare Document Metadata come tag può essere adatto, ma le librerie possono offrire funzionalità più potenti come sovrascrivere metadata generici con metadata specifici in base alla route corrente. Queste funzionalità rendono più semplice per framework e librerie come [`react-helmet`](https://github.com/nfl/react-helmet) supportare tag di metadata, piuttosto che sostituirli.
 
 </Note>
 
-For more info, see the docs for [`<title>`](/reference/react-dom/components/title), [`<link>`](/reference/react-dom/components/link), and [`<meta>`](/reference/react-dom/components/meta).
+Per maggiori informazioni, consulta la documentazione di [`<title>`](/reference/react-dom/components/title), [`<link>`](/reference/react-dom/components/link), and [`<meta>`](/reference/react-dom/components/meta).
 
-### Support for stylesheets {/*support-for-stylesheets*/}
+### Supporto per stylesheet {/*support-for-stylesheets*/}
 
-Stylesheets, both externally linked (`<link rel="stylesheet" href="...">`) and inline (`<style>...</style>`), require careful positioning in the DOM due to style precedence rules. Building a stylesheet capability that allows for composability within components is hard, so users often end up either loading all of their styles far from the components that may depend on them, or they use a style library which encapsulates this complexity.
+Gli stylesheet, sia collegati esternamente (`<link rel="stylesheet" href="...">`) sia inline (`<style>...</style>`), richiedono posizionamento attento nel DOM a causa delle regole di precedenza degli stili. Costruire una capacità stylesheet che permetta componibilità nei componenti è difficile, quindi gli utenti spesso finiscono per caricare tutti gli stili lontano dai componenti che possono dipenderne, oppure usano una libreria di stili che incapsula questa complessità.
 
-In React 19, we're addressing this complexity and providing even deeper integration into Concurrent Rendering on the Client and Streaming Rendering on the Server with built in support for stylesheets. If you tell React the `precedence` of your stylesheet it will manage the insertion order of the stylesheet in the DOM and ensure that the stylesheet (if external) is loaded before revealing content that depends on those style rules.
+In React 19 affrontiamo questa complessità e forniamo un'integrazione ancora più profonda nel Concurrent Rendering sul Client e nello Streaming Rendering sul Server con supporto integrato per gli stylesheet. Se dici a React la `precedence` del tuo stylesheet, gestirà l'ordine di inserimento dello stylesheet nel DOM e assicurerà che lo stylesheet (se esterno) sia caricato prima di rivelare contenuto che dipende da quelle regole di stile.
 
 ```js {4,5,17}
 function ComponentOne() {
@@ -626,9 +634,9 @@ function ComponentTwo() {
 }
 ```
 
-During Server Side Rendering React will include the stylesheet in the `<head>`, which ensures that the browser will not paint until it has loaded. If the stylesheet is discovered late after we've already started streaming, React will ensure that the stylesheet is inserted into the `<head>` on the client before revealing the content of a Suspense boundary that depends on that stylesheet.
+Durante il Server Side Rendering React includerà lo stylesheet nel `<head>`, assicurando che il browser non faccia paint finché non è caricato. Se lo stylesheet viene scoperto tardi dopo che abbiamo già iniziato lo streaming, React assicurerà che lo stylesheet venga inserito nel `<head>` sul client prima di rivelare il contenuto di un boundary Suspense che dipende da quello stylesheet.
 
-During Client Side Rendering React will wait for newly rendered stylesheets to load before committing the render. If you render this component from multiple places within your application React will only include the stylesheet once in the document:
+Durante il Client Side Rendering React aspetterà che i nuovi stylesheet renderizzati siano caricati prima di committare il render. Se renderizzi questo componente da più punti nella tua applicazione, React includerà lo stylesheet nel documento una sola volta:
 
 ```js {5}
 function App() {
@@ -640,17 +648,17 @@ function App() {
 }
 ```
 
-For users accustomed to loading stylesheets manually this is an opportunity to locate those stylesheets alongside the components that depend on them allowing for better local reasoning and an easier time ensuring you only load the stylesheets that you actually depend on.
+Per gli utenti abituati a caricare stylesheet manualmente, questa è un'opportunità per posizionare quegli stylesheet accanto ai componenti che dipendono da essi, permettendo un migliore ragionamento locale e rendendo più semplice assicurarsi di caricare solo gli stylesheet di cui hai effettivamente bisogno.
 
-Style libraries and style integrations with bundlers can also adopt this new capability so even if you don't directly render your own stylesheets, you can still benefit as your tools are upgraded to use this feature.
+Le librerie di stili e le integrazioni di stile con i bundler possono anche adottare questa nuova capacità, quindi anche se non renderizzi direttamente i tuoi stylesheet, puoi comunque beneficiarne man mano che i tuoi strumenti vengono aggiornati per usare questa funzionalità.
 
-For more details, read the docs for [`<link>`](/reference/react-dom/components/link) and [`<style>`](/reference/react-dom/components/style).
+Per maggiori dettagli, consulta la documentazione di [`<link>`](/reference/react-dom/components/link) and [`<style>`](/reference/react-dom/components/style).
 
-### Support for async scripts {/*support-for-async-scripts*/}
+### Supporto per script async {/*support-for-async-scripts*/}
 
-In HTML normal scripts (`<script src="...">`) and deferred scripts (`<script defer="" src="...">`) load in document order which makes rendering these kinds of scripts deep within your component tree challenging. Async scripts (`<script async="" src="...">`) however will load in arbitrary order.
+In HTML, gli script normali (`<script src="...">`) e gli script deferred (`<script defer="" src="...">`) si caricano nell'ordine del documento, il che rende difficile renderizzare questi tipi di script in profondità nell'albero dei componenti. Gli script async (`<script async="" src="...">`) invece si caricano in ordine arbitrario.
 
-In React 19 we've included better support for async scripts by allowing you to render them anywhere in your component tree, inside the components that actually depend on the script, without having to manage relocating and deduplicating script instances.
+In React 19 abbiamo incluso un supporto migliore per gli script async permettendoti di renderizzarli ovunque nell'albero dei componenti, dentro i componenti che effettivamente dipendono dallo script, senza dover gestire lo spostamento e la deduplicazione delle istanze script.
 
 ```js {4,15}
 function MyComponent() {
@@ -673,17 +681,17 @@ function App() {
 }
 ```
 
-In all rendering environments, async scripts will be deduplicated so that React will only load and execute the script once even if it is rendered by multiple different components.
+In tutti gli ambienti di rendering, gli script async verranno deduplicati così che React caricherà ed eseguirà lo script una sola volta anche se viene renderizzato da più componenti diversi.
 
-In Server Side Rendering, async scripts will be included in the `<head>` and prioritized behind more critical resources that block paint such as stylesheets, fonts, and image preloads.
+Nel Server Side Rendering, gli script async verranno inclusi nel `<head>` e prioritizzati dietro risorse più critiche che bloccano il paint come stylesheet, font e preload di immagini.
 
-For more details, read the docs for [`<script>`](/reference/react-dom/components/script).
+Per maggiori dettagli, consulta la documentazione di [`<script>`](/reference/react-dom/components/script).
 
-### Support for preloading resources {/*support-for-preloading-resources*/}
+### Supporto per preload delle risorse {/*support-for-preloading-resources*/}
 
-During initial document load and on client side updates, telling the Browser about resources that it will likely need to load as early as possible can have a dramatic effect on page performance.
+Durante il caricamento iniziale del documento e negli aggiornamenti client side, informare il Browser delle risorse che probabilmente dovrà caricare il prima possibile può avere un effetto drammatico sulle performance della pagina.
 
-React 19 includes a number of new APIs for loading and preloading Browser resources to make it as easy as possible to build great experiences that aren't held back by inefficient resource loading.
+React 19 include diverse nuove API per caricare e pre-caricare risorse del Browser per rendere il più semplice possibile costruire grandi esperienze non limitate da un caricamento inefficiente delle risorse.
 
 ```js
 import { prefetchDNS, preconnect, preload, preinit } from 'react-dom'
@@ -712,23 +720,23 @@ function MyComponent() {
 </html>
 ```
 
-These APIs can be used to optimize initial page loads by moving discovery of additional resources like fonts out of stylesheet loading. They can also make client updates faster by prefetching a list of resources used by an anticipated navigation and then eagerly preloading those resources on click or even on hover.
+Queste API possono essere usate per ottimizzare i caricamenti iniziali della pagina spostando la scoperta di risorse aggiuntive come i font fuori dal caricamento degli stylesheet. Possono anche rendere gli aggiornamenti client più veloci prefetchando un elenco di risorse usate da una navigazione anticipata e poi pre-caricando eager quelle risorse al click o persino all'hover.
 
-For more details see [Resource Preloading APIs](/reference/react-dom#resource-preloading-apis).
+Per maggiori dettagli consulta le [Resource Preloading APIs](/reference/react-dom#resource-preloading-apis).
 
-### Compatibility with third-party scripts and extensions {/*compatibility-with-third-party-scripts-and-extensions*/}
+### Compatibilità con script di terze parti ed estensioni {/*compatibility-with-third-party-scripts-and-extensions*/}
 
-We've improved hydration to account for third-party scripts and browser extensions.
+Abbiamo migliorato l'hydration per tenere conto di script di terze parti ed estensioni del browser.
 
-When hydrating, if an element that renders on the client doesn't match the element found in the HTML from the server, React will force a client re-render to fix up the content. Previously, if an element was inserted by third-party scripts or browser extensions, it would trigger a mismatch error and client render.
+Durante l'hydration, se un elemento renderizzato sul client non corrisponde all'elemento trovato nell'HTML dal server, React forzerà una ri-renderizzazione lato client per correggere il contenuto. In precedenza, se un elemento veniva inserito da script di terze parti o estensioni del browser, scatenava un errore di mismatch e una renderizzazione lato client.
 
-In React 19, unexpected tags in the `<head>` and `<body>` will be skipped over, avoiding the mismatch errors. If React needs to re-render the entire document due to an unrelated hydration mismatch, it will leave in place stylesheets inserted by third-party scripts and browser extensions.
+In React 19, i tag inaspettati in `<head>` e `<body>` verranno saltati, evitando errori di mismatch. Se React deve re-renderizzare l'intero documento a causa di un hydration mismatch non correlato, lascerà in place gli stylesheet inseriti da script di terze parti ed estensioni del browser.
 
-### Better error reporting {/*error-handling*/}
+### Migliore segnalazione errori {/*error-handling*/}
 
-We improved error handling in React 19 to remove duplication and provide options for handling caught and uncaught errors. For example, when there's an error in render caught by an Error Boundary, previously React would throw the error twice (once for the original error, then again after failing to automatically recover), and then call `console.error` with info about where the error occurred.
+Abbiamo migliorato la gestione errori in React 19 per rimuovere la duplicazione e fornire opzioni per gestire errori catturati e non catturati. Ad esempio, quando c'è un errore in render catturato da un contenitore di errori, in precedenza React lanciava l'errore due volte (una per l'errore originale, poi di nuovo dopo il fallimento del recupero automatico) e poi chiamava `console.error` con info su dove è avvenuto l'errore.
 
-This resulted in three errors for every caught error:
+Questo produceva tre errori per ogni errore catturato:
 
 <ConsoleBlockMulti>
 
@@ -762,7 +770,7 @@ React will try to recreate this component tree from scratch using the error boun
 
 </ConsoleBlockMulti>
 
-In React 19, we log a single error with all the error information included:
+In React 19, registriamo un singolo errore con tutte le informazioni sull'errore incluse:
 
 <ConsoleBlockMulti>
 
@@ -784,27 +792,27 @@ React will try to recreate this component tree from scratch using the error boun
 
 </ConsoleBlockMulti>
 
-Additionally, we've added two new root options to complement `onRecoverableError`:
+Inoltre, abbiamo aggiunto due nuove opzioni root per complementare `onRecoverableError`:
 
-- `onCaughtError`: called when React catches an error in an Error Boundary.
-- `onUncaughtError`: called when an error is thrown and not caught by an Error Boundary.
-- `onRecoverableError`: called when an error is thrown and automatically recovered.
+- `onCaughtError`: chiamato quando React cattura un errore in un contenitore di errori.
+- `onUncaughtError`: chiamato quando un errore viene lanciato e non catturato da un contenitore di errori.
+- `onRecoverableError`: chiamato quando un errore viene lanciato e recuperato automaticamente.
 
-For more info and examples, see the docs for [`createRoot`](/reference/react-dom/client/createRoot) and [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
+Per maggiori informazioni ed esempi, consulta la documentazione di [`createRoot`](/reference/react-dom/client/createRoot) e [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
 
-### Support for Custom Elements {/*support-for-custom-elements*/}
+### Supporto per Custom Elements {/*support-for-custom-elements*/}
 
-React 19 adds full support for custom elements and passes all tests on [Custom Elements Everywhere](https://custom-elements-everywhere.com/).
+React 19 aggiunge supporto completo per custom element e supera tutti i test su [Custom Elements Everywhere](https://custom-elements-everywhere.com/).
 
-In past versions, using Custom Elements in React has been difficult because React treated unrecognized props as attributes rather than properties. In React 19, we've added support for properties that works on the client and during SSR with the following strategy:
+Nelle versioni passate, usare Custom Elements in React è stato difficile perché React trattava props non riconosciute come attributi piuttosto che proprietà. In React 19, abbiamo aggiunto supporto per proprietà che funziona sul client e durante SSR con la seguente strategia:
 
-- **Server Side Rendering**: props passed to a custom element will render as attributes if their type is a primitive value like `string`, `number`, or the value is `true`. Props with non-primitive types like `object`, `symbol`, `function`, or value `false` will be omitted.
-- **Client Side Rendering**: props that match a property on the Custom Element instance will be assigned as properties, otherwise they will be assigned as attributes.
+- **Server Side Rendering**: le props passate a un custom element verranno renderizzate come attributi se il loro tipo è un valore primitivo come `string`, `number`, o il valore è `true`. Props con tipi non primitivi come `object`, `symbol`, `function`, o valore `false` verranno omesse.
+- **Client Side Rendering**: le props che corrispondono a una proprietà sull'istanza del Custom Element verranno assegnate come proprietà, altrimenti verranno assegnate come attributi.
 
-Thanks to [Joey Arhar](https://github.com/josepharhar) for driving the design and implementation of Custom Element support in React.
+Grazie a [Joey Arhar](https://github.com/josepharhar) per aver guidato il design e l'implementazione del supporto Custom Element in React.
 
 
-#### How to upgrade {/*how-to-upgrade*/}
-See the [React 19 Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide) for step-by-step instructions and a full list of breaking and notable changes.
+#### Come effettuare l'upgrade {/*how-to-upgrade*/}
+Consulta la [Guida all'upgrade a React 19](/blog/2024/04/25/react-19-upgrade-guide) per istruzioni passo passo e l'elenco completo di breaking change e modifiche rilevanti.
 
-_Note: this post was originally published 04/25/2024 and has been updated to 12/05/2024 with the stable release._
+_Nota: questo post è stato pubblicato originariamente il 25/04/2024 ed è stato aggiornato al 05/12/2024 con il rilascio stabile._

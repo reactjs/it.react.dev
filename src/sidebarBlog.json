@@ -68,8 +68,8 @@
           "path": "/blog/2025/10/01/react-19-2"
         },
         {
-          "title": "React Labs: View Transitions, Activity, and more",
-          "titleForHomepage": "View Transitions and Activity",
+          "title": "React Labs: View Transitions, Activity e altro",
+          "titleForHomepage": "View Transitions e Activity",
           "icon": "blog",
           "date": "April 23, 2025",
           "path": "/blog/2025/04/23/react-labs-view-transitions-activity-and-more"
@@ -89,15 +89,15 @@
           "path": "/blog/2024/12/05/react-19"
         },
         {
-          "title": "React Compiler Beta Release",
-          "titleForHomepage": "React Compiler Beta Release and Roadmap",
+          "title": "React Compiler: rilascio Beta",
+          "titleForHomepage": "React Compiler: rilascio Beta e roadmap",
           "icon": "blog",
           "date": "October 21, 2024",
           "path": "/blog/2024/10/21/react-compiler-beta-release"
         },
         {
-          "title": "React Conf 2024 Recap",
-          "titleForHomepage": "React Conf 2024 Recap",
+          "title": "React Conf 2024: il riepilogo",
+          "titleForHomepage": "React Conf 2024: il riepilogo",
           "icon": "blog",
           "date": "May 22, 2024",
           "path": "/blog/2024/05/22/react-conf-2024-recap"
@@ -110,15 +110,15 @@
           "path": "/blog/2024/04/25/react-19"
         },
         {
-          "title": "React 19 Upgrade Guide",
-          "titleForHomepage": "React 19 RC Upgrade Guide",
+          "title": "Guida all'upgrade a React 19",
+          "titleForHomepage": "Guida all'upgrade a React 19 RC",
           "icon": "blog",
           "date": "April 25, 2024",
           "path": "/blog/2024/04/25/react-19-upgrade-guide"
         },
         {
-          "title": "React Labs: What We've Been Working On – February 2024",
-          "titleForHomepage": "React Labs: February 2024",
+          "title": "React Labs: su cosa stiamo lavorando – febbraio 2024",
+          "titleForHomepage": "React Labs: febbraio 2024",
           "icon": "labs",
           "date": "February 15, 2024",
           "path": "/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024"
