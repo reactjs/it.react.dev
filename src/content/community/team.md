@@ -111,7 +111,7 @@ Il lavoro su React è organizzato in working group, ciascuno responsabile di un'
 
 <TeamMember name="Vitali Zaidman" permalink="vitali-zaidman" photo="/images/team/gh-vzaidman.jpg" github="vzaidman" title="Engineer at Meta" group="DevX" />
 
-## Advisor {/*advisors*/}
+## Consulenti {/*advisors*/}
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="elicwhite" twitter="Eli_White" threads="elicwhite" title="Engineer at Meta">
     Eli si è avvicinato alla programmazione dopo essere stato sospeso dalla scuola media per hacking. Lavora su React e React Native dal 2017. Gli piace mangiare dolci, soprattutto gelato e torta di mele. Puoi trovare Eli a provare attività eccentriche come parkour, indoor skydiving e tessuti aerei.

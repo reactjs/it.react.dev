@@ -21,7 +21,7 @@ A React Conf 2024, il CTO di Meta [Andrew "Boz" Bosworth](https://www.threads.ne
 
 <YouTubeIframe src="https://www.youtube.com/embed/T8TZQ6k4SLE?t=975s" title="Boz and Seth Intro" />
 
-### Keynote React 19 {/*react-19-keynote*/}
+### React 19 Keynote {/*react-19-keynote*/}
 
 Nel keynote del Giorno 1, abbiamo condiviso la visione per React a partire da React 19 e il React Compiler. Guarda il keynote completo di [Joe Savona](https://twitter.com/en_JS), [Lauren Tan](https://twitter.com/potetotes), [Andrew Clark](https://twitter.com/acdlite), [Josh Story](https://twitter.com/joshcstory), [Sathya Gunasekaran](https://twitter.com/_gsathya) e [Mofei Zhang](https://twitter.com/zmofei):
 
@@ -86,7 +86,7 @@ Puoi guardare tutti i talk di React Conf 2024 su [conf2024.react.dev](https://co
 
 ## React Conf 2021 {/*react-conf-2021*/}
 
-### Keynote React 18 {/*react-18-keynote*/}
+### React 18 Keynote {/*react-18-keynote*/}
 
 Nel keynote, abbiamo condiviso la nostra visione per il futuro di React a partire da React 18.
 
@@ -110,7 +110,7 @@ Per un approfondimento, vedi il talk di [Shaundai Person](https://twitter.com/sh
 
 <YouTubeIframe src="https://www.youtube.com/embed/pj5N-Khihgc" title="Streaming Server Rendering with Suspense" />
 
-### Il primo working group React {/*the-first-react-working-group*/}
+### The first React working group {/*the-first-react-working-group*/}
 
 Per React 18, abbiamo creato il nostro primo Working Group per collaborare con un panel di esperti, developer, maintainer di librerie ed educatori. Insieme abbiamo lavorato per creare la nostra strategia di adozione graduale e raffinare nuove API come `useId`, `useSyncExternalStore` e `useInsertionEffect`.
 
@@ -118,7 +118,7 @@ Per una panoramica di questo lavoro, vedi il talk di [Aakansha' Doshi](https://t
 
 <YouTubeIframe src="https://www.youtube.com/embed/qn7gRClrC9U" title="The first React working group" />
 
-### Strumenti per developer React {/*react-developer-tooling*/}
+### React Developer Tooling {/*react-developer-tooling*/}
 
 Per supportare le nuove funzionalità in questa release, abbiamo anche annunciato il team React DevTools appena formato e un nuovo Timeline Profiler per aiutare i developer a fare debug delle loro app React.
 
@@ -132,7 +132,7 @@ Guardando più avanti nel futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxp
 
 <YouTubeIframe src="https://www.youtube.com/embed/lGEMwh32soc" title="React without memo" />
 
-### Keynote documentazione React {/*react-docs-keynote*/}
+### React docs keynote {/*react-docs-keynote*/}
 
 [Rachel Nabors](https://twitter.com/rachelnabors) ha aperto una sezione di talk sull'apprendimento e il design con React con un keynote sul nostro investimento nella nuova documentazione di React ([ora pubblicata come react.dev](/blog/2023/03/16/introducing-react-dev)):
 
