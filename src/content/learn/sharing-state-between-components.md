@@ -11,18 +11,18 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 <Intro>
 
-A volte, vuoi che lo state di due componenti cambi sempre insieme. Per farlo, rimuovi lo state da entrambi, spostalo al loro genitore comune più vicino e poi passalo loro tramite le props. Questo è noto come *alzare lo state* ed è una delle cose più comuni che farai scrivendo codice React.
+A volte, vuoi che lo state di due componenti cambi sempre insieme. Per farlo, rimuovi lo state da entrambi, spostalo al loro genitore comune più vicino e poi passalo loro tramite le props. Questo è noto come *sollevare lo state* ed è una delle cose più comuni che farai scrivendo codice React.
 
 </Intro>
 
 <YouWillLearn>
 
-- Come condividere lo state tra componenti alzandolo
+- Come condividere lo state tra componenti sollevandolo
 - Cosa sono i componenti controllati e non controllati
 
 </YouWillLearn>
 
-## Alzare lo state con un esempio {/*lifting-state-up-by-example*/}
+## Sollevare lo state con un esempio {/*lifting-state-up-by-example*/}
 
 In questo esempio, un componente genitore `Accordion` renderizza due `Panel` separati:
 
@@ -100,7 +100,7 @@ Cliccare il pulsante di uno dei `Panel` aggiornerà solo lo state `isActive` di 
 
 **Ma ora diciamo che vuoi cambiarlo in modo che solo un pannello sia espanso in qualsiasi momento.** Con questo design, espandere il secondo pannello dovrebbe collassare il primo. Come faresti?
 
-Per coordinare questi due pannelli, devi "alzare il loro state" a un componente genitore in tre passaggi:
+Per coordinare questi due pannelli, devi "sollevare il loro state" a un componente genitore in tre passaggi:
 
 1. **Rimuovi** lo state dai componenti figli.
 2. **Passa** dati hardcodati dal genitore comune.
@@ -126,7 +126,7 @@ Ora il componente genitore di `Panel` può *controllare* `isActive` [passandolo 
 
 ### Passaggio 2: Passa dati hardcodati dal genitore comune {/*step-2-pass-hardcoded-data-from-the-common-parent*/}
 
-Per alzare lo state, devi individuare il genitore comune più vicino di *entrambi* i componenti figli che vuoi coordinare:
+Per sollevare lo state, devi individuare il genitore comune più vicino di *entrambi* i componenti figli che vuoi coordinare:
 
 * `Accordion` *(genitore comune più vicino)*
   - `Panel`
@@ -183,7 +183,7 @@ Prova a modificare i valori hardcodati di `isActive` nel componente `Accordion` 
 
 ### Passaggio 3: Aggiungi lo state al genitore comune {/*step-3-add-state-to-the-common-parent*/}
 
-Alzare lo state spesso cambia la natura di ciò che memorizzi come state.
+Sollevare lo state spesso cambia la natura di ciò che memorizzi come state.
 
 In questo caso, solo un pannello dovrebbe essere attivo alla volta. Questo significa che il componente genitore comune `Accordion` deve tenere traccia di *quale* pannello è quello attivo. Invece di un valore `boolean`, potrebbe usare un numero come indice del `Panel` attivo per la variabile di state:
 
@@ -273,7 +273,7 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-Questo completa l'alzamento dello state! Spostare lo state nel componente genitore comune ti ha permesso di coordinare i due pannelli. Usare l'indice attivo invece di due flag "è mostrato" ha garantito che solo un pannello sia attivo in un dato momento. E passare il gestore di eventi al figlio ha permesso al figlio di cambiare lo state del genitore.
+Questo completa il sollevamento dello state! Spostare lo state nel componente genitore comune ti ha permesso di coordinare i due pannelli. Usare l'indice attivo invece di due flag "è mostrato" ha garantito che solo un pannello sia attivo in un dato momento. E passare il gestore di eventi al figlio ha permesso al figlio di cambiare lo state del genitore.
 
 <DiagramGroup>
 
@@ -311,7 +311,7 @@ Quando scrivi un componente, considera quali informazioni al suo interno dovrebb
 
 In un'applicazione React, molti componenti avranno il proprio state. Parte dello state può "risiedere" vicino ai componenti foglia (componenti alla base dell'albero), come gli input. Altro state può "risiedere" più in alto nell'app. Ad esempio, anche le librerie di routing lato client di solito sono implementate memorizzando la route corrente nello state di React e passandola ai figli tramite props!
 
-**Per ogni pezzo unico di state, sceglierai il componente che lo "possiede".** Questo principio è anche noto come avere una ["fonte unica di verità".](https://en.wikipedia.org/wiki/Single_source_of_truth) Non significa che tutto lo state risieda in un unico posto, ma che per _ogni_ pezzo di state c'è un componente _specifico_ che detiene quell'informazione. Invece di duplicare lo state condiviso tra componenti, *alzalo* al loro genitore condiviso comune e *passalo ai figli* che ne hanno bisogno.
+**Per ogni pezzo unico di state, sceglierai il componente che lo "possiede".** Questo principio è anche noto come avere una ["fonte unica di verità".](https://en.wikipedia.org/wiki/Single_source_of_truth) Non significa che tutto lo state risieda in un unico posto, ma che per _ogni_ pezzo di state c'è un componente _specifico_ che detiene quell'informazione. Invece di duplicare lo state condiviso tra componenti, *sollevalo* al loro genitore condiviso comune e *passalo ai figli* che ne hanno bisogno.
 
 La tua app cambierà mentre ci lavori. È comune spostare lo state verso il basso o di nuovo verso l'alto mentre stai ancora capendo dove "risiede" ogni pezzo dello state. Fa tutto parte del processo!
 
@@ -334,7 +334,7 @@ Questi due input sono indipendenti. Falli rimanere sincronizzati: modificare un 
 
 <Hint>
 
-Dovrai alzare il loro state nel componente genitore.
+Dovrai sollevare il loro state nel componente genitore.
 
 </Hint>
 
@@ -535,7 +535,7 @@ export const foods = [{
 
 <Solution>
 
-Alza lo state `query` nel componente `FilterableList`. Chiama `filterItems(foods, query)` per ottenere la lista filtrata e passala a `List`. Ora cambiare l'input della query si riflette nella lista:
+Solleva lo state `query` nel componente `FilterableList`. Chiama `filterItems(foods, query)` per ottenere la lista filtrata e passala a `List`. Ora cambiare l'input della query si riflette nella lista:
 
 <Sandpack>
 
