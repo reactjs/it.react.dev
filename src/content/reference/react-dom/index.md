@@ -22,7 +22,7 @@ Il pacchetto `react-dom` contiene metodi supportati solo nelle applicazioni web 
 Queste API possono essere importate dai tuoi componenti. Vengono usate raramente:
 
 * [`createPortal`](/reference/react-dom/createPortal) ti permette di renderizzare componenti figli in una parte diversa dell'albero DOM.
-* [`flushSync`](/reference/react-dom/flushSync) ti permette di forzare React a eseguire il flush di un aggiornamento di state e ad aggiornare il DOM in modo sincrono.
+* [`flushSync`](/reference/react-dom/flushSync) ti permette di forzare React a svuotare in modo sincrono un aggiornamento di state e ad aggiornare il DOM.
 
 ## API di precaricamento delle risorse {/*resource-preloading-apis*/}
 
@@ -39,7 +39,7 @@ I [framework basati su React](/learn/creating-a-react-app) gestiscono spesso il 
 
 ## API di renderizzazione sul server {/*server-rendering-apis*/}
 
-Queste API controllano come i componenti vengono renderizzati sul server:
+Questa API controlla come i componenti vengono renderizzati sul server:
 
 * [`browser`](/reference/react-dom/browser) ti permette di contrassegnare un componente come solo per il browser durante la renderizzazione sul server.
 
