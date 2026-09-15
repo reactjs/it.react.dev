@@ -124,22 +124,22 @@
           "path": "/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024"
         },
         {
-          "title": "React Canaries: Enabling Incremental Feature Rollout Outside Meta",
-          "titleForHomepage": "React Canaries: Incremental Feature Rollout",
+          "title": "React Canaries: rollout incrementale delle funzionalità fuori da Meta",
+          "titleForHomepage": "React Canaries: rollout incrementale",
           "icon": "blog",
           "date": "May 3, 2023",
           "path": "/blog/2023/05/03/react-canaries"
         },
         {
-          "title": "React Labs: What We've Been Working On – March 2023",
-          "titleForHomepage": "React Labs: March 2023",
+          "title": "React Labs: su cosa stiamo lavorando – marzo 2023",
+          "titleForHomepage": "React Labs: marzo 2023",
           "icon": "labs",
           "date": "March 22, 2023",
           "path": "/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023"
         },
         {
-          "title": "Introducing react.dev",
-          "titleForHomepage": "Introducing react.dev",
+          "title": "Presentiamo react.dev",
+          "titleForHomepage": "Presentiamo react.dev",
           "icon": "blog",
           "date": "March 16, 2023",
           "path": "/blog/2023/03/16/introducing-react-dev"
