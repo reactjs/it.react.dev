@@ -7,7 +7,7 @@
       "sectionHeader": "RESTA AGGIORNATO"
     },
     {
-      "title": "React Blog",
+      "title": "Blog",
       "path": "/blog",
       "skipBreadcrumb": true,
       "routes": [
@@ -187,7 +187,7 @@
           "path": "/blog/2020/12/21/data-fetching-with-react-server-components"
         },
         {
-          "title": "Post più vecchi",
+          "title": "Older posts",
           "path": "https://reactjs.org/blog/all.html"
         }
       ]

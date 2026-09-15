@@ -523,11 +523,11 @@
       "path": "/reference/rsc/directives",
       "routes": [
         {
-          "title": "use client",
+          "title": "'use client'",
           "path": "/reference/rsc/use-client"
         },
         {
-          "title": "use server",
+          "title": "'use server'",
           "path": "/reference/rsc/use-server"
         }
       ]
