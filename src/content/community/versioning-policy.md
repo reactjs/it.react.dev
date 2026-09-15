@@ -33,7 +33,7 @@ Le minor release sono il tipo di release più comune.
 
 Sappiamo che i nostri utenti continuano a usare vecchie versioni di React in produzione. Se veniamo a conoscenza di una vulnerabilità di sicurezza in React, rilasciamo una correzione backportata per tutte le major version interessate dalla vulnerabilità.
 
-### Breaking change {/*breaking-changes*/}
+### Breaking changes {/*breaking-changes*/}
 
 Le breaking change sono scomode per tutti, quindi cerchiamo di minimizzare il numero di major release — ad esempio, React 15 è uscito ad aprile 2016, React 16 a settembre 2017 e React 17 a ottobre 2020.
 
@@ -91,7 +91,7 @@ Questa sezione sarà più rilevante per gli sviluppatori che lavorano su framewo
 Ciascuno dei canali di release di React è pensato per un caso d'uso distinto:
 
 - [**Latest**](#latest-channel) è per le release stabili di React con semver. È ciò che ottieni quando installi React da npm. Questo è il canale che stai già usando oggi. **Le applicazioni user-facing che consumano React direttamente usano questo canale.**
-- [**Canary**](#canary-channel) segue il branch main del repository sorgente di React. Considerale come release candidate per la prossima release semver. **[Framework o altri setup curati possono scegliere di usare questo canale con una versione di React fissata.](/blog/2023/05/03/react-canaries) Puoi anche usare le Canary per integration testing tra React e progetti di terze parti.**
+- [**Canary**](#canary-channel) segue il branch main del repository sorgente di React. Consideralo come release candidate per la prossima release semver. **[Framework o altri setup curati possono scegliere di usare questo canale con una versione di React fissata.](/blog/2023/05/03/react-canaries) Puoi anche usare le Canary per integration testing tra React e progetti di terze parti.**
 - [**Experimental**](#experimental-channel) include API e funzionalità sperimentali non disponibili nelle release stabili. Seguono anche il branch main, ma con feature flag aggiuntive attivate. Usalo per provare funzionalità imminenti prima che vengano rilasciate.
 
 Tutte le release sono pubblicate su npm, ma solo Latest usa il semantic versioning. Le prerelease (quelle nei canali Canary e Experimental) hanno versioni generate da un hash del loro contenuto e della data del commit, es. `18.3.0-canary-388686f29-20230503` per Canary e `0.0.0-experimental-388686f29-20230503` per Experimental.

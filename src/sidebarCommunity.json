@@ -1,10 +1,10 @@
 {
-  "title": "Community",
+  "title": "Comunità",
   "path": "/community",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET INVOLVED"
+      "sectionHeader": "PARTECIPA"
     },
     {
       "title": "La community di React",
