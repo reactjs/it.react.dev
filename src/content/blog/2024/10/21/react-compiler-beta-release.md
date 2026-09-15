@@ -1,134 +1,140 @@
 ---
-title: "React Compiler Beta Release"
+title: "React Compiler: rilascio Beta"
 author: Lauren Tan
 date: 2024/10/21
-description: At React Conf 2024, we announced the experimental release of React Compiler, a build-time tool that optimizes your React app through automatic memoization. In this post, we want to share what's next for open source, and our progress on the compiler.
-
+description: A React Conf 2024 abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memoization automatica. In questo post condividiamo i prossimi passi per l'open source e i progressi sul compiler.
+translationStatus: ai-draft
 ---
 
-October 21, 2024 by [Lauren Tan](https://twitter.com/potetotes).
+21 ottobre 2024 di [Lauren Tan](https://twitter.com/potetotes).
 
 ---
 
 <Note>
 
-### React Compiler is now stable! {/*react-compiler-is-now-in-rc*/}
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2024/10/21/react-compiler-beta-release.md).
 
-Please see the [stable release blog post](/blog/2025/10/07/react-compiler-1) for details.
+</Note>
+
+<Note>
+
+### React Compiler è ora stabile! {/*react-compiler-is-now-in-rc*/}
+
+Consulta il [post di rilascio stabile](/blog/2025/10/07/react-compiler-1) per i dettagli.
 
 </Note>
 
 <Intro>
 
-The React team is excited to share new updates:
+Il team React è entusiasta di condividere nuovi aggiornamenti:
 
 </Intro>
 
-1. We're publishing React Compiler Beta today, so that early adopters and library maintainers can try it and provide feedback.
-2. We're officially supporting React Compiler for apps on React 17+, through an optional `react-compiler-runtime` package.
-3. We're opening up public membership of the [React Compiler Working Group](https://github.com/reactwg/react-compiler) to prepare the community for gradual adoption of the compiler.
+1. Pubblichiamo oggi React Compiler Beta, così early adopter e maintainer di librerie possono provarlo e fornire feedback.
+2. Supportiamo ufficialmente React Compiler per app su React 17+, tramite il pacchetto opzionale `react-compiler-runtime`.
+3. Apriamo l'iscrizione pubblica al [React Compiler Working Group](https://github.com/reactwg/react-compiler) per preparare la community all'adozione graduale del compiler.
 
 ---
 
-At [React Conf 2024](/blog/2024/05/22/react-conf-2024-recap), we announced the experimental release of React Compiler, a build-time tool that optimizes your React app through automatic memoization. [You can find an introduction to React Compiler here](/learn/react-compiler).
+A [React Conf 2024](/blog/2024/05/22/react-conf-2024-recap), abbiamo annunciato il rilascio sperimentale di React Compiler, uno strumento build-time che ottimizza la tua app React tramite memoization automatica. [Puoi trovare un'introduzione a React Compiler qui](/learn/react-compiler).
 
-Since the first release, we've fixed numerous bugs reported by the React community, received several high quality bug fixes and contributions[^1] to the compiler, made the compiler more resilient to the broad diversity of JavaScript patterns, and have continued to roll out the compiler more widely at Meta.
+Dal primo rilascio, abbiamo corretto numerosi bug segnalati dalla community React, ricevuto diversi fix e contributi di alta qualità[^1] al compiler, reso il compiler più resiliente alla vasta diversità di pattern JavaScript e continuato a distribuirlo più ampiamente in Meta.
 
-In this post, we want to share what's next for React Compiler.
+In questo post vogliamo condividere i prossimi passi per React Compiler.
 
-## Try React Compiler Beta today {/*try-react-compiler-beta-today*/}
+## Prova React Compiler Beta oggi {/*try-react-compiler-beta-today*/}
 
-At [React India 2024](https://www.youtube.com/watch?v=qd5yk2gxbtg), we shared an update on React Compiler. Today, we are excited to announce a new Beta release of React Compiler and ESLint plugin. New betas are published to npm using the `@beta` tag.
+A [React India 2024](https://www.youtube.com/watch?v=qd5yk2gxbtg), abbiamo condiviso un aggiornamento su React Compiler. Oggi siamo entusiasti di annunciare un nuovo rilascio Beta di React Compiler e del plugin ESLint. Le nuove beta vengono pubblicate su npm con il tag `@beta`.
 
-To install React Compiler Beta:
+Per installare React Compiler Beta:
 
 <TerminalBlock>
 npm install -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-Or, if you're using Yarn:
+Oppure, se usi Yarn:
 
 <TerminalBlock>
 yarn add -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-You can watch [Sathya Gunasekaran's](https://twitter.com/_gsathya) talk at React India here:
+Puoi guardare il talk di [Sathya Gunasekaran](https://twitter.com/_gsathya) a React India qui:
 
 <YouTubeIframe src="https://www.youtube.com/embed/qd5yk2gxbtg" />
 
-## We recommend everyone use the React Compiler linter today {/*we-recommend-everyone-use-the-react-compiler-linter-today*/}
+## Consigliamo a tutti di usare il linter di React Compiler oggi {/*we-recommend-everyone-use-the-react-compiler-linter-today*/}
 
-React Compiler’s ESLint plugin helps developers proactively identify and correct [Rules of React](/reference/rules) violations. **We strongly recommend everyone use the linter today**. The linter does not require that you have the compiler installed, so you can use it independently, even if you are not ready to try out the compiler.
+Il plugin ESLint di React Compiler aiuta gli sviluppatori a identificare e correggere proattivamente le violazioni delle [Rules of React](/reference/rules). **Consigliamo fortemente a tutti di usare il linter oggi**. Il linter non richiede che tu abbia il compiler installato, quindi puoi usarlo in modo indipendente, anche se non sei pronto a provare il compiler.
 
-To install the linter only:
+Per installare solo il linter:
 
 <TerminalBlock>
 npm install -D eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-Or, if you're using Yarn:
+Oppure, se usi Yarn:
 
 <TerminalBlock>
 yarn add -D eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-After installation you can enable the linter by [adding it to your ESLint config](/learn/react-compiler/installation#eslint-integration). Using the linter helps identify Rules of React breakages, making it easier to adopt the compiler when it's fully released.
+Dopo l'installazione puoi abilitare il linter [aggiungendolo alla configurazione ESLint](/learn/react-compiler/installation#eslint-integration). Usare il linter aiuta a identificare le violazioni delle Rules of React, rendendo più semplice adottare il compiler quando sarà completamente rilasciato.
 
-## Backwards Compatibility {/*backwards-compatibility*/}
+## Compatibilità con versioni precedenti {/*backwards-compatibility*/}
 
-React Compiler produces code that depends on runtime APIs added in React 19, but we've since added support for the compiler to also work with React 17 and 18. If you are not on React 19 yet, in the Beta release you can now try out React Compiler by specifying a minimum `target` in your compiler config, and adding `react-compiler-runtime` as a dependency. [You can find docs on this here](/reference/react-compiler/configuration#react-17-18).
+React Compiler produce codice che dipende da API runtime aggiunte in React 19, ma da allora abbiamo aggiunto supporto per far funzionare il compiler anche con React 17 e 18. Se non sei ancora su React 19, nel rilascio Beta puoi ora provare React Compiler specificando un `target` minimo nella configurazione del compiler e aggiungendo `react-compiler-runtime` come dipendenza. [Puoi trovare la documentazione qui](/reference/react-compiler/configuration#react-17-18).
 
-## Using React Compiler in libraries {/*using-react-compiler-in-libraries*/}
+## Usare React Compiler nelle librerie {/*using-react-compiler-in-libraries*/}
 
-Our initial release was focused on identifying major issues with using the compiler in applications. We've gotten great feedback and have substantially improved the compiler since then. We're now ready for broad feedback from the community, and for library authors to try out the compiler to improve performance and the developer experience of maintaining your library.
+Il nostro rilascio iniziale era focalizzato sull'identificare problemi principali nell'uso del compiler nelle applicazioni. Abbiamo ricevuto ottimo feedback e abbiamo migliorato sostanzialmente il compiler da allora. Siamo ora pronti per un feedback ampio dalla community e per gli autori di librerie che provino il compiler per migliorare performance e developer experience nella manutenzione della libreria.
 
-React Compiler can also be used to compile libraries. Because React Compiler needs to run on the original source code prior to any code transformations, it is not possible for an application's build pipeline to compile the libraries they use. Hence, our recommendation is for library maintainers to independently compile and test their libraries with the compiler, and ship compiled code to npm.
+React Compiler può anche essere usato per compilare librerie. Poiché React Compiler deve girare sul codice sorgente originale prima di qualsiasi trasformazione, non è possibile che la pipeline di build di un'applicazione compili le librerie che usa. Quindi, la nostra raccomandazione è che i maintainer di librerie compilino e testino indipendentemente le proprie librerie con il compiler e distribuiscano codice compilato su npm.
 
-Because your code is pre-compiled, users of your library will not need to have the compiler enabled in order to benefit from the automatic memoization applied to your library. If your library targets apps not yet on React 19, specify a minimum `target` and add `react-compiler-runtime` as a direct dependency. The runtime package will use the correct implementation of APIs depending on the application's version, and polyfill the missing APIs if necessary.
+Poiché il tuo codice è pre-compilato, gli utenti della tua libreria non dovranno avere il compiler abilitato per beneficiare della memoization automatica applicata alla libreria. Se la tua libreria punta ad app non ancora su React 19, specifica un `target` minimo e aggiungi `react-compiler-runtime` come dipendenza diretta. Il pacchetto runtime userà l'implementazione corretta delle API a seconda della versione dell'applicazione e polyfill le API mancanti se necessario.
 
-[You can find more docs on this here.](/reference/react-compiler/compiling-libraries)
+[Puoi trovare maggiori documenti qui.](/reference/react-compiler/compiling-libraries)
 
-## Opening up React Compiler Working Group to everyone {/*opening-up-react-compiler-working-group-to-everyone*/}
+## Apertura del React Compiler Working Group a tutti {/*opening-up-react-compiler-working-group-to-everyone*/}
 
-We previously announced the invite-only [React Compiler Working Group](https://github.com/reactwg/react-compiler) at React Conf to provide feedback, ask questions, and collaborate on the compiler's experimental release.
+Abbiamo annunciato in precedenza il [React Compiler Working Group](https://github.com/reactwg/react-compiler) su invito a React Conf per fornire feedback, porre domande e collaborare sul rilascio sperimentale del compiler.
 
-From today, together with the Beta release of React Compiler, we are opening up Working Group membership to everyone. The goal of the React Compiler Working Group is to prepare the ecosystem for a smooth, gradual adoption of React Compiler by existing applications and libraries. Please continue to file bug reports in the [React repo](https://github.com/react/react), but please leave feedback, ask questions, or share ideas in the [Working Group discussion forum](https://github.com/reactwg/react-compiler/discussions).
+Da oggi, insieme al rilascio Beta di React Compiler, apriamo l'iscrizione al Working Group a tutti. L'obiettivo del React Compiler Working Group è preparare l'ecosistema per un'adozione graduale e fluida di React Compiler da parte di applicazioni e librerie esistenti. Continua a segnalare bug nel [repo React](https://github.com/react/react), ma lascia feedback, fai domande o condividi idee nel [forum di discussione del Working Group](https://github.com/reactwg/react-compiler/discussions).
 
-The core team will also use the discussions repo to share our research findings. As the Stable Release gets closer, any important information will also be posted on this forum.
+Il core team userà anche il repo delle discussioni per condividere i risultati della ricerca. Man mano che il rilascio Stable si avvicina, qualsiasi informazione importante verrà pubblicata anche su questo forum.
 
-## React Compiler at Meta {/*react-compiler-at-meta*/}
+## React Compiler in Meta {/*react-compiler-at-meta*/}
 
-At [React Conf](/blog/2024/05/22/react-conf-2024-recap), we shared that our rollout of the compiler on Quest Store and Instagram were successful. Since then, we've deployed React Compiler across several more major web apps at Meta, including [Facebook](https://www.facebook.com) and [Threads](https://www.threads.net). That means if you've used any of these apps recently, you may have had your experience powered by the compiler. We were able to onboard these apps onto the compiler with few code changes required, in a monorepo with more than 100,000 React components.
+A [React Conf](/blog/2024/05/22/react-conf-2024-recap), abbiamo condiviso che il rollout del compiler su Quest Store e Instagram è andato a buon fine. Da allora, abbiamo distribuito React Compiler su diversi altri grandi web app in Meta, inclusi [Facebook](https://www.facebook.com) e [Threads](https://www.threads.net). Questo significa che se hai usato una di queste app di recente, la tua esperienza potrebbe essere stata alimentata dal compiler. Siamo riusciti a integrare queste app nel compiler con poche modifiche al codice, in un monorepo con più di 100.000 componenti React.
 
-We've seen notable performance improvements across all of these apps. As we've rolled out, we're continuing to see results on the order of [the wins we shared previously at ReactConf](https://youtu.be/lyEKhv8-3n0?t=3223). These apps have already been heavily hand tuned and optimized by Meta engineers and React experts over the years, so even improvements on the order of a few percent are a huge win for us.
+Abbiamo visto miglioramenti significativi delle performance su tutte queste app. Man mano che distribuiamo, continuiamo a vedere risultati dell'ordine di [i guadagni che abbiamo condiviso in precedenza a ReactConf](https://youtu.be/lyEKhv8-3n0?t=3223). Queste app erano già state pesantemente ottimizzate a mano da ingegneri Meta ed esperti React nel corso degli anni, quindi anche miglioramenti dell'ordine di qualche percento sono una grande vittoria per noi.
 
-We also expected developer productivity wins from React Compiler. To measure this, we collaborated with our data science partners at Meta[^2] to conduct a thorough statistical analysis of the impact of manual memoization on productivity. Before rolling out the compiler at Meta, we discovered that only about 8% of React pull requests used manual memoization and that these pull requests took 31-46% longer to author[^3]. This confirmed our intuition that manual memoization introduces cognitive overhead, and we anticipate that React Compiler will lead to more efficient code authoring and review. Notably, React Compiler also ensures that *all* code is memoized by default, not just the (in our case) 8% where developers explicitly apply memoization.
+Ci aspettavamo anche guadagni di produttività degli sviluppatori da React Compiler. Per misurarlo, abbiamo collaborato con i nostri partner data science in Meta[^2] per condurre un'analisi statistica approfondita dell'impatto della memoization manuale sulla produttività. Prima del rollout del compiler in Meta, abbiamo scoperto che solo circa l'8% delle pull request React usava memoization manuale e che queste pull request richiedevano il 31-46% in più di tempo per essere scritte[^3]. Questo ha confermato la nostra intuizione che la memoization manuale introduce overhead cognitivo, e prevediamo che React Compiler porterà a scrittura e revisione del codice più efficienti. In particolare, React Compiler assicura anche che *tutto* il codice sia memoizzato per impostazione predefinita, non solo l'8% (nel nostro caso) in cui gli sviluppatori applicano esplicitamente la memoization.
 
-## Roadmap to Stable {/*roadmap-to-stable*/}
+## Roadmap verso Stable {/*roadmap-to-stable*/}
 
-*This is not a final roadmap, and is subject to change.*
+*Questa non è una roadmap definitiva ed è soggetta a modifiche.*
 
-We intend to ship a Release Candidate of the compiler in the near future following the Beta release, when the majority of apps and libraries that follow the Rules of React have been proven to work well with the compiler. After a period of final feedback from the community, we plan on a Stable Release for the compiler. The Stable Release will mark the beginning of a new foundation for React, and all apps and libraries will be strongly recommended to use the compiler and ESLint plugin.
+Intendiamo distribuire un Release Candidate del compiler nel prossimo futuro dopo il rilascio Beta, quando la maggior parte di app e librerie che seguono le Rules of React avrà dimostrato di funzionare bene con il compiler. Dopo un periodo di feedback finale dalla community, prevediamo un rilascio Stable per il compiler. Il rilascio Stable segnerà l'inizio di una nuova base per React, e tutte le app e librerie saranno fortemente consigliate a usare il compiler e il plugin ESLint.
 
-* ✅ Experimental: Released at React Conf 2024, primarily for feedback from early adopters.
-* ✅ Public Beta: Available today, for feedback from the wider community.
-* 🚧 Release Candidate (RC): React Compiler works for the majority of rule-following apps and libraries without issue.
-* 🚧 General Availability: After final feedback period from the community.
+* ✅ Experimental: rilasciato a React Conf 2024, principalmente per feedback da early adopter.
+* ✅ Public Beta: disponibile oggi, per feedback dalla community più ampia.
+* 🚧 Release Candidate (RC): React Compiler funziona per la maggior parte di app e librerie che seguono le regole senza problemi.
+* 🚧 General Availability: dopo il periodo di feedback finale dalla community.
 
-These releases also include the compiler's ESLint plugin, which surfaces diagnostics statically analyzed by the compiler. We plan to combine the existing eslint-plugin-react-hooks plugin with the compiler's ESLint plugin, so only one plugin needs to be installed.
+Questi rilasci includono anche il plugin ESLint del compiler, che espone diagnostiche analizzate staticamente dal compiler. Prevediamo di combinare l'esistente plugin eslint-plugin-react-hooks con il plugin ESLint del compiler, così serve installare un solo plugin.
 
-Post-Stable, we plan to add more compiler optimizations and improvements. This includes both continual improvements to automatic memoization, and new optimizations altogether, with minimal to no change of product code. Upgrading to each new release of the compiler is aimed to be straightforward, and each upgrade will continue to improve performance and add better handling of diverse JavaScript and React patterns.
+Dopo Stable, prevediamo di aggiungere altre ottimizzazioni e miglioramenti al compiler. Questo include sia miglioramenti continui alla memoization automatica sia nuove ottimizzazioni, con modifiche minime o nulle al codice di prodotto. L'upgrade a ogni nuovo rilascio del compiler è pensato per essere semplice, e ogni upgrade continuerà a migliorare le performance e ad aggiungere una gestione migliore di pattern JavaScript e React diversi.
 
-Throughout this process, we also plan to prototype an IDE extension for React. It is still very early in research, so we expect to be able to share more of our findings with you in a future React Labs blog post.
-
----
-
-Thanks to [Sathya Gunasekaran](https://twitter.com/_gsathya), [Joe Savona](https://twitter.com/en_JS), [Ricky Hanlon](https://twitter.com/rickhanlonii), [Alex Taylor](https://github.com/alexmckenley), [Jason Bonta](https://twitter.com/someextent), and [Eli White](https://twitter.com/Eli_White) for reviewing and editing this post.
+Durante questo processo, prevediamo anche di prototipare un'estensione IDE per React. È ancora molto presto nella ricerca, quindi prevediamo di poter condividere più risultati in un futuro post React Labs.
 
 ---
 
-[^1]: Thanks [@nikeee](https://github.com/react/react/pulls?q=is%3Apr+author%3Anikeee), [@henryqdineen](https://github.com/react/react/pulls?q=is%3Apr+author%3Ahenryqdineen), [@TrickyPi](https://github.com/react/react/pulls?q=is%3Apr+author%3ATrickyPi), and several others for their contributions to the compiler.
+Grazie a [Sathya Gunasekaran](https://twitter.com/_gsathya), [Joe Savona](https://twitter.com/en_JS), [Ricky Hanlon](https://twitter.com/rickhanlonii), [Alex Taylor](https://github.com/alexmckenley), [Jason Bonta](https://twitter.com/someextent) e [Eli White](https://twitter.com/Eli_White) per la revisione e l'editing di questo post.
 
-[^2]: Thanks [Vaishali Garg](https://www.linkedin.com/in/vaishaligarg09) for leading this study on React Compiler at Meta, and for reviewing this post.
+---
 
-[^3]: After controlling on author tenure, diff length/complexity, and other potential confounding factors.
+[^1]: Grazie a [@nikeee](https://github.com/react/react/pulls?q=is%3Apr+author%3Anikeee), [@henryqdineen](https://github.com/react/react/pulls?q=is%3Apr+author%3Ahenryqdineen), [@TrickyPi](https://github.com/react/react/pulls?q=is%3Apr+author%3ATrickyPi) e altri per i loro contributi al compiler.
+
+[^2]: Grazie a [Vaishali Garg](https://www.linkedin.com/in/vaishaligarg09) per aver guidato questo studio su React Compiler in Meta e per la revisione di questo post.
+
+[^3]: Dopo aver controllato per anzianità dell'autore, lunghezza/complessità del diff e altri potenziali fattori confondenti.
