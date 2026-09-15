@@ -6,7 +6,7 @@ description: La scorsa settimana abbiamo ospitato React Conf 2025; in questo pos
 translationStatus: ai-draft
 ---
 
-Oct 16, 2025 by [Matt Carroll](https://x.com/mattcarrollcode) and [Ricky Hanlon](https://bsky.app/profile/ricky.fm)
+16 ottobre 2025 di [Matt Carroll](https://x.com/mattcarrollcode) e [Ricky Hanlon](https://bsky.app/profile/ricky.fm)
 
 ---
 
@@ -31,7 +31,7 @@ Gli stream completi del [giorno 1](https://www.youtube.com/watch?v=zyVRg2QR6LA&t
 In questo post riassumiamo i talk e gli annunci dell'evento.
 
 
-## Day 1 Keynote {/*day-1-keynote*/}
+## Keynote del giorno 1 {/*day-1-keynote*/}
 
 _Guarda lo stream completo del giorno 1 [qui.](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=1067s)_
 
@@ -60,7 +60,7 @@ Guarda il giorno 1 qui:
 
 <YouTubeIframe src="https://www.youtube.com/embed/zyVRg2QR6LA?si=z-8t_xCc12HwGJH_&t=1067s" />
 
-## Day 2 Keynote {/*day-2-keynote*/}
+## Keynote del giorno 2 {/*day-2-keynote*/}
 
 _Guarda lo stream completo del giorno 2 [qui.](https://www.youtube.com/watch?v=p9OcztRyDl0&t=2299s)_
 
@@ -79,7 +79,7 @@ Guarda il giorno 2 qui:
 <YouTubeIframe src="https://www.youtube.com/embed/p9OcztRyDl0?si=qPTHftsUE07cjZpS&t=2299s" />
 
 
-## React team talks {/*react-team-talks*/}
+## Talk del team React {/*react-team-talks*/}
 
 Durante la conferenza ci sono stati talk del team React, tra cui:
 * [Async React Part I](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=10907s) e [Part II](https://www.youtube.com/watch?v=p9OcztRyDl0&t=29073s) [(Ricky Hanlon)](https://x.com/rickhanlonii) ha mostrato cosa è possibile con gli ultimi 10 anni di innovazione.
@@ -89,7 +89,7 @@ Durante la conferenza ci sono stati talk del team React, tra cui:
 * [React Strict DOM](https://www.youtube.com/watch?v=p9OcztRyDl0&t=9026s) [(Nicolas Gallagher)](https://nicolasgallagher.com/) ha parlato dell'approccio di Meta all'uso di codice web su native.
 * [View Transitions and Activity](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=4870s) [(Chance Strickland)](https://x.com/chancethedev) — Chance ha lavorato con il team React per mostrare come usare `<Activity />` e `<ViewTransition />` per costruire animazioni veloci dal feeling nativo.
 * [In case you missed the memo](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=9525s) [(Cody Olsen)](https://bsky.app/profile/codey.bsky.social) — Cody ha lavorato con il team React per adottare il Compiler in Sanity Studio e ha condiviso com'è andata.
-## React framework talks {/*react-framework-talks*/}
+## Talk sui framework React {/*react-framework-talks*/}
 
 La seconda metà del giorno 2 ha avuto una serie di talk dai team dei framework React, tra cui:
 
@@ -109,7 +109,7 @@ Durante la conferenza ci sono stati tre panel Q&A:
 * [React Frameworks Q&A](https://www.youtube.com/watch?v=p9OcztRyDl0&t=26812s) condotto da [Jack Herrington](https://x.com/jherr)
 * [React and AI Panel](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=18741s) condotto da [Lee Robinson](https://x.com/leerob)
 
-## And more... {/*and-more*/}
+## E altro... {/*and-more*/}
 
 Abbiamo anche ascoltato talk dalla community, tra cui:
 * [Building an MCP Server](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=24204s) di [James Swinton](https://x.com/JamesSwintonDev) ([AG Grid](https://www.ag-grid.com/?utm_source=react-conf&utm_medium=react-conf-homepage&utm_campaign=react-conf-sponsorship-2025))
@@ -117,7 +117,7 @@ Abbiamo anche ascoltato talk dalla community, tra cui:
 * [Why React Native Apps Make All the Money](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=24917s) di [Perttu Lähteenlahti](https://x.com/plahteenlahti) ([RevenueCat](https://www.revenuecat.com/))
 * [The invisible craft of great UX](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=23400s) di [Michał Dudak](https://x.com/michaldudak) ([MUI](https://mui.com/))
 
-## Thanks {/*thanks*/}
+## Grazie {/*thanks*/}
 
 Grazie a tutto lo staff, ai relatori e ai partecipanti che hanno reso possibile React Conf 2025. Sono troppi per elencarli tutti, ma vogliamo ringraziare in particolare alcuni.
 

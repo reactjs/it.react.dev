@@ -6,7 +6,7 @@ description: Oggi rilasciamo la prima release stabile del compiler.
 translationStatus: ai-draft
 ---
 
-Oct 7, 2025 by [Lauren Tan](https://x.com/potetotes), [Joe Savona](https://x.com/en_JS), and [Mofei Zhang](https://x.com/zmofei).
+7 ottobre 2025 di [Lauren Tan](https://x.com/potetotes), [Joe Savona](https://x.com/en_JS) e [Mofei Zhang](https://x.com/zmofei).
 
 ---
 
@@ -42,7 +42,7 @@ Puoi passare direttamente al [quickstart](/learn/react-compiler), o continuare a
 
 <DeepDive>
 
-#### How does React Compiler work? {/*how-does-react-compiler-work*/}
+#### Come funziona React Compiler? {/*how-does-react-compiler-work*/}
 
 React Compiler è un compiler ottimizzante che ottimizza componenti e hooks tramite memorizzazione automatica. Sebbene attualmente sia implementato come plugin Babel, il compiler è in gran parte disaccoppiato da Babel e abbassa l'Abstract Syntax Tree (AST) fornito da Babel nella sua HIR originale; attraverso più pass del compiler, comprende con attenzione il data-flow e la mutabilità del tuo codice React. Questo consente al compiler di memorizzare granularmente i valori usati nel rendering, inclusa la capacità di memorizzare condizionalmente, cosa non possibile con la memorizzazione manuale.
 
@@ -70,7 +70,7 @@ Per saperne di più su come il compiler ottimizza il tuo codice, visita il [Play
 
 </DeepDive>
 
-## Use React Compiler Today {/*use-react-compiler-today*/}
+## Usa React Compiler oggi {/*use-react-compiler-today*/}
 Per installare il compiler:
 
 npm
@@ -92,13 +92,13 @@ Come parte della release stabile, abbiamo reso React Compiler più facile da agg
 
 Puoi trovare maggiori dettagli sull'uso del Compiler nella [nostra documentazione](/learn/react-compiler).
 
-## What we're seeing in production {/*react-compiler-at-meta*/}
+## Cosa vediamo in produzione {/*react-compiler-at-meta*/}
 [Il compiler è già stato rilasciato in app come Meta Quest Store](https://youtu.be/lyEKhv8-3n0?t=3002). Abbiamo visto carichi iniziali e navigazioni tra pagine migliorare fino al 12%, mentre alcune interazioni sono più di 2,5× più veloci. L'uso della memoria resta neutro nonostante questi guadagni. Sebbene i risultati possano variare, raccomandiamo di sperimentare con il compiler nella tua app per vedere guadagni di performance simili.
 
-## Backwards Compatibility {/*backwards-compatibility*/}
+## Compatibilità retroattiva {/*backwards-compatibility*/}
 Come indicato nell'annuncio Beta, React Compiler è compatibile con React 17 e versioni successive. Se non sei ancora su React 19, puoi usare React Compiler specificando un target minimo nella config del compiler e aggiungendo `react-compiler-runtime` come dipendenza. Puoi trovare la documentazione [qui](/reference/react-compiler/target#targeting-react-17-or-18).
 
-## Enforce the Rules of React with compiler-powered linting {/*migrating-from-eslint-plugin-react-compiler-to-eslint-plugin-react-hooks*/}
+## Applica le Regole di React con lint alimentato dal compiler {/*migrating-from-eslint-plugin-react-compiler-to-eslint-plugin-react-hooks*/}
 React Compiler include una regola ESLint che aiuta a identificare codice che viola le [Rules of React](/reference/rules). Il linter non richiede che il compiler sia installato, quindi non c'è rischio nell'aggiornare eslint-plugin-react-hooks. Raccomandiamo a tutti di aggiornare oggi.
 
 Se hai già installato `eslint-plugin-react-compiler`, ora puoi rimuoverlo e usare `eslint-plugin-react-hooks@latest`. Grazie a [@michaelfaith](https://bsky.app/profile/michael.faith) per il contributo a questo miglioramento!
@@ -144,7 +144,7 @@ Per abilitare le regole React Compiler, raccomandiamo di usare il preset `recomm
 - Segnalare lavoro costoso dentro gli Effetti tramite [`set-state-in-effect`](/reference/eslint-plugin-react-hooks/lints/set-state-in-effect).
 - Impedire accessi ref non sicuri durante la renderizzazione con [`refs`](/reference/eslint-plugin-react-hooks/lints/refs).
 
-## What should I do about useMemo, useCallback, and React.memo? {/*what-should-i-do-about-usememo-usecallback-and-reactmemo*/}
+## Cosa fare con useMemo, useCallback e React.memo? {/*what-should-i-do-about-usememo-usecallback-and-reactmemo*/}
 Per impostazione predefinita, React Compiler memorizzerà il tuo codice in base alla sua analisi ed euristiche. Nella maggior parte dei casi, questa memorizzazione sarà precisa quanto, o più di, quella che avresti scritto — e come indicato sopra, il compiler può memorizzare anche in casi in cui `useMemo`/`useCallback` non possono essere usati, come dopo un early return.
 
 Tuttavia, in alcuni casi gli sviluppatori possono aver bisogno di maggiore controllo sulla memorizzazione. Gli hooks `useMemo` e `useCallback` possono continuare a essere usati con React Compiler come escape hatch per controllare quali valori vengono memorizzati. Un caso d'uso comune è quando un valore memorizzato è usato come dipendenza di un Effetto, per garantire che un Effetto non si attivi ripetutamente anche quando le sue dipendenze non cambiano in modo significativo.
@@ -153,7 +153,7 @@ Per codice nuovo, raccomandiamo di fare affidamento sul compiler per la memorizz
 
 Per codice esistente, raccomandiamo di lasciare la memorizzazione esistente al suo posto (rimuoverla può cambiare l'output della compilazione) o testare con attenzione prima di rimuovere la memorizzazione.
 
-## New apps should use React Compiler {/*new-apps-should-use-react-compiler*/}
+## Le nuove app dovrebbero usare React Compiler {/*new-apps-should-use-react-compiler*/}
 Abbiamo collaborato con i team di Expo, Vite e Next.js per aggiungere il compiler all'esperienza delle nuove app.
 
 [Expo SDK 54](https://docs.expo.dev/guides/react-compiler/) e versioni successive hanno il compiler abilitato per impostazione predefinita, così le nuove app potranno sfruttare automaticamente il compiler fin dall'inizio.
@@ -174,7 +174,7 @@ npm create vite@latest
 npx create-next-app@latest
 </TerminalBlock>
 
-## Adopt React Compiler incrementally {/*adopt-react-compiler-incrementally*/}
+## Adotta React Compiler in modo incrementale {/*adopt-react-compiler-incrementally*/}
 Se mantieni un'applicazione esistente, puoi distribuire il compiler al tuo ritmo. Abbiamo pubblicato una [guida all'adozione incrementale](/learn/react-compiler/incremental-adoption) passo passo che copre strategie di gating, controlli di compatibilità e strumenti di rollout così puoi abilitare il compiler con fiducia.
 
 ## swc support (experimental) {/*swc-support-experimental*/}
@@ -186,7 +186,7 @@ Raccomandiamo di usare Next.js [15.3.1](https://github.com/vercel/next.js/releas
 
 Gli utenti Vite possono continuare a usare [vite-plugin-react](https://github.com/vitejs/vite-plugin-react) per abilitare il compiler, aggiungendolo come [plugin Babel](/learn/react-compiler/installation#vite). Stiamo anche lavorando con il team [oxc](https://oxc.rs/) per [aggiungere supporto al compiler](https://github.com/oxc-project/oxc/issues/10048). Una volta che [rolldown](https://github.com/rolldown/rolldown) sarà rilasciato ufficialmente e supportato in Vite e il supporto oxc per React Compiler sarà aggiunto, aggiorneremo la documentazione con informazioni su come migrare.
 
-## Upgrading React Compiler {/*upgrading-react-compiler*/}
+## Aggiornare React Compiler {/*upgrading-react-compiler*/}
 React Compiler funziona al meglio quando la auto-memorizzazione applicata è strettamente per performance. Versioni future del compiler potrebbero cambiare come viene applicata la memorizzazione, ad esempio potrebbe diventare più granulare e precisa.
 
 Tuttavia, poiché il codice di prodotto a volte può violare le [rules of React](/reference/rules) in modi non sempre staticamente rilevabili in JavaScript, cambiare la memorizzazione può occasionalmente avere risultati inattesi. Ad esempio, un valore precedentemente memorizzato potrebbe essere usato come dipendenza per un `useEffect` da qualche parte nell'albero dei componenti. Cambiare come o se questo valore viene memorizzato può causare un over o under-firing di quel `useEffect`. Sebbene incoraggiamo [useEffect solo per la sincronizzazione](/learn/synchronizing-with-effects), la tua codebase potrebbe avere `useEffect` che coprono altri casi d'uso, come Effetti che devono eseguirsi solo in risposta a cambiamenti di valori specifici.

@@ -6,7 +6,7 @@ description: Oggi annunciamo i nostri piani per creare la React Foundation, una 
 translationStatus: ai-draft
 ---
 
-October 7, 2025 by [Seth Webster](https://x.com/sethwebster), [Matt Carroll](https://x.com/mattcarrollcode), [Joe Savona](https://x.com/en_JS), [Sophie Alpert](https://x.com/sophiebits)
+7 ottobre 2025 di [Seth Webster](https://x.com/sethwebster), [Matt Carroll](https://x.com/mattcarrollcode), [Joe Savona](https://x.com/en_JS) e [Sophie Alpert](https://x.com/sophiebits)
 
 ---
 
@@ -40,7 +40,7 @@ Abbiamo reso React open source oltre un decennio fa per aiutare gli sviluppatori
 
 Per servire meglio la community React, annunciamo i nostri piani per spostare React e React Native da Meta a una nuova React Foundation. Come parte di questo cambiamento, implementeremo anche una nuova struttura di governance tecnica indipendente. Crediamo che questi cambiamenti ci permetteranno di offrire più risorse ai progetti dell'ecosistema React.
 
-## The React Foundation {/*the-react-foundation*/}
+## La React Foundation {/*the-react-foundation*/}
 
 Faremo della React Foundation la nuova sede di React, React Native e di alcuni progetti di supporto come JSX. La missione della React Foundation sarà supportare la community e l'ecosistema React. Una volta implementata, la React Foundation
 
@@ -63,12 +63,12 @@ I membri corporate fondatori della React Foundation saranno Amazon, Callstack, E
   </picture>
 </div>
 
-## React's technical governance {/*reacts-technical-governance*/}
+## Governance tecnica di React {/*reacts-technical-governance*/}
 
 Crediamo che la direzione tecnica di React debba essere definita dalle persone che contribuiscono a React e lo mantengono. Mentre React passa a una foundation, è importante che nessuna singola azienda o organizzazione sia sovrarappresentata. Per raggiungere questo obiettivo, prevediamo di definire una nuova struttura di governance tecnica per React, indipendente dalla React Foundation.
 
 Come parte della creazione della nuova struttura di governance tecnica di React, ci rivolgeremo alla community per raccogliere feedback. Una volta finalizzata, condivideremo i dettagli in un post futuro.
 
-## Thank you {/*thank-you*/}
+## Grazie {/*thank-you*/}
 
 L'incredibile crescita di React è merito delle migliaia di persone, aziende e progetti che hanno plasmato React. La creazione della React Foundation è una testimonianza della forza e della vivacità della community React. Insieme, la React Foundation e la nuova governance tecnica di React garantiranno che il futuro di React sia al sicuro per gli anni a venire.

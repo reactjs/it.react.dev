@@ -6,7 +6,7 @@ description: React 19.2 aggiunge nuove funzionalità come Activity, React Perfor
 translationStatus: ai-draft
 ---
 
-October 1, 2025 by [The React Team](/community/team)
+1 ottobre 2025 del [React Team](/community/team)
 
 ---
 
@@ -28,13 +28,13 @@ Questa è la nostra terza release nell'ultimo anno, dopo React 19 a dicembre e R
 
 ---
 
-## New React Features {/*new-react-features*/}
+## Nuove funzionalità di React {/*new-react-features*/}
 
 ### `<Activity />` {/*activity*/}
 
 `<Activity>` ti consente di suddividere la tua app in "activities" che possono essere controllate e priorizzate.
 
-Puoi usare Activity come alternativa al renderizzare condizionalmente parti della tua app:
+Puoi usare Activity come alternativa alla renderizzazione condizionale di parti della tua app:
 
 ```js
 // Before
@@ -109,7 +109,7 @@ Simile agli eventi DOM, gli Effect Events "vedono" sempre le props e lo state pi
 
 <Note>
 
-#### When to use `useEffectEvent` {/*when-to-use-useeffectevent*/}
+#### Quando usare `useEffectEvent` {/*when-to-use-useeffectevent*/}
 
 Dovresti usare `useEffectEvent` per funzioni che sono concettualmente "eventi" che accadono di essere emessi da un Effetto invece che da un evento utente (ecco cosa lo rende un "Effect Event"). Non devi avvolgere tutto in `useEffectEvent`, o usarlo solo per silenziare l'errore lint, poiché questo può portare a bug.
 
@@ -183,9 +183,9 @@ Consulta la [documentazione della track Components](/reference/dev-tools/react-p
 
 ---
 
-## New React DOM Features {/*new-react-dom-features*/}
+## Nuove funzionalità di React DOM {/*new-react-dom-features*/}
 
-### Partial Pre-rendering {/*partial-pre-rendering*/}
+### Pre-renderizzazione parziale {/*partial-pre-rendering*/}
 
 In 19.2 aggiungiamo una nuova capacità di pre-renderizzare parte dell'app in anticipo e riprendere la renderizzazione in seguito.
 
@@ -224,19 +224,19 @@ const { prelude } = await resumeAndPrerender(<App />, postponedState);
 
 Per maggiori informazioni, consulta la documentazione per le nuove API:
 - `react-dom/server`
-  - [`resume`](/reference/react-dom/server/resume): for Web Streams.
-  - [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) for Node Streams.
+  - [`resume`](/reference/react-dom/server/resume): per Web Streams.
+  - [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) per Node Streams.
 - `react-dom/static`
-  - [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) for Web Streams.
-  - [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) for Node Streams.
+  - [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) per Web Streams.
+  - [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) per Node Streams.
 
 Inoltre, le API prerender ora restituiscono uno state `postpone` da passare alle API `resume`.
 
 ---
 
-## Notable Changes {/*notable-changes*/}
+## Cambiamenti notevoli {/*notable-changes*/}
 
-### Batching Suspense Boundaries for SSR {/*batching-suspense-boundaries-for-ssr*/}
+### Raggruppamento dei boundary Suspense per SSR {/*batching-suspense-boundaries-for-ssr*/}
 
 Abbiamo corretto un bug comportamentale per cui i boundary Suspense venivano rivelati in modo diverso a seconda che fossero renderizzati sul client o durante lo streaming da server-side rendering.
 
@@ -266,7 +266,7 @@ Ad esempio, se il tempo totale di caricamento della pagina si avvicina a 2,5s (c
 
 ---
 
-### SSR: Web Streams support for Node {/*ssr-web-streams-support-for-node*/}
+### SSR: supporto Web Streams per Node {/*ssr-web-streams-support-for-node*/}
 
 React 19.2 aggiunge supporto per Web Streams per lo streaming SSR in Node.js:
 - [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) è ora disponibile per Node.js
@@ -279,7 +279,7 @@ Così come le nuove API `resume`:
 
 <Pitfall>
 
-#### Prefer Node Streams for server-side rendering in Node.js {/*prefer-node-streams-for-server-side-rendering-in-nodejs*/}
+#### Preferire Node Streams per la renderizzazione lato server in Node.js {/*prefer-node-streams-for-server-side-rendering-in-nodejs*/}
 
 Negli ambienti Node.js, raccomandiamo ancora vivamente di usare le API Node Streams:
 
@@ -311,7 +311,7 @@ Consulta il [changelog di `eslint-plugin-react-hooks` per un elenco completo dei
 
 ---
 
-### Update the default `useId` prefix {/*update-the-default-useid-prefix*/}
+### Aggiornamento del prefisso predefinito di `useId` {/*update-the-default-useid-prefix*/}
 
 In 19.2, aggiorniamo il prefisso predefinito di `useId` da `:r:` (19.0.0) o `«r»` (19.1.0) a `_r_`.
 
