@@ -77,7 +77,7 @@ Il lavoro su React è organizzato in working group, ciascuno responsabile di un'
     La carriera di programmazione di Lauren ha raggiunto il picco quando ha scoperto per la prima volta il tag `<marquee>`. Da allora cerca di eguagliare quell'emozione. Ha studiato Finanza invece di informatica all'università, quindi ha imparato a programmare usando Excel. Lauren ama postare meme sfacciati in chat, giocare ai videogiochi con la partner, imparare il coreano e accarezzare il suo cane Zelda.
 </TeamMember>
 
-<TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/mattcarroll.png" github="mattcarrollcode" twitter="mattcarrollcode" threads="mattcarrollcode" title="Developer Advocate at Meta" group="Docs & Community">
+<TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" threads="mattcarrollcode" title="Developer Advocate at Meta" group="Docs & Community">
     Matt è inciampato nel coding e da allora si è innamorato di creare cose in community che non si possono creare da soli. Prima di React, ha lavorato su YouTube, Google Assistant, Fuchsia, Google Cloud AI ed Evernote. Quando non cerca di creare strumenti migliori per developer, ama le montagne, il jazz e passare tempo con la famiglia.
 </TeamMember>
 
