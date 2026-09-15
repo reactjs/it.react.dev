@@ -127,7 +127,7 @@ Le Actions gestiscono automaticamente l'invio dei dati per te:
 
 - **State pending**: le Actions forniscono uno state pending che inizia all'inizio di una richiesta e si resetta automaticamente quando l'aggiornamento dello state finale viene committato.
 - **Aggiornamenti ottimistici**: le Actions supportano il nuovo hook [`useOptimistic`](#new-hook-optimistic-updates) così puoi mostrare feedback istantaneo agli utenti mentre le richieste vengono inviate.
-- **Gestione errori**: le Actions forniscono gestione errori così puoi visualizzare Error Boundary quando una richiesta fallisce e ripristinare automaticamente gli aggiornamenti ottimistici al valore originale.
+- **Gestione errori**: le Actions forniscono gestione errori così puoi visualizzare un contenitore di errori quando una richiesta fallisce e ripristinare automaticamente gli aggiornamenti ottimistici al valore originale.
 - **Form**: gli elementi `<form>` ora supportano il passaggio di funzioni alle props `action` e `formAction`. Passare funzioni alle props `action` usa le Actions per impostazione predefinita e resetta il form automaticamente dopo l'invio.
 
 </Note>
@@ -734,7 +734,7 @@ In React 19, i tag inaspettati in `<head>` e `<body>` verranno saltati, evitando
 
 ### Migliore segnalazione errori {/*error-handling*/}
 
-Abbiamo migliorato la gestione errori in React 19 per rimuovere la duplicazione e fornire opzioni per gestire errori catturati e non catturati. Ad esempio, quando c'è un errore in render catturato da un Error Boundary, in precedenza React lanciava l'errore due volte (una per l'errore originale, poi di nuovo dopo il fallimento del recupero automatico) e poi chiamava `console.error` con info su dove è avvenuto l'errore.
+Abbiamo migliorato la gestione errori in React 19 per rimuovere la duplicazione e fornire opzioni per gestire errori catturati e non catturati. Ad esempio, quando c'è un errore in render catturato da un contenitore di errori, in precedenza React lanciava l'errore due volte (una per l'errore originale, poi di nuovo dopo il fallimento del recupero automatico) e poi chiamava `console.error` con info su dove è avvenuto l'errore.
 
 Questo produceva tre errori per ogni errore catturato:
 
@@ -794,8 +794,8 @@ React will try to recreate this component tree from scratch using the error boun
 
 Inoltre, abbiamo aggiunto due nuove opzioni root per complementare `onRecoverableError`:
 
-- `onCaughtError`: chiamato quando React cattura un errore in un Error Boundary.
-- `onUncaughtError`: chiamato quando un errore viene lanciato e non catturato da un Error Boundary.
+- `onCaughtError`: chiamato quando React cattura un errore in un contenitore di errori.
+- `onUncaughtError`: chiamato quando un errore viene lanciato e non catturato da un contenitore di errori.
 - `onRecoverableError`: chiamato quando un errore viene lanciato e recuperato automaticamente.
 
 Per maggiori informazioni ed esempi, consulta la documentazione di [`createRoot`](/reference/react-dom/client/createRoot) e [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).

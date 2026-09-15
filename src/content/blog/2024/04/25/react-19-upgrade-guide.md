@@ -139,8 +139,8 @@ Nelle versioni precedenti di React, gli errori lanciati durante il render veniva
 
 In React 19, abbiamo [migliorato la gestione degli errori](/blog/2024/12/05/react-19#error-handling) per ridurre la duplicazione senza rilanciare:
 
-- **Errori non catturati**: gli errori non catturati da un Error Boundary vengono segnalati a `window.reportError`.
-- **Errori catturati**: gli errori catturati da un Error Boundary vengono segnalati a `console.error`.
+- **Errori non catturati**: gli errori non catturati da un contenitore di errori vengono segnalati a `window.reportError`.
+- **Errori catturati**: gli errori catturati da un contenitore di errori vengono segnalati a `console.error`.
 
 Questa modifica non dovrebbe impattare la maggior parte delle app, ma se la segnalazione errori in produzione si basa sul rilancio degli errori, potresti dover aggiornare la gestione errori. Per supportarlo, abbiamo aggiunto nuovi metodi a `createRoot` e `hydrateRoot` per la gestione errori personalizzata:
 
@@ -475,7 +475,7 @@ npx codemod@latest react/19/replace-reactdom-render
 
 `ReactDOM.findDOMNode` è stato [deprecato nell'ottobre 2018 (v16.6.0)](https://legacy.reactjs.org/blog/2018/10/23/react-v-16-6.html#deprecations-in-strictmode).
 
-Rimuoviamo `findDOMNode` perché era un legacy escape hatch lento da eseguire, fragile al refactoring, restituiva solo il primo figlio e rompeva i livelli di astrazione (maggiori info [qui](https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)). Puoi sostituire `ReactDOM.findDOMNode` con [DOM ref](/learn/manipulating-the-dom-with-refs):
+Rimuoviamo `findDOMNode` perché era un legacy escape hatch lento da eseguire, fragile alla rifattorizzazione, restituiva solo il primo figlio e rompeva i livelli di astrazione (maggiori info [qui](https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)). Puoi sostituire `ReactDOM.findDOMNode` con [DOM ref](/learn/manipulating-the-dom-with-refs):
 
 ```js
 // Before
