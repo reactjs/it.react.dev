@@ -17,7 +17,7 @@ Le API `react-dom/server` ti permettono di renderizzare componenti React in HTML
 
 ---
 
-## API del server per Web Stream {/*server-apis-for-web-streams*/}
+## API del server per Web Streams {/*server-apis-for-web-streams*/}
 
 Questi metodi sono disponibili solo negli ambienti con [Web Streams](https://developer.mozilla.org/it/docs/Web/API/Streams_API), che includono browser, Deno e i moderni edge runtime:
 
@@ -32,9 +32,9 @@ Node.js include anche questi metodi per compatibilità, ma non sono consigliati 
 </Note>
 ---
 
-## API del server per Node.js Stream {/*server-apis-for-nodejs-streams*/}
+## API del server per Node.js Streams {/*server-apis-for-nodejs-streams*/}
 
-Questi metodi sono disponibili solo negli ambienti con [Node.js Stream:](https://nodejs.org/api/stream.html)
+Questi metodi sono disponibili solo negli ambienti con [Node.js Streams:](https://nodejs.org/api/stream.html)
 
 * [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renderizza un albero React in uno [Stream Node.js pipeable.](https://nodejs.org/api/stream.html)
 * [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) riprende [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) in uno [Stream Node.js pipeable.](https://nodejs.org/api/stream.html)
