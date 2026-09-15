@@ -1,27 +1,34 @@
 ---
-title: "React Labs: View Transitions, Activity, and more"
+title: "React Labs: View Transitions, Activity e altro"
 author: Ricky Hanlon
 date: 2025/04/23
-description: In React Labs posts, we write about projects in active research and development. In this post, we're sharing two new experimental features that are ready to try today, and updates on other areas we're working on now.
+description: Nei post React Labs scriviamo dei progetti in ricerca e sviluppo attivi. In questo post condividiamo due nuove funzionalità sperimentali pronte da provare oggi e aggiornamenti su altre aree su cui stiamo lavorando.
+translationStatus: ai-draft
 ---
 
-April 23, 2025 by [Ricky Hanlon](https://twitter.com/rickhanlonii)
+23 aprile 2025 di [Ricky Hanlon](https://twitter.com/rickhanlonii)
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2025/04/23/react-labs-view-transitions-activity-and-more.md).
+
+</Note>
 
 ---
 
 <Intro>
 
-In React Labs posts, we write about projects in active research and development. In this post, we're sharing two new experimental features that are ready to try today, and updates on other areas we're working on now.
+Nei post React Labs scriviamo dei progetti in ricerca e sviluppo attivi. In questo post condividiamo due nuove funzionalità sperimentali pronte da provare oggi e aggiornamenti su altre aree su cui stiamo lavorando.
 
 </Intro>
 
 
-Today, we're excited to release documentation for two new experimental features that are ready for testing:
+Oggi siamo entusiasti di pubblicare la documentazione per due nuove funzionalità sperimentali pronte per i test:
 
 - [View Transitions](#view-transitions)
 - [Activity](#activity)
 
-We're also sharing updates on new features currently in development:
+Condividiamo anche aggiornamenti su nuove funzionalità attualmente in sviluppo:
 - [React Performance Tracks](#react-performance-tracks)
 - [Compiler IDE Extension](#compiler-ide-extension)
 - [Automatic Effect Dependencies](#automatic-effect-dependencies)
@@ -30,65 +37,65 @@ We're also sharing updates on new features currently in development:
 
 ---
 
-# New Experimental Features {/*new-experimental-features*/}
+# Nuove funzionalità sperimentali {/*new-experimental-features*/}
 
 <Note>
 
-`<Activity />` has shipped in `react@19.2`.
+`<Activity />` è disponibile in `react@19.2`.
 
-`<ViewTransition />` and `addTransitionType` are now available in `react@canary`.
+`<ViewTransition />` e `addTransitionType` sono ora disponibili in `react@canary`.
 
 </Note>
 
-View Transitions and Activity are now ready for testing in `react@experimental`. These features have been tested in production and are stable, but the final API may still change as we incorporate feedback.
+View Transitions e Activity sono ora pronte per i test in `react@experimental`. Queste funzionalità sono state testate in produzione e sono stabili, ma l'API finale potrebbe ancora cambiare man mano che incorporiamo feedback.
 
-You can try them by upgrading React packages to the most recent experimental version:
+Puoi provarle aggiornando i pacchetti React alla versione sperimentale più recente:
 
 - `react@experimental`
 - `react-dom@experimental`
 
-Read on to learn how to use these features in your app, or check out the newly published docs:
+Continua a leggere per scoprire come usare queste funzionalità nella tua app, oppure consulta la documentazione appena pubblicata:
 
-- [`<ViewTransition>`](/reference/react/ViewTransition): A component that lets you activate an animation for a Transition.
-- [`addTransitionType`](/reference/react/addTransitionType): A function that allows you to specify the cause of a Transition.
-- [`<Activity>`](/reference/react/Activity): A component that lets you hide and show parts of the UI.
+- [`<ViewTransition>`](/reference/react/ViewTransition): Un componente che ti permette di attivare un'animazione per una Transizione.
+- [`addTransitionType`](/reference/react/addTransitionType): Una funzione che ti permette di specificare la causa di una Transizione.
+- [`<Activity>`](/reference/react/Activity): Un componente che ti permette di nascondere e mostrare parti dell'UI.
 
 ## View Transitions {/*view-transitions*/}
 
-React View Transitions are a new experimental feature that makes it easier to add animations to UI transitions in your app. Under-the-hood, these animations use the new [`startViewTransition`](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition) API available in most modern browsers.
+Le View Transitions di React sono una nuova funzionalità sperimentale che rende più semplice aggiungere animazioni alle transizioni UI nella tua app. Sotto il cofano, queste animazioni usano la nuova API [`startViewTransition`](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition) disponibile nella maggior parte dei browser moderni.
 
-To opt-in to animating an element, wrap it in the new `<ViewTransition>` component:
+Per attivare l'animazione di un elemento, avvolgilo nel nuovo componente `<ViewTransition>`:
 
 ```js
-// "what" to animate.
+// "cosa" animare.
 <ViewTransition>
-  <div>animate me</div>
+  <div>animami</div>
 </ViewTransition>
 ```
 
-This new component lets you declaratively define "what" to animate when an animation is activated.
+Questo nuovo componente ti permette di definire in modo dichiarativo "cosa" animare quando un'animazione viene attivata.
 
-You can define "when" to animate by using one of these three triggers for a View Transition:
+Puoi definire "quando" animare usando uno di questi tre trigger per una View Transition:
 
 ```js
-// "when" to animate.
+// "quando" animare.
 
-// Transitions
+// Transizioni
 startTransition(() => setState(...));
 
-// Deferred Values
+// Valori differiti
 const deferred = useDeferredValue(value);
 
 // Suspense
 <Suspense fallback={<Fallback />}>
-  <div>Loading...</div>
+  <div>Caricamento...</div>
 </Suspense>
 ```
 
-By default, these animations use the [default CSS animations for View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#customizing_your_animations) applied (typically a smooth cross-fade). You can use [view transition pseudo-selectors](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) to define "how" the animation runs. For example, you can use `*` to change the default animation for all transitions:
+Per impostazione predefinita, queste animazioni usano le [animazioni CSS predefinite per le View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#customizing_your_animations) (tipicamente un cross-fade fluido). Puoi usare i [pseudo-selettori view transition](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) per definire "come" l'animazione viene eseguita. Per esempio, puoi usare `*` per cambiare l'animazione predefinita per tutte le transizioni:
 
 ```
-// "how" to animate.
+// "come" animare.
 ::view-transition-old(*) {
   animation: 300ms ease-out fade-out;
 }
@@ -97,16 +104,16 @@ By default, these animations use the [default CSS animations for View Transition
 }
 ```
 
-When the DOM updates due to an animation trigger&mdash;like `startTransition`, `useDeferredValue`, or a `Suspense` fallback switching to content&mdash;React will use [declarative heuristics](/reference/react/ViewTransition#viewtransition) to automatically determine which `<ViewTransition>` components to activate for the animation. The browser will then run the animation that's defined in CSS.
+Quando il DOM si aggiorna a causa di un trigger di animazione&mdash;come `startTransition`, `useDeferredValue` o un fallback `Suspense` che passa al contenuto&mdash;React userà [euristiche dichiarative](/reference/react/ViewTransition#viewtransition) per determinare automaticamente quali componenti `<ViewTransition>` attivare per l'animazione. Il browser eseguirà quindi l'animazione definita in CSS.
 
-If you're familiar with the browser's View Transition API and want to know how React supports it, check out [How does `<ViewTransition>` Work](/reference/react/ViewTransition#how-does-viewtransition-work) in the docs.
+Se conosci la View Transition API del browser e vuoi sapere come React la supporta, consulta [Come funziona `<ViewTransition>`](/reference/react/ViewTransition#how-does-viewtransition-work) nella documentazione.
 
-In this post, let's take a look at a few examples of how to use View Transitions.
+In questo post, diamo un'occhiata ad alcuni esempi di come usare le View Transitions.
 
-We'll start with this app, which doesn't animate any of the following interactions:
-- Click a video to view the details.
-- Click "back" to go back to the feed.
-- Type in the list to filter the videos.
+Partiamo da questa app, che non anima nessuna delle seguenti interazioni:
+- Clicca un video per vedere i dettagli.
+- Clicca "indietro" per tornare al feed.
+- Digita nella lista per filtrare i video.
 
 <Sandpack>
 
@@ -116,7 +123,7 @@ import TalkDetails from './Details'; import Home from './Home'; import {useRoute
 export default function App() {
   const {url} = useRouter();
 
-  // 🚩This version doesn't include any animations yet
+  // 🚩Questa versione non include ancora animazioni
   return url === '/' ? <Home /> : <TalkDetails />;
 }
 ```
@@ -162,7 +169,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -192,7 +199,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -201,7 +208,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -232,11 +239,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -394,8 +401,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -404,7 +411,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -604,14 +611,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
@@ -619,13 +626,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -1262,17 +1269,17 @@ root.render(
 
 <Note>
 
-#### View Transitions do not replace CSS and JS driven animations {/*view-transitions-do-not-replace-css-and-js-driven-animations*/}
+#### Le View Transitions non sostituiscono le animazioni CSS e JS {/*view-transitions-do-not-replace-css-and-js-driven-animations*/}
 
-View Transitions are meant to be used for UI transitions such as navigation, expanding, opening, or re-ordering. They are not meant to replace all the animations in your app.
+Le View Transitions sono pensate per transizioni UI come navigazione, espansione, apertura o riordino. Non sono pensate per sostituire tutte le animazioni della tua app.
 
-In our example app above, notice that there are already animations when you click the "like" button and in the Suspense fallback glimmer. These are good use cases for CSS animations because they are animating a specific element.
+Nella nostra app di esempio sopra, nota che ci sono già animazioni quando clicchi il pulsante "mi piace" e nel glimmer del fallback Suspense. Sono buoni casi d'uso per animazioni CSS perché animano un elemento specifico.
 
 </Note>
 
-### Animating navigations {/*animating-navigations*/}
+### Animare le navigazioni {/*animating-navigations*/}
 
-Our app includes a Suspense-enabled router, with [page transitions already marked as Transitions](/reference/react/useTransition#building-a-suspense-enabled-router), which means navigations are performed with `startTransition`:
+La nostra app include un router abilitato a Suspense, con [transizioni di pagina già marcate come Transizioni](/reference/react/useTransition#building-a-suspense-enabled-router), il che significa che le navigazioni vengono eseguite con `startTransition`:
 
 ```js
 function navigate(url) {
@@ -1282,19 +1289,19 @@ function navigate(url) {
 }
 ```
 
-`startTransition` is a View Transition trigger, so we can add `<ViewTransition>` to animate between pages:
+`startTransition` è un trigger di View Transition, quindi possiamo aggiungere `<ViewTransition>` per animare tra le pagine:
 
 ```js
-// "what" to animate
+// "cosa" animare
 <ViewTransition key={url}>
   {url === '/' ? <Home /> : <TalkDetails />}
 </ViewTransition>
 ```
 
-When the `url` changes, the `<ViewTransition>` and new route are rendered. Since the `<ViewTransition>` was updated inside of `startTransition`, the `<ViewTransition>` is activated for an animation.
+Quando l'`url` cambia, il `<ViewTransition>` e la nuova route vengono renderizzati. Poiché il `<ViewTransition>` è stato aggiornato dentro `startTransition`, il `<ViewTransition>` viene attivato per un'animazione.
 
 
-By default, View Transitions include the browser default cross-fade animation. Adding this to our example, we now have a cross-fade whenever we navigate between pages:
+Per impostazione predefinita, le View Transitions includono l'animazione cross-fade predefinita del browser. Aggiungendola al nostro esempio, ora abbiamo un cross-fade ogni volta che navighiamo tra le pagine:
 
 <Sandpack>
 
@@ -1305,8 +1312,8 @@ import Home from './Home'; import {useRouter} from './router';
 export default function App() {
   const {url} = useRouter();
 
-  // Use ViewTransition to animate between pages.
-  // No additional CSS needed by default.
+  // Usa ViewTransition per animare tra le pagine.
+  // Nessun CSS aggiuntivo necessario per impostazione predefinita.
   return (
     <ViewTransition>
       {url === '/' ? <Home /> : <Details />}
@@ -1356,7 +1363,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -1386,7 +1393,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -1395,7 +1402,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -1426,11 +1433,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -1576,8 +1583,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -1592,8 +1599,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -1602,7 +1609,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -1773,7 +1780,7 @@ export function Router({ children }) {
   const [isPending, startTransition] = useTransition();
 
   function navigate(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
@@ -1806,13 +1813,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -2457,17 +2464,17 @@ root.render(
 
 </Sandpack>
 
-Since our router already updates the route using `startTransition`, this one line change to add `<ViewTransition>` activates with the default cross-fade animation.
+Poiché il nostro router aggiorna già la route usando `startTransition`, questa modifica di una riga per aggiungere `<ViewTransition>` si attiva con l'animazione cross-fade predefinita.
 
-If you're curious how this works, see the docs for [How does `<ViewTransition>` work?](/reference/react/ViewTransition#how-does-viewtransition-work)
+Se ti chiedi come funziona, consulta la documentazione per [Come funziona `<ViewTransition>`?](/reference/react/ViewTransition#how-does-viewtransition-work)
 
 <Note>
 
-#### Opting out of `<ViewTransition>` animations {/*opting-out-of-viewtransition-animations*/}
+#### Escludere le animazioni di `<ViewTransition>` {/*opting-out-of-viewtransition-animations*/}
 
-In this example, we're wrapping the root of the app in `<ViewTransition>` for simplicity, but this means that all transitions in the app will be animated, which can lead to unexpected animations.
+In questo esempio, avvolgiamo la radice dell'app in `<ViewTransition>` per semplicità, ma questo significa che tutte le transizioni nell'app saranno animate, il che può portare ad animazioni inaspettate.
 
-To fix, we're wrapping route children with `"none"` so each page can control its own animation:
+Per risolvere, avvolgiamo i figli della route con `"none"` così ogni pagina può controllare la propria animazione:
 
 ```js
 // Layout.js
@@ -2476,17 +2483,17 @@ To fix, we're wrapping route children with `"none"` so each page can control its
 </ViewTransition>
 ```
 
-In practice, navigations should be done via "enter" and "exit" props, or by using Transition Types.
+In pratica, le navigazioni dovrebbero essere gestite tramite le props "enter" e "exit", oppure usando i Transition Types.
 
 </Note>
 
-### Customizing animations {/*customizing-animations*/}
+### Personalizzare le animazioni {/*customizing-animations*/}
 
-By default, `<ViewTransition>` includes the default cross-fade from the browser.
+Per impostazione predefinita, `<ViewTransition>` include il cross-fade predefinito del browser.
 
-To customize animations, you can provide props to the `<ViewTransition>` component to specify which animations to use, based on [how the `<ViewTransition>` activates](/reference/react/ViewTransition#props).
+Per personalizzare le animazioni, puoi fornire props al componente `<ViewTransition>` per specificare quali animazioni usare, in base a [come si attiva `<ViewTransition>`](/reference/react/ViewTransition#props).
 
-For example, we can slow down the `default` cross fade animation:
+Per esempio, possiamo rallentare l'animazione cross-fade `default`:
 
 ```js
 <ViewTransition default="slow-fade">
@@ -2494,7 +2501,7 @@ For example, we can slow down the `default` cross fade animation:
 </ViewTransition>
 ```
 
-And define `slow-fade` in CSS using [view transition classes](/reference/react/ViewTransition#view-transition-class):
+E definire `slow-fade` in CSS usando le [classi view transition](/reference/react/ViewTransition#view-transition-class):
 
 ```css
 ::view-transition-old(.slow-fade) {
@@ -2506,7 +2513,7 @@ And define `slow-fade` in CSS using [view transition classes](/reference/react/V
 }
 ```
 
-Now, the cross fade is slower:
+Ora il cross-fade è più lento:
 
 <Sandpack>
 
@@ -2519,8 +2526,8 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Define a default animation of .slow-fade.
-  // See animations.css for the animation definition.
+  // Definisci un'animazione predefinita .slow-fade.
+  // Vedi animations.css per la definizione dell'animazione.
   return (
     <ViewTransition default="slow-fade">
       {url === '/' ? <Home /> : <Details />}
@@ -2570,7 +2577,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -2600,7 +2607,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -2609,7 +2616,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -2640,11 +2647,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -2790,8 +2797,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -2806,8 +2813,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -2816,7 +2823,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -3016,14 +3023,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
@@ -3031,13 +3038,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -3638,7 +3645,7 @@ ul {
 
 
 ```css src/animations.css
-/* Define .slow-fade using view transition classes */
+/* Definisci .slow-fade usando le classi view transition */
 ::view-transition-old(.slow-fade) {
     animation-duration: 500ms;
 }
@@ -3685,13 +3692,13 @@ root.render(
 
 </Sandpack>
 
-See [Styling View Transitions](/reference/react/ViewTransition#styling-view-transitions) for a full guide on styling `<ViewTransition>`.
+Consulta [Styling View Transitions](/reference/react/ViewTransition#styling-view-transitions) per una guida completa sullo styling di `<ViewTransition>`.
 
 ### Shared Element Transitions {/*shared-element-transitions*/}
 
-When two pages include the same element, often you want to animate it from one page to the next.
+Quando due pagine includono lo stesso elemento, spesso vuoi animarlo da una pagina all'altra.
 
-To do this you can add a unique `name` to the `<ViewTransition>`:
+Per farlo puoi aggiungere un `name` univoco al `<ViewTransition>`:
 
 ```js
 <ViewTransition name={`video-${video.id}`}>
@@ -3699,7 +3706,7 @@ To do this you can add a unique `name` to the `<ViewTransition>`:
 </ViewTransition>
 ```
 
-Now the video thumbnail animates between the two pages:
+Ora la miniatura del video si anima tra le due pagine:
 
 <Sandpack>
 
@@ -3712,9 +3719,9 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Keeping our default slow-fade.
-  // This allows the content not in the shared
-  // element transition to cross-fade.
+  // Manteniamo il nostro slow-fade predefinito.
+  // Questo permette al contenuto non nella shared
+  // element transition di fare cross-fade.
   return (
     <ViewTransition default="slow-fade">
       {url === "/" ? <Home /> : <Details />}
@@ -3764,7 +3771,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -3794,7 +3801,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -3803,7 +3810,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -3834,11 +3841,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -3984,8 +3991,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -4000,8 +4007,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -4010,7 +4017,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -4031,8 +4038,8 @@ export default function LikeButton({video}) {
 import { useState, ViewTransition } from "react"; import LikeButton from "./LikeButton"; import { useRouter } from "./router"; import { PauseIcon, PlayIcon } from "./Icons"; import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -4210,14 +4217,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Update router state in transition.
+    // Aggiorna lo state del router in transizione.
     startTransition(() => {
       go(url);
     });
@@ -4225,13 +4232,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -4832,7 +4839,7 @@ ul {
 
 
 ```css src/animations.css
-/* No additional animations needed */
+/* Nessuna animazione aggiuntiva necessaria */
 
 
 
@@ -4842,7 +4849,7 @@ ul {
 
 
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
 
 
@@ -4894,32 +4901,32 @@ root.render(
 
 </Sandpack>
 
-By default, React automatically generates a unique `name` for each element activated for a transition (see [How does `<ViewTransition>` work](/reference/react/ViewTransition#how-does-viewtransition-work)). When React sees a transition where a `<ViewTransition>` with a `name` is removed and a new `<ViewTransition>` with the same `name` is added, it will activate a shared element transition.
+Per impostazione predefinita, React genera automaticamente un `name` univoco per ogni elemento attivato per una transizione (vedi [Come funziona `<ViewTransition>`](/reference/react/ViewTransition#how-does-viewtransition-work)). Quando React vede una transizione in cui un `<ViewTransition>` con un `name` viene rimosso e un nuovo `<ViewTransition>` con lo stesso `name` viene aggiunto, attiverà una shared element transition.
 
-For more info, see the docs for [Animating a Shared Element](/reference/react/ViewTransition#animating-a-shared-element).
+Per maggiori informazioni, consulta la documentazione per [Animating a Shared Element](/reference/react/ViewTransition#animating-a-shared-element).
 
-### Animating based on cause {/*animating-based-on-cause*/}
+### Animare in base alla causa {/*animating-based-on-cause*/}
 
-Sometimes, you may want elements to animate differently based on how it was triggered. For this use case, we've added a new API called `addTransitionType` to specify the cause of a transition:
+A volte, potresti voler animare gli elementi in modo diverso in base a come è stata attivata la transizione. Per questo caso d'uso, abbiamo aggiunto una nuova API chiamata `addTransitionType` per specificare la causa di una transizione:
 
 ```js {4,11}
 function navigate(url) {
   startTransition(() => {
-    // Transition type for the cause "nav forward"
+    // Transition type per la causa "nav forward"
     addTransitionType('nav-forward');
     go(url);
   });
 }
 function navigateBack(url) {
   startTransition(() => {
-    // Transition type for the cause "nav backward"
+    // Transition type per la causa "nav backward"
     addTransitionType('nav-back');
     go(url);
   });
 }
 ```
 
-With transition types, you can provide custom animations via props to `<ViewTransition>`. Let's add a shared element transition to the header for "6 Videos" and "Back":
+Con i transition type, puoi fornire animazioni personalizzate tramite props a `<ViewTransition>`. Aggiungiamo una shared element transition all'header per "6 video" e "Indietro":
 
 ```js {4,5}
 <ViewTransition
@@ -4932,31 +4939,31 @@ With transition types, you can provide custom animations via props to `<ViewTran
 </ViewTransition>
 ```
 
-Here we pass a `share` prop to define how to animate based on the transition type. When the share transition activates from `nav-forward`, the view transition class `slide-forward` is applied. When it's from `nav-back`, the `slide-back` animation is activated. Let's define these animations in CSS:
+Qui passiamo una prop `share` per definire come animare in base al transition type. Quando la share transition si attiva da `nav-forward`, viene applicata la view transition class `slide-forward`. Quando proviene da `nav-back`, si attiva l'animazione `slide-back`. Definiamole in CSS:
 
 ```css
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: ...
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: ...
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: ...
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: ...
 }
 ```
 
-Now we can animate the header along with thumbnail based on navigation type:
+Ora possiamo animare l'header insieme alla miniatura in base al tipo di navigazione:
 
 <Sandpack>
 
@@ -4969,7 +4976,7 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Keeping our default slow-fade.
+  // Manteniamo il nostro slow-fade predefinito.
   return (
     <ViewTransition default="slow-fade">
       {url === "/" ? <Home /> : <Details />}
@@ -5019,7 +5026,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -5049,7 +5056,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -5058,7 +5065,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -5089,11 +5096,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -5234,7 +5241,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -5246,8 +5253,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -5262,8 +5269,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -5272,7 +5279,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -5297,8 +5304,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -5448,14 +5455,14 @@ export function Router({ children }) {
 
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -5475,13 +5482,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -6093,32 +6100,32 @@ ul {
 
 
 ```css src/animations.css
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* New keyframes to support our animations above. */
+/* Nuovi keyframe per supportare le nostre animazioni sopra. */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -6161,7 +6168,7 @@ ul {
     }
 }
 
-/* Previously defined animations. */
+/* Animazioni definite in precedenza. */
 
 /* Default .slow-fade. */
 ::view-transition-old(.slow-fade) {
@@ -6210,11 +6217,11 @@ root.render(
 
 </Sandpack>
 
-### Animating Suspense Boundaries {/*animating-suspense-boundaries*/}
+### Animare i boundary Suspense {/*animating-suspense-boundaries*/}
 
-Suspense will also activate View Transitions.
+Anche Suspense attiverà le View Transitions.
 
-To animate the fallback to content, we can wrap `Suspense` with `<ViewTranstion>`:
+Per animare il passaggio dal fallback al contenuto, possiamo avvolgere `Suspense` con `<ViewTransition>`:
 
 ```js
 <ViewTransition>
@@ -6224,7 +6231,7 @@ To animate the fallback to content, we can wrap `Suspense` with `<ViewTranstion>
 </ViewTransition>
 ```
 
-By adding this, the fallback will cross-fade into the content. Click a video and see the video info animate in:
+Aggiungendolo, il fallback farà cross-fade nel contenuto. Clicca un video e guarda le info del video animarsi:
 
 <Sandpack>
 
@@ -6237,7 +6244,7 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Default slow-fade animation.
+  // Animazione slow-fade predefinita.
   return (
     <ViewTransition default="slow-fade">
       {url === "/" ? <Home /> : <Details />}
@@ -6250,7 +6257,7 @@ export default function App() {
 import { use, Suspense, ViewTransition } from "react"; import { fetchVideo, fetchVideoDetails } from "./data"; import { Thumbnail, VideoControls } from "./Videos"; import { useRouter } from "./router"; import Layout from "./Layout"; import { ChevronLeft } from "./Icons";
 
 function VideoDetails({ id }) {
-  // Cross-fade the fallback to content.
+  // Cross-fade dal fallback al contenuto.
   return (
     <ViewTransition default="slow-fade">
       <Suspense fallback={<VideoInfoFallback />}>
@@ -6283,7 +6290,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -6320,7 +6327,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -6329,7 +6336,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -6360,11 +6367,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -6506,7 +6513,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -6518,8 +6525,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -6534,8 +6541,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -6544,7 +6551,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -6569,8 +6576,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -6720,14 +6727,14 @@ export function Router({ children }) {
   const [routerState, setRouterState] = useState({pendingNav: () => {}, url: document.location.pathname});
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -6744,13 +6751,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -7362,17 +7369,17 @@ ul {
 
 
 ```css src/animations.css
-/* Slide the fallback down */
+/* Fai scorrere il fallback verso il basso */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
 
-/* Slide the content up */
+/* Fai scorrere il contenuto verso l'alto */
 ::view-transition-new(.slide-up) {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Define the new keyframes */
+/* Definisci i nuovi keyframe */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -7391,34 +7398,34 @@ ul {
     }
 }
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -7508,7 +7515,7 @@ root.render(
 
 </Sandpack>
 
-We can also provide custom animations using an `exit` on the fallback, and `enter` on the content:
+Possiamo anche fornire animazioni personalizzate usando un `exit` sul fallback e un `enter` sul contenuto:
 
 ```js {3,8}
 <Suspense
@@ -7524,21 +7531,21 @@ We can also provide custom animations using an `exit` on the fallback, and `ente
 </Suspense>
 ```
 
-Here's how we'll define `slide-down` and `slide-up` with CSS:
+Ecco come definiamo `slide-down` e `slide-up` con CSS:
 
 ```css {1, 6}
 ::view-transition-old(.slide-down) {
-  /* Slide the fallback down */
+  /* Fai scorrere il fallback verso il basso */
   animation: ...;
 }
 
 ::view-transition-new(.slide-up) {
-  /* Slide the content up */
+  /* Fai scorrere il contenuto verso l'alto */
   animation: ...;
 }
 ```
 
-Now, the Suspense content replaces the fallback with a sliding animation:
+Ora, il contenuto Suspense sostituisce il fallback con un'animazione a scorrimento:
 
 <Sandpack>
 
@@ -7551,7 +7558,7 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Default slow-fade animation.
+  // Animazione slow-fade predefinita.
   return (
     <ViewTransition default="slow-fade">
       {url === "/" ? <Home /> : <Details />}
@@ -7567,13 +7574,13 @@ function VideoDetails({ id }) {
   return (
     <Suspense
       fallback={
-        // Animate the fallback down.
+        // Anima il fallback verso il basso.
         <ViewTransition exit="slide-down">
           <VideoInfoFallback />
         </ViewTransition>
       }
     >
-      {/* Animate the content up */}
+      {/* Anima il contenuto verso l'alto */}
       <ViewTransition enter="slide-up">
         <VideoInfo id={id} />
       </ViewTransition>
@@ -7604,7 +7611,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -7641,7 +7648,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -7650,7 +7657,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -7681,11 +7688,11 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const foundVideos = filterVideos(videos, searchText);
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <div className="video-list">
         {foundVideos.length === 0 && (
-          <div className="no-results">No results</div>
+          <div className="no-results">Nessun risultato</div>
         )}
         <div className="videos">
           {foundVideos.map((video) => (
@@ -7827,7 +7834,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -7839,8 +7846,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -7855,8 +7862,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -7865,7 +7872,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -7890,8 +7897,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -8041,14 +8048,14 @@ export function Router({ children }) {
   const [routerState, setRouterState] = useState({pendingNav: () => {}, url: document.location.pathname});
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -8065,13 +8072,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -8683,17 +8690,17 @@ ul {
 
 
 ```css src/animations.css
-/* Slide the fallback down */
+/* Fai scorrere il fallback verso il basso */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
 
-/* Slide the content up */
+/* Fai scorrere il contenuto verso l'alto */
 ::view-transition-new(.slide-up) {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Define the new keyframes */
+/* Definisci i nuovi keyframe */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -8712,34 +8719,34 @@ ul {
     }
 }
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -8830,9 +8837,9 @@ root.render(
 </Sandpack>
 
 
-### Animating Lists {/*animating-lists*/}
+### Animare le liste {/*animating-lists*/}
 
-You can also use `<ViewTransition>` to animate lists of items as they re-order, like in a searchable list of items:
+Puoi anche usare `<ViewTransition>` per animare liste di elementi mentre si riordinano, come in una lista di elementi ricercabile:
 
 ```js {3,5}
 <div className="videos">
@@ -8844,7 +8851,7 @@ You can also use `<ViewTransition>` to animate lists of items as they re-order, 
 </div>
 ```
 
-To activate the ViewTransition, we can use `useDeferredValue`:
+Per attivare la ViewTransition, possiamo usare `useDeferredValue`:
 
 ```js {2}
 const [searchText, setSearchText] = useState('');
@@ -8852,7 +8859,7 @@ const deferredSearchText = useDeferredValue(searchText);
 const filteredVideos = filterVideos(videos, deferredSearchText);
 ```
 
-Now the items animate as you type in the search bar:
+Ora gli elementi si animano mentre digiti nella barra di ricerca:
 
 <Sandpack>
 
@@ -8865,7 +8872,7 @@ import { useRouter } from "./router";
 export default function App() {
   const { url } = useRouter();
 
-  // Default slow-fade animation.
+  // Animazione slow-fade predefinita.
   return (
     <ViewTransition default="slow-fade">
       {url === "/" ? <Home /> : <Details />}
@@ -8883,17 +8890,17 @@ import Layout from "./Layout";
 import { ChevronLeft } from "./Icons";
 
 function VideoDetails({id}) {
-  // Animate from Suspense fallback to content
+  // Anima dal fallback Suspense al contenuto
   return (
     <Suspense
       fallback={
-        // Animate the fallback down.
+        // Anima il fallback verso il basso.
         <ViewTransition exit="slide-down">
           <VideoInfoFallback />
         </ViewTransition>
       }
     >
-      {/* Animate the content up */}
+      {/* Anima il contenuto verso l'alto */}
       <ViewTransition enter="slide-up">
         <VideoInfo id={id} />
       </ViewTransition>
@@ -8924,7 +8931,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -8953,21 +8960,21 @@ function VideoInfo({ id }) {
 import { useId, useState, use, useDeferredValue, ViewTransition } from "react";import { Video } from "./Videos";import Layout from "./Layout";import { fetchVideos } from "./data";import { IconSearch } from "./Icons";
 
 function SearchList({searchText, videos}) {
-  // Activate with useDeferredValue ("when")
+  // Attiva con useDeferredValue ("when")
   const deferredSearchText = useDeferredValue(searchText);
   const filteredVideos = filterVideos(videos, deferredSearchText);
   return (
     <div className="video-list">
       <div className="videos">
         {filteredVideos.map((video) => (
-          // Animate each item in list ("what")
+          // Anima ogni elemento nella lista ("what")
           <ViewTransition key={video.id}>
             <Video video={video} />
           </ViewTransition>
         ))}
       </div>
       {filteredVideos.length === 0 && (
-        <div className="no-results">No results</div>
+        <div className="no-results">Nessun risultato</div>
       )}
     </div>
   );
@@ -8979,7 +8986,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <SearchList videos={videos} searchText={searchText} />
     </Layout>
@@ -8991,7 +8998,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -9000,7 +9007,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -9154,7 +9161,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -9166,8 +9173,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -9182,8 +9189,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -9192,7 +9199,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -9217,8 +9224,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -9368,14 +9375,14 @@ export function Router({ children }) {
   const [routerState, setRouterState] = useState({pendingNav: () => {}, url: document.location.pathname});
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -9392,13 +9399,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -10010,7 +10017,7 @@ ul {
 
 
 ```css src/animations.css
-/* No additional animations needed */
+/* Nessuna animazione aggiuntiva necessaria */
 
 
 
@@ -10020,14 +10027,14 @@ ul {
 
 
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
 
 
 
 
 
-/* Slide animation for Suspense */
+/* Animazione slide per Suspense */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
@@ -10036,32 +10043,32 @@ ul {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -10170,13 +10177,13 @@ root.render(
 
 </Sandpack>
 
-### Final result {/*final-result*/}
+### Risultato finale {/*final-result*/}
 
-By adding a few `<ViewTransition>` components and a few lines of CSS, we were able to add all the animations above into the final result.
+Aggiungendo pochi componenti `<ViewTransition>` e poche righe di CSS, siamo riusciti ad aggiungere tutte le animazioni sopra nel risultato finale.
 
-We're excited about View Transitions and think they will level up the apps you're able to build. They're ready to start trying today in the experimental channel of React releases.
+Siamo entusiasti delle View Transitions e pensiamo che ti permetteranno di portare le tue app a un livello superiore. Sono pronte per essere provate oggi nel canale sperimentale delle release React.
 
-Let's remove the slow fade, and take a look at the final result:
+Rimuoviamo il slow fade e diamo un'occhiata al risultato finale:
 
 <Sandpack>
 
@@ -10186,7 +10193,7 @@ import {ViewTransition} from 'react'; import Details from './Details'; import Ho
 export default function App() {
   const {url} = useRouter();
 
-  // Animate with a cross fade between pages.
+  // Anima con un cross-fade tra le pagine.
   return (
     <ViewTransition key={url}>
       {url === '/' ? <Home /> : <Details />}
@@ -10199,17 +10206,17 @@ export default function App() {
 import { use, Suspense, ViewTransition } from "react"; import { fetchVideo, fetchVideoDetails } from "./data"; import { Thumbnail, VideoControls } from "./Videos"; import { useRouter } from "./router"; import Layout from "./Layout"; import { ChevronLeft } from "./Icons";
 
 function VideoDetails({id}) {
-  // Animate from Suspense fallback to content
+  // Anima dal fallback Suspense al contenuto
   return (
     <Suspense
       fallback={
-        // Animate the fallback down.
+        // Anima il fallback verso il basso.
         <ViewTransition exit="slide-down">
           <VideoInfoFallback />
         </ViewTransition>
       }
     >
-      {/* Animate the content up */}
+      {/* Anima il contenuto verso l'alto */}
       <ViewTransition enter="slide-up">
         <VideoInfo id={id} />
       </ViewTransition>
@@ -10240,7 +10247,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -10269,21 +10276,21 @@ function VideoInfo({ id }) {
 import { useId, useState, use, useDeferredValue, ViewTransition } from "react";import { Video } from "./Videos";import Layout from "./Layout";import { fetchVideos } from "./data";import { IconSearch } from "./Icons";
 
 function SearchList({searchText, videos}) {
-  // Activate with useDeferredValue ("when")
+  // Attiva con useDeferredValue ("when")
   const deferredSearchText = useDeferredValue(searchText);
   const filteredVideos = filterVideos(videos, deferredSearchText);
   return (
     <div className="video-list">
       <div className="videos">
         {filteredVideos.map((video) => (
-          // Animate each item in list ("what")
+          // Anima ogni elemento nella lista ("what")
           <ViewTransition key={video.id}>
             <Video video={video} />
           </ViewTransition>
         ))}
       </div>
       {filteredVideos.length === 0 && (
-        <div className="no-results">No results</div>
+        <div className="no-results">Nessun risultato</div>
       )}
     </div>
   );
@@ -10295,7 +10302,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <SearchList videos={videos} searchText={searchText} />
     </Layout>
@@ -10307,7 +10314,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -10316,7 +10323,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -10469,7 +10476,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -10481,8 +10488,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -10497,8 +10504,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -10507,7 +10514,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -10528,7 +10535,7 @@ export default function LikeButton({video}) {
 import { useState, ViewTransition } from "react"; import LikeButton from "./LikeButton"; import { useRouter } from "./router"; import { PauseIcon, PlayIcon } from "./Icons"; import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
+  // Aggiungi un name per animare con una shared element transition.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -10679,14 +10686,14 @@ export function Router({ children }) {
   const [isPending, startTransition] = useTransition();
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -10705,13 +10712,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -11323,7 +11330,7 @@ ul {
 
 
 ```css src/animations.css
-/* Slide animations for Suspense the fallback down */
+/* Animazioni slide per far scorrere il fallback Suspense verso il basso */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
@@ -11332,32 +11339,32 @@ ul {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -11456,9 +11463,9 @@ root.render(
 
 </Sandpack>
 
-If you're curious to know more about how they work, check out [How Does `<ViewTransition>` Work](/reference/react/ViewTransition#how-does-viewtransition-work) in the docs.
+Se vuoi saperne di più su come funzionano, consulta [Come funziona `<ViewTransition>`](/reference/react/ViewTransition#how-does-viewtransition-work) nella documentazione.
 
-_For more background on how we built View Transitions, see: [#31975](https://github.com/react/react/pull/31975), [#32105](https://github.com/react/react/pull/32105), [#32041](https://github.com/react/react/pull/32041), [#32734](https://github.com/react/react/pull/32734), [#32797](https://github.com/react/react/pull/32797) [#31999](https://github.com/react/react/pull/31999), [#32031](https://github.com/react/react/pull/32031), [#32050](https://github.com/react/react/pull/32050), [#32820](https://github.com/react/react/pull/32820), [#32029](https://github.com/react/react/pull/32029), [#32028](https://github.com/react/react/pull/32028), and [#32038](https://github.com/react/react/pull/32038) by [@sebmarkbage](https://twitter.com/sebmarkbage) (thanks Seb!)._
+_Per maggiori dettagli su come abbiamo costruito le View Transitions, vedi: [#31975](https://github.com/react/react/pull/31975), [#32105](https://github.com/react/react/pull/32105), [#32041](https://github.com/react/react/pull/32041), [#32734](https://github.com/react/react/pull/32734), [#32797](https://github.com/react/react/pull/32797) [#31999](https://github.com/react/react/pull/31999), [#32031](https://github.com/react/react/pull/32031), [#32050](https://github.com/react/react/pull/32050), [#32820](https://github.com/react/react/pull/32820), [#32029](https://github.com/react/react/pull/32029), [#32028](https://github.com/react/react/pull/32028), and [#32038](https://github.com/react/react/pull/32038) by [@sebmarkbage](https://twitter.com/sebmarkbage) (grazie Seb!)._
 
 ---
 
@@ -11466,17 +11473,17 @@ _For more background on how we built View Transitions, see: [#31975](https://git
 
 <Note>
 
-**`<Activity />` is now available in React’s Canary channel.**
+**`<Activity />` è ora disponibile nel canale Canary di React.**
 
-[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+[Scopri di più sui canali di release di React qui.](/community/versioning-policy#all-release-channels)
 
 </Note>
 
-In [past](/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022#offscreen) [updates](/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024#offscreen-renamed-to-activity), we shared that we were researching an API to allow components to be visually hidden and deprioritized, preserving UI state with reduced performance costs relative to unmounting or hiding with CSS.
+In [passati](/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022#offscreen) [aggiornamenti](/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024#offscreen-renamed-to-activity), abbiamo condiviso che stavamo ricercando un'API per permettere ai componenti di essere nascosti visivamente e deprioritizzati, preservando lo state UI con costi di performance ridotti rispetto allo smontaggio o al nascondere con CSS.
 
-We're now ready to share the API and how it works, so you can start testing it in experimental React versions.
+Siamo pronti a condividere l'API e come funziona, così puoi iniziare a testarla nelle versioni sperimentali di React.
 
-`<Activity>` is a new component to hide and show parts of the UI:
+`<Activity>` è un nuovo componente per nascondere e mostrare parti dell'UI:
 
 ```js [[1, 1, "'visible'"], [2, 1, "'hidden'"]]
 <Activity mode={isVisible ? 'visible' : 'hidden'}>
@@ -11484,25 +11491,25 @@ We're now ready to share the API and how it works, so you can start testing it i
 </Activity>
 ```
 
-When an Activity is <CodeStep step={1}>visible</CodeStep> it's rendered as normal. When an Activity is <CodeStep step={2}>hidden</CodeStep> it is unmounted, but will save its state and continue to render at a lower priority than anything visible on screen.
+Quando un'Activity è <CodeStep step={1}>visible</CodeStep> viene renderizzata normalmente. Quando un'Activity è <CodeStep step={2}>hidden</CodeStep> viene smontata, ma salverà il suo state e continuerà a renderizzare con priorità più bassa rispetto a qualsiasi cosa visibile sullo schermo.
 
-You can use `Activity` to save state for parts of the UI the user isn't using, or pre-render parts that a user is likely to use next.
+Puoi usare `Activity` per salvare lo state per parti dell'UI che l'utente non sta usando, o pre-renderizzare parti che l'utente probabilmente userà dopo.
 
-Let's look at some examples improving the View Transition examples above.
+Diamo un'occhiata ad alcuni esempi che migliorano gli esempi View Transition sopra.
 
 <Note>
 
-**Effects don’t mount when an Activity is hidden.**
+**Gli Effetti non si montano quando un'Activity è hidden.**
 
-When an `<Activity>` is `hidden`, Effects are unmounted. Conceptually, the component is unmounted, but React saves the state for later.
+Quando un `<Activity>` è `hidden`, gli Effetti vengono smontati. Concettualmente, il componente è smontato, ma React salva lo state per dopo.
 
-In practice, this works as expected if you have followed the [You Might Not Need an Effect](/learn/you-might-not-need-an-effect) guide. To eagerly find problematic Effects, we recommend adding [`<StrictMode>`](/reference/react/StrictMode) which will eagerly perform Activity unmounts and mounts to catch any unexpected side effects.
+In pratica, funziona come previsto se hai seguito la guida [You Might Not Need an Effect](/learn/you-might-not-need-an-effect). Per trovare subito Effetti problematici, ti consigliamo di aggiungere [`<StrictMode>`](/reference/react/StrictMode) che eseguirà smontaggi e montaggi di Activity in anticipo per individuare effetti collaterali inaspettati.
 
 </Note>
 
-### Restoring state with Activity {/*restoring-state-with-activity*/}
+### Ripristinare lo state con Activity {/*restoring-state-with-activity*/}
 
-When a user navigates away from a page, it's common to stop rendering the old page:
+Quando un utente naviga via da una pagina, è comune smettere di renderizzare la vecchia pagina:
 
 ```js {6,7}
 function App() {
@@ -11517,9 +11524,9 @@ function App() {
 }
 ```
 
-However, this means if the user goes back to the old page, all of the previous state is lost. For example, if the `<Home />` page has an `<input>` field, when the user leaves the page the `<input>` is unmounted, and all of the text they had typed is lost.
+Tuttavia, questo significa che se l'utente torna alla vecchia pagina, tutto lo state precedente viene perso. Per esempio, se la pagina `<Home />` ha un campo `<input>`, quando l'utente lascia la pagina l'`<input>` viene smontato e tutto il testo digitato viene perso.
 
-Activity allows you to keep the state around as the user changes pages, so when they come back they can resume where they left off. This is done by wrapping part of the tree in `<Activity>` and toggling the `mode`:
+Activity ti permette di mantenere lo state mentre l'utente cambia pagina, così quando torna può riprendere da dove aveva lasciato. Si fa avvolgendo parte dell'albero in `<Activity>` e cambiando la `mode`:
 
 ```js {6-8}
 function App() {
@@ -11536,9 +11543,9 @@ function App() {
 }
 ```
 
-With this change, we can improve on our View Transitions example above. Before, when you searched for a video, selected one, and returned, your search filter was lost. With Activity, your search filter is restored and you can pick up where you left off.
+Con questa modifica, possiamo migliorare l'esempio View Transitions sopra. Prima, quando cercavi un video, ne selezionavi uno e tornavi indietro, il filtro di ricerca veniva perso. Con Activity, il filtro di ricerca viene ripristinato e puoi riprendere da dove avevi lasciato.
 
-Try searching for a video, selecting it, and clicking "back":
+Prova a cercare un video, selezionarlo e cliccare "indietro":
 
 <Sandpack>
 
@@ -11549,9 +11556,9 @@ export default function App() {
   const { url } = useRouter();
 
   return (
-    // View Transitions know about Activity
+    // Le View Transitions conoscono Activity
     <ViewTransition>
-      {/* Render Home in Activity so we don't lose state */}
+      {/* Renderizza Home in Activity così non perdiamo lo state */}
       <Activity mode={url === '/' ? 'visible' : 'hidden'}>
         <Home />
       </Activity>
@@ -11570,17 +11577,17 @@ import Layout from "./Layout";
 import { ChevronLeft } from "./Icons";
 
 function VideoDetails({id}) {
-  // Animate from Suspense fallback to content
+  // Anima dal fallback Suspense al contenuto
   return (
     <Suspense
       fallback={
-        // Animate the fallback down.
+        // Anima il fallback verso il basso.
         <ViewTransition exit="slide-down">
           <VideoInfoFallback />
         </ViewTransition>
       }
     >
-      {/* Animate the content up */}
+      {/* Anima il contenuto verso l'alto */}
       <ViewTransition enter="slide-up">
         <VideoInfo id={id} />
       </ViewTransition>
@@ -11611,7 +11618,7 @@ export default function Details() {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -11640,17 +11647,17 @@ function VideoInfo({ id }) {
 import { useId, useState, use, useDeferredValue, ViewTransition } from "react";import { Video } from "./Videos";import Layout from "./Layout";import { fetchVideos } from "./data";import { IconSearch } from "./Icons";
 
 function SearchList({searchText, videos}) {
-  // Activate with useDeferredValue ("when")
+  // Attiva con useDeferredValue ("when")
   const deferredSearchText = useDeferredValue(searchText);
   const filteredVideos = filterVideos(videos, deferredSearchText);
   return (
     <div className="video-list">
       {filteredVideos.length === 0 && (
-        <div className="no-results">No results</div>
+        <div className="no-results">Nessun risultato</div>
       )}
       <div className="videos">
         {filteredVideos.map((video) => (
-          // Animate each item in list ("what")
+          // Anima ogni elemento nella lista ("what")
           <ViewTransition key={video.id}>
             <Video video={video} />
           </ViewTransition>
@@ -11666,7 +11673,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <SearchList videos={videos} searchText={searchText} />
     </Layout>
@@ -11678,7 +11685,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -11687,7 +11694,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -11840,7 +11847,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -11852,8 +11859,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -11868,8 +11875,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -11878,7 +11885,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -11903,8 +11910,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -12054,14 +12061,14 @@ export function Router({ children }) {
   const [routerState, setRouterState] = useState({pendingNav: () => {}, url: document.location.pathname});
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -12078,13 +12085,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -12696,7 +12703,7 @@ ul {
 
 
 ```css src/animations.css
-/* No additional animations needed */
+/* Nessuna animazione aggiuntiva necessaria */
 
 
 
@@ -12706,14 +12713,14 @@ ul {
 
 
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
 
 
 
 
 
-/* Slide animations for Suspense the fallback down */
+/* Animazioni slide per far scorrere il fallback Suspense verso il basso */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
@@ -12722,32 +12729,32 @@ ul {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -12855,11 +12862,11 @@ root.render(
 
 </Sandpack>
 
-### Pre-rendering with Activity {/*prerender-with-activity*/}
+### Pre-renderizzare con Activity {/*prerender-with-activity*/}
 
-Sometimes, you may want to prepare the next part of the UI a user is likely to use ahead of time, so it's ready by the time they are ready to use it. This is especially useful if the next route needs to suspend on data it needs to render, because you can help ensure the data is already fetched before the user navigates.
+A volte, potresti voler preparare in anticipo la prossima parte dell'UI che l'utente probabilmente userà, così è pronta quando ne ha bisogno. È particolarmente utile se la prossima route deve sospendere sui dati necessari per renderizzare, perché puoi assicurarti che i dati siano già stati recuperati prima che l'utente navighi.
 
-For example, our app currently needs to suspend to load the data for each video when you select one. We can improve this by rendering all of the pages in a hidden `<Activity>` until the user navigates:
+Per esempio, la nostra app attualmente deve sospendere per caricare i dati di ogni video quando ne selezioni uno. Possiamo migliorare renderizzando tutte le pagine in un `<Activity>` hidden finché l'utente non naviga:
 
 ```js {2,5,8}
 <ViewTransition>
@@ -12875,7 +12882,7 @@ For example, our app currently needs to suspend to load the data for each video 
 <ViewTransition>
 ```
 
-With this update, if the content on the next page has time to pre-render, it will animate in without the Suspense fallback. Click a video, and notice that the video title and description on the Details page render immediately, without a fallback:
+Con questo aggiornamento, se il contenuto della pagina successiva ha tempo per pre-renderizzare, si animerà senza il fallback Suspense. Clicca un video e nota che il titolo e la descrizione del video nella pagina Details vengono renderizzati immediatamente, senza fallback:
 
 <Sandpack>
 
@@ -12889,7 +12896,7 @@ export default function App() {
 
   return (
     <ViewTransition>
-      {/* Render videos in Activity to pre-render them */}
+      {/* Renderizza i video in Activity per pre-renderizzarli */}
       {videos.map(({id}) => (
         <Activity key={id} mode={videoId === id ? 'visible' : 'hidden'}>
           <Details id={id}/>
@@ -12907,19 +12914,19 @@ export default function App() {
 import { use, Suspense, ViewTransition } from "react"; import { fetchVideo, fetchVideoDetails } from "./data"; import { Thumbnail, VideoControls } from "./Videos"; import { useRouter } from "./router"; import Layout from "./Layout"; import { ChevronLeft } from "./Icons";
 
 function VideoDetails({id}) {
-  // Animate from Suspense fallback to content.
-  // If this is pre-rendered then the fallback
-  // won't need to show.
+  // Anima dal fallback Suspense al contenuto.
+  // Se è pre-renderizzato allora il fallback
+  // non dovrà essere mostrato.
   return (
     <Suspense
       fallback={
-        // Animate the fallback down.
+        // Anima il fallback verso il basso.
         <ViewTransition exit="slide-down">
           <VideoInfoFallback />
         </ViewTransition>
       }
     >
-      {/* Animate the content up */}
+      {/* Anima il contenuto verso l'alto */}
       <ViewTransition enter="slide-up">
         <VideoInfo id={id} />
       </ViewTransition>
@@ -12949,7 +12956,7 @@ export default function Details({id}) {
             navigateBack("/");
           }}
         >
-          <ChevronLeft /> Back
+          <ChevronLeft /> Indietro
         </div>
       }
     >
@@ -12978,17 +12985,17 @@ function VideoInfo({ id }) {
 import { useId, useState, use, useDeferredValue, ViewTransition } from "react";import { Video } from "./Videos";import Layout from "./Layout";import { fetchVideos } from "./data";import { IconSearch } from "./Icons";
 
 function SearchList({searchText, videos}) {
-  // Activate with useDeferredValue ("when")
+  // Attiva con useDeferredValue ("when")
   const deferredSearchText = useDeferredValue(searchText);
   const filteredVideos = filterVideos(videos, deferredSearchText);
   return (
     <div className="video-list">
       {filteredVideos.length === 0 && (
-        <div className="no-results">No results</div>
+        <div className="no-results">Nessun risultato</div>
       )}
       <div className="videos">
         {filteredVideos.map((video) => (
-          // Animate each item in list ("what")
+          // Anima ogni elemento nella lista ("what")
           <ViewTransition key={video.id}>
             <Video video={video} />
           </ViewTransition>
@@ -13004,7 +13011,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <Layout heading={<div className="fit">{count} Videos</div>}>
+    <Layout heading={<div className="fit">{count} video</div>}>
       <SearchInput value={searchText} onChange={setSearchText} />
       <SearchList videos={videos} searchText={searchText} />
     </Layout>
@@ -13016,7 +13023,7 @@ function SearchInput({ value, onChange }) {
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor={id} className="sr-only">
-        Search
+        Cerca
       </label>
       <div className="search-input">
         <div className="search-icon">
@@ -13025,7 +13032,7 @@ function SearchInput({ value, onChange }) {
         <input
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="Cerca"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -13178,7 +13185,7 @@ export default function Page({ heading, children }) {
     <div className="page">
       <div className="top">
         <div className="top-nav">
-          {/* Custom classes based on transition type. */}
+          {/* Classi personalizzate in base al transition type. */}
           <ViewTransition
             name="nav"
             share={{
@@ -13190,8 +13197,8 @@ export default function Page({ heading, children }) {
           {isPending && <span className="loader"></span>}
         </div>
       </div>
-      {/* Opt-out of ViewTransition for the content. */}
-      {/* Content can define it's own ViewTransition. */}
+      {/* Escludi ViewTransition per il contenuto. */}
+      {/* Il contenuto può definire la propria ViewTransition. */}
       <ViewTransition default="none">
         <div className="bottom">
           <div className="content">{children}</div>
@@ -13206,8 +13213,8 @@ export default function Page({ heading, children }) {
 import {useState} from 'react';
 import {Heart} from './Icons';
 
-// A hack since we don't actually have a backend.
-// Unlike local state, this survives videos being filtered.
+// Un trucco poiché non abbiamo un backend reale.
+// A differenza dello state locale, questo sopravvive al filtraggio dei video.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -13216,7 +13223,7 @@ export default function LikeButton({video}) {
   return (
     <button
       className={`like-button ${isLiked && 'liked'}`}
-      aria-label={isLiked ? 'Unsave' : 'Save'}
+      aria-label={isLiked ? 'Rimuovi' : 'Salva'}
       onClick={() => {
         const nextIsLiked = !isLiked;
         if (nextIsLiked) {
@@ -13241,8 +13248,8 @@ import { PauseIcon, PlayIcon } from "./Icons";
 import { startTransition } from "react";
 
 export function Thumbnail({ video, children }) {
-  // Add a name to animate with a shared element transition.
-  // This uses the default animation, no additional css needed.
+  // Aggiungi un name per animare con una shared element transition.
+  // Usa l'animazione predefinita, nessun css aggiuntivo necessario.
   return (
     <ViewTransition name={`video-${video.id}`}>
       <div
@@ -13392,14 +13399,14 @@ export function Router({ children }) {
   const [routerState, setRouterState] = useState({pendingNav: () => {}, url: document.location.pathname});
   function navigate(url) {
     startTransition(() => {
-      // Transition type for the cause "nav forward"
+      // Transition type per la causa "nav forward"
       addTransitionType('nav-forward');
       go(url);
     });
   }
   function navigateBack(url) {
     startTransition(() => {
-      // Transition type for the cause "nav backward"
+      // Transition type per la causa "nav backward"
       addTransitionType('nav-back');
       go(url);
     });
@@ -13416,13 +13423,13 @@ export function Router({ children }) {
 
   useEffect(() => {
     function handlePopState() {
-      // This should not animate because restoration has to be synchronous.
-      // Even though it's a transition.
+      // Questo non dovrebbe animarsi perché il ripristino deve essere sincrono.
+      // Anche se è una transizione.
       startTransition(() => {
         setRouterState({
           url: document.location.pathname + document.location.search,
           pendingNav() {
-            // Noop. URL has already updated.
+            // Noop. L'URL è già stato aggiornato.
           },
         });
       });
@@ -14034,7 +14041,7 @@ ul {
 
 
 ```css src/animations.css
-/* No additional animations needed */
+/* Nessuna animazione aggiuntiva necessaria */
 
 
 
@@ -14044,14 +14051,14 @@ ul {
 
 
 
-/* Previously defined animations below */
+/* Animazioni definite in precedenza sotto */
 
 
 
 
 
 
-/* Slide animations for Suspense the fallback down */
+/* Animazioni slide per far scorrere il fallback Suspense verso il basso */
 ::view-transition-old(.slide-down) {
     animation: 150ms ease-out both fade-out, 150ms ease-out both slide-down;
 }
@@ -14060,32 +14067,32 @@ ul {
     animation: 210ms ease-in 150ms both fade-in, 400ms ease-in both slide-up;
 }
 
-/* Animations for view transition classed added by transition type */
+/* Animazioni per le view transition class aggiunte dal transition type */
 ::view-transition-old(.slide-forward) {
-    /* when sliding forward, the "old" page should slide out to left. */
+    /* quando si scorre in avanti, la pagina "old" dovrebbe uscire verso sinistra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(.slide-forward) {
-    /* when sliding forward, the "new" page should slide in from right. */
+    /* quando si scorre in avanti, la pagina "new" dovrebbe entrare da destra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 
 ::view-transition-old(.slide-back) {
-    /* when sliding back, the "old" page should slide out to right. */
+    /* quando si scorre indietro, la pagina "old" dovrebbe uscire verso destra. */
     animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
 }
 
 ::view-transition-new(.slide-back) {
-    /* when sliding back, the "new" page should slide in from left. */
+    /* quando si scorre indietro, la pagina "new" dovrebbe entrare da sinistra. */
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in,
     400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
 }
 
-/* Keyframes to support our animations above. */
+/* Keyframe per supportare le nostre animazioni sopra. */
 @keyframes slide-up {
     from {
         transform: translateY(10px);
@@ -14193,45 +14200,45 @@ root.render(
 
 </Sandpack>
 
-### Server-Side Rendering with Activity {/*server-side-rendering-with-activity*/}
+### Server-Side Rendering con Activity {/*server-side-rendering-with-activity*/}
 
-When using Activity on a page that uses server-side rendering (SSR), there are additional optimizations.
+Quando usi Activity su una pagina che usa server-side rendering (SSR), ci sono ottimizzazioni aggiuntive.
 
-If part of the page is rendered with `mode="hidden"`, then it will not be included in the SSR response. Instead, React will schedule a client render for the content inside Activity while the rest of the page hydrates, prioritizing the visible content on screen.
+Se parte della pagina viene renderizzata con `mode="hidden"`, non sarà inclusa nella risposta SSR. Invece, React programmerà una renderizzazione client per il contenuto dentro Activity mentre il resto della pagina si idrata, dando priorità al contenuto visibile sullo schermo.
 
-For parts of the UI rendered with `mode="visible"`, React will de-prioritize hydration of content within Activity, similar to how Suspense content is hydrated at a lower priority. If the user interacts with the page, we'll prioritize hydration within the boundary if needed.
+Per le parti dell'UI renderizzate con `mode="visible"`, React deprioritizzerà l'hydration del contenuto dentro Activity, simile a come il contenuto Suspense viene idratato con priorità più bassa. Se l'utente interagisce con la pagina, daremo priorità all'hydration dentro il boundary se necessario.
 
-These are advanced use cases, but they show the additional benefits considered with Activity.
+Sono casi d'uso avanzati, ma mostrano i benefici aggiuntivi considerati con Activity.
 
-### Future modes for Activity {/*future-modes-for-activity*/}
+### Modalità future per Activity {/*future-modes-for-activity*/}
 
-In the future, we may add more modes to Activity.
+In futuro, potremmo aggiungere altre modalità ad Activity.
 
-For example, a common use case is rendering a modal, where the previous "inactive" page is visible behind the "active" modal view. The "hidden" mode does not work for this use case because it's not visible and not included in SSR.
+Per esempio, un caso d'uso comune è renderizzare un modal, dove la pagina "inattiva" precedente è visibile dietro la vista modal "attiva". La modalità "hidden" non funziona per questo caso d'uso perché non è visibile e non è inclusa nell'SSR.
 
-Instead, we're considering a new mode that would keep the content visible&mdash;and included in SSR&mdash;but keep it unmounted and de-prioritize updates. This mode may also need to "pause" DOM updates, since it can be distracting to see backgrounded content updating while a modal is open.
+Invece, stiamo considerando una nuova modalità che manterrebbe il contenuto visibile&mdash;e incluso nell'SSR&mdash;ma lo terrebbe smontato e deprioritizzerebbe gli aggiornamenti. Questa modalità potrebbe anche dover "mettere in pausa" gli aggiornamenti DOM, poiché può distrarre vedere contenuto in background aggiornarsi mentre un modal è aperto.
 
-Another mode we're considering for Activity is the ability to automatically destroy state for hidden Activities if there is too much memory being used. Since the component is already unmounted, it may be preferable to destroy state for the least recently used hidden parts of the app rather than consume too many resources.
+Un'altra modalità che stiamo considerando per Activity è la possibilità di distruggere automaticamente lo state per le Activity hidden se viene usata troppa memoria. Poiché il componente è già smontato, potrebbe essere preferibile distruggere lo state per le parti hidden meno recentemente usate dell'app piuttosto che consumare troppe risorse.
 
-These are areas we're still exploring, and we'll share more as we make progress. For more information on what Activity includes today, [check out the docs](/reference/react/Activity).
+Sono aree che stiamo ancora esplorando e condivideremo di più man mano che progrediamo. Per maggiori informazioni su cosa include Activity oggi, [consulta la documentazione](/reference/react/Activity).
 
 ---
 
-# Features in development {/*features-in-development*/}
+# Funzionalità in sviluppo {/*features-in-development*/}
 
-We're also developing features to help solve the common problems below.
+Stiamo anche sviluppando funzionalità per aiutare a risolvere i problemi comuni sotto.
 
-As we iterate on possible solutions, you may see some potential APIs we're testing being shared based on the PRs we are landing. Please keep in mind that as we try different ideas, we often change or remove different solutions after trying them out.
+Mentre iteriamo sulle possibili soluzioni, potresti vedere alcune API potenziali che stiamo testando condivise in base alle PR che stiamo mergiando. Tieni presente che mentre proviamo idee diverse, spesso cambiamo o rimuoviamo soluzioni diverse dopo averle testate.
 
-When the solutions we're working on are shared too early, it can create churn and confusion in the community. To balance being transparent and limiting confusion, we're sharing the problems we're currently developing solutions for, without sharing a particular solution we have in mind.
+Quando le soluzioni su cui stiamo lavorando vengono condivise troppo presto, possono creare churn e confusione nella community. Per bilanciare trasparenza e limitare la confusione, condividiamo i problemi per cui stiamo attualmente sviluppando soluzioni, senza condividere una soluzione particolare che abbiamo in mente.
 
-As these features progress, we'll announce them on the blog with docs included so you can try them out.
+Man mano che queste funzionalità progrediscono, le annunceremo sul blog con documentazione inclusa così puoi provarle.
 
 ## React Performance Tracks {/*react-performance-tracks*/}
 
-We're working on a new set of custom tracks to performance profilers using browser APIs that [allow adding custom tracks](https://developer.chrome.com/docs/devtools/performance/extension) to provide more information about the performance of your React app.
+Stiamo lavorando a un nuovo set di track personalizzate per i profiler di performance usando API browser che [permettono di aggiungere track personalizzate](https://developer.chrome.com/docs/devtools/performance/extension) per fornire più informazioni sulla performance della tua app React.
 
-This feature is still in progress, so we're not ready to publish docs to fully release it as an experimental feature yet. You can get a sneak preview when using an experimental version of React, which will automatically add the performance tracks to profiles:
+Questa funzionalità è ancora in corso, quindi non siamo pronti a pubblicare documentazione per rilasciarla completamente come funzionalità sperimentale. Puoi avere un'anteprima usando una versione sperimentale di React, che aggiungerà automaticamente le performance track ai profili:
 
 <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
   <picture >
@@ -14244,53 +14251,53 @@ This feature is still in progress, so we're not ready to publish docs to fully r
   </picture>
 </div>
 
-There are a few known issues we plan to address such as performance, and the scheduler track not always "connecting" work across Suspended trees, so it's not quite ready to try. We're also still collecting feedback from early adopters to improve the design and usability of the tracks.
+Ci sono alcuni problemi noti che prevediamo di affrontare come la performance, e la scheduler track che non sempre "collega" il lavoro tra alberi Suspended, quindi non è ancora pronta da provare. Stiamo anche raccogliendo feedback dagli early adopter per migliorare design e usabilità delle track.
 
-Once we solve those issues, we'll publish experimental docs and share that it's ready to try.
+Una volta risolti questi problemi, pubblicheremo documentazione sperimentale e condivideremo che è pronta da provare.
 
 ---
 
-## Automatic Effect Dependencies {/*automatic-effect-dependencies*/}
+## Dipendenze automatiche degli Effetti {/*automatic-effect-dependencies*/}
 
-When we released hooks, we had three motivations:
+Quando abbiamo rilasciato gli hooks, avevamo tre motivazioni:
 
-- **Sharing code between components**: hooks replaced patterns like render props and higher-order components to allow you to reuse stateful logic without changing your component hierarchy.
-- **Think in terms of function, not lifecycles**: hooks let you split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data), rather than forcing a split based on lifecycle methods.
-- **Support ahead-of-time compilation**: hooks were designed to support ahead-of-time compilation with less pitfalls causing unintentional de-optimizations caused by lifecycle methods, and limitations of classes.
+- **Condividere codice tra componenti**: gli hooks hanno sostituito pattern come render props e higher-order component per permetterti di riutilizzare logica con state senza cambiare la gerarchia dei componenti.
+- **Pensare in termini di funzione, non di lifecycle**: gli hooks ti permettono di dividere un componente in funzioni più piccole in base a quali pezzi sono correlati (come impostare una sottoscrizione o recuperare dati), piuttosto che forzare una divisione basata sui metodi lifecycle.
+- **Supportare la compilazione ahead-of-time**: gli hooks sono stati progettati per supportare la compilazione ahead-of-time con meno insidie che causano de-ottimizzazioni involontarie causate dai metodi lifecycle e dalle limitazioni delle classi.
 
-Since their release, hooks have been successful at *sharing code between components*. Hooks are now the favored way to share logic between components, and there are less use cases for render props and higher order components. Hooks have also been successful at supporting features like Fast Refresh that were not possible with class components.
+Dal loro rilascio, gli hooks hanno avuto successo nel *condividere codice tra componenti*. Gli hooks sono ora il modo preferito per condividere logica tra componenti, e ci sono meno casi d'uso per render props e higher order component. Gli hooks hanno anche avuto successo nel supportare funzionalità come Fast Refresh che non erano possibili con i componenti classe.
 
-### Effects can be hard {/*effects-can-be-hard*/}
+### Gli Effetti possono essere difficili {/*effects-can-be-hard*/}
 
-Unfortunately, some hooks are still hard to think in terms of function instead of lifecycles. Effects specifically are still hard to understand and are the most common pain point we hear from developers. Last year, we spent a significant amount of time researching how Effects were used, and how those use cases could be simplified and easier to understand.
+Purtroppo, alcuni hooks sono ancora difficili da pensare in termini di funzione invece che di lifecycle. Gli Effetti in particolare sono ancora difficili da capire e sono il pain point più comune che sentiamo dagli sviluppatori. L'anno scorso, abbiamo dedicato molto tempo a ricercare come venivano usati gli Effetti e come quei casi d'uso potessero essere semplificati e resi più facili da capire.
 
-We found that often, the confusion is from using an Effect when you don't need to. The [You Might Not Need an Effect](/learn/you-might-not-need-an-effect) guide covers many cases for when Effects are not the right solution. However, even when an Effect is the right fit for a problem, Effects can still be harder to understand than class component lifecycles.
+Abbiamo scoperto che spesso la confusione deriva dall'usare un Effetto quando non ne hai bisogno. La guida [You Might Not Need an Effect](/learn/you-might-not-need-an-effect) copre molti casi in cui gli Effetti non sono la soluzione giusta. Tuttavia, anche quando un Effetto è adatto a un problema, gli Effetti possono essere ancora più difficili da capire rispetto ai lifecycle dei componenti classe.
 
-We believe one of the reasons for confusion is that developers to think of Effects from the _component's_ perspective (like a lifecycle), instead of the _Effects_ point of view (what the Effect does).
+Crediamo che una delle ragioni della confusione sia che gli sviluppatori pensano agli Effetti dalla prospettiva del _componente_ (come un lifecycle), invece che dal punto di vista degli _Effetti_ (cosa fa l'Effetto).
 
-Let's look at an example [from the docs](/learn/lifecycle-of-reactive-effects#thinking-from-the-effects-perspective):
+Diamo un'occhiata a un esempio [dalla documentazione](/learn/lifecycle-of-reactive-effects#thinking-from-the-effects-perspective):
 
 ```js
 useEffect(() => {
-  // Your Effect connected to the room specified with roomId...
+  // Il tuo Effetto si connette alla stanza specificata con roomId...
   const connection = createConnection(serverUrl, roomId);
   connection.connect();
   return () => {
-    // ...until it disconnected
+    // ...finché non si disconnette
     connection.disconnect();
   };
 }, [roomId]);
 ```
 
-Many users would read this code as "on mount, connect to the roomId. whenever `roomId` changes, disconnect to the old room and re-create the connection". However, this is thinking from the component's lifecycle perspective, which means you will need to think of every component lifecycle state to write the Effect correctly. This can be difficult, so it's understandable that Effects seem harder than class lifecycles when using the component perspective.
+Molti utenti leggerebbero questo codice come "al mount, connettiti al roomId. ogni volta che `roomId` cambia, disconnettiti dalla vecchia stanza e ricrea la connessione". Tuttavia, questo è pensare dalla prospettiva del lifecycle del componente, il che significa che dovrai pensare a ogni stato lifecycle del componente per scrivere l'Effetto correttamente. Può essere difficile, quindi è comprensibile che gli Effetti sembrino più difficili dei lifecycle di classe quando usi la prospettiva del componente.
 
-### Effects without dependencies {/*effects-without-dependencies*/}
+### Effetti senza dipendenze {/*effects-without-dependencies*/}
 
-Instead, it's better to think from the Effect's perspective. The Effect doesn't know about the component lifecycles. It only describes how to start synchronization and how to stop it. When users think of Effects in this way, their Effects tend to be easier to write, and more resilient to being started and stopped as many times as is needed.
+Invece, è meglio pensare dalla prospettiva dell'Effetto. L'Effetto non conosce i lifecycle del componente. Descrive solo come avviare la sincronizzazione e come fermarla. Quando gli utenti pensano agli Effetti in questo modo, i loro Effetti tendono ad essere più facili da scrivere e più resilienti ad essere avviati e fermati quante volte serve.
 
-We spent some time researching why Effects are thought of from the component perspective, and we think one of the reasons is the dependency array. Since you have to write it, it's right there and in your face reminding you of what you're "reacting" to and baiting you into the mental model of 'do this when these values change'.
+Abbiamo dedicato del tempo a ricercare perché gli Effetti vengono pensati dalla prospettiva del componente, e pensiamo che una delle ragioni sia l'array di dipendenze. Poiché devi scriverlo, è lì davanti a te ricordandoti a cosa stai "reagendo" e spingendoti verso il modello mentale di 'fai questo quando questi valori cambiano'.
 
-When we released hooks, we knew we could make them easier to use with ahead-of-time compilation. With the React Compiler, you're now able to avoid writing `useCallback` and `useMemo` yourself in most cases. For Effects, the compiler can insert the dependencies for you:
+Quando abbiamo rilasciato gli hooks, sapevamo di poterli rendere più facili da usare con la compilazione ahead-of-time. Con React Compiler, ora puoi evitare di scrivere `useCallback` e `useMemo` da solo nella maggior parte dei casi. Per gli Effetti, il compiler può inserire le dipendenze per te:
 
 ```js
 useEffect(() => {
@@ -14299,67 +14306,67 @@ useEffect(() => {
   return () => {
     connection.disconnect();
   };
-}); // compiler inserted dependencies.
+}); // dipendenze inserite dal compiler.
 ```
 
-With this code, the React Compiler can infer the dependencies for you and insert them automatically so you don't need to see or write them. With features like [the IDE extension](#compiler-ide-extension) and [`useEffectEvent`](/reference/react/useEffectEvent), we can provide a CodeLens to show you what the Compiler inserted for times you need to debug, or to optimize by removing a dependency. This helps reinforce the correct mental model for writing Effects, which can run at any time to synchronize your component or hook's state with something else.
+Con questo codice, React Compiler può inferire le dipendenze per te e inserirle automaticamente così non devi vederle o scriverle. Con funzionalità come [l'estensione IDE](#compiler-ide-extension) e [`useEffectEvent`](/reference/react/useEffectEvent), possiamo fornire un CodeLens per mostrarti cosa ha inserito il Compiler quando devi fare debug, o per ottimizzare rimuovendo una dipendenza. Questo aiuta a rafforzare il modello mentale corretto per scrivere Effetti, che possono essere eseguiti in qualsiasi momento per sincronizzare lo state del componente o dell'hook con qualcos'altro.
 
-Our hope is that automatically inserting dependencies is not only easier to write, but that it also makes them easier to understand by forcing you to think in terms of what the Effect does, and not in component lifecycles.
+La nostra speranza è che inserire automaticamente le dipendenze non sia solo più facile da scrivere, ma che renda anche gli Effetti più facili da capire costringendoti a pensare in termini di cosa fa l'Effetto, e non in lifecycle del componente.
 
 ---
 
 ## Compiler IDE Extension {/*compiler-ide-extension*/}
 
-Later in 2025 [we shared](/blog/2025/10/07/react-compiler-1) the first stable release of React Compiler, and we're continuing to invest in shipping more improvements.
+Più avanti nel 2025 [abbiamo condiviso](/blog/2025/10/07/react-compiler-1) il primo rilascio stabile di React Compiler, e continuiamo a investire nel rilasciare altri miglioramenti.
 
-We've also begun exploring ways to use the React Compiler to provide information that can improve understanding and debugging your code. One idea we've started exploring is a new experimental LSP-based React IDE extension powered by React Compiler, similar to the extension used in [Lauren Tan's React Conf talk](https://conf2024.react.dev/talks/5).
+Abbiamo anche iniziato a esplorare modi per usare React Compiler per fornire informazioni che possono migliorare la comprensione e il debug del tuo codice. Un'idea che abbiamo iniziato a esplorare è una nuova estensione IDE React sperimentale basata su LSP alimentata da React Compiler, simile all'estensione usata nel [talk di Lauren Tan a React Conf](https://conf2024.react.dev/talks/5).
 
-Our idea is that we can use the compiler's static analysis to provide more information, suggestions, and optimization opportunities directly in your IDE. For example, we can provide diagnostics for code breaking the Rules of React, hovers to show if components and hooks were optimized by the compiler, or a CodeLens to see [automatically inserted Effect dependencies](#automatic-effect-dependencies).
+La nostra idea è che possiamo usare l'analisi statica del compiler per fornire più informazioni, suggerimenti e opportunità di ottimizzazione direttamente nel tuo IDE. Per esempio, possiamo fornire diagnostiche per codice che viola le Rules of React, hover per mostrare se componenti e hooks sono stati ottimizzati dal compiler, o un CodeLens per vedere le [dipendenze degli Effetti inserite automaticamente](#automatic-effect-dependencies).
 
-The IDE extension is still an early exploration, but we'll share our progress in future updates.
+L'estensione IDE è ancora un'esplorazione iniziale, ma condivideremo i progressi negli aggiornamenti futuri.
 
 ---
 
 ## Fragment Refs {/*fragment-refs*/}
 
-Many DOM APIs like those for event management, positioning, and focus are difficult to compose when writing with React. This often leads developers to reach for Effects, managing multiple Refs, by using APIs like `findDOMNode` (removed in React 19).
+Molte API DOM come quelle per la gestione degli eventi, il posizionamento e il focus sono difficili da comporre quando scrivi con React. Questo spesso porta gli sviluppatori a usare Effetti, gestendo più Ref, usando API come `findDOMNode` (rimossa in React 19).
 
-We are exploring adding refs to Fragments that would point to a group of DOM elements, rather than just a single element. Our hope is that this will simplify managing multiple children and make it easier to write composable React code when calling DOM APIs.
+Stiamo esplorando l'aggiunta di ref ai Fragment che puntino a un gruppo di elementi DOM, piuttosto che a un singolo elemento. La nostra speranza è che questo semplifichi la gestione di più figli e renda più facile scrivere codice React componibile quando chiami API DOM.
 
-Fragment refs are still being researched. We'll share more when we're closer to having the final API finished.
+I fragment ref sono ancora in fase di ricerca. Condivideremo di più quando saremo più vicini ad avere l'API finale completata.
 
 ---
 
-## Gesture Animations {/*gesture-animations*/}
+## Animazioni gesture {/*gesture-animations*/}
 
-We're also researching ways to enhance View Transitions to support gesture animations such as swiping to open a menu, or scroll through a photo carousel.
+Stiamo anche ricercando modi per migliorare le View Transitions per supportare animazioni gesture come scorrere per aprire un menu o scorrere un carosello di foto.
 
-Gestures present new challenges for a few reasons:
+I gesture presentano nuove sfide per alcuni motivi:
 
-- **Gestures are continuous**: as you swipe the animation is tied to your finger placement time, rather than triggering and running to completion.
-- **Gestures don't complete**: when you release your finger gesture animations can run to completion, or revert to their original state (like when you only partially open a menu) depending on how far you go.
-- **Gestures invert old and new**: while you're animating, you want the page you are animating from to stay "alive" and interactive. This inverts the browser View Transition model where the "old" state is a snapshot and the "new" state is the live DOM.
+- **I gesture sono continui**: mentre scorri, l'animazione è legata al posizionamento del dito nel tempo, piuttosto che attivarsi ed eseguirsi fino al completamento.
+- **I gesture non si completano**: quando rilasci il dito, le animazioni gesture possono eseguirsi fino al completamento o tornare al loro state originale (come quando apri solo parzialmente un menu) a seconda di quanto vai avanti.
+- **I gesture invertono old e new**: mentre animi, vuoi che la pagina da cui stai animando resti "viva" e interattiva. Questo inverte il modello View Transition del browser dove lo state "old" è un'istantanea e lo state "new" è il DOM live.
 
-We believe we’ve found an approach that works well and may introduce a new API for triggering gesture transitions. For now, we're focused on shipping `<ViewTransition>`, and will revisit gestures afterward.
+Crediamo di aver trovato un approccio che funziona bene e potremmo introdurre una nuova API per attivare gesture transition. Per ora, siamo concentrati sul rilasciare `<ViewTransition>`, e torneremo sui gesture dopo.
 
 ---
 
 ## Concurrent Stores {/*concurrent-stores*/}
 
-When we released React 18 with concurrent rendering, we also released `useSyncExternalStore` so external store libraries that did not use React state or context could [support concurrent rendering](https://github.com/reactwg/react-18/discussions/70) by forcing a synchronous render when the store is updated.
+Quando abbiamo rilasciato React 18 con concurrent rendering, abbiamo anche rilasciato `useSyncExternalStore` così le librerie store esterne che non usavano React state o context potevano [supportare concurrent rendering](https://github.com/reactwg/react-18/discussions/70) forzando una renderizzazione sincrona quando lo store viene aggiornato.
 
-Using `useSyncExternalStore` comes at a cost though, since it forces a bail out from concurrent features like transitions, and forces existing content to show Suspense fallbacks.
+Usare `useSyncExternalStore` ha però un costo, poiché forza un bail out dalle funzionalità concurrent come le transizioni, e forza il contenuto esistente a mostrare fallback Suspense.
 
-Now that React 19 has shipped, we're revisiting this problem space to create a primitive to fully support concurrent external stores with the `use` API:
+Ora che React 19 è stato rilasciato, stiamo rivisitando questo spazio problematico per creare un primitivo che supporti completamente store esterni concurrent con l'API `use`:
 
 ```js
 const value = use(store);
 ```
 
-Our goal is to allow external state to be read during render without tearing, and to work seamlessly with all of the concurrent features React offers.
+Il nostro obiettivo è permettere di leggere state esterno durante la renderizzazione senza tearing, e funzionare perfettamente con tutte le funzionalità concurrent che React offre.
 
-This research is still early. We'll share more, and what the new APIs will look like, when we're further along.
+Questa ricerca è ancora agli inizi. Condivideremo di più, e come saranno le nuove API, quando saremo più avanti.
 
 ---
 
-_Thanks to [Aurora Scharff](https://bsky.app/profile/aurorascharff.no), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Eli White](https://twitter.com/Eli_White), [Lauren Tan](https://bsky.app/profile/no.lol), [Luna Wei](https://github.com/lunaleaps), [Matt Carroll](https://twitter.com/mattcarrollcode), [Jack Pope](https://jackpope.me), [Jason Bonta](https://threads.net/someextent), [Jordan Brown](https://github.com/jbrown215), [Jordan Eldredge](https://bsky.app/profile/capt.dev), [Mofei Zhang](https://threads.net/z_mofei), [Sebastien Lorber](https://bsky.app/profile/sebastienlorber.com), [Sebastian Markbåge](https://bsky.app/profile/sebmarkbage.calyptus.eu), and [Tim Yung](https://github.com/yungsters) for reviewing this post._
+_Grazie a [Aurora Scharff](https://bsky.app/profile/aurorascharff.no), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Eli White](https://twitter.com/Eli_White), [Lauren Tan](https://bsky.app/profile/no.lol), [Luna Wei](https://github.com/lunaleaps), [Matt Carroll](https://twitter.com/mattcarrollcode), [Jack Pope](https://jackpope.me), [Jason Bonta](https://threads.net/someextent), [Jordan Brown](https://github.com/jbrown215), [Jordan Eldredge](https://bsky.app/profile/capt.dev), [Mofei Zhang](https://threads.net/z_mofei), [Sebastien Lorber](https://bsky.app/profile/sebastienlorber.com), [Sebastian Markbåge](https://bsky.app/profile/sebmarkbage.calyptus.eu), e [Tim Yung](https://github.com/yungsters) per la revisione di questo post._
