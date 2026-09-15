@@ -1,6 +1,6 @@
 ---
 title: "React Labs: su cosa stiamo lavorando – giugno 2022"
-author:  Andrew Clark, Dan Abramov, Jan Kassens, Joseph Savona, Josh Story, Lauren Tan, Luna Ruan, Mengdi Chen, Rick Hanlon, Robert Zhang, Sathya Gunasekaran, Sebastian Markbage, and Xuan Huang
+author: Andrew Clark, Dan Abramov, Jan Kassens, Joseph Savona, Josh Story, Lauren Tan, Luna Ruan, Mengdi Chen, Rick Hanlon, Robert Zhang, Sathya Gunasekaran, Sebastian Markbage, and Xuan Huang
 date: 2022/06/15
 description: React 18 è stato anni in preparazione e ha portato con sé lezioni preziose per il team React. Il suo rilascio è stato il risultato di molti anni di ricerca ed esplorazione di molte strade. Alcune di quelle strade hanno avuto successo; molte altre si sono rivelate vicoli ciechi che hanno portato a nuove intuizioni. Una lezione che abbiamo imparato è che è frustrante per la community aspettare nuove funzionalità senza avere visibilità su queste strade che stiamo esplorando.
 translationStatus: ai-draft
@@ -41,7 +41,7 @@ Stiamo lavorando insieme a Vercel e Shopify per unificare il supporto dei bundle
 Attualmente, asset come script, fogli di stile esterni, font e immagini vengono tipicamente precaricati e caricati usando sistemi esterni. Questo può rendere complicato il coordinamento tra nuovi ambienti come lo streaming, i Server Components e altro.
 Stiamo valutando l'aggiunta di API per precaricare e caricare asset esterni deduplicati tramite API React che funzionano in tutti gli ambienti React.
 
-Stiamo anche valutando di farli supportare Suspense così puoi avere immagini, CSS e font che bloccano la visualizzazione finché non sono caricati ma non bloccano lo streaming e il concurrent rendering. Questo può aiutare a evitare il [“popcorning“](https://twitter.com/sebmarkbage/status/1516852731251724293) quando gli elementi visivi compaiono a scatti e il layout si sposta.
+Stiamo anche valutando di farli supportare Suspense così puoi avere immagini, CSS e font che bloccano la visualizzazione finché non sono caricati ma non bloccano lo streaming e il concurrent rendering. Questo può aiutare a evitare il ["popcorning"](https://twitter.com/sebmarkbage/status/1516852731251724293) quando gli elementi visivi compaiono a scatti e il layout si sposta.
 
 ## Ottimizzazioni del server rendering statico {/*static-server-rendering-optimizations*/}
 

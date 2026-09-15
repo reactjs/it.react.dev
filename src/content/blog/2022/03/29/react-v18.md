@@ -263,7 +263,7 @@ Con Strict Mode in React 18, React simulerà lo smontaggio e il rimontaggio del 
 
 #### useInsertionEffect {/*useinsertioneffect*/}
 
-`useInsertionEffect` è un nuovo Hook che consente alle librerie CSS-in-JS di affrontare problemi di prestazioni legati all'iniezione di stili durante la renderizzazione. A meno che tu non abbia già costruito una libreria CSS-in-JS, non ci aspettiamo che tu la usi mai. Questo Hook viene eseguito dopo la mutazione del DOM, ma prima che i layout effect leggano il nuovo layout. Risolve un problema che esiste già in React 17 e versioni precedenti, ma è ancora più importante in React 18 perché React cede il controllo al browser durante il concurrent rendering, dandogli la possibilità di ricalcolare il layout. [Consulta la documentazione qui](/reference/react/useInsertionEffect).
+`useInsertionEffect` è un nuovo Hook che consente alle librerie CSS-in-JS di affrontare problemi di prestazioni legati all'iniezione di stili durante la renderizzazione. A meno che tu non abbia già costruito una libreria CSS-in-JS, non ci aspettiamo che tu la usi mai. Questo Hook viene eseguito dopo la mutazione del DOM, ma prima che i layout Effect leggano il nuovo layout. Risolve un problema che esiste già in React 17 e versioni precedenti, ma è ancora più importante in React 18 perché React cede il controllo al browser durante il concurrent rendering, dandogli la possibilità di ricalcolare il layout. [Consulta la documentazione qui](/reference/react/useInsertionEffect).
 
 > Nota
 >
