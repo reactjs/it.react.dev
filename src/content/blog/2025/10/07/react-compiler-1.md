@@ -177,7 +177,7 @@ npx create-next-app@latest
 ## Adotta React Compiler in modo incrementale {/*adopt-react-compiler-incrementally*/}
 Se mantieni un'applicazione esistente, puoi distribuire il compiler al tuo ritmo. Abbiamo pubblicato una [guida all'adozione incrementale](/learn/react-compiler/incremental-adoption) passo passo che copre strategie di gating, controlli di compatibilità e strumenti di rollout così puoi abilitare il compiler con fiducia.
 
-## swc support (experimental) {/*swc-support-experimental*/}
+## Supporto swc (sperimentale) {/*swc-support-experimental*/}
 React Compiler può essere installato su [diversi build tool](/learn/react-compiler#installation) come Babel, Vite e Rsbuild.
 
 Oltre a questi strumenti, abbiamo collaborato con Kang Dongyoon ([@kdy1dev](https://x.com/kdy1dev)) del team [swc](https://swc.rs/) per aggiungere ulteriore supporto a React Compiler come plugin swc. Sebbene questo lavoro non sia completo, le performance di build di Next.js dovrebbero ora essere considerevolmente più veloci quando [React Compiler è abilitato nella tua app Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/reactCompiler).

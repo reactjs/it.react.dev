@@ -159,7 +159,7 @@ Con questo cambiamento, puoi condividere un link a `/dashboard` e l'app navigher
 
 Qui c'è un tradeoff: la libreria di routing aggiunge complessità all'app, ma aggiunge anche funzionalità difficili da implementare senza di essa.
 
-### Data fetching {/*data-fetching*/}
+### Recupero dati {/*data-fetching*/}
 
 Un altro problema comune in Create React App è il data fetching. Create React App non include una soluzione di data fetching specifica. Se stai iniziando, un'opzione comune è usare `fetch` in un Effetto per caricare i dati.
 
@@ -209,7 +209,7 @@ Al caricamento iniziale, il router può recuperare i dati immediatamente prima c
 
 Tuttavia, questo richiede di configurare correttamente i loader nella tua app e scambia complessità per performance.
 
-### Code splitting {/*code-splitting*/}
+### Suddivisione del codice {/*code-splitting*/}
 
 Un altro problema comune in Create React App è il [code splitting](https://www.patterns.dev/vanilla/bundle-splitting). Create React App non include una soluzione di code splitting specifica. Se stai iniziando, potresti non considerare affatto il code splitting.
 
