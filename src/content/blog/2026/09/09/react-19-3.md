@@ -52,7 +52,7 @@ import { ViewTransition } from 'react';
 Ora, ogni volta che un aggiornamento contrassegnato come [Transition](/reference/react/useTransition) cambia lo stile del componente figlio, o causa il mount o l'unmount di `ViewTransition`, React animerà quell'aggiornamento.
 
 {/*
-Updates outside of a Transition don't trigger animations, as those are meant to be urgent and reflected immediately in the UI. State updates inside of [startTransition](/reference/react/startTransition), a [`<Suspense>`](/reference/react/Suspense) reveal, or an update from [`useDeferredValue`](/reference/react/useDeferredValue) all cause a View Transition to animate.
+Gli aggiornamenti fuori da una Transition non attivano animazioni, perché sono pensati per essere urgenti e riflessi immediatamente nella UI. Gli aggiornamenti di state dentro [startTransition](/reference/react/startTransition), la rivelazione di un [`<Suspense>`](/reference/react/Suspense) o un aggiornamento da [`useDeferredValue`](/reference/react/useDeferredValue) attivano tutti l'animazione di una View Transition.
 */}
 
 React sceglie quale animazione eseguire in base a come è cambiato l'albero:
@@ -230,7 +230,7 @@ button:hover {
 Per impostazione predefinita, `<ViewTransition>` anima con un cross-fade fluido. Puoi personalizzare ogni tipo di animazione passando una [View Transition Class](/reference/react/ViewTransition#view-transition-class) e definendo l'animazione in CSS, oppure puoi usare la [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) per attivare animazioni in modo imperativo con le [event props](/reference/react/ViewTransition#view-transition-event) (`onEnter`, `onExit`, `onShare`, `onUpdate`).
 
 {/*
-There are a couple of rules to keep in mind. A `<ViewTransition>` only animates on enter and exit if it's the first thing rendered in its subtree, before any DOM node, and each shared `name` must be unique across your app at any given time. See [Troubleshooting](/reference/react/ViewTransition#troubleshooting) for the details.
+Ci sono un paio di regole da tenere a mente. Un `<ViewTransition>` anima enter ed exit solo se è la prima cosa renderizzata nel suo sottoalbero, prima di qualsiasi nodo DOM, e ogni `name` condiviso deve essere univoco nell'app in ogni momento. Consulta [Troubleshooting](/reference/react/ViewTransition#troubleshooting) per i dettagli.
  */}
 
 Attualmente, `<ViewTransition>` funziona solo nel DOM. Stiamo lavorando al supporto per React Native e altre piattaforme.
@@ -823,7 +823,7 @@ Ecco alcuni principi per ottenere una buona UX quando animi con Suspense:
 - Un fallback dovrebbe aggiornarsi al contenuto finale _con animazione_
 - I figli che non sospendono dovrebbero apparire immediatamente _senza animazione_
 
-Questo mantiene l'app reattiva quando i contenuti sono già caricati, e usa l'animazione solo per rendere più fluido il passaggio dal fallback al contenuto finale.
+Questo mantiene l'app reattiva quando i contenuti sono già caricati, e usa l'animazione solo per fluidificare il passaggio dal fallback al contenuto finale.
 
 Per correggere l'esempio sopra, possiamo disabilitare tutte le animazioni tranne quelle di update:
 
