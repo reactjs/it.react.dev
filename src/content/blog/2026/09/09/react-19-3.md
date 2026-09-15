@@ -6,7 +6,7 @@ description: React 19.3 aggiunge nuove funzionalità come View Transitions, Frag
 translationStatus: ai-draft
 ---
 
-September 9, 2026 by [The React Team](/community/team)
+9 settembre 2026 del [React Team](/community/team)
 
 ---
 

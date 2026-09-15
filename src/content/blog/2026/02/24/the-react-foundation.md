@@ -6,7 +6,7 @@ description: La React Foundation è ufficialmente attiva, ospitata dalla Linux F
 translationStatus: ai-draft
 ---
 
-February 24, 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
+24 febbraio 2026 di [Matt Carroll](https://x.com/mattcarrollcode)
 
 ---
 
