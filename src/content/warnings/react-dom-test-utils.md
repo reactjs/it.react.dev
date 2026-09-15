@@ -9,7 +9,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 </Note>
 
-## Warning ReactDOMTestUtils.act() {/*reactdomtestutilsact-warning*/}
+## ReactDOMTestUtils.act() warning {/*reactdomtestutilsact-warning*/}
 
 `act` da `react-dom/test-utils` è deprecato in favore di `act` da `react`.
 

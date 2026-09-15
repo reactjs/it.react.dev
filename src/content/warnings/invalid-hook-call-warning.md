@@ -1,5 +1,5 @@
 ---
-title: Regole degli Hooks
+title: Regole degli Hook
 translationStatus: ai-draft
 ---
 
@@ -19,42 +19,42 @@ Hooks can only be called inside the body of a function component.
 
 Ci sono tre motivi comuni per cui potresti vederlo:
 
-1. Potresti **violare le Regole degli Hooks**.
+1. Potresti **violare le Regole degli Hook**.
 2. Potresti avere **versioni non corrispondenti** di React e React DOM.
 3. Potresti avere **più di una copia di React** nella stessa app.
 
 Vediamo ciascuno di questi casi.
 
-## Violare le Regole degli Hooks {/*breaking-rules-of-hooks*/}
+## Violare le Regole degli Hook {/*breaking-rules-of-hooks*/}
 
-Le funzioni il cui nome inizia con `use` sono chiamate [*Hooks*](/reference/react) in React.
+Le funzioni il cui nome inizia con `use` sono chiamate [*Hook*](/reference/react) in React.
 
-**Non chiamare gli Hooks dentro loop, condizioni o funzioni annidate.** Usa invece sempre gli Hooks al top level della tua funzione React, prima di qualsiasi return anticipato. Puoi chiamare gli Hooks solo mentre React sta renderizzando un componente funzione:
+**Non chiamare gli Hook dentro loop, condizioni o funzioni annidate.** Usa invece sempre gli Hook al livello superiore della tua funzione React, prima di qualsiasi return anticipato. Puoi chiamare gli Hook solo mentre React sta renderizzando un componente funzione:
 
-* ✅ Chiamali al top level nel corpo di un [componente funzione](/learn/your-first-component).
-* ✅ Chiamali al top level nel corpo di un [custom Hook](/learn/reusing-logic-with-custom-hooks).
+* ✅ Chiamali al livello superiore nel corpo di un [componente funzione](/learn/your-first-component).
+* ✅ Chiamali al livello superiore nel corpo di un [custom Hook](/learn/reusing-logic-with-custom-hooks).
 
 ```js{2-3,8-9}
 function Counter() {
-  // ✅ Corretto: top level in un componente funzione
+  // ✅ Corretto: livello superiore in un componente funzione
   const [count, setCount] = useState(0);
   // ...
 }
 
 function useWindowWidth() {
-  // ✅ Corretto: top level in un custom Hook
+  // ✅ Corretto: livello superiore in un custom Hook
   const [width, setWidth] = useState(window.innerWidth);
   // ...
 }
 ```
 
-**Non** è supportato chiamare gli Hooks (funzioni che iniziano con `use`) in nessun altro caso, ad esempio:
+**Non** è supportato chiamare gli Hook (funzioni che iniziano con `use`) in nessun altro caso, ad esempio:
 
-* 🔴 Non chiamare gli Hooks dentro condizioni o loop.
-* 🔴 Non chiamare gli Hooks dopo un'istruzione `return` condizionale.
-* 🔴 Non chiamare gli Hooks nei gestori di eventi.
-* 🔴 Non chiamare gli Hooks nei componenti classe.
-* 🔴 Non chiamare gli Hooks dentro funzioni passate a `useMemo`, `useReducer` o `useEffect`.
+* 🔴 Non chiamare gli Hook dentro condizioni o loop.
+* 🔴 Non chiamare gli Hook dopo un'istruzione `return` condizionale.
+* 🔴 Non chiamare gli Hook nei gestori di eventi.
+* 🔴 Non chiamare gli Hook nei componenti classe.
+* 🔴 Non chiamare gli Hook dentro funzioni passate a `useMemo`, `useReducer` o `useEffect`.
 
 Se violi queste regole, potresti vedere questo errore.
 
@@ -114,17 +114,17 @@ Puoi usare il plugin [`eslint-plugin-react-hooks`](https://www.npmjs.com/package
 
 <Note>
 
-I [custom Hook](/learn/reusing-logic-with-custom-hooks) *possono* chiamare altri Hooks (è proprio il loro scopo). Funziona perché anche i custom Hook dovrebbero essere chiamati solo mentre un componente funzione viene renderizzato.
+I [custom Hook](/learn/reusing-logic-with-custom-hooks) *possono* chiamare altri Hook (è proprio il loro scopo). Funziona perché anche i custom Hook dovrebbero essere chiamati solo mentre un componente funzione viene renderizzato.
 
 </Note>
 
 ## Versioni non corrispondenti di React e React DOM {/*mismatching-versions-of-react-and-react-dom*/}
 
-Potresti usare una versione di `react-dom` (< 16.8.0) o `react-native` (< 0.59) che non supporta ancora gli Hooks. Puoi eseguire `npm ls react-dom` o `npm ls react-native` nella cartella della tua applicazione per verificare quale versione stai usando. Se ne trovi più di una, questo potrebbe creare problemi (ne parliamo di più sotto).
+Potresti usare una versione di `react-dom` (< 16.8.0) o `react-native` (< 0.59) che non supporta ancora gli Hook. Puoi eseguire `npm ls react-dom` o `npm ls react-native` nella cartella della tua applicazione per verificare quale versione stai usando. Se ne trovi più di una, questo potrebbe creare problemi (ne parliamo di più sotto).
 
 ## React duplicato {/*duplicate-react*/}
 
-Affinché gli Hooks funzionino, l'import di `react` dal codice della tua applicazione deve risolvere lo stesso modulo dell'import di `react` dall'interno del pacchetto `react-dom`.
+Affinché gli Hook funzionino, l'import di `react` dal codice della tua applicazione deve risolvere lo stesso modulo dell'import di `react` dall'interno del pacchetto `react-dom`.
 
 Se questi import di `react` risolvono due oggetti export diversi, vedrai questo warning. Questo può succedere se **finisci accidentalmente con due copie** del pacchetto `react`.
 
