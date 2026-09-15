@@ -1,5 +1,5 @@
 ---
-title: Community React
+title: La community di React
 translationStatus: ai-draft
 ---
 
@@ -11,7 +11,7 @@ Questa pagina è stata tradotta automaticamente e supervisionata da un maintaine
 
 <Intro>
 
-React ha una community di milioni di developer. In questa pagina elenchiamo alcune community legate a React di cui puoi far parte; consulta le altre pagine di questa sezione per ulteriori materiali di apprendimento online e in presenza.
+React ha una community di milioni di sviluppatori. In questa pagina elenchiamo alcune community legate a React di cui puoi far parte; consulta le altre pagine di questa sezione per ulteriori materiali di apprendimento online e in presenza.
 
 </Intro>
 

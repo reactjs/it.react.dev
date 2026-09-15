@@ -17,7 +17,7 @@ La documentazione di React è scritta e mantenuta dal [team React](/community/te
 
 ## Contenuti {/*content*/}
 
-* [Rachel Nabors](https://twitter.com/RachelNabors): editing, scrittura, illustrazioni
+* [Rachel Nabors](https://twitter.com/RachelNabors): revisione, scrittura, illustrazioni
 * [Dan Abramov](https://bsky.app/profile/danabra.mov): scrittura, progettazione del curriculum
 * [Sylwia Vargas](https://twitter.com/SylwiaVargas): codice di esempio
 * [Rick Hanlon](https://twitter.com/rickhanlonii): scrittura
@@ -25,7 +25,7 @@ La documentazione di React è scritta e mantenuta dal [team React](/community/te
 * [Sophie Alpert](https://twitter.com/sophiebits): scrittura
 * [Pete Hunt](https://twitter.com/floydophone): scrittura
 * [Andrew Clark](https://twitter.com/acdlite): scrittura
-* [Matt Carroll](https://twitter.com/mattcarrollcode): editing, scrittura
+* [Matt Carroll](https://twitter.com/mattcarrollcode): revisione, scrittura
 * [Natalia Tepluhina](https://twitter.com/n_tepluhina): revisioni, consigli
 * [Sebastian Markbåge](https://twitter.com/sebmarkbage): feedback
 

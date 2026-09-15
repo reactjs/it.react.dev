@@ -37,6 +37,6 @@ Per l'avanzamento di ciascuna traduzione, vedi: [Is React Translated Yet?](https
 
 Puoi contribuire agli sforzi di traduzione!
 
-La community conduce il lavoro di traduzione della documentazione di React su fork specifici per lingua di react.dev. Il lavoro tipico consiste nel tradurre direttamente un file Markdown e creare una pull request. Clicca il link "contribute" sopra per il repository GitHub della tua lingua e segui le istruzioni lì per aiutare con la traduzione.
+La community conduce il lavoro di traduzione della documentazione di React su fork specifici per lingua di react.dev. Il lavoro tipico consiste nel tradurre direttamente un file Markdown e creare una pull request. Clicca il link «Contribuisci» sopra per il repository GitHub della tua lingua e segui le istruzioni lì per aiutare con la traduzione.
 
 Se vuoi avviare una nuova traduzione per la tua lingua, visita: [translations.react.dev](https://github.com/reactjs/translations.react.dev)

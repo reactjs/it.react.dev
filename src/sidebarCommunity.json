@@ -1,13 +1,13 @@
 {
-  "title": "Comunità",
+  "title": "Community",
   "path": "/community",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "PARTECIPA"
+      "sectionHeader": "GET INVOLVED"
     },
     {
-      "title": "React Community",
+      "title": "La community di React",
       "path": "/community",
       "skipBreadcrumb": true,
       "routes": [
@@ -28,19 +28,19 @@
           "path": "/community/team"
         },
         {
-          "title": "Docs Contributors",
+          "title": "Contributori alla documentazione",
           "path": "/community/docs-contributors"
         },
         {
-          "title": "Translations",
+          "title": "Traduzioni",
           "path": "/community/translations"
         },
         {
-          "title": "Acknowledgements",
+          "title": "Riconoscimenti",
           "path": "/community/acknowledgements"
         },
         {
-          "title": "Versioning Policy",
+          "title": "Politica di versionamento",
           "path": "/community/versioning-policy"
         }
       ]

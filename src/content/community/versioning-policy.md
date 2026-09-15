@@ -41,22 +41,22 @@ Invece, rilasciamo nuove funzionalità nelle minor release. Ciò significa che l
 
 ### Impegno per la stabilità {/*commitment-to-stability*/}
 
-Man mano che cambiamo React nel tempo, cerchiamo di minimizzare lo sforzo richiesto per sfruttare le nuove funzionalità. Quando possibile, manterremo funzionante una API più vecchia, anche se ciò significa metterla in un pacchetto separato. Ad esempio, [i mixin sono stati sconsigliati per anni](https://legacy.reactjs.org/blog/2016/07/13/mixins-considered-harmful.html) ma sono supportati ancora oggi [tramite create-react-class](https://legacy.reactjs.org/docs/react-without-es6.html#mixins) e molte codebase continuano a usarli in codice legacy stabile.
+Man mano che cambiamo React nel tempo, cerchiamo di minimizzare lo sforzo richiesto per sfruttare le nuove funzionalità. Quando possibile, manterremo funzionante un'API più vecchia, anche se ciò significa metterla in un pacchetto separato. Ad esempio, [i mixin sono stati sconsigliati per anni](https://legacy.reactjs.org/blog/2016/07/13/mixins-considered-harmful.html) ma sono supportati ancora oggi [tramite create-react-class](https://legacy.reactjs.org/docs/react-without-es6.html#mixins) e molte codebase continuano a usarli in codice legacy stabile.
 
-Oltre un milione di developer usano React, mantenendo collettivamente milioni di componenti. Il codebase di Facebook da solo ha oltre 50.000 componenti React. Ciò significa che dobbiamo rendere il più semplice possibile l'aggiornamento a nuove versioni di React; se facessimo grandi cambiamenti senza un percorso di migrazione, le persone resterebbero bloccate su vecchie versioni. Testiamo questi percorsi di aggiornamento su Facebook stesso — se il nostro team di meno di 10 persone può aggiornare da solo oltre 50.000 componenti, speriamo che l'aggiornamento sia gestibile per chiunque usi React. In molti casi, scriviamo [script automatizzati](https://github.com/reactjs/react-codemod) per aggiornare la sintassi dei componenti, che poi includiamo nella release open source per tutti.
+Oltre un milione di sviluppatori usano React, mantenendo collettivamente milioni di componenti. Il codebase di Facebook da solo ha oltre 50.000 componenti React. Ciò significa che dobbiamo rendere il più semplice possibile l'aggiornamento a nuove versioni di React; se facessimo grandi cambiamenti senza un percorso di migrazione, le persone resterebbero bloccate su vecchie versioni. Testiamo questi percorsi di aggiornamento su Facebook stesso — se il nostro team di meno di 10 persone può aggiornare da solo oltre 50.000 componenti, speriamo che l'aggiornamento sia gestibile per chiunque usi React. In molti casi, scriviamo [script automatizzati](https://github.com/reactjs/react-codemod) per aggiornare la sintassi dei componenti, che poi includiamo nella release open source per tutti.
 
 ### Aggiornamenti graduali tramite warning {/*gradual-upgrades-via-warnings*/}
 
 Le build di sviluppo di React includono molti warning utili. Quando possibile, aggiungiamo warning in preparazione per future breaking change. In questo modo, se la tua app non ha warning sull'ultima release, sarà compatibile con la prossima major release. Questo ti permette di aggiornare le tue app un componente alla volta.
 
-I warning di sviluppo non influenzano il comportamento runtime della tua app. In questo modo, puoi essere sicuro che la tua app si comporterà allo stesso modo tra le build di sviluppo e produzione — le uniche differenze sono che la build di produzione non logga i warning ed è più efficiente. (Se mai notassi il contrario, per favore apri una issue.)
+I warning di sviluppo non influenzano il comportamento runtime della tua app. In questo modo, puoi essere sicuro che la tua app si comporterà allo stesso modo tra le build di sviluppo e produzione — le uniche differenze sono che la build di produzione non logga i warning ed è più efficiente. (Se mai notassi il contrario, per favore apri un'issue.)
 
 ### Cosa conta come breaking change? {/*what-counts-as-a-breaking-change*/}
 
 In generale, *non* incrementiamo il numero di major version per cambiamenti a:
 
 * **Warning di sviluppo.** Poiché non influenzano il comportamento in produzione, possiamo aggiungere nuovi warning o modificare quelli esistenti tra major version. In effetti, questo è ciò che ci permette di avvisare in modo affidabile sulle prossime breaking change.
-* **API che iniziano con `unstable_`.** Sono fornite come funzionalità sperimentali di cui non siamo ancora sicuri delle API. Rilasciandole con il prefisso `unstable_`, possiamo iterare più velocemente e arrivare prima a una API stabile.
+* **API che iniziano con `unstable_`.** Sono fornite come funzionalità sperimentali le cui API non sono ancora stabili. Rilasciandole con il prefisso `unstable_`, possiamo iterare più velocemente e arrivare prima a un'API stabile.
 * **Versioni Alpha e Canary di React.** Forniamo versioni alpha di React come modo per testare nuove funzionalità in anticipo, ma abbiamo bisogno della flessibilità di fare cambiamenti in base a ciò che impariamo nel periodo alpha. Se usi queste versioni, nota che le API possono cambiare prima della release stabile.
 * **API non documentate e strutture dati interne.** Se accedi a nomi di proprietà interne come `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` o `__reactInternalInstance$uk43rzhitjg`, non c'è garanzia. Sei solo.
 
@@ -70,9 +70,9 @@ Detto ciò, se ci aspettiamo che un cambiamento in questo elenco causi problemi 
 
 Tuttavia, solleva la domanda del perché queste release non siano versionate come patch.
 
-La risposta è che qualsiasi cambiamento a React (o altro software) comporta un certo rischio di rompersi in modi inaspettati. Immagina uno scenario in cui una patch release che corregge un bug introduce accidentalmente un altro bug. Questo non sarebbe solo dirompente per i developer, ma danneggerebbe anche la loro fiducia nelle future patch release. È particolarmente deplorevole se la correzione originale è per un bug raramente incontrato nella pratica.
+La risposta è che qualsiasi cambiamento a React (o altro software) comporta un certo rischio di rompersi in modi inaspettati. Immagina uno scenario in cui una patch release che corregge un bug introduce accidentalmente un altro bug. Questo non sarebbe solo dirompente per gli sviluppatori, ma danneggerebbe anche la loro fiducia nelle future patch release. È particolarmente deplorevole se la correzione originale è per un bug raramente incontrato nella pratica.
 
-Abbiamo un track record piuttosto buono nel mantenere le release di React prive di bug, ma le patch release hanno una barra ancora più alta per l'affidabilità perché la maggior parte dei developer assume di poterle adottare senza conseguenze negative.
+Abbiamo un buon storico nel mantenere le release di React prive di bug, ma le patch release hanno una barra ancora più alta per l'affidabilità perché la maggior parte degli sviluppatori assume di poterle adottare senza conseguenze negative.
 
 Per questi motivi, riserviamo le patch release solo per i bug più critici e le vulnerabilità di sicurezza.
 
@@ -84,14 +84,14 @@ React si affida a una fiorente community open source per segnalare bug, aprire p
 
 <Note>
 
-Questa sezione sarà più rilevante per i developer che lavorano su framework, librerie o strumenti per developer. I developer che usano React principalmente per costruire applicazioni user-facing non dovrebbero doversi preoccupare dei nostri canali prerelease.
+Questa sezione sarà più rilevante per gli sviluppatori che lavorano su framework, librerie o strumenti per sviluppatori. Gli sviluppatori che usano React principalmente per costruire applicazioni user-facing non dovrebbero doversi preoccupare dei nostri canali prerelease.
 
 </Note>
 
 Ciascuno dei canali di release di React è pensato per un caso d'uso distinto:
 
 - [**Latest**](#latest-channel) è per le release stabili di React con semver. È ciò che ottieni quando installi React da npm. Questo è il canale che stai già usando oggi. **Le applicazioni user-facing che consumano React direttamente usano questo canale.**
-- [**Canary**](#canary-channel) segue il branch main del repository sorgente di React. Pensale come release candidate per la prossima release semver. **[Framework o altri setup curati possono scegliere di usare questo canale con una versione di React fissata.](/blog/2023/05/03/react-canaries) Puoi anche usare le Canary per integration testing tra React e progetti di terze parti.**
+- [**Canary**](#canary-channel) segue il branch main del repository sorgente di React. Considerale come release candidate per la prossima release semver. **[Framework o altri setup curati possono scegliere di usare questo canale con una versione di React fissata.](/blog/2023/05/03/react-canaries) Puoi anche usare le Canary per integration testing tra React e progetti di terze parti.**
 - [**Experimental**](#experimental-channel) include API e funzionalità sperimentali non disponibili nelle release stabili. Seguono anche il branch main, ma con feature flag aggiuntive attivate. Usalo per provare funzionalità imminenti prima che vengano rilasciate.
 
 Tutte le release sono pubblicate su npm, ma solo Latest usa il semantic versioning. Le prerelease (quelle nei canali Canary e Experimental) hanno versioni generate da un hash del loro contenuto e della data del commit, es. `18.3.0-canary-388686f29-20230503` per Canary e `0.0.0-experimental-388686f29-20230503` per Experimental.
@@ -127,10 +127,10 @@ Il canale Canary supporta anche l'integration testing tra React e altri progetti
 
 Tutti i cambiamenti a React passano attraverso un testing interno estensivo prima di essere rilasciati al pubblico. Tuttavia, ci sono innumerevoli ambienti e configurazioni usate in tutto l'ecosistema React, e non è possibile per noi testare contro ognuno.
 
-Se sei l'autore di un framework React, libreria, strumento per developer o progetto simile di tipo infrastrutturale, puoi aiutarci a mantenere React stabile per i tuoi utenti e l'intera community React eseguendo periodicamente la tua test suite contro i cambiamenti più recenti. Se sei interessato, segui questi passaggi:
+Se sei l'autore di un framework React, libreria, strumento per sviluppatori o progetto simile di tipo infrastrutturale, puoi aiutarci a mantenere React stabile per i tuoi utenti e l'intera community React eseguendo periodicamente la tua test suite contro i cambiamenti più recenti. Se sei interessato, segui questi passaggi:
 
 - Configura un cron job usando la tua piattaforma di continuous integration preferita. I cron job sono supportati sia da [CircleCI](https://circleci.com/docs/2.0/triggers/#scheduled-builds) che da [Travis CI](https://docs.travis-ci.com/user/cron-jobs/).
-- Nel cron job, aggiorna i tuoi pacchetti React alla release React più recente nel canale Canary, usando il tag `canary` su npm. Con la cli npm:
+- Nel cron job, aggiorna i tuoi pacchetti React alla release React più recente nel canale Canary, usando il tag `canary` su npm. Con la CLI npm:
 
   ```console
   npm update react@canary react-dom@canary
@@ -143,7 +143,7 @@ Se sei l'autore di un framework React, libreria, strumento per developer o proge
   ```
 - Esegui la tua test suite contro i pacchetti aggiornati.
 - Se tutto passa, ottimo! Puoi aspettarti che il tuo progetto funzionerà con la prossima minor release di React.
-- Se qualcosa si rompe inaspettatamente, faccelo sapere [aprendo una issue](https://github.com/react/react/issues).
+- Se qualcosa si rompe inaspettatamente, faccelo sapere [aprendo un'issue](https://github.com/react/react/issues).
 
 Un progetto che usa questo workflow è Next.js. Puoi fare riferimento alla loro [configurazione CircleCI](https://github.com/zeit/next.js/blob/c0a1c0f93966fe33edd93fb53e5fafb0dcd80a9e/.circleci/config.yml) come esempio.
 
