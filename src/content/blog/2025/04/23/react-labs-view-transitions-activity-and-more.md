@@ -8,13 +8,13 @@ translationStatus: ai-draft
 
 23 aprile 2025 di [Ricky Hanlon](https://twitter.com/rickhanlonii)
 
+---
+
 <Note>
 
 Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2025/04/23/react-labs-view-transitions-activity-and-more.md).
 
 </Note>
-
----
 
 <Intro>
 
