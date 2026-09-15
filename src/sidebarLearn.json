@@ -1,10 +1,10 @@
 {
-  "title": "Learn React",
+  "title": "Impara React",
   "path": "/learn",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET STARTED"
+      "sectionHeader": "INIZIA QUI"
     },
     {
       "title": "Avvio Rapido",
@@ -25,11 +25,11 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Creare una App React",
+          "title": "Creating a React App",
           "path": "/learn/creating-a-react-app"
         },
         {
-          "title": "Costruire una App React da Zero",
+          "title": "Build a React app from Scratch",
           "path": "/learn/build-a-react-app-from-scratch"
         },
         {
@@ -43,7 +43,7 @@
       "path": "/learn/setup",
       "routes": [
         {
-          "title": "Setup dell'editor",
+          "title": "Editor Setup",
           "path": "/learn/editor-setup"
         },
         {
@@ -81,7 +81,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "IMPARA REACT"
     },
     {
       "title": "Descrivere la UI",
@@ -113,7 +113,7 @@
           "path": "/learn/conditional-rendering"
         },
         {
-          "title": "Rendering Lists",
+          "title": "Renderizzare Liste",
           "path": "/learn/rendering-lists"
         },
         {
@@ -121,7 +121,7 @@
           "path": "/learn/keeping-components-pure"
         },
         {
-          "title": "Your UI as a Tree",
+          "title": "Understanding Your UI as a Tree",
           "path": "/learn/understanding-your-ui-as-a-tree"
         }
       ]
@@ -162,7 +162,7 @@
       ]
     },
     {
-      "title": "Gestione dello State",
+      "title": "Gestione dello state",
       "path": "/learn/managing-state",
       "tags": [
         "intermediate"

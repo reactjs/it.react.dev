@@ -4,7 +4,7 @@
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "STAY INFORMED"
+      "sectionHeader": "RESTA AGGIORNATO"
     },
     {
       "title": "Blog",
@@ -82,14 +82,14 @@
           "path": "/blog/2025/02/14/sunsetting-create-react-app"
         },
         {
-          "title": "React 19",
+          "title": "React v19",
           "titleForHomepage": "React 19",
           "icon": "blog",
           "date": "December 05, 2024",
           "path": "/blog/2024/12/05/react-19"
         },
         {
-          "title": "React Compiler Beta Release and Roadmap",
+          "title": "React Compiler Beta Release",
           "titleForHomepage": "React Compiler Beta Release and Roadmap",
           "icon": "blog",
           "date": "October 21, 2024",
@@ -110,7 +110,7 @@
           "path": "/blog/2024/04/25/react-19"
         },
         {
-          "title": "React 19 RC Upgrade Guide",
+          "title": "React 19 Upgrade Guide",
           "titleForHomepage": "React 19 RC Upgrade Guide",
           "icon": "blog",
           "date": "April 25, 2024",
@@ -180,7 +180,7 @@
           "path": "/blog/2021/06/08/the-plan-for-react-18"
         },
         {
-          "title": "Introducing Server Components",
+          "title": "Introducing Zero-Bundle-Size React Server Components",
           "titleForHomepage": "Introducing Server Components",
           "icon": "labs",
           "date": "December 21, 2020",

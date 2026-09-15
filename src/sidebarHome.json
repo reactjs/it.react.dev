@@ -1,10 +1,10 @@
 {
-  "title": "React Docs",
+  "title": "React",
   "path": "/",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET STARTED"
+      "sectionHeader": "INIZIA QUI"
     },
     {
       "title": "Avvio Rapido",
@@ -24,7 +24,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "IMPARA REACT"
     },
     {
       "title": "Descrivere la UI",
@@ -35,56 +35,56 @@
       "path": "/learn/adding-interactivity"
     },
     {
-      "title": "Gestione dello State",
+      "title": "Gestione dello state",
       "path": "/learn/managing-state"
     },
     {
-      "title": "Escape Hatches",
+      "title": "Soluzioni alternative",
       "path": "/learn/escape-hatches"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT API"
+      "sectionHeader": "API REACT"
     },
     {
-      "title": "Hooks",
+      "title": "Panoramica della documentazione di React",
       "path": "/reference/react"
     },
     {
-      "title": "Components",
+      "title": "Built-in React Components",
       "path": "/reference/react/components"
     },
     {
-      "title": "APIs",
+      "title": "Built-in React APIs",
       "path": "/reference/react/apis"
     },
     {
-      "title": "Legacy APIs",
+      "title": "Legacy React APIs",
       "path": "/reference/react/legacy"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT DOM API"
+      "sectionHeader": "API REACT DOM"
     },
     {
-      "title": "Components",
+      "title": "React DOM Components",
       "path": "/reference/react-dom/components"
     },
     {
-      "title": "APIs",
+      "title": "React DOM APIs",
       "path": "/reference/react-dom"
     },
     {
-      "title": "Client APIs",
+      "title": "Client React DOM APIs",
       "path": "/reference/react-dom/client"
     },
     {
-      "title": "Server APIs",
+      "title": "Server React DOM APIs",
       "path": "/reference/react-dom/server"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "REACT COMPILER API"
+      "sectionHeader": "API REACT COMPILER"
     },
     {
       "title": "Configuration",
@@ -100,7 +100,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET INVOLVED"
+      "sectionHeader": "PARTECIPA"
     },
     {
       "title": "React Community",
@@ -108,7 +108,7 @@
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "STAY INFORMED"
+      "sectionHeader": "RESTA AGGIORNATO"
     },
     {
       "title": "React Blog",
