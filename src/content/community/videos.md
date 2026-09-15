@@ -66,7 +66,7 @@ React 19 ha introdotto nuove funzionalità tra cui Actions, `use()`, `useOptimis
 
 ### E altro... {/*and-more-2024*/}
 
-**Abbiamo anche ascoltato talk dalla community sui Server Components:**
+**Abbiamo anche ascoltato talk dalla community sui componenti Server:**
 * [Enhancing Forms with React Server Components](https://www.youtube.com/embed/0ckOUBiuxVY&t=25280s) di [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
 * [And Now You Understand React Server Components](https://www.youtube.com/embed/pOo7x8OiAec) di [Kent C. Dodds](https://twitter.com/kentcdodds)
 * [Real-time Server Components](https://www.youtube.com/embed/6sMANTHWtLM) di [Sunil Pai](https://twitter.com/threepointone)
@@ -102,9 +102,9 @@ Per una demo dell'aggiornamento a React 18, vedi il talk di [Shruti Kapoor](http
 
 ### Streaming Server Rendering with Suspense {/*streaming-server-rendering-with-suspense*/}
 
-React 18 include anche miglioramenti alle performance del server-side rendering usando Suspense.
+React 18 include anche miglioramenti alle performance della renderizzazione lato server usando Suspense.
 
-Lo streaming server rendering ti permette di generare HTML da componenti React sul server e trasmettere quell'HTML ai tuoi utenti. In React 18, puoi usare `Suspense` per suddividere la tua app in unità indipendenti più piccole che possono essere trasmesse in streaming separatamente l'una dall'altra senza bloccare il resto dell'app. Ciò significa che gli utenti vedranno i tuoi contenuti prima e potranno iniziare a interagirci molto più rapidamente.
+La renderizzazione lato server in streaming ti permette di generare HTML da componenti React sul server e trasmettere quell'HTML ai tuoi utenti. In React 18, puoi usare `Suspense` per suddividere la tua app in unità indipendenti più piccole che possono essere trasmesse in streaming separatamente l'una dall'altra senza bloccare il resto dell'app. Ciò significa che gli utenti vedranno i tuoi contenuti prima e potranno iniziare a interagirci molto più rapidamente.
 
 Per un approfondimento, vedi il talk di [Shaundai Person](https://twitter.com/shaundai) qui:
 
@@ -153,7 +153,7 @@ Guardando più avanti nel futuro, [Xuan Huang (黄玄)](https://twitter.com/Huxp
 * Eric Rozell and Steven Moyes: [React Native Desktop](https://youtu.be/9L4FFrvwJwY).
 * Roman Rädle: [On-device Machine Learning for React Native](https://youtu.be/NLj73vrc2I8)
 
-**E talk dalla community su accessibilità, strumenti e Server Components:**
+**E talk dalla community su accessibilità, strumenti e componenti Server:**
 
 * Daishi Kato: [React 18 for External Store Libraries](https://youtu.be/oPfSC5bQPR8).
 * Diego Haz: [Building Accessible Components in React 18](https://youtu.be/dcm8fjBfro8).
