@@ -1,13 +1,20 @@
 ---
-title: "Introducing the React Foundation"
+title: "Presentazione della React Foundation"
 author: Seth Webster, Matt Carroll, Joe Savona
 date: 2025/10/07
-description: Today, we're announcing our plans to create the React Foundation a new technical governance structure
+description: Oggi annunciamo i nostri piani per creare la React Foundation, una nuova struttura di governance tecnica
+translationStatus: ai-draft
 ---
 
 October 7, 2025 by [Seth Webster](https://x.com/sethwebster), [Matt Carroll](https://x.com/mattcarrollcode), [Joe Savona](https://x.com/en_JS), [Sophie Alpert](https://x.com/sophiebits)
 
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/blog/2025/10/07/introducing-the-react-foundation.md).
+
+</Note>
 
 
 <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem', marginLeft: '7rem', marginRight: '7rem' }}>
@@ -23,27 +30,27 @@ October 7, 2025 by [Seth Webster](https://x.com/sethwebster), [Matt Carroll](htt
 
 <Intro>
 
-Today, we're announcing our plans to create the React Foundation and a new technical governance structure.
+Oggi annunciamo i nostri piani per creare la React Foundation e una nuova struttura di governance tecnica.
 
 </Intro>
 
 ---
 
-We open sourced React over a decade ago to help developers build great user experiences. From its earliest days, React has received substantial contributions from contributors outside of Meta. Over time, the number of contributors and the scope of their contributions has grown significantly. What started out as a tool developed for Meta has expanded into a project that spans multiple companies with regular contributions from across the ecosystem. React has outgrown the confines of any one company.
+Abbiamo reso React open source oltre un decennio fa per aiutare gli sviluppatori a costruire ottime esperienze utente. Fin dai primi giorni, React ha ricevuto contributi sostanziali da contributor al di fuori di Meta. Nel tempo, il numero di contributor e l'ampiezza dei loro contributi è cresciuta in modo significativo. Quello che era nato come uno strumento sviluppato per Meta si è espanso in un progetto che coinvolge più aziende, con contributi regolari provenienti da tutto l'ecosistema. React ha superato i confini di qualsiasi singola azienda.
 
-To better serve the React community, we are announcing our plans to move React and React Native from Meta to a new React Foundation. As a part of this change, we will also be implementing a new independent technical governance structure. We believe these changes will enable us to give React ecosystem projects more resources.
+Per servire meglio la community React, annunciamo i nostri piani per spostare React e React Native da Meta a una nuova React Foundation. Come parte di questo cambiamento, implementeremo anche una nuova struttura di governance tecnica indipendente. Crediamo che questi cambiamenti ci permetteranno di offrire più risorse ai progetti dell'ecosistema React.
 
 ## The React Foundation {/*the-react-foundation*/}
 
-We will make the React Foundation the new home for React, React Native, and some supporting projects like JSX. The React Foundation’s mission will be to support the React community and ecosystem. Once implemented, the React Foundation will
+Faremo della React Foundation la nuova sede di React, React Native e di alcuni progetti di supporto come JSX. La missione della React Foundation sarà supportare la community e l'ecosistema React. Una volta implementata, la React Foundation
 
-* Maintain React’s infrastructure like GitHub, CI, and trademarks
-* Organize React Conf
-* Create initiatives to support the React ecosystem like financial support of ecosystem projects, issuing grants, and creating programs
+* Manterrà l'infrastruttura di React come GitHub, CI e marchi registrati
+* Organizzerà React Conf
+* Creerà iniziative per supportare l'ecosistema React, come supporto finanziario a progetti dell'ecosistema, erogazione di grant e creazione di programmi
 
-The React Foundation will be governed by a board of directors, with Seth Webster serving as the executive director. This board will direct funds and resources to support React’s development, community, and ecosystem. We believe that this is the best structure to ensure that the React Foundation is vendor-neutral and reflects the best interests of the community.
+La React Foundation sarà governata da un consiglio di amministrazione, con Seth Webster come direttore esecutivo. Questo consiglio indirizzerà fondi e risorse per supportare lo sviluppo, la community e l'ecosistema di React. Crediamo che questa sia la struttura migliore per garantire che la React Foundation sia vendor-neutral e rifletta i migliori interessi della community.
 
-The founding corporate members of the React Foundation will be Amazon, Callstack, Expo, Meta, Microsoft, Software Mansion, and Vercel. These companies have had a major impact on the React and React Native ecosystems and we are grateful for their support. We are excited to welcome even more members in the future.
+I membri corporate fondatori della React Foundation saranno Amazon, Callstack, Expo, Meta, Microsoft, Software Mansion e Vercel. Queste aziende hanno avuto un impatto significativo sugli ecosistemi React e React Native e siamo grati per il loro supporto. Siamo entusiasti di accogliere altri membri in futuro.
 
 <div style={{display: 'flex', justifyContent: 'center', margin: '2rem'}}>
   <picture >
@@ -56,12 +63,12 @@ The founding corporate members of the React Foundation will be Amazon, Callstack
   </picture>
 </div>
 
-## React’s technical governance {/*reacts-technical-governance*/}
+## React's technical governance {/*reacts-technical-governance*/}
 
-We believe that React's technical direction should be set by the people who contribute to and maintain React. As React moves to a foundation, it is important that no single company or organization is overrepresented. To achieve this, we plan to define a new technical governance structure for React that is independent from the React Foundation.
+Crediamo che la direzione tecnica di React debba essere definita dalle persone che contribuiscono a React e lo mantengono. Mentre React passa a una foundation, è importante che nessuna singola azienda o organizzazione sia sovrarappresentata. Per raggiungere questo obiettivo, prevediamo di definire una nuova struttura di governance tecnica per React, indipendente dalla React Foundation.
 
-As a part of creating React’s new technical governance structure we will reach out to the community for feedback. Once finalized, we will share details in a future post.
+Come parte della creazione della nuova struttura di governance tecnica di React, ci rivolgeremo alla community per raccogliere feedback. Una volta finalizzata, condivideremo i dettagli in un post futuro.
 
 ## Thank you {/*thank-you*/}
 
-React's incredible growth is thanks to the thousands of people, companies, and projects that have shaped React. The creation of the React Foundation is a testament to the strength and vibrancy of the React community. Together, the React Foundation and React’s new technical governance will ensure that React’s future is secure for years to come.
+L'incredibile crescita di React è merito delle migliaia di persone, aziende e progetti che hanno plasmato React. La creazione della React Foundation è una testimonianza della forza e della vivacità della community React. Insieme, la React Foundation e la nuova governance tecnica di React garantiranno che il futuro di React sia al sicuro per gli anni a venire.
