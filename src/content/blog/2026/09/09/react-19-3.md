@@ -6,7 +6,7 @@ description: React 19.3 aggiunge nuove funzionalità come View Transitions, Frag
 translationStatus: ai-draft
 ---
 
-9 settembre 2026 by [The React Team](/community/team)
+September 9, 2026 by [The React Team](/community/team)
 
 ---
 
@@ -243,7 +243,7 @@ Per saperne di più, consulta la [documentazione di `<ViewTransition>`](/referen
 
 A volte vorrai personalizzare quale animazione usare per lo stesso aggiornamento di state. Ad esempio, navigare un carosello _in avanti_ fino alla terza slide dovrebbe animare le slide da destra a sinistra, mentre navigarlo _indietro_ dovrebbe animarle da sinistra a destra, anche se entrambe le azioni impostano currentSlide a 3.
 
-Puoi personalizzare l'animazione per una data View Transition chiamando `addTransitionType` insieme all'aggiornamento di state. Questo ti permette di aggiungere più informazioni sulla _causa_ di una particolare transition:
+Puoi personalizzare l'animazione per una data View Transition chiamando `addTransitionType` insieme all'aggiornamento di state. Questo ti permette di aggiungere più informazioni sulla _causa_ di una particolare Transition:
 
 ```js {3,10}
 function nextSlide() {
@@ -261,7 +261,7 @@ function previousSlide() {
 }
 ```
 
-Poi puoi specificare animazioni diverse in base a quel transition type:
+Poi puoi specificare animazioni diverse in base a quel Transition Type:
 
 ```js
 <ViewTransition
@@ -1211,8 +1211,8 @@ export function VanillaProfileCard() {
 ```
 
 ```js src/resources.js hidden
-// Add a unique parameter so the resources aren't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così le risorse non vengono cachate
+// e ogni esecuzione mostra lo state di caricamento.
 export function freshStylesheetUrl() {
   return (
     'https://fonts.googleapis.com/css2?family=Caveat&display=swap' +
@@ -1227,11 +1227,11 @@ export function freshImageUrl() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
+// Nota: il modo in cui fai data fetching dipende
+// dal framework che usi insieme a Suspense.
 
 export async function fetchQuote() {
-  // Add a fake delay to make waiting noticeable.
+  // Aggiungi un ritardo artificiale per rendere l'attesa visibile.
   await new Promise((resolve) => {
     setTimeout(resolve, 250);
   });
@@ -1330,7 +1330,7 @@ Quando hai bisogno di un controllo più a basso livello sui nodi DOM di un compo
 
 ```js
 function Component() {
-  // How can we work with the list of DOM nodes rendered by this component?
+  // Come possiamo lavorare con l'elenco di nodi DOM renderizzati da questo componente?
   return (
     {posts.map(post => (
       <Heading key={post.id}>
@@ -1607,7 +1607,7 @@ async function main(frame) {
   const stream = await renderToReadableStream(<Document />);
   await flushReadableStreamToFrame(stream, frame);
 
-  // Wait so both the fallback and hydrated content are visible.
+  // Attendi così che siano visibili sia il fallback sia il contenuto idratato.
   await new Promise(resolve => setTimeout(resolve, 1200));
   hydrateRoot(frame.contentDocument, <Document />);
 }
@@ -1747,7 +1747,7 @@ async function main(frame) {
   const stream = await renderToReadableStream(<Document />);
   await flushReadableStreamToFrame(stream, frame);
 
-  // Wait so both the fallback and hydrated content are visible.
+  // Attendi così che siano visibili sia il fallback sia il contenuto idratato.
   await new Promise(resolve => setTimeout(resolve, 1200));
   hydrateRoot(frame.contentDocument, <Document />);
 }
