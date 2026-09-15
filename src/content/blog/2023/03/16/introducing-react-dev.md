@@ -6,7 +6,7 @@ description: Oggi siamo entusiasti di lanciare react.dev, la nuova casa di React
 translationStatus: ai-draft
 ---
 
-16 marzo 2023 by [Dan Abramov](https://bsky.app/profile/danabra.mov) and [Rachel Nabors](https://twitter.com/rachelnabors)
+16 marzo 2023 di [Dan Abramov](https://bsky.app/profile/danabra.mov) e [Rachel Nabors](https://twitter.com/rachelnabors)
 
 ---
 
@@ -44,7 +44,7 @@ Se non hai ancora visto la nuova homepage, dagli un'occhiata!
 
 ## Tutto su React moderno con gli Hooks {/*going-all-in-on-modern-react-with-hooks*/}
 
-Quando abbiamo rilasciato React Hooks nel 2018, la documentazione sugli Hooks presupponeva che il lettore conoscesse i class component. Questo ha aiutato la community ad adottare gli Hooks molto rapidamente, ma col tempo la vecchia documentazione non serviva più i nuovi lettori. I nuovi lettori dovevano imparare React due volte: prima con i class component e poi di nuovo con gli Hooks.
+Quando abbiamo rilasciato React Hooks nel 2018, la documentazione sugli Hooks presupponeva che il lettore conoscesse i componenti class. Questo ha aiutato la community ad adottare gli Hooks molto rapidamente, ma col tempo la vecchia documentazione non serviva più i nuovi lettori. I nuovi lettori dovevano imparare React due volte: prima con i componenti class e poi di nuovo con gli Hooks.
 
 **La nuova documentazione insegna React con gli Hooks fin dall'inizio.** La documentazione è divisa in due sezioni principali:
 
@@ -55,7 +55,7 @@ Vediamo più da vicino cosa trovi in ciascuna sezione.
 
 <Note>
 
-Ci sono ancora alcuni rari casi d'uso con class component che non hanno ancora un equivalente basato su Hook. I class component restano supportati e sono documentati nella sezione [Legacy API](/reference/react/legacy) del nuovo sito.
+Ci sono ancora alcuni rari casi d'uso con componenti class che non hanno ancora un equivalente basato su Hook. I componenti class restano supportati e sono documentati nella sezione [Legacy API](/reference/react/legacy) del nuovo sito.
 
 </Note>
 
@@ -254,7 +254,7 @@ I prossimi due capitoli sono più avanzati e ti daranno una comprensione più pr
 - **[Gestione dello state](/learn/managing-state)** insegna come organizzare la logica man mano che la tua app cresce in complessità.
 - **[Soluzioni alternative](/learn/escape-hatches)** insegna come puoi "uscire" da React e quando ha più senso farlo.
 
-Ogni capitolo consiste di diverse pagine correlate. La maggior parte di queste pagine insegna una competenza o una tecnica specifica — ad esempio [Scrivere Markup con JSX](/learn/writing-markup-with-jsx), [Aggiornare gli Oggetti nello State](/learn/updating-objects-in-state), o [Sharing State Between Components](/learn/sharing-state-between-components). Alcune pagine si concentrano sull'spiegare un'idea — come [Renderizzare e Aggiornare](/learn/render-and-commit), o [Lo State come un'Istantanea](/learn/state-as-a-snapshot). E ce ne sono alcune, come [Potresti non avere bisogno di un Effetto](/learn/you-might-not-need-an-effect), che condividono i nostri suggerimenti basati su ciò che abbiamo imparato in questi anni.
+Ogni capitolo consiste di diverse pagine correlate. La maggior parte di queste pagine insegna una competenza o una tecnica specifica — ad esempio [Scrivere Markup con JSX](/learn/writing-markup-with-jsx), [Aggiornare gli Oggetti nello State](/learn/updating-objects-in-state), o [Condividere lo State tra Componenti](/learn/sharing-state-between-components). Alcune pagine si concentrano sull'esplicazione di un'idea — come [Renderizzare e Aggiornare](/learn/render-and-commit), o [Lo State come un'Istantanea](/learn/state-as-a-snapshot). E ce ne sono alcune, come [Potresti non avere bisogno di un Effetto](/learn/you-might-not-need-an-effect), che condividono i nostri suggerimenti basati su ciò che abbiamo imparato in questi anni.
 
 Non devi leggere questi capitoli in sequenza. Chi ha tempo per questo?! Ma potresti. Le pagine nella sezione Impara React si basano solo su concetti introdotti dalle pagine precedenti. Se vuoi leggerlo come un libro, fallo pure!
 
@@ -444,11 +444,11 @@ In questa soluzione, due condizioni separate vengono usate per inserire uno spaz
 
 </Challenges>
 
-Nota il pulsante "Show solution" nell'angolo in basso a sinistra. È comodo se vuoi verificare da solo!
+Nota il pulsante "Mostra soluzione" nell'angolo in basso a sinistra. È comodo se vuoi verificare da solo!
 
 ### Costruisci un'intuizione con diagrammi e illustrazioni {/*build-an-intuition-with-diagrams-and-illustrations*/}
 
-Quando non riuscivamo a spiegare qualcosa solo con codice e parole, abbiamo aggiunto diagrammi che aiutano a fornire intuizione. Ad esempio, ecco uno dei diagrammi da [Preserving and Resetting State](/learn/preserving-and-resetting-state):
+Quando non riuscivamo a spiegare qualcosa solo con codice e parole, abbiamo aggiunto diagrammi che aiutano a fornire intuizione. Ad esempio, ecco uno dei diagrammi da [Preservare e Resettare lo Stato](/learn/preserving-and-resetting-state):
 
 <Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagramma con tre sezioni, con una freccia che collega ogni sezione. La prima sezione contiene un componente React etichettato 'div' con un unico figlio etichettato 'section', che ha un unico figlio etichettato 'Counter' contenente una bolla di state etichettata 'count' con valore 3. La sezione centrale ha lo stesso genitore 'div', ma i componenti figli sono stati eliminati, indicato da un'immagine gialla 'proof'. La terza sezione ha di nuovo lo stesso genitore 'div', ora con un nuovo figlio etichettato 'div', evidenziato in giallo, anche con un nuovo figlio etichettato 'Counter' contenente una bolla di state etichettata 'count' con valore 0, tutto evidenziato in giallo.">
 

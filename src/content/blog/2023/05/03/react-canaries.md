@@ -6,7 +6,7 @@ description: Vorremmo offrire alla community React l'opzione di adottare singole
 translationStatus: ai-draft
 ---
 
-3 maggio 2023 by [Dan Abramov](https://bsky.app/profile/danabra.mov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage), and [Andrew Clark](https://twitter.com/acdlite)
+3 maggio 2023 di [Dan Abramov](https://bsky.app/profile/danabra.mov), [Sophie Alpert](https://twitter.com/sophiebits), [Rick Hanlon](https://twitter.com/rickhanlonii), [Sebastian Markbåge](https://twitter.com/sebmarkbage) e [Andrew Clark](https://twitter.com/acdlite)
 
 ---
 
@@ -62,7 +62,7 @@ Le rolling release con il canale Canaries ci permetteranno di avere un feedback 
 
 ## Perché non usare le release experimental? {/*why-not-use-experimental-releases-instead*/}
 
-Anche se *tecnicamente* puoi usare le [release Experimental](/community/versioning-policy#canary-channel), sconsigliamo di usarle in produzione perché le API experimental possono subire breaking change significative sulla strada verso la stabilizzazione (o possono anche essere rimosse del tutto). Sebbene anche le Canary possano contenere errori (come qualsiasi release), d'ora in poi prevediamo di annunciare sul nostro blog eventuali breaking change significative nelle Canary. Le Canary sono le più vicine al codice che Meta esegue internamente, quindi in generale puoi aspettarti che siano relativamente stabili. Tuttavia, *devi* mantenere la versione fissata e scansionare manualmente il log dei commit su GitHub quando aggiorni tra commit fissati.
+Anche se *tecnicamente* puoi usare le [release Experimental](/community/versioning-policy#experimental-channel), sconsigliamo di usarle in produzione perché le API experimental possono subire breaking change significative sulla strada verso la stabilizzazione (o possono anche essere rimosse del tutto). Sebbene anche le Canary possano contenere errori (come qualsiasi release), d'ora in poi prevediamo di annunciare sul nostro blog eventuali breaking change significative nelle Canary. Le Canary sono le più vicine al codice che Meta esegue internamente, quindi in generale puoi aspettarti che siano relativamente stabili. Tuttavia, *devi* mantenere la versione fissata e scansionare manualmente il log dei commit su GitHub quando aggiorni tra commit fissati.
 
 **Ci aspettiamo che la maggior parte delle persone che usano React fuori da un setup curato (come un framework) continui a usare le release Stable.** Tuttavia, se stai costruendo un framework, potresti considerare di includere una versione Canary di React fissata a un commit particolare e aggiornarla al tuo ritmo. Il vantaggio è che ti permette di rilasciare singole funzionalità e bugfix React completate prima per i tuoi utenti e secondo il tuo calendario di release, in modo simile a come fa React Native da diversi anni. Lo svantaggio è che ti assumi la responsabilità aggiuntiva di revisionare quali commit React vengono inclusi e di comunicare ai tuoi utenti quali modifiche React sono incluse nelle tue release.
 
