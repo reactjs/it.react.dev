@@ -7,11 +7,11 @@
       "sectionHeader": "react@{{version}}"
     },
     {
-      "title": "Panoramica",
+      "title": "Panoramica della documentazione di React",
       "path": "/reference/react"
     },
     {
-      "title": "Hooks",
+      "title": "Built-in React Hooks",
       "path": "/reference/react/hooks",
       "routes": [
         {
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "title": "Componenti",
+      "title": "Built-in React Components",
       "path": "/reference/react/components",
       "routes": [
         {
@@ -119,7 +119,7 @@
       ]
     },
     {
-      "title": "API",
+      "title": "Built-in React APIs",
       "path": "/reference/react/apis",
       "routes": [
         {
@@ -179,7 +179,7 @@
       "sectionHeader": "react-dom@{{version}}"
     },
     {
-      "title": "Hooks",
+      "title": "Built-in React DOM Hooks",
       "path": "/reference/react-dom/hooks",
       "routes": [
         {
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "title": "Componenti",
+      "title": "React DOM Components",
       "path": "/reference/react-dom/components",
       "routes": [
         {
@@ -243,7 +243,7 @@
       ]
     },
     {
-      "title": "API",
+      "title": "React DOM APIs",
       "path": "/reference/react-dom",
       "routes": [
         {
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "title": "API Client",
+      "title": "Client React DOM APIs",
       "path": "/reference/react-dom/client",
       "routes": [
         {
@@ -299,7 +299,7 @@
       ]
     },
     {
-      "title": "API Server",
+      "title": "Server React DOM APIs",
       "path": "/reference/react-dom/server",
       "routes": [
         {
@@ -329,7 +329,7 @@
       ]
     },
     {
-      "title": "API Statiche",
+      "title": "Static React DOM APIs",
       "path": "/reference/react-dom/static",
       "routes": [
         {
@@ -355,7 +355,7 @@
       "sectionHeader": "React Compiler"
     },
     {
-      "title": "Configurazione",
+      "title": "Configuration",
       "path": "/reference/react-compiler/configuration",
       "routes": [
         {
@@ -381,21 +381,21 @@
       ]
     },
     {
-      "title": "Direttive",
+      "title": "Directives",
       "path": "/reference/react-compiler/directives",
       "routes": [
         {
-          "title": "\"use memo\"",
+          "title": "use memo",
           "path": "/reference/react-compiler/directives/use-memo"
         },
         {
-          "title": "\"use no memo\"",
+          "title": "use no memo",
           "path": "/reference/react-compiler/directives/use-no-memo"
         }
       ]
     },
     {
-      "title": "Compilare Librerie",
+      "title": "Compiling Libraries",
       "path": "/reference/react-compiler/compiling-libraries"
     },
     {
@@ -403,7 +403,7 @@
       "sectionHeader": "React DevTools"
     },
     {
-      "title": "Tracce delle Prestazioni di React",
+      "title": "React Performance tracks",
       "path": "/reference/dev-tools/react-performance-tracks"
     },
     {
@@ -411,7 +411,7 @@
       "sectionHeader": "eslint-plugin-react-hooks"
     },
     {
-      "title": "Regole",
+      "title": "eslint-plugin-react-hooks",
       "path": "/reference/eslint-plugin-react-hooks",
       "routes": [
         {
@@ -450,7 +450,6 @@
           "title": "incompatible-library",
           "path": "/reference/eslint-plugin-react-hooks/lints/incompatible-library"
         },
-
         {
           "title": "preserve-manual-memoization",
           "path": "/reference/eslint-plugin-react-hooks/lints/preserve-manual-memoization"
@@ -463,7 +462,6 @@
           "title": "refs",
           "path": "/reference/eslint-plugin-react-hooks/lints/refs"
         },
-
         {
           "title": "set-state-in-effect",
           "path": "/reference/eslint-plugin-react-hooks/lints/set-state-in-effect"
@@ -491,15 +489,15 @@
       "sectionHeader": "Regole di React"
     },
     {
-      "title": "Panoramica",
+      "title": "Rules of React",
       "path": "/reference/rules",
       "routes": [
         {
-          "title": "I Componenti e gli Hook devono essere puri",
+          "title": "Components and Hooks must be pure",
           "path": "/reference/rules/components-and-hooks-must-be-pure"
         },
         {
-          "title": "React chiama Componenti e Hook",
+          "title": "React calls Components and Hooks",
           "path": "/reference/rules/react-calls-components-and-hooks"
         },
         {
@@ -513,23 +511,23 @@
       "sectionHeader": "React Server Components"
     },
     {
-      "title": "Componenti Server",
+      "title": "Server Components",
       "path": "/reference/rsc/server-components"
     },
     {
-      "title": "Funzioni Server",
+      "title": "Server Functions",
       "path": "/reference/rsc/server-functions"
     },
     {
-      "title": "Direttive",
+      "title": "Directives",
       "path": "/reference/rsc/directives",
       "routes": [
         {
-          "title": "'use client'",
+          "title": "use client",
           "path": "/reference/rsc/use-client"
         },
         {
-          "title": "'use server'",
+          "title": "use server",
           "path": "/reference/rsc/use-server"
         }
       ]
@@ -539,7 +537,7 @@
       "sectionHeader": "API Legacy"
     },
     {
-      "title": "API Legacy di React",
+      "title": "Legacy React APIs",
       "path": "/reference/react/legacy",
       "routes": [
         {

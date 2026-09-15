@@ -1,5 +1,5 @@
 {
-  "title": "Community",
+  "title": "Comunità",
   "path": "/community",
   "routes": [
     {
@@ -7,40 +7,40 @@
       "sectionHeader": "PARTECIPA"
     },
     {
-      "title": "Community",
+      "title": "React Community",
       "path": "/community",
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "Conferenze React",
+          "title": "React Conferences",
           "path": "/community/conferences"
         },
         {
-          "title": "Meetup React",
+          "title": "React Meetups",
           "path": "/community/meetups"
         },
         {
-          "title": "Video React",
+          "title": "React Videos",
           "path": "/community/videos"
         },
         {
-          "title": "Incontra il Team",
+          "title": "Meet the Team",
           "path": "/community/team"
         },
         {
-          "title": "Contributori alla Documentazione",
+          "title": "Docs Contributors",
           "path": "/community/docs-contributors"
         },
         {
-          "title": "Traduzioni",
+          "title": "Translations",
           "path": "/community/translations"
         },
         {
-          "title": "Ringraziamenti",
+          "title": "Acknowledgements",
           "path": "/community/acknowledgements"
         },
         {
-          "title": "Politica di Versionamento",
+          "title": "Versioning Policy",
           "path": "/community/versioning-policy"
         }
       ]

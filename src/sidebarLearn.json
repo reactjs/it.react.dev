@@ -25,11 +25,11 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Creare una App React",
+          "title": "Creating a React App",
           "path": "/learn/creating-a-react-app"
         },
         {
-          "title": "Costruire una App React da Zero",
+          "title": "Build a React app from Scratch",
           "path": "/learn/build-a-react-app-from-scratch"
         },
         {
@@ -43,11 +43,11 @@
       "path": "/learn/setup",
       "routes": [
         {
-          "title": "Setup dell'editor",
+          "title": "Editor Setup",
           "path": "/learn/editor-setup"
         },
         {
-          "title": "Usare TypeScript",
+          "title": "Using TypeScript",
           "path": "/learn/typescript"
         },
         {
@@ -62,19 +62,19 @@
       "canary": true,
       "routes": [
         {
-          "title": "Introduzione",
+          "title": "Introduction",
           "path": "/learn/react-compiler/introduction"
         },
         {
-          "title": "Installazione",
+          "title": "Installation",
           "path": "/learn/react-compiler/installation"
         },
         {
-          "title": "Adozione Incrementale",
+          "title": "Incremental Adoption",
           "path": "/learn/react-compiler/incremental-adoption"
         },
         {
-          "title": "Debug e Risoluzione dei Problemi",
+          "title": "Debugging and Troubleshooting",
           "path": "/learn/react-compiler/debugging"
         }
       ]
@@ -121,7 +121,7 @@
           "path": "/learn/keeping-components-pure"
         },
         {
-          "title": "La Tua UI come un Albero",
+          "title": "Understanding Your UI as a Tree",
           "path": "/learn/understanding-your-ui-as-a-tree"
         }
       ]
@@ -162,7 +162,7 @@
       ]
     },
     {
-      "title": "Gestione dello State",
+      "title": "Gestione dello state",
       "path": "/learn/managing-state",
       "tags": [
         "intermediate"
@@ -173,7 +173,7 @@
           "path": "/learn/reacting-to-input-with-state"
         },
         {
-          "title": "Scegliere la Struttura dello State",
+          "title": "Scegliere la struttura dello state",
           "path": "/learn/choosing-the-state-structure"
         },
         {

@@ -1,5 +1,5 @@
 {
-  "title": "Documentazione React",
+  "title": "React",
   "path": "/",
   "routes": [
     {
@@ -35,7 +35,7 @@
       "path": "/learn/adding-interactivity"
     },
     {
-      "title": "Gestione dello State",
+      "title": "Gestione dello state",
       "path": "/learn/managing-state"
     },
     {
@@ -47,19 +47,19 @@
       "sectionHeader": "API REACT"
     },
     {
-      "title": "Hooks",
+      "title": "Panoramica della documentazione di React",
       "path": "/reference/react"
     },
     {
-      "title": "Componenti",
+      "title": "Built-in React Components",
       "path": "/reference/react/components"
     },
     {
-      "title": "API",
+      "title": "Built-in React APIs",
       "path": "/reference/react/apis"
     },
     {
-      "title": "API Legacy",
+      "title": "Legacy React APIs",
       "path": "/reference/react/legacy"
     },
     {
@@ -67,19 +67,19 @@
       "sectionHeader": "API REACT DOM"
     },
     {
-      "title": "Componenti",
+      "title": "React DOM Components",
       "path": "/reference/react-dom/components"
     },
     {
-      "title": "API",
+      "title": "React DOM APIs",
       "path": "/reference/react-dom"
     },
     {
-      "title": "API Client",
+      "title": "Client React DOM APIs",
       "path": "/reference/react-dom/client"
     },
     {
-      "title": "API Server",
+      "title": "Server React DOM APIs",
       "path": "/reference/react-dom/server"
     },
     {
@@ -87,15 +87,15 @@
       "sectionHeader": "API REACT COMPILER"
     },
     {
-      "title": "Configurazione",
+      "title": "Configuration",
       "path": "/reference/react-compiler/configuration"
     },
     {
-      "title": "Direttive",
+      "title": "Directives",
       "path": "/reference/react-compiler/directives"
     },
     {
-      "title": "Compilare Librerie",
+      "title": "Compiling Libraries",
       "path": "/reference/react-compiler/compiling-libraries"
     },
     {
@@ -103,7 +103,7 @@
       "sectionHeader": "PARTECIPA"
     },
     {
-      "title": "Community React",
+      "title": "React Community",
       "path": "/community"
     },
     {
@@ -111,7 +111,7 @@
       "sectionHeader": "RESTA AGGIORNATO"
     },
     {
-      "title": "Blog React",
+      "title": "React Blog",
       "path": "/blog"
     }
   ]
