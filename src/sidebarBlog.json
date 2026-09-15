@@ -19,8 +19,8 @@
           "path": "/blog/2026/09/09/react-19-3"
         },
         {
-          "title": "The React Foundation: A New Home for React Hosted by the Linux Foundation",
-          "titleForHomepage": "The React Foundation: A New Home for React Hosted by the Linux Foundation",
+          "title": "The React Foundation: una nuova casa per React ospitata dalla Linux Foundation",
+          "titleForHomepage": "The React Foundation: una nuova casa per React ospitata dalla Linux Foundation",
           "icon": "blog",
           "date": "February 24, 2026",
           "path": "/blog/2026/02/24/the-react-foundation"
@@ -90,7 +90,7 @@
         },
         {
           "title": "React Compiler: rilascio Beta",
-          "titleForHomepage": "React Compiler: rilascio Beta e roadmap",
+          "titleForHomepage": "React Compiler: rilascio Beta",
           "icon": "blog",
           "date": "October 21, 2024",
           "path": "/blog/2024/10/21/react-compiler-beta-release"
@@ -111,7 +111,7 @@
         },
         {
           "title": "Guida all'upgrade a React 19",
-          "titleForHomepage": "Guida all'upgrade a React 19 RC",
+          "titleForHomepage": "Guida all'upgrade a React 19",
           "icon": "blog",
           "date": "April 25, 2024",
           "path": "/blog/2024/04/25/react-19-upgrade-guide"
@@ -160,14 +160,14 @@
         },
         {
           "title": "Come passare a React 18",
-          "titleForHomepage": "Passare a React 18",
+          "titleForHomepage": "Come passare a React 18",
           "icon": "blog",
           "date": "March 8, 2022",
           "path": "/blog/2022/03/08/react-18-upgrade-guide"
         },
         {
           "title": "React Conf 2021: il riepilogo",
-          "titleForHomepage": "React Conf 2021: riepilogo",
+          "titleForHomepage": "React Conf 2021: il riepilogo",
           "icon": "blog",
           "date": "December 17, 2021",
           "path": "/blog/2021/12/17/react-conf-2021-recap"
