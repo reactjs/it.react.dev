@@ -788,7 +788,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Punteggio di {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Aggiungi uno
       </button>
@@ -871,7 +871,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Punteggio di {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Aggiungi uno
       </button>
@@ -976,7 +976,7 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Punteggio di {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
         Aggiungi uno
       </button>
