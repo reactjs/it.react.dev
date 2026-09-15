@@ -31,7 +31,7 @@ Oggi siamo entusiasti di pubblicare la documentazione per due nuove funzionalit�
 Condividiamo anche aggiornamenti su nuove funzionalità attualmente in sviluppo:
 - [React Performance Tracks](#react-performance-tracks)
 - [Compiler IDE Extension](#compiler-ide-extension)
-- [Automatic Effect Dependencies](#automatic-effect-dependencies)
+- [Dipendenze automatiche degli Effetti](#automatic-effect-dependencies)
 - [Fragment Refs](#fragment-refs)
 - [Concurrent Stores](#concurrent-stores)
 
@@ -11465,7 +11465,7 @@ root.render(
 
 Se vuoi saperne di più su come funzionano, consulta [Come funziona `<ViewTransition>`](/reference/react/ViewTransition#how-does-viewtransition-work) nella documentazione.
 
-_Per maggiori dettagli su come abbiamo costruito le View Transitions, vedi: [#31975](https://github.com/react/react/pull/31975), [#32105](https://github.com/react/react/pull/32105), [#32041](https://github.com/react/react/pull/32041), [#32734](https://github.com/react/react/pull/32734), [#32797](https://github.com/react/react/pull/32797) [#31999](https://github.com/react/react/pull/31999), [#32031](https://github.com/react/react/pull/32031), [#32050](https://github.com/react/react/pull/32050), [#32820](https://github.com/react/react/pull/32820), [#32029](https://github.com/react/react/pull/32029), [#32028](https://github.com/react/react/pull/32028), and [#32038](https://github.com/react/react/pull/32038) by [@sebmarkbage](https://twitter.com/sebmarkbage) (grazie Seb!)._
+_Per maggiori dettagli su come abbiamo costruito le View Transitions, vedi: [#31975](https://github.com/react/react/pull/31975), [#32105](https://github.com/react/react/pull/32105), [#32041](https://github.com/react/react/pull/32041), [#32734](https://github.com/react/react/pull/32734), [#32797](https://github.com/react/react/pull/32797) [#31999](https://github.com/react/react/pull/31999), [#32031](https://github.com/react/react/pull/32031), [#32050](https://github.com/react/react/pull/32050), [#32820](https://github.com/react/react/pull/32820), [#32029](https://github.com/react/react/pull/32029), [#32028](https://github.com/react/react/pull/32028), e [#32038](https://github.com/react/react/pull/32038) di [@sebmarkbage](https://twitter.com/sebmarkbage) (grazie Seb!)._
 
 ---
 
@@ -14289,7 +14289,7 @@ useEffect(() => {
 }, [roomId]);
 ```
 
-Molti utenti leggerebbero questo codice come "al mount, connettiti al roomId. ogni volta che `roomId` cambia, disconnettiti dalla vecchia stanza e ricrea la connessione". Tuttavia, questo è pensare dalla prospettiva del lifecycle del componente, il che significa che dovrai pensare a ogni stato lifecycle del componente per scrivere l'Effetto correttamente. Può essere difficile, quindi è comprensibile che gli Effetti sembrino più difficili dei lifecycle di classe quando usi la prospettiva del componente.
+Molti utenti leggerebbero questo codice come "al mount, connettiti al roomId. ogni volta che `roomId` cambia, disconnettiti dalla vecchia stanza e ricrea la connessione". Tuttavia, questo è pensare dalla prospettiva del lifecycle del componente, il che significa che dovrai pensare a ogni fase del lifecycle del componente per scrivere l'Effetto correttamente. Può essere difficile, quindi è comprensibile che gli Effetti sembrino più difficili dei lifecycle di classe quando usi la prospettiva del componente.
 
 ### Effetti senza dipendenze {/*effects-without-dependencies*/}
 
