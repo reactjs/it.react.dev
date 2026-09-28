@@ -1,13 +1,20 @@
 ---
 title: "<img>"
+translationStatus: ai-draft
 ---
+
+<Note>
+
+Questa pagina è stata tradotta automaticamente e supervisionata da un maintainer. Un'ulteriore revisione da parte della community sarebbe comunque utile. [Migliora questa traduzione](https://github.com/reactjs/it.react.dev/edit/main/src/content/reference/react-dom/components/img.md).
+
+</Note>
 
 <Intro>
 
-The [built-in browser `<img>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) lets you embed an image.
+Il [componente browser integrato `<img>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/img) ti permette di incorporare un'immagine.
 
 ```js
-<img src="photo.jpg" alt="A person walking through a park" />
+<img src="photo.jpg" alt="Una persona che cammina in un parco" />
 ```
 
 </Intro>
@@ -20,46 +27,46 @@ The [built-in browser `<img>` component](https://developer.mozilla.org/en-US/doc
 
 ### `<img>` {/*img*/}
 
-To display an image, render the [built-in browser `<img>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
+Per visualizzare un'immagine, renderizza il [componente browser integrato `<img>`](https://developer.mozilla.org/it/docs/Web/HTML/Element/img).
 
 ```js
-<img src="photo.jpg" alt="A person walking through a park" />
+<img src="photo.jpg" alt="Una persona che cammina in un parco" />
 ```
 
-[See more examples below.](#usage)
+[Vedi altri esempi sotto.](#usage)
 
 #### Props {/*props*/}
 
-`<img>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+`<img>` supporta tutte le [props comuni degli elementi.](/reference/react-dom/components/common#common-props)
 
-* `alt`: a string. Specifies alternative text for the image. Use an empty string for a purely decorative image.
-* `crossOrigin`: a string. Specifies the [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use when fetching the image. The possible values are `anonymous` and `use-credentials`.
-* `decoding`: a string. Suggests whether the browser should wait to decode the image before presenting other content. The possible values are `async`, `sync`, and `auto` (the default).
-* `fetchPriority`: a string. Suggests a relative priority for fetching the image. The possible values are `high`, `low`, and `auto` (the default). During server rendering, `fetchPriority="low"` also prevents React from [automatically preloading the image.](#controlling-image-preloading-during-server-rendering)
-* `height`: a number or string. Specifies the rendered height of the image.
-* `loading`: a string. Specifies whether the browser should defer loading the image until it is near the viewport. The possible values are `eager` (the default) and `lazy`. Setting `loading="lazy"` prevents React from [automatically preloading the image.](#controlling-image-preloading-during-server-rendering)
-* `onError`: an [event handler](/reference/react-dom/components/common#event-handler) function. Fires when the image fails to load.
-* `onLoad`: an [event handler](/reference/react-dom/components/common#event-handler) function. Fires when the image finishes loading. Passing `onLoad` prevents React from [waiting for the image during a client-rendered View Transition update.](#waiting-for-an-image-during-a-view-transition)
-* `referrerPolicy`: a string. Specifies the [referrer information](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#referrerpolicy) to send when fetching the image.
-* `sizes`: a string. Specifies the image sizes for different page layouts. Used with `srcSet`.
-* `src`: a string. Specifies the URL of the image.
-* `srcSet`: a string. Specifies one or more candidate image sources for the browser to choose from.
-* `useMap`: a string. Associates the image with a [client-side image map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map).
-* `width`: a number or string. Specifies the rendered width of the image.
+* `alt`: una stringa. Specifica il testo alternativo dell'immagine. Usa una stringa vuota per un'immagine puramente decorativa.
+* `crossOrigin`: una stringa. Specifica la [policy CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) da usare quando viene recuperata l'immagine. I valori possibili sono `anonymous` e `use-credentials`.
+* `decoding`: una stringa. Suggerisce se il browser dovrebbe attendere di decodificare l'immagine prima di presentare altro contenuto. I valori possibili sono `async`, `sync` e `auto` (il valore predefinito).
+* `fetchPriority`: una stringa. Suggerisce una priorità relativa per il recupero dell'immagine. I valori possibili sono `high`, `low` e `auto` (il valore predefinito). Durante la renderizzazione lato server, `fetchPriority="low"` impedisce anche a React di [precaricare automaticamente l'immagine.](#controlling-image-preloading-during-server-rendering)
+* `height`: un numero o una stringa. Specifica l'altezza con cui viene visualizzata l'immagine.
+* `loading`: una stringa. Specifica se il browser dovrebbe rinviare il caricamento dell'immagine finché non è vicina al viewport. I valori possibili sono `eager` (il valore predefinito) e `lazy`. Impostare `loading="lazy"` impedisce a React di [precaricare automaticamente l'immagine.](#controlling-image-preloading-during-server-rendering)
+* `onError`: una funzione [gestore di eventi](/reference/react-dom/components/common#event-handler). Scatta quando il caricamento dell'immagine fallisce.
+* `onLoad`: una funzione [gestore di eventi](/reference/react-dom/components/common#event-handler). Scatta quando il caricamento dell'immagine è completato. Passare `onLoad` impedisce a React di [attendere l'immagine durante un aggiornamento View Transition renderizzato lato client.](#waiting-for-an-image-during-a-view-transition)
+* `referrerPolicy`: una stringa. Specifica le [informazioni sul referrer](https://developer.mozilla.org/it/docs/Web/HTML/Element/img#referrerpolicy) da inviare quando viene recuperata l'immagine.
+* `sizes`: una stringa. Specifica le dimensioni dell'immagine per i diversi layout di pagina. Usata insieme a `srcSet`.
+* `src`: una stringa. Specifica l'URL dell'immagine.
+* `srcSet`: una stringa. Specifica una o più sorgenti candidate tra cui il browser può scegliere.
+* `useMap`: una stringa. Associa l'immagine a una [mappa immagine lato client](https://developer.mozilla.org/it/docs/Web/HTML/Element/map).
+* `width`: un numero o una stringa. Specifica la larghezza con cui viene visualizzata l'immagine.
 
 #### Caveats {/*caveats*/}
 
-* Do not pass an empty string to `src`. It may cause the browser to request the current page again. React warns in development and omits the attribute. To render no image, omit the `<img>` or pass `null` to `src`.
-* `<img>` cannot have children or use `dangerouslySetInnerHTML`. React throws an error if you pass either.
-* `fetchPriority="low"` does not stop React from waiting for the image to load and decode during a client-rendered View Transition update. Use `loading="lazy"` or an `onLoad` handler to opt out of that behavior.
+* Non passare una stringa vuota a `src`: potrebbe indurre il browser a richiedere di nuovo la pagina corrente. React mostra un avviso in sviluppo e omette l'attributo. Per non visualizzare alcuna immagine, ometti `<img>` o passa `null` a `src`.
+* `<img>` non può avere children né usare `dangerouslySetInnerHTML`. React solleva un errore se passi una delle due cose.
+* `fetchPriority="low"` non impedisce a React di attendere che l'immagine venga caricata e decodificata durante un aggiornamento View Transition renderizzato lato client. Usa `loading="lazy"` o un gestore `onLoad` per rinunciare a questo comportamento.
 
 ---
 
 ## Usage {/*usage*/}
 
-### Displaying an image {/*displaying-an-image*/}
+### Visualizzare un'immagine {/*displaying-an-image*/}
 
-Pass the image URL to `src` and a text description to `alt`:
+Passa l'URL dell'immagine a `src` e una descrizione testuale a `alt`:
 
 <Sandpack>
 
@@ -85,53 +92,53 @@ img {
 
 </Sandpack>
 
-Specify `width` and `height` when you know the image dimensions so the browser can reserve space before the image loads. For a decorative image, pass `alt=""` so that screen readers ignore it.
+Specifica `width` e `height` quando conosci le dimensioni dell'immagine, così il browser può riservare lo spazio prima che l'immagine venga caricata. Per un'immagine decorativa, passa `alt=""` in modo che gli screen reader la ignorino.
 
 ---
 
-### Controlling image preloading during server rendering {/*controlling-image-preloading-during-server-rendering*/}
+### Controllare il precaricamento delle immagini durante la renderizzazione lato server {/*controlling-image-preloading-during-server-rendering*/}
 
-During server rendering, React automatically generates a preload hint for an `<img>` by default. This can let the browser start fetching the image before it encounters the `<img>` in the rendered HTML.
+Durante la renderizzazione lato server, per impostazione predefinita React genera automaticamente un hint di preload per un `<img>`. Questo può permettere al browser di iniziare a recuperare l'immagine prima di incontrare l'`<img>` nell'HTML renderizzato.
 
-Add `loading="lazy"` or `fetchPriority="low"` to an image that should not receive this hint:
+Aggiungi `loading="lazy"` o `fetchPriority="low"` a un'immagine che non dovrebbe ricevere questo hint:
 
 ```js
 function ProductPage() {
   return (
     <>
-      <img src="hero.jpg" alt="Featured product" />
-      <img src="thumbnail.jpg" alt="Related product" loading="lazy" />
-      <img src="secondary.jpg" alt="Another product" fetchPriority="low" />
+      <img src="hero.jpg" alt="Prodotto in evidenza" />
+      <img src="thumbnail.jpg" alt="Prodotto correlato" loading="lazy" />
+      <img src="secondary.jpg" alt="Un altro prodotto" fetchPriority="low" />
     </>
   );
 }
 ```
 
-In this example, React generates a preload hint only for `hero.jpg`. Depending on the server API or framework, React may render the equivalent of this element:
+In questo esempio, React genera un hint di preload solo per `hero.jpg`. A seconda dell'API del server o del framework, React potrebbe renderizzare l'equivalente di questo elemento:
 
 ```html
 <link rel="preload" as="image" href="hero.jpg" />
 ```
 
-React may instead provide the same hint in a `Link` response header. The other two images keep their `loading` and `fetchPriority` props in the rendered HTML, but React does not generate preload hints for them. The `loading="lazy"` prop asks the browser to defer loading an image until it approaches the viewport. The `fetchPriority="low"` prop allows the image to load immediately, but tells the browser to fetch it at a lower priority.
+React potrebbe invece fornire lo stesso hint nell'intestazione `Link` della risposta. Le altre due immagini mantengono le loro props `loading` e `fetchPriority` nell'HTML renderizzato, ma React non genera hint di preload per queste immagini. La prop `loading="lazy"` chiede al browser di rinviare il caricamento di un'immagine finché non si avvicina al viewport. La prop `fetchPriority="low"` permette all'immagine di caricarsi immediatamente, ma dice al browser di recuperarla con una priorità più bassa.
 
-React also does not automatically preload an image when it is inside a `<picture>` or `<noscript>` element, or when its `src` or `srcSet` is a data URL.
+React inoltre non precarica automaticamente un'immagine quando si trova all'interno di un elemento `<picture>` o `<noscript>`, o quando il suo `src` o `srcSet` è un data URL.
 
-If you render an image through a framework or a component library, consult its documentation for the default behavior. React decides whether to generate an automatic preload from the props of the underlying `<img>`. For example, an image component may add `loading="lazy"` by default and provide a separate option for explicitly preloading selected images.
+Se renderizzi un'immagine attraverso un framework o una libreria di componenti, consulta la sua documentazione per il comportamento predefinito. React decide se generare un precaricamento automatico in base alle props dell'`<img>` sottostante. Ad esempio, un componente immagine potrebbe aggiungere `loading="lazy"` per impostazione predefinita e fornire un'opzione separata per precaricare esplicitamente le immagini selezionate.
 
-To create an explicit preload hint, call [`preload`](/reference/react-dom/preload).
+Per creare un hint di preload esplicito, chiama [`preload`](/reference/react-dom/preload).
 
 ---
 
-### Waiting for an image during a View Transition {/*waiting-for-an-image-during-a-view-transition*/}
+### Attendere un'immagine durante una View Transition {/*waiting-for-an-image-during-a-view-transition*/}
 
-During a client-rendered [`<ViewTransition>`](/reference/react/ViewTransition) update, React may wait for an image to load and decode before starting the animation. This applies when a new `<img>` with a non-empty `src` is rendered, or when an existing image's `src` or `srcSet` changes. The image must be inside the `<ViewTransition>` subtree and must not have `loading="lazy"` or an `onLoad` handler. React does not wait for images during synchronous updates.
+Durante un aggiornamento [`<ViewTransition>`](/reference/react/ViewTransition) renderizzato lato client, React potrebbe attendere che un'immagine si carichi e venga decodificata prima di avviare l'animazione. Questo si applica quando viene renderizzato un nuovo `<img>` con un `src` non vuoto, o quando `src` o `srcSet` di un'immagine esistente cambia. L'immagine deve trovarsi nel sottoalbero del `<ViewTransition>` e non deve avere `loading="lazy"` né un gestore `onLoad`. React non attende le immagini durante gli aggiornamenti sincroni.
 
-When a Suspense boundary reveals streamed content inside a `<ViewTransition>`, React may also wait for visible images with a non-empty `src` that do not have `loading="lazy"`. React stops waiting after a timeout so that a slow image does not block the update indefinitely.
+Quando un boundary Suspense rivela contenuto in streaming all'interno di un `<ViewTransition>`, React potrebbe anche attendere le immagini visibili con un `src` non vuoto che non hanno `loading="lazy"`. React smette di attendere dopo un timeout, così che un'immagine lenta non blocchi l'aggiornamento all'infinito.
 
-In this example, the Suspense boundary is wrapped in a `<ViewTransition>` and shows a profile skeleton until the portrait has loaded.
+In questo esempio, il boundary Suspense è avvolto in un `<ViewTransition>` e mostra un placeholder del profilo finché il ritratto non si è caricato.
 
-For comparison, the second button inserts the same card directly into the DOM. The card appears immediately, and the browser displays the image after it loads:
+Per confronto, il secondo pulsante inserisce la stessa card direttamente nel DOM. La card appare immediatamente, e il browser visualizza l'immagine dopo che si è caricata:
 
 <Sandpack>
 
@@ -168,7 +175,7 @@ export default function App() {
             setSrc(freshImageUrl());
           });
         }}>
-        Show profile
+        Mostra profilo
       </button>
       {src && (
         <ViewTransition>
@@ -198,7 +205,7 @@ export default function VanillaProfile() {
   }
   return (
     <>
-      <button onClick={show}>Show profile (direct DOM update)</button>
+      <button onClick={show}>Mostra profilo (aggiornamento diretto del DOM)</button>
       <div ref={ref} />
     </>
   );
@@ -206,8 +213,8 @@ export default function VanillaProfile() {
 ```
 
 ```js src/image.js hidden
-// Add a unique parameter so the image isn't cached,
-// and every run shows the loading state.
+// Aggiungi un parametro univoco così l'immagine non finisce in cache
+// e ogni esecuzione mostra lo stato di caricamento.
 export function freshImageUrl() {
   return 'https://react.dev/images/team/jack-pope.jpg?t=' + Date.now();
 }
