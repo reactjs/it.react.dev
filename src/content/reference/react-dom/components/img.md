@@ -56,9 +56,15 @@ Per visualizzare un'immagine, renderizza il [componente browser integrato `<img>
 
 #### Caveats {/*caveats*/}
 
+<<<<<<< HEAD
 * Non passare una stringa vuota a `src`: potrebbe indurre il browser a richiedere di nuovo la pagina corrente. React mostra un avviso in sviluppo e omette l'attributo. Per non visualizzare alcuna immagine, ometti `<img>` o passa `null` a `src`.
 * `<img>` non può avere children né usare `dangerouslySetInnerHTML`. React solleva un errore se passi una delle due cose.
 * `fetchPriority="low"` non impedisce a React di attendere che l'immagine venga caricata e decodificata durante un aggiornamento View Transition renderizzato lato client. Usa `loading="lazy"` o un gestore `onLoad` per rinunciare a questo comportamento.
+=======
+* Do not pass an empty string to `src`. It may cause the browser to request the current page again. React warns in development and omits the attribute. To render no image, omit the `<img>` or pass `null` to `src`.
+* `<img>` cannot have children or use `dangerouslySetInnerHTML`. React throws an error if you pass either.
+* `fetchPriority="low"` does not stop React from waiting for the image to load during a client-rendered View Transition update. Use `loading="lazy"` or an `onLoad` handler to opt out of that behavior.
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 
 ---
 
@@ -132,6 +138,7 @@ Per creare un hint di preload esplicito, chiama [`preload`](/reference/react-dom
 
 ### Attendere un'immagine durante una View Transition {/*waiting-for-an-image-during-a-view-transition*/}
 
+<<<<<<< HEAD
 Durante un aggiornamento [`<ViewTransition>`](/reference/react/ViewTransition) renderizzato lato client, React potrebbe attendere che un'immagine si carichi e venga decodificata prima di avviare l'animazione. Questo si applica quando viene renderizzato un nuovo `<img>` con un `src` non vuoto, o quando `src` o `srcSet` di un'immagine esistente cambia. L'immagine deve trovarsi nel sottoalbero del `<ViewTransition>` e non deve avere `loading="lazy"` né un gestore `onLoad`. React non attende le immagini durante gli aggiornamenti sincroni.
 
 Quando un boundary Suspense rivela contenuto in streaming all'interno di un `<ViewTransition>`, React potrebbe anche attendere le immagini visibili con un `src` non vuoto che non hanno `loading="lazy"`. React smette di attendere dopo un timeout, così che un'immagine lenta non blocchi l'aggiornamento all'infinito.
@@ -139,18 +146,28 @@ Quando un boundary Suspense rivela contenuto in streaming all'interno di un `<Vi
 In questo esempio, il boundary Suspense è avvolto in un `<ViewTransition>` e mostra un placeholder del profilo finché il ritratto non si è caricato.
 
 Per confronto, il secondo pulsante inserisce la stessa card direttamente nel DOM. La card appare immediatamente, e il browser visualizza l'immagine dopo che si è caricata:
+=======
+During a [`<ViewTransition>`](/reference/react/ViewTransition) update, React waits up to 500 ms for visible images to load before starting the animation. This includes newly rendered `<img>` elements and existing images whose `src` or `srcSet` changes. Setting `loading="lazy"` or adding an `onLoad` handler opts an image out.
+
+Compare how the same image appears when a Suspense boundary reveals its content inside and outside a `<ViewTransition>`:
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 
 <Sandpack>
 
 ```js
-import { ViewTransition, Suspense, useState, startTransition } from 'react';
-import { freshImageUrl } from './image.js';
-import VanillaProfile from './VanillaProfile.js';
+import {
+  ViewTransition,
+  Suspense,
+  use,
+  useState,
+} from 'react';
+import { fetchImageSrc } from './image.js';
 
-function Profile({ src }) {
+function Profile({ cacheKey }) {
+  const src = use(fetchImageSrc(cacheKey));
   return (
     <div className="card">
-      <img src={src} alt="Jack Pope" width={80} height={80} />
+      <img src={src} alt="" width={80} height={80} />
       <p>Jack Pope</p>
     </div>
   );
@@ -166,9 +183,13 @@ function ProfilePlaceholder() {
 }
 
 export default function App() {
-  const [src, setSrc] = useState(null);
+  const [showWithTransition, setShowWithTransition] =
+    useState(false);
+  const [showWithoutTransition, setShowWithoutTransition] =
+    useState(false);
   return (
     <>
+<<<<<<< HEAD
       <button
         onClick={() => {
           startTransition(() => {
@@ -176,15 +197,20 @@ export default function App() {
           });
         }}>
         Mostra profilo
+=======
+      <button onClick={() => setShowWithTransition(true)}>
+        Show profile with View Transition
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
       </button>
-      {src && (
+      {showWithTransition && (
         <ViewTransition>
           <Suspense fallback={<ProfilePlaceholder />}>
-            <Profile src={src} />
+            <Profile cacheKey="with-transition" />
           </Suspense>
         </ViewTransition>
       )}
       <hr />
+<<<<<<< HEAD
       <VanillaProfile />
     </>
   );
@@ -207,15 +233,42 @@ export default function VanillaProfile() {
     <>
       <button onClick={show}>Mostra profilo (aggiornamento diretto del DOM)</button>
       <div ref={ref} />
+=======
+      <button onClick={() => setShowWithoutTransition(true)}>
+        Show profile without View Transition
+      </button>
+      {showWithoutTransition && (
+        <Suspense fallback={<ProfilePlaceholder />}>
+          <Profile cacheKey="without-transition" />
+        </Suspense>
+      )}
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
     </>
   );
 }
 ```
 
 ```js src/image.js hidden
+<<<<<<< HEAD
 // Aggiungi un parametro univoco così l'immagine non finisce in cache
 // e ogni esecuzione mostra lo stato di caricamento.
 export function freshImageUrl() {
+=======
+// Normally, the caching logic would be inside a framework.
+const cache = new Map();
+
+export function fetchImageSrc(cacheKey) {
+  if (!cache.has(cacheKey)) {
+    cache.set(cacheKey, loadImageSrc());
+  }
+  return cache.get(cacheKey);
+}
+
+async function loadImageSrc() {
+  // Delay the response so the Suspense fallback is visible.
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  // Add a unique parameter so the image isn't cached.
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
   return 'https://react.dev/images/team/jack-pope.jpg?t=' + Date.now();
 }
 ```
@@ -262,3 +315,5 @@ hr {
 ```
 
 </Sandpack>
+
+With `<ViewTransition>`, React keeps the skeleton visible for up to 500 ms while the image loads, so the card can be revealed with its image already in place. Without `<ViewTransition>`, Suspense stops showing the skeleton as soon as the Promise resolves. If the image is still loading, the card appears first and the image pops in afterward.
