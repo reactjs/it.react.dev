@@ -529,7 +529,11 @@ React usa gli alberi per modellare le relazioni tra componenti e moduli.
 
 Un albero di renderizzazione di React è una rappresentazione delle relazioni padre e figlio tra i componenti.
 
+<<<<<<< HEAD
 <Diagram name="generic_render_tree" height={250} width={500} alt="Un grafico albero con cinque nodi, con ogni nodo rappresentante un componente. Il nodo radice è posizionato in alto ed è chiamato 'Componente Radice'. Ha due frecce che si estendono in basso a due nodi chiamati 'Componente A' e 'Componente C'. Ognuna di queste frecce è etichettata con 'renderizza'. 'Componente A' ha una singola freccia 'renderizza' verso il nodo 'Componente B'. 'Componente C' ha una singola freccia 'renderizza' verso il nodo chiamato 'Componente D'.">
+=======
+<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top of the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Un esempio di albero di rendering React.
 

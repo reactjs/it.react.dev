@@ -58,9 +58,18 @@ Il pacchetto `react-dom` fornisce due punti di ingresso aggiuntivi:
 
 Queste API sono state rimosse in React 19:
 
+<<<<<<< HEAD
 * [`findDOMNode`](https://18.react.dev/reference/react-dom/findDOMNode): vedi [alternative](https://18.react.dev/reference/react-dom/findDOMNode#alternatives).
 * [`hydrate`](https://18.react.dev/reference/react-dom/hydrate): usa [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) invece.
 * [`render`](https://18.react.dev/reference/react-dom/render): usa [`createRoot`](/reference/react-dom/client/createRoot) invece.
 * [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode): usa [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount) invece.
 * [`renderToNodeStream`](https://18.react.dev/reference/react-dom/server/renderToNodeStream): usa le API di [`react-dom/server`](/reference/react-dom/server) invece.
 * [`renderToStaticNodeStream`](https://18.react.dev/reference/react-dom/server/renderToStaticNodeStream): usa le API di [`react-dom/server`](/reference/react-dom/server) invece.
+=======
+* [`findDOMNode`](https://18.react.dev/reference/react-dom/findDOMNode): see [alternatives](https://18.react.dev/reference/react-dom/findDOMNode#alternatives).
+* [`hydrate`](https://18.react.dev/reference/react-dom/hydrate): use [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) instead.
+* [`render`](https://18.react.dev/reference/react-dom/render): use [`createRoot`](/reference/react-dom/client/createRoot) instead.
+* [`unmountComponentAtNode`](https://18.react.dev/reference/react-dom/unmountComponentAtNode): use [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount) instead.
+* [`renderToNodeStream`](https://18.react.dev/reference/react-dom/server/renderToNodeStream): use [`react-dom/server`](/reference/react-dom/server) APIs instead.
+* [`renderToStaticNodeStream`](https://18.react.dev/reference/react-dom/server/renderToStaticNodeStream): use [`react-dom/server`](/reference/react-dom/server) APIs instead.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3

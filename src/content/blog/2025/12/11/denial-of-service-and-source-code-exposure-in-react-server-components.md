@@ -81,7 +81,11 @@ Divulgazioni aggiuntive possono essere frustranti, ma in genere sono segno di un
 
 ### Framework e bundler interessati {/*affected-frameworks-and-bundlers*/}
 
+<<<<<<< HEAD
 Alcuni framework e bundler React dipendevano, avevano peer dependency o includevano i pacchetti React vulnerabili. I seguenti framework e bundler React sono interessati: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vite/rsc-plugin](https://www.npmjs.com/package/@vitejs/plugin-rsc) e [rwsdk](https://www.npmjs.com/package/rwsdk).
+=======
+Some React frameworks and bundlers depended on, had peer dependencies for, or included the vulnerable React packages. The following React frameworks & bundlers are affected: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vitejs/plugin-rsc](https://www.npmjs.com/package/@vitejs/plugin-rsc), and [rwsdk](https://www.npmjs.com/package/rwsdk).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Consulta [le istruzioni nel post precedente](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) per i passaggi di aggiornamento.
 

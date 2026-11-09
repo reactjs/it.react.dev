@@ -1138,7 +1138,11 @@ JavaScript supporta le [closures](https://developer.mozilla.org/en-US/docs/Web/J
 
 </Note>
 
+<<<<<<< HEAD
 Ora puoi aggiungere X al tabellone... ma solo al quadrato in alto a sinistra. La tua funzione `handleClick` è hardcoded per aggiornare l'indice del quadrato in alto a sinistra (`0`). Aggiorniamo `handleClick` per poter aggiornare qualsiasi quadrato. Aggiungi un argomento `i` alla funzione `handleClick` che accetta l'indice del quadrato da aggiornare:
+=======
+Now you can add X's to the board...  but only to the upper left square. Your `handleClick` function is hardcoded to update the index for the upper left square (`0`). Let's update `handleClick` to be able to update any square. Add a parameter `i` to the `handleClick` function that takes the index of the square to update:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js {4,6}
 export default function Board() {

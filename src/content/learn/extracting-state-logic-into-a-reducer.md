@@ -874,7 +874,11 @@ I reducer non sono privi di svantaggi! Ecco alcuni modi per confrontarli:
 - **Testing:** Un reducer è una funzione pura che non dipende dal tuo componente. Questo significa che puoi esportarlo e testarlo separatamente in isolamento. Anche se generalmente è meglio testare i componenti in un ambiente più realistico, per la logica di aggiornamento dello stato complessa può essere utile affermare che il tuo reducer restituisce un particolare stato per un particolare stato iniziale e azione.
 - **Preferenza personale:** Ad alcune persone piacciono i reducers, ad altre no. Va bene. È una questione di preferenza. Puoi sempre passare da `useState` a `useReducer` e viceversa: sono equivalenti!
 
+<<<<<<< HEAD
 Raccomandiamo l'uso di un reducer se spesso incontri bug dovuti ad aggiornamenti errati di state in qualche componente, e desideri introdurre più struttura nel suo codice. Non devi usare i reducer per tutto: sentiti libero di combinare e variare! Puoi anche usare `useState` e `useReducer` nello stesso componente.
+=======
+We recommend using a reducer if you often encounter bugs due to incorrect state updates in some component, and want to introduce more structure to its code. You don't have to use reducers for everything: feel free to mix and match! You can even use `useState` and `useReducer` in the same component.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ## Scrivere bene i reducer {/*writing-reducers-well*/}
 

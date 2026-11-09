@@ -1373,7 +1373,11 @@ Potresti avere un provider senza `value` nell'albero:
 
 Se dimentichi di specificare `value`, è come passare `value={undefined}`.
 
+<<<<<<< HEAD
 Potresti anche aver usato per errore un nome di prop diverso:
+=======
+You may have also used a different prop name by mistake:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js {1,2}
 // 🚩 Non funziona: la prop dovrebbe chiamarsi "value"
