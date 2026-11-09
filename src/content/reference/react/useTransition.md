@@ -668,7 +668,7 @@ export default function TabButton({ action, children, isActive }) {
     return <b className="pending">{children}</b>;
   }
   return (
-    <button onClick={async () => {
+    <button onClick={() => {
       startTransition(async () => {
         // await all'action passata.
         // Questo permette che sia sincrona o asincrona.
@@ -1691,7 +1691,11 @@ startTransition(() => {
 });
 ```
 
+<<<<<<< HEAD
 La funzione che passi a `startTransition` deve essere sincrona. Non puoi contrassegnare un aggiornamento come Transizione così:
+=======
+The function you pass to `startTransition` can be synchronous or asynchronous. However, updates scheduled in a `setTimeout` callback aren't marked as Transitions:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js
 startTransition(() => {

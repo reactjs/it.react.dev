@@ -739,8 +739,13 @@ Scrivere chiamate `fetch` all'interno degli Effetti è un [modo popolare per rec
 
 Questo elenco di svantaggi non è specifico di React. Si applica al recupero dati al mount con qualsiasi libreria. Come per il routing, il recupero dati non è banale da fare bene, quindi consigliamo i seguenti approcci:
 
+<<<<<<< HEAD
 - **Se usi un [framework](/learn/creating-a-react-app#full-stack-frameworks), usa il suo meccanismo di recupero dati integrato.** I framework React moderni hanno meccanismi di recupero dati integrati che sono efficienti e non soffrono dei problemi sopra.
 - **Altrimenti, considera di usare o costruire una cache client-side.** Soluzioni open source popolari includono [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/) e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Puoi costruire anche la tua soluzione, nel qual caso useresti gli Effetti sotto il cofano, ma aggiungeresti logica per deduplicare le richieste, mettere in cache le risposte ed evitare network waterfall (precaricando i dati o spostando i requisiti di dati alle route).
+=======
+- **If you use a [framework](/learn/creating-a-react-app#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
+- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), and [React Router](https://reactrouter.com/). You can build your own solution too, in which case you would use Effects under the hood, but add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Puoi continuare a recuperare dati direttamente negli Effetti se nessuno di questi approcci ti soddisfa.
 

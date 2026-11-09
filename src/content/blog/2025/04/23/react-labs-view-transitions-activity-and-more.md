@@ -14273,7 +14273,11 @@ Purtroppo, alcuni hooks sono ancora difficili da pensare in termini di funzione 
 
 Abbiamo scoperto che spesso la confusione deriva dall'usare un Effetto quando non ne hai bisogno. La guida [You Might Not Need an Effect](/learn/you-might-not-need-an-effect) copre molti casi in cui gli Effetti non sono la soluzione giusta. Tuttavia, anche quando un Effetto è adatto a un problema, gli Effetti possono essere ancora più difficili da capire rispetto ai lifecycle dei componenti classe.
 
+<<<<<<< HEAD
 Crediamo che una delle ragioni della confusione sia che gli sviluppatori pensano agli Effetti dalla prospettiva del _componente_ (come un lifecycle), invece che dal punto di vista degli _Effetti_ (cosa fa l'Effetto).
+=======
+We believe one of the reasons for confusion is that developers tend to think of Effects from the _component's_ perspective (like a lifecycle), instead of the _Effects_ point of view (what the Effect does).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Diamo un'occhiata a un esempio [dalla documentazione](/learn/lifecycle-of-reactive-effects#thinking-from-the-effects-perspective):
 
