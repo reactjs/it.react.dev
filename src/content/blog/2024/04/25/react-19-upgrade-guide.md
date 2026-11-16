@@ -646,7 +646,11 @@ const ref = useRef<number>(null);
 ref.current = 1;
 ```
 
+<<<<<<< HEAD
 `MutableRef` è ora deprecato in favore di un unico tipo `RefObject` che `useRef` restituirà sempre:
+=======
+`MutableRefObject` is now deprecated in favor of a single `RefObject` type which `useRef` will always return:
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ```ts
 interface RefObject<T> {
